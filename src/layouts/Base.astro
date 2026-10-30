@@ -14,6 +14,12 @@ interface Props {
 const { title, description, schema = [], ogImage = '/og-default.png', noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, SITE_URL).href;
 const liveTools = tools.filter((t) => t.live);
+const footCols = [
+  { title: 'Organise PDF', all: '/organise-pdf/', slugs: ['merge-pdf', 'split-pdf', 'remove-pages', 'extract-pages', 'rotate-pdf'] },
+  { title: 'Edit PDF', all: '/edit-pdf-tools/', slugs: ['edit-pdf', 'sign-pdf', 'add-watermark', 'add-page-numbers', 'crop-pdf'] },
+  { title: 'Convert', all: '/image-converter/', slugs: ['jpg-to-pdf', 'pdf-to-jpg', 'png-to-jpg', 'webp-to-jpg', 'jpg-to-png'] },
+  { title: 'Image tools', all: '/image-tools/', slugs: ['compress-image', 'resize-image', 'crop-image', 'convert-image', 'rotate-image'] },
+];
 const year = new Date().getFullYear();
 const orgSchema = {
   '@context': 'https://schema.org', '@type': 'WebSite', name: SITE_NAME, url: SITE_URL + '/',
@@ -91,17 +97,15 @@ const orgSchema = {
           <p>Free PDF and image tools. Your files are processed in your browser and never leave your device.</p>
           <button class="btn btn-ghost share-btn" id="share-btn" type="button">Share this tool</button>
         </div>
-        <div>
-          <h3>PDF tools</h3>
-          <ul>{liveTools.filter((t) => t.category !== 'image').map((t) => <li><a href={`/${t.slug}/`}>{t.name}</a></li>)}</ul>
-        </div>
-        <div>
-          <h3>Image tools</h3>
-          <ul>
-            {liveTools.filter((t) => t.category === 'image').map((t) => <li><a href={`/${t.slug}/`}>{t.name}</a></li>)}
-            <li><a href="/#all-tools">All tools</a></li>
-          </ul>
-        </div>
+        {footCols.map((c) => (
+          <div>
+            <h3>{c.title}</h3>
+            <ul>
+              {c.slugs.map((sl) => { const t = tools.find((x) => x.slug === sl && x.live); return t && <li><a href={`/${t.slug}/`}>{t.name}</a></li>; })}
+              <li><a class="more" href={c.all}>View all →</a></li>
+            </ul>
+          </div>
+        ))}
         <div>
           <h3>Company</h3>
           <ul>
