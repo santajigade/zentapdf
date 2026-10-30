@@ -13,7 +13,7 @@ async function editAt(text, replacement) {
   for (let k = 0; k < n; k++) {
     const bb = await items.nth(k).boundingBox(); if (!bb) continue;
     await items.nth(k).click({ position: { x: 2, y: bb.height / 2 } });
-    const cur = await p.evaluate(() => document.activeElement?.innerText ?? '');
+    await p.waitForTimeout(250); const cur = await p.evaluate(() => document.activeElement?.innerText ?? '');
     if (cur.includes(text)) { await p.keyboard.press('Control+A'); await p.keyboard.type(replacement); await p.mouse.click(1200, 900); return cur; }
     await p.keyboard.press('Escape'); await p.getByRole('button', { name: 'Undo' }).click();
   }
