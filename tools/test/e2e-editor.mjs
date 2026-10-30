@@ -12,22 +12,22 @@ async function run(u, file, out, w = 1280) {
   if (u.includes('sign')) { await p.getByRole('button', { name: 'Type', exact: true }).click(); await p.fill('[role=dialog] input[type=text]', 'Santaji Gade'); await p.getByRole('button', { name: 'Use signature' }).click(); }
   const at = (fx, fy) => [bb.x + bb.width * fx, bb.y + bb.height * fy];
   // white-out over the "x page 1" title area, then text on top
-  await p.getByRole('button', { name: 'White-out (hide content)' }).click();
+  await p.getByRole('button', { name: /White-out/ }).click();
   let [x, y] = at(0.06, 0.06); await p.mouse.move(x, y); await p.mouse.down(); [x, y] = at(0.45, 0.12); await p.mouse.move(x, y, { steps: 4 }); await p.mouse.up();
-  await p.getByRole('button', { name: 'Add text' }).click();
+  await p.getByRole('button', { name: /Add text/ }).click();
   [x, y] = at(0.1, 0.1); await p.mouse.click(x, y); await p.keyboard.type('Edited by ZentaPDF'); await p.mouse.click(...at(0.8, 0.5));
-  await p.getByRole('button', { name: 'Highlight' }).click();
+  await p.getByRole('button', { name: /Highlight/ }).click();
   [x, y] = at(0.1, 0.3); await p.mouse.move(x, y); await p.mouse.down(); [x, y] = at(0.6, 0.34); await p.mouse.move(x, y, { steps: 3 }); await p.mouse.up();
-  await p.getByRole('button', { name: 'Rectangle' }).click();
+  await p.getByRole('button', { name: /Box|Rectangle/ }).click();
   [x, y] = at(0.1, 0.45); await p.mouse.move(x, y); await p.mouse.down(); [x, y] = at(0.5, 0.55); await p.mouse.move(x, y, { steps: 3 }); await p.mouse.up();
-  await p.getByRole('button', { name: 'Draw' }).click();
+  await p.getByRole('button', { name: /^Draw/ }).click();
   [x, y] = at(0.6, 0.45); await p.mouse.move(x, y); await p.mouse.down(); for (let k = 0; k < 10; k++) { [x, y] = at(0.6 + k * 0.03, 0.45 + (k % 2) * 0.05); await p.mouse.move(x, y); } await p.mouse.up();
   if (!u.includes('sign')) { await p.getByRole('button', { name: /Sign/ }).first().click();
   await p.getByRole('button', { name: 'Type', exact: true }).click(); await p.fill('[role=dialog] input[type=text]', 'Santaji Gade');
   await p.getByRole('button', { name: 'Use signature' }).click(); }
   await p.setInputFiles('[role=toolbar] input[type=file]', [T + 'transparent.png']);
   // move the image a bit
-  await p.getByRole('button', { name: 'Select / move' }).click();
+  await p.getByRole('button', { name: /Move|Select/ }).click();
   const img = p.locator('[data-page="0"] [data-obj] img').last(); const ib = await img.boundingBox();
   await p.mouse.move(ib.x + 10, ib.y + 10); await p.mouse.down(); await p.mouse.move(ib.x + 10, ib.y + 160, { steps: 4 }); await p.mouse.up();
   await p.getByRole('button', { name: 'Save PDF' }).first().click();

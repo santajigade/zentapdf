@@ -27,6 +27,24 @@ const TOOLS: [Tool, string, string][] = [
   ['highlight', '▬', 'Highlight'], ['rect', '□', 'Rectangle'], ['draw', '✎', 'Draw'],
 ];
 
+const SHORT: Record<string, string> = { edittext: 'Edit text', text: 'Add text', whiteout: 'White-out', highlight: 'Highlight', rect: 'Box', draw: 'Draw' };
+const ICONS: Record<string, string> = {
+  edittext: '<path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m13 7 4 4"/><path d="M15 20h6"/>',
+  text: '<path d="M5 6V4h14v2"/><path d="M12 4v16"/><path d="M9 20h6"/>',
+  whiteout: '<rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 12h10" stroke-dasharray="2 2"/>',
+  highlight: '<path d="m9 11-5 5v3h3l5-5"/><path d="m15 5 4 4-7 7-4-4z"/><path d="M14 20h7"/>',
+  rect: '<rect x="4" y="5" width="16" height="14" rx="1.5"/>',
+  draw: '<path d="M3 17c3-4 5-8 7-8s1 7 4 7 3-5 7-5"/>',
+  sign: '<path d="M3 17c2 0 3-6 5-6s1 5 3 5 2-3 4-3"/><path d="M3 21h18"/><path d="m16 4 4 4-6 6h-4v-4z"/>',
+  image: '<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/>',
+  select: '<path d="m4 4 7 16 2-7 7-2z"/>',
+  undo: '<path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-3"/>',
+  trash: '<path d="M4 7h16"/><path d="M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13"/><path d="M9 7V4h6v3"/>',
+};
+const Icon = ({ name }: { name: string }) => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" dangerouslySetInnerHTML={{ __html: ICONS[name] }} />
+);
+
 export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' }) {
   const [file, setFile] = useState<File | null>(null);
   const [pages, setPages] = useState<PageInfo[]>([]);
@@ -145,6 +163,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
   // ---------- keyboard ----------
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && !editing) { setTool(mode === 'sign' ? 'select' : 'edittext'); setSel(null); return; }
       if (editing) return;
       const tag = (e.target as HTMLElement)?.tagName;
       if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
@@ -343,6 +362,8 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
   </>;
 
   const selObj = objs.find((o) => o.id === sel);
+  const curSize = selObj?.type === 'text' ? selObj.size! : style.size;
+  const sizes = [...new Set([6, 7, 8, 9, 10, 11, 12, 14, 16, 18, 20, 24, 28, 32, 40, 48, 64, 72, curSize])].sort((x, y) => x - y);
   const setStyleAndSel = (p: Partial<typeof style>) => {
     setStyle({ ...style, ...p });
     if (selObj) {
@@ -362,36 +383,48 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
   return (
     <div style={{ width: 'min(1200px, calc(100vw - 24px))', marginLeft: 'calc(50% - min(600px, 50vw - 12px))' }}>
       {sizeWarning(file.size) && <ErrorBox>{sizeWarning(file.size)}</ErrorBox>}
-      <div role="toolbar" aria-label="Editor tools" style={{ position: 'sticky', top: '62px', zIndex: 4, background: 'var(--card)', border: '1px solid var(--border)', borderRadius: '14px', padding: '8px', display: 'flex', flexWrap: 'wrap', gap: '6px', alignItems: 'center', boxShadow: 'var(--shadow)' }}>
-        {TOOLS.map(([t, icon, label]) => (
-          <button type="button" title={label} aria-label={label} aria-pressed={tool === t} style={tb(tool === t)} onClick={() => { setTool(t); setEditing(null); }}>{icon}</button>
-        ))}
-        <button type="button" title="Add signature" style={tb(false)} onClick={() => setSigOpen(true)}>✍ Sign</button>
-        <button type="button" title="Add image" style={tb(false)} onClick={() => imgInput.current?.click()}>🖼 Image</button>
-        <input ref={imgInput} type="file" accept="image/*" hidden onChange={(e) => { addImageFile((e.target as HTMLInputElement).files?.[0]); (e.target as HTMLInputElement).value = ''; }} />
-        <span style={{ width: '1px', alignSelf: 'stretch', background: 'var(--border)' }} />
-        <input type="color" aria-label="Colour" value={style.color} onInput={(e) => setStyleAndSel({ color: (e.target as HTMLInputElement).value })} style={{ width: '40px', height: '40px', border: 0, background: 'none', padding: 0 }} />
-        <select aria-label="Font" value={selObj?.type === 'text' ? selObj.font : style.font} onChange={(e) => setStyleAndSel({ font: (e.target as HTMLSelectElement).value })} style={{ height: '40px', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--card)', color: 'var(--text)' }}>
-          {FONTS.map(([v, l]) => <option value={v}>{l}</option>)}
-        </select>
-        <select aria-label="Text size" value={selObj?.type === 'text' ? selObj.size : style.size} onChange={(e) => setStyleAndSel({ size: +(e.target as HTMLSelectElement).value })} style={{ height: '40px', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--card)', color: 'var(--text)' }}>
-          {[8, 9, 10, 11, 12, 14, 16, 18, 20, 24, 28, 32, 40, 48, 64, 72].map((s) => <option value={s}>{s}</option>)}
-        </select>
-        <button type="button" aria-label="Bold" aria-pressed={selObj?.type === 'text' ? !!selObj.bold : style.bold} style={tb(selObj?.type === 'text' ? !!selObj.bold : style.bold)} onClick={() => setStyleAndSel({ bold: !(selObj?.type === 'text' ? selObj.bold : style.bold) })}>B</button>
-        <button type="button" aria-label="Italic" aria-pressed={selObj?.type === 'text' ? !!selObj.italic : style.italic} style={{ ...tb(selObj?.type === 'text' ? !!selObj.italic : style.italic), fontStyle: 'italic', fontFamily: 'Georgia, serif' }} onClick={() => setStyleAndSel({ italic: !(selObj?.type === 'text' ? selObj.italic : style.italic) })}>I</button>
-        <select aria-label="Line width" value={style.width} onChange={(e) => setStyleAndSel({ width: +(e.target as HTMLSelectElement).value })} style={{ height: '40px', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--card)', color: 'var(--text)' }}>
-          {[1, 2, 3, 5, 8].map((w) => <option value={w}>{w}px line</option>)}
-        </select>
-        <span style={{ flex: 1 }} />
-        <button type="button" title="Zoom out" aria-label="Zoom out" style={tb(false)} disabled={zoom <= 0.5} onClick={() => zoomTo(Math.max(0.5, Math.round((zoom - 0.25) * 100) / 100))}>−</button>
-        <button type="button" title="Reset zoom" aria-label="Reset zoom" style={{ ...tb(false), minWidth: '58px', fontSize: '.85rem' }} onClick={() => zoomTo(1)}>{Math.round(zoom * 100)}%</button>
-        <button type="button" title="Zoom in" aria-label="Zoom in" style={tb(false)} disabled={zoom >= 3} onClick={() => zoomTo(Math.min(3, Math.round((zoom + 0.25) * 100) / 100))}>+</button>
-        <button type="button" title="Undo (Ctrl+Z)" aria-label="Undo" style={tb(false)} disabled={!hist.length} onClick={undo}>↶</button>
-        <button type="button" title="Delete selected" aria-label="Delete selected" style={tb(false)} disabled={!sel} onClick={() => sel && remove(sel)}>🗑</button>
-        <button type="button" class="btn btn-primary" style={{ height: '40px' }} disabled={!!busy} onClick={save}>Save PDF</button>
+      <div class="ed-bar" role="toolbar" aria-label="Editor tools">
+        <div class="ed-row">
+          {TOOLS.filter(([t]) => t !== 'select').map(([t, , label], k) => (<>
+            {k === 2 && <span class="ed-sep" />}
+            <button type="button" class="ed-btn" title={label} aria-pressed={tool === t} onClick={() => { setTool(t); setEditing(null); }}>
+              <Icon name={t} /><span class="ed-label">{SHORT[t]}</span>
+            </button>
+          </>))}
+          <span class="ed-sep" />
+          <button type="button" class="ed-btn" title="Add signature" onClick={() => setSigOpen(true)}><Icon name="sign" /><span class="ed-label">Sign</span></button>
+          <button type="button" class="ed-btn" title="Add image" onClick={() => imgInput.current?.click()}><Icon name="image" /><span class="ed-label">Image</span></button>
+          <input ref={imgInput} type="file" accept="image/*" hidden onChange={(e) => { addImageFile((e.target as HTMLInputElement).files?.[0]); (e.target as HTMLInputElement).value = ''; }} />
+          <span class="ed-sep" />
+          <button type="button" class="ed-btn" title="Select & move items" aria-pressed={tool === 'select'} onClick={() => { setTool('select'); setEditing(null); }}><Icon name="select" /><span class="ed-label">Move</span></button>
+          <span style={{ flex: 1 }} />
+          <button type="button" class="btn btn-primary" style={{ padding: '9px 18px' }} disabled={!!busy} onClick={save}>Save PDF</button>
+        </div>
+        <div class="ed-row ed-format">
+          <label class="ed-field" title="Colour"><input type="color" aria-label="Colour" value={selObj && selObj.type !== 'image' && !(selObj.type === 'rect' && selObj.fill) ? selObj.color : style.color} onInput={(e) => setStyleAndSel({ color: (e.target as HTMLInputElement).value })} /></label>
+          <select class="ed-select" aria-label="Font" value={selObj?.type === 'text' ? selObj.font : style.font} onChange={(e) => setStyleAndSel({ font: (e.target as HTMLSelectElement).value })}>
+            {FONTS.map(([v, l]) => <option value={v}>{l}</option>)}
+          </select>
+          <select class="ed-select" aria-label="Text size" value={String(curSize)} onChange={(e) => setStyleAndSel({ size: +(e.target as HTMLSelectElement).value })}>
+            {sizes.map((v) => <option value={String(v)}>{v} pt</option>)}
+          </select>
+          <button type="button" class="ed-btn ed-sq" aria-label="Bold" title="Bold" aria-pressed={selObj?.type === 'text' ? !!selObj.bold : style.bold} onClick={() => setStyleAndSel({ bold: !(selObj?.type === 'text' ? selObj.bold : style.bold) })}><b>B</b></button>
+          <button type="button" class="ed-btn ed-sq" aria-label="Italic" title="Italic" aria-pressed={selObj?.type === 'text' ? !!selObj.italic : style.italic} onClick={() => setStyleAndSel({ italic: !(selObj?.type === 'text' ? selObj.italic : style.italic) })}><i style={{ fontFamily: 'Georgia, serif' }}>I</i></button>
+          <span class="ed-sep" />
+          <select class="ed-select" aria-label="Line width" title="Line width for rectangle and drawing" value={style.width} onChange={(e) => setStyleAndSel({ width: +(e.target as HTMLSelectElement).value })}>
+            {[1, 2, 3, 5, 8].map((w) => <option value={w}>Line {w}px</option>)}
+          </select>
+          <span style={{ flex: 1 }} />
+          <button type="button" class="ed-btn" title="Undo (Ctrl+Z)" disabled={!hist.length} onClick={undo}><Icon name="undo" /><span class="ed-label">Undo</span></button>
+          <button type="button" class="ed-btn" title="Delete selected (Del)" disabled={!sel} onClick={() => sel && remove(sel)}><Icon name="trash" /><span class="ed-label">Delete</span></button>
+          <span class="ed-sep" />
+          <button type="button" class="ed-btn ed-sq" title="Zoom out" aria-label="Zoom out" disabled={zoom <= 0.5} onClick={() => zoomTo(Math.max(0.5, Math.round((zoom - 0.25) * 100) / 100))}>−</button>
+          <button type="button" class="ed-btn" title="Reset zoom" aria-label="Reset zoom" style={{ minWidth: '58px', justifyContent: 'center' }} onClick={() => zoomTo(1)}>{Math.round(zoom * 100)}%</button>
+          <button type="button" class="ed-btn ed-sq" title="Zoom in" aria-label="Zoom in" disabled={zoom >= 3} onClick={() => zoomTo(Math.min(3, Math.round((zoom + 0.25) * 100) / 100))}>+</button>
+        </div>
       </div>
       <p class="status" style={{ margin: '8px 0' }}>
-        {tool === 'edittext' ? 'Click any existing text to change it. It is replaced in a similar font, size and colour.' : tool === 'text' ? 'Click on the page where you want to type.' : tool === 'whiteout' ? 'Drag over anything you want to hide. Then use T to type new text on top.'
+        {tool === 'edittext' ? 'Click any existing text to change it. Tip: press Esc any time to come back to Edit text.' : tool === 'text' ? 'Click on the page where you want to type.' : tool === 'whiteout' ? 'Drag over anything you want to hide. Then use T to type new text on top.'
           : tool === 'highlight' ? 'Drag over text to highlight it.' : tool === 'rect' ? 'Drag to draw a rectangle.' : tool === 'draw' ? 'Draw freely with your mouse, finger or pen.'
           : 'Click an item to select it, drag to move, use the round handle to resize. Double-click text to edit.'}
       </p>
