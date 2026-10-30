@@ -116,7 +116,11 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
         if (size < 3 || w <= 0) return;
         let fam = (tc.styles[it.fontName]?.fontFamily || '').toLowerCase(), real = '';
         try { const fo = pg.commonObjs.get(it.fontName); real = fo?.name || ''; fam += ' ' + real.toLowerCase() + (fo?.isMonospace ? ' mono' : fo?.isSerifFont ? ' serif' : ''); } catch {}
-        const font = /mono|courier|consol/.test(fam) ? 'Courier' : /serif|times|georgia|garamond|cambria|book/.test(fam) && !/sans/.test(fam) ? 'TimesRoman' : 'Helvetica';
+        const nm = real.toLowerCase().replace(/^[a-z]{6}\+/, '');
+        const font = /courier|consol|mono|lucida ?console|menlo/.test(nm) ? 'Courier'
+          : /calibri|arial|helvetica|verdana|tahoma|segoe|roboto|opensans|open ?sans|liberation ?sans|dejavu ?sans|gill|futura|gothic|trebuchet|aptos|lato|noto ?sans|source ?sans|candara|corbel|franklin|myriad|frutiger|univers|nirmala|mangal/.test(nm) ? 'Helvetica'
+          : /times|georgia|garamond|cambria|antiqua|palatino|liberation ?serif|minion|bookman|schoolbook|noto ?serif|constantia|baskerville|didot/.test(nm) ? 'TimesRoman'
+          : /mono|courier/.test(fam) ? 'Courier' : /serif/.test(fam) && !/sans/.test(fam) ? 'TimesRoman' : 'Helvetica';
         items.push({ key: `${i}-${k}`, str: it.str.normalize('NFKC'), x: t[4], base: t[5], y: t[5] - size * 0.95, w, h: size * 1.25, size, font, bold: /bold|black|heavy|semibold|demi|,bd|-bd\b|extrabold/i.test(real) });
       });
       setTitems((cur) => { const n = cur.slice(); n[i] = items; return n; });
@@ -195,7 +199,9 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
   };
 
   const onObjDown = (e: PointerEvent, o: Obj, kind: 'move' | 'resize') => {
-    if (tool !== 'select' || editing === o.id) return;
+    if (editing === o.id) return;
+    if (tool === 'edittext') { if (o.type === 'text') { e.stopPropagation(); e.preventDefault(); setSel(o.id); setEditing(o.id); } return; }
+    if (tool !== 'select') return;
     e.stopPropagation(); e.preventDefault();
     const pageEl = pageEls.current[o.page]!;
     pageEl.setPointerCapture(e.pointerId);
@@ -403,7 +409,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
               ))}
               {objs.filter((o) => o.page === i && o.type !== 'ink').map((o) => {
                 const isSel = sel === o.id, isEdit = editing === o.id;
-                const box: any = { position: 'absolute', left: (o.x / p.w) * 100 + '%', top: (o.y / p.h) * 100 + '%', outline: isSel ? '2px dashed var(--brand)' : 'none', outlineOffset: '2px', pointerEvents: tool === 'select' || isEdit ? 'auto' : 'none', cursor: isEdit ? 'text' : 'move' };
+                const box: any = { position: 'absolute', left: (o.x / p.w) * 100 + '%', top: (o.y / p.h) * 100 + '%', outline: isSel ? '2px dashed var(--brand)' : 'none', outlineOffset: '2px', pointerEvents: tool === 'select' || isEdit || (tool === 'edittext' && o.type === 'text') ? 'auto' : 'none', cursor: isEdit || tool === 'edittext' ? 'text' : 'move' };
                 return (
                   <div key={o.id} data-obj onPointerDown={(e) => onObjDown(e, o, 'move')} onDblClick={() => o.type === 'text' && (setSel(o.id), setEditing(o.id))}
                     style={o.type === 'text' ? box : { ...box, width: (o.w / p.w) * 100 + '%', height: (o.h / p.h) * 100 + '%' }}>

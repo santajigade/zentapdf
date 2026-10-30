@@ -26,3 +26,16 @@ await p.getByRole('button', { name: 'Save PDF' }).first().click();
 const [d] = await Promise.all([p.waitForEvent('download'), p.getByRole('button', { name: 'Download PDF' }).click()]);
 await d.saveAs(OUT + 'doc-edited.pdf'); ok('saved', fs.statSync(OUT + 'doc-edited.pdf').size > 1000); ok('errors', !errs.length, errs.join());
 console.log(res.join('\n')); await b.close();
+// re-edit test
+{
+  const b2 = await chromium.launch(); const c2 = await b2.newContext({ viewport: { width: 1280, height: 1000 } }); const p2 = await c2.newPage();
+  await p2.goto('http://localhost:4321/edit-pdf/'); await p2.waitForSelector('astro-island:not([ssr])', { state: 'attached' });
+  await p2.setInputFiles('input[type=file]', [T + 'doc.pdf']); await p2.waitForSelector('.ti');
+  const first = p2.locator('.ti').first(); const bb = await first.boundingBox();
+  await first.click({ position: { x: 2, y: bb.height / 2 } }); await p2.waitForTimeout(300);
+  await p2.keyboard.press('Control+A'); await p2.keyboard.type('First edit'); await p2.mouse.click(1200, 900);
+  await p2.mouse.click(bb.x + 5, bb.y + bb.height / 2); await p2.waitForTimeout(300);
+  const again = await p2.evaluate(() => document.activeElement?.innerText ?? '');
+  console.log((again.includes('First edit') ? 'PASS' : 'FAIL') + ' re-edit same text ' + again);
+  await b2.close();
+}
