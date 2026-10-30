@@ -5,21 +5,22 @@ import { runPdfJob, type Progress } from '../../lib/pdfJob';
 import { loadPdfjs } from '../../lib/pdfjs';
 import SignaturePad from './SignaturePad';
 
-type Tool = 'select' | 'text' | 'whiteout' | 'highlight' | 'rect' | 'draw';
+type Tool = 'select' | 'edittext' | 'text' | 'whiteout' | 'highlight' | 'rect' | 'draw';
 type Obj = {
   id: string; page: number; type: 'text' | 'rect' | 'ink' | 'image';
   x: number; y: number; w: number; h: number; // viewport units (scale 1, top-left origin)
   text?: string; size?: number; font?: string; bold?: boolean;
   color: string; fill?: boolean; opacity?: number; width?: number;
-  points?: [number, number][]; src?: string; kind?: 'png' | 'jpg';
+  points?: [number, number][]; src?: string; kind?: 'png' | 'jpg'; link?: string; tkey?: string;
 };
+type TItem = { key: string; str: string; x: number; y: number; w: number; h: number; base: number; size: number; font: string; bold: boolean };
 type PageInfo = { w: number; h: number; rot: number };
 
 const FONTS: [string, string, string][] = [['Helvetica', 'Sans', 'Helvetica, Arial, sans-serif'], ['TimesRoman', 'Serif', '"Times New Roman", Times, serif'], ['Courier', 'Mono', '"Courier New", Courier, monospace']];
 const css = (f?: string) => FONTS.find((x) => x[0] === f)?.[2] ?? FONTS[0][2];
 const pdfFont = (f = 'Helvetica', bold = false) => (bold ? (f === 'TimesRoman' ? 'TimesRomanBold' : f + 'Bold') : f);
 const TOOLS: [Tool, string, string][] = [
-  ['select', '↖', 'Select / move'], ['text', 'T', 'Add text'], ['whiteout', '▭', 'White-out (hide content)'],
+  ['select', '↖', 'Select / move'], ['edittext', 'Aa', 'Edit existing text'], ['text', 'T', 'Add text'], ['whiteout', '▭', 'White-out (hide content)'],
   ['highlight', '▬', 'Highlight'], ['rect', '□', 'Rectangle'], ['draw', '✎', 'Draw'],
 ];
 
@@ -28,7 +29,9 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
   const [pages, setPages] = useState<PageInfo[]>([]);
   const [objs, setObjs] = useState<Obj[]>([]);
   const [hist, setHist] = useState<Obj[][]>([]);
-  const [tool, setTool] = useState<Tool>('select');
+  const [tool, setTool] = useState<Tool>('edittext');
+  const [titems, setTitems] = useState<TItem[][]>([]);
+  const pdfjsRef = useRef<any>(null);
   const [sel, setSel] = useState<string | null>(null);
   const [editing, setEditing] = useState<string | null>(null);
   const [style, setStyle] = useState({ color: '#111827', size: 14, font: 'Helvetica', bold: false, width: 2 });
@@ -49,7 +52,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
   const commit = (next: Obj[]) => { setHist((h) => [...h.slice(-50), objs]); setObjs(next); setResult(null); };
   const undo = () => { if (!hist.length) return; setObjs(hist[hist.length - 1]); setHist(hist.slice(0, -1)); setSel(null); setEditing(null); };
   const patch = (id: string, p: Partial<Obj>) => setObjs((cur) => cur.map((o) => (o.id === id ? { ...o, ...p } : o)));
-  const remove = (id: string) => { commit(objs.filter((o) => o.id !== id)); setSel(null); setEditing(null); };
+  const remove = (id: string) => { const link = objs.find((o) => o.id === id)?.link; commit(objs.filter((o) => o.id !== id && o.id !== link)); setSel(null); setEditing(null); };
 
   // ---------- load ----------
   const pick = async (files: File[]) => {
@@ -57,9 +60,9 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
     if (!f) { setError('Please choose a PDF file.'); return; }
     setError(''); setBusy({ done: 0, total: 0, label: 'Opening PDF…' });
     try {
-      const pdfjs = await loadPdfjs();
+      const pdfjs = await loadPdfjs(); pdfjsRef.current = pdfjs;
       docRef.current?.destroy?.();
-      const doc = await pdfjs.getDocument({ data: new Uint8Array(await f.arrayBuffer()), isEvalSupported: false }).promise;
+      const doc = await pdfjs.getDocument({ data: new Uint8Array(await f.arrayBuffer()), isEvalSupported: false, fontExtraProperties: true }).promise;
       docRef.current = doc;
       const info: PageInfo[] = []; vpRef.current = [];
       for (let i = 1; i <= doc.numPages; i++) {
@@ -68,7 +71,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
         vpRef.current.push(vp); info.push({ w: vp.width, h: vp.height, rot: vp.rotation });
       }
       rendered.current = new Set(); pageEls.current = [];
-      setFile(f); setPages(info); setObjs([]); setHist([]); setSel(null); setResult(null);
+      setFile(f); setPages(info); setTitems([]); setTool(mode === 'sign' ? 'select' : 'edittext'); setObjs([]); setHist([]); setSel(null); setResult(null);
       if (mode === 'sign') setSigOpen(true);
     } catch (e: any) {
       setError(e?.name === 'PasswordException' ? 'This PDF is password-protected. Please unlock it first, then try again.' : friendlyError(e));
@@ -101,6 +104,22 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
       const c = el.querySelector('canvas') as HTMLCanvasElement;
       c.width = Math.floor(vp.width); c.height = Math.floor(vp.height);
       await pg.render({ canvas: c, canvasContext: c.getContext('2d')!, viewport: vp }).promise;
+      const tc = await pg.getTextContent();
+      const v1 = vpRef.current[i], U = pdfjsRef.current.Util;
+      const items: TItem[] = [];
+      tc.items.forEach((it: any, k: number) => {
+        if (!it.str || !it.str.trim()) return;
+        const t = U.transform(v1.transform, it.transform);
+        if (Math.abs(t[1]) > 0.01 || Math.abs(t[2]) > 0.01 || t[0] <= 0) return; // skip rotated / mirrored text
+        const size = Math.hypot(t[2], t[3]);
+        const w = it.width * (t[0] / Math.hypot(it.transform[0], it.transform[1]) || 1);
+        if (size < 3 || w <= 0) return;
+        let fam = (tc.styles[it.fontName]?.fontFamily || '').toLowerCase(), real = '';
+        try { const fo = pg.commonObjs.get(it.fontName); real = fo?.name || ''; fam += ' ' + real.toLowerCase() + (fo?.isMonospace ? ' mono' : fo?.isSerifFont ? ' serif' : ''); } catch {}
+        const font = /mono|courier|consol/.test(fam) ? 'Courier' : /serif|times|georgia|garamond|cambria|book/.test(fam) && !/sans/.test(fam) ? 'TimesRoman' : 'Helvetica';
+        items.push({ key: `${i}-${k}`, str: it.str.normalize('NFKC'), x: t[4], base: t[5], y: t[5] - size * 0.95, w, h: size * 1.25, size, font, bold: /bold|black|heavy|semibold/i.test(real) });
+      });
+      setTitems((cur) => { const n = cur.slice(); n[i] = items; return n; });
     } catch { rendered.current.delete(i); }
   };
 
@@ -126,7 +145,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
   const onPageDown = (e: PointerEvent, page: number) => {
     if (e.button !== 0) return;
     const [x, y] = ptOf(e, page);
-    if (tool === 'select') { setSel(null); setEditing(null); return; }
+    if (tool === 'select' || tool === 'edittext') { setSel(null); setEditing(null); return; }
     e.preventDefault();
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
     const id = uid();
@@ -187,6 +206,31 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
     setHist((h) => [...h.slice(-50), objs]);
     drag.current = { kind, id: o.id, page: o.page, sx: x, sy: y, orig: { ...o, w: o.type === 'text' ? w : o.w } };
   };
+
+  // ---------- edit existing text ----------
+  const sample = (page: number, it: TItem) => {
+    const c = pageEls.current[page]?.querySelector('canvas') as HTMLCanvasElement | null;
+    if (!c || !c.width) return { bg: '#ffffff', fg: '#000000' };
+    const k = c.width / pages[page].w, ctx = c.getContext('2d', { willReadFrequently: true })!;
+    const px = (x: number, y: number) => { const d = ctx.getImageData(Math.max(0, Math.min(c.width - 1, Math.round(x * k))), Math.max(0, Math.min(c.height - 1, Math.round(y * k))), 1, 1).data; return [d[0], d[1], d[2]]; };
+    const corners = [px(it.x - 2, it.y - 1), px(it.x + it.w + 2, it.y - 1), px(it.x - 2, it.y + it.h), px(it.x + it.w + 2, it.y + it.h)];
+    const bg = corners.sort((a, b) => (b[0] + b[1] + b[2]) - (a[0] + a[1] + a[2]))[0];
+    let fg = [0, 0, 0], best = -1;
+    const W = Math.max(1, Math.round(it.w * k)), H = Math.max(1, Math.round(it.size * k));
+    const d = ctx.getImageData(Math.round(it.x * k), Math.round((it.base - it.size * 0.8) * k), W, H).data;
+    for (let q = 0; q < d.length; q += 4 * 3) { const diff = Math.abs(d[q] - bg[0]) + Math.abs(d[q + 1] - bg[1]) + Math.abs(d[q + 2] - bg[2]); if (diff > best) { best = diff; fg = [d[q], d[q + 1], d[q + 2]]; } }
+    const hex = (a: number[]) => '#' + a.map((v) => v.toString(16).padStart(2, '0')).join('');
+    return { bg: hex(bg), fg: hex(fg) };
+  };
+  const editItem = (e: PointerEvent, page: number, it: TItem) => {
+    e.stopPropagation(); e.preventDefault();
+    const { bg, fg } = sample(page, it);
+    const wid = uid(), tid = uid();
+    const white: Obj = { id: wid, page, type: 'rect', x: it.x - 1, y: it.y - it.size * 0.05, w: it.w + 2, h: it.h, fill: true, opacity: 1, color: bg, tkey: it.key };
+    const text: Obj = { id: tid, page, type: 'text', x: it.x, y: it.base - 0.92 * it.size, w: 0, h: 0, text: it.str, size: Math.round(it.size * 10) / 10, font: it.font, bold: it.bold, color: fg, link: wid, tkey: it.key };
+    commit([...objs, white, text]); setSel(tid); setEditing(tid);
+  };
+  const edited = new Set(objs.filter((o) => o.tkey).map((o) => o.tkey));
 
   // ---------- images & signatures ----------
   const visiblePage = () => {
@@ -294,7 +338,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
         <button type="button" class="btn btn-primary" style={{ height: '40px' }} disabled={!!busy} onClick={save}>Save PDF</button>
       </div>
       <p class="status" style={{ margin: '8px 0' }}>
-        {tool === 'text' ? 'Click on the page where you want to type.' : tool === 'whiteout' ? 'Drag over anything you want to hide. Then use T to type new text on top.'
+        {tool === 'edittext' ? 'Click any existing text to change it. It is replaced in a similar font, size and colour.' : tool === 'text' ? 'Click on the page where you want to type.' : tool === 'whiteout' ? 'Drag over anything you want to hide. Then use T to type new text on top.'
           : tool === 'highlight' ? 'Drag over text to highlight it.' : tool === 'rect' ? 'Drag to draw a rectangle.' : tool === 'draw' ? 'Draw freely with your mouse, finger or pen.'
           : 'Click an item to select it, drag to move, use the round handle to resize. Double-click text to edit.'}
       </p>
@@ -316,7 +360,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
           const s = scales[i] || 1;
           return (
             <div key={i} data-page={i} ref={(el) => (pageEls.current[i] = el)}
-              style={{ position: 'relative', width: '100%', aspectRatio: `${p.w} / ${p.h}`, background: '#fff', boxShadow: 'var(--shadow)', border: '1px solid var(--border)', touchAction: tool === 'select' ? 'auto' : 'none', cursor: tool === 'select' ? 'default' : tool === 'text' ? 'text' : 'crosshair', userSelect: 'none', overflow: 'hidden' }}
+              style={{ position: 'relative', width: '100%', aspectRatio: `${p.w} / ${p.h}`, background: '#fff', boxShadow: 'var(--shadow)', border: '1px solid var(--border)', touchAction: tool === 'select' || tool === 'edittext' ? 'auto' : 'none', cursor: tool === 'select' || tool === 'edittext' ? 'default' : tool === 'text' ? 'text' : 'crosshair', userSelect: 'none', overflow: 'hidden' }}
               onPointerDown={(e) => onPageDown(e, i)} onPointerMove={(e) => onPageMove(e, i)} onPointerUp={onPageUp} onPointerCancel={onPageUp}>
               <canvas style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} aria-label={`Page ${i + 1}`} />
               <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }} viewBox={`0 0 ${p.w} ${p.h}`}>
@@ -326,9 +370,13 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
                     stroke-dasharray={sel === o.id ? '4 3' : undefined} />
                 ))}
               </svg>
+              {tool === 'edittext' && (titems[i] || []).filter((t) => !edited.has(t.key)).map((t) => (
+                <div class="ti" title="Click to edit" onPointerDown={(e) => editItem(e as any, i, t)}
+                  style={{ position: 'absolute', left: (t.x / p.w) * 100 + '%', top: (t.y / p.h) * 100 + '%', width: (t.w / p.w) * 100 + '%', height: (t.h / p.h) * 100 + '%', cursor: 'text', zIndex: 2 }} />
+              ))}
               {objs.filter((o) => o.page === i && o.type !== 'ink').map((o) => {
                 const isSel = sel === o.id, isEdit = editing === o.id;
-                const box: any = { position: 'absolute', left: (o.x / p.w) * 100 + '%', top: (o.y / p.h) * 100 + '%', outline: isSel ? '2px dashed var(--brand)' : 'none', outlineOffset: '2px', pointerEvents: tool === 'select' ? 'auto' : 'none', cursor: isEdit ? 'text' : 'move' };
+                const box: any = { position: 'absolute', left: (o.x / p.w) * 100 + '%', top: (o.y / p.h) * 100 + '%', outline: isSel ? '2px dashed var(--brand)' : 'none', outlineOffset: '2px', pointerEvents: tool === 'select' || isEdit ? 'auto' : 'none', cursor: isEdit ? 'text' : 'move' };
                 return (
                   <div key={o.id} data-obj onPointerDown={(e) => onObjDown(e, o, 'move')} onDblClick={() => o.type === 'text' && (setSel(o.id), setEditing(o.id))}
                     style={o.type === 'text' ? box : { ...box, width: (o.w / p.w) * 100 + '%', height: (o.h / p.h) * 100 + '%' }}>

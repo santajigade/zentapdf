@@ -14,7 +14,7 @@ Brand: ZentaPDF · colour Indigo #4F46E5 · domain TBD (placeholder zentapdf.com
 ## Batch 4 — Edit
 - [x] Add page numbers · [x] Add watermark · [x] Crop PDF · [x] Flatten PDF (form fields) · [x] Edit metadata (live 2026-10-30; PdfEdit.tsx + worker op "edit"; tests: tools/test/e2e-edit.mjs)
 - [x] Edit PDF (Level 1 editor: text, white-out, highlight, rectangle, draw, image, signature, undo) + Sign PDF page — live 2026-10-30; PdfEditor.tsx, SignaturePad.tsx, worker op "annotate"; tests: tools/test/e2e-editor.mjs
-- [ ] Edit PDF Level 2: click existing text to edit (pdf.js text layer → auto white-out + replace in closest standard font)
+- [x] Edit PDF Level 2: Aa tool — click existing text → auto white-out (sampled bg colour) + replace (sampled colour, size, bold, serif/sans/mono) — live 2026-10-30; test: tools/test/e2e-edittext.mjs
 - [ ] Edit PDF: Unicode font (Noto) for Hindi etc.; zoom; copy/paste items; page thumbnails sidebar
 - [ ] Phase 2/Pro: true text editing via commercial SDK or server
 - [ ] Text watermark: embed a Unicode font (Noto) so Hindi etc. work

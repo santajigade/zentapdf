@@ -207,20 +207,20 @@ export const tools: Tool[] = [
   // ---------- Edit ----------
   {
     slug: 'edit-pdf', name: 'Edit PDF', category: 'edit', icon: 'pen', live: true,
-    short: 'Add text, signatures, images, shapes, highlights and white-out to any PDF.',
+    short: 'Change existing text, add text, signatures, images, shapes and highlights.',
     title: 'Edit PDF – Free Online PDF Editor (No Upload, No Sign-up)',
     metaDescription: 'Edit PDF files online for free. Add text, signatures, images, shapes and highlights, white-out content and draw on pages. Private – your PDF never leaves your device.',
     intro: 'ZentaPDF Edit PDF is a free online PDF editor. Type text anywhere, sign, add images and shapes, highlight, draw, and white-out anything you want to hide — then save a new PDF. Everything happens in your browser, so your document stays private.',
     howToName: 'How to edit a PDF',
     steps: [
       'Click "Choose PDF file" or drag and drop a PDF into the box.',
-      'Pick a tool: T for text, white-out, highlight, rectangle, draw, Sign or Image, then click or drag on the page.',
+      'Click existing text with the Aa tool to change it, or pick T (new text), white-out, highlight, rectangle, draw, Sign or Image.',
       'Select items to move, resize, recolour or delete them. Ctrl+Z undoes the last change.',
       'Click "Save PDF" and then "Download PDF".',
     ],
     faqs: [
       common.privacyFaq,
-      { q: 'Can I change existing text in my PDF?', a: 'Use White-out to cover the old words, then add new text on top with the T tool in a matching size and font. Direct editing of existing text is coming soon.' },
+      { q: 'Can I change existing text in my PDF?', a: 'Yes. Choose the Aa tool and click any text. The old words are covered and you can type new ones in a similar font, size and colour. Scanned PDFs (pictures of pages) have no editable text.' },
       { q: 'Can I sign a PDF with this editor?', a: 'Yes. Click "Sign" to draw, type or upload your signature, then place and resize it on the page.' },
       { q: 'Does it work on phones?', a: 'Yes. You can type, sign and draw with your finger. For long documents a computer is more comfortable.' },
       { q: 'Which characters can I type?', a: 'English letters, numbers and common symbols are supported now. Support for Hindi and other scripts is coming soon.' },
