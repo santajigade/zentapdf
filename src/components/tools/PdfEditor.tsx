@@ -9,16 +9,19 @@ type Tool = 'select' | 'edittext' | 'text' | 'whiteout' | 'highlight' | 'rect' |
 type Obj = {
   id: string; page: number; type: 'text' | 'rect' | 'ink' | 'image';
   x: number; y: number; w: number; h: number; // viewport units (scale 1, top-left origin)
-  text?: string; size?: number; font?: string; bold?: boolean;
+  text?: string; size?: number; font?: string; bold?: boolean; italic?: boolean;
   color: string; fill?: boolean; opacity?: number; width?: number;
   points?: [number, number][]; src?: string; kind?: 'png' | 'jpg'; link?: string; tkey?: string;
 };
-type TItem = { key: string; str: string; x: number; y: number; w: number; h: number; base: number; size: number; font: string; bold: boolean };
+type TItem = { key: string; str: string; x: number; y: number; w: number; h: number; base: number; size: number; font: string; bold: boolean; italic?: boolean };
 type PageInfo = { w: number; h: number; rot: number };
 
 const FONTS: [string, string, string][] = [['Helvetica', 'Sans', 'Helvetica, Arial, sans-serif'], ['TimesRoman', 'Serif', '"Times New Roman", Times, serif'], ['Courier', 'Mono', '"Courier New", Courier, monospace']];
 const css = (f?: string) => FONTS.find((x) => x[0] === f)?.[2] ?? FONTS[0][2];
-const pdfFont = (f = 'Helvetica', bold = false) => (bold ? (f === 'TimesRoman' ? 'TimesRomanBold' : f + 'Bold') : f);
+const pdfFont = (f = 'Helvetica', bold = false, italic = false) => {
+  if (f === 'TimesRoman') return 'TimesRoman' + (bold && italic ? 'BoldItalic' : bold ? 'Bold' : italic ? 'Italic' : '');
+  return f + (bold && italic ? 'BoldOblique' : bold ? 'Bold' : italic ? 'Oblique' : '');
+};
 const TOOLS: [Tool, string, string][] = [
   ['select', '↖', 'Select / move'], ['edittext', 'Aa', 'Edit existing text'], ['text', 'T', 'Add text'], ['whiteout', '▭', 'White-out (hide content)'],
   ['highlight', '▬', 'Highlight'], ['rect', '□', 'Rectangle'], ['draw', '✎', 'Draw'],
@@ -34,8 +37,9 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
   const pdfjsRef = useRef<any>(null);
   const [sel, setSel] = useState<string | null>(null);
   const [editing, setEditing] = useState<string | null>(null);
-  const [style, setStyle] = useState({ color: '#111827', size: 14, font: 'Helvetica', bold: false, width: 2 });
+  const [style, setStyle] = useState({ color: '#111827', size: 14, font: 'Helvetica', bold: false, italic: false, width: 2 });
   const [scales, setScales] = useState<number[]>([]);
+  const [zoom, setZoom] = useState(1);
   const [busy, setBusy] = useState<Progress | null>(null);
   const [error, setError] = useState('');
   const [result, setResult] = useState<Blob | null>(null);
@@ -82,6 +86,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
   // ---------- page rendering (lazy) + scale tracking ----------
   useEffect(() => {
     if (!pages.length) return;
+    rendered.current = new Set();
     const measure = () => setScales(pages.map((p, i) => (pageEls.current[i]?.clientWidth ?? p.w) / p.w));
     measure();
     const ro = new ResizeObserver(measure);
@@ -92,7 +97,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
     }), { rootMargin: '800px 0px' });
     pageEls.current.forEach((el) => el && io.observe(el));
     return () => { ro.disconnect(); io.disconnect(); };
-  }, [pages]);
+  }, [pages, zoom]);
 
   const renderPage = async (i: number) => {
     const el = pageEls.current[i]; const doc = docRef.current;
@@ -117,11 +122,14 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
         let fam = (tc.styles[it.fontName]?.fontFamily || '').toLowerCase(), real = '';
         try { const fo = pg.commonObjs.get(it.fontName); real = fo?.name || ''; fam += ' ' + real.toLowerCase() + (fo?.isMonospace ? ' mono' : fo?.isSerifFont ? ' serif' : ''); } catch {}
         const nm = real.toLowerCase().replace(/^[a-z]{6}\+/, '');
-        const font = /courier|consol|mono|lucida ?console|menlo/.test(nm) ? 'Courier'
-          : /calibri|arial|helvetica|verdana|tahoma|segoe|roboto|opensans|open ?sans|liberation ?sans|dejavu ?sans|gill|futura|gothic|trebuchet|aptos|lato|noto ?sans|source ?sans|candara|corbel|franklin|myriad|frutiger|univers|nirmala|mangal/.test(nm) ? 'Helvetica'
-          : /times|georgia|garamond|cambria|antiqua|palatino|liberation ?serif|minion|bookman|schoolbook|noto ?serif|constantia|baskerville|didot/.test(nm) ? 'TimesRoman'
-          : /mono|courier/.test(fam) ? 'Courier' : /serif/.test(fam) && !/sans/.test(fam) ? 'TimesRoman' : 'Helvetica';
-        items.push({ key: `${i}-${k}`, str: it.str.normalize('NFKC'), x: t[4], base: t[5], y: t[5] - size * 0.95, w, h: size * 1.25, size, font, bold: /bold|black|heavy|semibold|demi|,bd|-bd\b|extrabold/i.test(real) });
+        let flags = '';
+        try { const fo = pg.commonObjs.get(it.fontName); flags = fo?.isMonospace ? 'mono' : fo?.isSerifFont ? 'serif' : ''; } catch {}
+        const font = /courier|consol|mono|lucida ?console|menlo|cmtt|lmmono|inconsolata/.test(nm) ? 'Courier'
+          : /calibri|arial|helvetica|verdana|tahoma|segoe|roboto|opensans|open ?sans|liberation ?sans|dejavu ?sans|gill|futura|gothic|trebuchet|aptos|lato|noto ?sans|source ?sans|candara|corbel|franklin|myriad|frutiger|univers|nirmala|mangal|cmss|lmsans|sans/.test(nm) ? 'Helvetica'
+          : /times|georgia|garamond|cambria|antiqua|palatino|liberation ?serif|minion|bookman|schoolbook|noto ?serif|constantia|baskerville|didot|cmr|cmbx|cmti|cmsl|cmcsc|lmroman|sfrm|sfbx|sfti|nimbus ?rom|charter|utopia|stix|xits|libertine|dejavu ?serif|serif|tex/.test(nm) ? 'TimesRoman'
+          : flags === 'mono' ? 'Courier' : flags === 'serif' ? 'TimesRoman' : /^serif/.test(fam) ? 'TimesRoman' : 'Helvetica';
+        const italic = /italic|oblique|cmti|cmsl|sfti|-it\b|,it\b|-ital/.test(nm);
+        items.push({ key: `${i}-${k}`, str: it.str.normalize('NFKC'), x: t[4], base: t[5], y: t[5] - size * 0.95, w, h: size * 1.25, size, font, italic, bold: /bold|black|heavy|semibold|demi|,bd|-bd\b|extrabold|cmbx|sfbx/i.test(real) });
       });
       setTitems((cur) => { const n = cur.slice(); n[i] = items; return n; });
     } catch { rendered.current.delete(i); }
@@ -154,7 +162,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
     const id = uid();
     if (tool === 'text') {
-      const o: Obj = { id, page, type: 'text', x, y: y - style.size * 0.6, w: 0, h: 0, text: '', size: style.size, font: style.font, bold: style.bold, color: style.color };
+      const o: Obj = { id, page, type: 'text', x, y: y - style.size * 0.6, w: 0, h: 0, text: '', size: style.size, font: style.font, bold: style.bold, italic: style.italic, color: style.color };
       commit([...objs, o]); setSel(id); setEditing(id); setTool('select');
       return;
     }
@@ -260,7 +268,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
     if (!it.bold) { const r = await stemRatio(page, it, bg); (window as any).__stem = r; if (r > 0.125) it = { ...it, bold: true }; }
     const wid = uid(), tid = uid();
     const white: Obj = { id: wid, page, type: 'rect', x: it.x - 1, y: it.y - it.size * 0.05, w: it.w + 2, h: it.h, fill: true, opacity: 1, color: bg, tkey: it.key };
-    const text: Obj = { id: tid, page, type: 'text', x: it.x, y: it.base - 0.92 * it.size, w: 0, h: 0, text: it.str, size: Math.round(it.size * 10) / 10, font: it.font, bold: it.bold, color: fg, link: wid, tkey: it.key };
+    const text: Obj = { id: tid, page, type: 'text', x: it.x, y: it.base - 0.92 * it.size, w: 0, h: 0, text: it.str, size: Math.round(it.size * 10) / 10, font: it.font, bold: it.bold, italic: it.italic, color: fg, link: wid, tkey: it.key };
     commit([...objs, white, text]); setSel(tid); setEditing(tid);
   };
   const edited = new Set(objs.filter((o) => o.tkey).map((o) => o.tkey));
@@ -300,7 +308,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
           const text = (textRef.current[o.id] ?? o.text ?? '');
           if (!text.trim()) continue;
           const lines = text.split('\n').map((t, i) => { const [x, y] = conv(o.page, o.x, o.y + (i * 1.2 + 0.92) * o.size!); return { text: t, x, y }; });
-          items.push({ type: 'text', page: o.page, lines, size: o.size, color: o.color, font: pdfFont(o.font, o.bold), rot });
+          items.push({ type: 'text', page: o.page, lines, size: o.size, color: o.color, font: pdfFont(o.font, o.bold, o.italic), rot });
         } else if (o.type === 'rect') {
           const [x1, y1] = conv(o.page, o.x, o.y), [x2, y2] = conv(o.page, o.x + o.w, o.y + o.h);
           items.push({ type: 'rect', page: o.page, x: Math.min(x1, x2), y: Math.min(y1, y2), w: Math.abs(x2 - x1), h: Math.abs(y2 - y1), color: o.color, fill: o.fill, opacity: o.opacity, width: o.width });
@@ -336,6 +344,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
       if (p.size && selObj.type === 'text') q.size = p.size;
       if (p.font && selObj.type === 'text') q.font = p.font;
       if (p.bold !== undefined && selObj.type === 'text') q.bold = p.bold;
+      if (p.italic !== undefined && selObj.type === 'text') q.italic = p.italic;
       if (p.width && (selObj.type === 'ink' || selObj.type === 'rect')) q.width = p.width;
       if (Object.keys(q).length) commit(objs.map((o) => (o.id === sel ? { ...o, ...q } : o)));
     }
@@ -362,10 +371,14 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
           {[8, 9, 10, 11, 12, 14, 16, 18, 20, 24, 28, 32, 40, 48, 64, 72].map((s) => <option value={s}>{s}</option>)}
         </select>
         <button type="button" aria-label="Bold" aria-pressed={selObj?.type === 'text' ? !!selObj.bold : style.bold} style={tb(selObj?.type === 'text' ? !!selObj.bold : style.bold)} onClick={() => setStyleAndSel({ bold: !(selObj?.type === 'text' ? selObj.bold : style.bold) })}>B</button>
+        <button type="button" aria-label="Italic" aria-pressed={selObj?.type === 'text' ? !!selObj.italic : style.italic} style={{ ...tb(selObj?.type === 'text' ? !!selObj.italic : style.italic), fontStyle: 'italic', fontFamily: 'Georgia, serif' }} onClick={() => setStyleAndSel({ italic: !(selObj?.type === 'text' ? selObj.italic : style.italic) })}>I</button>
         <select aria-label="Line width" value={style.width} onChange={(e) => setStyleAndSel({ width: +(e.target as HTMLSelectElement).value })} style={{ height: '40px', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--card)', color: 'var(--text)' }}>
           {[1, 2, 3, 5, 8].map((w) => <option value={w}>{w}px line</option>)}
         </select>
         <span style={{ flex: 1 }} />
+        <button type="button" title="Zoom out" aria-label="Zoom out" style={tb(false)} disabled={zoom <= 0.5} onClick={() => setZoom(Math.max(0.5, Math.round((zoom - 0.25) * 100) / 100))}>−</button>
+        <button type="button" title="Reset zoom" aria-label="Reset zoom" style={{ ...tb(false), minWidth: '58px', fontSize: '.85rem' }} onClick={() => setZoom(1)}>{Math.round(zoom * 100)}%</button>
+        <button type="button" title="Zoom in" aria-label="Zoom in" style={tb(false)} disabled={zoom >= 3} onClick={() => setZoom(Math.min(3, Math.round((zoom + 0.25) * 100) / 100))}>+</button>
         <button type="button" title="Undo (Ctrl+Z)" aria-label="Undo" style={tb(false)} disabled={!hist.length} onClick={undo}>↶</button>
         <button type="button" title="Delete selected" aria-label="Delete selected" style={tb(false)} disabled={!sel} onClick={() => sel && remove(sel)}>🗑</button>
         <button type="button" class="btn btn-primary" style={{ height: '40px' }} disabled={!!busy} onClick={save}>Save PDF</button>
@@ -388,7 +401,8 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
         </div>
       )}
 
-      <div style={{ display: 'grid', gap: '18px', margin: '10px auto 0', maxWidth: '900px' }}>
+      <div style={{ overflowX: 'auto', paddingBottom: '6px' }}>
+      <div style={{ display: 'grid', gap: '18px', margin: '10px auto 0', width: `min(${900 * zoom}px, ${100 * zoom}%)` }}>
         {pages.map((p, i) => {
           const s = scales[i] || 1;
           return (
@@ -418,7 +432,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
                         ref={(el) => { if (el && isEdit && document.activeElement !== el) { el.focus(); const r = document.createRange(); r.selectNodeContents(el); r.collapse(false); const s2 = getSelection(); s2?.removeAllRanges(); s2?.addRange(r); } }}
                         onInput={(e) => (textRef.current[o.id] = (e.target as HTMLElement).innerText)}
                         onBlur={(e) => { const t = (e.target as HTMLElement).innerText.replace(/\n$/, ''); textRef.current[o.id] = t; if (!t.trim()) { setObjs((cur) => cur.filter((x) => x.id !== o.id)); } else patch(o.id, { text: t }); setEditing(null); }}
-                        style={{ font: `${o.bold ? 700 : 400} ${o.size! * s}px/1.2 ${css(o.font)}`, color: o.color, whiteSpace: 'pre', minWidth: '1ch', minHeight: o.size! * 1.2 * s + 'px', outline: 'none', background: isEdit ? 'rgb(79 70 229 / .06)' : 'transparent' }}
+                        style={{ font: `${o.italic ? 'italic ' : ''}${o.bold ? 700 : 400} ${o.size! * s}px/1.2 ${css(o.font)}`, color: o.color, whiteSpace: 'pre', minWidth: '1ch', minHeight: o.size! * 1.2 * s + 'px', outline: 'none', background: isEdit ? 'rgb(79 70 229 / .06)' : 'transparent' }}
                         dangerouslySetInnerHTML={{ __html: (o.text ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;') }} />
                     )}
                     {o.type === 'rect' && <div style={{ width: '100%', height: '100%', background: o.fill ? o.color : 'transparent', opacity: o.opacity, border: o.fill ? (o.color === '#ffffff' && isSel ? '1px solid #ddd' : 'none') : `${(o.width ?? 2) * s}px solid ${o.color}`, mixBlendMode: o.opacity! < 1 ? 'multiply' : 'normal' }} />}
@@ -434,6 +448,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
             </div>
           );
         })}
+      </div>
       </div>
       <div class="actions"><button type="button" class="btn btn-primary btn-lg" disabled={!!busy} onClick={save}>Save PDF</button></div>
       {sigOpen && <SignaturePad onClose={() => setSigOpen(false)} onDone={(src, w, h) => { setSigOpen(false); placeImage(src, 'png', w, h, 0.25); }} />}
