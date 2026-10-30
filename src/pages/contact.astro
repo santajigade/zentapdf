@@ -1,0 +1,9 @@
+---
+import Page from '../layouts/Page.astro';
+import { CONTACT_EMAIL } from '../config.js';
+---
+<Page title="Contact ZentaPDF" description="Get in touch with the ZentaPDF team for questions, feedback, bug reports or tool suggestions. We read every message." h1="Contact us" path="/contact/">
+  <p>We would love to hear from you — whether you found a bug, have an idea for a new tool, or just want to say hello.</p>
+  <p>Email: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+  <p>Please do <strong>not</strong> email us private documents. If a tool does not work with a file, describe the problem (file type, size, number of pages and your browser) instead.</p>
+</Page>

@@ -1,0 +1,56 @@
+---
+import Base from '../layouts/Base.astro';
+import ToolCard from '../components/ToolCard.astro';
+import { categories, tools } from '../data/tools';
+import { icon } from '../data/icons';
+const title = 'ZentaPDF – Free PDF & Image Tools Online (Private, No Upload)';
+const description = 'Merge, split and convert PDF files and compress images for free. ZentaPDF tools run in your browser, so your files never leave your device. No sign-up.';
+---
+<Base title={title} description={description}>
+  <section class="hero">
+    <div class="container">
+      <span class="trust"><Fragment set:html={icon('shield', 16)} /> Your files never leave your device</span>
+      <h1 style="margin-top:14px">Free PDF &amp; Image Tools</h1>
+      <p class="lead">Merge, split, convert and compress — fast, free and private. Everything runs in your browser, so nothing is uploaded.</p>
+      <div class="search">
+        <input id="tool-search" type="search" placeholder="Search tools… e.g. merge, jpg, compress" aria-label="Search tools" autocomplete="off" />
+      </div>
+    </div>
+  </section>
+  <div class="container" id="all-tools">
+    {categories.map((c) => {
+      const list = tools.filter((t) => t.category === c.id).sort((a, b) => Number(b.live) - Number(a.live));
+      return (
+        <section class="cat" data-cat>
+          <div class="cat-title"><h2>{c.name}</h2><a href={`/${c.slug}/`}>View all</a></div>
+          <div class="grid">{list.map((t) => <ToolCard tool={t} />)}</div>
+        </section>
+      );
+    })}
+    <p id="no-results" class="status" hidden>No tools match your search.</p>
+    <section class="content narrow" style="margin:0 auto">
+      <h2>Why ZentaPDF?</h2>
+      <div class="features">
+        <div><strong>Private by design</strong><span>Your PDFs and images are processed on your own device. We never see them.</span></div>
+        <div><strong>Free forever</strong><span>No sign-up, no watermark, no limits on how many files you process.</span></div>
+        <div><strong>Fast on any device</strong><span>No waiting for uploads. Works on computers, tablets and phones.</span></div>
+      </div>
+    </section>
+  </div>
+  <script>
+    const input = document.getElementById('tool-search') as HTMLInputElement | null;
+    input?.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      let any = false;
+      document.querySelectorAll<HTMLElement>('[data-cat]').forEach((sec) => {
+        let shown = 0;
+        sec.querySelectorAll<HTMLElement>('.card').forEach((c) => {
+          const hit = !q || (c.dataset.name ?? '').includes(q) || (c.textContent ?? '').toLowerCase().includes(q);
+          c.hidden = !hit; if (hit) shown++;
+        });
+        sec.hidden = shown === 0; if (shown) any = true;
+      });
+      document.getElementById('no-results')!.hidden = any;
+    });
+  </script>
+</Base>

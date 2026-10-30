@@ -1,0 +1,10 @@
+---
+import Base from './Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+interface Props { title: string; description: string; h1: string; path: string; noindex?: boolean }
+const { title, description, h1, path, noindex } = Astro.props;
+---
+<Base title={title} description={description} noindex={noindex}>
+  <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: h1, href: path }]} />
+  <article class="container prose"><h1>{h1}</h1><slot /></article>
+</Base>

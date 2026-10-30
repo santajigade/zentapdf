@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ToolCard from '../components/ToolCard.astro';
+import AdSlot from '../components/AdSlot.astro';
+import { tools, toolBySlug, categoryById, type Tool } from '../data/tools';
+import { breadcrumbSchema, faqSchema, howToSchema, appSchema } from '../lib/schema';
+import MergePdf from '../components/tools/MergePdf';
+import SplitPdf from '../components/tools/SplitPdf';
+import JpgToPdf from '../components/tools/JpgToPdf';
+import PdfToJpg from '../components/tools/PdfToJpg';
+import CompressImage from '../components/tools/CompressImage';
+
+export function getStaticPaths() {
+  return tools.filter((t) => t.live).map((t) => ({ params: { tool: t.slug }, props: { tool: t } }));
+}
+const { tool } = Astro.props as { tool: Tool };
+const cat = categoryById(tool.category);
+const crumbs = [{ name: 'Home', href: '/' }, { name: cat.name, href: `/${cat.slug}/` }, { name: tool.name, href: `/${tool.slug}/` }];
+const related = (tool.related ?? []).map(toolBySlug).filter(Boolean) as Tool[];
+const schema = [
+  breadcrumbSchema(crumbs),
+  appSchema(tool.name, tool.metaDescription!, `/${tool.slug}/`),
+  howToSchema(tool.howToName!, tool.steps!),
+  faqSchema(tool.faqs!),
+];
+const isImage = tool.category === 'image' || tool.slug === 'jpg-to-pdf';
+const features = [
+  { t: '100% private', d: 'Files are processed in your browser. Nothing is uploaded to any server.' },
+  { t: 'Free, no sign-up', d: 'No account, no email, no watermark and no daily limits.' },
+  { t: 'Fast', d: 'No upload or download wait — results are ready in seconds.' },
+  { t: 'Works everywhere', d: 'Use it on Windows, Mac, Linux, Android or iPhone in any modern browser.' },
+  { t: isImage ? 'Keeps quality' : 'Original quality', d: isImage ? 'Smart settings keep your images sharp.' : 'Pages are copied as they are — text and images stay crisp.' },
+  { t: 'Large files', d: 'Handle big files and many pages — limited only by your device’s memory.' },
+];
+---
+<Base title={tool.title!} description={tool.metaDescription!} schema={schema}>
+  <Breadcrumbs items={crumbs} />
+  <section class="container narrow">
+    <div class="tool-head">
+      <h1>{tool.title}</h1>
+      <p>{tool.short}</p>
+    </div>
+    <div class="tool-box">
+      {tool.slug === 'merge-pdf' && <MergePdf client:load />}
+      {tool.slug === 'split-pdf' && <SplitPdf client:load />}
+      {tool.slug === 'jpg-to-pdf' && <JpgToPdf client:load />}
+      {tool.slug === 'pdf-to-jpg' && <PdfToJpg client:load />}
+      {tool.slug === 'compress-image' && <CompressImage client:load />}
+      <noscript><p class="error">Please turn on JavaScript — this tool runs in your browser.</p></noscript>
+    </div>
+  </section>
+  <article class="container narrow content">
+    <p>{tool.intro}</p>
+    <h2>{tool.howToName}</h2>
+    <ol class="steps">{tool.steps!.map((s) => <li>{s}</li>)}</ol>
+    <AdSlot />
+    <h2>Why use ZentaPDF {tool.name}?</h2>
+    <div class="features">{features.map((f) => <div><strong>{f.t}</strong><span>{f.d}</span></div>)}</div>
+    <h2>Frequently asked questions</h2>
+    {tool.faqs!.map((f) => <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>)}
+    <h2>Related tools</h2>
+    <div class="grid">{related.map((t) => <ToolCard tool={t} />)}</div>
+  </article>
+</Base>

@@ -1,0 +1,20 @@
+---
+import { icon } from '../data/icons';
+import type { Tool } from '../data/tools';
+interface Props { tool: Tool }
+const { tool } = Astro.props;
+---
+{tool.live ? (
+  <a class="card" href={`/${tool.slug}/`} data-name={tool.name.toLowerCase()}>
+    <span class="ic" set:html={icon(tool.icon)} />
+    <strong>{tool.name}</strong>
+    <span class="desc">{tool.short}</span>
+  </a>
+) : (
+  <div class="card soon" data-name={tool.name.toLowerCase()}>
+    <span class="badge">Soon</span>
+    <span class="ic" set:html={icon(tool.icon)} />
+    <strong>{tool.name}</strong>
+    <span class="desc">{tool.short}</span>
+  </div>
+)}

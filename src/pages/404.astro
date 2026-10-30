@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+import ToolCard from '../components/ToolCard.astro';
+import { tools } from '../data/tools';
+---
+<Base title="Page not found – ZentaPDF" description="This page could not be found." noindex>
+  <section class="container" style="text-align:center;padding:48px 20px">
+    <h1>Page not found</h1>
+    <p style="color:var(--muted)">The page you are looking for does not exist. Try one of our tools:</p>
+    <div class="grid" style="margin-top:24px;text-align:left">{tools.filter((t) => t.live).map((t) => <ToolCard tool={t} />)}</div>
+    <p style="margin-top:24px"><a class="btn btn-primary" href="/">Go to homepage</a></p>
+  </section>
+</Base>
