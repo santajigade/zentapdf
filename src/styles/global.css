@@ -193,3 +193,4 @@ details.faq p { margin: .5rem 0 0; color: var(--muted); }
 .site-footer a.logo { color: var(--text); }
 .ti { border-radius: 2px; }
 .ti:hover { background: rgb(79 70 229 / .14); outline: 1px solid rgb(79 70 229 / .6); }
+.tool-box.wide { background: none; border: 0; box-shadow: none; padding: 0; }

@@ -40,6 +40,12 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
   const [style, setStyle] = useState({ color: '#111827', size: 14, font: 'Helvetica', bold: false, italic: false, width: 2 });
   const [scales, setScales] = useState<number[]>([]);
   const [zoom, setZoom] = useState(1);
+  const scroller = useRef<HTMLDivElement>(null);
+  const zoomTo = (z: number) => {
+    const el = scroller.current; const fx = el ? (el.scrollLeft + el.clientWidth / 2) / Math.max(1, el.scrollWidth) : 0.5; const fy = el ? (el.scrollTop + el.clientHeight / 2) / Math.max(1, el.scrollHeight) : 0;
+    setZoom(z);
+    requestAnimationFrame(() => requestAnimationFrame(() => { if (!el) return; el.scrollLeft = fx * el.scrollWidth - el.clientWidth / 2; el.scrollTop = fy * el.scrollHeight - el.clientHeight / 2; }));
+  };
   const [busy, setBusy] = useState<Progress | null>(null);
   const [error, setError] = useState('');
   const [result, setResult] = useState<Blob | null>(null);
@@ -82,6 +88,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
     } finally { setBusy(null); }
   };
   useEffect(() => () => docRef.current?.destroy?.(), []);
+  useEffect(() => { document.querySelector('.tool-box')?.classList.toggle('wide', !!file); }, [file]);
 
   // ---------- page rendering (lazy) + scale tracking ----------
   useEffect(() => {
@@ -353,7 +360,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
     background: active ? 'var(--brand)' : 'var(--card)', color: active ? '#fff' : 'var(--text)' });
 
   return (
-    <div>
+    <div style={{ width: 'min(1200px, calc(100vw - 24px))', marginLeft: 'calc(50% - min(600px, 50vw - 12px))' }}>
       {sizeWarning(file.size) && <ErrorBox>{sizeWarning(file.size)}</ErrorBox>}
       <div role="toolbar" aria-label="Editor tools" style={{ position: 'sticky', top: '62px', zIndex: 4, background: 'var(--card)', border: '1px solid var(--border)', borderRadius: '14px', padding: '8px', display: 'flex', flexWrap: 'wrap', gap: '6px', alignItems: 'center', boxShadow: 'var(--shadow)' }}>
         {TOOLS.map(([t, icon, label]) => (
@@ -376,9 +383,9 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
           {[1, 2, 3, 5, 8].map((w) => <option value={w}>{w}px line</option>)}
         </select>
         <span style={{ flex: 1 }} />
-        <button type="button" title="Zoom out" aria-label="Zoom out" style={tb(false)} disabled={zoom <= 0.5} onClick={() => setZoom(Math.max(0.5, Math.round((zoom - 0.25) * 100) / 100))}>−</button>
-        <button type="button" title="Reset zoom" aria-label="Reset zoom" style={{ ...tb(false), minWidth: '58px', fontSize: '.85rem' }} onClick={() => setZoom(1)}>{Math.round(zoom * 100)}%</button>
-        <button type="button" title="Zoom in" aria-label="Zoom in" style={tb(false)} disabled={zoom >= 3} onClick={() => setZoom(Math.min(3, Math.round((zoom + 0.25) * 100) / 100))}>+</button>
+        <button type="button" title="Zoom out" aria-label="Zoom out" style={tb(false)} disabled={zoom <= 0.5} onClick={() => zoomTo(Math.max(0.5, Math.round((zoom - 0.25) * 100) / 100))}>−</button>
+        <button type="button" title="Reset zoom" aria-label="Reset zoom" style={{ ...tb(false), minWidth: '58px', fontSize: '.85rem' }} onClick={() => zoomTo(1)}>{Math.round(zoom * 100)}%</button>
+        <button type="button" title="Zoom in" aria-label="Zoom in" style={tb(false)} disabled={zoom >= 3} onClick={() => zoomTo(Math.min(3, Math.round((zoom + 0.25) * 100) / 100))}>+</button>
         <button type="button" title="Undo (Ctrl+Z)" aria-label="Undo" style={tb(false)} disabled={!hist.length} onClick={undo}>↶</button>
         <button type="button" title="Delete selected" aria-label="Delete selected" style={tb(false)} disabled={!sel} onClick={() => sel && remove(sel)}>🗑</button>
         <button type="button" class="btn btn-primary" style={{ height: '40px' }} disabled={!!busy} onClick={save}>Save PDF</button>
@@ -401,8 +408,8 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
         </div>
       )}
 
-      <div style={{ overflowX: 'auto', paddingBottom: '6px' }}>
-      <div style={{ display: 'grid', gap: '18px', margin: '10px auto 0', width: `min(${900 * zoom}px, ${100 * zoom}%)` }}>
+      <div ref={scroller} style={{ height: '78vh', overflow: 'auto', background: 'var(--bg-soft)', border: '1px solid var(--border)', borderRadius: '14px', padding: '14px' }}>
+      <div style={{ display: 'grid', gap: '18px', margin: '0 auto', width: `min(${900 * zoom}px, ${100 * zoom}%)` }}>
         {pages.map((p, i) => {
           const s = scales[i] || 1;
           return (
