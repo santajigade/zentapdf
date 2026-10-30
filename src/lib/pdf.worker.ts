@@ -4,6 +4,7 @@ import { PDFDocument, degrees } from 'pdf-lib';
 type Msg =
   | { op: 'merge'; files: ArrayBuffer[] }
   | { op: 'count'; file: ArrayBuffer }
+  | { op: 'build'; file: ArrayBuffer; pages: { src: number; rot: number }[] }
   | { op: 'split'; file: ArrayBuffer; ranges: [number, number][] }
   | { op: 'images'; images: { bytes: ArrayBuffer; kind: 'jpg' | 'png'; w: number; h: number }[]; page: 'fit' | 'a4' | 'letter'; orientation: 'auto' | 'portrait' | 'landscape'; margin: number };
 
@@ -39,6 +40,32 @@ self.onmessage = async (ev: MessageEvent<Msg>) => {
         (m.files as any)[i] = null; // free memory
       }
       progress(m.files.length, m.files.length, 'Saving…');
+      stamp(out);
+      const bytes = await out.save();
+      post({ type: 'result', files: [bytes] }, [bytes.buffer]);
+      return;
+    }
+    if (m.op === 'build') {
+      const src = await load(m.file);
+      const out = await PDFDocument.create();
+      const used = [...new Set(m.pages.filter((p) => p.src >= 0).map((p) => p.src))];
+      const copied = new Map<number, any>();
+      (await out.copyPages(src, used)).forEach((pg, i) => copied.set(used[i], pg));
+      let lastSize: [number, number] = [595.28, 841.89];
+      const first = m.pages.find((p) => p.src >= 0);
+      if (first) { const s0 = src.getPage(first.src).getSize(); lastSize = [s0.width, s0.height]; }
+      for (let i = 0; i < m.pages.length; i++) {
+        if (i % 20 === 0) progress(i, m.pages.length, 'Building PDF…');
+        const p = m.pages[i];
+        if (p.src < 0) { out.addPage(lastSize); continue; }
+        let pg = copied.get(p.src);
+        if (!pg) continue;
+        if (out.getPages().includes(pg)) pg = (await out.copyPages(src, [p.src]))[0]; // same page used twice
+        const base = pg.getRotation().angle || 0;
+        if (p.rot) pg.setRotation(degrees((((base + p.rot) % 360) + 360) % 360));
+        out.addPage(pg);
+        const sz = pg.getSize(); lastSize = [sz.width, sz.height];
+      }
       stamp(out);
       const bytes = await out.save();
       post({ type: 'result', files: [bytes] }, [bytes.buffer]);

@@ -2,17 +2,11 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import { DropZone, ProgressBar, ErrorBox, sizeWarning } from './shared';
 import { formatBytes, downloadBlob, friendlyError, baseName, zipFiles } from '../../lib/utils';
 import type { Progress } from '../../lib/pdfJob';
+import { loadPdfjs } from '../../lib/pdfjs';
 
 type Out = { name: string; blob: Blob; url: string };
 const DPI = { normal: 100, high: 150, max: 300 } as const;
 const MAX_PIXELS = 16_000_000; // iOS Safari canvas limit is ~16.7 MP
-
-async function loadPdfjs() {
-  const pdfjs: any = await import('pdfjs-dist/legacy/build/pdf.min.mjs');
-  const worker = (await import('pdfjs-dist/legacy/build/pdf.worker.min.mjs?url')).default;
-  pdfjs.GlobalWorkerOptions.workerSrc = worker;
-  return pdfjs;
-}
 
 export default function PdfToJpg() {
   const [file, setFile] = useState<File | null>(null);

@@ -15,6 +15,7 @@ import CropImage from '../components/tools/CropImage';
 import ConvertImage from '../components/tools/ConvertImage';
 import RotateImage from '../components/tools/RotateImage';
 import ImageToBase64 from '../components/tools/ImageToBase64';
+import PdfPages from '../components/tools/PdfPages';
 
 export function getStaticPaths() {
   return tools.filter((t) => t.live).map((t) => ({ params: { tool: t.slug }, props: { tool: t } }));
@@ -57,6 +58,11 @@ const features = [
       {tool.slug === 'convert-image' && <ConvertImage client:load />}
       {tool.slug === 'rotate-image' && <RotateImage client:load />}
       {tool.slug === 'image-to-base64' && <ImageToBase64 client:load />}
+      {tool.slug === 'remove-pages' && <PdfPages mode="remove" client:load />}
+      {tool.slug === 'extract-pages' && <PdfPages mode="extract" client:load />}
+      {tool.slug === 'reorder-pdf-pages' && <PdfPages mode="reorder" client:load />}
+      {tool.slug === 'rotate-pdf' && <PdfPages mode="rotate" client:load />}
+      {tool.slug === 'add-blank-page' && <PdfPages mode="blank" client:load />}
       <noscript><p class="error">Please turn on JavaScript — this tool runs in your browser.</p></noscript>
     </div>
   </section>

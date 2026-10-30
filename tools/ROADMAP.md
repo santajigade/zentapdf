@@ -6,11 +6,7 @@ Brand: ZentaPDF · colour Indigo #4F46E5 · domain TBD (placeholder zentapdf.com
 - [x] Merge PDF · [x] Split PDF · [x] Compress image · [x] JPG to PDF · [x] PDF to JPG
 
 ## Batch 2 — Organise
-- [ ] Remove pages (thumbnail grid, click to mark)
-- [ ] Extract pages
-- [ ] Reorder pages (drag & drop thumbnails — reuse pdf.js thumbnails from PDF to JPG)
-- [ ] Rotate PDF (all / selected pages)
-- [ ] Add blank page
+- [x] Remove pages · [x] Extract pages · [x] Reorder pages · [x] Rotate PDF · [x] Add blank page (live 2026-10-30; one component PdfPages.tsx + worker op 'build'; tests: tools/test/e2e-organise.mjs)
 
 ## Batch 3 — Images
 - [x] Resize image · [x] Crop image · [x] Convert image · [x] Rotate/flip image · [x] Image to Base64 (live 2026-10-30; tests: tools/test/e2e-images.mjs)
@@ -22,6 +18,9 @@ Brand: ZentaPDF · colour Indigo #4F46E5 · domain TBD (placeholder zentapdf.com
 - [ ] Images to single PDF (may merge into JPG to PDF page — check keyword overlap) · [ ] PDF to text · [ ] Basic PDF compress
 - [ ] Protect PDF (needs an encryption lib — pdf-lib can't encrypt; evaluate @cantoo/pdf-lib or qpdf-wasm)
 - [ ] Unlock PDF (qpdf-wasm or pdf.js decrypt + re-save)
+
+## Phase 2 (agreed 2026-10-30)
+- [ ] Optional sign-in (Google + email/password via Firebase or Supabase) — only with server tools / Pro plan; tools must keep working without login
 
 ## Site / launch
 - [ ] Owner: create empty private GitHub repo `santajigade/zentapdf`, then Claude pushes `main` + `site`
