@@ -15,7 +15,7 @@ async function page(url, width = 1280) {
   p.errors = [];
   p.on('console', (m) => m.type() === 'error' && p.errors.push(m.text()));
   p.on('pageerror', (e) => p.errors.push(String(e)));
-  await p.goto(B + url);
+  await p.goto(B + url); if (/-/.test(url)) await p.waitForSelector('astro-island:not([ssr])', { state: 'attached' }).catch(() => {});
   return p;
 }
 async function upload(p, files) { await p.setInputFiles('input[type=file] >> nth=0', files.map((f) => T + f)); }

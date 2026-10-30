@@ -10,6 +10,11 @@ import SplitPdf from '../components/tools/SplitPdf';
 import JpgToPdf from '../components/tools/JpgToPdf';
 import PdfToJpg from '../components/tools/PdfToJpg';
 import CompressImage from '../components/tools/CompressImage';
+import ResizeImage from '../components/tools/ResizeImage';
+import CropImage from '../components/tools/CropImage';
+import ConvertImage from '../components/tools/ConvertImage';
+import RotateImage from '../components/tools/RotateImage';
+import ImageToBase64 from '../components/tools/ImageToBase64';
 
 export function getStaticPaths() {
   return tools.filter((t) => t.live).map((t) => ({ params: { tool: t.slug }, props: { tool: t } }));
@@ -47,6 +52,11 @@ const features = [
       {tool.slug === 'jpg-to-pdf' && <JpgToPdf client:load />}
       {tool.slug === 'pdf-to-jpg' && <PdfToJpg client:load />}
       {tool.slug === 'compress-image' && <CompressImage client:load />}
+      {tool.slug === 'resize-image' && <ResizeImage client:load />}
+      {tool.slug === 'crop-image' && <CropImage client:load />}
+      {tool.slug === 'convert-image' && <ConvertImage client:load />}
+      {tool.slug === 'rotate-image' && <RotateImage client:load />}
+      {tool.slug === 'image-to-base64' && <ImageToBase64 client:load />}
       <noscript><p class="error">Please turn on JavaScript — this tool runs in your browser.</p></noscript>
     </div>
   </section>

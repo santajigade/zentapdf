@@ -13,7 +13,7 @@ Brand: ZentaPDF · colour Indigo #4F46E5 · domain TBD (placeholder zentapdf.com
 - [ ] Add blank page
 
 ## Batch 3 — Images
-- [ ] Resize image · [ ] Crop image · [ ] Convert image (JPG/PNG/WebP/AVIF) · [ ] Rotate/flip image · [ ] Image to Base64
+- [x] Resize image · [x] Crop image · [x] Convert image · [x] Rotate/flip image · [x] Image to Base64 (live 2026-10-30; tests: tools/test/e2e-images.mjs)
 
 ## Batch 4 — Edit
 - [ ] Add page numbers · [ ] Add watermark (text/image) · [ ] Add text / signature · [ ] Crop PDF · [ ] Flatten PDF · [ ] Edit metadata
