@@ -117,7 +117,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
         let fam = (tc.styles[it.fontName]?.fontFamily || '').toLowerCase(), real = '';
         try { const fo = pg.commonObjs.get(it.fontName); real = fo?.name || ''; fam += ' ' + real.toLowerCase() + (fo?.isMonospace ? ' mono' : fo?.isSerifFont ? ' serif' : ''); } catch {}
         const font = /mono|courier|consol/.test(fam) ? 'Courier' : /serif|times|georgia|garamond|cambria|book/.test(fam) && !/sans/.test(fam) ? 'TimesRoman' : 'Helvetica';
-        items.push({ key: `${i}-${k}`, str: it.str.normalize('NFKC'), x: t[4], base: t[5], y: t[5] - size * 0.95, w, h: size * 1.25, size, font, bold: /bold|black|heavy|semibold/i.test(real) });
+        items.push({ key: `${i}-${k}`, str: it.str.normalize('NFKC'), x: t[4], base: t[5], y: t[5] - size * 0.95, w, h: size * 1.25, size, font, bold: /bold|black|heavy|semibold|demi|,bd|-bd\b|extrabold/i.test(real) });
       });
       setTitems((cur) => { const n = cur.slice(); n[i] = items; return n; });
     } catch { rendered.current.delete(i); }
@@ -222,9 +222,36 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
     const hex = (a: number[]) => '#' + a.map((v) => v.toString(16).padStart(2, '0')).join('');
     return { bg: hex(bg), fg: hex(fg) };
   };
-  const editItem = (e: PointerEvent, page: number, it: TItem) => {
+  /** Estimate stroke thickness relative to font size by rendering the text at high resolution (regular ≈ 0.09–0.10, bold ≈ 0.15+). */
+  const stemRatio = async (page: number, it: TItem, bgHex: string) => {
+    try {
+      const pg = await docRef.current.getPage(page + 1);
+      const k = 48 / it.size;
+      const w = Math.max(1, Math.min(4000, Math.round(it.w * k))), h = Math.max(1, Math.round(it.size * 0.6 * k));
+      const vp = pg.getViewport({ scale: k, offsetX: -it.x * k, offsetY: -(it.base - it.size * 0.65) * k });
+      const c = document.createElement('canvas'); c.width = w; c.height = h;
+      const ctx = c.getContext('2d', { willReadFrequently: true })!;
+      await pg.render({ canvas: c, canvasContext: ctx, viewport: vp }).promise;
+      const d = ctx.getImageData(0, 0, w, h).data;
+      const B = [1, 3, 5].map((o) => parseInt(bgHex.slice(o, o + 2), 16));
+      const runs: number[] = [];
+      for (let r = 0; r < h; r += 2) {
+        let run = 0;
+        for (let col = 0; col <= w; col++) {
+          const q = (r * w + col) * 4;
+          const cov = col < w ? Math.min(1, (Math.abs(d[q] - B[0]) + Math.abs(d[q + 1] - B[1]) + Math.abs(d[q + 2] - B[2])) / 450) : 0;
+          if (cov > 0.15) run += cov; else if (run) { runs.push(run); run = 0; }
+        }
+      }
+      if (runs.length < 4) return 0;
+      runs.sort((p1, p2) => p1 - p2);
+      return runs[Math.floor(runs.length / 2)] / 48;
+    } catch { return 0; }
+  };
+  const editItem = async (e: PointerEvent, page: number, it: TItem) => {
     e.stopPropagation(); e.preventDefault();
     const { bg, fg } = sample(page, it);
+    if (!it.bold) { const r = await stemRatio(page, it, bg); (window as any).__stem = r; if (r > 0.125) it = { ...it, bold: true }; }
     const wid = uid(), tid = uid();
     const white: Obj = { id: wid, page, type: 'rect', x: it.x - 1, y: it.y - it.size * 0.05, w: it.w + 2, h: it.h, fill: true, opacity: 1, color: bg, tkey: it.key };
     const text: Obj = { id: tid, page, type: 'text', x: it.x, y: it.base - 0.92 * it.size, w: 0, h: 0, text: it.str, size: Math.round(it.size * 10) / 10, font: it.font, bold: it.bold, color: fg, link: wid, tkey: it.key };
