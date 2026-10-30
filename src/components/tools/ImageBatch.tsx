@@ -16,9 +16,13 @@ interface Props {
   process: (file: File) => Promise<{ blob: Blob; name: string; info?: string }>;
   /** Change this value whenever options change, so old results are cleared. */
   optionsKey: string;
+  /** Maximum images per conversion (optional). */
+  max?: number;
+  accept?: string;
+  hint?: string;
 }
 
-export default function ImageBatch({ actionLabel, zipName, options, preview, process, optionsKey }: Props) {
+export default function ImageBatch({ actionLabel, zipName, options, preview, process, optionsKey, max, accept = 'image/*', hint }: Props) {
   const [items, setItems] = useState<Item[]>([]);
   const [busy, setBusy] = useState<Progress | null>(null);
   const [error, setError] = useState('');
@@ -28,8 +32,13 @@ export default function ImageBatch({ actionLabel, zipName, options, preview, pro
   useEffect(() => () => items.forEach((i) => URL.revokeObjectURL(i.url)), []);
 
   const add = (files: File[]) => {
-    const imgs = files.filter(isImage);
-    setError(imgs.length < files.length ? 'Some files were skipped because they are not images.' : '');
+    let imgs = files.filter(isImage);
+    let msg = imgs.length < files.length ? 'Some files were skipped because they are not images.' : '';
+    if (max && items.length + imgs.length > max) {
+      imgs = imgs.slice(0, Math.max(0, max - items.length));
+      msg = `You can convert up to ${max} images at a time. The first ${max} were added — convert them, then click "Start over" for the next ones.`;
+    }
+    setError(msg);
     setDone(false);
     setItems((cur) => [...cur.map((i) => ({ ...i, out: undefined, err: undefined })), ...imgs.map((file) => ({ id: uid(), file, url: URL.createObjectURL(file) }))]);
   };
@@ -60,7 +69,7 @@ export default function ImageBatch({ actionLabel, zipName, options, preview, pro
 
   if (!items.length)
     return <>
-      <DropZone accept="image/*" multiple label="Choose images" hint="JPG, PNG, WebP, GIF… — or drop them here" onFiles={add} />
+      <DropZone accept={accept} multiple label="Choose images" hint={hint ?? 'JPG, PNG, WebP, GIF… — or drop them here'} onFiles={add} />
       {error && <ErrorBox>{error}</ErrorBox>}
     </>;
 
@@ -97,7 +106,7 @@ export default function ImageBatch({ actionLabel, zipName, options, preview, pro
         </div>
       ) : (
         <div class="actions">
-          <DropZone compact accept="image/*" multiple label="Add more images" onFiles={add} />
+          {(!max || items.length < max) && <DropZone compact accept={accept} multiple label="Add more images" onFiles={add} />}
           <button type="button" class="btn btn-primary btn-lg" disabled={!!busy} onClick={run}>{actionLabel} {items.length > 1 ? `${items.length} images` : 'image'}</button>
         </div>
       )}

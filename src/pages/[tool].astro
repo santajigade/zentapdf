@@ -18,6 +18,7 @@ import ImageToBase64 from '../components/tools/ImageToBase64';
 import PdfPages from '../components/tools/PdfPages';
 import PdfEdit from '../components/tools/PdfEdit';
 import PdfEditor from '../components/tools/PdfEditor';
+import FormatConvert from '../components/tools/FormatConvert';
 
 export function getStaticPaths() {
   return tools.filter((t) => t.live).map((t) => ({ params: { tool: t.slug }, props: { tool: t } }));
@@ -32,7 +33,7 @@ const schema = [
   howToSchema(tool.howToName!, tool.steps!),
   faqSchema(tool.faqs!),
 ];
-const isImage = tool.category === 'image' || tool.slug === 'jpg-to-pdf';
+const isImage = tool.category === 'image' || tool.category === 'imgconv' || tool.slug === 'jpg-to-pdf';
 const features = [
   { t: '100% private', d: 'Files are processed in your browser. Nothing is uploaded to any server.' },
   { t: 'Free, no sign-up', d: 'No account, no email, no watermark and no daily limits.' },
@@ -65,6 +66,7 @@ const features = [
       {tool.slug === 'reorder-pdf-pages' && <PdfPages mode="reorder" client:load />}
       {tool.slug === 'rotate-pdf' && <PdfPages mode="rotate" client:load />}
       {tool.slug === 'add-blank-page' && <PdfPages mode="blank" client:load />}
+      {tool.category === 'imgconv' && <FormatConvert from={tool.from!} to={tool.to!} accept={tool.accept!} client:load />}
       {tool.slug === 'edit-pdf' && <PdfEditor client:load />}
       {tool.slug === 'sign-pdf' && <PdfEditor mode="sign" client:load />}
       {tool.slug === 'add-page-numbers' && <PdfEdit mode="numbers" client:load />}

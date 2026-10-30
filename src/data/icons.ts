@@ -39,5 +39,8 @@ export const toolColor: Record<string, string> = {
   'edit-pdf': C.violet, 'sign-pdf': C.blue, 'add-page-numbers': C.indigo, 'add-watermark': C.pink, 'crop-pdf': C.teal, 'flatten-pdf': C.cyan, 'edit-pdf-metadata': C.slate,
   'protect-pdf': C.blue, 'unlock-pdf': C.cyan,
   'jpg-to-pdf': C.amber, 'pdf-to-jpg': C.amber, 'images-to-pdf': C.orange, 'pdf-to-text': C.slate, 'compress-pdf': C.green,
+  'png-to-jpg': C.amber, 'webp-to-jpg': C.amber, 'avif-to-jpg': C.amber, 'gif-to-jpg': C.amber, 'bmp-to-jpg': C.amber, 'svg-to-jpg': C.amber,
+  'jpg-to-png': C.blue, 'webp-to-png': C.blue, 'avif-to-png': C.blue, 'gif-to-png': C.blue, 'bmp-to-png': C.blue, 'svg-to-png': C.blue,
+  'jpg-to-webp': C.green, 'png-to-webp': C.green,
   'compress-image': C.green, 'resize-image': C.blue, 'crop-image': C.teal, 'convert-image': C.violet, 'rotate-image': C.indigo, 'image-to-base64': C.slate,
 };

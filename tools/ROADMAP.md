@@ -24,6 +24,10 @@ Brand: ZentaPDF · colour Indigo #4F46E5 · domain TBD (placeholder zentapdf.com
 - [ ] Protect PDF (needs an encryption lib — pdf-lib can't encrypt; evaluate @cantoo/pdf-lib or qpdf-wasm)
 - [ ] Unlock PDF (qpdf-wasm or pdf.js decrypt + re-save)
 
+## Image format converters (live 2026-10-30)
+- [x] 14 pages: png/jpg/webp/avif/gif/bmp/svg → jpg/png/webp — max 5 images per conversion (owner decision); FormatConvert.tsx; tests: tools/test/e2e-formats.mjs
+- [ ] More pairs later: heic-to-jpg (needs decoder), jpg-to-avif, png-to-avif, webp-to-gif
+
 ## Phase 2 (agreed 2026-10-30)
 - [ ] Optional sign-in (Google + email/password via Firebase or Supabase) — only with server tools / Pro plan; tools must keep working without login
 

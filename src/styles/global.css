@@ -100,6 +100,8 @@ a.card:hover { border-color: var(--accent, var(--brand)); }
 .tint-edit     { --tint: #f5f3ff; --tint-strong: #ede9fe; --accent: #7c3aed; }
 .tint-convert  { --tint: #ecfdf5; --tint-strong: #d1fae5; --accent: #047857; }
 .tint-security { --tint: #fffbeb; --tint-strong: #fef3c7; --accent: #b45309; }
+.tint-imgconv  { --tint: #f0fdfa; --tint-strong: #ccfbf1; --accent: #0f766e; }
+:root[data-theme='dark'] .tint-imgconv { --tint: rgb(20 184 166 / .10); --tint-strong: rgb(20 184 166 / .25); --accent: #5eead4; }
 .tint-image    { --tint: #fff1f2; --tint-strong: #ffe4e6; --accent: #be123c; }
 :root[data-theme='dark'] .tint-organise { --tint: rgb(37 99 235 / .10); --tint-strong: rgb(37 99 235 / .25); --accent: #93c5fd; }
 :root[data-theme='dark'] .tint-edit     { --tint: rgb(124 58 237 / .10); --tint-strong: rgb(124 58 237 / .25); --accent: #c4b5fd; }
