@@ -30,7 +30,7 @@ export interface Tool {
 
 export const categories: Category[] = [
   { id: 'organise', slug: 'organise-pdf', name: 'Organise PDF', title: 'Organise PDF – Merge, Split & Reorder PDF Pages Free', description: 'Merge, split, reorder, rotate and remove PDF pages for free. Everything runs in your browser, so your files never leave your device.' },
-  { id: 'edit', slug: 'edit-pdf', name: 'Edit PDF', title: 'Edit PDF – Add Page Numbers, Watermarks & Text Free', description: 'Add page numbers, watermarks, text and signatures to PDF files for free. Private, in-browser PDF editing with no sign-up.' },
+  { id: 'edit', slug: 'edit-pdf-tools', name: 'Edit PDF', title: 'PDF Editing Tools – Edit PDF, Sign, Watermark & Number Pages Free', description: 'Add page numbers, watermarks, text and signatures to PDF files for free. Private, in-browser PDF editing with no sign-up.' },
   { id: 'convert', slug: 'convert-pdf', name: 'Convert PDF', title: 'Convert PDF – JPG to PDF, PDF to JPG & More Free', description: 'Convert JPG and PNG to PDF, PDF to images and extract text from PDF for free. Files are processed on your device, not uploaded.' },
   { id: 'security', slug: 'pdf-security', name: 'PDF Security', title: 'PDF Security – Protect & Unlock PDF Files Free', description: 'Add a password to a PDF or remove one you know, for free. Processing happens in your browser, so your documents stay private.' },
   { id: 'image', slug: 'image-tools', name: 'Image Tools', title: 'Image Tools – Compress, Resize & Convert Images Free', description: 'Compress, resize, crop and convert JPG, PNG and WebP images for free. Fast, private and processed right in your browser.' },
@@ -206,6 +206,52 @@ export const tools: Tool[] = [
   },
   // ---------- Edit ----------
   {
+    slug: 'edit-pdf', name: 'Edit PDF', category: 'edit', icon: 'pen', live: true,
+    short: 'Add text, signatures, images, shapes, highlights and white-out to any PDF.',
+    title: 'Edit PDF – Free Online PDF Editor (No Upload, No Sign-up)',
+    metaDescription: 'Edit PDF files online for free. Add text, signatures, images, shapes and highlights, white-out content and draw on pages. Private – your PDF never leaves your device.',
+    intro: 'ZentaPDF Edit PDF is a free online PDF editor. Type text anywhere, sign, add images and shapes, highlight, draw, and white-out anything you want to hide — then save a new PDF. Everything happens in your browser, so your document stays private.',
+    howToName: 'How to edit a PDF',
+    steps: [
+      'Click "Choose PDF file" or drag and drop a PDF into the box.',
+      'Pick a tool: T for text, white-out, highlight, rectangle, draw, Sign or Image, then click or drag on the page.',
+      'Select items to move, resize, recolour or delete them. Ctrl+Z undoes the last change.',
+      'Click "Save PDF" and then "Download PDF".',
+    ],
+    faqs: [
+      common.privacyFaq,
+      { q: 'Can I change existing text in my PDF?', a: 'Use White-out to cover the old words, then add new text on top with the T tool in a matching size and font. Direct editing of existing text is coming soon.' },
+      { q: 'Can I sign a PDF with this editor?', a: 'Yes. Click "Sign" to draw, type or upload your signature, then place and resize it on the page.' },
+      { q: 'Does it work on phones?', a: 'Yes. You can type, sign and draw with your finger. For long documents a computer is more comfortable.' },
+      { q: 'Which characters can I type?', a: 'English letters, numbers and common symbols are supported now. Support for Hindi and other scripts is coming soon.' },
+      common.freeFaq,
+    ],
+    related: ['sign-pdf', 'add-watermark', 'add-page-numbers', 'merge-pdf'],
+    accept: 'application/pdf,.pdf',
+  },
+  {
+    slug: 'sign-pdf', name: 'Sign PDF', category: 'edit', icon: 'pen', live: true,
+    short: 'Draw, type or upload your signature and place it on a PDF.',
+    title: 'Sign PDF – Add Signature to PDF Free Online',
+    metaDescription: 'Sign PDF documents online for free. Draw, type or upload your signature and place it anywhere on the page. No upload, no sign-up – your file stays on your device.',
+    intro: 'Sign PDF lets you add your signature to any PDF in seconds. Draw it with your mouse or finger, type your name in a handwriting style, or upload a photo of your signature — then place it, resize it and download the signed PDF.',
+    howToName: 'How to sign a PDF',
+    steps: [
+      'Click "Choose PDF file" or drag and drop the PDF you need to sign.',
+      'Draw, type or upload your signature in the window that opens and click "Use signature".',
+      'Drag the signature to the right place and resize it with the round handle. Add the date with the T tool.',
+      'Click "Save PDF" and then "Download PDF".',
+    ],
+    faqs: [
+      common.privacyFaq,
+      { q: 'Is this a legally valid signature?', a: 'It is a simple electronic signature, which many everyday documents accept. Some contracts require a certified digital signature — check what the receiver needs.' },
+      { q: 'Is my signature stored anywhere?', a: 'No. Your signature and PDF stay in your browser and are gone when you close the page.' },
+      { q: 'Can I add my signature to several pages?', a: 'Yes. Click "Sign" again on each page where you need it.' },
+      common.freeFaq,
+    ],
+    related: ['edit-pdf', 'flatten-pdf', 'add-watermark', 'merge-pdf'],
+    accept: 'application/pdf,.pdf',
+  },  {
     slug: 'add-page-numbers', name: 'Add Page Numbers', category: 'edit', icon: 'hash', live: true,
     short: 'Number your PDF pages with your choice of position and style.',
     title: 'Add Page Numbers to PDF – Number PDF Pages Free Online',
@@ -251,7 +297,7 @@ export const tools: Tool[] = [
     related: ['add-page-numbers', 'protect-pdf', 'merge-pdf', 'flatten-pdf'],
     accept: 'application/pdf,.pdf',
   },
-  { slug: 'sign-pdf', name: 'Add Text & Signature', category: 'edit', icon: 'pen', live: false, short: 'Type, draw or upload a signature and add text.' },
+
   {
     slug: 'crop-pdf', name: 'Crop PDF', category: 'edit', icon: 'crop', live: true,
     short: 'Trim the margins of PDF pages.',

@@ -17,6 +17,7 @@ import RotateImage from '../components/tools/RotateImage';
 import ImageToBase64 from '../components/tools/ImageToBase64';
 import PdfPages from '../components/tools/PdfPages';
 import PdfEdit from '../components/tools/PdfEdit';
+import PdfEditor from '../components/tools/PdfEditor';
 
 export function getStaticPaths() {
   return tools.filter((t) => t.live).map((t) => ({ params: { tool: t.slug }, props: { tool: t } }));
@@ -64,6 +65,8 @@ const features = [
       {tool.slug === 'reorder-pdf-pages' && <PdfPages mode="reorder" client:load />}
       {tool.slug === 'rotate-pdf' && <PdfPages mode="rotate" client:load />}
       {tool.slug === 'add-blank-page' && <PdfPages mode="blank" client:load />}
+      {tool.slug === 'edit-pdf' && <PdfEditor client:load />}
+      {tool.slug === 'sign-pdf' && <PdfEditor mode="sign" client:load />}
       {tool.slug === 'add-page-numbers' && <PdfEdit mode="numbers" client:load />}
       {tool.slug === 'add-watermark' && <PdfEdit mode="watermark" client:load />}
       {tool.slug === 'crop-pdf' && <PdfEdit mode="crop" client:load />}

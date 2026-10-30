@@ -1,7 +1,8 @@
 /// <reference lib="webworker" />
-import { PDFDocument, degrees, rgb, StandardFonts } from 'pdf-lib';
+import { PDFDocument, degrees, rgb, StandardFonts, LineCapStyle } from 'pdf-lib';
 
 type Msg =
+  | { op: 'annotate'; file: ArrayBuffer; items: any[] }
   | { op: 'edit'; file: ArrayBuffer; kind: string; o: any }
   | { op: 'merge'; files: ArrayBuffer[] }
   | { op: 'count'; file: ArrayBuffer }
@@ -43,6 +44,40 @@ self.onmessage = async (ev: MessageEvent<Msg>) => {
       progress(m.files.length, m.files.length, 'Saving…');
       stamp(out);
       const bytes = await out.save();
+      post({ type: 'result', files: [bytes] }, [bytes.buffer]);
+      return;
+    }
+    if (m.op === 'annotate') {
+      const doc = await load(m.file);
+      const pages = doc.getPages();
+      const hex = (h: string) => { const n = parseInt((h || '#000000').slice(1), 16); return rgb(((n >> 16) & 255) / 255, ((n >> 8) & 255) / 255, (n & 255) / 255); };
+      const fonts = new Map<string, any>();
+      const font = async (name: string) => { if (!fonts.has(name)) fonts.set(name, await doc.embedFont((StandardFonts as any)[name])); return fonts.get(name); };
+      const imgs = new Map<string, any>();
+      for (let i = 0; i < m.items.length; i++) {
+        const it = m.items[i];
+        const pg = pages[it.page];
+        if (!pg) continue;
+        if (it.type === 'text') {
+          const f = await font(it.font);
+          for (const ln of it.lines) if (ln.text) pg.drawText(ln.text, { x: ln.x, y: ln.y, size: it.size, font: f, color: hex(it.color), rotate: degrees(it.rot) });
+        } else if (it.type === 'rect') {
+          pg.drawRectangle({ x: it.x, y: it.y, width: it.w, height: it.h,
+            ...(it.fill ? { color: hex(it.color), opacity: it.opacity } : { borderColor: hex(it.color), borderWidth: it.width, borderOpacity: it.opacity }) });
+        } else if (it.type === 'ink') {
+          for (let k = 1; k < it.points.length; k++) {
+            const [x1, y1] = it.points[k - 1], [x2, y2] = it.points[k];
+            pg.drawLine({ start: { x: x1, y: y1 }, end: { x: x2, y: y2 }, thickness: it.width, color: hex(it.color), lineCap: LineCapStyle.Round });
+          }
+        } else if (it.type === 'image') {
+          let img = imgs.get(it.key);
+          if (!img) { img = it.kind === 'png' ? await doc.embedPng(it.bytes) : await doc.embedJpg(it.bytes); imgs.set(it.key, img); }
+          pg.drawImage(img, { x: it.x, y: it.y, width: it.w, height: it.h, rotate: degrees(it.rot) });
+        }
+        if (i % 20 === 0) progress(i, m.items.length, 'Saving your changes…');
+      }
+      stamp(doc);
+      const bytes = await doc.save();
       post({ type: 'result', files: [bytes] }, [bytes.buffer]);
       return;
     }
