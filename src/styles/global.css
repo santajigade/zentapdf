@@ -87,11 +87,28 @@ h3 { font-size: 1.1rem; margin: 1.2rem 0 .4rem; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
 .card { position: relative; display: flex; flex-direction: column; gap: 6px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; color: var(--text); text-decoration: none; box-shadow: var(--shadow); transition: border-color .15s, transform .15s; }
 a.card:hover { border-color: var(--brand); transform: translateY(-2px); color: var(--text); }
-.card .ic { width: 44px; height: 44px; border-radius: 12px; background: var(--brand-50); color: var(--brand); display: grid; place-items: center; }
+.card .ic { width: 44px; height: 44px; border-radius: 12px; background: var(--tint-strong, var(--brand-50)); color: var(--accent, var(--brand)); display: grid; place-items: center; }
 .card strong { font-size: 1.02rem; }
 .card span.desc { color: var(--muted); font-size: .9rem; line-height: 1.45; }
-.card.soon { background: var(--bg-soft); box-shadow: none; }
-.card.soon .ic { background: var(--border); color: var(--muted); }
+.card.soon { background: color-mix(in srgb, var(--card) 70%, transparent); box-shadow: none; }
+a.card:hover { border-color: var(--accent, var(--brand)); }
+
+/* Category colours (light tints) */
+.tint-organise { --tint: #eff6ff; --tint-strong: #dbeafe; --accent: #2563eb; }
+.tint-edit     { --tint: #f5f3ff; --tint-strong: #ede9fe; --accent: #7c3aed; }
+.tint-convert  { --tint: #ecfdf5; --tint-strong: #d1fae5; --accent: #047857; }
+.tint-security { --tint: #fffbeb; --tint-strong: #fef3c7; --accent: #b45309; }
+.tint-image    { --tint: #fff1f2; --tint-strong: #ffe4e6; --accent: #be123c; }
+:root[data-theme='dark'] .tint-organise { --tint: rgb(37 99 235 / .10); --tint-strong: rgb(37 99 235 / .25); --accent: #93c5fd; }
+:root[data-theme='dark'] .tint-edit     { --tint: rgb(124 58 237 / .10); --tint-strong: rgb(124 58 237 / .25); --accent: #c4b5fd; }
+:root[data-theme='dark'] .tint-convert  { --tint: rgb(5 150 105 / .10); --tint-strong: rgb(5 150 105 / .25); --accent: #6ee7b7; }
+:root[data-theme='dark'] .tint-security { --tint: rgb(217 119 6 / .10); --tint-strong: rgb(217 119 6 / .25); --accent: #fcd34d; }
+:root[data-theme='dark'] .tint-image    { --tint: rgb(225 29 72 / .10); --tint-strong: rgb(225 29 72 / .25); --accent: #fda4af; }
+.cat { background: var(--tint); border-radius: 20px; padding: 6px 22px 22px; margin-top: 22px; }
+.cat h2 { margin-top: 1rem; }
+.cat .cat-title a { color: var(--accent); font-weight: 600; }
+.cat-band { background: var(--tint); border-radius: 20px; padding: 22px; margin-top: 24px; }
+@media (max-width: 480px) { .cat, .cat-band { padding-left: 14px; padding-right: 14px; border-radius: 16px; } }
 .badge { position: absolute; top: 14px; right: 14px; font-size: .72rem; font-weight: 700; background: var(--bg-soft); color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 2px 8px; }
 
 /* Breadcrumbs */
@@ -163,10 +180,14 @@ details.faq p { margin: .5rem 0 0; color: var(--muted); }
 
 /* Footer */
 .site-footer { border-top: 1px solid var(--border); margin-top: 48px; padding: 32px 0; background: var(--bg-soft); font-size: .92rem; }
-.foot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 20px; }
-.site-footer h3 { font-size: .95rem; margin: 0 0 8px; }
+.foot-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 28px 40px; align-items: start; }
+.foot-brand p { color: var(--muted); margin: .6rem 0 0; max-width: 300px; }
+@media (max-width: 860px) { .foot-grid { grid-template-columns: 1fr 1fr; } .foot-brand { grid-column: 1 / -1; } }
+@media (max-width: 420px) { .foot-grid { grid-template-columns: 1fr; } }
+.site-footer h3 { font-size: .95rem; margin: 4px 0 10px; color: var(--text); }
 .site-footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
 .site-footer a { color: var(--muted); text-decoration: none; }
 .site-footer a:hover { color: var(--brand); }
-.copy { color: var(--muted); margin-top: 22px; }
+.copy { color: var(--muted); margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--border); font-size: .88rem; }
 .share-btn { margin-top: 10px; }
+.site-footer a.logo { color: var(--text); }

@@ -21,7 +21,7 @@ const description = 'Merge, split and convert PDF files and compress images for 
     {categories.map((c) => {
       const list = tools.filter((t) => t.category === c.id).sort((a, b) => Number(b.live) - Number(a.live));
       return (
-        <section class="cat" data-cat>
+        <section class={`cat tint-${c.id}`} data-cat>
           <div class="cat-title"><h2>{c.name}</h2><a href={`/${c.slug}/`}>View all</a></div>
           <div class="grid">{list.map((t) => <ToolCard tool={t} />)}</div>
         </section>

@@ -84,17 +84,22 @@ const orgSchema = {
   <footer class="site-footer">
     <div class="container">
       <div class="foot-grid">
-        <div>
+        <div class="foot-brand">
           <a class="logo" href="/"><img src="/logo.svg" width="28" height="28" alt="" /><span>Zenta<b>PDF</b></span></a>
-          <p style="color:var(--muted);margin:.6rem 0 0">Free PDF and image tools. Your files are processed in your browser and never leave your device.</p>
+          <p>Free PDF and image tools. Your files are processed in your browser and never leave your device.</p>
           <button class="btn btn-ghost share-btn" id="share-btn" type="button">Share this tool</button>
         </div>
-        {categories.map((c) => (
-          <div>
-            <h3><a href={`/${c.slug}/`}>{c.name}</a></h3>
-            <ul>{liveTools.filter((t) => t.category === c.id).map((t) => <li><a href={`/${t.slug}/`}>{t.name}</a></li>)}</ul>
-          </div>
-        ))}
+        <div>
+          <h3>PDF tools</h3>
+          <ul>{liveTools.filter((t) => t.category !== 'image').map((t) => <li><a href={`/${t.slug}/`}>{t.name}</a></li>)}</ul>
+        </div>
+        <div>
+          <h3>Image tools</h3>
+          <ul>
+            {liveTools.filter((t) => t.category === 'image').map((t) => <li><a href={`/${t.slug}/`}>{t.name}</a></li>)}
+            <li><a href="/#all-tools">All tools</a></li>
+          </ul>
+        </div>
         <div>
           <h3>Company</h3>
           <ul>

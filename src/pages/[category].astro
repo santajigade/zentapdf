@@ -16,6 +16,6 @@ const crumbs = [{ name: 'Home', href: '/' }, { name: cat.name, href: `/${cat.slu
   <Breadcrumbs items={crumbs} />
   <section class="container">
     <div class="tool-head"><h1>{cat.name} tools</h1><p>{cat.description}</p></div>
-    <div class="grid" style="margin-top:24px">{list.map((t) => <ToolCard tool={t} />)}</div>
+    <div class={`cat-band tint-${cat.id}`}><div class="grid">{list.map((t) => <ToolCard tool={t} />)}</div></div>
   </section>
 </Base>

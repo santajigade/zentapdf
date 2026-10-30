@@ -5,13 +5,13 @@ interface Props { tool: Tool }
 const { tool } = Astro.props;
 ---
 {tool.live ? (
-  <a class="card" href={`/${tool.slug}/`} data-name={tool.name.toLowerCase()}>
+  <a class={`card tint-${tool.category}`} href={`/${tool.slug}/`} data-name={tool.name.toLowerCase()}>
     <span class="ic" set:html={icon(tool.icon)} />
     <strong>{tool.name}</strong>
     <span class="desc">{tool.short}</span>
   </a>
 ) : (
-  <div class="card soon" data-name={tool.name.toLowerCase()}>
+  <div class={`card soon tint-${tool.category}`} data-name={tool.name.toLowerCase()}>
     <span class="badge">Soon</span>
     <span class="ic" set:html={icon(tool.icon)} />
     <strong>{tool.name}</strong>
