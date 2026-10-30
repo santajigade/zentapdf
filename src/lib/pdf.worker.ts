@@ -1,5 +1,5 @@
 /// <reference lib="webworker" />
-import { PDFDocument, degrees, rgb, StandardFonts, LineCapStyle } from 'pdf-lib';
+import { PDFDocument, degrees, rgb, StandardFonts, LineCapStyle, pushGraphicsState, popGraphicsState, setCharacterSqueeze, setCharacterSpacing } from 'pdf-lib';
 
 type Msg =
   | { op: 'annotate'; file: ArrayBuffer; items: any[] }
@@ -60,7 +60,10 @@ self.onmessage = async (ev: MessageEvent<Msg>) => {
         if (!pg) continue;
         if (it.type === 'text') {
           const f = await font(it.font);
+          const special = it.hs || it.cs;
+          if (special) pg.pushOperators(pushGraphicsState(), setCharacterSqueeze((it.hs || 1) * 100), setCharacterSpacing(it.cs || 0));
           for (const ln of it.lines) if (ln.text) pg.drawText(ln.text, { x: ln.x, y: ln.y, size: it.size, font: f, color: hex(it.color), rotate: degrees(it.rot) });
+          if (special) pg.pushOperators(popGraphicsState());
         } else if (it.type === 'rect') {
           pg.drawRectangle({ x: it.x, y: it.y, width: it.w, height: it.h,
             ...(it.fill ? { color: hex(it.color), opacity: it.opacity } : { borderColor: hex(it.color), borderWidth: it.width, borderOpacity: it.opacity }) });

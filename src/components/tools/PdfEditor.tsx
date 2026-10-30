@@ -9,7 +9,7 @@ type Tool = 'select' | 'edittext' | 'text' | 'whiteout' | 'highlight' | 'rect' |
 type Obj = {
   id: string; page: number; type: 'text' | 'rect' | 'ink' | 'image';
   x: number; y: number; w: number; h: number; // viewport units (scale 1, top-left origin)
-  text?: string; size?: number; font?: string; bold?: boolean; italic?: boolean;
+  text?: string; size?: number; font?: string; bold?: boolean; italic?: boolean; hs?: number; cs?: number;
   color: string; fill?: boolean; opacity?: number; width?: number;
   points?: [number, number][]; src?: string; kind?: 'png' | 'jpg'; link?: string; tkey?: string;
 };
@@ -58,6 +58,8 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
   const [style, setStyle] = useState({ color: '#111827', size: 14, font: 'Helvetica', bold: false, italic: false, width: 2 });
   const [scales, setScales] = useState<number[]>([]);
   const [zoom, setZoom] = useState(1);
+  const measureCv = useRef<HTMLCanvasElement | null>(null);
+  const clickPt = useRef<{ x: number; y: number } | null>(null);
   const scroller = useRef<HTMLDivElement>(null);
   const zoomTo = (z: number) => {
     const el = scroller.current; const fx = el ? (el.scrollLeft + el.clientWidth / 2) / Math.max(1, el.scrollWidth) : 0.5; const fy = el ? (el.scrollTop + el.clientHeight / 2) / Math.max(1, el.scrollHeight) : 0;
@@ -234,7 +236,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
 
   const onObjDown = (e: PointerEvent, o: Obj, kind: 'move' | 'resize') => {
     if (editing === o.id) return;
-    if (tool === 'edittext') { if (o.type === 'text') { e.stopPropagation(); e.preventDefault(); setSel(o.id); setEditing(o.id); } return; }
+    if (tool === 'edittext') { if (o.type === 'text') { e.stopPropagation(); e.preventDefault(); clickPt.current = { x: e.clientX, y: e.clientY }; setSel(o.id); setEditing(o.id); } return; }
     if (tool !== 'select') return;
     e.stopPropagation(); e.preventDefault();
     const pageEl = pageEls.current[o.page]!;
@@ -290,11 +292,23 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
   };
   const editItem = async (e: PointerEvent, page: number, it: TItem) => {
     e.stopPropagation(); e.preventDefault();
+    clickPt.current = { x: e.clientX, y: e.clientY };
     const { bg, fg } = sample(page, it);
     if (!it.bold) { const r = await stemRatio(page, it, bg); (window as any).__stem = r; if (r > 0.125) it = { ...it, bold: true }; }
     const wid = uid(), tid = uid();
     const white: Obj = { id: wid, page, type: 'rect', x: it.x - 1, y: it.y - it.size * 0.05, w: it.w + 2, h: it.h, fill: true, opacity: 1, color: bg, tkey: it.key };
     const text: Obj = { id: tid, page, type: 'text', x: it.x, y: it.base - 0.92 * it.size, w: 0, h: 0, text: it.str, size: Math.round(it.size * 10) / 10, font: it.font, bold: it.bold, italic: it.italic, color: fg, link: wid, tkey: it.key };
+    // match the original width: letter-spaced text gets character spacing, other text is squeezed/stretched slightly
+    const ctx = (measureCv.current ??= document.createElement('canvas')).getContext('2d')!;
+    ctx.font = `${it.italic ? 'italic ' : ''}${it.bold ? 700 : 400} ${it.size}px ${css(it.font)}`;
+    if (/^(\S )+\S$/.test(it.str)) {
+      text.text = it.str.replace(/ /g, '');
+      const nat = ctx.measureText(text.text).width;
+      text.cs = Math.max(0, (it.w - nat) / text.text.length);
+    } else {
+      const nat = ctx.measureText(it.str).width, r = nat ? it.w / nat : 1;
+      if (Math.abs(r - 1) > 0.03 && r > 0.6 && r < 1.25) text.hs = Math.round(r * 1000) / 1000;
+    }
     commit([...objs, white, text]); setSel(tid); setEditing(tid);
   };
   const edited = new Set(objs.filter((o) => o.tkey).map((o) => o.tkey));
@@ -334,7 +348,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
           const text = (textRef.current[o.id] ?? o.text ?? '');
           if (!text.trim()) continue;
           const lines = text.split('\n').map((t, i) => { const [x, y] = conv(o.page, o.x, o.y + (i * 1.2 + 0.92) * o.size!); return { text: t, x, y }; });
-          items.push({ type: 'text', page: o.page, lines, size: o.size, color: o.color, font: pdfFont(o.font, o.bold, o.italic), rot });
+          items.push({ type: 'text', page: o.page, lines, size: o.size, color: o.color, font: pdfFont(o.font, o.bold, o.italic), rot, hs: o.hs, cs: o.cs });
         } else if (o.type === 'rect') {
           const [x1, y1] = conv(o.page, o.x, o.y), [x2, y2] = conv(o.page, o.x + o.w, o.y + o.h);
           items.push({ type: 'rect', page: o.page, x: Math.min(x1, x2), y: Math.min(y1, y2), w: Math.abs(x2 - x1), h: Math.abs(y2 - y1), color: o.color, fill: o.fill, opacity: o.opacity, width: o.width });
@@ -469,10 +483,21 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
                     style={o.type === 'text' ? box : { ...box, width: (o.w / p.w) * 100 + '%', height: (o.h / p.h) * 100 + '%' }}>
                     {o.type === 'text' && (
                       <div contentEditable={isEdit} spellcheck={false} aria-label="Text"
-                        ref={(el) => { if (el && isEdit && document.activeElement !== el) { el.focus(); const r = document.createRange(); r.selectNodeContents(el); r.collapse(false); const s2 = getSelection(); s2?.removeAllRanges(); s2?.addRange(r); } }}
+                        ref={(el) => { if (el && isEdit && document.activeElement !== el) {
+                          el.focus();
+                          let r: Range | null = null; const cp = clickPt.current; clickPt.current = null;
+                          if (cp) {
+                            const d: any = document;
+                            if (d.caretRangeFromPoint) r = d.caretRangeFromPoint(cp.x, cp.y);
+                            else if (d.caretPositionFromPoint) { const pos = d.caretPositionFromPoint(cp.x, cp.y); if (pos) { r = document.createRange(); r.setStart(pos.offsetNode, pos.offset); r.collapse(true); } }
+                            if (r && !el.contains(r.startContainer)) r = null;
+                          }
+                          if (!r) { r = document.createRange(); r.selectNodeContents(el); r.collapse(false); }
+                          const s2 = getSelection(); s2?.removeAllRanges(); s2?.addRange(r);
+                        } }}
                         onInput={(e) => (textRef.current[o.id] = (e.target as HTMLElement).innerText)}
                         onBlur={(e) => { const t = (e.target as HTMLElement).innerText.replace(/\n$/, ''); textRef.current[o.id] = t; if (!t.trim()) { setObjs((cur) => cur.filter((x) => x.id !== o.id)); } else patch(o.id, { text: t }); setEditing(null); }}
-                        style={{ font: `${o.italic ? 'italic ' : ''}${o.bold ? 700 : 400} ${o.size! * s}px/1.2 ${css(o.font)}`, color: o.color, whiteSpace: 'pre', minWidth: '1ch', minHeight: o.size! * 1.2 * s + 'px', outline: 'none', background: isEdit ? 'rgb(79 70 229 / .06)' : 'transparent' }}
+                        style={{ font: `${o.italic ? 'italic ' : ''}${o.bold ? 700 : 400} ${o.size! * s}px/1.2 ${css(o.font)}`, letterSpacing: o.cs ? o.cs * s + 'px' : undefined, transform: o.hs ? `scaleX(${o.hs})` : undefined, transformOrigin: 'left top', color: o.color, whiteSpace: 'pre', minWidth: '1ch', minHeight: o.size! * 1.2 * s + 'px', outline: 'none', background: isEdit ? 'rgb(79 70 229 / .06)' : 'transparent' }}
                         dangerouslySetInnerHTML={{ __html: (o.text ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;') }} />
                     )}
                     {o.type === 'rect' && <div style={{ width: '100%', height: '100%', background: o.fill ? o.color : 'transparent', opacity: o.opacity, border: o.fill ? (o.color === '#ffffff' && isSel ? '1px solid #ddd' : 'none') : `${(o.width ?? 2) * s}px solid ${o.color}`, mixBlendMode: o.opacity! < 1 ? 'multiply' : 'normal' }} />}
