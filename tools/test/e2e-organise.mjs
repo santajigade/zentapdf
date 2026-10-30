@@ -4,7 +4,7 @@ import fs from 'fs';
 const T = process.env.TESTFILES || '/home/claude/testfiles/', OUT = '/tmp/testout/'; fs.mkdirSync(OUT, { recursive: true });
 const B = 'http://localhost:4321'; const b = await chromium.launch(); const res = [];
 const ok = (n, c, i = '') => res.push(`${c ? 'PASS' : 'FAIL'} ${n} ${i}`);
-async function page(u, w = 1280) { const c = await b.newContext({ acceptDownloads: true, viewport: { width: w, height: 900 } }); const p = await c.newPage(); p.errors = []; p.on('console', m => m.type() === 'error' && p.errors.push(m.text())); p.on('pageerror', e => p.errors.push(String(e))); await p.goto(B + u); await p.waitForSelector('astro-island:not([ssr])', { state: 'attached' }); return p; }
+async function page(u, w = 1280) { const c = await b.newContext({ acceptDownloads: true, viewport: { width: w, height: 900 } }); const p = await c.newPage(); p.errors = []; p.on('console', m => m.type() === 'error' && !/TUNNEL|googletagmanager|google-analytics/.test(m.text()) && p.errors.push(m.text())); p.on('pageerror', e => p.errors.push(String(e))); await p.goto(B + u); await p.waitForSelector('astro-island:not([ssr])', { state: 'attached' }); return p; }
 async function load(p, f) { await p.setInputFiles('input[type=file]', [T + f]); await p.waitForFunction(() => document.querySelectorAll('.pages-grid img').length > 0 && !document.querySelector('.progress')); }
 async function dl(p, f) { const [d] = await Promise.all([p.waitForEvent('download'), p.getByRole('button', { name: 'Download PDF' }).click()]); await d.saveAs(OUT + f); return PDFDocument.load(fs.readFileSync(OUT + f)); }
 try {

@@ -37,6 +37,7 @@ export async function zipFiles(files: { name: string; blob: Blob }[]): Promise<B
 
 export function friendlyError(e: unknown): string {
   const msg = String((e as any)?.message ?? e);
+  if (/WinAnsi cannot encode/i.test(msg)) return 'This text has characters the standard PDF font cannot show (for example Hindi or emoji). Please use English letters, numbers and common symbols.';
   if (/encrypt/i.test(msg)) return 'This PDF is password-protected. Please unlock it first, then try again.';
   if (/RangeError|memory|allocation|Array buffer/i.test(msg))
     return 'This file is too large for your device’s memory. Try fewer or smaller files, or use a computer.';

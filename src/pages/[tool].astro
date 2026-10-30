@@ -16,6 +16,7 @@ import ConvertImage from '../components/tools/ConvertImage';
 import RotateImage from '../components/tools/RotateImage';
 import ImageToBase64 from '../components/tools/ImageToBase64';
 import PdfPages from '../components/tools/PdfPages';
+import PdfEdit from '../components/tools/PdfEdit';
 
 export function getStaticPaths() {
   return tools.filter((t) => t.live).map((t) => ({ params: { tool: t.slug }, props: { tool: t } }));
@@ -63,6 +64,11 @@ const features = [
       {tool.slug === 'reorder-pdf-pages' && <PdfPages mode="reorder" client:load />}
       {tool.slug === 'rotate-pdf' && <PdfPages mode="rotate" client:load />}
       {tool.slug === 'add-blank-page' && <PdfPages mode="blank" client:load />}
+      {tool.slug === 'add-page-numbers' && <PdfEdit mode="numbers" client:load />}
+      {tool.slug === 'add-watermark' && <PdfEdit mode="watermark" client:load />}
+      {tool.slug === 'crop-pdf' && <PdfEdit mode="crop" client:load />}
+      {tool.slug === 'flatten-pdf' && <PdfEdit mode="flatten" client:load />}
+      {tool.slug === 'edit-pdf-metadata' && <PdfEdit mode="metadata" client:load />}
       <noscript><p class="error">Please turn on JavaScript — this tool runs in your browser.</p></noscript>
     </div>
   </section>

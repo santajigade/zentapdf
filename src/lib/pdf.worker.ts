@@ -1,7 +1,8 @@
 /// <reference lib="webworker" />
-import { PDFDocument, degrees } from 'pdf-lib';
+import { PDFDocument, degrees, rgb, StandardFonts } from 'pdf-lib';
 
 type Msg =
+  | { op: 'edit'; file: ArrayBuffer; kind: string; o: any }
   | { op: 'merge'; files: ArrayBuffer[] }
   | { op: 'count'; file: ArrayBuffer }
   | { op: 'build'; file: ArrayBuffer; pages: { src: number; rot: number }[] }
@@ -43,6 +44,76 @@ self.onmessage = async (ev: MessageEvent<Msg>) => {
       stamp(out);
       const bytes = await out.save();
       post({ type: 'result', files: [bytes] }, [bytes.buffer]);
+      return;
+    }
+    if (m.op === 'edit') {
+      const doc = await load(m.file);
+      const o = m.o;
+      const pages = doc.getPages();
+      const hex = (h: string) => { const n = parseInt((h || '#000000').slice(1), 16); return rgb(((n >> 16) & 255) / 255, ((n >> 8) & 255) / 255, (n & 255) / 255); };
+      if (m.kind === 'meta-read') {
+        post({ type: 'result', meta: { title: doc.getTitle() ?? '', author: doc.getAuthor() ?? '', subject: doc.getSubject() ?? '', keywords: doc.getKeywords() ?? '', creator: doc.getCreator() ?? '', producer: doc.getProducer() ?? '' }, pages: pages.length });
+        return;
+      }
+      if (m.kind === 'numbers') {
+        const font = await doc.embedFont(o.bold ? StandardFonts.HelveticaBold : StandardFonts.Helvetica);
+        const total = pages.length;
+        pages.forEach((pg, i) => {
+          if (o.skipFirst && i === 0) return;
+          const n = o.start + i - (o.skipFirst ? 1 : 0);
+          const label = o.format === 'of' ? `${n} of ${total - (o.skipFirst ? 1 : 0) + o.start - 1}` : o.format === 'page' ? `Page ${n}` : String(n);
+          const { width, height } = pg.getSize();
+          const tw = font.widthOfTextAtSize(label, o.size);
+          const m = 28;
+          const x = o.pos.endsWith('l') ? m : o.pos.endsWith('r') ? width - m - tw : (width - tw) / 2;
+          const y = o.pos.startsWith('t') ? height - m - o.size : m;
+          pg.drawText(label, { x, y, size: o.size, font, color: hex(o.color) });
+          if (i % 25 === 0) progress(i, total, 'Adding numbers…');
+        });
+      } else if (m.kind === 'watermark') {
+        const font = await doc.embedFont(StandardFonts.HelveticaBold);
+        const img = o.image ? (o.image.kind === 'png' ? await doc.embedPng(o.image.bytes) : await doc.embedJpg(o.image.bytes)) : null;
+        pages.forEach((pg, i) => {
+          const { width, height } = pg.getSize();
+          if (img) {
+            const s = Math.min((width * o.scale) / img.width, (height * o.scale) / img.height);
+            const w = img.width * s, h = img.height * s;
+            pg.drawImage(img, { x: (width - w) / 2, y: (height - h) / 2, width: w, height: h, opacity: o.opacity });
+          } else {
+            const size = o.size, tw = font.widthOfTextAtSize(o.text, size);
+            const a = (o.angle * Math.PI) / 180;
+            const draw = (cx: number, cy: number) => pg.drawText(o.text, { x: cx - (tw / 2) * Math.cos(a) + (size / 3) * Math.sin(a), y: cy - (tw / 2) * Math.sin(a) - (size / 3) * Math.cos(a), size, font, color: hex(o.color), opacity: o.opacity, rotate: degrees(o.angle) });
+            if (o.tile) { for (let y = height * 0.15; y < height; y += height / 3) for (let x = width * 0.25; x < width; x += width / 2) draw(x, y); }
+            else draw(width / 2, height / 2);
+          }
+          if (i % 25 === 0) progress(i, pages.length, 'Adding watermark…');
+        });
+      } else if (m.kind === 'crop') {
+        const mm = 72 / 25.4;
+        for (const pg of pages) {
+          const b = pg.getCropBox();
+          const l = o.l * mm, r = o.r * mm, t = o.t * mm, bt = o.b * mm;
+          const w = b.width - l - r, h = b.height - t - bt;
+          if (w < 10 || h < 10) throw new Error('The margins are larger than the page. Please use smaller values.');
+          pg.setCropBox(b.x + l, b.y + bt, w, h);
+          pg.setMediaBox(b.x + l, b.y + bt, w, h);
+        }
+      } else if (m.kind === 'flatten') {
+        const form = doc.getForm();
+        const n = form.getFields().length;
+        form.flatten();
+        o._fields = n;
+      } else if (m.kind === 'meta-write') {
+        doc.setTitle(o.title); doc.setAuthor(o.author); doc.setSubject(o.subject);
+        doc.setKeywords(o.keywords.split(',').map((k: string) => k.trim()).filter(Boolean));
+        doc.setCreator(o.creator); doc.setProducer(o.producer || 'ZentaPDF'); doc.setModificationDate(new Date());
+        const bytes = await doc.save();
+        post({ type: 'result', files: [bytes] }, [bytes.buffer]);
+        return;
+      }
+      stamp(doc);
+      const bytes = await doc.save();
+      post({ type: 'result', files: [bytes], fields: o._fields }, [bytes.buffer]);
       return;
     }
     if (m.op === 'build') {

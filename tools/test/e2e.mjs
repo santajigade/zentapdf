@@ -13,7 +13,7 @@ async function page(url, width = 1280) {
   const ctx = await browser.newContext({ acceptDownloads: true, viewport: { width, height: 900 } });
   const p = await ctx.newPage();
   p.errors = [];
-  p.on('console', (m) => m.type() === 'error' && p.errors.push(m.text()));
+  p.on('console', (m) => m.type() === 'error' && !/TUNNEL|googletagmanager|google-analytics/.test(m.text()) && p.errors.push(m.text()));
   p.on('pageerror', (e) => p.errors.push(String(e)));
   await p.goto(B + url); if (/-/.test(url)) await p.waitForSelector('astro-island:not([ssr])', { state: 'attached' }).catch(() => {});
   return p;
