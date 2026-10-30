@@ -24,8 +24,20 @@ export const icons: Record<string, string> = {
   resize: '<path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/>',
   convert: '<path d="M4 7h13l-3-3"/><path d="M20 17H7l3 3"/>',
   code: '<path d="m8 8-4 4 4 4"/><path d="m16 8 4 4-4 4"/><path d="m14 4-4 16"/>',
+  sign: '<path d="M3 17c2 0 3-6 5-6s1 5 3 5 2-3 4-3"/><path d="M3 21h18"/><path d="m16 4 4 4-6 6h-4v-4z"/>',
+  editdoc: '<path d="M13 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h4"/><path d="M13 3v5h5"/><path d="M14 21v-2.5l5.5-5.5 2.5 2.5L16.5 21z"/>',
   shield: '<path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/>',
   upload: '<path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/>',
 };
 export const icon = (name: string, size = 24) =>
   `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[name] ?? icons.text}</svg>`;
+
+// Solid tile colour per tool (original ZentaPDF palette)
+const C = { red: '#e5484d', orange: '#f76b15', amber: '#e5a000', green: '#30a46c', teal: '#12a594', cyan: '#0797b9', blue: '#3e63dd', indigo: '#5b5bd6', violet: '#8e4ec6', pink: '#d6409f', slate: '#5b6475' };
+export const toolColor: Record<string, string> = {
+  'merge-pdf': C.red, 'split-pdf': C.orange, 'remove-pages': C.pink, 'extract-pages': C.teal, 'reorder-pdf-pages': C.violet, 'rotate-pdf': C.indigo, 'add-blank-page': C.slate,
+  'edit-pdf': C.violet, 'sign-pdf': C.blue, 'add-page-numbers': C.indigo, 'add-watermark': C.pink, 'crop-pdf': C.teal, 'flatten-pdf': C.cyan, 'edit-pdf-metadata': C.slate,
+  'protect-pdf': C.blue, 'unlock-pdf': C.cyan,
+  'jpg-to-pdf': C.amber, 'pdf-to-jpg': C.amber, 'images-to-pdf': C.orange, 'pdf-to-text': C.slate, 'compress-pdf': C.green,
+  'compress-image': C.green, 'resize-image': C.blue, 'crop-image': C.teal, 'convert-image': C.violet, 'rotate-image': C.indigo, 'image-to-base64': C.slate,
+};

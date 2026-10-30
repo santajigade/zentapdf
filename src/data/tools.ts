@@ -206,7 +206,7 @@ export const tools: Tool[] = [
   },
   // ---------- Edit ----------
   {
-    slug: 'edit-pdf', name: 'Edit PDF', category: 'edit', icon: 'pen', live: true,
+    slug: 'edit-pdf', name: 'Edit PDF', category: 'edit', icon: 'editdoc', live: true,
     short: 'Change existing text, add text, signatures, images, shapes and highlights.',
     title: 'Edit PDF – Free Online PDF Editor (No Upload, No Sign-up)',
     metaDescription: 'Edit PDF files online for free. Add text, signatures, images, shapes and highlights, white-out content and draw on pages. Private – your PDF never leaves your device.',
@@ -230,7 +230,7 @@ export const tools: Tool[] = [
     accept: 'application/pdf,.pdf',
   },
   {
-    slug: 'sign-pdf', name: 'Sign PDF', category: 'edit', icon: 'pen', live: true,
+    slug: 'sign-pdf', name: 'Sign PDF', category: 'edit', icon: 'sign', live: true,
     short: 'Draw, type or upload your signature and place it on a PDF.',
     title: 'Sign PDF – Add Signature to PDF Free Online',
     metaDescription: 'Sign PDF documents online for free. Draw, type or upload your signature and place it anywhere on the page. No upload, no sign-up – your file stays on your device.',

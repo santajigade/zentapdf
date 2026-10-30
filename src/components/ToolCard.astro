@@ -1,19 +1,20 @@
 ---
-import { icon } from '../data/icons';
+import { icon, toolColor } from '../data/icons';
 import type { Tool } from '../data/tools';
 interface Props { tool: Tool }
 const { tool } = Astro.props;
+const bg = toolColor[tool.slug] ?? '#5b5bd6';
 ---
 {tool.live ? (
   <a class={`card tint-${tool.category}`} href={`/${tool.slug}/`} data-name={tool.name.toLowerCase()}>
-    <span class="ic" set:html={icon(tool.icon)} />
+    <span class="ic" style={`background:${bg}`} set:html={icon(tool.icon, 26)} />
     <strong>{tool.name}</strong>
     <span class="desc">{tool.short}</span>
   </a>
 ) : (
   <div class={`card soon tint-${tool.category}`} data-name={tool.name.toLowerCase()}>
     <span class="badge">Soon</span>
-    <span class="ic" set:html={icon(tool.icon)} />
+    <span class="ic" style={`background:${bg}`} set:html={icon(tool.icon, 26)} />
     <strong>{tool.name}</strong>
     <span class="desc">{tool.short}</span>
   </div>
