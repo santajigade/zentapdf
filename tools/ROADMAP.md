@@ -41,6 +41,13 @@ Brand: ZentaPDF · colour Indigo #4F46E5 · domain TBD (placeholder zentapdf.com
 - [ ] Next guide ideas: PDF to JPG on phone, fill a PDF form, split PDF by pages, signature size for exam forms, PDF vs Word for resumes, compress image without losing quality, add page numbers for project reports, watermark documents
 - [ ] Hindi versions of top pages
 
+## Batch A – utilities (2026-11-02, inspired by ezgif.com)
+- [x] QR code generator (+ UPI QR page), barcode generator, favicon generator, PNG to ICO, EXIF viewer, remove EXIF data, WhatsApp sticker maker — test tools/test/e2e-utility.mjs
+- [x] Homepage compacted: popular tools + category tiles + compact all-tools list (search filters it)
+- [x] Owner decision: removed the "files never leave your device" slogan (hero badge, drop-zone note, footer, CTAs, share images). Factual privacy FAQ, privacy policy and guides still explain in-browser processing.
+- [ ] Batch B – GIF tools: GIF maker, video to GIF, PDF to GIF, GIF resize/crop/compress/reverse/speed, GIF to MP4/JPG
+- [ ] Batch C – video/audio (ffmpeg.wasm, on demand): MP4 to MP3, cut/crop/rotate/speed/join/compress video
+
 ## Phase 2 (agreed 2026-10-30)
 - [ ] Optional sign-in (Google + email/password via Firebase or Supabase) — only with server tools / Pro plan; tools must keep working without login
 

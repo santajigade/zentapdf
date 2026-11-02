@@ -23,7 +23,7 @@ for (const t of tools) {
       <div style="font-size:${t.name.length > 18 ? 66 : 80}px;font-weight:800;letter-spacing:-.02em;line-height:1.05">${t.name}</div>
       <div style="font-size:32px;opacity:.93;margin-top:22px;line-height:1.3">${t.short}</div>
     </div>
-    <div style="position:absolute;left:70px;bottom:56px;font-size:26px;opacity:.92">Free · No sign-up · Files never leave your device</div>
+    <div style="position:absolute;left:70px;bottom:56px;font-size:26px;opacity:.92">Free · No sign-up · No watermark</div>
     <div style="position:absolute;right:70px;bottom:46px;background:#fff;color:#4F46E5;border-radius:999px;padding:10px 26px;font-size:26px;font-weight:800">zentapdf.com</div>
   </div></body></html>`);
   const out = `${ROOT}/public/og/tools/${t.slug}.png`;

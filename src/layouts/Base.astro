@@ -24,7 +24,7 @@ const footCols = [
 const year = new Date().getFullYear();
 const orgSchema = [
   { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE_NAME, url: SITE_URL + '/' },
-  { '@context': 'https://schema.org', '@type': 'Organization', name: SITE_NAME, url: SITE_URL + '/', logo: SITE_URL + '/favicon-512.png', slogan: 'PDF tools that never see your files.',
+  { '@context': 'https://schema.org', '@type': 'Organization', name: SITE_NAME, url: SITE_URL + '/', logo: SITE_URL + '/favicon-512.png', slogan: 'Free PDF & image tools.',
     sameAs: ['https://www.linkedin.com/company/zentapdf/', 'https://www.facebook.com/zentapdf/', 'https://www.instagram.com/zentapdf/'] },
 ];
 ---
@@ -98,7 +98,7 @@ const orgSchema = [
       <div class="foot-grid">
         <div class="foot-brand">
           <a class="logo" href="/"><img src="/logo.svg" width="28" height="28" alt="" /><span>Zenta<b>PDF</b></span></a>
-          <p>Free PDF and image tools. Your files are processed in your browser and never leave your device.</p>
+          <p>Free online PDF and image tools — fast, simple and no sign-up.</p>
           <button class="btn btn-ghost share-btn" id="share-btn" type="button">Share this tool</button>
         </div>
         {footCols.map((c) => (

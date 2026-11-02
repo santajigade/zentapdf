@@ -60,7 +60,6 @@ export function DropZone({ accept, multiple, label, hint, compact, onFiles }: Dr
         <p>{hint ?? 'or drop files here'}</p>
       </div>
       <input ref={input} type="file" accept={accept} multiple={multiple} hidden onChange={(e) => handle((e.target as HTMLInputElement).files)} />
-      <PrivateNote />
     </div>
   );
 }

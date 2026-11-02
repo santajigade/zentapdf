@@ -49,7 +49,7 @@ Modern browsers are powerful enough to process PDFs and images **on your own dev
 
 This is how **ZentaPDF** works: merging, compressing, editing, signing, password-protecting and converting all happen inside your browser.
 
-![Every ZentaPDF tool shows that files stay on your device](/guides/img/are-online-pdf-tools-safe.webp)
+![ZentaPDF Merge PDF tool running in the browser](/guides/img/are-online-pdf-tools-safe.webp)
 
 ## How to check any PDF tool in 30 seconds
 

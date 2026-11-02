@@ -20,7 +20,7 @@ for (const g of guides) {
       <div style="display:inline-block;background:rgb(255 255 255 / .18);border:1px solid rgb(255 255 255 / .35);border-radius:999px;padding:6px 18px;font-size:22px;font-weight:700;letter-spacing:.08em">GUIDE</div>
       <div style="font-size:${g.h1.length > 70 ? 54 : 62}px;font-weight:800;line-height:1.12;letter-spacing:-.02em;margin-top:24px">${g.h1}</div>
     </div>
-    <div style="position:absolute;left:70px;bottom:56px;font-size:26px;opacity:.92">Free · Private · Your files never leave your device</div>
+    <div style="position:absolute;left:70px;bottom:56px;font-size:26px;opacity:.92">Free · No sign-up · No watermark</div>
     <div style="position:absolute;right:70px;bottom:46px;background:#fff;color:#4F46E5;border-radius:999px;padding:10px 26px;font-size:26px;font-weight:800">zentapdf.com</div>
   </div></body></html>`);
   const out = `${ROOT}/public/og/guides/${g.slug}.png`;

@@ -24,6 +24,11 @@ import PdfToText from '../components/tools/PdfToText';
 import CompressPdf from '../components/tools/CompressPdf';
 import PdfPassword from '../components/tools/PdfPassword';
 import TargetSize from '../components/tools/TargetSize';
+import QrCode from '../components/tools/QrCode';
+import Barcode from '../components/tools/Barcode';
+import Favicon from '../components/tools/Favicon';
+import ExifTool from '../components/tools/ExifTool';
+import StickerMaker from '../components/tools/StickerMaker';
 
 export function getStaticPaths() {
   return tools.filter((t) => t.live).map((t) => ({ params: { tool: t.slug }, props: { tool: t } }));
@@ -38,11 +43,17 @@ const schema = [
   howToSchema(tool.howToName!, tool.steps!),
   faqSchema(tool.faqs!),
 ];
+const isGen = tool.category === 'utility';
 const isImage = tool.category === 'image' || tool.category === 'imgconv' || tool.slug === 'jpg-to-pdf' || tool.slug === 'images-to-pdf';
-const features = [
-  { t: '100% private', d: 'Files are processed in your browser. Nothing is uploaded to any server.' },
+const features = isGen ? [
+  { t: 'Free forever', d: 'No sign-up, no watermark and no limits on how many you create.' },
+  { t: 'Instant preview', d: 'See the result change as you type, then download in one click.' },
+  { t: 'Print quality', d: 'High-resolution PNG and vector SVG downloads where available.' },
+  { t: 'Works everywhere', d: 'Use it on Windows, Mac, Linux, Android or iPhone in any modern browser.' },
+] : [
+  { t: 'Easy to use', d: 'Simple steps, clear buttons — done in a few clicks.' },
   { t: 'Free, no sign-up', d: 'No account, no email, no watermark and no daily limits.' },
-  { t: 'Fast', d: 'No upload or download wait — results are ready in seconds.' },
+  { t: 'Fast', d: 'Runs right in your browser — results are ready in seconds.' },
   { t: 'Works everywhere', d: 'Use it on Windows, Mac, Linux, Android or iPhone in any modern browser.' },
   { t: isImage ? 'Keeps quality' : 'Original quality', d: isImage ? 'Smart settings keep your images sharp.' : 'Pages are copied as they are — text and images stay crisp.' },
   { t: 'Large files', d: 'Handle big files and many pages — limited only by your device’s memory.' },
@@ -60,6 +71,14 @@ const features = [
       {tool.slug === 'split-pdf' && <SplitPdf client:load />}
       {(tool.slug === 'jpg-to-pdf' || tool.slug === 'images-to-pdf') && <JpgToPdf client:load />}
       {tool.slug === 'pdf-to-text' && <PdfToText client:load />}
+      {tool.slug === 'qr-code-generator' && <QrCode client:load />}
+      {tool.slug === 'upi-qr-code-generator' && <QrCode mode="upi" client:load />}
+      {tool.slug === 'barcode-generator' && <Barcode client:load />}
+      {tool.slug === 'favicon-generator' && <Favicon client:load />}
+      {tool.slug === 'png-to-ico' && <Favicon mode="ico" client:load />}
+      {tool.slug === 'exif-viewer' && <ExifTool client:load />}
+      {tool.slug === 'remove-exif-data' && <ExifTool mode="remove" client:load />}
+      {tool.slug === 'whatsapp-sticker-maker' && <StickerMaker client:load />}
       {(tool.slug === 'reduce-image-size-in-kb' || tool.kb) && <TargetSize kb={tool.kb} client:load />}
       {tool.slug === 'compress-pdf' && <CompressPdf client:load />}
       {tool.slug === 'protect-pdf' && <PdfPassword mode="protect" client:load />}

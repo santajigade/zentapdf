@@ -1,39 +1,70 @@
 ---
 import Base from '../layouts/Base.astro';
 import ToolCard from '../components/ToolCard.astro';
-import { categories, tools } from '../data/tools';
-import { icon } from '../data/icons';
-const title = 'ZentaPDF – Free PDF & Image Tools Online (Private, No Upload)';
-const description = 'Merge, split and convert PDF files and compress images for free. ZentaPDF tools run in your browser, so your files never leave your device. No sign-up.';
+import { categories, tools, toolBySlug, type Tool } from '../data/tools';
+import { icon, toolColor } from '../data/icons';
+const title = 'ZentaPDF – Free PDF & Image Tools Online (No Sign-up)';
+const description = 'Free online PDF and image tools: edit, merge, split, compress and convert PDFs, resize photos to KB, make QR codes and more. Fast, simple, no sign-up.';
+const live = tools.filter((t) => t.live);
+const popular = ['edit-pdf', 'compress-pdf', 'merge-pdf', 'reduce-image-size-in-kb', 'jpg-to-pdf', 'pdf-to-jpg', 'sign-pdf', 'qr-code-generator'].map(toolBySlug).filter(Boolean) as Tool[];
+const catIcon: Record<string, string> = { organise: 'merge', edit: 'editdoc', convert: 'pdfToImg', security: 'lock', image: 'images', imgconv: 'convert', utility: 'qr' };
+const order = ['organise', 'edit', 'convert', 'security', 'image', 'imgconv', 'utility'];
+const cats = order.map((id) => categories.find((c) => c.id === id)!).filter(Boolean);
 ---
 <Base title={title} description={description}>
-  <section class="hero">
+  <section class="hero hero-compact">
     <div class="container">
-      <span class="trust"><Fragment set:html={icon('shield', 16)} /> Your files never leave your device</span>
-      <h1 style="margin-top:14px">Free PDF &amp; Image Tools</h1>
-      <p class="lead">Merge, split, convert and compress — fast, free and private. Everything runs in your browser, so nothing is uploaded.</p>
+      <h1>Free PDF &amp; Image Tools</h1>
+      <p class="lead">Edit, merge, compress and convert PDFs, resize photos for forms, make QR codes and more — free, fast and with no sign-up.</p>
       <div class="search">
-        <input id="tool-search" type="search" placeholder="Search tools… e.g. merge, jpg, compress" aria-label="Search tools" autocomplete="off" />
+        <input id="tool-search" type="search" placeholder={`Search ${live.length} tools… e.g. merge, 50 kb, qr`} aria-label="Search tools" autocomplete="off" />
       </div>
     </div>
   </section>
-  <div class="container" id="all-tools">
-    {categories.map((c) => {
-      const list = tools.filter((t) => t.category === c.id).sort((a, b) => Number(b.live) - Number(a.live));
-      return (
-        <section class={`cat tint-${c.id}`} data-cat>
-          <div class="cat-title"><h2>{c.name}</h2><a href={`/${c.slug}/`}>View all</a></div>
-          <div class="grid">{list.map((t) => <ToolCard tool={t} />)}</div>
-        </section>
-      );
-    })}
-    <p id="no-results" class="status" hidden>No tools match your search.</p>
-    <section class="content narrow" style="margin:0 auto">
+
+  <div class="container">
+    <section id="popular" data-hide-on-search>
+      <h2 class="home-h2">Popular tools</h2>
+      <div class="grid grid-popular">{popular.map((t) => <ToolCard tool={t} />)}</div>
+    </section>
+
+    <section class="panel" id="browse" data-hide-on-search>
+      <div class="panel-head"><h2 class="home-h2" style="margin:0">Browse by category</h2><span class="muted">{live.length} tools in {cats.length} categories</span></div>
+      <div class="cat-tiles">
+        {cats.map((c) => (
+          <a class={`cat-tile tint-${c.id}`} href={`/${c.slug}/`}>
+            <span class="cat-ic" set:html={icon(catIcon[c.id] ?? 'text', 26)} />
+            <span><strong>{c.name}</strong><small>{live.filter((t) => t.category === c.id).length} tools</small></span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section id="all-tools" class="panel">
+      <h2 class="home-h2" style="margin-top:0">All tools</h2>
+      <div class="all-cols">
+        {cats.map((c) => (
+          <div class={`all-group tint-${c.id}`} data-group>
+            <h3><a href={`/${c.slug}/`}>{c.name}</a></h3>
+            <ul>
+              {live.filter((t) => t.category === c.id).map((t) => (
+                <li data-name={`${t.name} ${t.short}`.toLowerCase()}>
+                  <a href={`/${t.slug}/`}><span class="dot" style={`background:${toolColor[t.slug] ?? '#5b5bd6'}`} set:html={icon(t.icon, 14)} />{t.name}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+      <p id="no-results" class="status" hidden>No tools match your search.</p>
+    </section>
+
+    <section class="content narrow" style="margin:0 auto" data-hide-on-search>
       <h2>Why ZentaPDF?</h2>
       <div class="features">
-        <div><strong>Private by design</strong><span>Your PDFs and images are processed on your own device. We never see them.</span></div>
+        <div><strong>Everything in one place</strong><span>PDF editing, conversion, compression, image tools and generators — {live.length} free tools.</span></div>
         <div><strong>Free forever</strong><span>No sign-up, no watermark, no limits on how many files you process.</span></div>
-        <div><strong>Fast on any device</strong><span>No waiting for uploads. Works on computers, tablets and phones.</span></div>
+        <div><strong>Fast on any device</strong><span>Works in your browser on computers, tablets and phones.</span></div>
       </div>
     </section>
   </div>
@@ -41,16 +72,19 @@ const description = 'Merge, split and convert PDF files and compress images for 
     const input = document.getElementById('tool-search') as HTMLInputElement | null;
     input?.addEventListener('input', () => {
       const q = input.value.trim().toLowerCase();
+      document.querySelectorAll<HTMLElement>('[data-hide-on-search]').forEach((el) => (el.hidden = !!q));
       let any = false;
-      document.querySelectorAll<HTMLElement>('[data-cat]').forEach((sec) => {
+      document.querySelectorAll<HTMLElement>('[data-group]').forEach((g) => {
         let shown = 0;
-        sec.querySelectorAll<HTMLElement>('.card').forEach((c) => {
-          const hit = !q || (c.dataset.name ?? '').includes(q) || (c.textContent ?? '').toLowerCase().includes(q);
-          c.hidden = !hit; if (hit) shown++;
+        g.querySelectorAll<HTMLElement>('li').forEach((li) => {
+          const words = q.split(/\s+/).filter(Boolean);
+          const hit = !q || words.every((w) => (li.dataset.name ?? '').includes(w));
+          li.hidden = !hit; if (hit) shown++;
         });
-        sec.hidden = shown === 0; if (shown) any = true;
+        g.hidden = shown === 0; if (shown) any = true;
       });
       document.getElementById('no-results')!.hidden = any;
+      if (q) document.getElementById('all-tools')?.scrollIntoView({ block: 'nearest' });
     });
   </script>
 </Base>
