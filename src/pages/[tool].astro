@@ -33,6 +33,13 @@ import GifEdit from '../components/tools/GifEdit';
 import GifMaker from '../components/tools/GifMaker';
 import VideoToGif from '../components/tools/VideoToGif';
 import PdfToGif from '../components/tools/PdfToGif';
+import DocToPdf from '../components/tools/DocToPdf';
+import ZipToPdf from '../components/tools/ZipToPdf';
+import PdfToPpt from '../components/tools/PdfToPpt';
+import RedactPdf from '../components/tools/RedactPdf';
+import FormFiller from '../components/tools/FormFiller';
+import PdfReader from '../components/tools/PdfReader';
+import ScanToPdf from '../components/tools/ScanToPdf';
 
 export function getStaticPaths() {
   return tools.filter((t) => t.live).map((t) => ({ params: { tool: t.slug }, props: { tool: t } }));
@@ -97,6 +104,20 @@ const features = isGen ? [
       {tool.slug === 'protect-pdf' && <PdfPassword mode="protect" client:load />}
       {tool.slug === 'unlock-pdf' && <PdfPassword mode="unlock" client:load />}
       {tool.slug === 'pdf-to-jpg' && <PdfToJpg client:load />}
+      {tool.slug === 'pdf-to-png' && <PdfToJpg initial="png" client:load />}
+      {tool.slug === 'pdf-to-ppt' && <PdfToPpt client:load />}
+      {tool.slug === 'pdf-scanner' && <ScanToPdf client:load />}
+      {tool.slug === 'txt-to-pdf' && <DocToPdf kind="txt" client:load />}
+      {tool.slug === 'csv-to-pdf' && <DocToPdf kind="csv" client:load />}
+      {tool.slug === 'html-to-pdf' && <DocToPdf kind="html" client:load />}
+      {tool.slug === 'epub-to-pdf' && <DocToPdf kind="epub" client:load />}
+      {tool.slug === 'rtf-to-pdf' && <DocToPdf kind="rtf" client:load />}
+      {tool.slug === 'markdown-to-pdf' && <DocToPdf kind="md" client:load />}
+      {tool.slug === 'zip-to-pdf' && <ZipToPdf client:load />}
+      {tool.slug === 'pdf-reader' && <PdfReader client:load />}
+      {tool.slug === 'pdf-annotator' && <PdfEditor mode="annotate" client:load />}
+      {tool.slug === 'pdf-form-filler' && <FormFiller client:load />}
+      {tool.slug === 'redact-pdf' && <RedactPdf client:load />}
       {tool.slug === 'compress-image' && <CompressImage client:load />}
       {tool.slug === 'resize-image' && <ResizeImage client:load />}
       {tool.slug === 'crop-image' && <CropImage client:load />}

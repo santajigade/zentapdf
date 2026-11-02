@@ -7,8 +7,8 @@ const title = 'ZentaPDF – Free PDF & Image Tools Online (No Sign-up)';
 const description = 'Free online PDF and image tools: edit, merge, split, compress and convert PDFs, resize photos to KB, make QR codes and more. Fast, simple, no sign-up.';
 const live = tools.filter((t) => t.live);
 const popular = ['edit-pdf', 'compress-pdf', 'merge-pdf', 'reduce-image-size-in-kb', 'jpg-to-pdf', 'pdf-to-jpg', 'sign-pdf', 'qr-code-generator'].map(toolBySlug).filter(Boolean) as Tool[];
-const catIcon: Record<string, string> = { organise: 'merge', edit: 'editdoc', convert: 'pdfToImg', security: 'lock', image: 'images', imgconv: 'convert', utility: 'qr', gif: 'gif' };
-const order = ['organise', 'edit', 'convert', 'security', 'image', 'imgconv', 'gif', 'utility'];
+const catIcon: Record<string, string> = { organise: 'merge', edit: 'editdoc', convert: 'pdfToImg', security: 'lock', image: 'images', imgconv: 'convert', utility: 'qr', gif: 'gif', topdf: 'imgToPdf' };
+const order = ['organise', 'edit', 'convert', 'topdf', 'security', 'image', 'imgconv', 'gif', 'utility'];
 const cats = order.map((id) => categories.find((c) => c.id === id)!).filter(Boolean);
 ---
 <Base title={title} description={description}>

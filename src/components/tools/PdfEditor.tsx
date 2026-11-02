@@ -45,7 +45,7 @@ const Icon = ({ name }: { name: string }) => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" dangerouslySetInnerHTML={{ __html: ICONS[name] }} />
 );
 
-export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' }) {
+export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 'annotate' }) {
   const [file, setFile] = useState<File | null>(null);
   const [pages, setPages] = useState<PageInfo[]>([]);
   const [objs, setObjs] = useState<Obj[]>([]);
@@ -101,7 +101,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
         vpRef.current.push(vp); info.push({ w: vp.width, h: vp.height, rot: vp.rotation });
       }
       rendered.current = new Set(); pageEls.current = [];
-      setFile(f); setPages(info); setTitems([]); setTool(mode === 'sign' ? 'select' : 'edittext'); setObjs([]); setHist([]); setSel(null); setResult(null);
+      setFile(f); setPages(info); setTitems([]); setTool(mode === 'sign' ? 'select' : mode === 'annotate' ? 'highlight' : 'edittext'); setObjs([]); setHist([]); setSel(null); setResult(null);
       if (mode === 'sign') setSigOpen(true);
     } catch (e: any) {
       setError(e?.name === 'PasswordException' ? 'This PDF is password-protected. Please unlock it first, then try again.' : friendlyError(e));
@@ -165,7 +165,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
   // ---------- keyboard ----------
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && !editing) { setTool(mode === 'sign' ? 'select' : 'edittext'); setSel(null); return; }
+      if (e.key === 'Escape' && !editing) { setTool(mode === 'sign' ? 'select' : mode === 'annotate' ? 'highlight' : 'edittext'); setSel(null); return; }
       if (editing) return;
       const tag = (e.target as HTMLElement)?.tagName;
       if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
@@ -399,8 +399,8 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
       {sizeWarning(file.size) && <ErrorBox>{sizeWarning(file.size)}</ErrorBox>}
       <div class="ed-bar" role="toolbar" aria-label="Editor tools">
         <div class="ed-row">
-          {TOOLS.filter(([t]) => t !== 'select').map(([t, , label], k) => (<>
-            {k === 2 && <span class="ed-sep" />}
+          {TOOLS.filter(([t]) => t !== 'select' && !(mode === 'annotate' && (t === 'edittext' || t === 'whiteout'))).map(([t, , label], k) => (<>
+            {k === (mode === 'annotate' ? 1 : 2) && <span class="ed-sep" />}
             <button type="button" class="ed-btn" title={label} aria-pressed={tool === t} onClick={() => { setTool(t); setEditing(null); }}>
               <Icon name={t} /><span class="ed-label">{SHORT[t]}</span>
             </button>
@@ -448,7 +448,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
         <div class="done">
           <p class="big">Done! Your edited PDF is ready ({formatBytes(result.size)}).</p>
           <div class="actions">
-            <button type="button" class="btn btn-primary dl btn-lg" onClick={() => downloadBlob(result, `${baseName(file.name)}-edited.pdf`)}>Download PDF</button>
+            <button type="button" class="btn btn-primary dl btn-lg" onClick={() => downloadBlob(result, `${baseName(file.name)}-${mode === 'annotate' ? 'annotated' : mode === 'sign' ? 'signed' : 'edited'}.pdf`)}>Download PDF</button>
             <button type="button" class="btn btn-ghost" onClick={() => setResult(null)}>Keep editing</button>
             <button type="button" class="btn btn-ghost" onClick={() => { setFile(null); setResult(null); }}>New file</button>
           </div>

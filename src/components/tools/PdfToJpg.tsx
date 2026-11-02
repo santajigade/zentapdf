@@ -8,9 +8,9 @@ type Out = { name: string; blob: Blob; url: string };
 const DPI = { normal: 100, high: 150, max: 300 } as const;
 const MAX_PIXELS = 16_000_000; // iOS Safari canvas limit is ~16.7 MP
 
-export default function PdfToJpg() {
+export default function PdfToJpg({ initial = 'jpg' }: { initial?: 'jpg' | 'png' }) {
   const [file, setFile] = useState<File | null>(null);
-  const [format, setFormat] = useState<'jpg' | 'png'>('jpg');
+  const [format, setFormat] = useState<'jpg' | 'png'>(initial);
   const [quality, setQuality] = useState<keyof typeof DPI>('high');
   const [busy, setBusy] = useState<Progress | null>(null);
   const [error, setError] = useState('');

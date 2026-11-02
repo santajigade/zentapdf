@@ -60,3 +60,10 @@ Brand: ZentaPDF · colour Indigo #4F46E5 · domain TBD (placeholder zentapdf.com
 
 ## Known gaps / to test manually
 - Automated tests run on Chromium only (Firefox/WebKit not installed in the build box) → check Firefox, Safari/iOS, Edge by hand on the preview.
+
+## Batch P1 – smallpdf-style quick wins (LIVE 2026-11-02)
+- [x] New category "Convert to PDF" (/convert-to-pdf/): txt, csv, html, epub, rtf, markdown, zip to PDF + PDF Scanner (camera, 4-corner perspective fix, magic/B&W/grey filters)
+- [x] pdf-to-png (PdfToJpg initial=png), pdf-to-ppt (pptxgenjs, page images + text in notes)
+- [x] pdf-reader (lazy pages, zoom, search, text layer, rotate, fullscreen, print), pdf-annotator (PdfEditor mode=annotate), pdf-form-filler (pdf-lib fields as HTML inputs on page, flatten, Unicode font), redact-pdf (search/emails/phones/hand boxes; redacted pages rasterised, metadata cleared)
+- Engine: src/lib/docpdf.ts (blocks → PDF with DejaVu fonts from /public/fonts; complex scripts like Hindi drawn via canvas). Tests: tools/test/e2e-p1.mjs (40 checks)
+- [ ] Next: P2 Office (PDF↔Word/Excel/PPT, ODT/ODS/ODP), P3 OCR (tesseract.js, eng+hin+mar)
