@@ -12,8 +12,6 @@ faqs:
     a: "Not always. A one- or two-page scan usually can. Long documents with many scanned pages may need to be split or have pages removed to reach 100 KB."
   - q: "Will the text still be readable?"
     a: "Real text stays perfectly sharp. On scanned pages the text is part of a picture, so check the result by zooming in before you upload it."
-  - q: "Is my document uploaded?"
-    a: "No. ZentaPDF compresses PDFs inside your browser, so certificates and ID documents never leave your device."
 ---
 
 Many online application portals in India — for exams, jobs, admissions, scholarships and government services — ask for documents like certificates, ID proofs or caste certificates as **PDFs under 100 KB, 200 KB or 500 KB**. A phone scan of a single page can easily be 2–5 MB. Here is how to get it down to size.
@@ -95,8 +93,3 @@ See also: [how to scan documents to PDF with your phone](/guides/scan-documents-
 | Result is blurry | Use Recommended instead of Strong, or rebuild with higher KB per page |
 | Portal says "invalid file" | Make sure the file name ends in `.pdf` and has no special characters |
 
-## Private by design
-
-Certificates, mark sheets and ID cards contain personal data. ZentaPDF compresses them **in your browser** — nothing is uploaded or stored.
-
-With the right steps, almost any document fits the portal's limit in a couple of minutes.

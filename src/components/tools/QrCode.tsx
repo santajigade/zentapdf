@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { downloadBlob } from '../../lib/utils';
 
-type Kind = 'url' | 'text' | 'upi' | 'wifi' | 'whatsapp' | 'email' | 'phone';
-const KINDS: [Kind, string][] = [['url', 'Website'], ['text', 'Text'], ['upi', 'UPI payment'], ['wifi', 'Wi-Fi'], ['whatsapp', 'WhatsApp'], ['email', 'Email'], ['phone', 'Phone']];
+type Kind = 'url' | 'text' | 'wifi' | 'whatsapp' | 'email' | 'phone';
+const KINDS: [Kind, string][] = [['url', 'Website'], ['text', 'Text'], ['wifi', 'Wi-Fi'], ['whatsapp', 'WhatsApp'], ['email', 'Email'], ['phone', 'Phone']];
 const esc = (s: string) => s.replace(/([\\;,:"])/g, '\\$1');
 
-export default function QrCode({ mode }: { mode?: 'upi' }) {
-  const [kind, setKind] = useState<Kind>(mode === 'upi' ? 'upi' : 'url');
-  const [f, setF] = useState<Record<string, string>>({ url: 'https://zentapdf.com', text: '', vpa: '', name: '', amount: '', note: '', ssid: '', pass: '', enc: 'WPA', wa: '', msg: '', email: '', subject: '', phone: '' });
+export default function QrCode() {
+  const [kind, setKind] = useState<Kind>('url');
+  const [f, setF] = useState<Record<string, string>>({ url: 'https://zentapdf.com', text: '', ssid: '', pass: '', enc: 'WPA', wa: '', msg: '', email: '', subject: '', phone: '' });
   const [fg, setFg] = useState('#111827');
   const [bg, setBg] = useState('#ffffff');
   const [ecl, setEcl] = useState<'L' | 'M' | 'Q' | 'H'>('M');
@@ -21,14 +21,6 @@ export default function QrCode({ mode }: { mode?: 'upi' }) {
     switch (kind) {
       case 'url': return f.url.trim();
       case 'text': return f.text;
-      case 'upi': {
-        if (!f.vpa.trim()) return '';
-        const enc = (v: string) => encodeURIComponent(v).replace(/%40/g, '@');
-        let u = `upi://pay?pa=${enc(f.vpa.trim())}&pn=${enc(f.name.trim() || f.vpa.trim())}&cu=INR`;
-        if (+f.amount > 0) u += `&am=${(+f.amount).toFixed(2)}`;
-        if (f.note) u += `&tn=${enc(f.note)}`;
-        return u;
-      }
       case 'wifi': return f.ssid ? `WIFI:T:${f.enc};S:${esc(f.ssid)};${f.enc !== 'nopass' ? `P:${esc(f.pass)};` : ''};` : '';
       case 'whatsapp': return f.wa ? `https://wa.me/${f.wa.replace(/\D/g, '')}${f.msg ? '?text=' + encodeURIComponent(f.msg) : ''}` : '';
       case 'email': return f.email ? `mailto:${f.email}${f.subject ? '?subject=' + encodeURIComponent(f.subject) : ''}` : '';
@@ -69,13 +61,12 @@ export default function QrCode({ mode }: { mode?: 'upi' }) {
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px', alignItems: 'flex-start' }}>
       <div style={{ flex: '1 1 340px', minWidth: 0 }}>
-        {mode !== 'upi' && <div class="seg" role="group" aria-label="QR code type" style={{ flexWrap: 'wrap', marginBottom: '12px' }}>
+        {<div class="seg" role="group" aria-label="QR code type" style={{ flexWrap: 'wrap', marginBottom: '12px' }}>
           {KINDS.map(([k, l]) => <button type="button" aria-pressed={kind === k} onClick={() => setKind(k)}>{l}</button>)}
         </div>}
         <div class="opts" style={{ margin: 0 }}>
           {kind === 'url' && inp('url', 'Website address', 'https://example.com', 'url')}
           {kind === 'text' && <label style={{ flex: '1 1 100%' }}>Text<textarea value={f.text} rows={4} onInput={set('text')} style={{ width: '100%', padding: '9px 10px', border: '1px solid var(--border)', borderRadius: '10px', font: 'inherit', background: 'var(--card)', color: 'var(--text)' }} /></label>}
-          {kind === 'upi' && <>{inp('vpa', 'UPI ID (VPA)', 'yourname@okbank')}{inp('name', 'Payee name', 'Shop or your name', 'text', false)}{inp('amount', 'Amount ₹ (optional)', '', 'number', false)}{inp('note', 'Note (optional)', 'e.g. Invoice 102')}</>}
           {kind === 'wifi' && <>{inp('ssid', 'Network name (SSID)')}{inp('pass', 'Password', '', 'text', false)}
             <label>Security<select value={f.enc} onChange={set('enc')}><option value="WPA">WPA/WPA2/WPA3</option><option value="WEP">WEP</option><option value="nopass">None</option></select></label></>}
           {kind === 'whatsapp' && <>{inp('wa', 'WhatsApp number with country code', '91 98765 43210', 'tel')}{inp('msg', 'Pre-filled message (optional)')}</>}
@@ -90,7 +81,6 @@ export default function QrCode({ mode }: { mode?: 'upi' }) {
           <label>Logo in centre<input type="file" accept="image/*" onChange={(e) => pickLogo((e.target as HTMLInputElement).files?.[0])} /></label>
           {logo && <button type="button" class="btn btn-ghost" onClick={() => setLogo(null)}>Remove logo</button>}
         </div>
-        {kind === 'upi' && <p class="status" style={{ textAlign: 'left' }}>Scan with any UPI app (Google Pay, PhonePe, Paytm, BHIM). Always test a small payment before printing.</p>}
       </div>
       <div style={{ flex: '0 1 300px', margin: '0 auto', textAlign: 'center' }}>
         <div style={{ background: bg, border: '1px solid var(--border)', borderRadius: '16px', padding: '12px', display: 'inline-block' }}>

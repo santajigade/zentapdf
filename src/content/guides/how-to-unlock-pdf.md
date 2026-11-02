@@ -1,7 +1,7 @@
 ---
 title: "How to Remove a Password from a PDF (Bank Statements)"
 h1: "How to Remove a Password from a PDF – Bank Statements, Payslips and More"
-description: "Tired of typing the password every time? Remove the password from a PDF you own – like a bank statement or payslip – for free, privately, in your browser."
+description: "Tired of typing the password every time? Remove the password from a PDF you own – like a bank statement or payslip – for free, in a few simple steps."
 date: "2026-11-02"
 tool: "unlock-pdf"
 tools: ["protect-pdf", "merge-pdf", "compress-pdf"]
@@ -12,8 +12,6 @@ faqs:
     a: "No. Unlock PDF is for files you own and can open. If a PDF only restricts printing or copying, it unlocks without any password."
   - q: "What is my bank statement password?"
     a: "Banks usually explain the password format in the email that came with the statement — often a combination of details such as part of your name, date of birth or customer ID."
-  - q: "Is it safe to unlock a bank statement online?"
-    a: "With ZentaPDF the PDF and password stay in your browser and are never uploaded. Store the unlocked copy safely, as anyone can open it."
 ---
 
 Bank statements, credit card bills, payslips, insurance policies and tax documents often arrive as **password-protected PDFs**. That's good for security — but annoying when you need to open them often, merge them, or upload them to a portal that can't accept protected files. If you know the password, you can save an unlocked copy in under a minute.
@@ -69,6 +67,3 @@ Removing a password from **your own documents** — or files you have permission
 | PDF opens but can't be printed | Use Unlock PDF — permission locks are removed without a password |
 | File still asks for a password | Make sure you opened the downloaded *unlocked* copy |
 
-## Private by design
-
-Bank statements are among the most sensitive files you have. ZentaPDF unlocks them **inside your browser** using the open-source QPDF engine — the file and your password are never uploaded or stored.

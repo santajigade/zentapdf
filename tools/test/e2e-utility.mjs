@@ -12,8 +12,8 @@ try {
   await p.getByRole('button', { name: 'Text', exact: true }).click(); await p.fill('textarea', 'x'.repeat(4000)); await p.waitForTimeout(500);
   ok('qr too long msg', /too much/i.test(await p.textContent('.error')));
   ok('qr errors', !p.errors.length, p.errors.join());
-  p = await page('/upi-qr-code-generator/'); await p.fill('input >> nth=0', 'shop@okaxis'); await p.fill('input >> nth=1', 'Ram Stores'); await p.fill('input >> nth=2', '150'); await p.waitForTimeout(500);
-  d = await dl(p, 'Download PNG', 'upi.png'); ok('upi png', fs.statSync(d.path).size > 1000);
+
+
   // barcode
   p = await page('/barcode-generator/'); await p.waitForTimeout(600); d = await dl(p, 'Download PNG', 'bar.png'); ok('barcode png', fs.statSync(d.path).size > 500);
   await p.selectOption('select >> nth=0', 'EAN13'); await p.fill('input[type=text]', '12ab'); await p.waitForTimeout(400); ok('ean invalid msg', /not valid/.test(await p.textContent('.error')));

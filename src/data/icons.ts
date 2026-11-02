@@ -46,7 +46,7 @@ export const toolColor: Record<string, string> = {
   'jpg-to-pdf': C.amber, 'pdf-to-jpg': C.amber, 'images-to-pdf': C.orange, 'pdf-to-text': C.slate, 'compress-pdf': C.green,
   'png-to-jpg': C.amber, 'webp-to-jpg': C.amber, 'avif-to-jpg': C.amber, 'gif-to-jpg': C.amber, 'bmp-to-jpg': C.amber, 'svg-to-jpg': C.amber,
   'jpg-to-png': C.blue, 'webp-to-png': C.blue, 'avif-to-png': C.blue, 'gif-to-png': C.blue, 'bmp-to-png': C.blue, 'svg-to-png': C.blue,
-  'qr-code-generator': C.slate, 'upi-qr-code-generator': C.green, 'barcode-generator': C.slate, 'favicon-generator': C.violet, 'png-to-ico': C.indigo,
+  'qr-code-generator': C.slate, 'barcode-generator': C.slate, 'favicon-generator': C.violet, 'png-to-ico': C.indigo,
   'exif-viewer': C.red, 'remove-exif-data': C.pink, 'whatsapp-sticker-maker': C.green,
   'heic-to-jpg': C.amber, 'heic-to-png': C.blue,
   'jpg-to-webp': C.green, 'png-to-webp': C.green,

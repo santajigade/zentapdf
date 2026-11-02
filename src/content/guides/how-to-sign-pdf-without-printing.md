@@ -10,8 +10,6 @@ faqs:
     a: "A simple electronic signature like this is accepted for many everyday documents such as forms, letters and internal approvals. Some contracts and government filings require a certified digital signature (for example with a DSC in India), so check what the receiver needs."
   - q: "Can I sign a PDF on my phone?"
     a: "Yes. Open ZentaPDF Sign PDF in your phone browser, draw your signature with your finger, place it on the page and download the signed PDF."
-  - q: "Is my signature saved on your server?"
-    a: "No. Your signature and your PDF stay in your browser and are deleted when you close the page."
   - q: "How do I add the date next to my signature?"
     a: "After placing the signature, choose the Add text tool, click next to the signature and type the date."
 ---
@@ -81,8 +79,3 @@ For most everyday paperwork an electronic signature is enough. If an official po
 | Forgot the date | Use **Add text** to type it next to the signature |
 | Sent an editable form | Use [Flatten PDF](/flatten-pdf/) before sending |
 
-## Is it private?
-
-Your signature is personal. ZentaPDF does everything **inside your browser**: the PDF and your signature are never uploaded to a server and nothing is stored. Close the tab and it's gone.
-
-Signing PDFs digitally saves paper, time and printer ink — and you can do it from anywhere.

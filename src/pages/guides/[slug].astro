@@ -44,7 +44,7 @@ const toc = g.headings.filter((h) => h.depth === 2);
       <section><h2 id="faq">Frequently asked questions</h2>{g.faqs.map((f) => <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>)}</section>
     )}
     <aside class="guide-cta">
-      <div><strong>Ready? Use {tool.name} free</strong><span>No sign-up, no watermark, no upload.</span></div>
+      <div><strong>Ready? Use {tool.name} free</strong><span>No sign-up, no watermark.</span></div>
       <a class="btn btn-primary" href={`/${tool.slug}/`}>Open {tool.name} →</a>
     </aside>
     <h2>Tools used in this guide</h2>

@@ -91,6 +91,3 @@ If you need prints, place several 3.5 × 4.5 cm photos on an A4 page in any docu
 
 Save one **high-quality, uncompressed** photo of yourself. Every time a form asks for a different size, make a new copy from the master — never re-compress an already small file.
 
-## Private by design
-
-Your photo is personal data. ZentaPDF crops, resizes and compresses it **in your browser** — it is never uploaded.

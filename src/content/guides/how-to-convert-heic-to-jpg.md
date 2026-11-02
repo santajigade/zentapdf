@@ -1,7 +1,7 @@
 ---
 title: "How to Convert HEIC to JPG (iPhone Photos) – Free"
 h1: "How to Convert HEIC to JPG – Open iPhone Photos Anywhere"
-description: "Can't open iPhone photos on Windows or upload them to a form? Convert HEIC to JPG for free in your browser, and set your iPhone to save JPG automatically."
+description: "Can't open iPhone photos on Windows or upload them to a form? Convert HEIC to JPG for free and set your iPhone to save JPG automatically."
 date: "2026-11-02"
 tool: "heic-to-jpg"
 tools: ["heic-to-png", "reduce-image-size-in-kb", "compress-image", "jpg-to-pdf"]
@@ -9,7 +9,7 @@ faqs:
   - q: "Why are my iPhone photos HEIC?"
     a: "iPhones save photos in HEIC (High Efficiency) format by default because it uses about half the space of JPG at similar quality."
   - q: "How do I convert HEIC to JPG on Windows?"
-    a: "Open ZentaPDF HEIC to JPG in your browser, choose up to 5 HEIC photos and click Convert. No software installation needed."
+    a: "Open ZentaPDF HEIC to JPG in Edge or Chrome, choose up to 5 HEIC photos and click Convert. No software installation needed."
   - q: "Does converting HEIC to JPG lose quality?"
     a: "At 90% quality the difference is not visible for normal photos. JPG files will be somewhat larger than the HEIC originals."
   - q: "Can I upload HEIC photos to government or exam forms?"
@@ -31,7 +31,6 @@ You send photos from your iPhone to your computer — and Windows says it can't 
 
 ## Convert HEIC to JPG online (free)
 
-![Converting HEIC photos to JPG in the browser](/guides/img/how-to-convert-heic-to-jpg.webp)
 
 1. Open **[HEIC to JPG](/heic-to-jpg/)**.
 2. Choose up to **5 HEIC photos** (or drag them in).
@@ -39,7 +38,7 @@ You send photos from your iPhone to your computer — and Windows says it can't 
 4. Click **Convert**. The first photo can take a few seconds while the converter loads.
 5. Download each JPG or all of them as a ZIP.
 
-Your photos are converted **inside your browser** — never uploaded. Need lossless output for editing? Use [HEIC to PNG](/heic-to-png/).
+Need lossless output for editing? Use [HEIC to PNG](/heic-to-png/).
 
 ## Make your iPhone save JPG automatically
 

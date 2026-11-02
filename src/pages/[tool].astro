@@ -53,7 +53,7 @@ const features = isGen ? [
 ] : [
   { t: 'Easy to use', d: 'Simple steps, clear buttons — done in a few clicks.' },
   { t: 'Free, no sign-up', d: 'No account, no email, no watermark and no daily limits.' },
-  { t: 'Fast', d: 'Runs right in your browser — results are ready in seconds.' },
+  { t: 'Fast', d: 'No waiting — results are ready in seconds.' },
   { t: 'Works everywhere', d: 'Use it on Windows, Mac, Linux, Android or iPhone in any modern browser.' },
   { t: isImage ? 'Keeps quality' : 'Original quality', d: isImage ? 'Smart settings keep your images sharp.' : 'Pages are copied as they are — text and images stay crisp.' },
   { t: 'Large files', d: 'Handle big files and many pages — limited only by your device’s memory.' },
@@ -72,7 +72,6 @@ const features = isGen ? [
       {(tool.slug === 'jpg-to-pdf' || tool.slug === 'images-to-pdf') && <JpgToPdf client:load />}
       {tool.slug === 'pdf-to-text' && <PdfToText client:load />}
       {tool.slug === 'qr-code-generator' && <QrCode client:load />}
-      {tool.slug === 'upi-qr-code-generator' && <QrCode mode="upi" client:load />}
       {tool.slug === 'barcode-generator' && <Barcode client:load />}
       {tool.slug === 'favicon-generator' && <Favicon client:load />}
       {tool.slug === 'png-to-ico' && <Favicon mode="ico" client:load />}
@@ -103,7 +102,7 @@ const features = isGen ? [
       {tool.slug === 'crop-pdf' && <PdfEdit mode="crop" client:load />}
       {tool.slug === 'flatten-pdf' && <PdfEdit mode="flatten" client:load />}
       {tool.slug === 'edit-pdf-metadata' && <PdfEdit mode="metadata" client:load />}
-      <noscript><p class="error">Please turn on JavaScript — this tool runs in your browser.</p></noscript>
+      <noscript><p class="error">Please turn on JavaScript to use this tool.</p></noscript>
     </div>
   </section>
   <article class="container narrow content">

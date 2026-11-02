@@ -97,8 +97,3 @@ Forms mix these up, so it helps to know the difference:
 
 A printed **3.5 × 4.5 cm** photo at 200 DPI is about **276 × 354 pixels**. If a form only gives centimetres, you can calculate pixels as *cm ÷ 2.54 × DPI*.
 
-## Private by design
-
-ID photos and signatures are sensitive. ZentaPDF processes them **only in your browser** — they are never uploaded or stored.
-
-With the right size and format, your application goes through the first time.

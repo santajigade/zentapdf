@@ -1,7 +1,7 @@
 ---
 title: "How to Convert PNG to JPG (and When You Should)"
 h1: "How to Convert PNG to JPG – Free, Fast and Private"
-description: "Convert PNG images to JPG in seconds, for free, without uploading. Learn when JPG is better than PNG, what happens to transparency, and how to keep quality."
+description: "Convert PNG images to JPG in seconds, for free. Learn when JPG is better than PNG, what happens to transparency, and how to keep the quality high."
 date: "2026-11-02"
 tool: "png-to-jpg"
 tools: ["jpg-to-png", "webp-to-jpg", "compress-image"]
@@ -40,7 +40,6 @@ PNG and JPG are the two most common image formats, but they are good at differen
 4. Click **Convert**.
 5. Download each JPG, or all of them as a ZIP.
 
-The conversion runs inside your browser. Your images are not uploaded.
 
 ## Choosing the right quality
 
@@ -95,8 +94,3 @@ Yes. Hidden information such as camera model and **GPS location (EXIF data)** is
 
 These work for single images. ZentaPDF is faster when you have several images or want to control quality and size.
 
-## Why convert in the browser?
-
-Online converters often upload your pictures to a server. With ZentaPDF, **the conversion happens on your device** — useful for personal photos, ID scans and documents.
-
-PNG and JPG each have their place. Now you know when to switch, and how to do it in seconds.

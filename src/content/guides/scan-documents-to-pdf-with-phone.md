@@ -38,7 +38,7 @@ Many Android phones also have a document mode in the camera or the Files app.
 
 ## Option 2 – Take photos and convert them to PDF
 
-Already have photos of the pages? Turn them into one PDF in your browser:
+Already have photos of the pages? Turn them into one PDF:
 
 ![Combining several photos into one PDF](/guides/img/scan-documents-to-pdf-with-phone.webp)
 
@@ -76,8 +76,3 @@ Photos from iPhones in HEIC format work too.
 | Photo ID (Aadhaar, PAN) | Colour | Check that numbers are sharp |
 | Receipts | Black & white | Thermal receipts fade — scan soon |
 
-## Keep your scans private
-
-Scans of ID cards and certificates are sensitive. Avoid uploading them to random websites. ZentaPDF creates, merges and compresses PDFs **in your browser** — your documents stay on your phone.
-
-With your phone and a minute of care, your scans can look as good as a real scanner's.

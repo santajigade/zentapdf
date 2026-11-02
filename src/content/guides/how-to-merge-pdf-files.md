@@ -1,7 +1,7 @@
 ---
 title: "How to Merge PDF Files on Windows, Mac & Phone"
 h1: "How to Merge PDF Files into One – Windows, Mac, Android & iPhone"
-description: "Combine several PDFs into one file in seconds on Windows, Mac, Android or iPhone. Free, no software to install, no upload – plus tips to set the right order."
+description: "Combine several PDFs into one file in seconds on Windows, Mac, Android or iPhone. Free, no software to install – plus tips to put files in the right order."
 date: "2026-11-02"
 tool: "merge-pdf"
 tools: ["reorder-pdf-pages", "compress-pdf", "jpg-to-pdf"]
@@ -11,7 +11,7 @@ faqs:
   - q: "Does Windows have a built-in way to merge PDFs?"
     a: "Windows does not include a PDF merge feature. The easiest free way is a browser tool like ZentaPDF Merge PDF, which works in Edge or Chrome without installing anything."
   - q: "How many PDFs can I merge at once?"
-    a: "There is no fixed limit — it depends on your device's memory. Dozens of files or several hundred pages are fine on a normal computer."
+    a: "There is no fixed limit. Dozens of files or several hundred pages are fine on a normal computer."
   - q: "Can I merge images and PDFs together?"
     a: "First turn the images into a PDF with JPG to PDF, then merge that PDF with your other files."
 ---
@@ -22,13 +22,11 @@ Sending one tidy PDF is much better than five separate attachments — for job a
 
 ![Merging three PDF files in ZentaPDF](/guides/img/how-to-merge-pdf-files.webp)
 
-1. Open **[Merge PDF](/merge-pdf/)** in your browser.
 2. Click **Choose PDF files** and select all the PDFs (hold **Ctrl** on Windows or **Cmd** on Mac to pick several). You can also drag them in.
 3. Put them in the right order with the **↑ ↓** arrows. Click **✕** to remove one.
 4. Click **Merge PDF**.
 5. Click **Download PDF**.
 
-Your files are merged **inside your browser** — nothing is uploaded, which matters for documents like ID proofs and bank statements.
 
 ## On Windows
 

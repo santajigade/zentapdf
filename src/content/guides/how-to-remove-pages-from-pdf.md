@@ -1,7 +1,7 @@
 ---
-title: "How to Remove Pages from a PDF (Free, No Upload)"
+title: "How to Remove Pages from a PDF (Free & Easy)"
 h1: "How to Delete Pages from a PDF – Quick and Free"
-description: "Delete unwanted pages from a PDF in seconds. See page thumbnails, select pages or type ranges like 2, 5-7, and download a clean PDF. Free, private, no sign-up."
+description: "Delete unwanted pages from a PDF in seconds. See page thumbnails, select pages or type ranges like 2, 5-7, and download a clean PDF. Free and no sign-up."
 date: "2026-11-02"
 tool: "remove-pages"
 tools: ["extract-pages", "split-pdf", "reorder-pdf-pages"]
@@ -78,7 +78,6 @@ Need to clean up several files? Handle them one by one, or first combine them wi
 
 | Method | Pros | Cons |
 |---|---|---|
-| **Browser tool (ZentaPDF)** | Free, works on any device, no upload | Needs a modern browser |
 | **Mac Preview** | Built in on Mac | Mac only |
 | **"Print to PDF" with a page range** | Built into Windows and browsers | Links and form fields are lost; text may become less sharp |
 | **Paid PDF software** | Many features | Costs money, needs installation |
@@ -91,8 +90,3 @@ The "Print to PDF" trick works in a pinch, but it re-creates the document instea
 - **Keep the original file** until you've checked the new one.
 - If the PDF is **password-protected**, unlock it first with [Unlock PDF](/unlock-pdf/) using the password you know.
 
-## Is it safe?
-
-Pages are removed **inside your browser**. Your PDF is not uploaded to any server, which is important for statements, contracts and personal documents.
-
-A cleaner PDF in under a minute — without installing anything.

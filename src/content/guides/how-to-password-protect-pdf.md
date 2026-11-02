@@ -1,19 +1,17 @@
 ---
 title: "How to Password Protect a PDF (Free, AES-256)"
 h1: "How to Password Protect a PDF – Free and Secure"
-description: "Add a password to any PDF for free with strong AES-256 encryption. Control printing and copying, and learn how to choose a safe password. No upload needed."
+description: "Add a password to any PDF for free with strong AES-256 encryption. Control printing and copying, and learn how to choose a safe password."
 date: "2026-11-02"
 tool: "protect-pdf"
 tools: ["unlock-pdf", "add-watermark", "flatten-pdf"]
 faqs:
   - q: "How do I put a password on a PDF for free?"
-    a: "Open ZentaPDF Protect PDF, choose your file, type a password twice and click Protect PDF. The file is encrypted with AES-256 in your browser."
+    a: "Open ZentaPDF Protect PDF, choose your file, type a password twice and click Protect PDF. The file is encrypted with AES-256."
   - q: "Can a password-protected PDF be opened on a phone?"
     a: "Yes. Any modern PDF reader on Android, iPhone, Windows or Mac will ask for the password and open the file."
   - q: "What happens if I forget the password?"
     a: "The PDF cannot be opened without it. Keep a copy of the original unprotected file or store the password in a password manager."
-  - q: "Does ZentaPDF see my password?"
-    a: "No. The PDF and password never leave your browser. Nothing is uploaded or stored."
 ---
 
 Bank statements, salary slips, ID documents, contracts and medical reports should not be readable by anyone who happens to get the file. A password on the PDF is the simplest protection — and it takes less than a minute.
@@ -100,8 +98,3 @@ Keep in mind that permissions are respected by normal PDF readers but are not as
 | Receiver can't open the file | Check for typos and capital letters in the password; make sure their PDF reader is up to date |
 | Need to edit the PDF later | Keep an unprotected copy, or unlock it with the password when you need to |
 
-## Why it's done in your browser
-
-To protect a sensitive file, it makes little sense to upload it to someone else's server first. ZentaPDF encrypts the PDF **on your own device** using the trusted open-source QPDF engine running in your browser. Your file and password are never sent anywhere.
-
-A password on your PDF is a small step that prevents big problems.

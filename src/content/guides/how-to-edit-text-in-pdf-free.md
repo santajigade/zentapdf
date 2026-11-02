@@ -1,13 +1,13 @@
 ---
 title: "How to Edit Text in a PDF for Free (No Software)"
 h1: "How to Edit Text in a PDF for Free – Without Adobe Acrobat"
-description: "Change words, dates, names or numbers in a PDF for free in your browser. Click existing text to edit it, add new text, white-out mistakes and save – no software."
+description: "Change words, dates, names or numbers in a PDF for free. Click existing text to edit it, add new text, white-out mistakes and save – no software needed."
 date: "2026-11-02"
 tool: "edit-pdf"
 tools: ["sign-pdf", "add-watermark", "pdf-to-text"]
 faqs:
   - q: "Can I edit text in a PDF without Adobe Acrobat?"
-    a: "Yes. ZentaPDF Edit PDF lets you click existing text and change it, add new text, and hide content with white-out, all for free in your browser."
+    a: "Yes. ZentaPDF Edit PDF lets you click existing text and change it, add new text and hide content with white-out, all for free."
   - q: "Why does the edited text look slightly different?"
     a: "The replacement uses a standard font that is close to the original (sans-serif, serif or monospace) with the same size, colour and weight. Exact original fonts are not always available inside the PDF."
   - q: "Can I edit a scanned PDF?"
@@ -16,7 +16,7 @@ faqs:
     a: "Each line is edited separately and does not re-flow into the next line, so keep replacements about the same length as the original line."
 ---
 
-PDFs are designed to look the same everywhere — which is great for sharing, but frustrating when you spot a typo, a wrong date or an old phone number. You don't need expensive software to fix it. Here's how to edit text in a PDF for free, right in your browser.
+PDFs are designed to look the same everywhere — which is great for sharing, but frustrating when you spot a typo, a wrong date or an old phone number. You don't need expensive software to fix it.
 
 ## Three ways to change a PDF
 
@@ -85,8 +85,3 @@ Use **White-out** and drag a box over anything you want to hide — an old addre
 
 The editor works in phone browsers too. Tap text to edit it, use the **+** button to zoom in, and tap **Save PDF** when you're done. For long documents, a computer with a mouse is more comfortable.
 
-## Is it safe to edit PDFs online?
-
-Many "free online PDF editors" upload your document to their servers. ZentaPDF works **entirely in your browser** — your PDF is never uploaded, never stored, and nobody else can see it.
-
-Editing a PDF used to need expensive software. Now it takes a click.

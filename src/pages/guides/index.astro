@@ -6,7 +6,7 @@ import { breadcrumbSchema, abs } from '../../lib/schema';
 const crumbs = [{ name: 'Home', href: '/' }, { name: 'Guides', href: '/guides/' }];
 const list = { '@context': 'https://schema.org', '@type': 'ItemList', itemListElement: guides.map((g, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(`/guides/${g.slug}/`), name: g.h1 })) };
 ---
-<Base title="PDF & Image Guides – How-To Tutorials | ZentaPDF" description="Free step-by-step guides: compress, edit, sign, merge and protect PDFs, convert and resize images for online forms, and keep your documents private." schema={[breadcrumbSchema(crumbs), list]}>
+<Base title="PDF & Image Guides – How-To Tutorials | ZentaPDF" description="Free step-by-step guides: compress, edit, sign, merge and protect PDFs, convert and resize images for online forms, and make QR codes and stickers." schema={[breadcrumbSchema(crumbs), list]}>
   <Breadcrumbs items={crumbs} />
   <section class="container">
     <div class="tool-head"><h1>Guides &amp; tutorials</h1><p>Simple, step-by-step help for everyday PDF and image tasks.</p></div>

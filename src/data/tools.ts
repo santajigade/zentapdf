@@ -32,17 +32,16 @@ export interface Tool {
 }
 
 export const categories: Category[] = [
-  { id: 'organise', slug: 'organise-pdf', name: 'Organise PDF', title: 'Organise PDF – Merge, Split & Reorder PDF Pages Free', description: 'Merge, split, reorder, rotate and remove PDF pages for free. Everything runs in your browser, so your files never leave your device.' },
-  { id: 'edit', slug: 'edit-pdf-tools', name: 'Edit PDF', title: 'PDF Editing Tools – Edit PDF, Sign, Watermark & Number Pages Free', description: 'Add page numbers, watermarks, text and signatures to PDF files for free. Private, in-browser PDF editing with no sign-up.' },
-  { id: 'convert', slug: 'convert-pdf', name: 'Convert PDF', title: 'Convert PDF – JPG to PDF, PDF to JPG & More Free', description: 'Convert JPG and PNG to PDF, PDF to images and extract text from PDF for free. Files are processed on your device, not uploaded.' },
-  { id: 'security', slug: 'pdf-security', name: 'PDF Security', title: 'PDF Security – Protect & Unlock PDF Files Free', description: 'Add a password to a PDF or remove one you know, for free. Processing happens in your browser, so your documents stay private.' },
-  { id: 'utility', slug: 'utility-tools', name: 'Utility Tools', title: 'Free QR Code, UPI QR, Barcode & Favicon Generators Online', description: 'Free online generators: QR codes for links, Wi-Fi and UPI payments, barcodes (EAN, Code 128), favicons and ICO files. Instant, no sign-up, no watermark.' },
-  { id: 'imgconv', slug: 'image-converter', name: 'Image Converters', title: 'Image Converter – PNG to JPG, WebP to JPG, JPG to PNG & More Free', description: 'Free image converters: PNG to JPG, JPG to PNG, WebP to JPG, JPG to WebP, AVIF, GIF, BMP and SVG. Convert up to 5 images at once, privately in your browser.' },
-  { id: 'image', slug: 'image-tools', name: 'Image Tools', title: 'Image Tools – Compress, Resize & Convert Images Free', description: 'Compress, resize, crop and convert JPG, PNG and WebP images for free. Fast, private and processed right in your browser.' },
+  { id: 'organise', slug: 'organise-pdf', name: 'Organise PDF', title: 'Organise PDF – Merge, Split & Reorder PDF Pages Free', description: 'Merge, split, reorder, rotate and remove PDF pages for free. Simple online tools with no sign-up, no watermark and no limits.' },
+  { id: 'edit', slug: 'edit-pdf-tools', name: 'Edit PDF', title: 'PDF Editing Tools – Edit PDF, Sign, Watermark & Number Pages Free', description: 'Edit PDF text, add page numbers, watermarks and signatures, crop and flatten PDF files for free. Easy online PDF editing with no sign-up.' },
+  { id: 'convert', slug: 'convert-pdf', name: 'Convert PDF', title: 'Convert PDF – JPG to PDF, PDF to JPG & More Free', description: 'Convert JPG and PNG to PDF, PDF to images, extract text from PDF and compress PDF files for free. Fast, simple and no sign-up needed.' },
+  { id: 'security', slug: 'pdf-security', name: 'PDF Security', title: 'PDF Security – Protect & Unlock PDF Files Free', description: 'Add a password to a PDF with AES-256 encryption or remove a password you know, for free. Fast and simple, with no sign-up or watermark.' },
+  { id: 'utility', slug: 'utility-tools', name: 'Utility Tools', title: 'Free QR Code, Barcode & Favicon Generators Online', description: 'Free online generators: QR codes for links, Wi-Fi, WhatsApp and email, barcodes (EAN, Code 128), favicons and ICO files. Instant, no sign-up, no watermark.' },
+  { id: 'imgconv', slug: 'image-converter', name: 'Image Converters', title: 'Image Converter – PNG to JPG, WebP to JPG, JPG to PNG & More Free', description: 'Free image converters: PNG to JPG, JPG to PNG, WebP to JPG, JPG to WebP, AVIF, GIF, BMP and SVG. Convert up to 5 images at once, free.' },
+  { id: 'image', slug: 'image-tools', name: 'Image Tools', title: 'Image Tools – Compress, Resize & Convert Images Free', description: 'Compress, resize, crop and convert JPG, PNG, WebP and HEIC images for free, reduce photo size in KB and make stickers. Fast and no sign-up.' },
 ];
 
 const common = {
-  privacyFaq: { q: 'Are my files uploaded to a server?', a: 'No. ZentaPDF processes your files inside your own browser using JavaScript. Nothing is uploaded, so nobody else can see your documents — not even us.' },
   freeFaq: { q: 'Is it really free? Do you add a watermark?', a: 'Yes, it is completely free with no sign-up, no watermark and no daily limits. The site is supported by a few non-intrusive ads.' },
 };
 
@@ -52,8 +51,8 @@ export const tools: Tool[] = [
     slug: 'merge-pdf', name: 'Merge PDF', category: 'organise', icon: 'merge', live: true,
     short: 'Combine several PDF files into one document, in the order you want.',
     title: 'Merge PDF – Combine PDF Files Free Online',
-    metaDescription: 'Merge PDF files online for free. Combine multiple PDFs into one document in seconds – no upload, no sign-up, no watermark. Your files stay on your device.',
-    intro: 'Merge PDF lets you combine two or more PDF files into a single document in the order you choose. It works entirely in your browser, so you can merge PDF files quickly and privately without uploading anything.',
+    metaDescription: 'Merge PDF files online for free. Fast, free and no sign-up needed. No watermark, works on phone and PC. Download your result in one click.',
+    intro: 'Merge PDF lets you combine two or more PDF files into a single document in the order you choose. It is free, quick and works on any computer or phone.',
     howToName: 'How to merge PDF files',
     steps: [
       'Click "Choose PDF files" or drag and drop your PDFs into the box.',
@@ -62,7 +61,6 @@ export const tools: Tool[] = [
       'Click "Download" to save your merged PDF.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'How many PDF files can I merge at once?', a: 'There is no fixed limit. You can merge as many files as your device memory allows — usually dozens of files or several hundred pages on a normal computer or phone.' },
       { q: 'Will merging change the quality of my PDF?', a: 'No. Pages are copied exactly as they are, so text, images and fonts keep their original quality.' },
       { q: 'Can I merge password-protected PDFs?', a: 'Encrypted PDFs need to be unlocked first. Use our Unlock PDF tool with the password you know, then merge the files.' },
@@ -75,8 +73,8 @@ export const tools: Tool[] = [
     slug: 'split-pdf', name: 'Split PDF', category: 'organise', icon: 'split', live: true,
     short: 'Split a PDF into separate files by page range or one file per page.',
     title: 'Split PDF – Separate PDF Pages Free Online',
-    metaDescription: 'Split PDF files online for free. Extract page ranges or save every page as a separate PDF – fast, private and processed in your browser. No sign-up.',
-    intro: 'Split PDF divides one PDF into smaller files. Choose your own page ranges or save every page as a separate PDF — all done in your browser, so your document stays private.',
+    metaDescription: 'Split PDF files online for free. No sign-up. Fast, free and no sign-up needed. No watermark, works on phone and PC.',
+    intro: 'Split PDF divides one PDF into smaller files. No sign-up or software is needed — just choose your file and download the result.',
     howToName: 'How to split a PDF',
     steps: [
       'Click "Choose PDF file" or drag and drop a PDF into the box.',
@@ -85,7 +83,6 @@ export const tools: Tool[] = [
       'Download a single PDF, or a ZIP file when there are several parts.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'How do I write page ranges?', a: 'Separate ranges with commas. "1-3, 5, 8-10" creates three files: pages 1 to 3, page 5, and pages 8 to 10. Each range becomes its own PDF.' },
       { q: 'Can I get every page as its own PDF?', a: 'Yes. Choose "Every page" and you will get one PDF per page, packed together in a ZIP file.' },
       { q: 'Does splitting reduce quality?', a: 'No. Pages are copied without re-compressing, so the quality stays exactly the same.' },
@@ -98,8 +95,8 @@ export const tools: Tool[] = [
     slug: 'remove-pages', name: 'Remove Pages', category: 'organise', icon: 'trash', live: true,
     short: 'Delete unwanted pages from a PDF in a few clicks.',
     title: 'Remove Pages from PDF – Delete PDF Pages Free Online',
-    metaDescription: 'Delete pages from a PDF online for free. See page thumbnails, click the pages to remove and download the new PDF. No upload, no sign-up, no watermark.',
-    intro: 'Remove Pages lets you delete unwanted pages from a PDF. See every page as a thumbnail, click the ones you do not need and download a clean new PDF — all in your browser, so your document stays private.',
+    metaDescription: 'Delete pages from a PDF online for free. See page thumbnails, click the pages to remove and download the new PDF.',
+    intro: 'Remove Pages lets you delete unwanted pages from a PDF. It takes only a few clicks, and no watermark is added.',
     howToName: 'How to remove pages from a PDF',
     steps: [
       'Click "Choose PDF file" or drag and drop a PDF into the box.',
@@ -108,7 +105,6 @@ export const tools: Tool[] = [
       'Click "Download PDF" to save the new file.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Can I delete several pages at once?', a: 'Yes. Click as many pages as you like, or type ranges such as 1-3, 8, 10-12 to select them all in one go.' },
       { q: 'Is my original PDF changed?', a: 'No. Your original file is never changed. You download a new copy without the removed pages.' },
       { q: 'Will the remaining pages lose quality?', a: 'No. Pages are copied exactly as they are, so text, links and images stay the same.' },
@@ -121,8 +117,8 @@ export const tools: Tool[] = [
     slug: 'extract-pages', name: 'Extract Pages', category: 'organise', icon: 'extract', live: true,
     short: 'Pick the pages you need and save them as a new PDF.',
     title: 'Extract Pages from PDF – Save Selected PDF Pages Free',
-    metaDescription: 'Extract pages from a PDF online for free. Select the pages you need with thumbnails or page ranges and save them as a new PDF. Private – files stay on your device.',
-    intro: 'Extract Pages creates a new PDF that contains only the pages you choose. Select pages by clicking their thumbnails or by typing page ranges — your PDF is processed privately in your browser.',
+    metaDescription: 'Extract pages from a PDF online for free. Select the pages you need with thumbnails or page ranges and save them as a new PDF.',
+    intro: 'Extract Pages creates a new PDF that contains only the pages you choose. It is free, quick and works on any computer or phone.',
     howToName: 'How to extract pages from a PDF',
     steps: [
       'Click "Choose PDF file" or drag and drop a PDF into the box.',
@@ -131,7 +127,6 @@ export const tools: Tool[] = [
       'Click "Download PDF" to save your new PDF.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'What is the difference between Extract and Split?', a: 'Extract makes one new PDF from the pages you pick. Split PDF can create several separate files at once, for example one per range or one per page.' },
       { q: 'In what order are the pages saved?', a: 'Extracted pages keep their original order. To change the order, use our Reorder Pages tool afterwards.' },
       { q: 'Can I extract pages from a large PDF?', a: 'Yes. Files with hundreds of pages work fine on a computer; very large files may be slow on older phones.' },
@@ -144,8 +139,8 @@ export const tools: Tool[] = [
     slug: 'reorder-pdf-pages', name: 'Reorder Pages', category: 'organise', icon: 'reorder', live: true,
     short: 'Drag and drop page thumbnails to change the page order.',
     title: 'Reorder PDF Pages – Rearrange PDF Pages Free Online',
-    metaDescription: 'Rearrange PDF pages online for free. Drag and drop page thumbnails into the right order, or reverse the whole PDF. No upload – your file stays on your device.',
-    intro: 'Reorder Pages lets you rearrange the pages of a PDF by dragging their thumbnails into a new order. You can also move pages with arrow buttons or reverse the whole document — all inside your browser.',
+    metaDescription: 'Rearrange PDF pages online for free. Drag and drop page thumbnails into the right order, or reverse the whole PDF.',
+    intro: 'Reorder Pages lets you rearrange the pages of a PDF by dragging their thumbnails into a new order. You can also move pages with arrow buttons or reverse the whole document.',
     howToName: 'How to reorder PDF pages',
     steps: [
       'Click "Choose PDF file" or drag and drop a PDF into the box.',
@@ -154,7 +149,6 @@ export const tools: Tool[] = [
       'Click "Save new order" and then "Download PDF".',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Does drag and drop work on phones?', a: 'On phones and tablets, use the ← and → buttons under each page to move it. Drag and drop works on computers.' },
       { q: 'Can I reverse the order of all pages?', a: 'Yes. Click "Reverse order" to flip the whole document, for example after scanning pages back to front.' },
       { q: 'Will links and bookmarks still work?', a: 'Page content, including links on the page, is kept. Bookmarks (the outline panel) are not copied to the new file.' },
@@ -167,8 +161,8 @@ export const tools: Tool[] = [
     slug: 'rotate-pdf', name: 'Rotate PDF', category: 'organise', icon: 'rotate', live: true,
     short: 'Rotate all or selected PDF pages and save the result.',
     title: 'Rotate PDF – Rotate PDF Pages Permanently Free Online',
-    metaDescription: 'Rotate PDF pages online for free. Turn all pages or single pages 90° left or right and save them permanently. Fast, private and processed in your browser.',
-    intro: 'Rotate PDF turns sideways or upside-down pages the right way up and saves the change permanently. Rotate every page at once or fix single pages — your PDF never leaves your device.',
+    metaDescription: 'Rotate PDF pages online for free. Turn all pages or single pages 90° left or right and save them permanently. Fast, free and no sign-up needed.',
+    intro: 'Rotate PDF turns sideways or upside-down pages the right way up and saves the change permanently. No sign-up or software is needed — just choose your file and download the result.',
     howToName: 'How to rotate a PDF',
     steps: [
       'Click "Choose PDF file" or drag and drop a PDF into the box.',
@@ -177,7 +171,6 @@ export const tools: Tool[] = [
       'Click "Rotate PDF" and then "Download PDF".',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Is the rotation saved permanently?', a: 'Yes. The new PDF opens with the pages turned the way you set them, in every PDF reader.' },
       { q: 'Can I rotate only some pages?', a: 'Yes. Use the buttons under each page to rotate just that page, for example a single landscape table in a portrait report.' },
       { q: 'Does rotating reduce quality?', a: 'No. Rotation only changes how the page is displayed; the content is not re-compressed.' },
@@ -190,8 +183,8 @@ export const tools: Tool[] = [
     slug: 'add-blank-page', name: 'Add Blank Page', category: 'organise', icon: 'plus', live: true,
     short: 'Insert blank pages anywhere in a PDF.',
     title: 'Add Blank Page to PDF – Insert Empty Pages Free Online',
-    metaDescription: 'Insert blank pages into a PDF online for free. Add empty pages at the start, at the end or after any page – useful for printing and notes. No upload, no sign-up.',
-    intro: 'Add Blank Page inserts empty pages anywhere in your PDF — at the start, at the end or after any page. It is handy for double-sided printing, notes or separating chapters, and it all happens in your browser.',
+    metaDescription: 'Insert blank pages into a PDF online for free. Add empty pages at the start, at the end or after any page – useful for printing and notes.',
+    intro: 'Add Blank Page inserts empty pages anywhere in your PDF — at the start, at the end or after any page. It takes only a few clicks, and no watermark is added.',
     howToName: 'How to add a blank page to a PDF',
     steps: [
       'Click "Choose PDF file" or drag and drop a PDF into the box.',
@@ -200,7 +193,6 @@ export const tools: Tool[] = [
       'Click "Add blank pages" and then "Download PDF".',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'What size are the blank pages?', a: 'Each blank page has the same size as the page before it (or the first page, if added at the start), so the document prints evenly.' },
       { q: 'Why add blank pages?', a: 'For double-sided printing (so chapters start on the right-hand page), to leave room for handwritten notes, or to separate sections.' },
       { q: 'Can I add many blank pages?', a: 'Yes. Add as many as you need anywhere in the document.' },
@@ -213,9 +205,9 @@ export const tools: Tool[] = [
   {
     slug: 'edit-pdf', name: 'Edit PDF', category: 'edit', icon: 'editdoc', live: true,
     short: 'Change existing text, add text, signatures, images, shapes and highlights.',
-    title: 'Edit PDF – Free Online PDF Editor (No Upload, No Sign-up)',
-    metaDescription: 'Edit PDF files online for free. Change existing text, add text, signatures, images and highlights, or white-out content. Private – your PDF is never uploaded.',
-    intro: 'ZentaPDF Edit PDF is a free online PDF editor. Type text anywhere, sign, add images and shapes, highlight, draw, and white-out anything you want to hide — then save a new PDF. Everything happens in your browser, so your document stays private.',
+    title: 'Edit PDF – Free Online PDF Editor (No Sign-up)',
+    metaDescription: 'Edit PDF files online for free. Change existing text, add text, signatures, images and highlights, or white-out content.',
+    intro: 'ZentaPDF Edit PDF is a free online PDF editor. Type text anywhere, sign, add images and shapes, highlight, draw, and white-out anything you want to hide — then save a new PDF.',
     howToName: 'How to edit a PDF',
     steps: [
       'Click "Choose PDF file" or drag and drop a PDF into the box.',
@@ -224,7 +216,6 @@ export const tools: Tool[] = [
       'Click "Save PDF" and then "Download PDF".',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Can I change existing text in my PDF?', a: 'Yes. Choose the Aa tool and click any text. The old words are covered and you can type new ones in a similar font, size and colour. Scanned PDFs (pictures of pages) have no editable text.' },
       { q: 'Can I sign a PDF with this editor?', a: 'Yes. Click "Sign" to draw, type or upload your signature, then place and resize it on the page.' },
       { q: 'Does it work on phones?', a: 'Yes. You can type, sign and draw with your finger. For long documents a computer is more comfortable.' },
@@ -238,7 +229,7 @@ export const tools: Tool[] = [
     slug: 'sign-pdf', name: 'Sign PDF', category: 'edit', icon: 'sign', live: true,
     short: 'Draw, type or upload your signature and place it on a PDF.',
     title: 'Sign PDF – Add Signature to PDF Free Online',
-    metaDescription: 'Sign PDF documents online for free. Draw, type or upload your signature and place it anywhere on the page. No upload, no sign-up – your file stays on your device.',
+    metaDescription: 'Sign PDF documents online for free. Draw, type or upload your signature and place it anywhere on the page. Fast, free and no sign-up needed.',
     intro: 'Sign PDF lets you add your signature to any PDF in seconds. Draw it with your mouse or finger, type your name in a handwriting style, or upload a photo of your signature — then place it, resize it and download the signed PDF.',
     howToName: 'How to sign a PDF',
     steps: [
@@ -248,9 +239,8 @@ export const tools: Tool[] = [
       'Click "Save PDF" and then "Download PDF".',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Is this a legally valid signature?', a: 'It is a simple electronic signature, which many everyday documents accept. Some contracts require a certified digital signature — check what the receiver needs.' },
-      { q: 'Is my signature stored anywhere?', a: 'No. Your signature and PDF stay in your browser and are gone when you close the page.' },
+      { q: 'Is my signature stored anywhere?', a: 'No.' },
       { q: 'Can I add my signature to several pages?', a: 'Yes. Click "Sign" again on each page where you need it.' },
       common.freeFaq,
     ],
@@ -260,8 +250,8 @@ export const tools: Tool[] = [
     slug: 'add-page-numbers', name: 'Add Page Numbers', category: 'edit', icon: 'hash', live: true,
     short: 'Number your PDF pages with your choice of position and style.',
     title: 'Add Page Numbers to PDF – Number PDF Pages Free Online',
-    metaDescription: 'Add page numbers to a PDF online for free. Choose position, format (1, Page 1, 1 of 10), start number and font size, and skip the cover page. No upload needed.',
-    intro: 'Add Page Numbers puts page numbers on every page of your PDF. Choose where they go, the style and the starting number, and see a live preview — all processed privately in your browser.',
+    metaDescription: 'Add page numbers to a PDF online for free. Choose position, format (1, Page 1, 1 of 10), start number and font size, and skip the cover page.',
+    intro: 'Add Page Numbers puts page numbers on every page of your PDF. It is free, quick and works on any computer or phone.',
     howToName: 'How to add page numbers to a PDF',
     steps: [
       'Click "Choose PDF file" or drag and drop a PDF into the box.',
@@ -270,7 +260,6 @@ export const tools: Tool[] = [
       'Click "Add page numbers" and then "Download PDF".',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Can I start numbering from a number other than 1?', a: 'Yes. Type any number in "Start at" — useful when your PDF is part of a larger document.' },
       { q: 'Can I leave the cover page without a number?', a: 'Yes. Tick "Skip first page"; numbering then starts on page 2 with your start number.' },
       { q: 'Will the numbers cover my text?', a: 'Numbers are placed about 1 cm from the page edge. If your page has content there, choose a different position or a smaller size.' },
@@ -283,8 +272,8 @@ export const tools: Tool[] = [
     slug: 'add-watermark', name: 'Add Watermark', category: 'edit', icon: 'stamp', live: true,
     short: 'Stamp text or an image over your PDF pages.',
     title: 'Add Watermark to PDF – Text or Logo Watermark Free Online',
-    metaDescription: 'Add a text or logo watermark to PDF files for free. Set text, colour, size, angle and transparency with a live preview. Private – no upload needed.',
-    intro: 'Add Watermark stamps text such as CONFIDENTIAL or DRAFT, or your own logo, across every page of a PDF. Adjust colour, angle, size and transparency with a live preview — without uploading your document.',
+    metaDescription: 'Add a text or logo watermark to PDF files for free. Set text, colour, size, angle and transparency with a live preview.',
+    intro: 'Add Watermark stamps text such as CONFIDENTIAL or DRAFT, or your own logo, across every page of a PDF. No sign-up or software is needed — just choose your file and download the result.',
     howToName: 'How to add a watermark to a PDF',
     steps: [
       'Click "Choose PDF file" or drag and drop a PDF into the box.',
@@ -293,7 +282,6 @@ export const tools: Tool[] = [
       'Click "Add watermark" and then "Download PDF".',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Can I use my company logo as a watermark?', a: 'Yes. Choose "Image / logo" and select a PNG or JPG. PNG logos with a transparent background look best.' },
       { q: 'Can people remove the watermark?', a: 'The watermark becomes part of each page. It cannot be removed in normal PDF readers, although advanced PDF editors can edit page content.' },
       { q: 'Which languages can I use for text watermarks?', a: 'Text watermarks currently support English letters, numbers and common symbols. For other scripts, use an image watermark.' },
@@ -307,8 +295,8 @@ export const tools: Tool[] = [
     slug: 'crop-pdf', name: 'Crop PDF', category: 'edit', icon: 'crop', live: true,
     short: 'Trim the margins of PDF pages.',
     title: 'Crop PDF – Trim PDF Margins Free Online',
-    metaDescription: 'Crop PDF pages online for free. Cut white margins from every page by setting millimetres for each edge, with a preview. Fast, private, no upload, no sign-up.',
-    intro: 'Crop PDF trims the margins of every page in your PDF. Set how many millimetres to cut from the top, bottom, left and right, check the preview and download — all in your browser.',
+    metaDescription: 'Crop PDF pages online for free. Cut white margins from every page by setting millimetres for each edge, with a preview.',
+    intro: 'Crop PDF trims the margins of every page in your PDF. It takes only a few clicks, and no watermark is added.',
     howToName: 'How to crop a PDF',
     steps: [
       'Click "Choose PDF file" or drag and drop a PDF into the box.',
@@ -317,7 +305,6 @@ export const tools: Tool[] = [
       'Click "Crop PDF" and then "Download PDF".',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Is the cropped content deleted?', a: 'The PDF page size is reduced so the trimmed area is no longer shown or printed. The hidden content may still exist inside the file, so do not rely on cropping to remove sensitive information.' },
       { q: 'Are all pages cropped the same way?', a: 'Yes. The same margins are removed from every page.' },
       { q: 'Why use Crop PDF?', a: 'To remove large white margins so pages are easier to read on a phone, or to cut away scanner borders.' },
@@ -330,7 +317,7 @@ export const tools: Tool[] = [
     slug: 'flatten-pdf', name: 'Flatten PDF', category: 'edit', icon: 'layers', live: true,
     short: 'Make filled-in form fields part of the page so they can’t be changed.',
     title: 'Flatten PDF – Flatten PDF Form Fields Free Online',
-    metaDescription: 'Flatten PDF forms online for free. Turn fillable fields into normal page content so answers cannot be edited. Fast and private – processed in your browser.',
+    metaDescription: 'Flatten PDF forms online for free. Turn fillable fields into normal page content so answers cannot be edited. Fast, free and no sign-up needed.',
     intro: 'Flatten PDF turns the fillable fields of a PDF form — text boxes, check boxes and drop-downs — into normal page content. The answers stay visible but can no longer be changed, which is ideal before sending a completed form.',
     howToName: 'How to flatten a PDF',
     steps: [
@@ -340,7 +327,6 @@ export const tools: Tool[] = [
       'Click "Download PDF" to save the flattened copy.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Why flatten a PDF form?', a: 'So nobody can change the answers after you send it, and so the form looks the same in every PDF reader and when printed.' },
       { q: 'Does it flatten comments and annotations?', a: 'This basic version flattens form fields. Comments and sticky notes are kept as they are.' },
       { q: 'My PDF has no form fields — what happens?', a: 'The tool tells you that no fields were found and saves the PDF unchanged.' },
@@ -353,7 +339,7 @@ export const tools: Tool[] = [
     slug: 'edit-pdf-metadata', name: 'Edit Metadata', category: 'edit', icon: 'tag', live: true,
     short: 'Change the title, author, subject and keywords of a PDF.',
     title: 'Edit PDF Metadata – Change Title, Author & Keywords Free',
-    metaDescription: 'Edit PDF metadata online for free. View and change the title, author, subject, keywords, creator and producer of a PDF. Private – nothing is uploaded.',
+    metaDescription: 'Edit PDF metadata online for free. View and change the title, author, subject, keywords, creator and producer of a PDF.',
     intro: 'Edit Metadata lets you see and change the hidden information inside a PDF — title, author, subject, keywords, creator and producer. A good title helps the PDF show the right name in browsers and search engines.',
     howToName: 'How to edit PDF metadata',
     steps: [
@@ -363,7 +349,6 @@ export const tools: Tool[] = [
       'Click "Save metadata" and then "Download PDF".',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Why change PDF metadata?', a: 'The title is shown in browser tabs and search results, and the author and keywords help organise documents. You may also want to remove personal names before sharing a file.' },
       { q: 'How do I remove the author name?', a: 'Clear the Author box and click "Save metadata". The new PDF will have no author.' },
       { q: 'Does it change the PDF content?', a: 'No. Only the document information is changed; the pages stay exactly the same.' },
@@ -377,8 +362,8 @@ export const tools: Tool[] = [
     slug: 'protect-pdf', name: 'Protect PDF', category: 'security', icon: 'lock', live: true,
     short: 'Add a password to a PDF with strong AES-256 encryption.',
     title: 'Protect PDF – Add Password to PDF Free Online',
-    metaDescription: 'Password protect PDF files for free with AES-256 encryption. Choose whether printing, copying and editing are allowed. Private – your PDF never leaves your device.',
-    intro: 'Protect PDF adds a password to your PDF using strong AES-256 encryption, so only people who know the password can open it. You can also choose whether printing, copying text and editing are allowed — all done privately in your browser.',
+    metaDescription: 'Password protect PDF files for free with AES-256 encryption. Choose whether printing, copying and editing are allowed.',
+    intro: 'Protect PDF adds a password to your PDF using strong AES-256 encryption, so only people who know the password can open it. It is free, quick and works on any computer or phone.',
     howToName: 'How to password protect a PDF',
     steps: [
       'Click "Choose PDF file" or drag and drop a PDF into the box.',
@@ -387,10 +372,9 @@ export const tools: Tool[] = [
       'Click "Protect PDF" and then "Download PDF".',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'How strong is the protection?', a: 'Files are encrypted with AES-256, the strongest standard PDF encryption, supported by Adobe Reader and all modern PDF apps.' },
       { q: 'What if I forget the password?', a: 'The file cannot be opened without it — not by us or anyone else. Keep your password somewhere safe.' },
-      { q: 'Is my password sent anywhere?', a: 'No. The password and the PDF stay in your browser. Nothing is uploaded.' },
+      { q: 'Is my password sent anywhere?', a: 'No.' },
       common.freeFaq,
     ],
     related: ['unlock-pdf', 'add-watermark', 'flatten-pdf', 'merge-pdf'],
@@ -400,8 +384,8 @@ export const tools: Tool[] = [
     slug: 'unlock-pdf', name: 'Unlock PDF', category: 'security', icon: 'unlock', live: true,
     short: 'Remove the password from a PDF when you know it.',
     title: 'Unlock PDF – Remove PDF Password Free Online',
-    metaDescription: 'Remove the password from a PDF you own for free. Type the password once and save an unlocked copy, or remove printing and copying restrictions. Private, no upload.',
-    intro: 'Unlock PDF removes the password and restrictions from a PDF when you know the password — so you do not have to type it every time, and you can print, copy or edit it. Everything happens in your browser.',
+    metaDescription: 'Remove the password from a PDF you own for free. Type the password once and save an unlocked copy, or remove printing and copying restrictions.',
+    intro: 'Unlock PDF removes the password and restrictions from a PDF when you know the password — so you do not have to type it every time, and you can print, copy or edit it.',
     howToName: 'How to unlock a PDF',
     steps: [
       'Click "Choose PDF file" or drag and drop the protected PDF into the box.',
@@ -410,7 +394,6 @@ export const tools: Tool[] = [
       'Click "Download PDF" to save the unlocked copy.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Can you unlock a PDF without the password?', a: 'No. This tool is for files you own and can open. If a PDF only has printing or copying restrictions, it is unlocked without any password.' },
       { q: 'Is it legal to unlock a PDF?', a: 'Yes, for your own documents or files you have permission to use. Do not remove protection from documents you are not allowed to change.' },
       { q: 'Is the unlocked file the same quality?', a: 'Yes. Only the encryption is removed; pages, text and images stay exactly the same.' },
@@ -424,8 +407,8 @@ export const tools: Tool[] = [
     slug: 'jpg-to-pdf', name: 'JPG to PDF', category: 'convert', icon: 'imgToPdf', live: true,
     short: 'Turn JPG, PNG and WebP images into a PDF document.',
     title: 'JPG to PDF – Convert Images to PDF Free Online',
-    metaDescription: 'Convert JPG, PNG and WebP images to PDF for free. Choose page size, orientation and margins. No upload, no sign-up – images stay on your device.',
-    intro: 'JPG to PDF converts your photos and images into a PDF document in seconds. Add one or many images, set the page size and margins, and get a single PDF — all processed privately in your browser.',
+    metaDescription: 'Convert JPG, PNG and WebP images to PDF for free. Choose page size, orientation and margins. Fast, free and no sign-up needed.',
+    intro: 'JPG to PDF converts your photos and images into a PDF document in seconds. No sign-up or software is needed — just choose your file and download the result.',
     howToName: 'How to convert JPG to PDF',
     steps: [
       'Click "Choose images" or drag and drop JPG, PNG or WebP files into the box.',
@@ -434,7 +417,6 @@ export const tools: Tool[] = [
       'Click "Convert to PDF" and then "Download".',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Which image formats are supported?', a: 'JPG/JPEG, PNG and WebP. Most other formats that your browser can open, such as GIF and BMP, also work.' },
       { q: 'Can I combine many images into one PDF?', a: 'Yes. Add all your images and they become one PDF, one image per page, in the order you set.' },
       { q: 'Will my photos lose quality?', a: 'JPG images are placed in the PDF without re-compressing, so they keep their original quality. Other formats are stored losslessly.' },
@@ -447,8 +429,8 @@ export const tools: Tool[] = [
     slug: 'pdf-to-jpg', name: 'PDF to JPG', category: 'convert', icon: 'pdfToImg', live: true,
     short: 'Save every PDF page as a high-quality JPG or PNG image.',
     title: 'PDF to JPG – Convert PDF Pages to Images Free Online',
-    metaDescription: 'Convert PDF to JPG or PNG images for free. Choose image quality and download one page or all pages as a ZIP. Private – your PDF never leaves your device.',
-    intro: 'PDF to JPG turns each page of your PDF into a sharp JPG or PNG image. Pick the quality you need and download single pages or all of them in a ZIP — without uploading your PDF anywhere.',
+    metaDescription: 'Convert PDF to JPG or PNG images for free. Choose image quality and download one page or all pages as a ZIP. Fast, free and no sign-up needed.',
+    intro: 'PDF to JPG turns each page of your PDF into a sharp JPG or PNG image. It takes only a few clicks, and no watermark is added.',
     howToName: 'How to convert PDF to JPG',
     steps: [
       'Click "Choose PDF file" or drag and drop a PDF into the box.',
@@ -457,7 +439,6 @@ export const tools: Tool[] = [
       'Download single pages, or all pages at once as a ZIP file.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'What quality should I choose?', a: '"Normal" (about 100 DPI) is good for screens and sharing. "High" (150 DPI) suits most documents. "Very high" (300 DPI) is best for printing but makes bigger files.' },
       { q: 'JPG or PNG – which is better?', a: 'JPG gives smaller files and is best for photos and scanned pages. PNG is lossless and keeps text and line drawings perfectly crisp.' },
       { q: 'Can I convert a PDF with many pages?', a: 'Yes. All pages are converted one after another and you can download them together as a ZIP. Very large PDFs at "Very high" quality may need a computer rather than a phone.' },
@@ -470,7 +451,7 @@ export const tools: Tool[] = [
     slug: 'images-to-pdf', name: 'Images to PDF', category: 'convert', icon: 'images', live: true,
     short: 'Combine many images into one PDF document.',
     title: 'Images to PDF – Combine Multiple Images into One PDF Free',
-    metaDescription: 'Combine multiple images into one PDF for free. Merge JPG, PNG and WebP photos into a single PDF, set page size and order. No upload – runs in your browser.',
+    metaDescription: 'Combine multiple images into one PDF for free. Merge JPG, PNG and WebP photos into a single PDF, set page size and order.',
     intro: 'Images to PDF combines many pictures into a single PDF document — perfect for scanned pages, receipts, photo albums or assignments. Put the images in order, choose the page size and download one PDF.',
     howToName: 'How to combine images into one PDF',
     steps: [
@@ -480,7 +461,6 @@ export const tools: Tool[] = [
       'Click "Convert to PDF" and download your single PDF.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'How many images can I combine?', a: 'As many as your device memory allows — usually hundreds of photos on a computer.' },
       { q: 'Can I mix JPG, PNG and WebP?', a: 'Yes. Any image your browser can open can go into the same PDF.' },
       { q: 'Will phone photos be the right way up?', a: 'Yes. Rotation information from phone cameras is applied automatically.' },
@@ -493,7 +473,7 @@ export const tools: Tool[] = [
     slug: 'pdf-to-text', name: 'PDF to Text', category: 'convert', icon: 'text', live: true,
     short: 'Extract all the text from a PDF as plain text.',
     title: 'PDF to Text – Extract Text from PDF Free Online',
-    metaDescription: 'Extract text from PDF files for free. Copy the text of every page or download it as a .txt file. Fast and private – your PDF is read in your browser.',
+    metaDescription: 'Extract text from PDF files for free. Copy the text of every page or download it as a .txt file. Fast, free and no sign-up needed.',
     intro: 'PDF to Text pulls all the text out of a PDF so you can copy it, search it or reuse it. Lines are rebuilt in reading order, page by page, and you can copy everything or download a .txt file.',
     howToName: 'How to extract text from a PDF',
     steps: [
@@ -503,7 +483,6 @@ export const tools: Tool[] = [
       'Click "Copy all" or "Download .txt".',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Why is no text found in my PDF?', a: 'The PDF is probably a scan — the pages are pictures, not text. Scanned PDFs need OCR (text recognition), which is coming soon.' },
       { q: 'Is the layout kept?', a: 'Lines are kept in reading order, but columns, tables and fonts become plain text.' },
       { q: 'Does it work with other languages?', a: 'Yes. Any language stored as real text in the PDF, including Hindi, is extracted.' },
@@ -516,8 +495,8 @@ export const tools: Tool[] = [
     slug: 'compress-pdf', name: 'Compress PDF', category: 'convert', icon: 'compress', live: true,
     short: 'Reduce PDF file size by optimising the images inside.',
     title: 'Compress PDF – Reduce PDF File Size Free Online',
-    metaDescription: 'Compress PDF files online for free. Shrink the images inside your PDF with 3 levels and keep text sharp. No upload – compression runs on your device.',
-    intro: 'Compress PDF makes your PDF smaller so it is easier to email and upload. This basic in-browser compression shrinks and re-saves the photos and scans inside the PDF, while text and vector graphics stay exactly the same. Your file never leaves your device.',
+    metaDescription: 'Compress PDF files online for free. Shrink the images inside your PDF with 3 levels and keep text sharp. Fast, free and no sign-up needed.',
+    intro: 'Compress PDF makes your PDF smaller so it is easier to email and upload. This basic compression shrinks and re-saves the photos and scans inside the PDF, while text and vector graphics stay exactly the same.',
     howToName: 'How to compress a PDF',
     steps: [
       'Click "Choose PDF file" or drag and drop a PDF into the box.',
@@ -526,11 +505,10 @@ export const tools: Tool[] = [
       'Check the new size and click "Download PDF".',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'How much smaller will my PDF get?', a: 'PDFs with photos or scanned pages often shrink by 40–80%. PDFs that are mostly text are usually already small and may not get much smaller.' },
       { q: 'Will the text get blurry?', a: 'No. Only pictures inside the PDF are compressed. Text, lines and vector drawings are not changed.' },
       { q: 'What is the difference between the levels?', a: 'Light keeps images large and sharp, Recommended is a good balance for email, and Strong makes the smallest file with lower image quality.' },
-      { q: 'Why is this called basic compression?', a: 'It runs completely in your browser for privacy. Very complex PDFs may compress more with server-based tools; we plan to add an optional stronger mode later.' },
+      { q: 'Why is this called basic compression?', a: 'Very complex PDFs may compress more with server-based tools; we plan to add an optional stronger mode later.' },
       common.freeFaq,
     ],
     related: ['compress-image', 'merge-pdf', 'split-pdf', 'pdf-to-jpg'],
@@ -541,8 +519,8 @@ export const tools: Tool[] = [
     slug: 'compress-image', name: 'Compress Image', category: 'image', icon: 'compress', live: true,
     short: 'Make JPG, PNG and WebP images smaller without visible quality loss.',
     title: 'Compress Image – Reduce JPG, PNG & WebP Size Free Online',
-    metaDescription: 'Compress images online for free. Reduce JPG, PNG and WebP file size by up to 80% with adjustable quality. No upload – images are compressed on your device.',
-    intro: 'Compress Image reduces the file size of your JPG, PNG and WebP pictures while keeping them looking sharp. Choose the quality and maximum width, compress many images at once, and download them instantly — nothing is uploaded.',
+    metaDescription: 'Compress images online for free. Reduce JPG, PNG and WebP file size by up to 80% with adjustable quality. Fast, free and no sign-up needed.',
+    intro: 'Compress Image reduces the file size of your JPG, PNG and WebP pictures while keeping them looking sharp. It is free, quick and works on any computer or phone.',
     howToName: 'How to compress an image',
     steps: [
       'Click "Choose images" or drag and drop your pictures into the box.',
@@ -551,7 +529,6 @@ export const tools: Tool[] = [
       'Click "Compress", check the new sizes, then download one image or all as a ZIP.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'How much smaller will my images get?', a: 'Photos usually shrink by 50–80% at 75% quality with no visible difference. Reducing the maximum width saves even more.' },
       { q: 'Which format gives the smallest files?', a: 'WebP is usually 25–35% smaller than JPG at the same quality and works in all modern browsers. Use JPG when you need maximum compatibility.' },
       { q: 'Why is my PNG not much smaller?', a: 'PNG is a lossless format, so quality settings do not apply to it. Convert it to JPG or WebP, or reduce its width, to make it much smaller.' },
@@ -565,7 +542,7 @@ export const tools: Tool[] = [
     slug: 'reduce-image-size-in-kb', name: 'Reduce Image Size in KB', category: 'image', icon: 'compress', live: true,
     short: 'Compress a photo to an exact size in KB – 20 KB, 50 KB, 100 KB or any size.',
     title: 'Reduce Image Size in KB – Compress Photo to 20KB, 50KB, 100KB',
-    metaDescription: 'Reduce image size in KB for free. Compress photos and signatures to 20 KB, 50 KB, 100 KB or any size for online forms. No upload – works in your browser.',
+    metaDescription: 'Reduce image size in KB for free. Compress photos and signatures to 20 KB, 50 KB, 100 KB or any size for online forms.',
     intro: 'Reduce Image Size in KB compresses your photo or signature to the exact file size an online form asks for — 20 KB, 50 KB, 100 KB or any number you type. It keeps the best possible quality and can also set an exact size in pixels.',
     howToName: 'How to reduce image size in KB',
     steps: [
@@ -575,7 +552,6 @@ export const tools: Tool[] = [
       'Click "Compress" and download your image.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Will the photo still look good?', a: 'Yes, in most cases. The tool keeps the highest quality that fits your target and only makes the picture smaller in pixels if it really has to.' },
       { q: 'What if the form asks for an exact size in pixels?', a: 'Type the width and height (for example 200 × 230 px for a passport-style photo). The photo is cropped from the centre to that exact size and then compressed to the target KB. Always check the size rules in the official notification of the form you are filling.' },
       { q: 'Why is the output a JPG?', a: 'JPG gives the smallest files for photos and signatures and is accepted by almost every online application form. If your form needs PNG, use our PNG converter afterwards.' },
@@ -589,8 +565,8 @@ export const tools: Tool[] = [
     slug: 'compress-image-to-20kb', name: 'Compress Image to 20KB', category: 'image', icon: 'compress', live: true, kb: 20,
     short: 'Make any photo 20 KB or smaller in one click.',
     title: 'Compress Image to 20KB – Reduce Photo Size to 20 KB Free',
-    metaDescription: 'Compress image to 20KB online for free. Reduce JPG, PNG or WebP photos to 20 KB or less for online forms in seconds. No upload, no sign-up.',
-    intro: 'Compress Image to 20KB reduces your photo to 20 KB or less while keeping it as clear as possible. It is ideal for signatures and small ID photos. Everything runs in your browser, so your personal photos are never uploaded.',
+    metaDescription: 'Compress image to 20KB online for free. Reduce JPG, PNG or WebP photos to 20 KB or less for online forms in seconds.',
+    intro: 'Compress Image to 20KB reduces your photo to 20 KB or less while keeping it as clear as possible. It is ideal for signatures and small ID photos.',
     howToName: 'How to compress an image to 20KB',
     steps: [
       'Click "Choose images" or drag and drop your photo into the box.',
@@ -599,7 +575,6 @@ export const tools: Tool[] = [
       'Download your 20 KB image and upload it to your form.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Will the photo still look good?', a: 'Yes, in most cases. The tool keeps the highest quality that fits in 20 KB and only makes the picture smaller in pixels if it really has to.' },
       { q: 'What if the form asks for an exact size in pixels?', a: 'Type the width and height (for example 200 × 230 px for a passport-style photo). The photo is cropped from the centre to that exact size and then compressed to the target KB. Always check the size rules in the official notification of the form you are filling.' },
       { q: 'Why is the output a JPG?', a: 'JPG gives the smallest files for photos and signatures and is accepted by almost every online application form. If your form needs PNG, use our PNG converter afterwards.' },
@@ -612,8 +587,8 @@ export const tools: Tool[] = [
     slug: 'compress-image-to-50kb', name: 'Compress Image to 50KB', category: 'image', icon: 'compress', live: true, kb: 50,
     short: 'Make any photo 50 KB or smaller in one click.',
     title: 'Compress Image to 50KB – Reduce Photo Size to 50 KB Free',
-    metaDescription: 'Compress image to 50KB online for free. Reduce JPG, PNG or WebP photos to 50 KB or less for online forms in seconds. No upload, no sign-up.',
-    intro: 'Compress Image to 50KB reduces your photo to 50 KB or less while keeping it as clear as possible. It is ideal for passport-size photos and signatures in exam and job forms. Everything runs in your browser, so your personal photos are never uploaded.',
+    metaDescription: 'Compress image to 50KB online for free. Reduce JPG, PNG or WebP photos to 50 KB or less for online forms in seconds.',
+    intro: 'Compress Image to 50KB reduces your photo to 50 KB or less while keeping it as clear as possible. It is ideal for passport-size photos and signatures in exam and job forms.',
     howToName: 'How to compress an image to 50KB',
     steps: [
       'Click "Choose images" or drag and drop your photo into the box.',
@@ -622,7 +597,6 @@ export const tools: Tool[] = [
       'Download your 50 KB image and upload it to your form.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Will the photo still look good?', a: 'Yes, in most cases. The tool keeps the highest quality that fits in 50 KB and only makes the picture smaller in pixels if it really has to.' },
       { q: 'What if the form asks for an exact size in pixels?', a: 'Type the width and height (for example 200 × 230 px for a passport-style photo). The photo is cropped from the centre to that exact size and then compressed to the target KB. Always check the size rules in the official notification of the form you are filling.' },
       { q: 'Why is the output a JPG?', a: 'JPG gives the smallest files for photos and signatures and is accepted by almost every online application form. If your form needs PNG, use our PNG converter afterwards.' },
@@ -635,8 +609,8 @@ export const tools: Tool[] = [
     slug: 'compress-image-to-100kb', name: 'Compress Image to 100KB', category: 'image', icon: 'compress', live: true, kb: 100,
     short: 'Make any photo 100 KB or smaller in one click.',
     title: 'Compress Image to 100KB – Reduce Photo Size to 100 KB Free',
-    metaDescription: 'Compress image to 100KB online for free. Reduce JPG, PNG or WebP photos to 100 KB or less for online forms in seconds. No upload, no sign-up.',
-    intro: 'Compress Image to 100KB reduces your photo to 100 KB or less while keeping it as clear as possible. It is ideal for photos for government, bank and college applications. Everything runs in your browser, so your personal photos are never uploaded.',
+    metaDescription: 'Compress image to 100KB online for free. Reduce JPG, PNG or WebP photos to 100 KB or less for online forms in seconds.',
+    intro: 'Compress Image to 100KB reduces your photo to 100 KB or less while keeping it as clear as possible. It is ideal for photos for government, bank and college applications.',
     howToName: 'How to compress an image to 100KB',
     steps: [
       'Click "Choose images" or drag and drop your photo into the box.',
@@ -645,7 +619,6 @@ export const tools: Tool[] = [
       'Download your 100 KB image and upload it to your form.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Will the photo still look good?', a: 'Yes, in most cases. The tool keeps the highest quality that fits in 100 KB and only makes the picture smaller in pixels if it really has to.' },
       { q: 'What if the form asks for an exact size in pixels?', a: 'Type the width and height (for example 200 × 230 px for a passport-style photo). The photo is cropped from the centre to that exact size and then compressed to the target KB. Always check the size rules in the official notification of the form you are filling.' },
       { q: 'Why is the output a JPG?', a: 'JPG gives the smallest files for photos and signatures and is accepted by almost every online application form. If your form needs PNG, use our PNG converter afterwards.' },
@@ -658,8 +631,8 @@ export const tools: Tool[] = [
     slug: 'compress-image-to-200kb', name: 'Compress Image to 200KB', category: 'image', icon: 'compress', live: true, kb: 200,
     short: 'Make any photo 200 KB or smaller in one click.',
     title: 'Compress Image to 200KB – Reduce Photo Size to 200 KB Free',
-    metaDescription: 'Compress image to 200KB online for free. Reduce JPG, PNG or WebP photos to 200 KB or less for online forms in seconds. No upload, no sign-up.',
-    intro: 'Compress Image to 200KB reduces your photo to 200 KB or less while keeping it as clear as possible. It is ideal for documents, certificates and larger photos in online applications. Everything runs in your browser, so your personal photos are never uploaded.',
+    metaDescription: 'Compress image to 200KB online for free. Reduce JPG, PNG or WebP photos to 200 KB or less for online forms in seconds.',
+    intro: 'Compress Image to 200KB reduces your photo to 200 KB or less while keeping it as clear as possible. It is ideal for documents, certificates and larger photos in online applications.',
     howToName: 'How to compress an image to 200KB',
     steps: [
       'Click "Choose images" or drag and drop your photo into the box.',
@@ -668,7 +641,6 @@ export const tools: Tool[] = [
       'Download your 200 KB image and upload it to your form.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Will the photo still look good?', a: 'Yes, in most cases. The tool keeps the highest quality that fits in 200 KB and only makes the picture smaller in pixels if it really has to.' },
       { q: 'What if the form asks for an exact size in pixels?', a: 'Type the width and height (for example 200 × 230 px for a passport-style photo). The photo is cropped from the centre to that exact size and then compressed to the target KB. Always check the size rules in the official notification of the form you are filling.' },
       { q: 'Why is the output a JPG?', a: 'JPG gives the smallest files for photos and signatures and is accepted by almost every online application form. If your form needs PNG, use our PNG converter afterwards.' },
@@ -681,8 +653,8 @@ export const tools: Tool[] = [
     slug: 'resize-image', name: 'Resize Image', category: 'image', icon: 'resize', live: true,
     short: 'Change the width and height of JPG, PNG and WebP images in pixels or percent.',
     title: 'Resize Image – Change Image Size in Pixels Free Online',
-    metaDescription: 'Resize images online for free. Set an exact width and height in pixels or scale by percent, keep proportions, and resize many images at once. No upload.',
-    intro: 'Resize Image changes the width and height of your pictures in seconds. Type exact pixel sizes or scale by percent, keep the proportions, and resize many images at once — privately in your browser.',
+    metaDescription: 'Resize images online for free. Set an exact width and height in pixels or scale by percent, keep proportions, and resize many images at once.',
+    intro: 'Resize Image changes the width and height of your pictures in seconds. No sign-up or software is needed — just choose your file and download the result.',
     howToName: 'How to resize an image',
     steps: [
       'Click "Choose images" or drag and drop your pictures into the box.',
@@ -691,7 +663,6 @@ export const tools: Tool[] = [
       'Click "Resize" and download one image or all as a ZIP.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'How do I resize without stretching the image?', a: 'Keep "Keep proportions" ticked. The image is scaled to fit inside the width and height you type, so its shape never changes. You can also fill in only the width or only the height.' },
       { q: 'Can I resize many images at once?', a: 'Yes. Add as many images as you like — they are all resized with the same settings and you can download them together in a ZIP file.' },
       { q: 'Will resizing make my image blurry?', a: 'Making an image smaller keeps it sharp. Making it bigger than the original cannot add detail, so "Don’t enlarge small images" is on by default.' },
@@ -704,8 +675,8 @@ export const tools: Tool[] = [
     slug: 'crop-image', name: 'Crop Image', category: 'image', icon: 'crop', live: true,
     short: 'Cut out the part of a photo you need, with free or fixed aspect ratios.',
     title: 'Crop Image – Cut Photos Online Free (1:1, 16:9, 4:3)',
-    metaDescription: 'Crop images online for free. Drag to select the area or use 1:1, 4:3 and 16:9 ratios for social media and passports. Fast, private, no upload, no sign-up.',
-    intro: 'Crop Image lets you cut away unwanted edges and keep only the part of the picture you need. Drag the crop box or pick a ratio such as 1:1 or 16:9 — your photo is cropped in your browser and never uploaded.',
+    metaDescription: 'Crop images online for free. Drag to select the area or use 1:1, 4:3 and 16:9 ratios for social media and passports.',
+    intro: 'Crop Image lets you cut away unwanted edges and keep only the part of the picture you need. It takes only a few clicks, and no watermark is added.',
     howToName: 'How to crop an image',
     steps: [
       'Click "Choose image" or drag and drop a picture into the box.',
@@ -714,7 +685,6 @@ export const tools: Tool[] = [
       'Click "Crop image" and then "Download image".',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Which ratio should I use for social media?', a: '1:1 (square) suits Instagram posts and profile photos, 16:9 suits YouTube thumbnails and wide banners, and 9:16 suits Stories, Reels and Shorts.' },
       { q: 'Can I crop to an exact size in pixels?', a: 'Yes. Type the Left, Top, Width and Height values below the image to set the crop area to the exact pixel.' },
       { q: 'Does cropping reduce the quality?', a: 'No. The pixels you keep are not resized. JPG and WebP images are saved at high quality (92%).' },
@@ -727,8 +697,8 @@ export const tools: Tool[] = [
     slug: 'convert-image', name: 'Convert Image', category: 'image', icon: 'convert', live: true,
     short: 'Convert images between JPG, PNG, WebP and AVIF.',
     title: 'Convert Image – JPG, PNG, WebP & AVIF Converter Free',
-    metaDescription: 'Convert images to JPG, PNG, WebP or AVIF for free. Change PNG to JPG, WebP to JPG, JPG to WebP and more – many files at once, processed on your device.',
-    intro: 'Convert Image changes your pictures to the format you need — JPG, PNG, WebP or AVIF. Convert WebP to JPG, PNG to JPG or JPG to WebP in bulk, right in your browser with nothing uploaded.',
+    metaDescription: 'Convert images to JPG, PNG, WebP or AVIF for free. Fast, free and no sign-up needed. No watermark, works on phone and PC.',
+    intro: 'Convert Image changes your pictures to the format you need — JPG, PNG, WebP or AVIF. It is free, quick and works on any computer or phone.',
     howToName: 'How to convert an image',
     steps: [
       'Click "Choose images" or drag and drop your pictures into the box.',
@@ -737,7 +707,6 @@ export const tools: Tool[] = [
       'Click "Convert" and download one image or all as a ZIP.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Which format should I choose?', a: 'JPG works everywhere and is best for photos. PNG is lossless and keeps transparency — good for logos and screenshots. WebP and AVIF make much smaller files for websites.' },
       { q: 'How do I convert WebP to JPG?', a: 'Add your WebP files, choose JPG and click Convert. Transparent areas become white, because JPG does not support transparency.' },
       { q: 'Why is AVIF or WebP greyed out?', a: 'Some browsers (mainly older Safari versions) cannot create these formats. Open ZentaPDF in Chrome or Edge to use them.' },
@@ -750,8 +719,8 @@ export const tools: Tool[] = [
     slug: 'rotate-image', name: 'Rotate & Flip Image', category: 'image', icon: 'rotate', live: true,
     short: 'Rotate images 90° or 180° and flip them horizontally or vertically.',
     title: 'Rotate Image – Rotate & Flip Photos Online Free',
-    metaDescription: 'Rotate images 90 or 180 degrees and flip them horizontally or vertically online for free. Fix sideways photos in bulk – private, in your browser, no sign-up.',
-    intro: 'Rotate Image fixes sideways and upside-down photos and lets you mirror pictures horizontally or vertically. See a live preview, apply it to many images at once and download — all without uploading anything.',
+    metaDescription: 'Rotate images 90 or 180 degrees and flip them horizontally or vertically online for free. Fast, free and no sign-up needed.',
+    intro: 'Rotate Image fixes sideways and upside-down photos and lets you mirror pictures horizontally or vertically. No sign-up or software is needed — just choose your file and download the result.',
     howToName: 'How to rotate an image',
     steps: [
       'Click "Choose images" or drag and drop your pictures into the box.',
@@ -760,7 +729,6 @@ export const tools: Tool[] = [
       'Click "Rotate" and download one image or all as a ZIP.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Can I rotate many photos at once?', a: 'Yes. The same rotation and flip are applied to every image you add, and you can download them all together in a ZIP.' },
       { q: 'What is the difference between rotate and flip?', a: 'Rotate turns the picture around its centre (like turning a sheet of paper). Flip makes a mirror image — horizontal flip swaps left and right, vertical flip swaps top and bottom.' },
       { q: 'Does rotating reduce quality?', a: 'PNG images stay lossless. JPG and WebP are saved again at high quality (92%), so the difference is not visible.' },
@@ -773,7 +741,7 @@ export const tools: Tool[] = [
     slug: 'image-to-base64', name: 'Image to Base64', category: 'image', icon: 'code', live: true,
     short: 'Turn an image into a Base64 string, data URI, CSS or HTML code.',
     title: 'Image to Base64 – Convert Image to Base64 Online Free',
-    metaDescription: 'Convert images to Base64 online for free. Get a data URI, plain Base64, CSS background or HTML img code and copy it in one click. Works offline in your browser.',
+    metaDescription: 'Convert images to Base64 online for free. Get a data URI, plain Base64, CSS background or HTML img code and copy it in one click.',
     intro: 'Image to Base64 converts a picture into Base64 text that you can paste straight into HTML, CSS, JSON or emails. Choose a data URI, plain Base64, a CSS rule or an HTML tag and copy it with one click.',
     howToName: 'How to convert an image to Base64',
     steps: [
@@ -783,7 +751,6 @@ export const tools: Tool[] = [
       'Paste the code into your web page, stylesheet or app.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'What is a data URI?', a: 'A data URI puts the whole image inside a text link that starts with "data:image/…;base64,". Browsers can show it directly, without loading a separate image file.' },
       { q: 'When should I use Base64 images?', a: 'For small images such as icons, logos and email signatures. Base64 is about 33% larger than the original file, so large photos are better kept as normal files.' },
       { q: 'Which image formats are supported?', a: 'JPG, PNG, WebP, GIF, SVG, AVIF and any other image type your browser can open.' },
@@ -796,8 +763,8 @@ export const tools: Tool[] = [
     slug: 'heic-to-jpg', name: 'HEIC to JPG', category: 'imgconv', icon: 'convert', live: true, from: 'heic', to: 'jpg',
     short: 'Convert iPhone HEIC photos to JPG – up to 5 at a time.',
     title: 'HEIC to JPG Converter – Convert iPhone Photos to JPG Free',
-    metaDescription: 'Convert HEIC to JPG online for free. Turn iPhone photos into JPG files that open everywhere – up to 5 at a time. No upload – converted on your device.',
-    intro: 'HEIC to JPG converts iPhone and iPad photos into normal JPG images that open on every computer, website and online form. Choose up to 5 HEIC photos, set the quality and download JPGs — the conversion runs in your browser, so your personal photos are never uploaded.',
+    metaDescription: 'Convert HEIC to JPG online for free. Turn iPhone photos into JPG files that open everywhere – up to 5 at a time.',
+    intro: 'HEIC to JPG converts iPhone and iPad photos into normal JPG images that open on every computer, website and online form. It takes only a few clicks, and no watermark is added.',
     howToName: 'How to convert HEIC to JPG',
     steps: [
       'Click "Choose images" or drag and drop up to 5 HEIC photos into the box.',
@@ -806,7 +773,6 @@ export const tools: Tool[] = [
       'Download each JPG, or all of them as a ZIP.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'What is a HEIC file?', a: 'HEIC (High Efficiency Image Container) is the photo format iPhones and iPads use by default. It saves space, but many Windows PCs, websites and online forms cannot open it.' },
       { q: 'How do I stop my iPhone saving HEIC photos?', a: 'Open Settings → Camera → Formats and choose "Most Compatible". New photos will then be saved as JPG.' },
       { q: 'How many photos can I convert at once?', a: 'Up to 5 photos per conversion. Click "Start over" to convert the next 5.' },
@@ -819,8 +785,8 @@ export const tools: Tool[] = [
     slug: 'heic-to-png', name: 'HEIC to PNG', category: 'imgconv', icon: 'convert', live: true, from: 'heic', to: 'png',
     short: 'Convert iPhone HEIC photos to lossless PNG images.',
     title: 'HEIC to PNG Converter – Convert HEIC to PNG Free Online',
-    metaDescription: 'Convert HEIC to PNG online for free. Turn iPhone photos into high-quality PNG images – up to 5 at a time. Private: photos are converted on your device.',
-    intro: 'HEIC to PNG converts iPhone and iPad HEIC photos into PNG — a lossless format that keeps every detail and opens in all editing apps. Everything happens in your browser, so your photos stay on your device.',
+    metaDescription: 'Convert HEIC to PNG online for free. Turn iPhone photos into high-quality PNG images – up to 5 at a time. Fast, free and no sign-up needed.',
+    intro: 'HEIC to PNG converts iPhone and iPad HEIC photos into PNG — a lossless format that keeps every detail and opens in all editing apps. It is free, quick and works on any computer or phone.',
     howToName: 'How to convert HEIC to PNG',
     steps: [
       'Click "Choose images" or drag and drop up to 5 HEIC photos into the box.',
@@ -829,7 +795,6 @@ export const tools: Tool[] = [
       'Download each PNG, or all of them as a ZIP.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'What is a HEIC file?', a: 'HEIC (High Efficiency Image Container) is the photo format iPhones and iPads use by default. It saves space, but many Windows PCs, websites and online forms cannot open it.' },
       { q: 'How do I stop my iPhone saving HEIC photos?', a: 'Open Settings → Camera → Formats and choose "Most Compatible". New photos will then be saved as JPG.' },
       { q: 'Should I choose PNG or JPG?', a: 'JPG files are much smaller and fine for sharing and forms. Choose PNG when you want to edit the photo further without any quality loss.' },
@@ -842,11 +807,11 @@ export const tools: Tool[] = [
     slug: 'qr-code-generator', name: 'QR Code Generator', category: 'utility', icon: 'qr', live: true,
     short: 'Create QR codes for links, text, Wi-Fi, WhatsApp, email and phone.',
     title: 'QR Code Generator – Create Free QR Codes (No Sign-up)',
-    metaDescription: 'Create free QR codes for websites, Wi-Fi, WhatsApp, UPI, email and text. Custom colours and logo, PNG or SVG download. No sign-up, no expiry, no watermark.',
+    metaDescription: 'Create free QR codes for websites, Wi-Fi, WhatsApp, email, phone and text. Custom colours and logo, PNG or SVG download. No sign-up, no expiry, no watermark.',
     intro: 'QR Code Generator creates QR codes for a website link, plain text, Wi-Fi login, WhatsApp chat, email or phone number. Choose colours, add your logo and download a sharp PNG or SVG. The QR codes are static, so they never expire and work forever.',
     howToName: 'How to create a QR code',
     steps: [
-      'Choose the type: Website, Text, UPI payment, Wi-Fi, WhatsApp, Email or Phone.',
+      'Choose the type: Website, Text, Wi-Fi, WhatsApp, Email or Phone.',
       'Fill in the details — the preview updates instantly.',
       'Optionally change the colours, size or add your logo in the centre.',
       'Click "Download PNG" (or SVG for printing) and test it with your phone camera.',
@@ -858,32 +823,10 @@ export const tools: Tool[] = [
       { q: 'How do I make a Wi-Fi QR code?', a: 'Choose Wi-Fi, type the network name and password and download. Guests scan it with their phone camera to join without typing the password.' },
       common.freeFaq,
     ],
-    related: ['upi-qr-code-generator', 'barcode-generator', 'favicon-generator', 'image-to-base64'],
+    related: ['barcode-generator', 'favicon-generator', 'image-to-base64'],
     accept: '',
   },
-  {
-    slug: 'upi-qr-code-generator', name: 'UPI QR Code Generator', category: 'utility', icon: 'qr', live: true,
-    short: 'Make a UPI payment QR code for your shop or business – any UPI app can scan it.',
-    title: 'UPI QR Code Generator – Free Payment QR for GPay, PhonePe',
-    metaDescription: 'Create a free UPI QR code for payments. Enter your UPI ID, name and optional amount – works with Google Pay, PhonePe, Paytm and BHIM. Download PNG instantly.',
-    intro: 'UPI QR Code Generator makes a payment QR code from your UPI ID. Customers scan it with Google Pay, PhonePe, Paytm, BHIM or any UPI app and pay you directly. Add a fixed amount and note for invoices, or leave the amount empty for a shop counter QR.',
-    howToName: 'How to create a UPI QR code',
-    steps: [
-      'Type your UPI ID (VPA), for example yourname@okbank, and the payee name.',
-      'Optionally add a fixed amount and a note such as an invoice number.',
-      'Check the preview and pick colours or add your logo.',
-      'Download the PNG, then scan it with your own UPI app and make a small test payment before printing.',
-    ],
-    faqs: [
-      { q: 'Is the money sent through ZentaPDF?', a: "No. The QR code only contains your UPI ID and details. Payments go directly from the customer's UPI app to your bank account." },
-      { q: 'Where do I find my UPI ID?', a: 'Open your UPI app (Google Pay, PhonePe, Paytm, BHIM) and look under your profile or bank account — it looks like name@bank.' },
-      { q: 'Should I add an amount?', a: 'Add an amount for a specific bill or invoice. Leave it empty for a shop counter QR so customers can enter any amount.' },
-      { q: 'Is it safe to share my UPI QR code?', a: 'Yes, a UPI QR only lets people pay you. Never share your UPI PIN — no one needs it to send you money.' },
-      common.freeFaq,
-    ],
-    related: ['qr-code-generator', 'barcode-generator', 'compress-image', 'add-watermark'],
-    accept: '',
-  },
+
   {
     slug: 'barcode-generator', name: 'Barcode Generator', category: 'utility', icon: 'barcode', live: true,
     short: 'Create barcodes: Code 128, EAN-13, EAN-8, UPC-A, Code 39 and ITF-14.',
@@ -903,7 +846,7 @@ export const tools: Tool[] = [
       { q: 'Will the barcode scan after printing?', a: 'Yes, if printed sharply at a reasonable size. Use the SVG file for printing, dark bars on a white background, and test with a scanner app first.' },
       common.freeFaq,
     ],
-    related: ['qr-code-generator', 'upi-qr-code-generator', 'favicon-generator', 'add-page-numbers'],
+    related: ['qr-code-generator', 'favicon-generator', 'add-page-numbers'],
     accept: '',
   },
   {
@@ -1020,8 +963,8 @@ export const tools: Tool[] = [
     slug: 'png-to-jpg', name: 'PNG to JPG', category: 'imgconv', icon: 'convert', live: true, from: 'png', to: 'jpg',
     short: 'Convert PNG images to JPG in seconds – up to 5 at a time.',
     title: 'PNG to JPG Converter – Convert PNG to JPG Free Online',
-    metaDescription: 'Convert PNG to JPG online for free. Change up to 5 PNG images to JPG at once with adjustable quality. No upload – images are converted on your device.',
-    intro: 'Convert PNG to JPG in a few seconds. PNG is a lossless format that keeps every pixel exactly and supports transparent backgrounds — ideal for logos, screenshots and graphics, but files are larger. Choose your PNG files, pick the quality, and download JPG images — everything happens in your browser, so your pictures are never uploaded.',
+    metaDescription: 'Convert PNG to JPG online for free. Change up to 5 PNG images to JPG at once with adjustable quality. Fast, free and no sign-up needed.',
+    intro: 'Convert PNG to JPG in a few seconds. PNG is a lossless format that keeps every pixel exactly and supports transparent backgrounds — ideal for logos, screenshots and graphics, but files are larger.',
     howToName: 'How to convert PNG to JPG',
     steps: [
       'Click "Choose images" or drag and drop up to 5 PNG files into the box.',
@@ -1030,7 +973,6 @@ export const tools: Tool[] = [
       'Download each JPG image, or all of them as a ZIP.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Why convert PNG to JPG?', a: 'JPG files are smaller and open everywhere — in every phone, email, Word document, website upload form and photo printer.' },
       { q: 'What happens to transparent backgrounds?', a: 'JPG does not support transparency, so transparent areas of your PNG become white.' },
       { q: 'How many images can I convert at once?', a: 'You can convert up to 5 images at a time. When they are done, click "Start over" to convert the next 5.' },
@@ -1043,8 +985,8 @@ export const tools: Tool[] = [
     slug: 'jpg-to-png', name: 'JPG to PNG', category: 'imgconv', icon: 'convert', live: true, from: 'jpg', to: 'png',
     short: 'Convert JPG images to PNG in seconds – up to 5 at a time.',
     title: 'JPG to PNG Converter – Convert JPG to PNG Free Online',
-    metaDescription: 'Convert JPG to PNG online for free. Change up to 5 JPG images to PNG at once in full quality. No upload – images are converted on your device.',
-    intro: 'Convert JPG to PNG in a few seconds. JPG (JPEG) is the most widely used photo format. It uses lossy compression to keep files small and works on every device, but it has no transparency. Choose your JPG files, pick the quality, and download PNG images — everything happens in your browser, so your pictures are never uploaded.',
+    metaDescription: 'Convert JPG to PNG online for free. Change up to 5 JPG images to PNG at once in full quality. Fast, free and no sign-up needed.',
+    intro: 'Convert JPG to PNG in a few seconds. JPG (JPEG) is the most widely used photo format. It uses lossy compression to keep files small and works on every device, but it has no transparency.',
     howToName: 'How to convert JPG to PNG',
     steps: [
       'Click "Choose images" or drag and drop up to 5 JPG files into the box.',
@@ -1053,7 +995,6 @@ export const tools: Tool[] = [
       'Download each PNG image, or all of them as a ZIP.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Why convert JPG to PNG?', a: 'PNG keeps perfect quality with no compression artefacts and supports transparent backgrounds, which is what designers, documents and editing apps need.' },
       { q: 'What happens to transparent backgrounds?', a: 'JPG images have no transparency, so nothing changes.' },
       { q: 'How many images can I convert at once?', a: 'You can convert up to 5 images at a time. When they are done, click "Start over" to convert the next 5.' },
@@ -1066,8 +1007,8 @@ export const tools: Tool[] = [
     slug: 'webp-to-jpg', name: 'WebP to JPG', category: 'imgconv', icon: 'convert', live: true, from: 'webp', to: 'jpg',
     short: 'Convert WebP images to JPG in seconds – up to 5 at a time.',
     title: 'WebP to JPG Converter – Convert WebP to JPG Free Online',
-    metaDescription: 'Convert WebP to JPG online for free. Change up to 5 WebP images to JPG at once with adjustable quality. No upload – images are converted on your device.',
-    intro: 'Convert WebP to JPG in a few seconds. WebP is a modern format from Google that makes images 25–35% smaller than JPG or PNG at the same quality and supports transparency. Some older apps cannot open it. Choose your WebP files, pick the quality, and download JPG images — everything happens in your browser, so your pictures are never uploaded.',
+    metaDescription: 'Convert WebP to JPG online for free. Change up to 5 WebP images to JPG at once with adjustable quality. Fast, free and no sign-up needed.',
+    intro: 'Convert WebP to JPG in a few seconds. WebP is a modern format from Google that makes images 25–35% smaller than JPG or PNG at the same quality and supports transparency. Some older apps cannot open it.',
     howToName: 'How to convert WebP to JPG',
     steps: [
       'Click "Choose images" or drag and drop up to 5 WebP files into the box.',
@@ -1076,7 +1017,6 @@ export const tools: Tool[] = [
       'Download each JPG image, or all of them as a ZIP.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Why convert WebP to JPG?', a: 'JPG files are smaller and open everywhere — in every phone, email, Word document, website upload form and photo printer.' },
       { q: 'What happens to transparent backgrounds?', a: 'JPG does not support transparency, so transparent areas of your WebP become white.' },
       { q: 'How many images can I convert at once?', a: 'You can convert up to 5 images at a time. When they are done, click "Start over" to convert the next 5.' },
@@ -1089,8 +1029,8 @@ export const tools: Tool[] = [
     slug: 'webp-to-png', name: 'WebP to PNG', category: 'imgconv', icon: 'convert', live: true, from: 'webp', to: 'png',
     short: 'Convert WebP images to PNG in seconds – up to 5 at a time.',
     title: 'WebP to PNG Converter – Convert WebP to PNG Free Online',
-    metaDescription: 'Convert WebP to PNG online for free. Change up to 5 WebP images to PNG at once in full quality. No upload – images are converted on your device.',
-    intro: 'Convert WebP to PNG in a few seconds. WebP is a modern format from Google that makes images 25–35% smaller than JPG or PNG at the same quality and supports transparency. Some older apps cannot open it. Choose your WebP files, pick the quality, and download PNG images — everything happens in your browser, so your pictures are never uploaded.',
+    metaDescription: 'Convert WebP to PNG online for free. Change up to 5 WebP images to PNG at once in full quality. Fast, free and no sign-up needed.',
+    intro: 'Convert WebP to PNG in a few seconds. WebP is a modern format from Google that makes images 25–35% smaller than JPG or PNG at the same quality and supports transparency. Some older apps cannot open it.',
     howToName: 'How to convert WebP to PNG',
     steps: [
       'Click "Choose images" or drag and drop up to 5 WebP files into the box.',
@@ -1099,7 +1039,6 @@ export const tools: Tool[] = [
       'Download each PNG image, or all of them as a ZIP.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Why convert WebP to PNG?', a: 'PNG keeps perfect quality with no compression artefacts and supports transparent backgrounds, which is what designers, documents and editing apps need.' },
       { q: 'What happens to transparent backgrounds?', a: 'Transparency is kept — PNG supports transparent backgrounds.' },
       { q: 'How many images can I convert at once?', a: 'You can convert up to 5 images at a time. When they are done, click "Start over" to convert the next 5.' },
@@ -1112,8 +1051,8 @@ export const tools: Tool[] = [
     slug: 'jpg-to-webp', name: 'JPG to WebP', category: 'imgconv', icon: 'convert', live: true, from: 'jpg', to: 'webp',
     short: 'Convert JPG images to WebP in seconds – up to 5 at a time.',
     title: 'JPG to WebP Converter – Convert JPG to WebP Free Online',
-    metaDescription: 'Convert JPG to WebP online for free. Change up to 5 JPG images to WebP at once with adjustable quality. No upload – images are converted on your device.',
-    intro: 'Convert JPG to WebP in a few seconds. JPG (JPEG) is the most widely used photo format. It uses lossy compression to keep files small and works on every device, but it has no transparency. Choose your JPG files, pick the quality, and download WebP images — everything happens in your browser, so your pictures are never uploaded.',
+    metaDescription: 'Convert JPG to WebP online for free. Change up to 5 JPG images to WebP at once with adjustable quality. Fast, free and no sign-up needed.',
+    intro: 'Convert JPG to WebP in a few seconds. JPG (JPEG) is the most widely used photo format. It uses lossy compression to keep files small and works on every device, but it has no transparency.',
     howToName: 'How to convert JPG to WebP',
     steps: [
       'Click "Choose images" or drag and drop up to 5 JPG files into the box.',
@@ -1122,7 +1061,6 @@ export const tools: Tool[] = [
       'Download each WebP image, or all of them as a ZIP.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Why convert JPG to WebP?', a: 'WebP makes your images much smaller, so web pages load faster and score better in Google PageSpeed — great for websites and blogs.' },
       { q: 'What happens to transparent backgrounds?', a: 'JPG images have no transparency, so nothing changes.' },
       { q: 'How many images can I convert at once?', a: 'You can convert up to 5 images at a time. When they are done, click "Start over" to convert the next 5.' },
@@ -1135,8 +1073,8 @@ export const tools: Tool[] = [
     slug: 'png-to-webp', name: 'PNG to WebP', category: 'imgconv', icon: 'convert', live: true, from: 'png', to: 'webp',
     short: 'Convert PNG images to WebP in seconds – up to 5 at a time.',
     title: 'PNG to WebP Converter – Convert PNG to WebP Free Online',
-    metaDescription: 'Convert PNG to WebP online for free. Change up to 5 PNG images to WebP at once with adjustable quality. No upload – images are converted on your device.',
-    intro: 'Convert PNG to WebP in a few seconds. PNG is a lossless format that keeps every pixel exactly and supports transparent backgrounds — ideal for logos, screenshots and graphics, but files are larger. Choose your PNG files, pick the quality, and download WebP images — everything happens in your browser, so your pictures are never uploaded.',
+    metaDescription: 'Convert PNG to WebP online for free. Change up to 5 PNG images to WebP at once with adjustable quality. Fast, free and no sign-up needed.',
+    intro: 'Convert PNG to WebP in a few seconds. PNG is a lossless format that keeps every pixel exactly and supports transparent backgrounds — ideal for logos, screenshots and graphics, but files are larger.',
     howToName: 'How to convert PNG to WebP',
     steps: [
       'Click "Choose images" or drag and drop up to 5 PNG files into the box.',
@@ -1145,7 +1083,6 @@ export const tools: Tool[] = [
       'Download each WebP image, or all of them as a ZIP.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Why convert PNG to WebP?', a: 'WebP makes your images much smaller, so web pages load faster and score better in Google PageSpeed — great for websites and blogs.' },
       { q: 'What happens to transparent backgrounds?', a: 'Transparency is kept — WebP supports transparent backgrounds.' },
       { q: 'How many images can I convert at once?', a: 'You can convert up to 5 images at a time. When they are done, click "Start over" to convert the next 5.' },
@@ -1158,8 +1095,8 @@ export const tools: Tool[] = [
     slug: 'avif-to-jpg', name: 'AVIF to JPG', category: 'imgconv', icon: 'convert', live: true, from: 'avif', to: 'jpg',
     short: 'Convert AVIF images to JPG in seconds – up to 5 at a time.',
     title: 'AVIF to JPG Converter – Convert AVIF to JPG Free Online',
-    metaDescription: 'Convert AVIF to JPG online for free. Change up to 5 AVIF images to JPG at once with adjustable quality. No upload – images are converted on your device.',
-    intro: 'Convert AVIF to JPG in a few seconds. AVIF is the newest image format, giving the smallest files at high quality. Many older programs, Windows Photo Viewer and some websites do not support it yet. Choose your AVIF files, pick the quality, and download JPG images — everything happens in your browser, so your pictures are never uploaded.',
+    metaDescription: 'Convert AVIF to JPG online for free. Change up to 5 AVIF images to JPG at once with adjustable quality. Fast, free and no sign-up needed.',
+    intro: 'Convert AVIF to JPG in a few seconds. AVIF is the newest image format, giving the smallest files at high quality. Many older programs, Windows Photo Viewer and some websites do not support it yet.',
     howToName: 'How to convert AVIF to JPG',
     steps: [
       'Click "Choose images" or drag and drop up to 5 AVIF files into the box.',
@@ -1168,7 +1105,6 @@ export const tools: Tool[] = [
       'Download each JPG image, or all of them as a ZIP.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Why convert AVIF to JPG?', a: 'JPG files are smaller and open everywhere — in every phone, email, Word document, website upload form and photo printer.' },
       { q: 'What happens to transparent backgrounds?', a: 'JPG does not support transparency, so transparent areas of your AVIF become white.' },
       { q: 'How many images can I convert at once?', a: 'You can convert up to 5 images at a time. When they are done, click "Start over" to convert the next 5.' },
@@ -1181,8 +1117,8 @@ export const tools: Tool[] = [
     slug: 'avif-to-png', name: 'AVIF to PNG', category: 'imgconv', icon: 'convert', live: true, from: 'avif', to: 'png',
     short: 'Convert AVIF images to PNG in seconds – up to 5 at a time.',
     title: 'AVIF to PNG Converter – Convert AVIF to PNG Free Online',
-    metaDescription: 'Convert AVIF to PNG online for free. Change up to 5 AVIF images to PNG at once in full quality. No upload – images are converted on your device.',
-    intro: 'Convert AVIF to PNG in a few seconds. AVIF is the newest image format, giving the smallest files at high quality. Many older programs, Windows Photo Viewer and some websites do not support it yet. Choose your AVIF files, pick the quality, and download PNG images — everything happens in your browser, so your pictures are never uploaded.',
+    metaDescription: 'Convert AVIF to PNG online for free. Change up to 5 AVIF images to PNG at once in full quality. Fast, free and no sign-up needed.',
+    intro: 'Convert AVIF to PNG in a few seconds. AVIF is the newest image format, giving the smallest files at high quality. Many older programs, Windows Photo Viewer and some websites do not support it yet.',
     howToName: 'How to convert AVIF to PNG',
     steps: [
       'Click "Choose images" or drag and drop up to 5 AVIF files into the box.',
@@ -1191,7 +1127,6 @@ export const tools: Tool[] = [
       'Download each PNG image, or all of them as a ZIP.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Why convert AVIF to PNG?', a: 'PNG keeps perfect quality with no compression artefacts and supports transparent backgrounds, which is what designers, documents and editing apps need.' },
       { q: 'What happens to transparent backgrounds?', a: 'Transparency is kept — PNG supports transparent backgrounds.' },
       { q: 'How many images can I convert at once?', a: 'You can convert up to 5 images at a time. When they are done, click "Start over" to convert the next 5.' },
@@ -1204,8 +1139,8 @@ export const tools: Tool[] = [
     slug: 'gif-to-jpg', name: 'GIF to JPG', category: 'imgconv', icon: 'convert', live: true, from: 'gif', to: 'jpg',
     short: 'Convert GIF images to JPG in seconds – up to 5 at a time.',
     title: 'GIF to JPG Converter – Convert GIF to JPG Free Online',
-    metaDescription: 'Convert GIF to JPG online for free. Change up to 5 GIF images to JPG at once with adjustable quality. No upload – images are converted on your device.',
-    intro: 'Convert GIF to JPG in a few seconds. GIF is an old format limited to 256 colours, mostly used for simple animations. Photos in GIF look grainy and files are large. Choose your GIF files, pick the quality, and download JPG images — everything happens in your browser, so your pictures are never uploaded.',
+    metaDescription: 'Convert GIF to JPG online for free. Change up to 5 GIF images to JPG at once with adjustable quality. Fast, free and no sign-up needed.',
+    intro: 'Convert GIF to JPG in a few seconds. GIF is an old format limited to 256 colours, mostly used for simple animations. Photos in GIF look grainy and files are large.',
     howToName: 'How to convert GIF to JPG',
     steps: [
       'Click "Choose images" or drag and drop up to 5 GIF files into the box.',
@@ -1214,7 +1149,6 @@ export const tools: Tool[] = [
       'Download each JPG image, or all of them as a ZIP.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Why convert GIF to JPG?', a: 'JPG files are smaller and open everywhere — in every phone, email, Word document, website upload form and photo printer.' },
       { q: 'What happens to transparent backgrounds?', a: 'JPG does not support transparency, so transparent areas of your GIF become white. Only the first frame of an animated GIF is converted.' },
       { q: 'How many images can I convert at once?', a: 'You can convert up to 5 images at a time. When they are done, click "Start over" to convert the next 5.' },
@@ -1227,8 +1161,8 @@ export const tools: Tool[] = [
     slug: 'gif-to-png', name: 'GIF to PNG', category: 'imgconv', icon: 'convert', live: true, from: 'gif', to: 'png',
     short: 'Convert GIF images to PNG in seconds – up to 5 at a time.',
     title: 'GIF to PNG Converter – Convert GIF to PNG Free Online',
-    metaDescription: 'Convert GIF to PNG online for free. Change up to 5 GIF images to PNG at once in full quality. No upload – images are converted on your device.',
-    intro: 'Convert GIF to PNG in a few seconds. GIF is an old format limited to 256 colours, mostly used for simple animations. Photos in GIF look grainy and files are large. Choose your GIF files, pick the quality, and download PNG images — everything happens in your browser, so your pictures are never uploaded.',
+    metaDescription: 'Convert GIF to PNG online for free. Change up to 5 GIF images to PNG at once in full quality. Fast, free and no sign-up needed.',
+    intro: 'Convert GIF to PNG in a few seconds. GIF is an old format limited to 256 colours, mostly used for simple animations. Photos in GIF look grainy and files are large.',
     howToName: 'How to convert GIF to PNG',
     steps: [
       'Click "Choose images" or drag and drop up to 5 GIF files into the box.',
@@ -1237,7 +1171,6 @@ export const tools: Tool[] = [
       'Download each PNG image, or all of them as a ZIP.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Why convert GIF to PNG?', a: 'PNG keeps perfect quality with no compression artefacts and supports transparent backgrounds, which is what designers, documents and editing apps need.' },
       { q: 'What happens to transparent backgrounds?', a: 'Transparency is kept — PNG supports transparent backgrounds. Only the first frame of an animated GIF is converted.' },
       { q: 'How many images can I convert at once?', a: 'You can convert up to 5 images at a time. When they are done, click "Start over" to convert the next 5.' },
@@ -1250,8 +1183,8 @@ export const tools: Tool[] = [
     slug: 'bmp-to-jpg', name: 'BMP to JPG', category: 'imgconv', icon: 'convert', live: true, from: 'bmp', to: 'jpg',
     short: 'Convert BMP images to JPG in seconds – up to 5 at a time.',
     title: 'BMP to JPG Converter – Convert BMP to JPG Free Online',
-    metaDescription: 'Convert BMP to JPG online for free. Change up to 5 BMP images to JPG at once with adjustable quality. No upload – images are converted on your device.',
-    intro: 'Convert BMP to JPG in a few seconds. BMP is an old Windows format that stores images without compression, so files are very large. Choose your BMP files, pick the quality, and download JPG images — everything happens in your browser, so your pictures are never uploaded.',
+    metaDescription: 'Convert BMP to JPG online for free. Change up to 5 BMP images to JPG at once with adjustable quality. Fast, free and no sign-up needed.',
+    intro: 'Convert BMP to JPG in a few seconds. BMP is an old Windows format that stores images without compression, so files are very large. No sign-up or software is needed — just choose your file and download the result.',
     howToName: 'How to convert BMP to JPG',
     steps: [
       'Click "Choose images" or drag and drop up to 5 BMP files into the box.',
@@ -1260,7 +1193,6 @@ export const tools: Tool[] = [
       'Download each JPG image, or all of them as a ZIP.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Why convert BMP to JPG?', a: 'JPG files are smaller and open everywhere — in every phone, email, Word document, website upload form and photo printer.' },
       { q: 'What happens to transparent backgrounds?', a: 'BMP images have no transparency, so nothing changes.' },
       { q: 'How many images can I convert at once?', a: 'You can convert up to 5 images at a time. When they are done, click "Start over" to convert the next 5.' },
@@ -1273,8 +1205,8 @@ export const tools: Tool[] = [
     slug: 'bmp-to-png', name: 'BMP to PNG', category: 'imgconv', icon: 'convert', live: true, from: 'bmp', to: 'png',
     short: 'Convert BMP images to PNG in seconds – up to 5 at a time.',
     title: 'BMP to PNG Converter – Convert BMP to PNG Free Online',
-    metaDescription: 'Convert BMP to PNG online for free. Change up to 5 BMP images to PNG at once in full quality. No upload – images are converted on your device.',
-    intro: 'Convert BMP to PNG in a few seconds. BMP is an old Windows format that stores images without compression, so files are very large. Choose your BMP files, pick the quality, and download PNG images — everything happens in your browser, so your pictures are never uploaded.',
+    metaDescription: 'Convert BMP to PNG online for free. Change up to 5 BMP images to PNG at once in full quality. Fast, free and no sign-up needed.',
+    intro: 'Convert BMP to PNG in a few seconds. BMP is an old Windows format that stores images without compression, so files are very large. It takes only a few clicks, and no watermark is added.',
     howToName: 'How to convert BMP to PNG',
     steps: [
       'Click "Choose images" or drag and drop up to 5 BMP files into the box.',
@@ -1283,7 +1215,6 @@ export const tools: Tool[] = [
       'Download each PNG image, or all of them as a ZIP.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Why convert BMP to PNG?', a: 'PNG keeps perfect quality with no compression artefacts and supports transparent backgrounds, which is what designers, documents and editing apps need.' },
       { q: 'What happens to transparent backgrounds?', a: 'BMP images have no transparency, so nothing changes.' },
       { q: 'How many images can I convert at once?', a: 'You can convert up to 5 images at a time. When they are done, click "Start over" to convert the next 5.' },
@@ -1296,8 +1227,8 @@ export const tools: Tool[] = [
     slug: 'svg-to-png', name: 'SVG to PNG', category: 'imgconv', icon: 'convert', live: true, from: 'svg', to: 'png',
     short: 'Convert SVG images to PNG in seconds – up to 5 at a time.',
     title: 'SVG to PNG Converter – Convert SVG to PNG Free Online',
-    metaDescription: 'Convert SVG to PNG online for free. Change up to 5 SVG images to PNG at once in full quality. No upload – images are converted on your device.',
-    intro: 'Convert SVG to PNG in a few seconds. SVG is a vector format made of shapes instead of pixels, so it stays sharp at any size. Many apps, social media sites and documents do not accept SVG files. Choose your SVG files, pick the quality, and download PNG images — everything happens in your browser, so your pictures are never uploaded.',
+    metaDescription: 'Convert SVG to PNG online for free. Change up to 5 SVG images to PNG at once in full quality. Fast, free and no sign-up needed.',
+    intro: 'Convert SVG to PNG in a few seconds. SVG is a vector format made of shapes instead of pixels, so it stays sharp at any size. Many apps, social media sites and documents do not accept SVG files.',
     howToName: 'How to convert SVG to PNG',
     steps: [
       'Click "Choose images" or drag and drop up to 5 SVG files into the box.',
@@ -1306,7 +1237,6 @@ export const tools: Tool[] = [
       'Download each PNG image, or all of them as a ZIP.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Why convert SVG to PNG?', a: 'PNG keeps perfect quality with no compression artefacts and supports transparent backgrounds, which is what designers, documents and editing apps need.' },
       { q: 'What happens to transparent backgrounds?', a: 'Transparency is kept — PNG supports transparent backgrounds. SVG files are converted at their own size; very small icons stay small.' },
       { q: 'How many images can I convert at once?', a: 'You can convert up to 5 images at a time. When they are done, click "Start over" to convert the next 5.' },
@@ -1319,8 +1249,8 @@ export const tools: Tool[] = [
     slug: 'svg-to-jpg', name: 'SVG to JPG', category: 'imgconv', icon: 'convert', live: true, from: 'svg', to: 'jpg',
     short: 'Convert SVG images to JPG in seconds – up to 5 at a time.',
     title: 'SVG to JPG Converter – Convert SVG to JPG Free Online',
-    metaDescription: 'Convert SVG to JPG online for free. Change up to 5 SVG images to JPG at once with adjustable quality. No upload – images are converted on your device.',
-    intro: 'Convert SVG to JPG in a few seconds. SVG is a vector format made of shapes instead of pixels, so it stays sharp at any size. Many apps, social media sites and documents do not accept SVG files. Choose your SVG files, pick the quality, and download JPG images — everything happens in your browser, so your pictures are never uploaded.',
+    metaDescription: 'Convert SVG to JPG online for free. Change up to 5 SVG images to JPG at once with adjustable quality. Fast, free and no sign-up needed.',
+    intro: 'Convert SVG to JPG in a few seconds. SVG is a vector format made of shapes instead of pixels, so it stays sharp at any size. Many apps, social media sites and documents do not accept SVG files.',
     howToName: 'How to convert SVG to JPG',
     steps: [
       'Click "Choose images" or drag and drop up to 5 SVG files into the box.',
@@ -1329,7 +1259,6 @@ export const tools: Tool[] = [
       'Download each JPG image, or all of them as a ZIP.',
     ],
     faqs: [
-      common.privacyFaq,
       { q: 'Why convert SVG to JPG?', a: 'JPG files are smaller and open everywhere — in every phone, email, Word document, website upload form and photo printer.' },
       { q: 'What happens to transparent backgrounds?', a: 'JPG does not support transparency, so transparent areas of your SVG become white. SVG files are converted at their own size; very small icons stay small.' },
       { q: 'How many images can I convert at once?', a: 'You can convert up to 5 images at a time. When they are done, click "Start over" to convert the next 5.' },

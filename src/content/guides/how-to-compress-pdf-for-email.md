@@ -1,7 +1,7 @@
 ---
 title: "How to Compress a PDF for Email (Under 1 MB) – Free"
 h1: "How to Compress a PDF for Email – Make It Small Enough to Send"
-description: "PDF too big to email or upload? Learn how to compress a PDF to under 1 MB or 200 KB for free, without losing text quality and without uploading your file."
+description: "PDF too big to email or upload? Learn how to compress a PDF to under 1 MB or 200 KB for free, without losing text quality, in a few easy steps."
 date: "2026-11-02"
 tool: "compress-pdf"
 tools: ["split-pdf", "remove-pages", "compress-image"]
@@ -12,8 +12,6 @@ faqs:
     a: "No. Text and vector graphics are kept exactly as they are. Only the photos and scanned images inside the PDF are made smaller."
   - q: "Why does my PDF not get much smaller?"
     a: "If a PDF contains mostly text, it is usually already small. Compression saves the most space on PDFs with photos or scanned pages."
-  - q: "Is it safe to compress confidential PDFs online?"
-    a: "With ZentaPDF your file is compressed inside your own browser and is never uploaded, so it stays private."
 ---
 
 You try to attach a PDF to an email, and you get the message *"File too large"*. Or a job portal, college website or government form only accepts PDFs **under 1 MB** — sometimes even under 200 KB. The good news: most PDFs can be made much smaller in a few seconds, for free.
@@ -47,7 +45,7 @@ Even when an email service allows 20–25 MB, smaller files send faster, open fa
 ![ZentaPDF Compress PDF tool with three compression levels](/guides/img/how-to-compress-pdf-for-email.webp)
 
 1. Open **[Compress PDF](/compress-pdf/)** on ZentaPDF.
-2. Click **Choose PDF file** or drag your PDF into the box. The file is read by your browser — it is not uploaded anywhere.
+2. Click **Choose PDF file** or drag your PDF into the box.
 3. Choose a level:
    - **Light** – best quality, smaller saving. Good for printing.
    - **Recommended** – good quality and a big saving. Best for email.
@@ -73,10 +71,6 @@ Try these in order:
 ZentaPDF's compression only touches **pictures** inside the PDF. Text, tables, lines and logos drawn as vectors stay exactly as sharp as before. On the Recommended level, photos still look good on screen and when printed on normal office paper.
 
 If your PDF has fine details — such as engineering drawings saved as images or small print on a scan — use **Light** and zoom in to check before sending.
-
-## Why compress in your browser?
-
-Most online compressors upload your file to their servers. That is a privacy risk for bank statements, ID cards, contracts or medical reports. ZentaPDF compresses the PDF **on your own device**, using your browser. The file never leaves your computer or phone, and nothing is stored anywhere.
 
 ## Compressing a PDF on a phone
 
