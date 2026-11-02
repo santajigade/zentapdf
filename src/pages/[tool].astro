@@ -29,6 +29,10 @@ import Barcode from '../components/tools/Barcode';
 import Favicon from '../components/tools/Favicon';
 import ExifTool from '../components/tools/ExifTool';
 import StickerMaker from '../components/tools/StickerMaker';
+import GifEdit from '../components/tools/GifEdit';
+import GifMaker from '../components/tools/GifMaker';
+import VideoToGif from '../components/tools/VideoToGif';
+import PdfToGif from '../components/tools/PdfToGif';
 
 export function getStaticPaths() {
   return tools.filter((t) => t.live).map((t) => ({ params: { tool: t.slug }, props: { tool: t } }));
@@ -44,7 +48,7 @@ const schema = [
   faqSchema(tool.faqs!),
 ];
 const isGen = tool.category === 'utility';
-const isImage = tool.category === 'image' || tool.category === 'imgconv' || tool.slug === 'jpg-to-pdf' || tool.slug === 'images-to-pdf';
+const isImage = tool.category === 'image' || tool.category === 'gif' || tool.category === 'imgconv' || tool.slug === 'jpg-to-pdf' || tool.slug === 'images-to-pdf';
 const features = isGen ? [
   { t: 'Free forever', d: 'No sign-up, no watermark and no limits on how many you create.' },
   { t: 'Instant preview', d: 'See the result change as you type, then download in one click.' },
@@ -55,7 +59,7 @@ const features = isGen ? [
   { t: 'Free, no sign-up', d: 'No account, no email, no watermark and no daily limits.' },
   { t: 'Fast', d: 'No waiting — results are ready in seconds.' },
   { t: 'Works everywhere', d: 'Use it on Windows, Mac, Linux, Android or iPhone in any modern browser.' },
-  { t: isImage ? 'Keeps quality' : 'Original quality', d: isImage ? 'Smart settings keep your images sharp.' : 'Pages are copied as they are — text and images stay crisp.' },
+  { t: tool.category === 'gif' ? 'Keeps the animation' : isImage ? 'Keeps quality' : 'Original quality', d: tool.category === 'gif' ? 'Every frame and its timing are handled carefully.' : isImage ? 'Smart settings keep your images sharp.' : 'Pages are copied as they are — text and images stay crisp.' },
   { t: 'Large files', d: 'Handle big files and many pages — limited only by your device’s memory.' },
 ];
 ---
@@ -78,6 +82,16 @@ const features = isGen ? [
       {tool.slug === 'exif-viewer' && <ExifTool client:load />}
       {tool.slug === 'remove-exif-data' && <ExifTool mode="remove" client:load />}
       {tool.slug === 'whatsapp-sticker-maker' && <StickerMaker client:load />}
+      {tool.slug === 'gif-maker' && <GifMaker client:load />}
+      {tool.slug === 'video-to-gif' && <VideoToGif client:load />}
+      {tool.slug === 'pdf-to-gif' && <PdfToGif client:load />}
+      {tool.slug === 'resize-gif' && <GifEdit mode="resize" client:load />}
+      {tool.slug === 'crop-gif' && <GifEdit mode="crop" client:load />}
+      {tool.slug === 'compress-gif' && <GifEdit mode="compress" client:load />}
+      {tool.slug === 'reverse-gif' && <GifEdit mode="reverse" client:load />}
+      {tool.slug === 'gif-speed' && <GifEdit mode="speed" client:load />}
+      {tool.slug === 'gif-to-mp4' && <GifEdit mode="mp4" client:load />}
+      {tool.slug === 'split-gif' && <GifEdit mode="jpg" client:load />}
       {(tool.slug === 'reduce-image-size-in-kb' || tool.kb) && <TargetSize kb={tool.kb} client:load />}
       {tool.slug === 'compress-pdf' && <CompressPdf client:load />}
       {tool.slug === 'protect-pdf' && <PdfPassword mode="protect" client:load />}

@@ -270,3 +270,20 @@ details.faq p { margin: .5rem 0 0; color: var(--muted); }
 .tint-utility  { --tint: #f8fafc; --tint-strong: #e2e8f0; --accent: #334155; }
 :root[data-theme='dark'] .tint-utility { --tint: rgb(148 163 184 / .10); --tint-strong: rgb(148 163 184 / .25); --accent: #cbd5e1; }
 @media (max-width: 640px) { .all-cols { columns: 2; column-gap: 12px; } .all-group li a { font-size: .84rem; padding: 3px 2px; gap: 6px; } .all-group .dot { width: 18px; height: 18px; } .grid-popular { grid-template-columns: 1fr 1fr; } .grid-popular .card span.desc { display: none; } .grid-popular .card { padding: 12px; } }
+/* GIF tools */
+.opts label.check { display: flex; gap: 8px; align-items: center; font-weight: 500; }
+.opts .seg { flex-wrap: wrap; }
+.gif-prev { display: grid; place-items: center; gap: 6px; margin: 12px 0; }
+.gif-prev img, .gif-prev video { max-width: min(100%, 520px); max-height: 420px; border-radius: 10px; border: 1px solid var(--border); background: repeating-conic-gradient(#e5e7eb 0 25%, #fff 0 50%) 0 0 / 16px 16px; }
+.cropbox { position: relative; width: min(100%, 520px); touch-action: none; cursor: crosshair; user-select: none; }
+.cropbox img { width: 100%; height: 100%; max-height: none; display: block; border-radius: 0; }
+.cropsel { position: absolute; border: 2px solid #fff; outline: 1px solid #000; box-shadow: 0 0 0 9999px rgba(0,0,0,.5); cursor: move; }
+.cropbox { overflow: hidden; border-radius: 10px; }
+.frames { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; margin: 12px 0; padding: 0; list-style: none; }
+.frames li { position: relative; border: 1px solid var(--border); border-radius: 10px; padding: 4px; background: var(--card); text-align: center; font-size: .78rem; }
+.frames img { width: 100%; height: 72px; object-fit: contain; display: block; }
+.frames li > div { display: flex; justify-content: center; gap: 2px; margin-top: 4px; }
+.frames .mini { padding: 2px 7px; min-width: 0; }
+
+.tint-gif { --tint: #fdf2f8; --tint-strong: #fce7f3; --accent: #be185d; }
+:root[data-theme='dark'] .tint-gif { --tint: rgb(236 72 153 / .10); --tint-strong: rgb(236 72 153 / .25); --accent: #f9a8d4; }
