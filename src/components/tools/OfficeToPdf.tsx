@@ -21,6 +21,7 @@ export default function OfficeToPdf({ kind }: { kind: OfficeKind }) {
   const [page, setPage] = useState<'a4' | 'letter'>('a4');
   const [orient, setOrient] = useState<'auto' | 'portrait' | 'landscape'>(sheet ? 'auto' : 'portrait');
   const [size, setSize] = useState(sheet ? 9 : 11);
+  const [grid, setGrid] = useState<'auto' | 'on' | 'off'>('auto');
   const [busy, setBusy] = useState<{ done: number; total: number; label: string } | null>(null);
   const [error, setError] = useState('');
   const [out, setOut] = useState<{ blob: Blob; pages: number; preview: string; note: string } | null>(null);
@@ -38,7 +39,22 @@ export default function OfficeToPdf({ kind }: { kind: OfficeKind }) {
       const buf = await file.arrayBuffer();
       const office = await import('../../lib/office');
       let bytes: Uint8Array; let pages = 0; let note = '';
-      if (slides) {
+      if (kind === 'word') {
+        try {
+          bytes = await office.docxToPdfExact(file, (d, t) => setBusy({ done: d, total: t, label: `Drawing page ${d + 1} of ${t}…` }));
+          const { PDFDocument } = await import('pdf-lib'); pages = (await PDFDocument.load(bytes)).getPageCount();
+          note = 'Your document keeps its layout, fonts, colours, tables, pictures, headers and footers. The text is real text you can search and copy.';
+        } catch (e) {
+          console.warn(e);
+          const r = await office.docxToBlocks(buf);
+          const doc = await blocksToPdf(r.blocks, { page, size }); bytes = await doc.save(); pages = doc.getPageCount();
+          note = 'This document used features we could not reproduce exactly, so a simplified layout was used.';
+        }
+      } else if (kind === 'excel' && /\.(xlsx|xlsm)$/i.test(file.name)) {
+        bytes = await office.xlsxToPdfExact(buf, { page, orient, grid }, (d, t) => setBusy({ done: d, total: t, label: `Drawing sheet ${d + 1} of ${t}…` }));
+        const { PDFDocument } = await import('pdf-lib'); pages = (await PDFDocument.load(bytes)).getPageCount();
+        note = 'Each sheet keeps its fonts, colours, borders, merged cells and column widths, scaled to fit the page width. The text is real text you can search and copy.';
+      } else if (slides) {
         const list = kind === 'ppt' ? await office.pptxSlides(buf) : await office.odpSlides(buf);
         bytes = await office.slidesToPdf(list, (d, t) => setBusy({ done: d, total: t, label: `Drawing slide ${d + 1} of ${t}…` }));
         pages = list.length;
@@ -70,10 +86,11 @@ export default function OfficeToPdf({ kind }: { kind: OfficeKind }) {
     <div>
       <ul class="files"><li><span class="fname" title={file.name}>{file.name}</span><span class="meta">{formatBytes(file.size)}</span>
         <button type="button" class="mini" aria-label="Remove file" disabled={!!busy} onClick={() => { setFile(null); setOut(null); }}>✕</button></li></ul>
-      {!out && !slides && <div class="opts" data-title="Page settings">
+      {!out && !slides && kind !== 'word' && <div class="opts" data-title="Page settings">
         <label>Page size<select value={page} onChange={(e) => setPage((e.target as HTMLSelectElement).value as any)}><option value="a4">A4</option><option value="letter">US Letter</option></select></label>
         <label>Orientation<select value={orient} onChange={(e) => setOrient((e.target as HTMLSelectElement).value as any)}>{sheet && <option value="auto">Automatic</option>}<option value="portrait">Portrait</option><option value="landscape">Landscape</option></select></label>
-        <label>Text size<select value={size} onChange={(e) => setSize(+(e.target as HTMLSelectElement).value)}>{(sheet ? [[7, 'Small'], [9, 'Normal'], [11, 'Large']] : [[9, 'Small'], [11, 'Normal'], [13, 'Large']]).map(([v, t]) => <option value={v}>{t}</option>)}</select></label>
+        {kind === 'excel' && <label>Gridlines<select value={grid} onChange={(e) => setGrid((e.target as HTMLSelectElement).value as any)}><option value="auto">Automatic</option><option value="on">Show</option><option value="off">Hide</option></select></label>}
+        {kind !== 'excel' && <label>Text size<select value={size} onChange={(e) => setSize(+(e.target as HTMLSelectElement).value)}>{(sheet ? [[7, 'Small'], [9, 'Normal'], [11, 'Large']] : [[9, 'Small'], [11, 'Normal'], [13, 'Large']]).map(([v, t]) => <option value={v}>{t}</option>)}</select></label>}
       </div>}
       {error && <ErrorBox>{error}</ErrorBox>}
       {busy && <ProgressBar {...busy} />}
@@ -84,7 +101,7 @@ export default function OfficeToPdf({ kind }: { kind: OfficeKind }) {
           <div class="gif-prev"><img src={out.preview} alt="Preview of the first page" style={{ background: '#fff' }} /></div>
           <div class="actions">
             <button type="button" class="btn btn-primary dl btn-lg" onClick={() => downloadBlob(out.blob, `${baseName(file.name)}.pdf`)}>Download PDF</button>
-            {!slides && <button type="button" class="btn btn-ghost" onClick={() => setOut(null)}>Change settings</button>}
+            {!slides && kind !== 'word' && <button type="button" class="btn btn-ghost" onClick={() => setOut(null)}>Change settings</button>}
             <button type="button" class="btn btn-ghost" onClick={() => { setFile(null); setOut(null); }}>New file</button>
           </div>
         </div>

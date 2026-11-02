@@ -3,7 +3,10 @@ export function loadPdfjs(): Promise<any> {
   return (p ??= (async () => {
     const pdfjs: any = await import('pdfjs-dist/legacy/build/pdf.min.mjs');
     pdfjs.GlobalWorkerOptions.workerSrc = (await import('pdfjs-dist/legacy/build/pdf.worker.min.mjs?url')).default;
-    return pdfjs;
+    // decoders and font data: needed for JPEG 2000 / JBIG2 images, non-embedded fonts and Asian text
+    const base = location.origin + '/pdfjs/';
+    const defaults = { cMapUrl: base + 'cmaps/', cMapPacked: true, standardFontDataUrl: base + 'standard_fonts/', wasmUrl: base + 'wasm/', iccUrl: base + 'iccs/' };
+    return { ...pdfjs, getDocument: (src: any) => pdfjs.getDocument({ ...defaults, ...src }) };
   })());
 }
 

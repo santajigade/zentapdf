@@ -1,5 +1,5 @@
 // Read the text structure of PDF pages (lines → words with position, size and font) for PDF→Word / PDF→Excel.
-export type Word = { text: string; x0: number; x1: number; y: number; size: number; bold: boolean; italic: boolean; font: string; family: string };
+export type Word = { text: string; x0: number; x1: number; y: number; size: number; bold: boolean; italic: boolean; font: string; family: string; symbol?: boolean };
 export type Line = { y: number; x0: number; x1: number; size: number; words: Word[] };
 export type PageText = { w: number; h: number; lines: Line[] };
 
@@ -14,13 +14,15 @@ function fontInfo(page: any, styles: any, fontName: string) {
   family = family.replace(/([a-z])([A-Z])/g, '$1 $2').trim();
   if (!family || /^(g_|f\d|F\d|T\d|TT\d|C\d)/.test(family) || family.length < 3 || /^(sans-serif|serif|monospace)$/.test(family)) family = '';
   // open fonts that are metric-compatible with common Microsoft fonts
-  const SUB: Record<string, string> = { 'Carlito': 'Calibri', 'Caladea': 'Cambria', 'Liberation Sans': 'Arial', 'Liberation Serif': 'Times New Roman', 'Liberation Mono': 'Courier New', 'Arimo': 'Arial', 'Tinos': 'Times New Roman', 'Cousine': 'Courier New', 'Helvetica': 'Arial', 'Times': 'Times New Roman', 'Times Roman': 'Times New Roman', 'Courier': 'Courier New', 'Open Symbol': 'Arial', 'Symbol': 'Arial', 'Wingdings': 'Arial', 'Free Serif': 'Times New Roman', 'Free Sans': 'Arial', 'Deja Vu Sans': 'Arial', 'Deja Vu Serif': 'Times New Roman' };
+  const SUB: Record<string, string> = { 'Carlito': 'Calibri', 'Caladea': 'Cambria', 'Liberation Sans': 'Arial', 'Liberation Serif': 'Times New Roman', 'Liberation Mono': 'Courier New', 'Arimo': 'Arial', 'Tinos': 'Times New Roman', 'Cousine': 'Courier New', 'Helvetica': 'Arial', 'Times': 'Times New Roman', 'Times Roman': 'Times New Roman', 'Courier': 'Courier New', 'Helvetica Neue': 'Arial', 'Helvetica Neue LT': 'Arial', 'Free Serif': 'Times New Roman', 'Free Sans': 'Arial', 'Deja Vu Sans': 'Arial', 'Deja Vu Serif': 'Times New Roman' };
   family = SUB[family] ?? family;
+  const sansName = /helvetica|arial|sans|neue|gothic|grotesk|frutiger|univers|futura|verdana|tahoma|calibri|segoe|myriad|\bdin|roboto|lato|montserrat|poppins|inter\b|aptos/i.test(n);
   return {
     family,
-    bold: /bold|black|heavy|semibold|demi|^CMBX|^CMB\d|^LMRomanDemi|-BX|Bd\b/i.test(n) || /,\s*Bold/i.test(n) || !!fobj?.bold || !!fobj?.black,
+    symbol: /dingbat|wingding|webding|symbol|zapf/i.test(n),
+    bold: /bold|black|heavy|semibold|demi|[-,](Md|Bd|Hv|Hvy|Blk|Hea|Medium|SemiBd|Sb)\b|^CMBX|^CMB\d|^LMRomanDemi|-BX|Bd\b/i.test(n) || /,\s*Bold/i.test(n) || !!fobj?.bold || !!fobj?.black,
     italic: /italic|oblique|^CMTI|^CMSL|^CMMI|-It\b/i.test(n) || !!fobj?.italic,
-    font: (/times|serif(?!.*sans)|georgia|cambria|garamond|book|roman|minion|palatino|baskerville|caslon|charter|^CM[RBTS]|^LM/i.test(n) || serifHint) && !/sans/i.test(n) ? 'Times New Roman' : /courier|mono|consol/i.test(n) ? 'Courier New' : /calibri/i.test(n) ? 'Calibri' : /verdana/i.test(n) ? 'Verdana' : /tahoma/i.test(n) ? 'Tahoma' : 'Arial',
+    font: !sansName && (/times|serif(?!.*sans)|georgia|cambria|garamond|book|roman|minion|palatino|baskerville|caslon|charter|^CM[RBTS]|^LM/i.test(n) || serifHint) ? 'Times New Roman' : /courier|mono|consol/i.test(n) ? 'Courier New' : /calibri/i.test(n) ? 'Calibri' : /verdana/i.test(n) ? 'Verdana' : /tahoma/i.test(n) ? 'Tahoma' : 'Arial',
   };
 }
 

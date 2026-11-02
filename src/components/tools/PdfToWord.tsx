@@ -119,7 +119,14 @@ export default function PdfToWord() {
           const COMPLEX = /[\u0000-\u0008\u000E-\u001F\u0590-\u08FF\u0900-\u0DFF\u0E00-\u0FFF\u3040-\u9FFF\uAC00-\uD7AF\uFB1D-\uFEFF\uFFFD]/;
           const keepInPicture = (c: Chunk) => { const bx = L.bg.getContext('2d')!; const x = Math.floor(c.x0 * S) - 2, y = Math.floor((c.y - c.size * 1.05) * S), w = Math.ceil((c.x1 - c.x0) * S) + 4, h = Math.ceil(c.size * 1.4 * S); bx.drawImage(L.full, x, y, w, h, x, y, w, h); };
           const placed: Chunk[] = [];
-          for (const l of pt.lines) for (const c of chunksOf(l)) { if (COMPLEX.test(c.words.map((w) => w.text).join(''))) keepInPicture(c); else placed.push(c); }
+          for (const l of pt.lines) for (const c of chunksOf(l)) {
+            // symbol fonts (bullets, ticks) keep their look in the picture; the rest becomes editable text
+            const sym = c.words.filter((w) => w.symbol); const rest = c.words.filter((w) => !w.symbol);
+            if (sym.length) keepInPicture({ ...c, words: sym, x0: Math.min(...sym.map((w) => w.x0)), x1: Math.max(...sym.map((w) => w.x1)) });
+            if (!rest.length) continue;
+            const c2 = { ...c, words: rest, x0: Math.min(...rest.map((w) => w.x0)), x1: Math.max(...rest.map((w) => w.x1)) };
+            if (COMPLEX.test(rest.map((w) => w.text).join(''))) keepInPicture(c2); else placed.push(c2);
+          }
           const data = new Uint8Array(await new Promise<ArrayBuffer>((r) => L.bg.toBlob((b) => b!.arrayBuffer().then(r), 'image/jpeg', 0.9)));
           const children: any[] = [new D.Paragraph({ spacing: { before: 0, after: 0, line: 20, lineRule: D.LineRuleType.EXACT }, children: [new D.ImageRun({ type: 'jpg', data, transformation: { width: Math.round(vp.width * 96 / 72), height: Math.round(vp.height * 96 / 72) },
             floating: { horizontalPosition: { relative: D.HorizontalPositionRelativeFrom.PAGE, offset: 0 }, verticalPosition: { relative: D.VerticalPositionRelativeFrom.PAGE, offset: 0 }, behindDocument: true, allowOverlap: true, lockAnchor: true } })] })];
@@ -143,7 +150,7 @@ export default function PdfToWord() {
             children.push(new D.Paragraph({
               frame: { type: 'absolute', position: { x: Math.round(c.x0 * 20), y: Math.max(0, Math.round(top * 20)) }, width: Math.round(Math.min(vp.width - c.x0, width * 1.15 + size * 2) * 20), height: Math.round(size * 1.2 * 20), rule: D.HeightRule.ATLEAST, anchor: { horizontal: D.FrameAnchorType.PAGE, vertical: D.FrameAnchorType.PAGE }, wrap: D.FrameWrap.NONE } as any,
               spacing: { before: 0, after: 0, line: Math.round(size * 1.15 * 20), lineRule: D.LineRuleType.EXACT },
-              children: runs.map((r) => new D.TextRun({ text: r.text, bold: r.w.bold, italics: r.w.italic, size: Math.max(2, Math.round(r.w.size * 2)), font: fam(r.w), color, scale: scale < 100 ? scale : undefined })),
+              children: runs.map((r) => { const small = r.w.size < size * 0.8; const sub = small && r.w.y > c.y + size * 0.08, sup = small && r.w.y < c.y - size * 0.15; return new D.TextRun({ text: r.text, bold: r.w.bold, italics: r.w.italic, size: Math.max(2, Math.round((sub || sup ? size : r.w.size) * 2)), font: fam(r.w), color, scale: scale < 100 ? scale : undefined, subScript: sub || undefined, superScript: sup || undefined }); }),
             }));
           }
           children.push(new D.Paragraph({ spacing: { before: 0, after: 0, line: 20, lineRule: D.LineRuleType.EXACT }, children: [] })); // keeps the page break out of the text frames
