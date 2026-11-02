@@ -301,3 +301,19 @@ fieldset.panel legend { font-weight: 700; padding: 0 6px; }
 fieldset.panel .opts { margin: 10px 0; }
 .note-box { background: var(--brand-50); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; margin: 12px 0; font-size: .92rem; }
 .frames li > div .mini { width: auto; height: auto; min-width: 30px; padding: 3px 7px; font-size: .78rem; }
+
+/* Coloured option panels */
+fieldset.panel { --pc: #6366f1; --pb: #eef2ff; --pl: #c7d2fe; border: 1.5px solid var(--pl); border-left: 5px solid var(--pc); background: linear-gradient(180deg, var(--pb), transparent 70%); padding: 8px 18px 6px; }
+fieldset.panel legend { background: var(--pc); color: #fff; border-radius: 999px; padding: 4px 14px; font-size: .92rem; }
+fieldset.panel .btn-ghost { border-color: var(--pl); background: var(--card); color: var(--pc); }
+fieldset.panel .btn-ghost:hover { background: var(--pb); border-color: var(--pc); }
+fieldset.panel select, fieldset.panel input[type=number], fieldset.panel input[type=text] { border-color: var(--pl) !important; }
+fieldset.panel select:focus, fieldset.panel input:focus { outline: 2px solid var(--pc); outline-offset: 1px; }
+fieldset.panel input[type=checkbox] { accent-color: var(--pc); width: 17px; height: 17px; }
+.panel-amber { --pc: #d97706 !important; --pb: #fffbeb !important; --pl: #fcd34d !important; }
+.panel-indigo { --pc: #4f46e5 !important; --pb: #eef2ff !important; --pl: #c7d2fe !important; }
+:root[data-theme='dark'] .panel-amber { --pb: rgb(217 119 6 / .10) !important; --pl: rgb(217 119 6 / .45) !important; --pc: #f59e0b !important; }
+:root[data-theme='dark'] .panel-indigo { --pb: rgb(99 102 241 / .12) !important; --pl: rgb(99 102 241 / .45) !important; --pc: #818cf8 !important; }
+.note-box.note-sky { background: #f0f9ff; border: 1.5px solid #7dd3fc; border-left: 5px solid #0284c7; }
+:root[data-theme='dark'] .note-box.note-sky { background: rgb(2 132 199 / .12); border-color: rgb(2 132 199 / .5); }
+.panel-amber .btn-ghost { color: #b45309 !important; } :root[data-theme='dark'] .panel-amber .btn-ghost { color: #fbbf24 !important; }

@@ -145,9 +145,9 @@ export default function GifMaker() {
         ))}
       </ul>
 
-      {unequal && <div class="note-box">Your images are not the same size. They will be made the same size as the smallest one ({smallest!.w}×{smallest!.h}) — choose below whether to <b>fit</b>, <b>fill and crop</b> or <b>stretch</b> them.</div>}
+      {unequal && <div class="note-box note-sky">Your images are not the same size. They will be made the same size as the smallest one ({smallest!.w}×{smallest!.h}) — choose below whether to <b>fit</b>, <b>fill and crop</b> or <b>stretch</b> them.</div>}
 
-      <fieldset class="panel">
+      <fieldset class="panel panel-amber">
         <legend>Skip or use a group of frames</legend>
         <div class="opts">
           <label>From<input type="number" min={1} max={items.length} value={from} onInput={(e) => setFrom(+val(e))} /></label>
@@ -162,7 +162,7 @@ export default function GifMaker() {
         </div>
       </fieldset>
 
-      <fieldset class="panel">
+      <fieldset class="panel panel-indigo">
         <legend>GIF settings</legend>
         <div class="opts">
           <label>Time per frame (sec)<input type="number" min={0.02} max={60} step={0.05} value={delay} onChange={(e) => setAllDelays(Math.max(0.02, +val(e) || 0.5))} /></label>
