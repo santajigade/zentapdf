@@ -96,14 +96,14 @@ export default function SplitPdf() {
         <div class="done">
           <p class="big">Done! Your PDF was split into {out.length} file{out.length > 1 ? 's' : ''}.</p>
           <div class="actions">
-            <button type="button" class="btn btn-primary btn-lg" onClick={downloadAll} disabled={!!busy}>{out.length > 1 ? 'Download all (ZIP)' : 'Download PDF'}</button>
+            <button type="button" class="btn btn-primary dl btn-lg" onClick={downloadAll} disabled={!!busy}>{out.length > 1 ? 'Download all (ZIP)' : 'Download PDF'}</button>
             <button type="button" class="btn btn-ghost" onClick={() => setOut(null)}>Split again</button>
             <button type="button" class="btn btn-ghost" onClick={() => { setFile(null); setOut(null); }}>New file</button>
           </div>
           {out.length > 1 && out.length <= 50 && (
             <ul class="files" style={{ textAlign: 'left' }}>
               {out.map((o) => <li key={o.name}><span class="fname">{o.name}</span><span class="meta">{formatBytes(o.blob.size)}</span>
-                <button type="button" class="mini" aria-label={'Download ' + o.name} onClick={() => downloadBlob(o.blob, o.name)}>⬇</button></li>)}
+                <button type="button" class="dl-file" aria-label={'Download ' + o.name} onClick={() => downloadBlob(o.blob, o.name)}>Download</button></li>)}
             </ul>
           )}
         </div>

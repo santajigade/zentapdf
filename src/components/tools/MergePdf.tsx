@@ -61,7 +61,7 @@ export default function MergePdf() {
           <p class="big">Done! Your PDFs were merged.</p>
           <p class="status">{items.length} files → 1 PDF ({formatBytes(result.size)})</p>
           <div class="actions">
-            <button type="button" class="btn btn-primary btn-lg" onClick={() => downloadBlob(result, 'merged.pdf')}>Download PDF</button>
+            <button type="button" class="btn btn-primary dl btn-lg" onClick={() => downloadBlob(result, 'merged.pdf')}>Download PDF</button>
             <button type="button" class="btn btn-ghost" onClick={() => { setItems([]); setResult(null); }}>Start over</button>
           </div>
         </div>

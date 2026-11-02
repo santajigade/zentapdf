@@ -152,7 +152,7 @@ export default function GifEdit({ mode }: { mode: GifMode }) {
           {mode === 'compress' && out.blob.size >= file.size && <p class="status">This GIF is already well optimised — try the Strong level.</p>}
           <div class="gif-prev">{mode === 'mp4' ? <video src={out.url} controls autoplay muted loop playsInline /> : <img src={out.url} alt="Result" />}</div>
           <div class="actions">
-            <button type="button" class="btn btn-primary btn-lg" onClick={() => downloadBlob(out.blob, out.name)}>{mode === 'jpg' ? 'Download frames (ZIP)' : mode === 'mp4' ? 'Download MP4' : 'Download GIF'}</button>
+            <button type="button" class="btn btn-primary dl btn-lg" onClick={() => downloadBlob(out.blob, out.name)}>{mode === 'jpg' ? 'Download frames (ZIP)' : mode === 'mp4' ? 'Download MP4' : 'Download GIF'}</button>
             <button type="button" class="btn btn-ghost" onClick={() => setOut(null)}>Change settings</button>
             <button type="button" class="btn btn-ghost" onClick={reset}>New GIF</button>
           </div>

@@ -126,7 +126,7 @@ export default function ExifTool({ mode = 'view' }: { mode?: 'view' | 'remove' }
               ) : <p class="status" style={{ textAlign: 'left', margin: 0 }}>{it.meta ? 'Only technical data found.' : 'No hidden metadata found.'}</p>}
               {extra > 0 && <p class="status" style={{ textAlign: 'left', margin: '4px 0 0' }}>+ {extra} more technical fields</p>}
               {it.err && <p style={{ color: 'var(--err)' }}>{it.err}</p>}
-              {it.clean && <button type="button" class="btn btn-ghost" style={{ marginTop: '8px', padding: '6px 14px' }} onClick={() => downloadBlob(it.clean!, outName(it))}>⬇ Download clean photo</button>}
+              {it.clean && <button type="button" class="dl-file" style={{ marginTop: '8px' }} onClick={() => downloadBlob(it.clean!, outName(it))}>Download clean photo</button>}
             </div>
           </div>
         );
@@ -135,7 +135,7 @@ export default function ExifTool({ mode = 'view' }: { mode?: 'view' | 'remove' }
       {busy && <ProgressBar {...busy} />}
       <div class="actions">
         {done
-          ? <button type="button" class="btn btn-primary btn-lg" onClick={downloadAll}>{items.length > 1 ? 'Download all (ZIP)' : 'Download clean photo'}</button>
+          ? <button type="button" class="btn btn-primary dl btn-lg" onClick={downloadAll}>{items.length > 1 ? 'Download all (ZIP)' : 'Download clean photo'}</button>
           : <button type="button" class="btn btn-primary btn-lg" disabled={!!busy} onClick={removeAll}>{mode === 'remove' ? 'Remove metadata' : 'Remove all metadata'}</button>}
         <DropZone compact accept={IMAGE_ACCEPT} multiple label="Add photos" onFiles={add} />
         <button type="button" class="btn btn-ghost" onClick={() => { items.forEach((i) => URL.revokeObjectURL(i.url)); setItems([]); setDone(false); }}>Start over</button>

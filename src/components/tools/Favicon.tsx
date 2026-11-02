@@ -91,7 +91,7 @@ export default function Favicon({ mode = 'favicon' }: { mode?: 'favicon' | 'ico'
       </div>
       {error && <ErrorBox>{error}</ErrorBox>}
       <div class="actions">
-        <button type="button" class="btn btn-primary btn-lg" disabled={busy || (mode === 'ico' && !sizes.length)} onClick={make}>{busy ? 'Creating…' : mode === 'ico' ? 'Download ICO' : 'Download favicon package (ZIP)'}</button>
+        <button type="button" class="btn btn-primary dl btn-lg" disabled={busy || (mode === 'ico' && !sizes.length)} onClick={make}>{busy ? 'Creating…' : mode === 'ico' ? 'Download ICO' : 'Download favicon package (ZIP)'}</button>
         <button type="button" class="btn btn-ghost" onClick={() => { setFile(null); }}>New image</button>
       </div>
       {mode === 'favicon' && <details class="faq" style={{ marginTop: '14px' }}><summary>HTML code to add to your website</summary><pre style={{ whiteSpace: 'pre-wrap', fontSize: '.82rem' }}>{SNIPPET}</pre></details>}

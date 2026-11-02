@@ -116,7 +116,7 @@ export default function JpgToPdf() {
           <p class="big">Done! {items.length} image{items.length > 1 ? 's' : ''} converted to PDF.</p>
           <p class="status">{formatBytes(result.size)}</p>
           <div class="actions">
-            <button type="button" class="btn btn-primary btn-lg" onClick={() => downloadBlob(result, outName)}>Download PDF</button>
+            <button type="button" class="btn btn-primary dl btn-lg" onClick={() => downloadBlob(result, outName)}>Download PDF</button>
             <button type="button" class="btn btn-ghost" onClick={() => setResult(null)}>Change settings</button>
             <button type="button" class="btn btn-ghost" onClick={() => { items.forEach((i) => URL.revokeObjectURL(i.url)); setItems([]); setResult(null); }}>Start over</button>
           </div>

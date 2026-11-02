@@ -169,7 +169,7 @@ export default function PdfEdit({ mode }: { mode: Mode }) {
           <p class="big">Done! Your PDF is ready ({formatBytes(result.blob.size)}).</p>
           {result.note && <p class="status">{result.note}</p>}
           <div class="actions">
-            <button type="button" class="btn btn-primary btn-lg" onClick={() => downloadBlob(result.blob, `${baseName(file.name)}-${LABEL[mode][1]}.pdf`)}>Download PDF</button>
+            <button type="button" class="btn btn-primary dl btn-lg" onClick={() => downloadBlob(result.blob, `${baseName(file.name)}-${LABEL[mode][1]}.pdf`)}>Download PDF</button>
             <button type="button" class="btn btn-ghost" onClick={() => { setFile(null); setResult(null); }}>New file</button>
           </div>
         </div>

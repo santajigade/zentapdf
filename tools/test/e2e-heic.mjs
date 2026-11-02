@@ -7,7 +7,7 @@ try {
   let p = await page('/heic-to-jpg/'); await p.setInputFiles('input[type=file]', [T + 'iphone.heic', T + 'iphone2.heic']);
   await p.getByRole('button', { name: /Convert 2 images/ }).click(); await p.waitForSelector('.done', { timeout: 90000 });
   ok('heic→jpg', true, (await p.locator('.files .meta').allTextContents()).join(' | ')); ok('errors', !p.errors.length, p.errors.join());
-  const [d] = await Promise.all([p.waitForEvent('download'), p.locator('.files .mini').first().click()]); await d.saveAs('/tmp/testout/heic.jpg');
+  const [d] = await Promise.all([p.waitForEvent('download'), p.locator('.files .dl-file').first().click()]); await d.saveAs('/tmp/testout/heic.jpg');
   const head = fs.readFileSync('/tmp/testout/heic.jpg').subarray(0, 3); ok('is jpeg', head[0] === 0xff && head[1] === 0xd8);
   p = await page('/compress-image-to-50kb/'); await p.setInputFiles('input[type=file]', [T + 'iphone.heic']);
   await p.getByRole('button', { name: /Compress image/ }).click(); await p.waitForSelector('.done', { timeout: 90000 }); ok('heic → 50KB', true, await p.textContent('.files .meta'));

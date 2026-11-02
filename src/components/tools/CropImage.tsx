@@ -111,7 +111,7 @@ export default function CropImage() {
         <div class="done">
           <p class="big">Done! Cropped to {box.w}×{box.h}px ({formatBytes(result.blob.size)})</p>
           <div class="actions">
-            <button type="button" class="btn btn-primary btn-lg" onClick={() => downloadBlob(result.blob, result.name)}>Download image</button>
+            <button type="button" class="btn btn-primary dl btn-lg" onClick={() => downloadBlob(result.blob, result.name)}>Download image</button>
             <button type="button" class="btn btn-ghost" onClick={() => setResult(null)}>Adjust crop</button>
             <button type="button" class="btn btn-ghost" onClick={() => { setFile(null); setResult(null); }}>New image</button>
           </div>

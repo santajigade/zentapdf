@@ -161,7 +161,7 @@ export default function PdfPages({ mode }: { mode: Mode }) {
         <div class="done">
           <p class="big">Done! Your new PDF is ready ({formatBytes(result.size)}).</p>
           <div class="actions">
-            <button type="button" class="btn btn-primary btn-lg" onClick={() => downloadBlob(result, `${baseName(file.name)}-${t.suffix}.pdf`)}>Download PDF</button>
+            <button type="button" class="btn btn-primary dl btn-lg" onClick={() => downloadBlob(result, `${baseName(file.name)}-${t.suffix}.pdf`)}>Download PDF</button>
             <button type="button" class="btn btn-ghost" onClick={() => { setFile(null); setPages([]); setResult(null); }}>New file</button>
           </div>
         </div>

@@ -69,7 +69,7 @@ export default function PdfToText() {
         <textarea readOnly aria-label="Extracted text" value={text}
           style={{ width: '100%', height: '320px', fontFamily: 'ui-monospace, Consolas, monospace', fontSize: '13px', padding: '12px', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-soft)', color: 'var(--text)' }} />
         <div class="actions">
-          <button type="button" class="btn btn-primary btn-lg" onClick={() => downloadBlob(new Blob([text], { type: 'text/plain;charset=utf-8' }), baseName(file.name) + '.txt')}>Download .txt</button>
+          <button type="button" class="btn btn-primary dl btn-lg" onClick={() => downloadBlob(new Blob([text], { type: 'text/plain;charset=utf-8' }), baseName(file.name) + '.txt')}>Download .txt</button>
           <button type="button" class="btn btn-ghost" onClick={async () => { try { await navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 2000); } catch { setError('Copy failed — select the text and press Ctrl+C.'); } }}>{copied ? 'Copied!' : 'Copy all'}</button>
           <DropZone compact accept="application/pdf,.pdf" label="New PDF" onFiles={pick} />
         </div>

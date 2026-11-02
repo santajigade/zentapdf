@@ -67,7 +67,7 @@ export default function CompressPdf() {
             : <p class="big" style={{ color: 'var(--text)' }}>This PDF is already well optimised — it could not be made smaller.</p>}
           <p class="status">{result.changed} of {result.images} images were optimised. Text and vector graphics are kept exactly as they are.</p>
           <div class="actions">
-            {pct > 0 && <button type="button" class="btn btn-primary btn-lg" onClick={() => downloadBlob(result.blob, `${baseName(file.name)}-compressed.pdf`)}>Download PDF</button>}
+            {pct > 0 && <button type="button" class="btn btn-primary dl btn-lg" onClick={() => downloadBlob(result.blob, `${baseName(file.name)}-compressed.pdf`)}>Download PDF</button>}
             <button type="button" class="btn btn-ghost" onClick={() => setResult(null)}>Try another level</button>
             <button type="button" class="btn btn-ghost" onClick={() => { setFile(null); setResult(null); }}>New file</button>
           </div>

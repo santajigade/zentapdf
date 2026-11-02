@@ -50,7 +50,7 @@ export default function Barcode() {
       </div>
       {err && <div class="error" role="alert">{err}</div>}
       <div class="actions">
-        <button type="button" class="btn btn-primary btn-lg" disabled={!!err || !value} onClick={dlPng}>Download PNG</button>
+        <button type="button" class="btn btn-primary dl btn-lg" disabled={!!err || !value} onClick={dlPng}>Download PNG</button>
         <button type="button" class="btn btn-ghost" disabled={!!err || !value} onClick={dlSvg}>Download SVG</button>
       </div>
       <p class="status">EAN and UPC check digits are added automatically when you leave out the last digit.</p>

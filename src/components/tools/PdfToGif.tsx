@@ -70,7 +70,7 @@ export default function PdfToGif() {
           <p class="big" style={{ color: 'var(--text)' }}>Done! {out.info} · {formatBytes(out.blob.size)}</p>
           <div class="gif-prev"><img src={out.url} alt="PDF pages as animated GIF" /></div>
           <div class="actions">
-            <button type="button" class="btn btn-primary btn-lg" onClick={() => downloadBlob(out.blob, `${baseName(file.name)}.gif`)}>Download GIF</button>
+            <button type="button" class="btn btn-primary dl btn-lg" onClick={() => downloadBlob(out.blob, `${baseName(file.name)}.gif`)}>Download GIF</button>
             <button type="button" class="btn btn-ghost" onClick={() => setOut(null)}>Change settings</button>
             <button type="button" class="btn btn-ghost" onClick={() => { setFile(null); setOut(null); }}>New PDF</button>
           </div>

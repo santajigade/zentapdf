@@ -85,7 +85,7 @@ export default function PdfPassword({ mode }: { mode: 'protect' | 'unlock' }) {
         <div class="done">
           <p class="big">{mode === 'protect' ? 'Done! Your PDF is now password-protected (AES-256).' : 'Done! The password and restrictions were removed.'}</p>
           <div class="actions">
-            <button type="button" class="btn btn-primary btn-lg" onClick={() => downloadBlob(result, `${baseName(file.name)}-${mode === 'protect' ? 'protected' : 'unlocked'}.pdf`)}>Download PDF</button>
+            <button type="button" class="btn btn-primary dl btn-lg" onClick={() => downloadBlob(result, `${baseName(file.name)}-${mode === 'protect' ? 'protected' : 'unlocked'}.pdf`)}>Download PDF</button>
             <button type="button" class="btn btn-ghost" onClick={() => { setFile(null); setResult(null); }}>New file</button>
           </div>
         </div>

@@ -8,7 +8,7 @@ try {
     const p = await page(`/compress-image-to-${kb}kb/`); await p.setInputFiles('input[type=file]', [T + 'photo1.jpg', T + 'pic.png']);
     await p.getByRole('button', { name: /Compress 2 images/ }).click(); await p.waitForSelector('.done', { timeout: 60000 });
     const metas = await p.locator('.files .meta').allTextContents();
-    const [d] = await Promise.all([p.waitForEvent('download'), p.locator('.files .mini').first().click()]); const f = '/tmp/testout/kb' + kb + '.jpg'; await d.saveAs(f);
+    const [d] = await Promise.all([p.waitForEvent('download'), p.locator('.files .dl-file').first().click()]); const f = '/tmp/testout/kb' + kb + '.jpg'; await d.saveAs(f);
     ok(`${kb}KB`, fs.statSync(f).size <= kb * 1024, fs.statSync(f).size + ' | ' + metas.join(' | '));
   }
   const p = await page('/reduce-image-size-in-kb/'); await p.setInputFiles('input[type=file]', [T + 'photo1.jpg']);

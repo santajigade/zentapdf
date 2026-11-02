@@ -89,7 +89,7 @@ export default function ImageBatch({ actionLabel, zipName, options, preview, pro
               {it.err && <span style={{ color: 'var(--err)' }}> {it.err}</span>}
             </span>
             {it.out
-              ? <button type="button" class="mini" aria-label={'Download ' + it.outName} onClick={() => downloadBlob(it.out!, it.outName!)}>⬇</button>
+              ? <button type="button" class="dl-file" aria-label={'Download ' + it.outName} onClick={() => downloadBlob(it.out!, it.outName!)}>Download</button>
               : <button type="button" class="mini" aria-label="Remove" disabled={!!busy} onClick={() => { URL.revokeObjectURL(it.url); setItems(items.filter((_, j) => j !== k)); }}>✕</button>}
           </li>
         ))}
@@ -100,7 +100,7 @@ export default function ImageBatch({ actionLabel, zipName, options, preview, pro
         <div class="done">
           <p class="big">Done! {okCount} image{okCount > 1 ? 's' : ''} ready.</p>
           <div class="actions">
-            <button type="button" class="btn btn-primary btn-lg" onClick={downloadAll}>{okCount > 1 ? 'Download all (ZIP)' : 'Download image'}</button>
+            <button type="button" class="btn btn-primary dl btn-lg" onClick={downloadAll}>{okCount > 1 ? 'Download all (ZIP)' : 'Download image'}</button>
             <button type="button" class="btn btn-ghost" onClick={() => { items.forEach((i) => URL.revokeObjectURL(i.url)); setItems([]); setDone(false); }}>Start over</button>
           </div>
         </div>

@@ -140,7 +140,7 @@ export default function CompressImage() {
               {it.err && <span style={{ color: 'var(--err)' }}> {it.err}</span>}
             </span>
             {it.out
-              ? <button type="button" class="mini" aria-label={'Download ' + it.outName} onClick={() => downloadBlob(it.out!, it.outName!)}>⬇</button>
+              ? <button type="button" class="dl-file" aria-label={'Download ' + it.outName} onClick={() => downloadBlob(it.out!, it.outName!)}>Download</button>
               : <button type="button" class="mini" aria-label="Remove" disabled={!!busy} onClick={() => { URL.revokeObjectURL(it.url); setItems(items.filter((_, j) => j !== k)); }}>✕</button>}
           </li>
         ))}
@@ -151,7 +151,7 @@ export default function CompressImage() {
         <div class="done">
           <p class="big">Done! You saved {saved}% ({formatBytes(before)} → {formatBytes(after)})</p>
           <div class="actions">
-            <button type="button" class="btn btn-primary btn-lg" onClick={downloadAll}>{items.filter((i) => i.out).length > 1 ? 'Download all (ZIP)' : 'Download image'}</button>
+            <button type="button" class="btn btn-primary dl btn-lg" onClick={downloadAll}>{items.filter((i) => i.out).length > 1 ? 'Download all (ZIP)' : 'Download image'}</button>
             <button type="button" class="btn btn-ghost" onClick={() => { items.forEach((i) => URL.revokeObjectURL(i.url)); setItems([]); setDone(false); }}>Start over</button>
           </div>
           <p class="status">Change the settings above and press Compress again to try a different size.</p>

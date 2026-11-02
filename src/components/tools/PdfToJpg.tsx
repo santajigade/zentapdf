@@ -112,7 +112,7 @@ export default function PdfToJpg() {
         <div class="done">
           <p class="big">Done! {out.length} page{out.length > 1 ? 's' : ''} converted to {format.toUpperCase()}.</p>
           <div class="actions">
-            <button type="button" class="btn btn-primary btn-lg" onClick={downloadAll} disabled={!!busy}>{out.length > 1 ? 'Download all (ZIP)' : 'Download image'}</button>
+            <button type="button" class="btn btn-primary dl btn-lg" onClick={downloadAll} disabled={!!busy}>{out.length > 1 ? 'Download all (ZIP)' : 'Download image'}</button>
             <button type="button" class="btn btn-ghost" onClick={() => setOut(null)}>Change settings</button>
             <button type="button" class="btn btn-ghost" onClick={() => { setFile(null); setOut(null); }}>New file</button>
           </div>

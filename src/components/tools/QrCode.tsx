@@ -88,7 +88,7 @@ export default function QrCode() {
           {!has && <div style={{ width: '260px', height: '260px', display: 'grid', placeItems: 'center', color: '#888' }}>Fill in the details</div>}
         </div>
         {err && <div class="error">{err}</div>}
-        <div class="actions"><button type="button" class="btn btn-primary" disabled={!has || !!err} onClick={png}>Download PNG</button>
+        <div class="actions"><button type="button" class="btn btn-primary dl" disabled={!has || !!err} onClick={png}>Download PNG</button>
           <button type="button" class="btn btn-ghost" disabled={!has || !!err || !!logo} title={logo ? 'SVG download is without logo' : ''} onClick={svg}>SVG</button></div>
       </div>
     </div>

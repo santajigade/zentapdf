@@ -448,7 +448,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' })
         <div class="done">
           <p class="big">Done! Your edited PDF is ready ({formatBytes(result.size)}).</p>
           <div class="actions">
-            <button type="button" class="btn btn-primary btn-lg" onClick={() => downloadBlob(result, `${baseName(file.name)}-edited.pdf`)}>Download PDF</button>
+            <button type="button" class="btn btn-primary dl btn-lg" onClick={() => downloadBlob(result, `${baseName(file.name)}-edited.pdf`)}>Download PDF</button>
             <button type="button" class="btn btn-ghost" onClick={() => setResult(null)}>Keep editing</button>
             <button type="button" class="btn btn-ghost" onClick={() => { setFile(null); setResult(null); }}>New file</button>
           </div>

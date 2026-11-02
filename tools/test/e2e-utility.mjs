@@ -33,7 +33,7 @@ try {
   // sticker
   p = await page('/whatsapp-sticker-maker/'); await p.setInputFiles('input[type=file]', [T + 'photo1.jpg', T + 'transparent.png']); await p.fill('.opts input[type=text]', 'Hello!');
   await p.getByRole('button', { name: /Make 2 images/ }).click(); await p.waitForSelector('.done');
-  const [d3] = await Promise.all([p.waitForEvent('download'), p.locator('.files .mini').first().click()]); await d3.saveAs(OUT + 'st.webp');
+  const [d3] = await Promise.all([p.waitForEvent('download'), p.locator('.files .dl-file').first().click()]); await d3.saveAs(OUT + 'st.webp');
   const st = fs.readFileSync(OUT + 'st.webp'); ok('sticker webp <100KB', st.toString('ascii', 8, 12) === 'WEBP' && st.length < 100 * 1024, st.length);
   ok('sticker errors', !p.errors.length, p.errors.join());
   for (const u of ['/', '/qr-code-generator/', '/barcode-generator/', '/exif-viewer/', '/whatsapp-sticker-maker/', '/favicon-generator/', '/utility-tools/']) {
