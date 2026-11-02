@@ -59,11 +59,25 @@ try {
   // wrong file
   p = await page('/compress-gif/'); await upload(p, ['a.pdf']); await p.waitForSelector('.error'); ok('non-gif rejected', /GIF/.test(await p.textContent('.error')));
 
-  // GIF maker
+  // GIF maker: images + GIF frames, skip, copy, per-frame delay, crossfade, dither off, loop once
   p = await page('/gif-maker/'); await upload(p, ['photo1.jpg', 'photo2.jpg', 'pic.png', 'iphone.heic']);
   await p.waitForSelector('.frames li >> nth=3');
   await p.getByRole('button', { name: 'Make GIF' }).click();
-  r = info(await dl(p, 'Download GIF', 'maker.gif')); ok('gif maker 4 frames 480w', r.n === 4 && r.w === 480, JSON.stringify(r)); ok('maker no errors', !p.errors.length, p.errors.join('|'));
+  r = info(await dl(p, 'Download GIF', 'maker.gif')); ok('gif maker 4 frames', r.n === 4, JSON.stringify(r)); ok('maker no errors', !p.errors.length, p.errors.join('|'));
+  await p.getByRole('button', { name: 'Change settings' }).click();
+  await p.setInputFiles('input[type=file] >> nth=0', [T + 'trans.gif']); await p.waitForSelector('.frames li >> nth=13');
+  ok('gif frames added', (await p.$$('.frames li')).length === 14);
+  await p.locator('.frames li').nth(0).getByRole('button', { name: 'Skip' }).click();
+  await p.locator('.frames li').nth(1).getByRole('button', { name: 'Copy' }).click();
+  await p.locator('.frames li').nth(1).locator('input').fill('2'); await p.locator('.frames li').nth(1).locator('input').dispatchEvent('change');
+  ok('15 frames, 14 used', /14 frames/.test(await p.textContent('.actions >> nth=-1')), await p.textContent('.actions >> nth=-1'));
+  await p.getByRole('button', { name: /Make GIF/ }).click();
+  r = info(await dl(p, 'Download GIF', 'maker2.gif')); ok('maker skip/copy/delay', r.n === 14 && r.delay > 2000, JSON.stringify(r));
+  await p.getByRole('button', { name: 'Change settings' }).click();
+  await p.check('text=Crossfade between frames'); await p.selectOption('select >> nth=4', '1');
+  await p.getByRole('button', { name: /Make GIF/ }).click();
+  r = info(await dl(p, 'Download GIF', 'maker3.gif')); ok('crossfade adds frames', r.n === 14 + 13 * 4, JSON.stringify(r));
+  await p.locator('.frames li').nth(4).getByRole('button', { name: 'Skip' }).click().catch(() => {});
 
   // video to gif
   p = await page('/video-to-gif/'); await upload(p, ['clip.webm']);

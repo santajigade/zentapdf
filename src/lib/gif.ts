@@ -33,7 +33,7 @@ export async function decodeGif(buf: ArrayBuffer): Promise<Anim> {
   return { width: W, height: H, frames, delays };
 }
 
-export function encodeGif(a: Anim, opts: { colors?: number; repeat?: number } = {}, onProgress?: (d: number, t: number) => void): Promise<Blob> {
+export function encodeGif(a: Anim, opts: { colors?: number; repeat?: number; dither?: boolean; stack?: boolean } = {}, onProgress?: (d: number, t: number) => void): Promise<Blob> {
   return new Promise((resolve, reject) => {
     const w = new Worker(new URL('./gif.worker.ts', import.meta.url), { type: 'module' });
     w.onmessage = (e) => {
@@ -44,7 +44,7 @@ export function encodeGif(a: Anim, opts: { colors?: number; repeat?: number } = 
     };
     w.onerror = (e) => { w.terminate(); reject(new Error(e.message || 'Out of memory')); };
     const bufs = a.frames.map((f) => f.slice().buffer);
-    w.postMessage({ width: a.width, height: a.height, frames: bufs, delays: a.delays, colors: opts.colors ?? 256, repeat: opts.repeat ?? 0 }, bufs);
+    w.postMessage({ width: a.width, height: a.height, frames: bufs, delays: a.delays, colors: opts.colors ?? 256, repeat: opts.repeat ?? 0, dither: !!opts.dither, stack: !!opts.stack }, bufs);
   });
 }
 
@@ -95,14 +95,15 @@ export async function toMp4(a: Anim, loops: number, onProgress?: (d: number, t: 
 }
 
 /** Draw a source into a W×H frame (contain or cover) and return its RGBA pixels. */
-export function fitFrame(ctx: CanvasRenderingContext2D, src: CanvasImageSource, sw: number, sh: number, fit: 'contain' | 'cover', bg: string | null): Uint8ClampedArray {
+export function fitFrame(ctx: CanvasRenderingContext2D, src: CanvasImageSource, sw: number, sh: number, fit: 'contain' | 'cover' | 'stretch', bg: string | null, ax = 0.5, ay = 0.5): Uint8ClampedArray {
   const W = ctx.canvas.width, H = ctx.canvas.height;
   ctx.clearRect(0, 0, W, H);
   if (bg) { ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H); }
+  ctx.imageSmoothingQuality = 'high';
+  if (fit === 'stretch') { ctx.drawImage(src, 0, 0, W, H); return ctx.getImageData(0, 0, W, H).data; }
   const s = fit === 'cover' ? Math.max(W / sw, H / sh) : Math.min(W / sw, H / sh);
   const dw = sw * s, dh = sh * s;
-  ctx.imageSmoothingQuality = 'high';
-  ctx.drawImage(src, (W - dw) / 2, (H - dh) / 2, dw, dh);
+  ctx.drawImage(src, (W - dw) * ax, (H - dh) * ay, dw, dh);
   return ctx.getImageData(0, 0, W, H).data;
 }
 

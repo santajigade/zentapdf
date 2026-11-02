@@ -287,3 +287,17 @@ details.faq p { margin: .5rem 0 0; color: var(--muted); }
 
 .tint-gif { --tint: #fdf2f8; --tint-strong: #fce7f3; --accent: #be185d; }
 :root[data-theme='dark'] .tint-gif { --tint: rgb(236 72 153 / .10); --tint-strong: rgb(236 72 153 / .25); --accent: #f9a8d4; }
+
+.frames li.skipped img { opacity: .3; }
+.frames li.skipped { background: var(--bg); border-style: dashed; }
+.frames .fno { position: absolute; top: 4px; left: 4px; background: #111827cc; color: #fff; font-size: .7rem; padding: 1px 6px; border-radius: 6px; }
+.frames .fdelay { display: flex; align-items: center; justify-content: center; gap: 4px; font-size: .75rem; margin-top: 4px; }
+.frames .fdelay input { width: 58px; padding: 3px 4px; border: 1px solid var(--border); border-radius: 6px; background: var(--card); color: var(--text); font: inherit; }
+.frames .mini.warn { color: #b91c1c; }
+.frames .mini.on { color: #047857; font-weight: 600; }
+.frames { grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); }
+fieldset.panel { border: 1px solid var(--border); border-radius: 12px; padding: 6px 16px 4px; margin: 14px 0; }
+fieldset.panel legend { font-weight: 700; padding: 0 6px; }
+fieldset.panel .opts { margin: 10px 0; }
+.note-box { background: var(--brand-50); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; margin: 12px 0; font-size: .92rem; }
+.frames li > div .mini { width: auto; height: auto; min-width: 30px; padding: 3px 7px; font-size: .78rem; }
