@@ -70,7 +70,7 @@ const features = isGen ? [
       <h1>{tool.title}</h1>
       <p>{tool.short}</p>
     </div>
-    <div class="tool-box">
+    <div class={`tool-box cat-${tool.category}`}>
       {tool.slug === 'merge-pdf' && <MergePdf client:load />}
       {tool.slug === 'split-pdf' && <SplitPdf client:load />}
       {(tool.slug === 'jpg-to-pdf' || tool.slug === 'images-to-pdf') && <JpgToPdf client:load />}

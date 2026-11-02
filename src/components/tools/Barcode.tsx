@@ -37,7 +37,7 @@ export default function Barcode() {
 
   return (
     <div>
-      <div class="opts">
+      <div class="opts" data-title="Barcode">
         <label>Barcode type<select value={fmt} onChange={(e) => { const v = (e.target as HTMLSelectElement).value; setFmt(v); setValue(FORMATS.find((x) => x[0] === v)![2]); }}>{FORMATS.map(([v, l]) => <option value={v}>{l}</option>)}</select></label>
         <label style={{ flex: '1 1 220px' }}>Value<input type="text" value={value} onInput={(e) => setValue((e.target as HTMLInputElement).value)} style={{ width: '100%' }} /></label>
         <label>Bar height<select value={height} onChange={(e) => setHeight(+(e.target as HTMLSelectElement).value)}><option value={60}>Short</option><option value={100}>Normal</option><option value={150}>Tall</option></select></label>

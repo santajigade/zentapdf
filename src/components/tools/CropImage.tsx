@@ -90,22 +90,22 @@ export default function CropImage() {
   );
   return (
     <div>
-      <div class="opts">
+      <div class="opts" data-title="Shape">
         <div class="seg" role="group" aria-label="Aspect ratio">
           {RATIOS.map(([l, r]) => <button type="button" aria-pressed={ratio === r} onClick={() => applyRatio(r)}>{l}</button>)}
         </div>
       </div>
-      <div style={{ position: 'relative', display: 'inline-block', maxWidth: '100%', touchAction: 'none', userSelect: 'none', left: '50%', transform: 'translateX(-50%)' }}
+      <div style={{ position: 'relative', display: 'inline-block', maxWidth: '100%', touchAction: 'none', userSelect: 'none', overflow: 'hidden', borderRadius: '8px', left: '50%', transform: 'translateX(-50%)' }}
         onPointerMove={move} onPointerUp={up} onPointerCancel={up}>
         <img ref={imgRef} src={url} alt="Image to crop" draggable={false} style={{ maxWidth: '100%', maxHeight: '60vh', display: 'block' }} />
         <div onPointerDown={down('move')} aria-label="Crop area — drag to move"
           style={{ position: 'absolute', left: pct(box.x, size.w), top: pct(box.y, size.h), width: pct(box.w, size.w), height: pct(box.h, size.h),
             border: '2px solid #fff', outline: '1px solid rgb(0 0 0 / .5)', boxShadow: '0 0 0 9999px rgb(0 0 0 / .45)', cursor: 'move' }}>
           <div onPointerDown={down('resize')} aria-label="Drag to resize"
-            style={{ position: 'absolute', right: '-11px', bottom: '-11px', width: '22px', height: '22px', borderRadius: '50%', background: 'var(--brand)', border: '3px solid #fff', cursor: 'nwse-resize' }} />
+            style={{ position: 'absolute', right: '2px', bottom: '2px', width: '22px', height: '22px', borderRadius: '50%', background: 'var(--brand)', border: '3px solid #fff', cursor: 'nwse-resize' }} />
         </div>
       </div>
-      <div class="opts">{field('x', 'Left')}{field('y', 'Top')}{field('w', 'Width')}{field('h', 'Height')}<span class="status">Image: {size.w}×{size.h}px</span></div>
+      <div class="opts" data-title="Exact position">{field('x', 'Left')}{field('y', 'Top')}{field('w', 'Width')}{field('h', 'Height')}<span class="status">Image: {size.w}×{size.h}px</span></div>
       {error && <ErrorBox>{error}</ErrorBox>}
       {result ? (
         <div class="done">

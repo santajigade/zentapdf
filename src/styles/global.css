@@ -317,3 +317,30 @@ fieldset.panel input[type=checkbox] { accent-color: var(--pc); width: 17px; heig
 .note-box.note-sky { background: #f0f9ff; border: 1.5px solid #7dd3fc; border-left: 5px solid #0284c7; }
 :root[data-theme='dark'] .note-box.note-sky { background: rgb(2 132 199 / .12); border-color: rgb(2 132 199 / .5); }
 .panel-amber .btn-ghost { color: #b45309 !important; } :root[data-theme='dark'] .panel-amber .btn-ghost { color: #fbbf24 !important; }
+
+/* Coloured setting panels for all tools (colour follows the tool's category) */
+.tool-box { --pc: #4f46e5; --pb: #eef2ff; --pl: #c7d2fe; --pt: #4338ca; }
+.tool-box.cat-organise { --pc: #2563eb; --pb: #eff6ff; --pl: #bfdbfe; --pt: #1d4ed8; }
+.tool-box.cat-edit { --pc: #7c3aed; --pb: #f5f3ff; --pl: #ddd6fe; --pt: #6d28d9; }
+.tool-box.cat-convert { --pc: #059669; --pb: #ecfdf5; --pl: #a7f3d0; --pt: #047857; }
+.tool-box.cat-security { --pc: #d97706; --pb: #fffbeb; --pl: #fcd34d; --pt: #b45309; }
+.tool-box.cat-image { --pc: #e11d48; --pb: #fff1f2; --pl: #fecdd3; --pt: #be123c; }
+.tool-box.cat-imgconv { --pc: #0d9488; --pb: #f0fdfa; --pl: #99f6e4; --pt: #0f766e; }
+.tool-box.cat-utility { --pc: #0284c7; --pb: #f0f9ff; --pl: #bae6fd; --pt: #0369a1; }
+.tool-box.cat-gif { --pc: #db2777; --pb: #fdf2f8; --pl: #fbcfe8; --pt: #be185d; }
+:root[data-theme='dark'] .tool-box { --pb: rgb(148 163 184 / .08); --pl: rgb(148 163 184 / .35); --pt: #e2e8f0; }
+.tool-box .opts:not(fieldset .opts) { position: relative; border: 1.5px solid var(--pl); border-left: 5px solid var(--pc); border-radius: 12px; background: linear-gradient(180deg, var(--pb), transparent 80%); padding: 22px 16px 14px; margin-top: 24px !important; margin-bottom: 14px; }
+.tool-box .opts:not(fieldset .opts)::before { content: attr(data-title); position: absolute; top: -13px; left: 12px; background: var(--pc); color: #fff; border-radius: 999px; padding: 3px 13px; font-size: .85rem; font-weight: 700; line-height: 1.4; }
+.tool-box .opts:not(fieldset .opts):not([data-title])::before { content: 'Settings'; }
+.tool-box .opts:not(fieldset .opts):has(+ .opts) { border-bottom: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0; margin-bottom: 0; padding-bottom: 6px; }
+.tool-box .opts:not(fieldset .opts) + .opts { margin-top: 0 !important; border-top: 0; border-top-left-radius: 0; border-top-right-radius: 0; background: var(--pb); padding-top: 8px; }
+.tool-box .opts:not(fieldset .opts) + .opts:not([data-title])::before { display: none; }
+.tool-box .opts:not(fieldset .opts) + .opts[data-title] { border-top: 1px dashed var(--pl); padding-top: 26px; }
+.tool-box .opts:not(fieldset .opts) + .opts[data-title]::before { top: 6px; }
+.tool-box .opts .btn-ghost { border-color: var(--pl); background: var(--card); color: var(--pt); }
+.tool-box .opts .btn-ghost:hover { background: var(--pb); border-color: var(--pc); }
+.tool-box .opts select, .tool-box .opts input[type=number], .tool-box .opts input[type=text], .tool-box .opts input[type=password], .tool-box .opts input[type=url], .tool-box .opts input[type=email], .tool-box .opts input[type=tel], .tool-box .opts textarea { border-color: var(--pl) !important; }
+.tool-box .opts select:focus, .tool-box .opts input:focus, .tool-box .opts textarea:focus { outline: 2px solid var(--pc); outline-offset: 1px; }
+.tool-box .opts input[type=checkbox], .tool-box .opts input[type=radio], .tool-box .opts input[type=range] { accent-color: var(--pc); }
+.tool-box .opts .seg { border-color: var(--pl); }
+.tool-box .opts .seg button[aria-pressed='true'] { background: var(--pc); }

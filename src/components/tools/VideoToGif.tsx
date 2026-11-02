@@ -71,13 +71,13 @@ export default function VideoToGif() {
         <button type="button" class="mini" aria-label="Remove file" disabled={!!busy} onClick={() => { setFile(null); setOut(null); }}>✕</button></li></ul>
       <div class="gif-prev" style={{ display: out ? 'none' : undefined }}><video ref={video} src={url} controls muted playsInline preload="auto" onLoadedMetadata={loaded} onError={() => setError('This video format cannot be played in your browser. Try an MP4 file.')} /></div>
       {dur > 0 && !out && <>
-        <div class="opts">
+        <div class="opts" data-title="Clip">
           <label>Start (sec)<input type="number" step={0.1} min={0} max={dur} value={start} onInput={(e) => setStart(num(e))} /></label>
           <label>End (sec)<input type="number" step={0.1} min={0} max={dur} value={end} onInput={(e) => setEnd(num(e))} /></label>
           <button type="button" class="btn btn-ghost" onClick={() => setStart(+video.current!.currentTime.toFixed(1))}>Start = current time</button>
           <button type="button" class="btn btn-ghost" onClick={() => setEnd(+video.current!.currentTime.toFixed(1))}>End = current time</button>
         </div>
-        <div class="opts">
+        <div class="opts" data-title="GIF settings">
           <label>Frames per second<select value={fps} onChange={(e) => setFps(+(e.target as HTMLSelectElement).value)}>{[5, 8, 10, 12, 15, 20, 25].map((v) => <option value={v}>{v}</option>)}</select></label>
           <label>Width<select value={width} onChange={(e) => setWidth(+(e.target as HTMLSelectElement).value)}>{[240, 320, 400, 480, 640, 800].map((v) => <option value={v}>{v} px</option>)}</select></label>
         </div>

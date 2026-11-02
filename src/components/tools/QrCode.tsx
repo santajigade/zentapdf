@@ -64,7 +64,7 @@ export default function QrCode() {
         {<div class="seg" role="group" aria-label="QR code type" style={{ flexWrap: 'wrap', marginBottom: '12px' }}>
           {KINDS.map(([k, l]) => <button type="button" aria-pressed={kind === k} onClick={() => setKind(k)}>{l}</button>)}
         </div>}
-        <div class="opts" style={{ margin: 0 }}>
+        <div class="opts" data-title="Content" style={{ margin: 0 }}>
           {kind === 'url' && inp('url', 'Website address', 'https://example.com', 'url')}
           {kind === 'text' && <label style={{ flex: '1 1 100%' }}>Text<textarea value={f.text} rows={4} onInput={set('text')} style={{ width: '100%', padding: '9px 10px', border: '1px solid var(--border)', borderRadius: '10px', font: 'inherit', background: 'var(--card)', color: 'var(--text)' }} /></label>}
           {kind === 'wifi' && <>{inp('ssid', 'Network name (SSID)')}{inp('pass', 'Password', '', 'text', false)}
@@ -73,7 +73,7 @@ export default function QrCode() {
           {kind === 'email' && <>{inp('email', 'Email address', '', 'email')}{inp('subject', 'Subject (optional)')}</>}
           {kind === 'phone' && inp('phone', 'Phone number', '+91 98765 43210', 'tel')}
         </div>
-        <div class="opts">
+        <div class="opts" data-title="Style">
           <label>Colour<input type="color" value={fg} onInput={(e) => setFg((e.target as HTMLInputElement).value)} /></label>
           <label>Background<input type="color" value={bg} onInput={(e) => setBg((e.target as HTMLInputElement).value)} /></label>
           <label>Size<select value={size} onChange={(e) => setSize(+(e.target as HTMLSelectElement).value)}><option value={512}>512 px</option><option value={1024}>1024 px</option><option value={2048}>2048 px (print)</option></select></label>

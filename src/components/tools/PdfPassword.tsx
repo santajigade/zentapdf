@@ -66,17 +66,17 @@ export default function PdfPassword({ mode }: { mode: 'protect' | 'unlock' }) {
       <ul class="files"><li><span class="fname" title={file.name}>{file.name}</span><span class="meta">{formatBytes(file.size)}</span>
         <button type="button" class="mini" aria-label="Remove file" disabled={!!busy} onClick={() => { setFile(null); setResult(null); }}>✕</button></li></ul>
       {!result && mode === 'protect' && <>
-        <div class="opts">
+        <div class="opts" data-title="Password">
           {pwInput(pw, setPw, 'Password', 'new-password')}
           {pwInput(pw2, setPw2, 'Repeat password', 'new-password')}
           <label style={{ display: 'flex', gap: '6px', alignItems: 'center' }}><input type="checkbox" checked={show} onChange={(e) => setShow((e.target as HTMLInputElement).checked)} /> Show</label>
         </div>
-        <div class="opts" style={{ gap: '10px 22px' }}>{check('allowPrint', 'Allow printing')}{check('allowCopy', 'Allow copying text')}{check('allowModify', 'Allow editing')}</div>
+        <div class="opts" data-title="Permissions" style={{ gap: '10px 22px' }}>{check('allowPrint', 'Allow printing')}{check('allowCopy', 'Allow copying text')}{check('allowModify', 'Allow editing')}</div>
         <p class="status" style={{ textAlign: 'left' }}>Keep your password safe — if you forget it, nobody (including us) can open the file.</p>
       </>}
       {!result && mode === 'unlock' && needPw && <>
         <p class="status" style={{ textAlign: 'left' }}>This PDF needs a password to open. Type the password you know:</p>
-        <div class="opts">{pwInput(pw, setPw, 'Password', 'current-password')}
+        <div class="opts" data-title="Password">{pwInput(pw, setPw, 'Password', 'current-password')}
           <label style={{ display: 'flex', gap: '6px', alignItems: 'center' }}><input type="checkbox" checked={show} onChange={(e) => setShow((e.target as HTMLInputElement).checked)} /> Show</label></div>
       </>}
       {error && <ErrorBox>{error}</ErrorBox>}
