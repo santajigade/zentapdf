@@ -414,3 +414,8 @@ fieldset.panel input[type=checkbox] { accent-color: var(--pc); width: 17px; heig
 .tint-topdf { --tint: #fff7ed; --tint-strong: #ffedd5; --accent: #c2410c; }
 :root[data-theme='dark'] .tint-topdf { --tint: rgb(234 88 12 / .10); --tint-strong: rgb(234 88 12 / .25); --accent: #fdba74; }
 .tool-box.cat-topdf { --pc: #ea580c; --pb: #fff7ed; --pl: #fed7aa; --pt: #c2410c; }
+.choice-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 14px 0; }
+.choice { text-align: left; padding: 14px 16px; border-radius: 12px; cursor: pointer; font: inherit; color: var(--text); background: var(--card); border: 2px solid var(--border); }
+.choice[aria-checked='true'] { background: var(--brand-50); border-color: var(--brand); }
+.choice strong { display: block; }
+.choice span { color: var(--muted); font-size: .88rem; }

@@ -40,6 +40,9 @@ import RedactPdf from '../components/tools/RedactPdf';
 import FormFiller from '../components/tools/FormFiller';
 import PdfReader from '../components/tools/PdfReader';
 import ScanToPdf from '../components/tools/ScanToPdf';
+import PdfToWord from '../components/tools/PdfToWord';
+import PdfToExcel from '../components/tools/PdfToExcel';
+import OfficeToPdf from '../components/tools/OfficeToPdf';
 
 export function getStaticPaths() {
   return tools.filter((t) => t.live).map((t) => ({ params: { tool: t.slug }, props: { tool: t } }));
@@ -107,6 +110,14 @@ const features = isGen ? [
       {tool.slug === 'pdf-to-png' && <PdfToJpg initial="png" client:load />}
       {tool.slug === 'pdf-to-ppt' && <PdfToPpt client:load />}
       {tool.slug === 'pdf-scanner' && <ScanToPdf client:load />}
+      {tool.slug === 'pdf-to-word' && <PdfToWord client:load />}
+      {tool.slug === 'pdf-to-excel' && <PdfToExcel client:load />}
+      {tool.slug === 'word-to-pdf' && <OfficeToPdf kind="word" client:load />}
+      {tool.slug === 'excel-to-pdf' && <OfficeToPdf kind="excel" client:load />}
+      {tool.slug === 'ppt-to-pdf' && <OfficeToPdf kind="ppt" client:load />}
+      {tool.slug === 'odt-to-pdf' && <OfficeToPdf kind="odt" client:load />}
+      {tool.slug === 'ods-to-pdf' && <OfficeToPdf kind="ods" client:load />}
+      {tool.slug === 'odp-to-pdf' && <OfficeToPdf kind="odp" client:load />}
       {tool.slug === 'txt-to-pdf' && <DocToPdf kind="txt" client:load />}
       {tool.slug === 'csv-to-pdf' && <DocToPdf kind="csv" client:load />}
       {tool.slug === 'html-to-pdf' && <DocToPdf kind="html" client:load />}

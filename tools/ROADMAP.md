@@ -66,4 +66,5 @@ Brand: ZentaPDF · colour Indigo #4F46E5 · domain TBD (placeholder zentapdf.com
 - [x] pdf-to-png (PdfToJpg initial=png), pdf-to-ppt (pptxgenjs, page images + text in notes)
 - [x] pdf-reader (lazy pages, zoom, search, text layer, rotate, fullscreen, print), pdf-annotator (PdfEditor mode=annotate), pdf-form-filler (pdf-lib fields as HTML inputs on page, flatten, Unicode font), redact-pdf (search/emails/phones/hand boxes; redacted pages rasterised, metadata cleared)
 - Engine: src/lib/docpdf.ts (blocks → PDF with DejaVu fonts from /public/fonts; complex scripts like Hindi drawn via canvas). Tests: tools/test/e2e-p1.mjs (40 checks)
-- [ ] Next: P2 Office (PDF↔Word/Excel/PPT, ODT/ODS/ODP), P3 OCR (tesseract.js, eng+hin+mar)
+- [x] P2 Office (LIVE 2026-11-02): pdf-to-word (docx lib; editable text with headings/bold/sizes, or exact-look images), pdf-to-excel (SheetJS; modal-column template, Indian number parsing), word-to-pdf (mammoth → blocks), excel-to-pdf / ods-to-pdf (SheetJS → tables), odt-to-pdf (own ODT parser), ppt-to-pdf / odp-to-pdf (own slide renderer on canvas: theme colours, layouts/masters, shapes, pictures, tables). Code: src/lib/office.ts, pdfread.ts. Tests: tools/test/e2e-p2.mjs (20 checks)
+- [ ] Next: P3 OCR (tesseract.js, eng+hin+mar)
