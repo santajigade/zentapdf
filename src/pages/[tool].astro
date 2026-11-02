@@ -19,6 +19,9 @@ import PdfPages from '../components/tools/PdfPages';
 import PdfEdit from '../components/tools/PdfEdit';
 import PdfEditor from '../components/tools/PdfEditor';
 import FormatConvert from '../components/tools/FormatConvert';
+import PdfToText from '../components/tools/PdfToText';
+import CompressPdf from '../components/tools/CompressPdf';
+import PdfPassword from '../components/tools/PdfPassword';
 
 export function getStaticPaths() {
   return tools.filter((t) => t.live).map((t) => ({ params: { tool: t.slug }, props: { tool: t } }));
@@ -33,7 +36,7 @@ const schema = [
   howToSchema(tool.howToName!, tool.steps!),
   faqSchema(tool.faqs!),
 ];
-const isImage = tool.category === 'image' || tool.category === 'imgconv' || tool.slug === 'jpg-to-pdf';
+const isImage = tool.category === 'image' || tool.category === 'imgconv' || tool.slug === 'jpg-to-pdf' || tool.slug === 'images-to-pdf';
 const features = [
   { t: '100% private', d: 'Files are processed in your browser. Nothing is uploaded to any server.' },
   { t: 'Free, no sign-up', d: 'No account, no email, no watermark and no daily limits.' },
@@ -53,7 +56,11 @@ const features = [
     <div class="tool-box">
       {tool.slug === 'merge-pdf' && <MergePdf client:load />}
       {tool.slug === 'split-pdf' && <SplitPdf client:load />}
-      {tool.slug === 'jpg-to-pdf' && <JpgToPdf client:load />}
+      {(tool.slug === 'jpg-to-pdf' || tool.slug === 'images-to-pdf') && <JpgToPdf client:load />}
+      {tool.slug === 'pdf-to-text' && <PdfToText client:load />}
+      {tool.slug === 'compress-pdf' && <CompressPdf client:load />}
+      {tool.slug === 'protect-pdf' && <PdfPassword mode="protect" client:load />}
+      {tool.slug === 'unlock-pdf' && <PdfPassword mode="unlock" client:load />}
       {tool.slug === 'pdf-to-jpg' && <PdfToJpg client:load />}
       {tool.slug === 'compress-image' && <CompressImage client:load />}
       {tool.slug === 'resize-image' && <ResizeImage client:load />}

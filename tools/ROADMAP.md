@@ -19,7 +19,10 @@ Brand: ZentaPDF · colour Indigo #4F46E5 · domain TBD (placeholder zentapdf.com
 - [ ] Phase 2/Pro: true text editing via commercial SDK or server
 - [ ] Text watermark: embed a Unicode font (Noto) so Hindi etc. work
 
-## Batch 5 — Convert & security
+## Batch 5 — Convert & security (DONE 2026-11-02)
+- [x] Images to PDF (reuses JpgToPdf) · [x] PDF to Text · [x] Compress PDF (basic: re-encode images in worker + qpdf lossless pass) · [x] Protect PDF (qpdf-wasm AES-256) · [x] Unlock PDF — tests: tools/test/e2e-last5.mjs
+
+### old notes
 - [ ] Images to single PDF (may merge into JPG to PDF page — check keyword overlap) · [ ] PDF to text · [ ] Basic PDF compress
 - [ ] Protect PDF (needs an encryption lib — pdf-lib can't encrypt; evaluate @cantoo/pdf-lib or qpdf-wasm)
 - [ ] Unlock PDF (qpdf-wasm or pdf.js decrypt + re-save)

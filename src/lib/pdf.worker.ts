@@ -2,6 +2,7 @@
 import { PDFDocument, degrees, rgb, StandardFonts, LineCapStyle, pushGraphicsState, popGraphicsState, setCharacterSqueeze, setCharacterSpacing } from 'pdf-lib';
 
 type Msg =
+  | { op: 'compress'; file: ArrayBuffer; level: 'low' | 'recommended' | 'extreme' }
   | { op: 'annotate'; file: ArrayBuffer; items: any[] }
   | { op: 'edit'; file: ArrayBuffer; kind: string; o: any }
   | { op: 'merge'; files: ArrayBuffer[] }
@@ -10,6 +11,7 @@ type Msg =
   | { op: 'split'; file: ArrayBuffer; ranges: [number, number][] }
   | { op: 'images'; images: { bytes: ArrayBuffer; kind: 'jpg' | 'png'; w: number; h: number }[]; page: 'fit' | 'a4' | 'letter'; orientation: 'auto' | 'portrait' | 'landscape'; margin: number };
 
+import { compressImages } from './compressImages';
 const post = (m: any, t: Transferable[] = []) => (self as any).postMessage(m, t);
 const progress = (done: number, total: number, label = '') => post({ type: 'progress', done, total, label });
 
@@ -45,6 +47,14 @@ self.onmessage = async (ev: MessageEvent<Msg>) => {
       stamp(out);
       const bytes = await out.save();
       post({ type: 'result', files: [bytes] }, [bytes.buffer]);
+      return;
+    }
+    if (m.op === 'compress') {
+      const doc = await load(m.file);
+      const r = await compressImages(doc, m.level, (d, t) => progress(d, t, `Optimising image ${Math.min(d + 1, t)} of ${t}`));
+      progress(1, 1, 'Saving…');
+      const bytes = await doc.save({ useObjectStreams: true });
+      post({ type: 'result', files: [bytes], stats: r }, [bytes.buffer]);
       return;
     }
     if (m.op === 'annotate') {

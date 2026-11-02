@@ -11,6 +11,7 @@
   "dependencies": {
     "@astrojs/preact": "^6.1.1",
     "@astrojs/sitemap": "^3.7.4",
+    "@neslinesli93/qpdf-wasm": "^0.3.0",
     "astro": "^7.4.4",
     "fflate": "^0.8.3",
     "pdf-lib": "^1.17.1",

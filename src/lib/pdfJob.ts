@@ -1,8 +1,8 @@
 export type Progress = { done: number; total: number; label: string };
 
-export function runPdfJob<T = any>(msg: any, transfer: Transferable[], onProgress?: (p: Progress) => void): Promise<T> {
+export function runPdfJob<T = any>(msg: any, transfer: Transferable[], onProgress?: (p: Progress) => void, kind: 'pdf' | 'qpdf' = 'pdf'): Promise<T> {
   return new Promise((resolve, reject) => {
-    const w = new Worker(new URL('./pdf.worker.ts', import.meta.url), { type: 'module' });
+    const w = kind === 'qpdf' ? new Worker(new URL('./qpdf.worker.ts', import.meta.url), { type: 'module' }) : new Worker(new URL('./pdf.worker.ts', import.meta.url), { type: 'module' });
     w.onmessage = (e) => {
       const d = e.data;
       if (d.type === 'progress') onProgress?.(d);
