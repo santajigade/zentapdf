@@ -45,7 +45,7 @@ Brand: ZentaPDF · colour Indigo #4F46E5 · domain TBD (placeholder zentapdf.com
 - [x] QR code generator (+ UPI QR page), barcode generator, favicon generator, PNG to ICO, EXIF viewer, remove EXIF data, WhatsApp sticker maker — test tools/test/e2e-utility.mjs
 - [x] Homepage compacted: popular tools + category tiles + compact all-tools list (search filters it)
 - [x] Owner decision: removed the "files never leave your device" slogan (hero badge, drop-zone note, footer, CTAs, share images). Factual privacy FAQ, privacy policy and guides still explain in-browser processing.
-- [ ] Batch B – GIF tools: GIF maker, video to GIF, PDF to GIF, GIF resize/crop/compress/reverse/speed, GIF to MP4/JPG
+- [x] Batch B – GIF tools (LIVE 2026-11-02): category /gif-tools/ with gif-maker, video-to-gif, pdf-to-gif, resize-gif, crop-gif, compress-gif, reverse-gif (boomerang), gif-speed, gif-to-mp4 (WebCodecs H.264→VP9→AV1 fallback + mp4-muxer), split-gif (frames ZIP). Code: src/lib/gif.ts, gif.worker.ts (gifenc), GifEdit/GifMaker/VideoToGif/PdfToGif.tsx. Tests: tools/test/e2e-gif.mjs (19 checks). Limits: video 300 frames, PDF 60 pages, maker 100 images.
 - [ ] Batch C – video/audio (ffmpeg.wasm, on demand): MP4 to MP3, cut/crop/rotate/speed/join/compress video
 
 ## Phase 2 (agreed 2026-10-30)
