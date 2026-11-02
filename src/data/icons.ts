@@ -41,6 +41,7 @@ export const toolColor: Record<string, string> = {
   'jpg-to-pdf': C.amber, 'pdf-to-jpg': C.amber, 'images-to-pdf': C.orange, 'pdf-to-text': C.slate, 'compress-pdf': C.green,
   'png-to-jpg': C.amber, 'webp-to-jpg': C.amber, 'avif-to-jpg': C.amber, 'gif-to-jpg': C.amber, 'bmp-to-jpg': C.amber, 'svg-to-jpg': C.amber,
   'jpg-to-png': C.blue, 'webp-to-png': C.blue, 'avif-to-png': C.blue, 'gif-to-png': C.blue, 'bmp-to-png': C.blue, 'svg-to-png': C.blue,
+  'heic-to-jpg': C.amber, 'heic-to-png': C.blue,
   'jpg-to-webp': C.green, 'png-to-webp': C.green,
   'compress-image': C.green, 'reduce-image-size-in-kb': C.teal, 'compress-image-to-20kb': C.cyan, 'compress-image-to-50kb': C.cyan, 'compress-image-to-100kb': C.cyan, 'compress-image-to-200kb': C.cyan, 'resize-image': C.blue, 'crop-image': C.teal, 'convert-image': C.violet, 'rotate-image': C.indigo, 'image-to-base64': C.slate,
 };

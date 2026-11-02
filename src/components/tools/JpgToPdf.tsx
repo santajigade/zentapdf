@@ -2,6 +2,7 @@ import { useEffect, useState } from 'preact/hooks';
 import { DropZone, ProgressBar, ErrorBox, MoveButtons, moveItem, sizeWarning } from './shared';
 import { formatBytes, downloadBlob, friendlyError, uid, jpegOrientation, baseName } from '../../lib/utils';
 import { runPdfJob, type Progress } from '../../lib/pdfJob';
+import { loadBitmap, isHeicFile } from '../../lib/imageOps';
 
 type Item = { id: string; file: File; url: string };
 type Prepared = { bytes: ArrayBuffer; kind: 'jpg' | 'png'; w: number; h: number };
@@ -11,7 +12,7 @@ async function prepare(file: File): Promise<Prepared> {
   const isJpg = /jpe?g/i.test(file.type) || /\.jpe?g$/i.test(file.name);
   const isPng = /png/i.test(file.type) || /\.png$/i.test(file.name);
   // createImageBitmap applies EXIF rotation, so dimensions are as the user sees them.
-  const bmp = await createImageBitmap(new Blob([buf], { type: file.type }));
+  const bmp = isHeicFile(file) ? await loadBitmap(file) : await createImageBitmap(new Blob([buf], { type: file.type }));
   const w = bmp.width, h = bmp.height;
   if (isJpg && jpegOrientation(buf) === 1) { bmp.close(); return { bytes: buf, kind: 'jpg', w, h }; }
   if (isPng) { bmp.close(); return { bytes: buf, kind: 'png', w, h }; }
@@ -38,7 +39,7 @@ export default function JpgToPdf() {
   useEffect(() => () => items.forEach((i) => URL.revokeObjectURL(i.url)), []);
 
   const add = (files: File[]) => {
-    const imgs = files.filter((f) => f.type.startsWith('image/') || /\.(jpe?g|png|webp|gif|bmp|avif)$/i.test(f.name));
+    const imgs = files.filter((f) => f.type.startsWith('image/') || /\.(jpe?g|png|webp|gif|bmp|avif|heic|heif)$/i.test(f.name));
     setError(imgs.length < files.length ? 'Some files were skipped because they are not images.' : '');
     setResult(null);
     setItems((cur) => [...cur, ...imgs.map((file) => ({ id: uid(), file, url: URL.createObjectURL(file) }))]);
@@ -65,7 +66,7 @@ export default function JpgToPdf() {
 
   if (!items.length)
     return <>
-      <DropZone accept="image/*" multiple label="Choose images" hint="JPG, PNG or WebP — or drop them here" onFiles={add} />
+      <DropZone accept="image/*,.heic,.heif" multiple label="Choose images" hint="JPG, PNG or WebP — or drop them here" onFiles={add} />
       {error && <ErrorBox>{error}</ErrorBox>}
     </>;
 
@@ -122,7 +123,7 @@ export default function JpgToPdf() {
         </div>
       ) : (
         <div class="actions">
-          <DropZone compact accept="image/*" multiple label="Add more images" onFiles={add} />
+          <DropZone compact accept="image/*,.heic,.heif" multiple label="Add more images" onFiles={add} />
           <button type="button" class="btn btn-primary btn-lg" disabled={!!busy} onClick={convert}>Convert to PDF</button>
         </div>
       )}

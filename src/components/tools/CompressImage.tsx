@@ -2,6 +2,7 @@ import { useEffect, useState } from 'preact/hooks';
 import { DropZone, ProgressBar, ErrorBox } from './shared';
 import { formatBytes, downloadBlob, uid, baseName, zipFiles, friendlyError } from '../../lib/utils';
 import type { Progress } from '../../lib/pdfJob';
+import { loadBitmap, isHeicFile } from '../../lib/imageOps';
 
 type Item = { id: string; file: File; url: string; out?: Blob; outName?: string; w?: number; h?: number; err?: string; kept?: boolean };
 type Fmt = 'same' | 'jpg' | 'webp';
@@ -16,7 +17,7 @@ function targetType(file: File, fmt: Fmt): string {
 
 // Main-thread fallback for browsers without OffscreenCanvas in workers.
 async function compressMain(blob: Blob, type: string, quality: number, maxWidth: number) {
-  const bmp = await createImageBitmap(blob);
+  const bmp = await loadBitmap(blob);
   let w = bmp.width, h = bmp.height; const ow = w;
   if (maxWidth && w > maxWidth) { h = Math.round((h * maxWidth) / w); w = maxWidth; }
   const c = document.createElement('canvas');
@@ -37,7 +38,7 @@ function makeRunner() {
   const pending = new Map<string, (v: any) => void>();
   w.onmessage = (e) => { pending.get(e.data.id)?.(e.data); pending.delete(e.data.id); };
   return {
-    run: (blob: Blob, type: string, quality: number, maxWidth: number) =>
+    run: (blob: Blob, type: string, quality: number, maxWidth: number) => isHeicFile(blob as any) ? compressMain(blob, type, quality, maxWidth) :
       new Promise<{ blob: Blob; w: number; h: number; ow: number }>((res, rej) => {
         const id = uid();
         pending.set(id, (d) => (d.error ? compressMain(blob, type, quality, maxWidth).then(res, rej) : res(d)));
@@ -59,7 +60,7 @@ export default function CompressImage() {
   useEffect(() => () => items.forEach((i) => URL.revokeObjectURL(i.url)), []);
 
   const add = (files: File[]) => {
-    const imgs = files.filter((f) => f.type.startsWith('image/') || /\.(jpe?g|png|webp|gif|bmp|avif)$/i.test(f.name));
+    const imgs = files.filter((f) => f.type.startsWith('image/') || /\.(jpe?g|png|webp|gif|bmp|avif|heic|heif)$/i.test(f.name));
     setError(imgs.length < files.length ? 'Some files were skipped because they are not images.' : '');
     setDone(false);
     setItems((cur) => [...cur.map((i) => ({ ...i, out: undefined, err: undefined })), ...imgs.map((file) => ({ id: uid(), file, url: URL.createObjectURL(file) }))]);
@@ -102,7 +103,7 @@ export default function CompressImage() {
 
   if (!items.length)
     return <>
-      <DropZone accept="image/*" multiple label="Choose images" hint="JPG, PNG or WebP — or drop them here" onFiles={add} />
+      <DropZone accept="image/*,.heic,.heif" multiple label="Choose images" hint="JPG, PNG or WebP — or drop them here" onFiles={add} />
       {error && <ErrorBox>{error}</ErrorBox>}
     </>;
 
@@ -158,7 +159,7 @@ export default function CompressImage() {
         </div>
       ) : (
         <div class="actions">
-          <DropZone compact accept="image/*" multiple label="Add more images" onFiles={add} />
+          <DropZone compact accept="image/*,.heic,.heif" multiple label="Add more images" onFiles={add} />
           <button type="button" class="btn btn-primary btn-lg" disabled={!!busy} onClick={compress}>Compress {items.length > 1 ? `${items.length} images` : 'image'}</button>
         </div>
       )}

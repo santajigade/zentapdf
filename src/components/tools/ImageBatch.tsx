@@ -2,7 +2,7 @@ import { useEffect, useState } from 'preact/hooks';
 import type { ComponentChildren } from 'preact';
 import { DropZone, ProgressBar, ErrorBox } from './shared';
 import { formatBytes, downloadBlob, uid, zipFiles, friendlyError } from '../../lib/utils';
-import { isImage } from '../../lib/imageOps';
+import { isImage, IMAGE_ACCEPT } from '../../lib/imageOps';
 import type { Progress } from '../../lib/pdfJob';
 
 export type Item = { id: string; file: File; url: string; out?: Blob; outName?: string; info?: string; err?: string };
@@ -22,7 +22,7 @@ interface Props {
   hint?: string;
 }
 
-export default function ImageBatch({ actionLabel, zipName, options, preview, process, optionsKey, max, accept = 'image/*', hint }: Props) {
+export default function ImageBatch({ actionLabel, zipName, options, preview, process, optionsKey, max, accept = IMAGE_ACCEPT, hint }: Props) {
   const [items, setItems] = useState<Item[]>([]);
   const [busy, setBusy] = useState<Progress | null>(null);
   const [error, setError] = useState('');

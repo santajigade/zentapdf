@@ -68,7 +68,7 @@ Some forms say *"between 20 KB and 50 KB"*. If your result is **below the minimu
 
 ## iPhone photos (HEIC)
 
-iPhones often save photos as **HEIC**. Change *Settings → Camera → Formats → Most Compatible* to save JPGs, or share the photo by email/WhatsApp, which usually converts it to JPG.
+iPhones often save photos as **HEIC**. Our KB tools accept HEIC directly and save JPG. You can also convert with [HEIC to JPG](/heic-to-jpg/), or change *Settings → Camera → Formats → Most Compatible* so new photos are saved as JPG. See also: [passport size photo for online forms](/guides/passport-size-photo-for-online-forms/).
 
 ## Compressing a signature (step by step)
 

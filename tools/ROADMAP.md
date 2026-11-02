@@ -35,8 +35,11 @@ Brand: ZentaPDF · colour Indigo #4F46E5 · domain TBD (placeholder zentapdf.com
 - [x] /guides/ section with 10 guides (BlogPosting/FAQ/Breadcrumb schema, OG images, screenshots, TOC, CTA to tool, related guides on tool pages)
 - [x] Reduce Image Size in KB + Compress Image to 20/50/100/200KB pages (TargetSize.tsx; test tools/test/e2e-kb.mjs)
 - [x] Organization schema with logo + sameAs (social profiles); sitemap lastmod/priority; tools/seo-audit.py (0 issues)
-- [ ] Next guide ideas: compress PDF to 100KB/200KB, PDF to JPG on phone, how to fill a PDF form, split PDF by pages, HEIC to JPG, passport photo size India, signature size for exam forms, how to unlock a PDF, PDF vs Word for resumes, how to scan documents to PDF with phone
-- [ ] Per-tool OG images; Hindi versions of top pages
+- [x] 2026-11-02 batch 2: compress PDF to 100KB · passport size photo · scan to PDF with phone · HEIC to JPG · unlock PDF (15 guides total)
+- [x] HEIC support everywhere (heic-to / libheif wasm, loaded on demand) + HEIC to JPG / HEIC to PNG pages (test e2e-heic.mjs)
+- [x] Share images for every tool (tools/og/make-tool-images.mjs → public/og/tools/)
+- [ ] Next guide ideas: PDF to JPG on phone, fill a PDF form, split PDF by pages, signature size for exam forms, PDF vs Word for resumes, compress image without losing quality, add page numbers for project reports, watermark documents
+- [ ] Hindi versions of top pages
 
 ## Phase 2 (agreed 2026-10-30)
 - [ ] Optional sign-in (Google + email/password via Firebase or Supabase) — only with server tools / Pro plan; tools must keep working without login

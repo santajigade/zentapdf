@@ -52,4 +52,9 @@ await shot('how-to-reduce-image-size-in-kb', '/reduce-image-size-in-kb/', (q) =>
 await shot('how-to-remove-pages-from-pdf', '/remove-pages/', async (q) => { await files(q, ['b.pdf']); await q.waitForFunction(() => document.querySelectorAll('.pages-grid img').length >= 5); await q.locator('.pages-grid figure').nth(1).click(); await q.locator('.pages-grid figure').nth(3).click(); });
 await shot('jpg-vs-png-vs-webp', '/image-converter/', null, '.cat-band');
 await shot('are-online-pdf-tools-safe', '/merge-pdf/', null);
+await shot('compress-pdf-to-100kb', '/compress-pdf/', async (q) => { await files(q, ['photos.pdf']); await q.getByRole('radio', { name: /Strong/ }).click(); });
+await shot('passport-size-photo-for-online-forms', '/reduce-image-size-in-kb/', async (q) => { await files(q, ['photo2.jpg']); await q.fill('.opts input[type=number] >> nth=1', '413'); await q.fill('.opts input[type=number] >> nth=2', '531'); });
+await shot('scan-documents-to-pdf-with-phone', '/images-to-pdf/', (q) => files(q, ['photo2.jpg', 'rotated_exif6.jpg', 'pic.png']));
+await shot('how-to-convert-heic-to-jpg', '/heic-to-jpg/', (q) => files(q, ['iphone.heic', 'iphone2.heic']));
+await shot('how-to-unlock-pdf', '/unlock-pdf/', async (q) => { await files(q, ['prot.pdf']); await q.waitForSelector('input[type=password]', { timeout: 30000 }); await q.fill('input[type=password]', 'secret1'); });
 await b.close(); console.log('done', guides.length);

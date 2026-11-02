@@ -48,7 +48,7 @@ const features = [
   { t: 'Large files', d: 'Handle big files and many pages — limited only by your device’s memory.' },
 ];
 ---
-<Base title={tool.title!} description={tool.metaDescription!} schema={schema}>
+<Base title={tool.title!} description={tool.metaDescription!} schema={schema} ogImage={`/og/tools/${tool.slug}.png`}>
   <Breadcrumbs items={crumbs} />
   <section class="container narrow">
     <div class="tool-head">

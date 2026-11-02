@@ -79,7 +79,7 @@ export default function CropImage() {
   };
 
   if (!file) return <>
-    <DropZone accept="image/*" label="Choose image" hint="JPG, PNG, WebP — or drop it here" onFiles={pick} />
+    <DropZone accept="image/*,.heic,.heif" label="Choose image" hint="JPG, PNG, WebP — or drop it here" onFiles={pick} />
     {error && <ErrorBox>{error}</ErrorBox>}
   </>;
 

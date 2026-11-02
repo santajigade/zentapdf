@@ -3,7 +3,7 @@ import ImageBatch from './ImageBatch';
 import { loadBitmap, canvasFor, encode, prepBackground, outName, canEncode } from '../../lib/imageOps';
 
 const MIME: Record<string, string> = { jpg: 'image/jpeg', png: 'image/png', webp: 'image/webp', avif: 'image/avif' };
-const NAME: Record<string, string> = { jpg: 'JPG', png: 'PNG', webp: 'WebP', avif: 'AVIF', gif: 'GIF', bmp: 'BMP', svg: 'SVG' };
+const NAME: Record<string, string> = { jpg: 'JPG', png: 'PNG', webp: 'WebP', avif: 'AVIF', gif: 'GIF', bmp: 'BMP', svg: 'SVG', heic: 'HEIC' };
 const MAX = 5;
 
 export default function FormatConvert({ from, to, accept }: { from: string; to: string; accept: string }) {
@@ -24,7 +24,7 @@ export default function FormatConvert({ from, to, accept }: { from: string; to: 
 
   return (
     <ImageBatch actionLabel="Convert" zipName={`${from}-to-${to}.zip`} process={process} optionsKey={String(quality)} max={MAX}
-      accept={accept + ',image/*'} hint={`${NAME[from]} images — up to ${MAX} at a time — or drop them here`}
+      accept={accept + ',image/*,.heic,.heif'} hint={`${NAME[from]} images — up to ${MAX} at a time — or drop them here`}
       options={<>
         {to !== 'png' && <label>Quality: {quality}%<input type="range" min={40} max={100} step={5} value={quality} onInput={(e) => setQuality(+(e.target as HTMLInputElement).value)} /></label>}
         <span class="status">Up to {MAX} images per conversion.</span>

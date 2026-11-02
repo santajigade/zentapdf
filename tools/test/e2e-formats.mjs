@@ -15,6 +15,6 @@ try {
     await p.getByRole('button', { name: /Convert image/ }).click(); await p.waitForSelector('.done, .files .meta span');
     ok(u, !!(await p.locator('.done').count()), (await p.locator('.files .meta').allTextContents()).join());
   }
-  p = await (await b.newContext()).newPage(); await p.goto('http://localhost:4321/image-converter/'); ok('category page', (await p.locator('.card').count()) === 14);
+  p = await (await b.newContext()).newPage(); await p.goto('http://localhost:4321/image-converter/'); ok('category page', (await p.locator('.card').count()) === 16);
 } catch (e) { ok('EXC', false, e.stack); }
 console.log(res.join('\n')); await b.close();
