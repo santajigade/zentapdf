@@ -1,17 +1,26 @@
 // Read the text structure of PDF pages (lines → words with position, size and font) for PDF→Word / PDF→Excel.
-export type Word = { text: string; x0: number; x1: number; y: number; size: number; bold: boolean; italic: boolean; font: string };
+export type Word = { text: string; x0: number; x1: number; y: number; size: number; bold: boolean; italic: boolean; font: string; family: string };
 export type Line = { y: number; x0: number; x1: number; size: number; words: Word[] };
 export type PageText = { w: number; h: number; lines: Line[] };
 
 function fontInfo(page: any, styles: any, fontName: string) {
-  let name = '';
-  try { if (page.commonObjs.has(fontName)) name = page.commonObjs.get(fontName)?.name ?? ''; } catch { /* not loaded */ }
+  let name = ''; let fobj: any = null;
+  try { if (page.commonObjs.has(fontName)) { fobj = page.commonObjs.get(fontName); name = fobj?.name ?? ''; } } catch { /* not loaded */ }
   const fam = styles?.[fontName]?.fontFamily ?? '';
+  const serifHint = fam === 'serif';
   const n = (name || fam).replace(/^[A-Z]{6}\+/, '');
+  // real family name, e.g. "ABCDEF+Calibri-Bold" → "Calibri", "TimesNewRomanPSMT" → "Times New Roman"
+  let family = n.split(/[-,]/)[0].replace(/(PSMT|PS|MT|Std|Pro|LT)$/g, '').replace(/(Bold|Italic|Oblique|Regular|Light|Medium|Semibold)+$/i, '');
+  family = family.replace(/([a-z])([A-Z])/g, '$1 $2').trim();
+  if (!family || /^(g_|f\d|F\d|T\d|TT\d|C\d)/.test(family) || family.length < 3 || /^(sans-serif|serif|monospace)$/.test(family)) family = '';
+  // open fonts that are metric-compatible with common Microsoft fonts
+  const SUB: Record<string, string> = { 'Carlito': 'Calibri', 'Caladea': 'Cambria', 'Liberation Sans': 'Arial', 'Liberation Serif': 'Times New Roman', 'Liberation Mono': 'Courier New', 'Arimo': 'Arial', 'Tinos': 'Times New Roman', 'Cousine': 'Courier New', 'Helvetica': 'Arial', 'Times': 'Times New Roman', 'Times Roman': 'Times New Roman', 'Courier': 'Courier New', 'Open Symbol': 'Arial', 'Symbol': 'Arial', 'Wingdings': 'Arial', 'Free Serif': 'Times New Roman', 'Free Sans': 'Arial', 'Deja Vu Sans': 'Arial', 'Deja Vu Serif': 'Times New Roman' };
+  family = SUB[family] ?? family;
   return {
-    bold: /bold|black|heavy|semibold|demi/i.test(n) || /,\s*Bold/i.test(n),
-    italic: /italic|oblique/i.test(n),
-    font: /times|serif(?!.*sans)|georgia|cambria|garamond|book/i.test(n) && !/sans/i.test(n) ? 'Times New Roman' : /courier|mono|consol/i.test(n) ? 'Courier New' : /calibri/i.test(n) ? 'Calibri' : /verdana/i.test(n) ? 'Verdana' : /tahoma/i.test(n) ? 'Tahoma' : 'Arial',
+    family,
+    bold: /bold|black|heavy|semibold|demi|^CMBX|^CMB\d|^LMRomanDemi|-BX|Bd\b/i.test(n) || /,\s*Bold/i.test(n) || !!fobj?.bold || !!fobj?.black,
+    italic: /italic|oblique|^CMTI|^CMSL|^CMMI|-It\b/i.test(n) || !!fobj?.italic,
+    font: (/times|serif(?!.*sans)|georgia|cambria|garamond|book|roman|minion|palatino|baskerville|caslon|charter|^CM[RBTS]|^LM/i.test(n) || serifHint) && !/sans/i.test(n) ? 'Times New Roman' : /courier|mono|consol/i.test(n) ? 'Courier New' : /calibri/i.test(n) ? 'Calibri' : /verdana/i.test(n) ? 'Verdana' : /tahoma/i.test(n) ? 'Tahoma' : 'Arial',
   };
 }
 
@@ -22,12 +31,14 @@ export async function readPage(page: any): Promise<PageText> {
   const words: Word[] = [];
   for (const it of tc.items as any[]) {
     if (!it.str || !it.str.trim() && !it.str.length) continue;
-    const [a, b, c, d, e, f] = it.transform;
-    if (Math.abs(b) > Math.abs(a) * 0.2) continue; // skip rotated text
-    const [vx, vy] = vp.convertToViewportPoint(e, f);
+    // text matrix in page (viewport) space, so rotated pages work too
+    const m = vp.transform, t = it.transform;
+    const a = m[0] * t[0] + m[2] * t[1], b = m[1] * t[0] + m[3] * t[1], c = m[0] * t[2] + m[2] * t[3], d = m[1] * t[2] + m[3] * t[3];
+    const vx = m[0] * t[4] + m[2] * t[5] + m[4], vy = m[1] * t[4] + m[3] * t[5] + m[5];
+    if (Math.abs(b) > Math.abs(a) * 0.2 || a <= 0) continue; // skip rotated / upside-down text
     const size = Math.hypot(c, d) || it.height || 10;
     const fi = fontInfo(page, tc.styles, it.fontName);
-    words.push({ text: it.str, x0: vx, x1: vx + it.width * (vp.scale || 1), y: vy, size, ...fi });
+    words.push({ text: it.str, x0: vx, x1: vx + it.width * Math.hypot(a, b) / Math.max(1e-6, Math.hypot(t[0], t[1])), y: vy, size, ...fi });
   }
   // group into lines by baseline
   words.sort((p, q) => p.y - q.y || p.x0 - q.x0);

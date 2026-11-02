@@ -23,13 +23,15 @@ try {
   if (run('pdf-to-word')) {
     let p = await page('/pdf-to-word/'); await p.setInputFiles('input[type=file]', T + 'report.pdf');
     await p.getByRole('button', { name: 'Convert to Word' }).click();
-    let path = await dl(p, 'Download Word', 'p2w.docx'); let x = strFromU8(unzipSync(fs.readFileSync(path))['word/document.xml']);
-    const txt = x.replace(/<[^>]+>/g, ' ');
-    ok('pdf-to-word text', /Quarterly Report/.test(txt) && /25 percent/.test(txt) && /Flow meter/.test(txt), ''); ok('pdf-to-word heading', /Heading1|Heading2/.test(x)); ok('pdf-to-word bold', /<w:b\/>|<w:b /.test(x));
+    let path = await dl(p, 'Download Word', 'p2w-layout.docx'); let z = unzipSync(fs.readFileSync(path)); let x = strFromU8(z['word/document.xml']);
+    ok('p2w layout: editable text in frames', /framePr/.test(x) && /Quarterly Report/.test(x) && /25 percent/.test(x) && /Flow meter/.test(x));
+    ok('p2w layout: background picture', Object.keys(z).some((k) => k.startsWith('word/media/')) && /behindDoc="1"/.test(x));
+    ok('p2w layout: fonts + bold', /Cambria|Calibri/.test(x) && /<w:b\/>|<w:b w:val="true"\/>/.test(x));
     ok('p2w no errors', !p.errors.length, p.errors.join('|'));
-    await p.getByRole('button', { name: 'Change settings' }).click(); await p.getByRole('radio', { name: /Exact look/ }).click();
+    await p.getByRole('button', { name: 'Change settings' }).click(); await p.getByRole('radio', { name: /Flowing text/ }).click();
     await p.getByRole('button', { name: 'Convert to Word' }).click();
-    path = await dl(p, 'Download Word', 'p2w-exact.docx'); const z = unzipSync(fs.readFileSync(path)); ok('pdf-to-word exact has image', Object.keys(z).some((k) => k.startsWith('word/media/')));
+    path = await dl(p, 'Download Word', 'p2w.docx'); x = strFromU8(unzipSync(fs.readFileSync(path))['word/document.xml']);
+    ok('p2w flowing text + heading', /Quarterly Report/.test(x) && /Heading1|Heading2/.test(x));
   }
   if (run('pdf-to-excel')) {
     const p = await page('/pdf-to-excel/'); await p.setInputFiles('input[type=file]', T + 'table.pdf');
