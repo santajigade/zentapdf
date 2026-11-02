@@ -31,6 +31,13 @@ Brand: ZentaPDF · colour Indigo #4F46E5 · domain TBD (placeholder zentapdf.com
 - [x] 14 pages: png/jpg/webp/avif/gif/bmp/svg → jpg/png/webp — max 5 images per conversion (owner decision); FormatConvert.tsx; tests: tools/test/e2e-formats.mjs
 - [ ] More pairs later: heic-to-jpg (needs decoder), jpg-to-avif, png-to-avif, webp-to-gif
 
+## Guides & SEO (2026-11-02)
+- [x] /guides/ section with 10 guides (BlogPosting/FAQ/Breadcrumb schema, OG images, screenshots, TOC, CTA to tool, related guides on tool pages)
+- [x] Reduce Image Size in KB + Compress Image to 20/50/100/200KB pages (TargetSize.tsx; test tools/test/e2e-kb.mjs)
+- [x] Organization schema with logo + sameAs (social profiles); sitemap lastmod/priority; tools/seo-audit.py (0 issues)
+- [ ] Next guide ideas: compress PDF to 100KB/200KB, PDF to JPG on phone, how to fill a PDF form, split PDF by pages, HEIC to JPG, passport photo size India, signature size for exam forms, how to unlock a PDF, PDF vs Word for resumes, how to scan documents to PDF with phone
+- [ ] Per-tool OG images; Hindi versions of top pages
+
 ## Phase 2 (agreed 2026-10-30)
 - [ ] Optional sign-in (Google + email/password via Firebase or Supabase) — only with server tools / Pro plan; tools must keep working without login
 

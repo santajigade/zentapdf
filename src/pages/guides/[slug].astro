@@ -1,0 +1,57 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ToolCard from '../../components/ToolCard.astro';
+import { guides, type Guide } from '../../lib/guides';
+import { toolBySlug, type Tool } from '../../data/tools';
+import { breadcrumbSchema, faqSchema, abs } from '../../lib/schema';
+import { SITE_NAME } from '../../config.js';
+
+export function getStaticPaths() { return guides.map((g) => ({ params: { slug: g.slug }, props: { g } })); }
+const { g } = Astro.props as { g: Guide };
+const tool = toolBySlug(g.tool)!;
+const related = [g.tool, ...(g.tools ?? [])].map(toolBySlug).filter(Boolean) as Tool[];
+const more = guides.filter((x) => x.slug !== g.slug).slice(0, 3);
+const crumbs = [{ name: 'Home', href: '/' }, { name: 'Guides', href: '/guides/' }, { name: g.h1, href: `/guides/${g.slug}/` }];
+const img = `/og/guides/${g.slug}.png`;
+const fmt = (d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+const article = {
+  '@context': 'https://schema.org', '@type': 'BlogPosting', headline: g.h1, description: g.description, image: abs(img),
+  datePublished: g.date, dateModified: g.updated ?? g.date, mainEntityOfPage: abs(`/guides/${g.slug}/`), wordCount: g.words,
+  author: { '@type': 'Organization', name: `${SITE_NAME} Team`, url: abs('/about/') },
+  publisher: { '@type': 'Organization', name: SITE_NAME, logo: { '@type': 'ImageObject', url: abs('/favicon-512.png') } },
+};
+const schema = [breadcrumbSchema(crumbs), article, ...(g.faqs?.length ? [faqSchema(g.faqs)] : [])];
+const toc = g.headings.filter((h) => h.depth === 2);
+---
+<Base title={g.title} description={g.description} schema={schema} ogImage={img} ogType="article">
+  <Breadcrumbs items={crumbs} />
+  <article class="container guide">
+    <header class="guide-head">
+      <h1>{g.h1}</h1>
+      <p class="guide-meta">By {SITE_NAME} Team · Updated <time datetime={g.updated ?? g.date}>{fmt(g.updated ?? g.date)}</time> · {g.minutes} min read</p>
+      <img class="guide-hero" src={img} alt={g.h1} width="1200" height="630" />
+    </header>
+    <aside class="guide-cta">
+      <div><strong>Try it now: {tool.name}</strong><span>{tool.short} Free, private — your files never leave your device.</span></div>
+      <a class="btn btn-primary" href={`/${tool.slug}/`}>Open {tool.name} →</a>
+    </aside>
+    {toc.length > 2 && (
+      <nav class="guide-toc" aria-label="Contents"><strong>In this guide</strong><ol>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol></nav>
+    )}
+    <div class="prose guide-body"><g.Content /></div>
+    {g.faqs?.length && (
+      <section><h2 id="faq">Frequently asked questions</h2>{g.faqs.map((f) => <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>)}</section>
+    )}
+    <aside class="guide-cta">
+      <div><strong>Ready? Use {tool.name} free</strong><span>No sign-up, no watermark, no upload.</span></div>
+      <a class="btn btn-primary" href={`/${tool.slug}/`}>Open {tool.name} →</a>
+    </aside>
+    <h2>Tools used in this guide</h2>
+    <div class="grid">{related.map((t) => <ToolCard tool={t} />)}</div>
+    <h2>More guides</h2>
+    <div class="guide-grid">{more.map((x) => (
+      <a class="guide-card" href={`/guides/${x.slug}/`}><img src={`/og/guides/${x.slug}.png`} alt="" width="1200" height="630" loading="lazy" /><div><strong>{x.h1}</strong><small>{x.minutes} min read</small></div></a>
+    ))}</div>
+  </article>
+</Base>

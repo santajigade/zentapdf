@@ -28,6 +28,7 @@ export interface Tool {
   accept?: string;
   from?: string;
   to?: string;
+  kb?: number;
 }
 
 export const categories: Category[] = [
@@ -212,7 +213,7 @@ export const tools: Tool[] = [
     slug: 'edit-pdf', name: 'Edit PDF', category: 'edit', icon: 'editdoc', live: true,
     short: 'Change existing text, add text, signatures, images, shapes and highlights.',
     title: 'Edit PDF – Free Online PDF Editor (No Upload, No Sign-up)',
-    metaDescription: 'Edit PDF files online for free. Add text, signatures, images, shapes and highlights, white-out content and draw on pages. Private – your PDF never leaves your device.',
+    metaDescription: 'Edit PDF files online for free. Change existing text, add text, signatures, images and highlights, or white-out content. Private – your PDF is never uploaded.',
     intro: 'ZentaPDF Edit PDF is a free online PDF editor. Type text anywhere, sign, add images and shapes, highlight, draw, and white-out anything you want to hide — then save a new PDF. Everything happens in your browser, so your document stays private.',
     howToName: 'How to edit a PDF',
     steps: [
@@ -281,7 +282,7 @@ export const tools: Tool[] = [
     slug: 'add-watermark', name: 'Add Watermark', category: 'edit', icon: 'stamp', live: true,
     short: 'Stamp text or an image over your PDF pages.',
     title: 'Add Watermark to PDF – Text or Logo Watermark Free Online',
-    metaDescription: 'Add a text or logo watermark to PDF files for free. Set the text, colour, size, angle and transparency with a live preview. Private – your PDF never leaves your device.',
+    metaDescription: 'Add a text or logo watermark to PDF files for free. Set text, colour, size, angle and transparency with a live preview. Private – no upload needed.',
     intro: 'Add Watermark stamps text such as CONFIDENTIAL or DRAFT, or your own logo, across every page of a PDF. Adjust colour, angle, size and transparency with a live preview — without uploading your document.',
     howToName: 'How to add a watermark to a PDF',
     steps: [
@@ -557,6 +558,122 @@ export const tools: Tool[] = [
       common.freeFaq,
     ],
     related: ['jpg-to-pdf', 'pdf-to-jpg', 'merge-pdf', 'split-pdf'],
+    accept: 'image/*',
+  },
+  {
+    slug: 'reduce-image-size-in-kb', name: 'Reduce Image Size in KB', category: 'image', icon: 'compress', live: true,
+    short: 'Compress a photo to an exact size in KB – 20 KB, 50 KB, 100 KB or any size.',
+    title: 'Reduce Image Size in KB – Compress Photo to 20KB, 50KB, 100KB',
+    metaDescription: 'Reduce image size in KB for free. Compress photos and signatures to 20 KB, 50 KB, 100 KB or any size for online forms. No upload – works in your browser.',
+    intro: 'Reduce Image Size in KB compresses your photo or signature to the exact file size an online form asks for — 20 KB, 50 KB, 100 KB or any number you type. It keeps the best possible quality and can also set an exact size in pixels.',
+    howToName: 'How to reduce image size in KB',
+    steps: [
+      'Click "Choose images" or drag and drop your photo or signature into the box.',
+      'Type the target size in KB, or pick 20, 50, 100, 200 or 500 KB.',
+      'If the form asks for exact pixels, type the width and height.',
+      'Click "Compress" and download your image.',
+    ],
+    faqs: [
+      common.privacyFaq,
+      { q: 'Will the photo still look good?', a: 'Yes, in most cases. The tool keeps the highest quality that fits your target and only makes the picture smaller in pixels if it really has to.' },
+      { q: 'What if the form asks for an exact size in pixels?', a: 'Type the width and height (for example 200 × 230 px for a passport-style photo). The photo is cropped from the centre to that exact size and then compressed to the target KB. Always check the size rules in the official notification of the form you are filling.' },
+      { q: 'Why is the output a JPG?', a: 'JPG gives the smallest files for photos and signatures and is accepted by almost every online application form. If your form needs PNG, use our PNG converter afterwards.' },
+      { q: 'Can I compress many photos at once?', a: 'Yes. Add several images and each one is compressed to the same target size. Download them one by one or as a ZIP.' },
+      common.freeFaq,
+    ],
+    related: ['compress-image-to-20kb', 'compress-image-to-50kb', 'compress-image-to-100kb', 'resize-image'],
+    accept: 'image/*',
+  },
+  {
+    slug: 'compress-image-to-20kb', name: 'Compress Image to 20KB', category: 'image', icon: 'compress', live: true, kb: 20,
+    short: 'Make any photo 20 KB or smaller in one click.',
+    title: 'Compress Image to 20KB – Reduce Photo Size to 20 KB Free',
+    metaDescription: 'Compress image to 20KB online for free. Reduce JPG, PNG or WebP photos to 20 KB or less for online forms in seconds. No upload, no sign-up.',
+    intro: 'Compress Image to 20KB reduces your photo to 20 KB or less while keeping it as clear as possible. It is ideal for signatures and small ID photos. Everything runs in your browser, so your personal photos are never uploaded.',
+    howToName: 'How to compress an image to 20KB',
+    steps: [
+      'Click "Choose images" or drag and drop your photo into the box.',
+      'The target is already set to 20 KB. Add a width and height if your form asks for exact pixels.',
+      'Click "Compress".',
+      'Download your 20 KB image and upload it to your form.',
+    ],
+    faqs: [
+      common.privacyFaq,
+      { q: 'Will the photo still look good?', a: 'Yes, in most cases. The tool keeps the highest quality that fits in 20 KB and only makes the picture smaller in pixels if it really has to.' },
+      { q: 'What if the form asks for an exact size in pixels?', a: 'Type the width and height (for example 200 × 230 px for a passport-style photo). The photo is cropped from the centre to that exact size and then compressed to the target KB. Always check the size rules in the official notification of the form you are filling.' },
+      { q: 'Why is the output a JPG?', a: 'JPG gives the smallest files for photos and signatures and is accepted by almost every online application form. If your form needs PNG, use our PNG converter afterwards.' },
+      common.freeFaq,
+    ],
+    related: ['reduce-image-size-in-kb', 'compress-image-to-50kb', 'compress-image-to-100kb', 'compress-image'],
+    accept: 'image/*',
+  },
+  {
+    slug: 'compress-image-to-50kb', name: 'Compress Image to 50KB', category: 'image', icon: 'compress', live: true, kb: 50,
+    short: 'Make any photo 50 KB or smaller in one click.',
+    title: 'Compress Image to 50KB – Reduce Photo Size to 50 KB Free',
+    metaDescription: 'Compress image to 50KB online for free. Reduce JPG, PNG or WebP photos to 50 KB or less for online forms in seconds. No upload, no sign-up.',
+    intro: 'Compress Image to 50KB reduces your photo to 50 KB or less while keeping it as clear as possible. It is ideal for passport-size photos and signatures in exam and job forms. Everything runs in your browser, so your personal photos are never uploaded.',
+    howToName: 'How to compress an image to 50KB',
+    steps: [
+      'Click "Choose images" or drag and drop your photo into the box.',
+      'The target is already set to 50 KB. Add a width and height if your form asks for exact pixels.',
+      'Click "Compress".',
+      'Download your 50 KB image and upload it to your form.',
+    ],
+    faqs: [
+      common.privacyFaq,
+      { q: 'Will the photo still look good?', a: 'Yes, in most cases. The tool keeps the highest quality that fits in 50 KB and only makes the picture smaller in pixels if it really has to.' },
+      { q: 'What if the form asks for an exact size in pixels?', a: 'Type the width and height (for example 200 × 230 px for a passport-style photo). The photo is cropped from the centre to that exact size and then compressed to the target KB. Always check the size rules in the official notification of the form you are filling.' },
+      { q: 'Why is the output a JPG?', a: 'JPG gives the smallest files for photos and signatures and is accepted by almost every online application form. If your form needs PNG, use our PNG converter afterwards.' },
+      common.freeFaq,
+    ],
+    related: ['reduce-image-size-in-kb', 'compress-image-to-20kb', 'compress-image-to-100kb', 'compress-image'],
+    accept: 'image/*',
+  },
+  {
+    slug: 'compress-image-to-100kb', name: 'Compress Image to 100KB', category: 'image', icon: 'compress', live: true, kb: 100,
+    short: 'Make any photo 100 KB or smaller in one click.',
+    title: 'Compress Image to 100KB – Reduce Photo Size to 100 KB Free',
+    metaDescription: 'Compress image to 100KB online for free. Reduce JPG, PNG or WebP photos to 100 KB or less for online forms in seconds. No upload, no sign-up.',
+    intro: 'Compress Image to 100KB reduces your photo to 100 KB or less while keeping it as clear as possible. It is ideal for photos for government, bank and college applications. Everything runs in your browser, so your personal photos are never uploaded.',
+    howToName: 'How to compress an image to 100KB',
+    steps: [
+      'Click "Choose images" or drag and drop your photo into the box.',
+      'The target is already set to 100 KB. Add a width and height if your form asks for exact pixels.',
+      'Click "Compress".',
+      'Download your 100 KB image and upload it to your form.',
+    ],
+    faqs: [
+      common.privacyFaq,
+      { q: 'Will the photo still look good?', a: 'Yes, in most cases. The tool keeps the highest quality that fits in 100 KB and only makes the picture smaller in pixels if it really has to.' },
+      { q: 'What if the form asks for an exact size in pixels?', a: 'Type the width and height (for example 200 × 230 px for a passport-style photo). The photo is cropped from the centre to that exact size and then compressed to the target KB. Always check the size rules in the official notification of the form you are filling.' },
+      { q: 'Why is the output a JPG?', a: 'JPG gives the smallest files for photos and signatures and is accepted by almost every online application form. If your form needs PNG, use our PNG converter afterwards.' },
+      common.freeFaq,
+    ],
+    related: ['reduce-image-size-in-kb', 'compress-image-to-20kb', 'compress-image-to-50kb', 'compress-image'],
+    accept: 'image/*',
+  },
+  {
+    slug: 'compress-image-to-200kb', name: 'Compress Image to 200KB', category: 'image', icon: 'compress', live: true, kb: 200,
+    short: 'Make any photo 200 KB or smaller in one click.',
+    title: 'Compress Image to 200KB – Reduce Photo Size to 200 KB Free',
+    metaDescription: 'Compress image to 200KB online for free. Reduce JPG, PNG or WebP photos to 200 KB or less for online forms in seconds. No upload, no sign-up.',
+    intro: 'Compress Image to 200KB reduces your photo to 200 KB or less while keeping it as clear as possible. It is ideal for documents, certificates and larger photos in online applications. Everything runs in your browser, so your personal photos are never uploaded.',
+    howToName: 'How to compress an image to 200KB',
+    steps: [
+      'Click "Choose images" or drag and drop your photo into the box.',
+      'The target is already set to 200 KB. Add a width and height if your form asks for exact pixels.',
+      'Click "Compress".',
+      'Download your 200 KB image and upload it to your form.',
+    ],
+    faqs: [
+      common.privacyFaq,
+      { q: 'Will the photo still look good?', a: 'Yes, in most cases. The tool keeps the highest quality that fits in 200 KB and only makes the picture smaller in pixels if it really has to.' },
+      { q: 'What if the form asks for an exact size in pixels?', a: 'Type the width and height (for example 200 × 230 px for a passport-style photo). The photo is cropped from the centre to that exact size and then compressed to the target KB. Always check the size rules in the official notification of the form you are filling.' },
+      { q: 'Why is the output a JPG?', a: 'JPG gives the smallest files for photos and signatures and is accepted by almost every online application form. If your form needs PNG, use our PNG converter afterwards.' },
+      common.freeFaq,
+    ],
+    related: ['reduce-image-size-in-kb', 'compress-image-to-20kb', 'compress-image-to-50kb', 'compress-image'],
     accept: 'image/*',
   },
   {

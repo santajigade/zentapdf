@@ -4,6 +4,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import ToolCard from '../components/ToolCard.astro';
 import AdSlot from '../components/AdSlot.astro';
 import { tools, toolBySlug, categoryById, type Tool } from '../data/tools';
+import { guidesForTool } from '../lib/guides';
 import { breadcrumbSchema, faqSchema, howToSchema, appSchema } from '../lib/schema';
 import MergePdf from '../components/tools/MergePdf';
 import SplitPdf from '../components/tools/SplitPdf';
@@ -22,6 +23,7 @@ import FormatConvert from '../components/tools/FormatConvert';
 import PdfToText from '../components/tools/PdfToText';
 import CompressPdf from '../components/tools/CompressPdf';
 import PdfPassword from '../components/tools/PdfPassword';
+import TargetSize from '../components/tools/TargetSize';
 
 export function getStaticPaths() {
   return tools.filter((t) => t.live).map((t) => ({ params: { tool: t.slug }, props: { tool: t } }));
@@ -58,6 +60,7 @@ const features = [
       {tool.slug === 'split-pdf' && <SplitPdf client:load />}
       {(tool.slug === 'jpg-to-pdf' || tool.slug === 'images-to-pdf') && <JpgToPdf client:load />}
       {tool.slug === 'pdf-to-text' && <PdfToText client:load />}
+      {(tool.slug === 'reduce-image-size-in-kb' || tool.kb) && <TargetSize kb={tool.kb} client:load />}
       {tool.slug === 'compress-pdf' && <CompressPdf client:load />}
       {tool.slug === 'protect-pdf' && <PdfPassword mode="protect" client:load />}
       {tool.slug === 'unlock-pdf' && <PdfPassword mode="unlock" client:load />}
@@ -93,6 +96,10 @@ const features = [
     <div class="features">{features.map((f) => <div><strong>{f.t}</strong><span>{f.d}</span></div>)}</div>
     <h2>Frequently asked questions</h2>
     {tool.faqs!.map((f) => <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>)}
+    {guidesForTool(tool.slug).length > 0 && <>
+      <h2>Guides</h2>
+      <ul class="guide-links">{guidesForTool(tool.slug).map((g) => <li><a href={`/guides/${g.slug}/`}>{g.h1}</a></li>)}</ul>
+    </>}
     <h2>Related tools</h2>
     <div class="grid">{related.map((t) => <ToolCard tool={t} />)}</div>
   </article>
