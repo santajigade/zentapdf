@@ -13,7 +13,7 @@ const tool = toolBySlug(g.tool)!;
 const related = [g.tool, ...(g.tools ?? [])].map(toolBySlug).filter(Boolean) as Tool[];
 const more = guides.filter((x) => x.slug !== g.slug).slice(0, 3);
 const crumbs = [{ name: 'Home', href: '/' }, { name: 'Guides', href: '/guides/' }, { name: g.h1, href: `/guides/${g.slug}/` }];
-const img = `/og/guides/${g.slug}.png`;
+const img = `/og/guides/${g.slug}.png?v=2`;
 const fmt = (d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 const article = {
   '@context': 'https://schema.org', '@type': 'BlogPosting', headline: g.h1, description: g.description, image: abs(img),
@@ -51,7 +51,7 @@ const toc = g.headings.filter((h) => h.depth === 2);
     <div class="grid">{related.map((t) => <ToolCard tool={t} />)}</div>
     <h2>More guides</h2>
     <div class="guide-grid">{more.map((x) => (
-      <a class="guide-card" href={`/guides/${x.slug}/`}><img src={`/og/guides/${x.slug}.png`} alt="" width="1200" height="630" loading="lazy" /><div><strong>{x.h1}</strong><small>{x.minutes} min read</small></div></a>
+      <a class="guide-card" href={`/guides/${x.slug}/`}><img src={`/og/guides/${x.slug}.png?v=2`} alt="" width="1200" height="630" loading="lazy" /><div><strong>{x.h1}</strong><small>{x.minutes} min read</small></div></a>
     ))}</div>
   </article>
 </Base>

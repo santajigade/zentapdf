@@ -13,7 +13,7 @@ const list = { '@context': 'https://schema.org', '@type': 'ItemList', itemListEl
     <div class="guide-grid">
       {guides.map((g) => (
         <a class="guide-card" href={`/guides/${g.slug}/`}>
-          <img src={`/og/guides/${g.slug}.png`} alt="" width="1200" height="630" loading="lazy" />
+          <img src={`/og/guides/${g.slug}.png?v=2`} alt="" width="1200" height="630" loading="lazy" />
           <div><strong>{g.h1}</strong><span>{g.description}</span><small>{g.minutes} min read</small></div>
         </a>
       ))}
