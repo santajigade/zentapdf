@@ -14,7 +14,9 @@ function chunksOf(l: Line): Chunk[] {
   for (const w of l.words) {
     if (!w.text.trim()) continue;
     const last = out[out.length - 1];
-    if (last && w.x0 - last.x1 < Math.max(w.size * 1.2, 6)) { last.words.push(w); last.x1 = Math.max(last.x1, w.x1); last.size = Math.max(last.size, w.size); }
+    const prev = last?.words[last.words.length - 1];
+    const styleJump = !!prev && (Math.max(prev.size, w.size) / Math.min(prev.size, w.size) > 1.1 || prev.bold !== w.bold) && w.x0 - last!.x1 > w.size * 0.45;
+    if (last && !styleJump && w.x0 - last.x1 < Math.max(w.size * 1.2, 6)) { last.words.push(w); last.x1 = Math.max(last.x1, w.x1); last.size = Math.max(last.size, w.size); }
     else out.push({ words: [w], x0: w.x0, x1: w.x1, y: l.y, size: w.size });
   }
   return out;
@@ -131,15 +133,18 @@ export default function PdfToWord() {
           const children: any[] = [new D.Paragraph({ spacing: { before: 0, after: 0, line: 20, lineRule: D.LineRuleType.EXACT }, children: [new D.ImageRun({ type: 'jpg', data, transformation: { width: Math.round(vp.width * 96 / 72), height: Math.round(vp.height * 96 / 72) },
             floating: { horizontalPosition: { relative: D.HorizontalPositionRelativeFrom.PAGE, offset: 0 }, verticalPosition: { relative: D.VerticalPositionRelativeFrom.PAGE, offset: 0 }, behindDocument: true, allowOverlap: true, lockAnchor: true } })] })];
           for (const c of placed) {
-            const color = sampleColor(L, H, S, c); if (color === null) continue;
+            // colour per word (white text on a coloured box, coloured headings…); invisible text is skipped
+            const wcol = c.words.map((w) => sampleColor(L, H, S, { words: [w], x0: w.x0, x1: w.x1, y: c.y, size: Math.max(w.size, c.size * 0.8) }));
+            if (wcol.every((x) => x === null)) continue;
+            const color = wcol.find((x) => x) ?? '000000';
             textChars += c.words.length;
             // group neighbouring words with the same style into runs
-            const runs: { text: string; w: Word }[] = [];
-            c.words.forEach((w0, k) => { let w = w0;
+            const runs: { text: string; w: Word; col: string }[] = [];
+            c.words.forEach((w0, k) => { let w = w0; const col = wcol[k] ?? color;
               const gap = k ? w.x0 - c.words[k - 1].x1 : 0; const sp = k && gap > w.size * 0.15 && !runs[runs.length - 1].text.endsWith(' ') && !w.text.startsWith(' ') ? ' ' : '';
               const last = runs[runs.length - 1];
               w = { ...w, text: w.text.replace(/[\uE000-\uF8FF]/g, '•') };
-              if (last && last.w.bold === w.bold && last.w.italic === w.italic && Math.abs(last.w.size - w.size) < 0.3 && last.w.family === w.family) last.text += sp + w.text; else { if (last && sp) last.text += sp; runs.push({ text: w.text, w }); }
+              if (last && last.col === col && last.w.bold === w.bold && last.w.italic === w.italic && Math.abs(last.w.size - w.size) < 0.3 && last.w.family === w.family) last.text += sp + w.text; else { if (last && sp) last.text += sp; runs.push({ text: w.text, w, col }); }
             });
             const size = c.size; const width = c.x1 - c.x0;
             const fam = (w: Word) => (COMMON_FONTS.test(w.family) ? w.family : w.font);
@@ -150,7 +155,7 @@ export default function PdfToWord() {
             children.push(new D.Paragraph({
               frame: { type: 'absolute', position: { x: Math.round(c.x0 * 20), y: Math.max(0, Math.round(top * 20)) }, width: Math.round(Math.min(vp.width - c.x0, width * 1.15 + size * 2) * 20), height: Math.round(size * 1.2 * 20), rule: D.HeightRule.ATLEAST, anchor: { horizontal: D.FrameAnchorType.PAGE, vertical: D.FrameAnchorType.PAGE }, wrap: D.FrameWrap.NONE } as any,
               spacing: { before: 0, after: 0, line: Math.round(size * 1.15 * 20), lineRule: D.LineRuleType.EXACT },
-              children: runs.map((r) => { const small = r.w.size < size * 0.8; const sub = small && r.w.y > c.y + size * 0.08, sup = small && r.w.y < c.y - size * 0.15; return new D.TextRun({ text: r.text, bold: r.w.bold, italics: r.w.italic, size: Math.max(2, Math.round((sub || sup ? size : r.w.size) * 2)), font: fam(r.w), color, scale: scale < 100 ? scale : undefined, subScript: sub || undefined, superScript: sup || undefined }); }),
+              children: runs.map((r) => { const small = r.w.size < size * 0.8; const sub = small && r.w.y > c.y + size * 0.08, sup = small && r.w.y < c.y - size * 0.15; return new D.TextRun({ text: r.text, bold: r.w.bold, italics: r.w.italic, size: Math.max(2, Math.round((sub || sup ? size : r.w.size) * 2)), font: fam(r.w), color: r.col, scale: scale < 100 ? scale : undefined, subScript: sub || undefined, superScript: sup || undefined }); }),
             }));
           }
           children.push(new D.Paragraph({ spacing: { before: 0, after: 0, line: 20, lineRule: D.LineRuleType.EXACT }, children: [] })); // keeps the page break out of the text frames
