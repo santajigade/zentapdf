@@ -23,7 +23,7 @@ npx lighthouse http://localhost:4321/<slug>/ --form-factor=mobile   # target 95+
 ## Guides (blog) — how to add one
 1. Create `src/content/guides/<slug>.md` with frontmatter: `title` (≤ 60 chars, keyword first), `h1`, `description` (120–160 chars), `date`, optional `updated`, `tool` (main tool slug), `tools` (related slugs), `faqs` (3–4 q/a).
 2. Body: short intro answering the question, `##` sections (they become the table of contents), numbered steps, at least one table, internal links to tools and other guides, one screenshot `![alt](/guides/img/<slug>.webp)`. Aim for 800–1,200 words including FAQs. Never invent facts or numbers; tell readers to check official rules where they vary.
-3. Add a screenshot step to `tools/og/make-guide-images.mjs`, run it (needs `astro preview` on :4321) — it creates `public/og/guides/<slug>.png` (social/hero image) and `public/guides/img/<slug>.webp`.
+3. Add a screenshot step to `tools/og/make-guide-og.mjs (thumbnails, run with node --experimental-strip-types) and make-guide-images.mjs (screenshots)`, run it (needs `astro preview` on :4321) — it creates `public/og/guides/<slug>.png` (social/hero image) and `public/guides/img/<slug>.webp`.
 4. `npm run build && python3 tools/seo-audit.py` → must report 0 issues (title/description length, one H1, canonical, broken links, alt text, JSON-LD).
 5. Each guide automatically gets BlogPosting + FAQPage + BreadcrumbList schema, appears on /guides/, in the sitemap, and in a "Guides" box on its tool pages.
 - Share images: run `node tools/og/make-tool-images.mjs` after adding a tool (creates public/og/tools/<slug>.png).

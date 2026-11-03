@@ -1,4 +1,4 @@
-// Generates Open Graph images for guides (public/og/guides/<slug>.png) and tool screenshots (public/guides/img/<slug>.webp).
+// Tool screenshots for guides (public/guides/img/<slug>.webp). Guide thumbnails: tools/og/make-guide-og.mjs. Old OG part kept below (public/guides/img/<slug>.webp).
 // Usage: npx astro preview --port 4321 &  then  node tools/og/make-guide-images.mjs [testfiles-dir]
 import { createRequire } from 'module'; const require = createRequire(import.meta.url); const { chromium } = require('playwright');
 import fs from 'fs'; import path from 'path'; import { execFileSync } from 'child_process';
