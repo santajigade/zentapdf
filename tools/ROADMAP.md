@@ -71,6 +71,6 @@ Brand: ZentaPDF · colour Indigo #4F46E5 · domain TBD (placeholder zentapdf.com
 
 ## Device Test hub (/device-test/) — owner's build plan 2026-11-03
 - [x] Phase 1 (LIVE 2026-11-03): hub + keyboard-test, mouse-test, mic-test, webcam-test, speaker-test, internet-speed-test (M-Lab ndt7, consent checkbox, /vendor/ndt7/). Data: src/data/devicetests.ts, pages src/pages/device-test/, components src/components/device/. Test: tools/test/e2e-device.mjs. Share images: tools/og/make-device-og.mjs. Privacy policy updated (mic/camera/M-Lab).
-- [ ] Phase 2: ping-test, what-is-my-ip (needs small PHP endpoint on Hostinger), dead-pixel-test, refresh-rate-test, double-click-test
+- [x] Phase 2 (LIVE 2026-11-03): ping-test (Cloudflare, Google, own /api/ping.php), what-is-my-ip (/api/ip.php PHP endpoint + Cloudflare trace for IPv4/IPv6/country), dead-pixel-test (+ stuck pixel fixer), refresh-rate-test, double-click-test (chatter < 80 ms)
 - [ ] Phase 3: touch-screen-test, gamepad-test, battery-test, troubleshooting guides
 - Ads: never inside the test area (AdSlot only below the tool and between content sections)

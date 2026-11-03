@@ -11,6 +11,11 @@ import MicTest from '../../components/device/MicTest';
 import WebcamTest from '../../components/device/WebcamTest';
 import SpeakerTest from '../../components/device/SpeakerTest';
 import SpeedTest from '../../components/device/SpeedTest';
+import PingTest from '../../components/device/PingTest';
+import IpTest from '../../components/device/IpTest';
+import DeadPixelTest from '../../components/device/DeadPixelTest';
+import RefreshRateTest from '../../components/device/RefreshRateTest';
+import DoubleClickTest from '../../components/device/DoubleClickTest';
 
 export function getStaticPaths() {
   return deviceTests.filter((t) => t.live).map((t) => ({ params: { test: t.slug }, props: { t } }));
@@ -37,6 +42,11 @@ const schema = [
       {t.slug === 'webcam-test' && <WebcamTest client:load />}
       {t.slug === 'speaker-test' && <SpeakerTest client:load />}
       {t.slug === 'internet-speed-test' && <SpeedTest client:load />}
+      {t.slug === 'ping-test' && <PingTest client:load />}
+      {t.slug === 'what-is-my-ip' && <IpTest client:load />}
+      {t.slug === 'dead-pixel-test' && <DeadPixelTest client:load />}
+      {t.slug === 'refresh-rate-test' && <RefreshRateTest client:load />}
+      {t.slug === 'double-click-test' && <DoubleClickTest client:load />}
       <noscript><p class="error">Please turn on JavaScript to use this test.</p></noscript>
     </div>
   </section>

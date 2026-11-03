@@ -12,7 +12,7 @@ async function page(url, width = 1280) {
 }
 try {
   let p = await page('/device-test/');
-  ok('hub lists 6 live tests', (await p.$$('.cat-band a.card')).length === 6);
+  ok('hub lists 11 live tests', (await p.$$('.cat-band a.card')).length === 11);
   // keyboard
   p = await page('/device-test/keyboard-test/');
   await p.getByRole('button', { name: 'Start keyboard test' }).click();
@@ -59,6 +59,29 @@ try {
   await p.check('.dt-start input[type=checkbox]'); await p.getByRole('button', { name: 'Start speed test' }).click();
   await p.waitForSelector('.error, .mic-verdict', { timeout: 40000 }).catch(() => {});
   ok('speed: runs or shows friendly error', !!(await p.$('.error, .mic-verdict')), (await p.textContent('.tool-box')).slice(0, 160));
-  for (const s of ['keyboard-test', 'mouse-test', 'mic-test', 'speaker-test', 'internet-speed-test']) { p = await page(`/device-test/${s}/`, 360); const sw = await p.evaluate(() => document.documentElement.scrollWidth); ok(`mobile ${s} no overflow`, sw <= 362, sw); }
+  // ---- phase 2 ----
+  const P = 'http://127.0.0.1:4322';
+  p = await page('/device-test/ping-test/'); await p.goto(P + '/device-test/ping-test/'); await p.waitForSelector('astro-island:not([ssr])', { state: 'attached' });
+  await p.getByRole('button', { name: 'Start ping test' }).click();
+  await p.waitForFunction(() => /Test again/.test(document.querySelector('.dt-start')?.textContent || ''), null, { timeout: 120000 });
+  const pings = await p.$$eval('.ping-card', (cs) => cs.map((c) => c.querySelector('.dt-results b')?.textContent));
+  ok('ping: own server measured', /\d+ ms/.test(pings[2] || ''), pings.join(' | '));
+  ok('ping no errors', !p.errors.length, p.errors.join('|'));
+  p = await page('/device-test/what-is-my-ip/'); await p.goto(P + '/device-test/what-is-my-ip/'); await p.waitForSelector('astro-island:not([ssr])', { state: 'attached' });
+  await p.waitForFunction(() => !/Finding/.test(document.querySelector('.ip-big b')?.textContent || 'Finding'), null, { timeout: 20000 });
+  ok('ip shown', /127\.0\.0\.1/.test(await p.textContent('.ip-big b')), await p.textContent('.ip-big b'));
+  p = await page('/device-test/dead-pixel-test/');
+  await p.getByRole('button', { name: /Start dead pixel test/ }).click(); await p.waitForSelector('.dp-full.on');
+  const c1 = await p.$eval('.dp-full', (e) => getComputedStyle(e).backgroundColor); await p.mouse.click(300, 300); const c2 = await p.$eval('.dp-full', (e) => getComputedStyle(e).backgroundColor);
+  ok('dead pixel colours cycle', c1 !== c2, c1 + ' -> ' + c2); await p.keyboard.press('Escape'); await p.waitForTimeout(300); ok('dead pixel exits', !(await p.$('.dp-full.on')));
+  p = await page('/device-test/refresh-rate-test/'); await p.waitForTimeout(2500);
+  const hz = +(await p.textContent('.hz-big b')); ok('refresh rate measured', hz >= 20 && hz <= 500, hz);
+  p = await page('/device-test/double-click-test/');
+  const d = await (await p.$('.dc-area')).boundingBox(); const cx = d.x + d.width / 2, cy = d.y + d.height / 2;
+  await p.mouse.click(cx, cy); await p.waitForTimeout(700); await p.mouse.click(cx, cy); await p.waitForTimeout(150); await p.mouse.click(cx, cy); await p.waitForTimeout(700);
+  await p.mouse.move(cx, cy); await p.mouse.down(); await p.mouse.up(); await p.mouse.down(); await p.mouse.up(); // instant bounce = chatter
+  const dc = await p.$$eval('.dt-results b', (x) => x.map((e) => e.textContent));
+  ok('double-click: single/double/chatter', +dc[0] >= 1 && +dc[1] >= 1 && +dc[2] >= 1, dc.join(','));
+  for (const s of ['ping-test', 'what-is-my-ip', 'dead-pixel-test', 'refresh-rate-test', 'double-click-test', 'keyboard-test', 'mouse-test', 'mic-test', 'speaker-test', 'internet-speed-test']) { p = await page(`/device-test/${s}/`, 360); const sw = await p.evaluate(() => document.documentElement.scrollWidth); ok(`mobile ${s} no overflow`, sw <= 362, sw); }
 } catch (e) { results.push('FAIL exception ' + e.message.split('\n')[0]); }
 console.log(results.join('\n')); await browser.close();
