@@ -1835,7 +1835,7 @@ export const tools: Tool[] = [
       'Download the XLSX file and open it in Excel or Google Sheets.',
     ],
     faqs: [
-      { q: 'Which PDFs work best?', a: 'PDFs created by software — bank statements, invoices, exported reports. Columns are found from the gaps between text, so neatly aligned tables give the best results.' },
+      { q: 'Which PDFs work best?', a: 'PDFs created by software — bank statements, invoices, price lists, datasheets and exported reports. When the table has lines, the lines are used to find every row and column, and merged cells, borders, header colours and bold text are kept. Tables without lines are read from the gaps between the text.' },
       { q: 'What about scanned bank statements?', a: 'Scanned PDFs are pictures, so there is no text to read. Text recognition (OCR) is coming soon.' },
       { q: 'Are numbers kept as numbers?', a: 'Yes. Amounts like 1,23,456.50, ₹500 or (250) become numbers you can calculate with. Codes with leading zeros stay as text.' },
       common.freeFaq,
