@@ -4,13 +4,17 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ToolCard from '../../components/ToolCard.astro';
 import { guides, type Guide } from '../../lib/guides';
 import { toolBySlug, type Tool } from '../../data/tools';
+import { dtBySlug, type DeviceTest } from '../../data/devicetests';
+import DTCard from '../../components/DTCard.astro';
 import { breadcrumbSchema, faqSchema, abs } from '../../lib/schema';
 import { SITE_NAME } from '../../config.js';
 
 export function getStaticPaths() { return guides.map((g) => ({ params: { slug: g.slug }, props: { g } })); }
 const { g } = Astro.props as { g: Guide };
-const tool = toolBySlug(g.tool)!;
-const related = [g.tool, ...(g.tools ?? [])].map(toolBySlug).filter(Boolean) as Tool[];
+// a guide can point to a PDF/image tool ("merge-pdf") or a device test ("dt:mic-test")
+const asLink = (s: string) => { if (s.startsWith('dt:')) { const d = dtBySlug(s.slice(3)); return d && { name: d.name, short: d.short, href: `/device-test/${d.slug}/`, dt: d }; } const t = toolBySlug(s); return t && { name: t.name, short: t.short, href: `/${t.slug}/`, tool: t }; };
+const tool = asLink(g.tool)!;
+const relatedLinks = [g.tool, ...(g.tools ?? [])].map(asLink).filter(Boolean) as any[];
 const more = guides.filter((x) => x.slug !== g.slug).slice(0, 3);
 const crumbs = [{ name: 'Home', href: '/' }, { name: 'Guides', href: '/guides/' }, { name: g.h1, href: `/guides/${g.slug}/` }];
 const img = `/og/guides/${g.slug}.png?v=2`;
@@ -33,8 +37,8 @@ const toc = g.headings.filter((h) => h.depth === 2);
       <img class="guide-hero" src={img} alt={g.h1} width="1200" height="630" />
     </header>
     <aside class="guide-cta">
-      <div><strong>Try it now: {tool.name}</strong><span>{tool.short} Free, no sign-up, no watermark.</span></div>
-      <a class="btn btn-primary" href={`/${tool.slug}/`}>Open {tool.name} →</a>
+      <div><strong>Try it now: {tool.name}</strong><span>{tool.short} Free, no sign-up{tool.dt ? '' : ', no watermark'}.</span></div>
+      <a class="btn btn-primary" href={tool.href}>Open {tool.name} →</a>
     </aside>
     {toc.length > 2 && (
       <nav class="guide-toc" aria-label="Contents"><strong>In this guide</strong><ol>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol></nav>
@@ -44,11 +48,11 @@ const toc = g.headings.filter((h) => h.depth === 2);
       <section><h2 id="faq">Frequently asked questions</h2>{g.faqs.map((f) => <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>)}</section>
     )}
     <aside class="guide-cta">
-      <div><strong>Ready? Use {tool.name} free</strong><span>No sign-up, no watermark.</span></div>
-      <a class="btn btn-primary" href={`/${tool.slug}/`}>Open {tool.name} →</a>
+      <div><strong>Ready? Use {tool.name} free</strong><span>No sign-up{tool.dt ? ', no download' : ', no watermark'}.</span></div>
+      <a class="btn btn-primary" href={tool.href}>Open {tool.name} →</a>
     </aside>
-    <h2>Tools used in this guide</h2>
-    <div class="grid">{related.map((t) => <ToolCard tool={t} />)}</div>
+    <h2>{tool.dt ? 'Tests used in this guide' : 'Tools used in this guide'}</h2>
+    <div class="grid">{relatedLinks.map((x) => (x.dt ? <DTCard t={x.dt} /> : <ToolCard tool={x.tool} />))}</div>
     <h2>More guides</h2>
     <div class="guide-grid">{more.map((x) => (
       <a class="guide-card" href={`/guides/${x.slug}/`}><img src={`/og/guides/${x.slug}.png?v=2`} alt="" width="1200" height="630" loading="lazy" /><div><strong>{x.h1}</strong><small>{x.minutes} min read</small></div></a>

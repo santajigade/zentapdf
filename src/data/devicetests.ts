@@ -9,7 +9,7 @@ export interface DeviceTest {
 
 export const HUB = {
   title: 'Device Test Online – Free Keyboard, Mic, Webcam & Speed Tests',
-  description: 'Free online device tests: keyboard, mouse, mic, webcam, speakers, internet speed, ping, IP address, dead pixels and refresh rate. No download, no sign-up.',
+  description: 'Free online device tests: keyboard, mouse, mic, webcam, speakers, internet speed, ping, IP, screen, touch, gamepad and battery. No download, no sign-up.',
 };
 
 export const deviceTests: DeviceTest[] = [
@@ -459,8 +459,125 @@ export const deviceTests: DeviceTest[] = [
     ],
     related: ['mouse-test', 'keyboard-test', 'refresh-rate-test'],
   },
-  { slug: 'touch-screen-test', name: 'Touchscreen Test', icon: 'touch', color: '#30a46c', live: false, short: 'Check multi-touch and dead zones.' },
-  { slug: 'gamepad-test', name: 'Gamepad Tester', icon: 'gamepad', color: '#3e63dd', live: false, short: 'Test controller buttons, sticks and vibration.' },
-  { slug: 'battery-test', name: 'Battery Info', icon: 'battery', color: '#12a594', live: false, short: 'See battery level and charging status.' },
+  {
+    slug: 'touch-screen-test', name: 'Touchscreen Test', icon: 'touch', color: '#30a46c', live: true,
+    short: 'Check multi-touch and find dead zones on your screen.',
+    title: 'Touch Screen Test – Check Multi-Touch & Dead Zones Online',
+    metaDescription: 'Test your touch screen online for free. Draw with several fingers to check multi-touch, and swipe a grid to find dead zones. Works on phones, tablets and laptops.',
+    h1: 'Touchscreen Test – Multi-Touch and Dead Zones',
+    intro: 'Check whether every part of your touch screen responds — on a phone, tablet, Chromebook or touch laptop. Draw with one or more fingers to see how many touches your screen recognises at once, or switch to the grid and swipe across every square to find dead zones where touches are not detected.',
+    howToName: 'How to test your touch screen',
+    steps: [
+      'Open this page on the phone, tablet or touch laptop you want to test and tap "Full screen".',
+      'In "Draw & multi-touch", draw with one finger, then put 2, 5 or 10 fingers down together.',
+      'Switch to "Dead-zone grid" and swipe slowly over every square.',
+      'Squares that stay grey after several swipes are areas where the screen does not respond.',
+    ],
+    sections: [
+      { h: 'What the results mean', list: [
+        'Most at once: how many fingers the screen can track together. Phones usually support 5–10; some cheap tablets only 2.',
+        'Broken or jumping lines while drawing mean the screen loses contact in that spot.',
+        'Grey squares in the grid that never turn green are dead zones — often near cracks or the edges.',
+        'Input type shows "touch", "pen" (stylus) or "mouse", and pen pressure if your stylus supports it.',
+      ] },
+      { h: 'Before buying a used phone or tablet', p: [
+        'Dead zones are a common hidden problem on second-hand devices, especially after a screen replacement. Run the grid test in full screen and cover every square, including the corners and the area behind the keyboard, before you pay.',
+      ] },
+    ],
+    trouble: [
+      'Remove the screen protector or case edge if touches fail near the borders, then test again.',
+      'Clean the screen and dry your hands — water and grease cause ghost touches.',
+      'Restart the device; a frozen touch driver often recovers after a restart.',
+      'Phantom touches when charging: try a different charger and cable — cheap chargers can disturb the touch screen.',
+      'Windows touch laptops: Device Manager → Human Interface Devices → "HID-compliant touch screen" — disable and enable it again.',
+    ],
+    faqs: [
+      { q: 'How do I check if my touch screen is working?', a: 'Open this page on the device, draw on the test area and swipe over every square in the grid. Areas that don\'t react are faulty.' },
+      { q: 'How many touch points does my phone support?', a: 'Put several fingers on the screen at once — "Most at once" shows the number your screen detects.' },
+      { q: 'What is a dead zone on a touch screen?', a: 'A part of the screen that does not respond to touch, often caused by damage, a bad repair or a faulty digitizer.' },
+      { q: 'Does it test a stylus?', a: 'Yes. Pens are detected as "pen", and pressure is shown if your stylus and browser support it.' },
+    ],
+    related: ['dead-pixel-test', 'refresh-rate-test', 'battery-test'],
+  },
+  {
+    slug: 'gamepad-test', name: 'Gamepad Tester', icon: 'gamepad', color: '#3e63dd', live: true,
+    short: 'Test controller buttons, sticks, triggers and vibration.',
+    title: 'Gamepad Tester – Test Controller Buttons & Stick Drift Online',
+    metaDescription: 'Test your game controller online: every button, analog sticks, triggers and vibration. Check for stick drift on Xbox, PlayStation and PC gamepads. Free, no download.',
+    h1: 'Gamepad Tester – Check Your Controller Online',
+    intro: 'Check every part of your game controller in your browser: buttons, D-pad, both analog sticks, triggers and vibration. The tester shows exact stick positions so you can spot stick drift, how far triggers press, and which buttons you have already tested. It works with Xbox, PlayStation, Switch Pro and most PC controllers over USB or Bluetooth.',
+    howToName: 'How to test your controller',
+    steps: [
+      'Connect the controller by USB cable or Bluetooth.',
+      'Press any button — the browser then shows the controller.',
+      'Press every button and move both sticks in full circles; tested buttons turn green.',
+      'Let go of the sticks and check that both dots return to the centre. Try the vibration buttons.',
+    ],
+    sections: [
+      { h: 'What the results mean', list: [
+        'Sticks: x and y go from −1 to 1. At rest both should stay close to 0.00. Values above about 0.10 with your thumb off the stick mean stick drift.',
+        'Triggers: LT/L2 and RT/R2 show 0–100%. They should reach 100% when fully pressed and return to 0%.',
+        'Buttons tested: each button turns green once it works. A button that never lights up is faulty or mapped differently.',
+        'Layout "Standard" means the browser knows your controller; "Custom" controllers show numbered buttons.',
+      ] },
+      { h: 'What is stick drift?', p: [
+        'Stick drift is when the character or camera moves on its own because the analog stick reports a small movement while you are not touching it. It is caused by worn sensors or dust inside the stick. Cleaning with compressed air sometimes helps; otherwise the stick module needs replacing. Many games let you raise the "dead zone" to hide small drift.',
+      ] },
+    ],
+    trouble: [
+      'Nothing shows: press a button — browsers only show a controller after a button press. Try another USB cable (some only charge) or re-pair Bluetooth.',
+      'PlayStation controller on PC: works over USB and Bluetooth in Chrome and Edge; Steam can also translate it.',
+      'Buttons in the wrong place: your controller uses a non-standard layout; buttons are shown by number instead.',
+      'No vibration: vibration works in Chrome and Edge with most Xbox and PlayStation controllers; Firefox and Safari do not support it yet.',
+    ],
+    faqs: [
+      { q: 'How do I test my controller for stick drift?', a: 'Connect it, press a button, then let go of the sticks. If x or y stays above about 0.10 while you are not touching the stick, the controller has drift.' },
+      { q: 'Does it work with PS4 and PS5 controllers?', a: 'Yes, DualShock 4 and DualSense controllers work over USB or Bluetooth in Chrome and Edge.' },
+      { q: 'Why doesn\'t my controller appear?', a: 'Press any button first. If it still doesn\'t appear, try a different cable or USB port, or pair it again by Bluetooth.' },
+      { q: 'Can I test vibration?', a: 'Yes, in Chrome and Edge. Use the Strong, Weak and Both vibration buttons.' },
+    ],
+    related: ['keyboard-test', 'mouse-test', 'refresh-rate-test'],
+  },
+  {
+    slug: 'battery-test', name: 'Battery Info', icon: 'battery', color: '#12a594', live: true,
+    short: 'See battery level and charging status, and how to check battery health.',
+    title: 'Battery Health Check – See Battery Level & Charging Online',
+    metaDescription: 'See your laptop or phone battery level, charging status and time left, plus easy steps to check battery health on Windows, Mac, Android and iPhone. Free.',
+    h1: 'Battery Info and Battery Health Check',
+    intro: 'See your battery level, whether it is charging and how much time is left — live, in your browser. Below you will also find simple steps to check your battery\'s real health (how much capacity it has lost) on Windows laptops, MacBooks, Android phones and iPhones.',
+    howToName: 'How to use the battery test',
+    steps: [
+      'Open this page in Chrome or Edge on your laptop or Android phone.',
+      'Read the battery level, charging status and estimated time.',
+      'Plug the charger in or out — the status updates instantly, so you can check that charging works.',
+      'For battery health (wear), follow the steps for your device below.',
+    ],
+    sections: [
+      { h: 'Check battery health on Windows', list: [
+        'Press the Windows key, type "cmd" and open Command Prompt.',
+        'Type powercfg /batteryreport and press Enter.',
+        'Open the file shown (battery-report.html). Compare "Design capacity" with "Full charge capacity": e.g. 50,000 vs 40,000 mWh means the battery has 80% of its original capacity.',
+      ] },
+      { h: 'Check battery health on Mac, iPhone and Android', list: [
+        'MacBook: Apple menu → System Settings → Battery → (i) next to Battery Health. Hold Option and click the Apple menu → System Information → Power for the cycle count.',
+        'iPhone: Settings → Battery → Battery Health & Charging → Maximum Capacity.',
+        'Android: Settings → Battery (or Device care → Battery on Samsung). Some phones show health under Settings → About phone → Battery information; Samsung Members → Diagnostics also checks it.',
+        'Battery health below about 80% usually means noticeably shorter battery life and is a common reason to replace the battery.',
+      ] },
+    ],
+    trouble: [
+      '"Not supported": Firefox, Safari and all iPhone browsers don\'t share battery info. Use Chrome or Edge on a laptop or Android phone.',
+      'Not charging: try another cable, charger and socket; clean the charging port gently.',
+      'Stuck at 80%: many laptops and phones limit charging to 80% to protect the battery — check the battery settings or manufacturer app.',
+      'Drains fast: check which apps use most battery in the battery settings, and lower screen brightness.',
+    ],
+    faqs: [
+      { q: 'Can a website check my battery health?', a: 'No. Browsers only share the charge level and charging state. Battery health (capacity) must be checked in your device settings — see the steps on this page.' },
+      { q: 'How do I check laptop battery health on Windows?', a: 'Open Command Prompt, type powercfg /batteryreport and open the report. Compare Full charge capacity with Design capacity.' },
+      { q: 'What is good battery health?', a: 'Above 80% of the original capacity is considered healthy. Below 80% you will notice shorter battery life.' },
+      { q: 'Why does it say no battery on my PC?', a: 'Desktop computers have no battery. The browser then shows 100% and "charging".' },
+    ],
+    related: ['touch-screen-test', 'webcam-test', 'internet-speed-test'],
+  },
 ];
 export const dtBySlug = (s: string) => deviceTests.find((t) => t.slug === s);

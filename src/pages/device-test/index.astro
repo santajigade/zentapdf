@@ -5,6 +5,8 @@ import DTCard from '../../components/DTCard.astro';
 import AdSlot from '../../components/AdSlot.astro';
 import { deviceTests, HUB } from '../../data/devicetests';
 import { breadcrumbSchema, faqSchema, abs } from '../../lib/schema';
+import { guides } from '../../lib/guides';
+const dtGuides = guides.filter((g) => g.tool.startsWith('dt:'));
 const crumbs = [{ name: 'Home', href: '/' }, { name: 'Device Test', href: '/device-test/' }];
 const live = deviceTests.filter((t) => t.live), soon = deviceTests.filter((t) => !t.live);
 const faqs = [
@@ -25,9 +27,10 @@ const schema = [breadcrumbSchema(crumbs), faqSchema(faqs), { '@context': 'https:
   <article class="container narrow content">
     <h2>Quick checks for every device</h2>
     <p>Before a video interview, an online exam or a gaming session, it only takes a minute to make sure everything works. These free tests check your keyboard keys, mouse buttons, microphone, webcam, speakers and internet speed right in your browser — on a laptop, desktop, Chromebook, Android phone or iPhone.</p>
-    <p>Buying a used laptop or keyboard? Run the Keyboard Tester and Mouse Click Test to find dead keys and worn buttons before you pay. Working from home? The Mic, Webcam, Speed and Ping tests show if your setup is ready for Zoom, Teams or Google Meet. New monitor? The Dead Pixel Test and Refresh Rate Test check the screen in seconds, and What Is My IP shows if your VPN works.</p>
-    <h2>Coming soon</h2>
-    <div class="grid">{soon.map((t) => <DTCard t={t} />)}</div>
+    <p>Buying a used laptop or keyboard? Run the Keyboard Tester and Mouse Click Test to find dead keys and worn buttons before you pay. Working from home? The Mic, Webcam, Speed and Ping tests show if your setup is ready for Zoom, Teams or Google Meet. New monitor? The Dead Pixel Test and Refresh Rate Test check the screen in seconds, and What Is My IP shows if your VPN works. Gamers can check controllers for stick drift with the Gamepad Tester, and the Touchscreen Test finds dead zones on phones and tablets.</p>
+    {soon.length > 0 && <><h2>Coming soon</h2><div class="grid">{soon.map((t) => <DTCard t={t} />)}</div></>}
+    <h2>Troubleshooting guides</h2>
+    <ul class="guide-links">{dtGuides.map((g) => <li><a href={`/guides/${g.slug}/`}>{g.h1}</a></li>)}</ul>
     <h2>Frequently asked questions</h2>
     {faqs.map((f) => <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>)}
     <p style="margin-top:24px">Looking for PDF and image tools? <a href="/">See all ZentaPDF tools</a>.</p>

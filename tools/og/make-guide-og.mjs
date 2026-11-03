@@ -5,9 +5,10 @@ import fs from 'fs'; import path from 'path'; import { execFileSync } from 'chil
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../..');
 const { icons, toolColor } = await import(ROOT + '/src/data/icons.ts');
 const { tools } = await import(ROOT + '/src/data/tools.ts');
+const { deviceTests } = await import(ROOT + '/src/data/devicetests.ts');
 const logo = fs.readFileSync(ROOT + '/public/logo.svg', 'utf8').replace('<svg ', '<svg width="56" height="56" ');
 // same tints as the home page category tiles
-const TINT = { organise: ['#eff6ff', '#dbeafe', '#2563eb'], edit: ['#f5f3ff', '#ede9fe', '#7c3aed'], convert: ['#ecfdf5', '#d1fae5', '#047857'], security: ['#fffbeb', '#fef3c7', '#b45309'], image: ['#fff1f2', '#ffe4e6', '#be123c'], imgconv: ['#f0fdfa', '#ccfbf1', '#0f766e'], topdf: ['#fff7ed', '#ffedd5', '#c2410c'], gif: ['#fdf2f8', '#fce7f3', '#be185d'], utility: ['#f0f9ff', '#e0f2fe', '#0369a1'] };
+const TINT = { device: ['#ecfeff', '#cffafe', '#0e7490'], organise: ['#eff6ff', '#dbeafe', '#2563eb'], edit: ['#f5f3ff', '#ede9fe', '#7c3aed'], convert: ['#ecfdf5', '#d1fae5', '#047857'], security: ['#fffbeb', '#fef3c7', '#b45309'], image: ['#fff1f2', '#ffe4e6', '#be123c'], imgconv: ['#f0fdfa', '#ccfbf1', '#0f766e'], topdf: ['#fff7ed', '#ffedd5', '#c2410c'], gif: ['#fdf2f8', '#fce7f3', '#be185d'], utility: ['#f0f9ff', '#e0f2fe', '#0369a1'] };
 const guides = fs.readdirSync(ROOT + '/src/content/guides').filter((f) => f.endsWith('.md')).map((f) => {
   const src = fs.readFileSync(ROOT + '/src/content/guides/' + f, 'utf8');
   return { slug: f.replace('.md', ''), h1: src.match(/^h1:\s*"(.*)"/m)[1], tool: src.match(/^tool:\s*"(.*)"/m)?.[1] };
@@ -15,9 +16,10 @@ const guides = fs.readdirSync(ROOT + '/src/content/guides').filter((f) => f.ends
 const b = await chromium.launch();
 const p = await b.newPage({ viewport: { width: 1200, height: 630 } });
 for (const g of guides) {
-  const t = tools.find((x) => x.slug === g.tool) ?? tools[0];
+  const d = g.tool?.startsWith('dt:') ? deviceTests.find((x) => x.slug === g.tool.slice(3)) : null;
+  const t = d ? { slug: d.slug, category: 'device', icon: d.icon } : tools.find((x) => x.slug === g.tool) ?? tools[0];
   const [bg, strong, accent] = TINT[t.category] ?? TINT.organise;
-  const col = toolColor[t.slug] ?? accent;
+  const col = d ? d.color : toolColor[t.slug] ?? accent;
   const ic = icons[t.icon] ?? icons.merge;
   const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
   await p.setContent(`<html><head><style>@font-face{font-family:Inter;src:local('Inter')}</style></head><body style="margin:0">

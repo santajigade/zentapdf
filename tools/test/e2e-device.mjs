@@ -12,7 +12,7 @@ async function page(url, width = 1280) {
 }
 try {
   let p = await page('/device-test/');
-  ok('hub lists 11 live tests', (await p.$$('.cat-band a.card')).length === 11);
+  ok('hub lists 14 live tests', (await p.$$('.cat-band a.card')).length === 14);
   // keyboard
   p = await page('/device-test/keyboard-test/');
   await p.getByRole('button', { name: 'Start keyboard test' }).click();
@@ -82,6 +82,33 @@ try {
   await p.mouse.move(cx, cy); await p.mouse.down(); await p.mouse.up(); await p.mouse.down(); await p.mouse.up(); // instant bounce = chatter
   const dc = await p.$$eval('.dt-results b', (x) => x.map((e) => e.textContent));
   ok('double-click: single/double/chatter', +dc[0] >= 1 && +dc[1] >= 1 && +dc[2] >= 1, dc.join(','));
-  for (const s of ['ping-test', 'what-is-my-ip', 'dead-pixel-test', 'refresh-rate-test', 'double-click-test', 'keyboard-test', 'mouse-test', 'mic-test', 'speaker-test', 'internet-speed-test']) { p = await page(`/device-test/${s}/`, 360); const sw = await p.evaluate(() => document.documentElement.scrollWidth); ok(`mobile ${s} no overflow`, sw <= 362, sw); }
+  // ---- phase 3 ----
+  { const ctx = await browser.newContext({ viewport: { width: 400, height: 800 }, hasTouch: true, isMobile: true }); const q = await ctx.newPage(); q.errors = []; q.on('pageerror', (e) => q.errors.push(String(e)));
+    await q.goto(B + '/device-test/touch-screen-test/'); await q.waitForSelector('astro-island:not([ssr])', { state: 'attached' });
+    const r = await (await q.$('.tt-area')).boundingBox(); const cdp = await ctx.newCDPSession(q);
+    const tp = (pts) => pts.map(([x, y], i) => ({ x: r.x + x, y: r.y + y, id: i }));
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: tp([[50, 50], [150, 80], [250, 120]]) });
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: tp([[60, 90], [160, 120], [260, 160]]) });
+    await q.waitForTimeout(100); const most = await q.textContent('.dt-results > div:nth-child(2) b');
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+    ok('touch: multi-touch counted', +most >= 3, most);
+    await q.getByRole('button', { name: 'Dead-zone grid' }).click(); await q.waitForTimeout(100);
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: tp([[20, 20]]) });
+    for (let x = 20; x < r.width - 10; x += 20) await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: tp([[x, 20]]) });
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+    ok('touch: grid squares light up', (await q.$$('.tt-grid span.on')).length >= 6, (await q.$$('.tt-grid span.on')).length);
+    ok('touch no errors', !q.errors.length, q.errors.join('|')); await ctx.close(); }
+  { const ctx = await browser.newContext(); const q = await ctx.newPage(); q.errors = []; q.on('pageerror', (e) => q.errors.push(String(e)));
+    await ctx.addInitScript(() => { const pad = { index: 0, id: 'Xbox Wireless Controller (STANDARD GAMEPAD)', mapping: 'standard', connected: true, axes: [0.02, -0.01, 0.6, 0.3], buttons: Array.from({ length: 17 }, (_, i) => ({ pressed: i === 0, value: i === 7 ? 0.5 : i === 0 ? 1 : 0 })) }; navigator.getGamepads = () => [pad, null, null, null]; });
+    await q.goto(B + '/device-test/gamepad-test/'); await q.waitForSelector('.gp-card', { timeout: 5000 });
+    ok('gamepad shown', /Xbox/.test(await q.textContent('.gp-card')) && !!(await q.$('.gp-btns span.down')));
+    ok('gamepad trigger 50%', /50%/.test(await q.textContent('.gp-trig')));
+    ok('gamepad no errors', !q.errors.length, q.errors.join('|')); await ctx.close(); }
+  p = await page('/device-test/battery-test/'); await p.waitForTimeout(800);
+  ok('battery shows level or fallback', /%|does not share/.test(await p.textContent('.tool-box')), (await p.textContent('.tool-box')).slice(0, 80));
+  p = await page('/guides/mic-not-working-windows/');
+  ok('guide links to mic test', !!(await p.$('a[href="/device-test/mic-test/"].btn')));
+  p = await page('/device-test/mic-test/'); ok('mic page links guide', !!(await p.$('a[href="/guides/mic-not-working-windows/"]')));
+  for (const s of ['touch-screen-test', 'gamepad-test', 'battery-test', 'ping-test', 'what-is-my-ip', 'dead-pixel-test', 'refresh-rate-test', 'double-click-test', 'keyboard-test', 'mouse-test', 'mic-test', 'speaker-test', 'internet-speed-test']) { p = await page(`/device-test/${s}/`, 360); const sw = await p.evaluate(() => document.documentElement.scrollWidth); ok(`mobile ${s} no overflow`, sw <= 362, sw); }
 } catch (e) { results.push('FAIL exception ' + e.message.split('\n')[0]); }
 console.log(results.join('\n')); await browser.close();

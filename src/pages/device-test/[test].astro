@@ -16,6 +16,10 @@ import IpTest from '../../components/device/IpTest';
 import DeadPixelTest from '../../components/device/DeadPixelTest';
 import RefreshRateTest from '../../components/device/RefreshRateTest';
 import DoubleClickTest from '../../components/device/DoubleClickTest';
+import TouchTest from '../../components/device/TouchTest';
+import GamepadTest from '../../components/device/GamepadTest';
+import BatteryTest from '../../components/device/BatteryTest';
+import { guidesForTool } from '../../lib/guides';
 
 export function getStaticPaths() {
   return deviceTests.filter((t) => t.live).map((t) => ({ params: { test: t.slug }, props: { t } }));
@@ -47,6 +51,9 @@ const schema = [
       {t.slug === 'dead-pixel-test' && <DeadPixelTest client:load />}
       {t.slug === 'refresh-rate-test' && <RefreshRateTest client:load />}
       {t.slug === 'double-click-test' && <DoubleClickTest client:load />}
+      {t.slug === 'touch-screen-test' && <TouchTest client:load />}
+      {t.slug === 'gamepad-test' && <GamepadTest client:load />}
+      {t.slug === 'battery-test' && <BatteryTest client:load />}
       <noscript><p class="error">Please turn on JavaScript to use this test.</p></noscript>
     </div>
   </section>
@@ -65,6 +72,10 @@ const schema = [
     <AdSlot />
     <h2>Frequently asked questions</h2>
     {t.faqs!.map((f) => <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>)}
+    {guidesForTool('dt:' + t.slug).length > 0 && <>
+      <h2>Guides</h2>
+      <ul class="guide-links">{guidesForTool('dt:' + t.slug).map((g) => <li><a href={`/guides/${g.slug}/`}>{g.h1}</a></li>)}</ul>
+    </>}
     <h2>More device tests</h2>
     <div class="grid">{related.map((r) => <DTCard t={r} />)}</div>
     <p style="margin-top:18px"><a href="/device-test/">← All device tests</a></p>
