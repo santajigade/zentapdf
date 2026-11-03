@@ -77,4 +77,5 @@ Brand: ZentaPDF · colour Indigo #4F46E5 · domain TBD (placeholder zentapdf.com
 
 ## Quality pass (PDF tools)
 - PPT to PDF: new renderer (master/layout text styles, bullets, charts bar/column/line/pie/area, gradients, table styles, Office fonts). Done.
-- Next: PDF to Excel (table lines), Compress PDF, Edit/Sign polish.
+- PDF to Excel: table lines → rows/columns/merged cells; borders, fills, bold, font size kept; row-ruled statements. Done.
+- Next: Compress PDF, Edit/Sign polish.
