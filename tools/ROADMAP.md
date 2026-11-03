@@ -74,3 +74,7 @@ Brand: ZentaPDF · colour Indigo #4F46E5 · domain TBD (placeholder zentapdf.com
 - [x] Phase 2 (LIVE 2026-11-03): ping-test (Cloudflare, Google, own /api/ping.php), what-is-my-ip (/api/ip.php PHP endpoint + Cloudflare trace for IPv4/IPv6/country), dead-pixel-test (+ stuck pixel fixer), refresh-rate-test, double-click-test (chatter < 80 ms)
 - [x] Phase 3 (LIVE 2026-11-03): touch-screen-test (multi-touch + dead-zone grid), gamepad-test (buttons, sticks/drift, triggers, vibration), battery-test (Battery API + health steps), guides: mic-not-working-windows, webcam-not-working, laptop-keyboard-not-working, mouse-double-clicking-fix (guides use tool: "dt:<slug>")
 - Ads: never inside the test area (AdSlot only below the tool and between content sections)
+
+## Quality pass (PDF tools)
+- PPT to PDF: new renderer (master/layout text styles, bullets, charts bar/column/line/pie/area, gradients, table styles, Office fonts). Done.
+- Next: PDF to Excel (table lines), Compress PDF, Edit/Sign polish.
