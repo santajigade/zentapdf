@@ -1,0 +1,62 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import DTCard from '../../components/DTCard.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import { deviceTests, dtBySlug, type DeviceTest } from '../../data/devicetests';
+import { breadcrumbSchema, faqSchema, howToSchema, abs } from '../../lib/schema';
+import KeyboardTest from '../../components/device/KeyboardTest';
+import MouseTest from '../../components/device/MouseTest';
+import MicTest from '../../components/device/MicTest';
+import WebcamTest from '../../components/device/WebcamTest';
+import SpeakerTest from '../../components/device/SpeakerTest';
+import SpeedTest from '../../components/device/SpeedTest';
+
+export function getStaticPaths() {
+  return deviceTests.filter((t) => t.live).map((t) => ({ params: { test: t.slug }, props: { t } }));
+}
+const { t } = Astro.props as { t: DeviceTest };
+const url = `/device-test/${t.slug}/`;
+const crumbs = [{ name: 'Home', href: '/' }, { name: 'Device Test', href: '/device-test/' }, { name: t.name, href: url }];
+const related = (t.related ?? []).map(dtBySlug).filter(Boolean) as DeviceTest[];
+const schema = [
+  breadcrumbSchema(crumbs),
+  { '@context': 'https://schema.org', '@type': 'WebApplication', name: t.name, url: abs(url), description: t.metaDescription, applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any (web browser)', browserRequirements: 'Requires a modern web browser', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+  howToSchema(t.howToName!, t.steps!),
+  faqSchema(t.faqs!),
+];
+---
+<Base title={t.title!} description={t.metaDescription!} schema={schema} ogImage={`/og/device/${t.slug}.png`}>
+  <Breadcrumbs items={crumbs} />
+  <section class={t.slug === 'keyboard-test' ? 'container' : 'container narrow'}>
+    <div class="tool-head"><h1>{t.h1}</h1><p>{t.short} Free, no download.</p></div>
+    <div class="tool-box cat-device">
+      {t.slug === 'keyboard-test' && <KeyboardTest client:load />}
+      {t.slug === 'mouse-test' && <MouseTest client:load />}
+      {t.slug === 'mic-test' && <MicTest client:load />}
+      {t.slug === 'webcam-test' && <WebcamTest client:load />}
+      {t.slug === 'speaker-test' && <SpeakerTest client:load />}
+      {t.slug === 'internet-speed-test' && <SpeedTest client:load />}
+      <noscript><p class="error">Please turn on JavaScript to use this test.</p></noscript>
+    </div>
+  </section>
+  <AdSlot />
+  <article class="container narrow content">
+    <p>{t.intro}</p>
+    <h2>{t.howToName}</h2>
+    <ol class="steps">{t.steps!.map((s) => <li>{s}</li>)}</ol>
+    {t.sections!.map((s) => <>
+      <h2>{s.h}</h2>
+      {s.p?.map((x) => <p>{x}</p>)}
+      {s.list && <ul>{s.list.map((x) => <li>{x}</li>)}</ul>}
+    </>)}
+    <h2>Not working? Try this</h2>
+    <ul>{t.trouble!.map((x) => <li>{x}</li>)}</ul>
+    <AdSlot />
+    <h2>Frequently asked questions</h2>
+    {t.faqs!.map((f) => <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>)}
+    <h2>More device tests</h2>
+    <div class="grid">{related.map((r) => <DTCard t={r} />)}</div>
+    <p style="margin-top:18px"><a href="/device-test/">← All device tests</a></p>
+  </article>
+</Base>

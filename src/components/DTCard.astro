@@ -1,0 +1,20 @@
+---
+import { icon } from '../data/icons';
+import type { DeviceTest } from '../data/devicetests';
+interface Props { t: DeviceTest }
+const { t } = Astro.props;
+---
+{t.live ? (
+  <a class="card tint-device" href={`/device-test/${t.slug}/`} data-name={t.name.toLowerCase()}>
+    <span class="ic" style={`background:${t.color}`} set:html={icon(t.icon, 26)} />
+    <strong>{t.name}</strong>
+    <span class="desc">{t.short}</span>
+  </a>
+) : (
+  <div class="card soon tint-device">
+    <span class="badge">Soon</span>
+    <span class="ic" style={`background:${t.color}`} set:html={icon(t.icon, 26)} />
+    <strong>{t.name}</strong>
+    <span class="desc">{t.short}</span>
+  </div>
+)}

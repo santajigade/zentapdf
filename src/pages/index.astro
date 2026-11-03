@@ -1,4 +1,5 @@
 ---
+import { deviceTests } from '../data/devicetests';
 import Base from '../layouts/Base.astro';
 import ToolCard from '../components/ToolCard.astro';
 import { categories, tools, toolBySlug, type Tool } from '../data/tools';
@@ -37,6 +38,10 @@ const cats = order.map((id) => categories.find((c) => c.id === id)!).filter(Bool
             <span><strong>{c.name}</strong><small>{live.filter((t) => t.category === c.id).length} tools</small></span>
           </a>
         ))}
+        <a class="cat-tile tint-device" href="/device-test/">
+          <span class="cat-ic" set:html={icon('keyboard', 26)} />
+          <span><strong>Device Test</strong><small>{deviceTests.filter((t) => t.live).length} tests</small></span>
+        </a>
       </div>
     </section>
 

@@ -68,3 +68,9 @@ Brand: ZentaPDF · colour Indigo #4F46E5 · domain TBD (placeholder zentapdf.com
 - Engine: src/lib/docpdf.ts (blocks → PDF with DejaVu fonts from /public/fonts; complex scripts like Hindi drawn via canvas). Tests: tools/test/e2e-p1.mjs (40 checks)
 - [x] P2 Office (LIVE 2026-11-02): pdf-to-word (docx lib; editable text with headings/bold/sizes, or exact-look images), pdf-to-excel (SheetJS; modal-column template, Indian number parsing), word-to-pdf (mammoth → blocks), excel-to-pdf / ods-to-pdf (SheetJS → tables), odt-to-pdf (own ODT parser), ppt-to-pdf / odp-to-pdf (own slide renderer on canvas: theme colours, layouts/masters, shapes, pictures, tables). Code: src/lib/office.ts, pdfread.ts. Tests: tools/test/e2e-p2.mjs (20 checks)
 - [ ] Next: P3 OCR (tesseract.js, eng+hin+mar)
+
+## Device Test hub (/device-test/) — owner's build plan 2026-11-03
+- [x] Phase 1 (LIVE 2026-11-03): hub + keyboard-test, mouse-test, mic-test, webcam-test, speaker-test, internet-speed-test (M-Lab ndt7, consent checkbox, /vendor/ndt7/). Data: src/data/devicetests.ts, pages src/pages/device-test/, components src/components/device/. Test: tools/test/e2e-device.mjs. Share images: tools/og/make-device-og.mjs. Privacy policy updated (mic/camera/M-Lab).
+- [ ] Phase 2: ping-test, what-is-my-ip (needs small PHP endpoint on Hostinger), dead-pixel-test, refresh-rate-test, double-click-test
+- [ ] Phase 3: touch-screen-test, gamepad-test, battery-test, troubleshooting guides
+- Ads: never inside the test area (AdSlot only below the tool and between content sections)

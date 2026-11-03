@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import DTCard from '../../components/DTCard.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import { deviceTests, HUB } from '../../data/devicetests';
+import { breadcrumbSchema, faqSchema, abs } from '../../lib/schema';
+const crumbs = [{ name: 'Home', href: '/' }, { name: 'Device Test', href: '/device-test/' }];
+const live = deviceTests.filter((t) => t.live), soon = deviceTests.filter((t) => !t.live);
+const faqs = [
+  { q: 'Are these device tests free?', a: 'Yes. All tests are free, need no sign-up and run in your web browser on Windows, Mac, Linux, Android and iPhone.' },
+  { q: 'Do I need to download anything?', a: 'No. Everything works in your browser. For the mic and webcam tests your browser asks for permission first.' },
+  { q: 'Is my microphone or camera recorded?', a: 'No. Sound and video are shown only on your screen and are not recorded or uploaded.' },
+  { q: 'Which test should I run before a video call?', a: 'Run the Mic Test, Webcam Test, Speaker Test and Internet Speed Test — together they take about two minutes.' },
+];
+const schema = [breadcrumbSchema(crumbs), faqSchema(faqs), { '@context': 'https://schema.org', '@type': 'CollectionPage', name: HUB.title, url: abs('/device-test/'), hasPart: live.map((t) => ({ '@type': 'WebApplication', name: t.name, url: abs(`/device-test/${t.slug}/`) })) }];
+---
+<Base title={HUB.title} description={HUB.description} schema={schema} ogImage="/og/device-test.png">
+  <Breadcrumbs items={crumbs} />
+  <section class="container">
+    <div class="tool-head"><h1>Device Test – Check Your Keyboard, Mic, Webcam and Internet</h1><p>Free online tests for your computer and phone. No download, no sign-up.</p></div>
+    <div class="cat-band tint-device"><div class="grid">{live.map((t) => <DTCard t={t} />)}</div></div>
+  </section>
+  <AdSlot />
+  <article class="container narrow content">
+    <h2>Quick checks for every device</h2>
+    <p>Before a video interview, an online exam or a gaming session, it only takes a minute to make sure everything works. These free tests check your keyboard keys, mouse buttons, microphone, webcam, speakers and internet speed right in your browser — on a laptop, desktop, Chromebook, Android phone or iPhone.</p>
+    <p>Buying a used laptop or keyboard? Run the Keyboard Tester and Mouse Click Test to find dead keys and worn buttons before you pay. Working from home? The Mic, Webcam and Speed tests show if your setup is ready for Zoom, Teams or Google Meet.</p>
+    <h2>Coming soon</h2>
+    <div class="grid">{soon.map((t) => <DTCard t={t} />)}</div>
+    <h2>Frequently asked questions</h2>
+    {faqs.map((f) => <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>)}
+    <p style="margin-top:24px">Looking for PDF and image tools? <a href="/">See all ZentaPDF tools</a>.</p>
+  </article>
+</Base>
