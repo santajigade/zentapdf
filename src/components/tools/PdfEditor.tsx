@@ -52,6 +52,8 @@ const TOOLS: [Tool, string, string][] = [
   ['highlight', '▬', 'Highlight'], ['rect', '□', 'Rectangle'], ['ellipse', '○', 'Circle / ellipse'], ['line', '╱', 'Line'], ['arrow', '→', 'Arrow'], ['draw', '✎', 'Draw'],
 ];
 
+const COL: Record<string, string> = { edittext: '#4f46e5', text: '#2563eb', whiteout: '#64748b', highlight: '#d97706', rect: '#0d9488', ellipse: '#0891b2', line: '#059669', arrow: '#16a34a', draw: '#db2777', select: '#475569' };
+const tint = (c: string) => ({ '--c': c } as any);
 const SHORT: Record<string, string> = { edittext: 'Edit text', text: 'Add text', whiteout: 'White-out', highlight: 'Highlight', rect: 'Box', ellipse: 'Circle', line: 'Line', arrow: 'Arrow', draw: 'Draw' };
 const ICONS: Record<string, string> = {
   edittext: '<path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m13 7 4 4"/><path d="M15 20h6"/>',
@@ -574,21 +576,21 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
         <div class="ed-row">
           {TOOLS.filter(([t]) => t !== 'select' && !(mode === 'annotate' && (t === 'edittext' || t === 'whiteout'))).map(([t, , label], k) => (<>
             {k === (mode === 'annotate' ? 1 : 2) && <span class="ed-sep" />}
-            <button type="button" class="ed-btn" title={label} aria-pressed={tool === t} onClick={() => { setTool(t); setEditing(null); }}>
+            <button type="button" class="ed-btn tint" style={tint(COL[t])} title={label} aria-pressed={tool === t} onClick={() => { setTool(t); setEditing(null); }}>
               <Icon name={t} /><span class="ed-label">{SHORT[t]}</span>
             </button>
           </>))}
           <span class="ed-sep" />
-          <button type="button" class="ed-btn" title="Add signature" onClick={() => setSigOpen(true)}><Icon name="sign" /><span class="ed-label">Sign</span></button>
-          <button type="button" class="ed-btn" title="Add image" onClick={() => imgInput.current?.click()}><Icon name="image" /><span class="ed-label">Image</span></button>
+          <button type="button" class="ed-btn tint" style={tint('#7c3aed')} title="Add signature" onClick={() => setSigOpen(true)}><Icon name="sign" /><span class="ed-label">Sign</span></button>
+          <button type="button" class="ed-btn tint" style={tint('#ea580c')} title="Add image" onClick={() => imgInput.current?.click()}><Icon name="image" /><span class="ed-label">Image</span></button>
           <input ref={imgInput} type="file" accept="image/*" hidden onChange={(e) => { addImageFile((e.target as HTMLInputElement).files?.[0]); (e.target as HTMLInputElement).value = ''; }} />
           <span class="ed-stamps" role="group" aria-label="Quick marks">
             {[['✓', 'Tick'], ['✗', 'Cross'], ['●', 'Dot'], ['date', 'Today\u2019s date']].map(([t, l]) => (
-              <button type="button" class="ed-btn ed-sq" title={`Add ${l}`} aria-label={`Add ${l}`} onClick={() => addStamp(t === 'date' ? new Date().toLocaleDateString('en-GB') : t)}>{t === 'date' ? <span style={{ fontSize: '.72rem', fontWeight: 800 }}>DATE</span> : <span style={{ fontSize: '1.05rem' }}>{t}</span>}</button>
+              <button type="button" class="ed-btn ed-sq tint" style={tint(t === '✓' ? '#16a34a' : t === '✗' ? '#dc2626' : t === 'date' ? '#0284c7' : '#334155')} title={`Add ${l}`} aria-label={`Add ${l}`} onClick={() => addStamp(t === 'date' ? new Date().toLocaleDateString('en-GB') : t)}>{t === 'date' ? <span style={{ fontSize: '.72rem', fontWeight: 800 }}>DATE</span> : <span style={{ fontSize: '1.05rem' }}>{t}</span>}</button>
             ))}
           </span>
           <span class="ed-sep" />
-          <button type="button" class="ed-btn" title="Select & move items" aria-pressed={tool === 'select'} onClick={() => { setTool('select'); setEditing(null); }}><Icon name="select" /><span class="ed-label">Move</span></button>
+          <button type="button" class="ed-btn tint" style={tint('#475569')} title="Select & move items" aria-pressed={tool === 'select'} onClick={() => { setTool('select'); setEditing(null); }}><Icon name="select" /><span class="ed-label">Move</span></button>
           <span style={{ flex: 1 }} />
           <button type="button" class="btn btn-primary" style={{ padding: '9px 18px' }} disabled={!!busy} onClick={save}>Save PDF</button>
         </div>
@@ -612,10 +614,10 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
             <svg width="18" height="18" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3" fill="currentColor" opacity=".85" /></svg></button>
           <label class="ed-field ed-op" title="Opacity">Opacity <input type="range" min={10} max={100} step={5} aria-label="Opacity" value={Math.round(((selObj?.opacity ?? style.opacity) || 1) * 100)} onInput={(e) => setStyleAndSel({ opacity: +(e.target as HTMLInputElement).value / 100 })} /></label>
           <span style={{ flex: 1 }} />
-          <button type="button" class="ed-btn" title="Undo (Ctrl+Z)" disabled={!hist.length} onClick={undo}><Icon name="undo" /><span class="ed-label">Undo</span></button>
-          <button type="button" class="ed-btn" title="Redo (Ctrl+Y)" disabled={!future.length} onClick={redo}><Icon name="redo" /><span class="ed-label">Redo</span></button>
-          <button type="button" class="ed-btn" title="Duplicate selected (Ctrl+D)" disabled={!sel} onClick={() => duplicate(selObj)}><Icon name="copy" /><span class="ed-label">Copy</span></button>
-          <button type="button" class="ed-btn" title="Delete selected (Del)" disabled={!sel} onClick={() => sel && remove(sel)}><Icon name="trash" /><span class="ed-label">Delete</span></button>
+          <button type="button" class="ed-btn tint" style={tint('#6366f1')} title="Undo (Ctrl+Z)" disabled={!hist.length} onClick={undo}><Icon name="undo" /><span class="ed-label">Undo</span></button>
+          <button type="button" class="ed-btn tint" style={tint('#6366f1')} title="Redo (Ctrl+Y)" disabled={!future.length} onClick={redo}><Icon name="redo" /><span class="ed-label">Redo</span></button>
+          <button type="button" class="ed-btn tint" style={tint('#0d9488')} title="Duplicate selected (Ctrl+D)" disabled={!sel} onClick={() => duplicate(selObj)}><Icon name="copy" /><span class="ed-label">Copy</span></button>
+          <button type="button" class="ed-btn tint" style={tint('#dc2626')} title="Delete selected (Del)" disabled={!sel} onClick={() => sel && remove(sel)}><Icon name="trash" /><span class="ed-label">Delete</span></button>
           <span class="ed-sep" />
           <button type="button" class="ed-btn ed-sq" title="Zoom out" aria-label="Zoom out" disabled={zoom <= 0.5} onClick={() => zoomTo(Math.max(0.5, Math.round((zoom - 0.25) * 100) / 100))}>−</button>
           <button type="button" class="ed-btn" title="Reset zoom" aria-label="Reset zoom" style={{ minWidth: '58px', justifyContent: 'center' }} onClick={() => zoomTo(1)}>{Math.round(zoom * 100)}%</button>

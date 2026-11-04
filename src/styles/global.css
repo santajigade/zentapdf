@@ -593,3 +593,10 @@ fieldset.panel input[type=checkbox] { accent-color: var(--pc); width: 17px; heig
 .ed-op { display: inline-flex; align-items: center; gap: 6px; font-size: .9rem; color: var(--muted); }
 .ed-op input { width: 80px; accent-color: var(--brand); }
 .ed-stamps { display: inline-flex; gap: 4px; }
+
+/* colourful editor toolbar: each tool has its own light colour */
+.ed-btn.tint { --c: var(--brand); background: color-mix(in srgb, var(--c) 9%, var(--card)); border-color: color-mix(in srgb, var(--c) 22%, var(--card)); color: color-mix(in srgb, var(--c) 82%, var(--text)); }
+.ed-btn.tint:hover:not(:disabled) { background: color-mix(in srgb, var(--c) 18%, var(--card)); border-color: color-mix(in srgb, var(--c) 40%, var(--card)); }
+.ed-btn.tint[aria-pressed='true'] { background: var(--c); border-color: var(--c); color: #fff; box-shadow: 0 6px 14px -8px var(--c); }
+.ed-btn.tint:disabled { opacity: .45; }
+.ed-bar .ed-row:not(.ed-format) { gap: 6px; }
