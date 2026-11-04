@@ -602,3 +602,7 @@ fieldset.panel input[type=checkbox] { accent-color: var(--pc); width: 17px; heig
 .ed-bar .ed-row:not(.ed-format) { gap: 6px; }
 
 [data-obj] [contenteditable='true']::selection, [data-obj] [contenteditable='true'] *::selection { background: rgb(79 70 229 / .3); color: inherit; }
+
+.link-chips { list-style: none; padding: 0; margin: 8px 0 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+.link-chips a { display: inline-block; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--card); color: var(--text); text-decoration: none; font-size: .9rem; font-weight: 550; }
+.link-chips a:hover { border-color: var(--brand); color: var(--brand); background: var(--brand-50); }

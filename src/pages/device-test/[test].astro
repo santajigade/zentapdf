@@ -78,6 +78,10 @@ const schema = [
     </>}
     <h2>More device tests</h2>
     <div class="grid">{related.map((r) => <DTCard t={r} />)}</div>
+    <h2>All device tests</h2>
+    <ul class="link-chips">{deviceTests.filter((d) => d.live && d.slug !== t.slug).map((d) => <li><a href={`/device-test/${d.slug}/`}>{d.name}</a></li>)}</ul>
+    <h2>Popular PDF tools</h2>
+    <ul class="link-chips">{[['pdf-to-word', 'PDF to Word'], ['compress-pdf', 'Compress PDF'], ['merge-pdf', 'Merge PDF'], ['jpg-to-pdf', 'JPG to PDF'], ['edit-pdf', 'Edit PDF'], ['compress-image', 'Compress Image']].map(([s2, n]) => <li><a href={`/${s2}/`}>{n}</a></li>)}</ul>
     <p style="margin-top:18px"><a href="/device-test/">← All device tests</a></p>
   </article>
 </Base>

@@ -51,6 +51,10 @@ const { tool } = Astro.props as { tool: Tool };
 const cat = categoryById(tool.category);
 const crumbs = [{ name: 'Home', href: '/' }, { name: cat.name, href: `/${cat.slug}/` }, { name: tool.name, href: `/${tool.slug}/` }];
 const related = (tool.related ?? []).map(toolBySlug).filter(Boolean) as Tool[];
+// more internal links: every other tool in this category, and the most used tools
+const sameCat = tools.filter((t) => t.live && t.category === tool.category && t.slug !== tool.slug && !related.some((r) => r.slug === t.slug));
+const POPULAR = ['pdf-to-word', 'compress-pdf', 'merge-pdf', 'jpg-to-pdf', 'edit-pdf', 'pdf-to-excel', 'word-to-pdf', 'compress-image', 'reduce-image-size-in-kb', 'sign-pdf', 'split-pdf', 'pdf-to-jpg'];
+const popular = POPULAR.map(toolBySlug).filter((t): t is Tool => !!t && t.live && t.slug !== tool.slug && t.category !== tool.category);
 const schema = [
   breadcrumbSchema(crumbs),
   appSchema(tool.name, tool.metaDescription!, `/${tool.slug}/`),
@@ -166,5 +170,12 @@ const features = isGen ? [
     </>}
     <h2>Related tools</h2>
     <div class="grid">{related.map((t) => <ToolCard tool={t} />)}</div>
+    {sameCat.length > 0 && <>
+      <h2>More {cat.name} tools</h2>
+      <ul class="link-chips">{sameCat.map((t) => <li><a href={`/${t.slug}/`}>{t.name}</a></li>)}</ul>
+      <p><a href={`/${cat.slug}/`}>All {cat.name} tools →</a></p>
+    </>}
+    <h2>Popular tools</h2>
+    <ul class="link-chips">{popular.map((t) => <li><a href={`/${t.slug}/`}>{t.name}</a></li>)}<li><a href="/device-test/">Device tests</a></li></ul>
   </article>
 </Base>
