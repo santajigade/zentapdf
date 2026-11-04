@@ -12,21 +12,29 @@ type Obj = {
   text?: string; size?: number; font?: string; bold?: boolean; italic?: boolean; hs?: number; cs?: number;
   color: string; fill?: boolean; opacity?: number; width?: number;
   points?: [number, number][]; src?: string; kind?: 'png' | 'jpg'; link?: string; tkey?: string;
+  orig?: string; origStyle?: string; fitW?: number; fitText?: string; ffam?: string;
 };
-type TItem = { key: string; str: string; x: number; y: number; w: number; h: number; base: number; size: number; font: string; bold: boolean; italic?: boolean };
+type TItem = { key: string; str: string; x: number; y: number; w: number; h: number; base: number; size: number; font: string; bold: boolean; italic?: boolean; real?: string; fam?: string };
 type PageInfo = { w: number; h: number; rot: number };
 
 // fonts shown in the editor are the same files that get embedded, so text looks and measures the same in the PDF
-const FONTS: [string, string, string, string][] = [
-  ['sans', 'Arial', 'ZSans', 'LiberationSans'], ['serif', 'Times', 'ZSerif', 'LiberationSerif'], ['calibri', 'Calibri', 'ZCalibri', 'Carlito'],
-  ['cambria', 'Cambria', 'ZCambria', 'Caladea'], ['mono', 'Courier', 'ZMono', 'LiberationMono'],
+const FONTS: [string, string, string, string, string][] = [
+  ['sans', 'Arial', 'ZSans', 'LiberationSans', 'Standard'], ['serif', 'Times', 'ZSerif', 'LiberationSerif', 'Standard'], ['calibri', 'Calibri', 'ZCalibri', 'Carlito', 'Standard'],
+  ['cambria', 'Cambria', 'ZCambria', 'Caladea', 'Standard'], ['mono', 'Courier', 'ZMono', 'LiberationMono', 'Standard'],
+  ['roboto', 'Roboto', 'ZRoboto', 'Roboto', 'Sans serif'], ['opensans', 'Open Sans', 'ZOpenSans', 'OpenSans', 'Sans serif'], ['lato', 'Lato', 'ZLato', 'Lato', 'Sans serif'],
+  ['montserrat', 'Montserrat', 'ZMontserrat', 'Montserrat', 'Sans serif'], ['poppins', 'Poppins', 'ZPoppins', 'Poppins', 'Sans serif'], ['inter', 'Inter', 'ZInter', 'Inter', 'Sans serif'],
+  ['noto', 'Noto Sans', 'ZNoto', 'NotoSans', 'Sans serif'], ['oswald', 'Oswald', 'ZOswald', 'Oswald', 'Sans serif'],
+  ['georgia', 'Georgia', 'ZGeorgia', 'Gelasio', 'Serif'], ['merriweather', 'Merriweather', 'ZMerri', 'Merriweather', 'Serif'], ['playfair', 'Playfair Display', 'ZPlayfair', 'PlayfairDisplay', 'Serif'],
+  ['sourceserif', 'Source Serif', 'ZSourceSerif', 'SourceSerif4', 'Serif'],
+  ['dancing', 'Dancing Script', 'ZDancing', 'DancingScript', 'Handwriting'], ['caveat', 'Caveat', 'ZCaveat', 'Caveat', 'Handwriting'],
 ];
+const NO_ITALIC = new Set(['LiberationMono', 'Oswald', 'DancingScript', 'Caveat']);
 const OLD: Record<string, string> = { Helvetica: 'sans', TimesRoman: 'serif', Courier: 'mono' };
 const fkey = (f?: string) => (f && OLD[f]) || (FONTS.some((x) => x[0] === f) ? f! : 'sans');
 const css = (f?: string) => `"${FONTS.find((x) => x[0] === fkey(f))![2]}", "ZSym", sans-serif`;
 const fontFile = (f: string | undefined, bold = false, italic = false) => {
   const base = FONTS.find((x) => x[0] === fkey(f))![3];
-  const st = base === 'LiberationMono' ? (bold ? 'Bold' : 'Regular') : bold && italic ? 'BoldItalic' : bold ? 'Bold' : italic ? 'Italic' : 'Regular';
+  const st = NO_ITALIC.has(base) ? (bold ? 'Bold' : 'Regular') : bold && italic ? 'BoldItalic' : bold ? 'Bold' : italic ? 'Italic' : 'Regular';
   return `${base}-${st}.ttf`;
 };
 const SYM = 'DejaVuSans.ttf';
@@ -75,7 +83,7 @@ function mergeLine(items: TItem[]): TItem[] {
   for (const it of items) {
     const l = out[out.length - 1];
     const gap = l ? it.x - (l.x + l.w) : 0;
-    if (l && Math.abs(l.base - it.base) < Math.max(0.6, it.size * 0.08) && Math.abs(l.size - it.size) < it.size * 0.06 && l.font === it.font && l.bold === it.bold && !!l.italic === !!it.italic && gap > -it.size * 0.25 && gap < it.size * 0.9) {
+    if (l && Math.abs(l.base - it.base) < Math.max(0.6, it.size * 0.08) && Math.abs(l.size - it.size) < it.size * 0.06 && l.font === it.font && l.real === it.real && l.bold === it.bold && !!l.italic === !!it.italic && gap > -it.size * 0.25 && gap < it.size * 0.9) {
       const spaced = /^(\S )+\S$/;
       // letter-spaced words ("S T A N D A R D"): mark the word gap with two spaces so it can be found again
       const space = spaced.test(l.str.split('  ').pop()!) && spaced.test(it.str) ? '  ' : gap > it.size * 0.12 && !l.str.endsWith(' ') && !it.str.startsWith(' ') ? ' ' : '';
@@ -197,14 +205,18 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
         const nm = real.toLowerCase().replace(/^[a-z]{6}\+/, '');
         let flags = '';
         try { const fo = pg.commonObjs.get(it.fontName); flags = fo?.isMonospace ? 'mono' : fo?.isSerifFont ? 'serif' : ''; } catch {}
-        const font = /courier|consol|mono|lucida ?console|menlo|cmtt|lmmono|inconsolata/.test(nm) ? 'mono'
+        const special: [RegExp, string][] = [[/roboto(?!.*mono)/, 'roboto'], [/open ?sans/, 'opensans'], [/\blato/, 'lato'], [/montserrat/, 'montserrat'], [/poppins/, 'poppins'], [/\binter\b|inter-/, 'inter'], [/noto ?sans/, 'noto'], [/oswald/, 'oswald'],
+          [/georgia|gelasio/, 'georgia'], [/merriweather/, 'merriweather'], [/playfair/, 'playfair'], [/source ?serif/, 'sourceserif'], [/dancing/, 'dancing'], [/caveat/, 'caveat']];
+        const sp = special.find(([re]) => re.test(nm.replace(/[-_]/g, ' ')) || re.test(nm));
+        const font = sp ? sp[1] : /courier|consol|mono|lucida ?console|menlo|cmtt|lmmono|inconsolata/.test(nm) ? 'mono'
           : /calibri|carlito|candara|corbel/.test(nm) ? 'calibri'
           : /cambria|caladea/.test(nm) ? 'cambria'
           : /arial|helvetica|verdana|tahoma|segoe|roboto|opensans|open ?sans|liberation ?sans|dejavu ?sans|gill|futura|gothic|trebuchet|aptos|lato|noto ?sans|source ?sans|franklin|myriad|frutiger|univers|nirmala|mangal|cmss|lmsans|sans|inter\b|montserrat|poppins/.test(nm) ? 'sans'
           : /times|georgia|garamond|antiqua|palatino|liberation ?serif|minion|bookman|schoolbook|noto ?serif|constantia|baskerville|didot|cmr|cmbx|cmti|cmsl|cmcsc|lmroman|sfrm|sfbx|sfti|nimbus ?rom|charter|utopia|stix|xits|libertine|dejavu ?serif|serif|tex/.test(nm) ? 'serif'
           : flags === 'mono' ? 'mono' : flags === 'serif' ? 'serif' : /^serif/.test(fam) ? 'serif' : 'sans';
         const italic = /italic|oblique|cmti|cmsl|sfti|-it\b|,it\b|-ital/.test(nm);
-        items.push({ key: `${i}-${k}`, str: it.str.normalize('NFKC'), x: t[4], base: t[5], y: t[5] - size * 0.95, w, h: size * 1.25, size, font, italic, bold: /bold|black|heavy|semibold|demi|,bd|-bd\b|extrabold|cmbx|sfbx/i.test(real) });
+        let loaded = ''; try { loaded = pg.commonObjs.get(it.fontName)?.loadedName || ''; } catch {}
+        items.push({ real: real.replace(/^\/?/, ''), fam: loaded, key: `${i}-${k}`, str: it.str.normalize('NFKC'), x: t[4], base: t[5], y: t[5] - size * 0.95, w, h: size * 1.25, size, font, italic, bold: /bold|black|heavy|semibold|demi|,bd|-bd\b|extrabold|cmbx|sfbx/i.test(real) });
       });
       setTitems((cur) => { const n = cur.slice(); n[i] = mergeLine(items); return n; });
     } catch { rendered.current.delete(i); }
@@ -364,16 +376,47 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
     } catch { return 0; }
   };
   /** The page area behind a piece of text, drawn without any text: used to hide the old words on photos and coloured boxes. */
+  const renderRegion = async (page: number, r: { x: number; y: number; w: number; h: number }, noText: boolean) => {
+    const pg = await docRef.current.getPage(page + 1);
+    const k = 3, w = Math.max(1, Math.round(r.w * k)), h = Math.max(1, Math.round(r.h * k));
+    const vp = pg.getViewport({ scale: k, offsetX: -r.x * k, offsetY: -r.y * k });
+    const c = document.createElement('canvas'); c.width = w; c.height = h;
+    const ctx = c.getContext('2d', { willReadFrequently: true })! as any;
+    if (noText) { ctx.fillText = () => {}; ctx.strokeText = () => {}; }
+    await pg.render({ canvas: c, canvasContext: ctx, viewport: vp }).promise;
+    return { c, d: ctx.getImageData(0, 0, w, h).data as Uint8ClampedArray };
+  };
+  /** Left and right end of the printed words on a scanned line (the hidden OCR text is often shorter or longer). */
+  const inkSpan = (page: number, it: TItem, bgHex: string): [number, number] => {
+    const c = pageEls.current[page]?.querySelector('canvas') as HTMLCanvasElement | null;
+    if (!c || !c.width) return [it.x, it.x + it.w];
+    const k = c.width / pages[page].w, ctx = c.getContext('2d', { willReadFrequently: true })!;
+    const y0 = Math.max(0, Math.round((it.base - it.size * 0.75) * k)), y1 = Math.min(c.height - 1, Math.round((it.base + it.size * 0.2) * k));
+    const x0 = Math.max(0, Math.round((it.x - it.size * 3) * k)), x1 = Math.min(c.width - 1, Math.round((it.x + it.w + it.size * 8) * k));
+    if (x1 <= x0 || y1 <= y0) return [it.x, it.x + it.w];
+    const d = ctx.getImageData(x0, y0, x1 - x0 + 1, y1 - y0 + 1).data, W = x1 - x0 + 1, H = y1 - y0 + 1;
+    const B = [1, 3, 5].map((o) => parseInt(bgHex.slice(o, o + 2), 16));
+    const ink = (col: number) => { for (let r = 0; r < H; r++) { const q = (r * W + col) * 4; if (Math.abs(d[q] - B[0]) + Math.abs(d[q + 1] - B[1]) + Math.abs(d[q + 2] - B[2]) > 90) return true; } return false; };
+    const gap = Math.max(3, it.size * 0.9 * k);
+    const sL = Math.round((it.x * k) - x0), sR = Math.round(((it.x + it.w) * k) - x0);
+    let L = sL, R = sR;
+    for (let col = sR, blank = 0; col < W; col++) { if (ink(col)) { R = col; blank = 0; } else if (++blank > gap) break; }
+    for (let col = sL, blank = 0; col >= 0; col--) { if (ink(col)) { L = col; blank = 0; } else if (++blank > gap) break; }
+    return [(L + x0) / k, (R + 1 + x0) / k];
+  };
+  /** Text that is not drawn at all (the hidden text layer of scanned, OCR'd PDFs): hiding it changes nothing on the page. */
+  const isInvisible = async (page: number, it: TItem) => {
+    if (/glyphless|invisible/i.test(it.real ?? '')) return true;
+    try {
+      const r = { x: it.x, y: it.y, w: it.w, h: it.h };
+      const [a, b] = await Promise.all([renderRegion(page, r, false), renderRegion(page, r, true)]);
+      let diff = 0; for (let q = 0; q < a.d.length; q += 4) diff += Math.abs(a.d[q] - b.d[q]) + Math.abs(a.d[q + 1] - b.d[q + 1]) + Math.abs(a.d[q + 2] - b.d[q + 2]);
+      return diff / (a.d.length / 4) < 2;
+    } catch { return false; }
+  };
   const cleanPatch = async (page: number, r: { x: number; y: number; w: number; h: number }): Promise<string | null> => {
     try {
-      const pg = await docRef.current.getPage(page + 1);
-      const k = 3, w = Math.max(1, Math.round(r.w * k)), h = Math.max(1, Math.round(r.h * k));
-      const vp = pg.getViewport({ scale: k, offsetX: -r.x * k, offsetY: -r.y * k });
-      const c = document.createElement('canvas'); c.width = w; c.height = h;
-      const ctx = c.getContext('2d', { willReadFrequently: true })! as any;
-      ctx.fillText = () => {}; ctx.strokeText = () => {};
-      await pg.render({ canvas: c, canvasContext: ctx, viewport: vp }).promise;
-      const d = ctx.getImageData(0, 0, w, h).data;
+      const { c, d } = await renderRegion(page, r, true);
       let mn = [255, 255, 255], mx = [0, 0, 0];
       for (let q = 0; q < d.length; q += 16) for (let ch = 0; ch < 3; ch++) { mn[ch] = Math.min(mn[ch], d[q + ch]); mx[ch] = Math.max(mx[ch], d[q + ch]); }
       if (mx.every((v, ch) => v - mn[ch] < 14)) return null; // plain background: a filled box is enough
@@ -384,22 +427,33 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
     e.stopPropagation(); e.preventDefault();
     clickPt.current = { x: e.clientX, y: e.clientY };
     const { bg, fg } = sample(page, it);
-    if (!it.bold) { const r = await stemRatio(page, it, bg); (window as any).__stem = r; if (r > 0.125) it = { ...it, bold: true }; }
+    const hidden = await isInvisible(page, it);
+    if (!it.bold && !hidden) { const r = await stemRatio(page, it, bg); (window as any).__stem = r; if (r > 0.125) it = { ...it, bold: true }; }
     const wid = uid(), tid = uid();
     let white: Obj = { id: wid, page, type: 'rect', x: it.x - 1, y: it.y - it.size * 0.05, w: it.w + 2, h: it.h, fill: true, opacity: 1, color: bg, tkey: it.key };
-    const patch = await cleanPatch(page, white);
-    if (patch) white = { ...white, type: 'image', src: patch, kind: 'png', fill: undefined };
-    const text: Obj = { id: tid, page, type: 'text', x: it.x, y: it.base - 0.92 * it.size, w: 0, h: 0, text: it.str, size: Math.round(it.size * 10) / 10, font: it.font, bold: it.bold, italic: it.italic, color: fg, link: wid, tkey: it.key };
+    if (hidden) {
+      // scanned page: the words are part of the picture. Cover them with the paper colour (a little larger, OCR boxes are approximate)
+      const padY = it.size * 0.18, padX = it.size * 0.2;
+      const [l, r] = inkSpan(page, it, bg);
+      white = { ...white, x: l - padX, y: it.y - padY, w: r - l + padX * 2, h: it.h + padY * 1.2 };
+      it = { ...it, real: undefined };
+    } else {
+      const patch = await cleanPatch(page, white);
+      if (patch) white = { ...white, type: 'image', src: patch, kind: 'png', fill: undefined };
+    }
+    const text: Obj = { id: tid, page, type: 'text', x: it.x, y: it.base - 0.92 * it.size, w: 0, h: 0, text: it.str, size: Math.round(it.size * 10) / 10, font: it.font, bold: it.bold, italic: it.italic, color: fg, link: wid, tkey: it.key,
+      orig: it.real || undefined, origStyle: `${it.font}|${it.bold}|${!!it.italic}|${Math.round(it.size * 10) / 10}`, fitW: it.w, ffam: it.fam || undefined };
     // match the original width: letter-spaced text gets character spacing, other text is squeezed/stretched slightly
     const ctx = (measureCv.current ??= document.createElement('canvas')).getContext('2d')!;
     ctx.font = `${it.italic ? 'italic ' : ''}${it.bold ? 700 : 400} ${it.size}px ${css(it.font)}`;
     try { await document.fonts.load(ctx.font, it.str); } catch { /* measure with fallback */ }
     const parts = it.str.split('  ');
     if (parts.every((x) => /^(\S )+\S$/.test(x))) {
-      text.text = parts.map((x) => x.replace(/ /g, '')).join(' ');
+      text.text = parts.map((x) => x.replace(/ /g, '')).join(' '); text.fitText = text.text;
       const nat = ctx.measureText(text.text).width;
       text.cs = Math.max(0, (it.w - nat) / text.text.length);
     } else {
+      text.fitText = it.str;
       const nat = ctx.measureText(it.str).width, r = nat ? it.w / nat : 1;
       if (Math.abs(r - 1) > 0.03 && r > 0.6 && r < 1.25) text.hs = Math.round(r * 1000) / 1000;
     }
@@ -449,7 +503,10 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
           if (!text.trim()) continue;
           const lines = text.split('\n').map((t, i) => { const [x, y] = conv(o.page, o.x, o.y + (i * 1.2 + 0.92) * o.size!); return { text: t, x, y }; });
           const file = fontFile(o.font, o.bold, o.italic); need.add(file); if (needsSym(text)) need.add(SYM);
-          items.push({ type: 'text', page: o.page, lines, size: o.size, color: o.color, file, sym: SYM, rot, hs: o.hs, cs: o.cs, opacity: o.opacity ?? 1 });
+          // keep the PDF's own font while the user has not changed font, style or size
+          const same = o.orig && o.origStyle === `${o.font}|${!!o.bold}|${!!o.italic}|${o.size}` && (o.opacity ?? 1) === 1;
+          items.push({ type: 'text', page: o.page, lines, size: o.size, color: o.color, file, sym: SYM, rot, hs: o.hs, cs: o.cs, opacity: o.opacity ?? 1,
+            ...(same ? { orig: o.orig, fitW: o.fitW, fitText: o.fitText } : {}) });
         } else if (o.type === 'rect' || o.type === 'ellipse') {
           const [x1, y1] = conv(o.page, o.x, o.y), [x2, y2] = conv(o.page, o.x + o.w, o.y + o.h);
           items.push({ type: o.type, page: o.page, x: Math.min(x1, x2), y: Math.min(y1, y2), w: Math.abs(x2 - x1), h: Math.abs(y2 - y1), color: o.color, fill: o.fill, opacity: o.opacity ?? 1, width: o.width });
@@ -538,7 +595,9 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
         <div class="ed-row ed-format">
           <label class="ed-field" title="Colour"><input type="color" aria-label="Colour" value={selObj && selObj.type !== 'image' && !(selObj.type === 'rect' && selObj.fill) ? selObj.color : style.color} onInput={(e) => setStyleAndSel({ color: (e.target as HTMLInputElement).value })} /></label>
           <select class="ed-select" aria-label="Font" value={fkey(selObj?.type === 'text' ? selObj.font : style.font)} onChange={(e) => setStyleAndSel({ font: (e.target as HTMLSelectElement).value })}>
-            {FONTS.map(([v, l]) => <option value={v}>{l}</option>)}
+            {['Standard', 'Sans serif', 'Serif', 'Handwriting'].map((g) => (
+              <optgroup label={g}>{FONTS.filter((f) => f[4] === g).map(([v, l, fam]) => <option value={v} style={{ fontFamily: `"${fam}"` }}>{l}</option>)}</optgroup>
+            ))}
           </select>
           <select class="ed-select" aria-label="Text size" value={String(curSize)} onChange={(e) => setStyleAndSel({ size: +(e.target as HTMLSelectElement).value })}>
             {sizes.map((v) => <option value={String(v)}>{v} pt</option>)}
@@ -608,7 +667,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
                 })}
               </svg>
               {tool === 'edittext' && (titems[i] || []).filter((t) => !edited.has(t.key)).map((t) => (
-                <div class="ti" title="Click to edit" onPointerDown={(e) => editItem(e as any, i, t)}
+                <div class="ti" title="Click to edit" data-text={t.str} onPointerDown={(e) => editItem(e as any, i, t)}
                   style={{ position: 'absolute', left: (t.x / p.w) * 100 + '%', top: (t.y / p.h) * 100 + '%', width: (t.w / p.w) * 100 + '%', height: (t.h / p.h) * 100 + '%', cursor: 'text', zIndex: 2 }} />
               ))}
               {objs.filter((o) => o.page === i && o.type !== 'ink' && o.type !== 'line').map((o) => {

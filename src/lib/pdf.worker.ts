@@ -1,5 +1,6 @@
 /// <reference lib="webworker" />
-import { PDFDocument, degrees, rgb, StandardFonts, LineCapStyle, pushGraphicsState, popGraphicsState, setCharacterSqueeze, setCharacterSpacing } from 'pdf-lib';
+import { PDFDocument, degrees, rgb, StandardFonts, LineCapStyle, pushGraphicsState, popGraphicsState, setCharacterSqueeze, setCharacterSpacing, beginText, endText, setFontAndSize, showText, setTextMatrix, setFillingRgbColor, PDFHexString } from 'pdf-lib';
+import { originalFont, type Encoder } from './origFont';
 
 type Msg =
   | { op: 'compress'; file: ArrayBuffer; sets: import('./compressImages').Settings[] }
@@ -66,6 +67,7 @@ self.onmessage = async (ev: MessageEvent<Msg>) => {
       const files = m.fonts ?? {};
       if (Object.keys(files).length) { const fontkit = (await import('@pdf-lib/fontkit')).default; doc.registerFontkit(fontkit); }
       const ttf = new Map<string, { pdf: any; has: (cp: number) => boolean }>();
+      const origCache = new Map<string, Encoder | null>();
       const tfont = async (name: string) => {
         if (!ttf.has(name)) { const pdf = await doc.embedFont(files[name], { subset: false }); const set = new Set<number>((pdf as any).embedder.font.characterSet); ttf.set(name, { pdf, has: (cp) => set.has(cp) }); }
         return ttf.get(name)!;
@@ -83,17 +85,58 @@ self.onmessage = async (ev: MessageEvent<Msg>) => {
         const pg = pages[it.page];
         if (!pg) continue;
         if (it.type === 'text') {
+          if (it.orig && it.fitText && it.fitW) {
+            // with the original font the widths already match: work out squeeze/letter spacing again for that font
+            const k = `${it.page}|${it.orig}`;
+            if (!origCache.has(k)) { try { origCache.set(k, originalFont(doc, pg, it.orig)); } catch { origCache.set(k, null); } }
+            const enc0 = origCache.get(k);
+            if (enc0) {
+              const ch = [...it.fitText]; let wn = 0, ok = true;
+              for (const c of ch) { const e = enc0.encode(c); if (e) wn += e.w; else if (c === ' ') wn += enc0.space; else { ok = false; break; } }
+              wn *= it.size;
+              if (ok && wn > 0) {
+                if (it.cs) it.cs = Math.max(0, (it.fitW - wn) / ch.length), it.hs = undefined;
+                else { const r = it.fitW / wn; it.hs = Math.abs(r - 1) > 0.03 && r > 0.6 && r < 1.25 ? r : undefined; }
+              }
+            }
+          }
           const special = it.hs || it.cs;
           if (special) pg.pushOperators(pushGraphicsState(), setCharacterSqueeze((it.hs || 1) * 100), setCharacterSpacing(it.cs || 0));
           const opacity = it.opacity ?? 1;
           if (it.file) {
             const a = (it.rot * Math.PI) / 180;
+            // edited original text: use the PDF's own font for every character it has
+            let enc: Encoder | null = null;
+            if (it.orig) { const k = `${it.page}|${it.orig}`; if (!origCache.has(k)) { try { origCache.set(k, originalFont(doc, pg, it.orig)); } catch { origCache.set(k, null); } } enc = origCache.get(k)!; }
+            const col = hex(it.color);
             for (const ln of it.lines) {
               if (!ln.text) continue;
               let off = 0;
-              for (const r of await runs(ln.text, it.file, it.sym)) {
-                pg.drawText(r.t, { x: ln.x + off * Math.cos(a), y: ln.y + off * Math.sin(a), size: it.size, font: r.f, color: hex(it.color), rotate: degrees(it.rot), opacity });
-                off += r.f.widthOfTextAtSize(r.t, it.size) * (it.hs || 1) + (it.cs || 0) * [...r.t].length;
+              const chars = [...ln.text];
+              let i2 = 0;
+              while (i2 < chars.length) {
+                // longest run the original font can show
+                if (enc) {
+                  let hexs = '', w = 0, n = 0;
+                  while (i2 < chars.length) {
+                    const e = enc.encode(chars[i2]);
+                    if (!e) { if (chars[i2] === ' ') { if (hexs) break; off += enc.space * it.size * (it.hs || 1) + (it.cs || 0); i2++; continue; } break; }
+                    hexs += e.hex; w += e.w; n++; i2++;
+                  }
+                  if (hexs) {
+                    pg.pushOperators(pushGraphicsState(), setFillingRgbColor(col.red, col.green, col.blue), beginText(), setFontAndSize(enc.key, it.size),
+                      setTextMatrix(Math.cos(a), Math.sin(a), -Math.sin(a), Math.cos(a), ln.x + off * Math.cos(a), ln.y + off * Math.sin(a)), showText(PDFHexString.of(hexs)), endText(), popGraphicsState());
+                    off += w * it.size * (it.hs || 1) + (it.cs || 0) * n;
+                    continue;
+                  }
+                }
+                // the rest: the closest matching font file (with the symbol font for ₹, ✓ and so on)
+                let j = i2 + 1; if (enc) while (j < chars.length && !enc.encode(chars[j]) && chars[j] !== ' ') j++; else j = chars.length;
+                for (const r of await runs(chars.slice(i2, j).join(''), it.file, it.sym)) {
+                  pg.drawText(r.t, { x: ln.x + off * Math.cos(a), y: ln.y + off * Math.sin(a), size: it.size, font: r.f, color: col, rotate: degrees(it.rot), opacity });
+                  off += r.f.widthOfTextAtSize(r.t, it.size) * (it.hs || 1) + (it.cs || 0) * [...r.t].length;
+                }
+                i2 = j;
               }
             }
           } else {
