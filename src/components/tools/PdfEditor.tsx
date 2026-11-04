@@ -322,7 +322,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
   };
 
   const onObjDown = (e: PointerEvent, o: Obj, kind: 'move' | 'resize') => {
-    if (editing === o.id) return;
+    if (editing === o.id) { e.stopPropagation(); return; } // clicks and drags inside the text being edited place the caret / select words
     if (tool === 'edittext') { if (o.type === 'text') { e.stopPropagation(); e.preventDefault(); clickPt.current = { x: e.clientX, y: e.clientY }; setSel(o.id); setEditing(o.id); } return; }
     if (tool !== 'select') return;
     e.stopPropagation(); e.preventDefault();
@@ -694,7 +694,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
                         } }}
                         onInput={(e) => (textRef.current[o.id] = (e.target as HTMLElement).innerText)}
                         onBlur={(e) => { const t = (e.target as HTMLElement).innerText.replace(/\n$/, ''); textRef.current[o.id] = t; if (!t.trim()) { setObjs((cur) => cur.filter((x) => x.id !== o.id)); } else patch(o.id, { text: t }); setEditing(null); }}
-                        style={{ font: `${o.italic ? 'italic ' : ''}${o.bold ? 700 : 400} ${o.size! * s}px/1.2 ${css(o.font)}`, letterSpacing: o.cs ? o.cs * s + 'px' : undefined, transform: o.hs ? `scaleX(${o.hs})` : undefined, transformOrigin: 'left top', color: o.color, opacity: o.opacity ?? 1, whiteSpace: 'pre', minWidth: '1ch', minHeight: o.size! * 1.2 * s + 'px', outline: 'none', background: isEdit ? 'rgb(79 70 229 / .06)' : 'transparent' }}
+                        style={{ font: `${o.italic ? 'italic ' : ''}${o.bold ? 700 : 400} ${o.size! * s}px/1.2 ${css(o.font)}`, letterSpacing: o.cs ? o.cs * s + 'px' : undefined, transform: o.hs ? `scaleX(${o.hs})` : undefined, transformOrigin: 'left top', color: o.color, opacity: o.opacity ?? 1, whiteSpace: 'pre', userSelect: isEdit ? 'text' : 'none', WebkitUserSelect: isEdit ? 'text' : 'none', cursor: isEdit ? 'text' : undefined, minWidth: '1ch', minHeight: o.size! * 1.2 * s + 'px', outline: 'none', background: isEdit ? 'rgb(79 70 229 / .06)' : 'transparent' }}
                         dangerouslySetInnerHTML={{ __html: (o.text ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;') }} />
                     )}
                     {(o.type === 'rect' || o.type === 'ellipse') && <div style={{ width: '100%', height: '100%', borderRadius: o.type === 'ellipse' ? '50%' : 0, background: o.fill ? o.color : 'transparent', opacity: o.opacity, border: o.fill ? (o.color === '#ffffff' && isSel ? '1px solid #ddd' : 'none') : `${(o.width ?? 2) * s}px solid ${o.color}`, mixBlendMode: o.opacity === 0.35 ? 'multiply' : 'normal', boxSizing: 'border-box' }} />}

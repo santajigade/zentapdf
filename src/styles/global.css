@@ -600,3 +600,5 @@ fieldset.panel input[type=checkbox] { accent-color: var(--pc); width: 17px; heig
 .ed-btn.tint[aria-pressed='true'] { background: var(--c); border-color: var(--c); color: #fff; box-shadow: 0 6px 14px -8px var(--c); }
 .ed-btn.tint:disabled { opacity: .45; }
 .ed-bar .ed-row:not(.ed-format) { gap: 6px; }
+
+[data-obj] [contenteditable='true']::selection, [data-obj] [contenteditable='true'] *::selection { background: rgb(79 70 229 / .3); color: inherit; }
