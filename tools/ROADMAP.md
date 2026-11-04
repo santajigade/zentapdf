@@ -85,3 +85,6 @@ Brand: ZentaPDF · colour Indigo #4F46E5 · domain TBD (placeholder zentapdf.com
 ## SEO (2026-11-04)
 - Internal links: "More <category> tools" + "Popular tools" on every tool page, all device tests on each test page (median 15 links in, was ~3).
 - IndexNow: GitHub Action on branch site (tools/github/indexnow.yml, copied by deploy.sh) pings all sitemap URLs 2 min after each publish. Key file public/9462406b2206d2f064e7fd4a0a8cd013.txt. First run: 202 accepted.
+
+## Decision 2026-11-04
+- Device Test section stays as it is (14 tests). No new device tests or device guides. Focus only on the tools iLovePDF and Smallpdf offer, at the best quality.
