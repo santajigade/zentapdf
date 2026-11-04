@@ -272,3 +272,262 @@ const SOUND = {
   speed: { pop: [0.3, 2.2], ding: [2.0, 3.4] },
 };
 window.SCENES = SCENES; window.SOUND = SOUND;
+
+// ===== Batch 2 scenes =====
+const lockSvg = (sz, open, col = 'var(--ac)') => `<svg width="${sz}" height="${sz * 1.15}" viewBox="0 0 100 115"><path d="M28 52 V34 a22 22 0 0 1 44 0 V${52 - open * 22}" fill="none" stroke="${col}" stroke-width="11" stroke-linecap="round" transform="translate(0 ${-open * 14}) rotate(${open * -18} 72 40)"/><rect x="12" y="50" width="76" height="60" rx="14" fill="${col}"/><circle cx="50" cy="76" r="8" fill="#fff"/><rect x="46" y="78" width="8" height="16" rx="3" fill="#fff"/></svg>`;
+const field = (lbl, val, on, w = '100%') => `<div style="width:${w}"><div style="font-size:24px;font-weight:700;color:#64748b;margin-bottom:8px">${lbl}</div><div style="height:72px;border-radius:16px;border:2px solid ${on ? 'var(--ac)' : '#e2e8f0'};background:#fff;display:flex;align-items:center;padding:0 22px;font-weight:800;font-size:34px;color:var(--ink);box-shadow:${on ? '0 0 0 5px color-mix(in srgb,var(--ac) 15%,transparent)' : 'none'}">${val}</div></div>`;
+const caret = (tl, on) => (on && Math.floor(tl * 4) % 2 === 0 ? '<span style="display:inline-block;width:3px;height:38px;background:var(--ac);margin-left:4px"></span>' : '');
+const pill = (txt, a, bg = 'var(--ac)') => `<div style="display:inline-block;background:${bg};color:#fff;font-weight:800;font-size:26px;padding:10px 20px;border-radius:999px;opacity:${a};transform:scale(${0.7 + 0.3 * a})">${txt}</div>`;
+const chipSel = (items, sel, fs = 26) => items.map((x, i) => `<div style="padding:12px 22px;border-radius:14px;font-weight:800;font-size:${fs}px;white-space:nowrap;border:2px solid ${i === sel ? 'var(--ac)' : '#e2e8f0'};background:${i === sel ? 'var(--ac)' : '#fff'};color:${i === sel ? '#fff' : '#334155'}">${x}</div>`).join('');
+
+Object.assign(SCENES, {
+  split(tl, ci) {
+    const D = [
+      { name: 'Annual report.pdf', n: 12, size: '4.8 MB', g: [[1, 4], [5, 8], [9, 12]], out: ['1.6 MB', '1.5 MB', '1.7 MB'] },
+      { name: 'Exam papers.pdf', n: 9, size: '2.7 MB', g: [[1, 3], [4, 6], [7, 9]], out: ['910 KB', '880 KB', '940 KB'] },
+      { name: 'Contracts.pdf', n: 10, size: '3.2 MB', g: [[1, 2], [3, 7], [8, 10]], out: ['640 KB', '1.6 MB', '960 KB'] },
+    ][ci];
+    const GC = ['#ef4444', '#f59e0b', '#3b82f6'];
+    const grp = (p) => D.g.findIndex((r) => p >= r[0] && p <= r[1]);
+    const a = sg(tl, 0, 0.35);
+    const cols = Math.ceil(D.n / 2), gap = 18, tw = Math.min(118, (880 - (cols - 1) * gap) / cols), th = tw * 1.36;
+    const left = (912 - (cols * tw + (cols - 1) * gap)) / 2;
+    const gather = sg(tl, 1.8, 2.4);
+    let html = `<div class="file" style="opacity:${a}">${fileIcon('PDF', '#e5484d')}<div style="flex:1"><div class="fn">${D.name}</div><div class="fs">${D.n} pages · ${D.size}</div></div></div>`;
+    if (tl < 2.4) {
+      for (let p = 1; p <= D.n; p++) {
+        const r = Math.floor((p - 1) / cols), c = (p - 1) % cols, gi = grp(p);
+        const x0 = left + c * (tw + gap), y0 = 140 + r * (th + 24);
+        const tx = 40 + gi * 300 + 60, ty = 190;
+        const x = lerp(x0, tx, gather), y = lerp(y0, ty, gather);
+        const on = sg(tl, 0.5 + gi * 0.28, 0.7 + gi * 0.28);
+        html += `<div style="position:absolute;left:${x}px;top:${y}px;width:${tw}px;height:${th}px;background:#fff;border-radius:10px;opacity:${sg(tl, p * 0.02, 0.3 + p * 0.02) * (1 - gather)};box-shadow:0 0 0 ${2 + on * 2}px ${on ? GC[gi] : '#e2e8f0'},0 12px 24px -16px rgb(0 0 0 / .4);overflow:hidden">
+          <div style="height:${th * 0.12}px;background:${on ? GC[gi] : '#cbd5e1'}"></div><div style="padding:${tw * 0.1}px">${'<div style="height:6px;background:#e2e8f0;border-radius:3px;margin:7px 0"></div>'.repeat(5)}</div>
+          <div style="position:absolute;bottom:6px;left:0;right:0;text-align:center;font-weight:800;font-size:22px;color:#475569">${p}</div></div>`;
+      }
+      html += `<div style="position:absolute;left:0;right:0;top:${140 + 2 * (th + 24) + 2}px;display:flex;gap:14px;justify-content:center;opacity:${1 - sg(tl, 1.6, 1.9)}">${D.g.map((r, i) => pill(`Pages ${r[0]} to ${r[1]}`, sg(tl, 0.5 + i * 0.28, 0.7 + i * 0.28), GC[i])).join('')}</div>`;
+      html += `<div style="position:absolute;left:0;right:0;top:572px;text-align:center;opacity:${1 - gather}">${btn('Split PDF', tl > 1.45 && tl < 1.75)}</div>`;
+    }
+    if (tl >= 2.0) {
+      const b = sg(tl, 2.0, 2.5);
+      D.g.forEach((r, i) => {
+        html += `<div style="position:absolute;left:${16 + i * 300}px;top:180px;width:280px;opacity:${b};transform:translateY(${(1 - b) * 40}px) scale(${0.8 + 0.2 * b})">
+          <div style="height:250px;border-radius:18px;background:#fff;box-shadow:0 0 0 3px ${GC[i]},0 20px 40px -22px rgb(0 0 0 / .45);position:relative;overflow:hidden">
+            <div style="height:56px;background:${GC[i]}"></div><div style="padding:16px 22px">${'<div style="height:10px;background:#e2e8f0;border-radius:5px;margin:12px 0"></div>'.repeat(5)}</div>
+            <div class="bdg" style="right:12px;bottom:12px;background:#e5484d">PDF</div><div class="bdg" style="left:12px;top:10px;background:rgb(0 0 0 / .22)">${r[1] - r[0] + 1} pages</div></div>
+          <div style="text-align:center;margin-top:14px;font-weight:800;font-size:28px;color:var(--ink)">Pages ${r[0]} to ${r[1]}</div>
+          <div style="text-align:center;font-size:24px;color:#64748b;font-weight:600">${D.out[i]}</div></div>`;
+      });
+      html += `<div style="position:absolute;left:0;right:0;top:560px;text-align:center;opacity:${sg(tl, 2.5, 2.8)}">${btn(dlIcon(tl) + 'Download all (ZIP)', false)}</div>`;
+    }
+    return html;
+  },
+
+  pdf2jpg(tl, ci) {
+    const D = [
+      { name: 'Annual report', dpi: 1, px: '1240 × 1754', s: ['437 KB', '345 KB', '437 KB'], n: 12 },
+      { name: 'Brochure', dpi: 2, px: '2480 × 3508', s: ['1.2 MB', '980 KB', '1.1 MB'], n: 8 },
+      { name: 'Certificate', dpi: 0, px: '827 × 1170', s: ['198 KB', '176 KB', '204 KB'], n: 3 },
+    ][ci];
+    const a = sg(tl, 0, 0.35);
+    const fan = sg(tl, 1.0, 1.8);
+    let html = `<div style="display:flex;gap:12px;justify-content:center;opacity:${a}">${chipSel(['Normal (100 DPI)', 'High (150 DPI)', 'Very high (300 DPI)'], D.dpi, 25)}</div>`;
+    const W = 270, H = 382;
+    const page = (i, pv) => `<div style="position:absolute;inset:0">${docPage(W, H, i === 0 ? D.name : 'Page ' + (i + 1), { hc: ['#b91c1c', '#0369a1', '#15803d'][ci] })}</div>${pv ? `<div style="position:absolute;left:${W * 0.08}px;right:${W * 0.08}px;bottom:${H * 0.08}px;height:${H * 0.22}px;border-radius:6px;overflow:hidden">${photo(ci + i, W * 0.84, H * 0.22)}</div>` : ''}`;
+    for (let i = 2; i >= 0; i--) {
+      const x = lerp(321 + i * 10, 18 + i * 300, fan), y = lerp(100 + i * 10, 96, fan);
+      const jpg = tl >= 1.0 + i * 0.25;
+      html += `<div class="doc" style="left:${x}px;top:${y}px;width:${W}px;height:${H}px;opacity:${a};transform:rotate(${(1 - fan) * (i - 1) * 4}deg)">${page(i, true)}
+        <div class="bdg" style="right:10px;bottom:10px;background:${jpg ? 'var(--ac)' : '#e5484d'}">${jpg ? 'JPG' : 'PDF'}</div></div>`;
+      if (fan > 0.5) html += `<div style="position:absolute;left:${18 + i * 300}px;top:${96 + H + 12}px;width:${W}px;text-align:center;opacity:${sg(tl, 1.5 + i * 0.15, 1.8 + i * 0.15)}"><div style="font-weight:800;font-size:27px;color:var(--ink)">Page ${i + 1} · ${D.s[i]}</div><div style="font-size:22px;color:#64748b;font-weight:600">${D.px} px</div></div>`;
+    }
+    if (tl < 1.0) html += spinner(tl, 'Reading ' + D.n + ' pages…', Math.min(sg(tl, 0.35, 0.5), 1 - sg(tl, 0.85, 1.0)));
+    html += `<div style="position:absolute;left:0;right:0;top:580px;text-align:center">${tl < 2.2 ? btn('Convert to images', tl > 0.3 && tl < 0.6) : btn(dlIcon(tl) + `Download all ${D.n} (ZIP)`, false)}</div>`;
+    return html;
+  },
+
+  word2pdf(tl, ci) {
+    const name = ['Offer letter', 'Invoice', 'Resume'][ci];
+    const rows = [[['Basic pay', '45,000'], ['HRA', '18,000'], ['Allowance', '6,500']], [['Flow meter', '12,500'], ['Level switch', '9,400'], ['Installation', '4,000']], [['Python', '5 years'], ['Excel', '7 years'], ['Power BI', '3 years']]][ci];
+    const cols = [['Salary', 'Monthly (₹)'], ['Item', 'Price (₹)'], ['Skill', 'Experience']][ci];
+    const info = ['2 pages · 148 KB', '1 page · 96 KB', '2 pages · 212 KB'][ci];
+    const pdf = tl >= 1.75;
+    const flip = tl < 1.5 ? 1 : tl < 1.75 ? 1 - sg(tl, 1.5, 1.75) : sg(tl, 1.75, 2.0);
+    const slide = (1 - sg(tl, 0, 0.5)) * 500;
+    const W = 560, H = 630;
+    let html = `<div class="doc" style="left:${40 + slide}px;top:0;width:${W}px;height:${H}px;transform:scaleX(${Math.max(0.001, flip)})">
+      ${!pdf ? `<div style="height:44px;background:#2b579a;display:flex;gap:10px;align-items:center;padding:0 16px">${'<div style="width:60px;height:12px;border-radius:6px;background:rgb(255 255 255 / .5)"></div>'.repeat(4)}</div>` : ''}
+      ${docPage(W, H - (pdf ? 0 : 44), name, { rows, cols, hc: '#1f4e79' })}
+      <div class="bdg" style="right:14px;bottom:14px;background:${pdf ? '#e5484d' : '#2b579a'}">${pdf ? 'PDF' : 'W .docx'}</div></div>`;
+    ['Fonts', 'Tables', 'Colours', 'Layout'].forEach((c, i) => {
+      const k = sg(tl, 2.1 + i * 0.2, 2.3 + i * 0.2);
+      html += `<div style="position:absolute;left:640px;top:${70 + i * 110}px;width:250px;opacity:${k};transform:translateX(${(1 - k) * 40}px);background:#fff;border:2px solid #bbf7d0;border-radius:16px;padding:16px 18px;font-weight:800;font-size:30px;color:#166534;box-shadow:0 12px 24px -16px rgb(0 0 0 / .3)">✓ ${c}</div>`;
+    });
+    if (tl < 1.75) html += `<div style="position:absolute;left:640px;top:200px;width:250px;text-align:center;opacity:${1 - sg(tl, 0.5, 0.7)}">${btn('Convert', tl > 0.3 && tl < 0.6)}</div>`;
+    if (tl >= 0.6 && tl < 1.75) html += spinner(tl, 'Converting to PDF…', Math.min(sg(tl, 0.6, 0.8), 1 - sg(tl, 1.55, 1.75)));
+    if (tl >= 3.1) html += toast(`✓ ${name}.pdf · ${info}`, sg(tl, 3.1, 3.4));
+    return html;
+  },
+
+  protect(tl, ci) {
+    const D = [['Salary slip.pdf', '2 pages · 186 KB', 10], ['Bank statement.pdf', '6 pages · 1.1 MB', 12], ['Medical report.pdf', '4 pages · 740 KB', 9]][ci];
+    const a = sg(tl, 0, 0.35);
+    const n1 = Math.max(0, Math.min(D[2], Math.floor((tl - 0.4) / 0.07))), n2 = Math.max(0, Math.min(D[2], Math.floor((tl - 1.2) / 0.05)));
+    const dots = (n) => '●'.repeat(n);
+    const str = n1 / D[2];
+    const done = tl >= 2.3;
+    let html = `<div class="file" style="opacity:${a}">${fileIcon('PDF', '#e5484d')}<div style="flex:1"><div class="fn">${D[0]}</div><div class="fs">${D[1]}</div></div>${done ? `<div style="transform:scale(${sg(tl, 2.3, 2.55)})">${lockSvg(56, 0)}</div>` : ''}</div>`;
+    if (!done) {
+      const fa = 1 - sg(tl, 2.0, 2.3);
+      html += `<div style="opacity:${fa * a}"><div style="margin-top:26px">${field('Password', `<span style="letter-spacing:.12em">${dots(n1)}</span>` + caret(tl, tl < 1.2), tl < 1.2)}</div>
+        <div style="display:flex;align-items:center;gap:16px;margin-top:12px"><div style="flex:1;height:12px;border-radius:6px;background:#e2e8f0;overflow:hidden"><div style="height:100%;width:${str * 100}%;background:${str < 0.5 ? '#f59e0b' : '#16a34a'}"></div></div><div style="font-weight:800;font-size:24px;color:${str < 0.5 ? '#b45309' : '#16a34a'};width:110px">${n1 ? (str < 0.5 ? 'Weak' : 'Strong') : ''}</div></div>
+        <div style="margin-top:14px">${field('Repeat password', `<span style="letter-spacing:.12em">${dots(n2)}</span>` + caret(tl, tl >= 1.2 && tl < 1.85), tl >= 1.2 && tl < 1.85)}</div>
+        <div style="display:flex;gap:26px;margin-top:22px;font-size:25px;font-weight:700;color:#334155">${[['Allow printing', 1], ['Allow copying text', 0], ['Allow editing', 0]].map(([l, c]) => `<span style="display:flex;align-items:center;gap:8px"><span style="width:28px;height:28px;border-radius:7px;display:grid;place-items:center;font-size:20px;color:#fff;background:${c ? 'var(--ac)' : '#fff'};border:2px solid ${c ? 'var(--ac)' : '#cbd5e1'}">${c ? '✓' : ''}</span>${l}</span>`).join('')}</div>
+        <div style="text-align:center;margin-top:26px">${btn('Protect PDF', tl > 1.9 && tl < 2.2)}</div></div>`;
+    } else {
+      const k = sg(tl, 2.3, 2.7);
+      html += `<div style="text-align:center;margin-top:30px;opacity:${k};transform:scale(${0.85 + 0.15 * k})">${lockSvg(150, 0)}
+        <div style="font-weight:900;font-size:46px;color:var(--ink);margin-top:14px">Password protected</div>
+        <div style="display:inline-block;margin-top:14px;background:#dcfce7;color:#166534;font-weight:800;font-size:28px;padding:10px 22px;border-radius:12px">Encrypted with AES-256</div>
+        <div style="margin-top:30px">${btn(dlIcon(tl) + 'Download PDF', false)}</div></div>`;
+    }
+    return html;
+  },
+
+  unlock(tl, ci) {
+    const D = [['Bank statement.pdf', 'Statement', 8], ['Salary slip.pdf', 'Salary slip', 10], ['Tax return.pdf', 'Tax return', 8]][ci];
+    const a = sg(tl, 0, 0.35);
+    const n = Math.max(0, Math.min(D[2], Math.floor((tl - 0.4) / 0.08)));
+    const open = sg(tl, 1.9, 2.25), clear = sg(tl, 2.1, 2.6), gone = sg(tl, 2.4, 2.8);
+    const W = 420, H = 580;
+    let html = `<div class="doc" style="left:0;top:20px;width:${W}px;height:${H}px;opacity:${a}"><div style="filter:blur(${(1 - clear) * 9}px)">${docPage(W, H, D[1], { hc: '#7c2d12', rows: [['Opening', '42,150'], ['Credits', '68,400'], ['Debits', '51,275']], cols: ['Summary', 'Amount (₹)'] })}</div>
+      <div style="position:absolute;left:50%;top:44%;transform:translate(-50%,-50%) scale(${1 + gone * 0.3});opacity:${1 - gone}">${lockSvg(130, open, open > 0.5 ? '#16a34a' : 'var(--ac)')}</div>
+      <div class="bdg" style="right:12px;bottom:12px;background:#e5484d">PDF</div></div>`;
+    html += `<div style="position:absolute;left:460px;top:20px;width:452px;opacity:${a}">
+      <div style="font-weight:800;font-size:30px;color:var(--ink)">${D[0]}</div><div style="font-size:24px;color:#64748b;margin-top:4px">${clear < 1 ? '🔒 Password needed' : '🔓 No password'}</div>
+      <div style="margin-top:36px">${field('Password', `<span style="letter-spacing:.12em">${'●'.repeat(n)}</span>` + caret(tl, tl < 1.5), tl < 1.5)}</div>
+      <div style="margin-top:36px">${tl < 2.6 ? btn('Unlock PDF', tl > 1.55 && tl < 1.85, 'width:100%;justify-content:center') : btn(dlIcon(tl) + 'Download PDF', false, 'width:100%;justify-content:center')}</div>
+      <div style="margin-top:40px;opacity:${sg(tl, 2.6, 2.9)}">${['Password removed', 'Print and copy allowed', 'Opens on any device'].map((t) => `<div style="font-weight:800;font-size:28px;color:#166534;margin:12px 0">✓ ${t}</div>`).join('')}</div></div>`;
+    return html;
+  },
+
+  watermark(tl, ci) {
+    const D = [['CONFIDENTIAL', '#dc2626', 'Proposal', 8], ['DRAFT', '#64748b', 'Contract', 5], ['SAMPLE', '#2563eb', 'Price list', 3]][ci];
+    const word = D[0];
+    const n = Math.max(0, Math.min(word.length, Math.floor((tl - 0.3) / 0.09)));
+    const txt = word.slice(0, n);
+    const W = 450, H = 620;
+    const fs = Math.min(120, (W * 1.05) / (word.length * 0.68));
+    const op = lerp(0.6, 0.3, sg(tl, 1.6, 2.0));
+    let html = `<div class="doc" style="left:0;top:0;width:${W}px;height:${H}px">${docPage(W, H, D[2], { hc: '#334155' })}
+      <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-45deg);color:${D[1]};opacity:${op};font-weight:900;font-size:${fs}px;letter-spacing:.04em;white-space:nowrap;font-family:Inter,sans-serif">${txt}</div></div>`;
+    const sw = ['#dc2626', '#64748b', '#2563eb', '#16a34a'];
+    html += `<div style="position:absolute;left:484px;top:0;width:428px">
+      ${field('Text', `<span style="font-size:${word.length > 8 ? 28 : 34}px">${txt}</span>` + caret(tl, tl < 1.5), tl < 1.5)}
+      <div style="font-size:24px;font-weight:700;color:#64748b;margin:24px 0 10px">Angle</div><div style="display:flex;gap:10px">${chipSel(['Diagonal 45°', 'Horizontal'], 0, 24)}</div>
+      <div style="font-size:24px;font-weight:700;color:#64748b;margin:24px 0 10px">Opacity: ${Math.round(op * 100)}%</div>
+      <div style="height:12px;border-radius:6px;background:#e2e8f0;position:relative"><div style="height:100%;width:${op * 100}%;background:var(--ac);border-radius:6px"></div><div style="position:absolute;left:calc(${op * 100}% - 16px);top:-10px;width:32px;height:32px;border-radius:50%;background:#fff;border:4px solid var(--ac)"></div></div>
+      <div style="font-size:24px;font-weight:700;color:#64748b;margin:28px 0 10px">Colour</div><div style="display:flex;gap:14px">${sw.map((c) => `<div style="width:52px;height:52px;border-radius:14px;background:${c};box-shadow:${c === D[1] ? '0 0 0 4px #fff,0 0 0 7px ' + c : 'none'}"></div>`).join('')}</div>
+      <div style="margin-top:34px">${tl < 2.4 ? btn('Add watermark', tl > 2.0 && tl < 2.3, 'width:100%;justify-content:center') : btn(dlIcon(tl) + 'Download PDF', false, 'width:100%;justify-content:center')}</div></div>`;
+    if (tl >= 2.5) html += toast(`✓ Watermark added to ${D[3]} pages`, sg(tl, 2.5, 2.8));
+    return html;
+  },
+
+  resize(tl, ci) {
+    const D = [[4032, 3024, 1080, 810, '3.41 MB', '152 KB', 'IMG_2041.jpg'], [6000, 4000, 1920, 1280, '6.74 MB', '455 KB', 'DSC_0193.jpg'], [3000, 4000, 600, 800, '3.27 MB', '107 KB', 'Portrait.jpg']][ci];
+    const tw = String(D[2]);
+    const n = Math.max(0, Math.min(tw.length, Math.floor((tl - 0.4) / 0.13) + (tl >= 0.4 ? 1 : 0)));
+    const hOn = n >= tw.length;
+    const k = sg(tl, 1.7, 2.4);
+    const land = D[0] > D[1];
+    const bw = land ? 520 : 270, bh = land ? bw * D[1] / D[0] : 360;
+    const s = lerp(1, Math.max(0.45, D[2] / D[0] * 1.6), k);
+    const curW = Math.round(lerp(D[0], D[2], k)), curH = Math.round(lerp(D[1], D[3], k));
+    let html = `<div style="position:absolute;left:${456 - bw / 2}px;top:${(360 - bh) / 2}px;width:${bw}px;height:${bh}px;border-radius:12px;border:3px dashed ${k > 0 ? 'color-mix(in srgb,var(--ac) 40%,#fff)' : 'transparent'}"></div>
+      <div style="position:absolute;left:${456 - bw / 2}px;top:${(360 - bh) / 2}px;width:${bw}px;height:${bh}px;border-radius:12px;overflow:hidden;transform:scale(${s});box-shadow:0 24px 50px -24px rgb(0 0 0 / .5)">${photo(ci + 2, bw, bh)}</div>
+      <div style="position:absolute;left:0;right:0;top:${(360 - bh) / 2 + bh / 2 - 34}px;text-align:center"><span class="num" style="background:rgb(0 0 0 / .66);color:#fff;font-weight:800;font-size:40px;padding:10px 22px;border-radius:14px">${curW} × ${curH}</span></div>`;
+    if (tl >= 2.4) html += `<div style="position:absolute;left:0;right:0;top:${(360 - bh) / 2 + bh / 2 + 34}px;text-align:center;transform:scale(${0.7 + 0.3 * sg(tl, 2.4, 2.6)})"><span style="background:#16a34a;color:#fff;font-weight:800;font-size:30px;padding:8px 18px;border-radius:12px">${D[4]} → ${D[5]}</span></div>`;
+    html += `<div style="position:absolute;left:0;right:0;top:384px;display:flex;align-items:flex-end;gap:16px">
+        ${field('Width (px)', (tl < 0.4 ? D[0] : tw.slice(0, n)) + caret(tl, tl >= 0.3 && tl < 1.0), tl >= 0.3 && tl < 1.0, '40%')}
+        <div style="height:72px;display:grid;place-items:center;font-size:36px;width:60px">🔗</div>
+        ${field('Height (px)', `<span style="color:${hOn ? 'var(--ac)' : 'var(--ink)'}">${hOn ? D[3] : D[1]}</span>`, false, '40%')}</div>
+      <div style="position:absolute;left:0;right:0;top:500px;display:flex;justify-content:space-between;align-items:center"><div style="display:flex;gap:10px">${chipSel(['By pixels', 'By percent'], 0, 24)}</div>
+        <span style="display:flex;align-items:center;gap:10px;font-size:26px;font-weight:700;color:#334155"><span style="width:30px;height:30px;border-radius:8px;background:var(--ac);color:#fff;display:grid;place-items:center;font-size:20px">✓</span>Keep proportions</span></div>
+      <div style="position:absolute;left:0;right:0;top:575px;text-align:center">${tl < 2.4 ? btn('Resize', tl > 1.3 && tl < 1.6) : btn(dlIcon(tl) + 'Download JPG', false)}</div>`;
+    return html;
+  },
+
+  vid2gif(tl, ci) {
+    const D = [{ f: 'Holiday clip.mp4', len: 10, s: 2, e: 6, fps: 10, w: 480, h: 270, mb: '3.22 MB' }, { f: 'Product demo.mp4', len: 8, s: 0, e: 3, fps: 15, w: 320, h: 180, mb: '1.61 MB' }, { f: 'Funny moment.mp4', len: 12, s: 5, e: 8, fps: 12, w: 640, h: 360, mb: '5.15 MB' }][ci];
+    const frames = Math.round((D.e - D.s) * D.fps);
+    const VW = 600, VH = 338;
+    const done = tl >= 2.3;
+    const play = tl < 0.9 ? D.s + (tl / 0.9) * (D.e - D.s) * 0.6 : D.s + (D.e - D.s) * 0.6;
+    const drift = done ? Math.sin((tl - 2.3) * 4) * 20 : 0;
+    let html = `<div style="position:absolute;left:${(912 - VW) / 2}px;top:0;width:${VW}px;height:${VH}px;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 24px 50px -24px rgb(0 0 0 / .5)">
+      <div style="transform:scale(1.12) translateX(${drift}px)">${photo(ci + 3, VW, VH)}</div>
+      ${!done ? `<div style="position:absolute;left:16px;top:14px;background:rgb(0 0 0 / .6);color:#fff;font-weight:700;font-size:24px;padding:6px 14px;border-radius:10px">${D.f}</div>` : `<div class="bdg" style="left:16px;top:14px;background:var(--ac);font-size:28px">GIF</div><div style="position:absolute;right:16px;top:14px;background:rgb(0 0 0 / .6);color:#fff;font-weight:800;font-size:24px;padding:6px 14px;border-radius:10px">${D.w} × ${D.h}</div>`}
+      ${tl >= 1.0 && tl < 2.3 ? `<div style="position:absolute;inset:0;background:rgb(255 255 255 / .55);display:grid;place-items:center"><div style="font-weight:900;font-size:40px;color:var(--ink)">Creating GIF… ${Math.round(sg(tl, 1.0, 2.2) * frames)} / ${frames}</div></div>` : ''}</div>`;
+    const TW = 860, x0 = 26;
+    const px = (t) => x0 + (t / D.len) * TW;
+    html += `<div style="position:absolute;left:${x0}px;top:368px;width:${TW}px;height:56px;border-radius:12px;background:#e2e8f0;overflow:hidden;display:flex">${Array.from({ length: 12 }, (_, i) => `<div style="flex:1;opacity:.35;border-right:2px solid #fff">${photo(ci + 3 + (i % 3), 72, 56)}</div>`).join('')}</div>
+      <div style="position:absolute;left:${px(D.s)}px;top:362px;width:${px(D.e) - px(D.s)}px;height:68px;border:5px solid var(--ac);border-radius:12px;background:color-mix(in srgb,var(--ac) 18%,transparent)"></div>
+      ${!done ? `<div style="position:absolute;left:${px(play)}px;top:354px;width:4px;height:84px;background:var(--ink);border-radius:2px"></div>` : ''}
+      <div style="position:absolute;left:0;right:0;top:452px;display:flex;gap:12px;justify-content:center">${[`Start ${D.s.toFixed(1)} s`, `End ${D.e.toFixed(1)} s`, `${D.fps} fps`, `${D.w} px`].map((t) => `<div style="padding:12px 20px;border-radius:14px;border:2px solid #e2e8f0;background:#fff;font-weight:800;font-size:27px;color:var(--ink)">${t}</div>`).join('')}</div>
+      <div style="position:absolute;left:0;right:0;top:560px;text-align:center">${!done ? btn('Make GIF', tl > 0.7 && tl < 1.0) : btn(dlIcon(tl) + `Download GIF · ${D.mb}`, false)}</div>`;
+    if (done && tl < 3.0) html += `<div style="position:absolute;left:0;right:0;top:300px;text-align:center;opacity:${Math.min(sg(tl, 2.3, 2.5), 1 - sg(tl, 2.8, 3.0))}">${pill(`✓ ${frames} frames · ${D.mb}`, 1, '#16a34a')}</div>`;
+    return html;
+  },
+
+  mic(tl, ci) {
+    const D = [['Laptop microphone', '48.0 kHz', -18, -6], ['USB headset', '44.1 kHz', -22, -9], ['Bluetooth earbuds', '16.0 kHz', -26, -12]][ci];
+    const env = (t) => (t < 0.4 ? 0.04 : Math.max(0.05, Math.abs(Math.sin(t * 5.3)) * (0.55 + 0.45 * Math.sin(t * 13.1 + ci))));
+    const lvl = env(tl);
+    const heard = tl >= 0.9;
+    let wave = '';
+    for (let i = 0; i < 120; i++) { const t = tl - (119 - i) * 0.012; const e = env(t); const v = e * Math.sin(i * 1.9 + tl * 40) * 70 * (0.6 + 0.4 * Math.sin(i * 0.37)); wave += `${i ? 'L' : 'M'}${i * 7.6} ${80 - v}`; }
+    let bars = '';
+    for (let i = 0; i < 24; i++) { const h = Math.max(6, lvl * 130 * (0.4 + 0.6 * Math.abs(Math.sin(i * 0.9 + tl * 9)))); bars += `<rect x="${i * 37.5 + 4}" y="${150 - h}" width="28" height="${h}" rx="6" fill="var(--ac)" opacity="${0.45 + 0.55 * (i % 3 === 0)}"/>`; }
+    const tileS = (l, v, s) => `<div style="flex:1;background:#f8fafc;border:2px solid #e2e8f0;border-radius:18px;padding:16px;text-align:center"><div style="font-size:23px;color:#64748b;font-weight:700">${l}</div><div style="font-size:${v.length > 12 ? 27 : 40}px;font-weight:900;color:var(--ink);margin-top:4px;white-space:nowrap">${v}</div><div style="font-size:21px;color:#64748b">${s}</div></div>`;
+    const db = Math.round(D[2] + (lvl - 0.5) * 8);
+    return `<div style="height:44px;border-radius:999px;background:#f1f5f9;overflow:hidden;position:relative"><div style="height:100%;width:${lvl * 92}%;background:linear-gradient(90deg,#22c55e,#84cc16 70%,#f59e0b)"></div></div>
+      <svg width="912" height="160" style="display:block;margin-top:18px"><path d="${wave}" fill="none" stroke="var(--ac)" stroke-width="4" stroke-linejoin="round"/></svg>
+      <svg width="912" height="150" style="display:block">${bars}</svg>
+      <div style="margin-top:14px;text-align:center;font-weight:900;font-size:36px;color:${heard ? '#16a34a' : '#64748b'};transform:scale(${heard ? 0.9 + 0.1 * sg(tl, 0.9, 1.1) : 1})">${heard ? '✓ Your microphone is working' : 'Say something… waiting for sound'}</div>
+      <div style="display:flex;gap:16px;margin-top:22px">${tileS('Input level', tl < 0.4 ? '…' : db + ' dB', 'peak ' + D[3] + ' dB')}${tileS('Microphone', D[0], 'default device')}${tileS('Sample rate', D[1], 'mono')}</div>`;
+  },
+
+  webcam(tl, ci) {
+    const D = [['Laptop webcam', 1280, 720, 30, ['#e0e7ff', '#fde68a', '#334155']], ['USB webcam', 1920, 1080, 30, ['#dcfce7', '#fecaca', '#7c2d12']], ['Full HD camera', 1920, 1080, 60, ['#fce7f3', '#bae6fd', '#1e293b']]][ci];
+    const VW = 832, VH = 468, C = D[4];
+    const bob = Math.sin(tl * 3) * 6;
+    const flash = tl >= 2.0 && tl < 2.4 ? 1 - sg(tl, 2.0, 2.4) : 0;
+    const a = sg(tl, 0, 0.4);
+    let html = `<div style="position:absolute;left:40px;top:0;width:${VW}px;height:${VH}px;border-radius:22px;overflow:hidden;opacity:${a};box-shadow:0 24px 50px -24px rgb(0 0 0 / .5)">
+      <svg width="${VW}" height="${VH}" viewBox="0 0 832 468"><rect width="832" height="468" fill="${C[0]}"/><rect x="520" y="50" width="240" height="190" rx="10" fill="${C[1]}" stroke="#fff" stroke-width="10"/><line x1="640" y1="50" x2="640" y2="240" stroke="#fff" stroke-width="8"/>
+        <rect x="60" y="250" width="120" height="218" fill="#fff" opacity=".5"/><circle cx="120" cy="230" r="44" fill="#4ade80" opacity=".8"/>
+        <g transform="translate(0 ${bob})"><path d="M236 468 C 250 360, 330 330, 416 330 S 582 360, 596 468 Z" fill="${C[2]}"/><circle cx="416" cy="250" r="86" fill="#f1c7a3"/><path d="M330 240 C 330 160, 500 150, 504 236 C 480 200, 380 196, 330 240Z" fill="#3f2a1d"/>
+        <circle cx="386" cy="258" r="8" fill="#1f2937"/><circle cx="446" cy="258" r="8" fill="#1f2937"/><path d="M392 292 Q416 ${306 + Math.sin(tl * 2) * 4} 440 292" stroke="#9a3412" stroke-width="5" fill="none" stroke-linecap="round"/></g></svg>
+      <div style="position:absolute;left:18px;top:16px;background:rgb(0 0 0 / .6);color:#fff;font-weight:800;font-size:24px;padding:6px 14px;border-radius:10px"><span style="color:#ef4444;opacity:${Math.floor(tl * 2) % 2 ? 1 : 0.35}">●</span> LIVE</div>
+      <div style="position:absolute;right:18px;top:16px;background:rgb(0 0 0 / .6);color:#fff;font-weight:800;font-size:24px;padding:6px 14px;border-radius:10px">${D[1]} × ${D[2]} · ${D[3]} fps</div>
+      <div style="position:absolute;inset:0;background:#fff;opacity:${flash}"></div></div>`;
+    const tileS = (l, v) => `<div style="flex:1;background:#f8fafc;border:2px solid #e2e8f0;border-radius:18px;padding:14px;text-align:center"><div style="font-size:23px;color:#64748b;font-weight:700">${l}</div><div style="font-size:${v.length > 11 ? 28 : 36}px;font-weight:900;color:var(--ink);margin-top:4px;white-space:nowrap">${v}</div></div>`;
+    html += `<div style="position:absolute;left:0;right:0;top:490px;display:flex;gap:14px;opacity:${sg(tl, 0.5, 0.9)}">${tileS('Camera', D[0])}${tileS('Resolution', D[1] + ' × ' + D[2])}${tileS('Frame rate', D[3] + ' fps')}</div>`;
+    html += `<div style="position:absolute;left:0;right:0;top:590px;text-align:center">${btn(tl >= 2.4 ? dlIcon(tl) + 'Download photo' : '📷 Take photo', tl > 1.75 && tl < 2.0)}</div>`;
+    if (tl >= 2.4) { const k = sg(tl, 2.4, 2.8); html += `<div style="position:absolute;left:${lerp(40, 690, k)}px;top:${lerp(0, 330, k)}px;width:${lerp(VW, 180, k)}px;height:${lerp(VH, 101, k)}px;border-radius:12px;border:5px solid #fff;box-shadow:0 16px 30px -12px rgb(0 0 0 / .5);background:${C[0]};opacity:${1 - sg(tl, 3.6, 4.0)}"></div>`; }
+    if (tl >= 2.9) html += `<div style="position:absolute;left:0;right:0;top:396px;text-align:center">${pill(`✓ Photo saved · ${D[1]} × ${D[2]}`, sg(tl, 2.9, 3.2), '#16a34a')}</div>`;
+    return html;
+  },
+});
+Object.assign(SOUND, {
+  split: { pop: [0.5, 0.78, 1.06, 1.5], ding: [2.5] },
+  pdf2jpg: { pop: [0.35, 1.0, 1.25, 1.5], ding: [2.2] },
+  word2pdf: { pop: [0.35, 1.75, 2.1, 2.3, 2.5, 2.7], ding: [3.1] },
+  protect: { pop: [1.95], tick: Array.from({ length: 10 }, (_, i) => 0.4 + i * 0.07).concat(Array.from({ length: 10 }, (_, i) => 1.2 + i * 0.05)), ding: [2.35] },
+  unlock: { pop: [1.6, 1.9], tick: Array.from({ length: 9 }, (_, i) => 0.4 + i * 0.08), ding: [2.4] },
+  watermark: { pop: [2.05], tick: Array.from({ length: 8 }, (_, i) => 0.3 + i * 0.12), ding: [2.5] },
+  resize: { pop: [1.4], tick: [0.4, 0.53, 0.66, 0.79], ding: [2.4] },
+  vid2gif: { pop: [0.75], tick: [1.2, 1.5, 1.8, 2.1], ding: [2.3] },
+  mic: { pop: [0.4], ding: [0.9] },
+  webcam: { pop: [0.5, 1.85], ding: [2.9] },
+});

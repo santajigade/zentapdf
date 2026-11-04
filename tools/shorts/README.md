@@ -34,3 +34,9 @@ Then check frames of every MP4, zip `out/`, and give a table of title + descript
 PDF to Word (blue), PDF to Excel (emerald), Compress PDF (rose), Merge PDF (violet), JPG to PDF (orange),
 Compress image to 100 KB (teal), HEIC to JPG (pink), Sign PDF (indigo), Keyboard test (amber), Internet speed test (cyan).
 Full settings in `videos-batch1.js`.
+
+## Batch 2 (done, 4 Nov 2026)
+Split PDF (red), PDF to JPG (lime), Word to PDF (sky), Protect PDF (slate), Unlock PDF (gold),
+Add watermark (purple), Resize image (green), Video to GIF (fuchsia), Mic test (mocha), Webcam test (coral).
+New scenes in `scenes.js` (split, pdf2jpg, word2pdf, protect, unlock, watermark, resize, vid2gif, mic, webcam). Full settings in `videos-batch2.js`.
+Demo numbers for Split, PDF to JPG, Resize, Video to GIF and Protect come from running the real tools on the built site.
