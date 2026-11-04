@@ -120,7 +120,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
   const [busy, setBusy] = useState<Progress | null>(null);
   const [error, setError] = useState('');
   const [result, setResult] = useState<Blob | null>(null);
-  const [sigOpen, setSigOpen] = useState(false);
+  const [sigOpen, setSigOpen] = useState<false | 'signature' | 'initials'>(false);
   const docRef = useRef<any>(null);
   const vpRef = useRef<any[]>([]);
   const pageEls = useRef<(HTMLDivElement | null)[]>([]);
@@ -158,7 +158,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
       }
       rendered.current = new Set(); pageEls.current = [];
       setFile(f); setPages(info); setTitems([]); setTool(mode === 'sign' ? 'select' : mode === 'annotate' ? 'highlight' : 'edittext'); setObjs([]); setHist([]); setSel(null); setResult(null);
-      if (mode === 'sign') setSigOpen(true);
+      if (mode === 'sign') setSigOpen('signature');
     } catch (e: any) {
       setError(e?.name === 'PasswordException' ? 'This PDF is password-protected. Please unlock it first, then try again.' : friendlyError(e));
     } finally { setBusy(null); }
@@ -473,8 +473,22 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
   const placeImage = (src: string, kind: 'png' | 'jpg', iw: number, ih: number, widthFrac = 0.3) => {
     const page = visiblePage(), p = pages[page];
     const w = p.w * widthFrac, h = (w * ih) / iw;
-    const o: Obj = { id: uid(), page, type: 'image', x: (p.w - w) / 2, y: Math.max(0, (p.h - h) / 2), w, h, src, kind, color: '#000' };
+    // don't drop a new item exactly on top of one that is already there
+    let x = (p.w - w) / 2, y = Math.max(0, (p.h - h) / 2);
+    while (objs.some((q) => q.page === page && Math.abs(q.x - x) < 4 && Math.abs(q.y - y) < 4) && y < p.h - h - 30) { x += 18; y += h + 12; }
+    const o: Obj = { id: uid(), page, type: 'image', x, y, w, h, src, kind, color: '#000' };
     commit([...objs, o]); setSel(o.id); setTool('select');
+  };
+  /** Copy an item (signature, initials, stamp, date) to every other page at the same place (scaled for other page sizes). */
+  const toAllPages = (o: Obj | undefined) => {
+    if (!o) return;
+    const src = pages[o.page]; const add: Obj[] = [];
+    pages.forEach((p, i) => {
+      if (i === o.page) return;
+      const kx = p.w / src.w, ky = p.h / src.h;
+      add.push({ ...o, id: uid(), page: i, x: o.x * kx, y: o.y * ky, points: o.points?.map(([a, b]) => [a * kx, b * ky] as [number, number]), link: undefined, tkey: undefined });
+    });
+    commit([...objs, ...add]);
   };
   const addStamp = (t: string) => {
     const page = visiblePage(), p = pages[page]; const size = t.length > 2 ? Math.max(10, style.size) : Math.max(16, style.size * 1.4);
@@ -581,7 +595,8 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
             </button>
           </>))}
           <span class="ed-sep" />
-          <button type="button" class="ed-btn tint" style={tint('#7c3aed')} title="Add signature" onClick={() => setSigOpen(true)}><Icon name="sign" /><span class="ed-label">Sign</span></button>
+          <button type="button" class="ed-btn tint" style={tint('#7c3aed')} title="Add signature" onClick={() => setSigOpen('signature')}><Icon name="sign" /><span class="ed-label">Sign</span></button>
+          <button type="button" class="ed-btn tint" style={tint('#9333ea')} title="Add initials" onClick={() => setSigOpen('initials')}><span style={{ fontFamily: '"ZDancing", cursive', fontWeight: 700, fontSize: '1.05rem', lineHeight: 1 }}>SG</span><span class="ed-label">Initials</span></button>
           <button type="button" class="ed-btn tint" style={tint('#ea580c')} title="Add image" onClick={() => imgInput.current?.click()}><Icon name="image" /><span class="ed-label">Image</span></button>
           <input ref={imgInput} type="file" accept="image/*" hidden onChange={(e) => { addImageFile((e.target as HTMLInputElement).files?.[0]); (e.target as HTMLInputElement).value = ''; }} />
           <span class="ed-stamps" role="group" aria-label="Quick marks">
@@ -617,6 +632,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
           <button type="button" class="ed-btn tint" style={tint('#6366f1')} title="Undo (Ctrl+Z)" disabled={!hist.length} onClick={undo}><Icon name="undo" /><span class="ed-label">Undo</span></button>
           <button type="button" class="ed-btn tint" style={tint('#6366f1')} title="Redo (Ctrl+Y)" disabled={!future.length} onClick={redo}><Icon name="redo" /><span class="ed-label">Redo</span></button>
           <button type="button" class="ed-btn tint" style={tint('#0d9488')} title="Duplicate selected (Ctrl+D)" disabled={!sel} onClick={() => duplicate(selObj)}><Icon name="copy" /><span class="ed-label">Copy</span></button>
+          {pages.length > 1 && <button type="button" class="ed-btn tint" style={tint('#7c3aed')} title="Put the selected item on every page, in the same place" disabled={!sel} onClick={() => toAllPages(selObj)}><Icon name="pages" /><span class="ed-label">All pages</span></button>}
           <button type="button" class="ed-btn tint" style={tint('#dc2626')} title="Delete selected (Del)" disabled={!sel} onClick={() => sel && remove(sel)}><Icon name="trash" /><span class="ed-label">Delete</span></button>
           <span class="ed-sep" />
           <button type="button" class="ed-btn ed-sq" title="Zoom out" aria-label="Zoom out" disabled={zoom <= 0.5} onClick={() => zoomTo(Math.max(0.5, Math.round((zoom - 0.25) * 100) / 100))}>−</button>
@@ -714,7 +730,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
       </div>
       </div>
       <div class="actions"><button type="button" class="btn btn-primary btn-lg" disabled={!!busy} onClick={save}>Save PDF</button></div>
-      {sigOpen && <SignaturePad onClose={() => setSigOpen(false)} onDone={(src, w, h) => { setSigOpen(false); placeImage(src, 'png', w, h, 0.25); }} />}
+      {sigOpen && <SignaturePad kind={sigOpen} onClose={() => setSigOpen(false)} onDone={(src, w, h) => { const k = sigOpen; setSigOpen(false); placeImage(src, 'png', w, h, k === 'initials' ? 0.1 : 0.25); }} />}
     </div>
   );
 }

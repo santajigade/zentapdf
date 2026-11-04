@@ -606,3 +606,33 @@ fieldset.panel input[type=checkbox] { accent-color: var(--pc); width: 17px; heig
 .link-chips { list-style: none; padding: 0; margin: 8px 0 14px; display: flex; flex-wrap: wrap; gap: 8px; }
 .link-chips a { display: inline-block; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--card); color: var(--text); text-decoration: none; font-size: .9rem; font-weight: 550; }
 .link-chips a:hover { border-color: var(--brand); color: var(--brand); background: var(--brand-50); }
+
+/* signature pad */
+.sigpad-bg { position: fixed; inset: 0; background: rgb(15 23 42 / .55); z-index: 50; display: grid; place-items: center; padding: 16px; }
+.sigpad { background: var(--card); color: var(--text); border-radius: 18px; padding: 18px; width: min(620px, 100%); max-height: calc(100vh - 32px); overflow: auto; box-shadow: 0 30px 80px -20px rgb(0 0 0 / .5); }
+.sp-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 1.05rem; }
+.sp-saved { background: color-mix(in srgb, #7c3aed 6%, var(--card)); border: 1px solid color-mix(in srgb, #7c3aed 20%, var(--card)); border-radius: 12px; padding: 10px; margin-bottom: 12px; }
+.sp-saved > span { font-size: .8rem; color: var(--muted); font-weight: 600; }
+.sp-saved > div { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+.sp-item { position: relative; }
+.sp-item > button:first-child { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 6px 10px; height: 58px; cursor: pointer; }
+.sp-item > button:first-child:hover { border-color: #7c3aed; box-shadow: 0 6px 14px -8px #7c3aed; }
+.sp-item img { height: 44px; max-width: 160px; object-fit: contain; display: block; }
+.sp-del { position: absolute; top: -7px; right: -7px; width: 20px; height: 20px; border-radius: 50%; border: 1px solid var(--border); background: var(--card); font-size: .65rem; cursor: pointer; color: var(--muted); }
+.sp-canvas { width: 100%; background-color: #fff; border: 1.5px dashed #cbd5e1; border-radius: 12px; touch-action: none; }
+.sp-hint { font-size: .8rem; color: var(--muted); margin: 4px 0 0; text-align: center; }
+.sp-tools { display: flex; gap: 8px; align-items: center; margin-top: 10px; flex-wrap: wrap; }
+.sp-col { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px var(--border); cursor: pointer; }
+.sp-col.on { box-shadow: 0 0 0 3px color-mix(in srgb, #7c3aed 45%, #fff); }
+.sp-pen { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--muted); margin-left: 6px; }
+.sp-pen input { width: 90px; accent-color: #7c3aed; }
+.sp-small { padding: 5px 12px !important; font-size: .85rem; }
+.sp-tools .sp-small:first-of-type { margin-left: auto; }
+.sp-foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+.sp-chk { display: inline-flex; align-items: center; gap: 6px; font-size: .88rem; }
+.sp-type input { width: 100%; font: inherit; font-size: 1rem; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--card); color: var(--text); margin-bottom: 10px; }
+.sp-fonts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.sp-fonts button { background: #fff; border: 2px solid var(--border); border-radius: 12px; padding: 10px; font-size: 1.7rem; line-height: 1.2; cursor: pointer; display: grid; gap: 2px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.sp-fonts button small { font: 600 .7rem Inter, sans-serif; color: var(--muted); }
+.sp-fonts button[aria-pressed='true'] { border-color: #7c3aed; background: color-mix(in srgb, #7c3aed 6%, #fff); }
+.sp-type ~ .sp-canvas { display: none !important; }
