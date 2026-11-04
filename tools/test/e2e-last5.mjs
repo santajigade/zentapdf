@@ -16,19 +16,28 @@ try {
   f = await dl(p, 'Download .txt', 'doc.txt'); ok('txt download', fs.readFileSync(f, 'utf8').includes('Initial release'));
   p = await page('/pdf-to-text/'); await p.setInputFiles('input[type=file]', [T + 'big60mb.pdf']); await p.waitForSelector('.error', { timeout: 60000 });
   ok('scan → no text msg', /scan/i.test(await p.textContent('.error')));
-  // Compress
+  // Compress (all three levels are worked out right after upload)
+  const ready = (pg, ms = 180000) => pg.waitForFunction(() => [...document.querySelectorAll('.cmp-lv')].slice(0, 3).every((x) => x.querySelector('.r b, .r i.z')), null, { timeout: ms });
+  p = await page('/compress-pdf/'); await p.setInputFiles('input[type=file]', [T + 'photos.pdf']); await ready(p);
   for (const lv of ['Light', 'Recommended', 'Strong']) {
-    p = await page('/compress-pdf/'); await p.setInputFiles('input[type=file]', [T + 'photos.pdf']);
-    await p.getByRole('radio', { name: new RegExp(lv) }).click(); await p.getByRole('button', { name: 'Compress PDF' }).click();
-    await p.waitForSelector('.done', { timeout: 120000 }); const msg = await p.textContent('.done .big');
+    await p.getByRole('radio', { name: new RegExp(lv) }).click();
     f = await dl(p, 'Download PDF', `cmp-${lv}.pdf`); const d = await PDFDocument.load(fs.readFileSync(f));
-    ok('compress ' + lv, d.getPageCount() === 3, msg + ' | ' + (await p.textContent('.done .status')));
-    ok('compress errors ' + lv, !p.errors.length, p.errors.join());
+    ok('compress ' + lv, d.getPageCount() === 3 && fs.statSync(f).size < fs.statSync(T + 'photos.pdf').size * 0.2, fs.statSync(f).size + ' | ' + (await p.textContent('.cmp-sum .status')));
   }
-  p = await page('/compress-pdf/'); await p.setInputFiles('input[type=file]', [T + 'big60mb.pdf']); await p.getByRole('button', { name: 'Compress PDF' }).click();
-  await p.waitForSelector('.done', { timeout: 180000 }); ok('compress 60MB', true, await p.textContent('.done .big'));
-  p = await page('/compress-pdf/'); await p.setInputFiles('input[type=file]', [T + 'c.pdf']); await p.getByRole('button', { name: 'Compress PDF' }).click();
-  await p.waitForSelector('.done', { timeout: 60000 }); ok('compress text-only', true, await p.textContent('.done .big'));
+  ok('compress preview drawn', await p.evaluate(() => { const c = document.querySelector('.cmp-stack canvas'); return !!c && c.width > 100; }));
+  ok('compress errors', !p.errors.length, p.errors.join());
+  p = await page('/compress-pdf/'); await p.setInputFiles('input[type=file]', [T + 'big60mb.pdf']); await ready(p, 240000); ok('compress 60MB', true, await p.textContent('.cmp-levels'));
+  p = await page('/compress-pdf/'); await p.setInputFiles('input[type=file]', [T + 'c.pdf']); await ready(p, 60000); ok('compress text-only', true, await p.textContent('.cmp-levels'));
+  // many files + a PDF locked against editing → ZIP
+  p = await page('/compress-pdf/'); await p.setInputFiles('input[type=file]', [T + 'photos.pdf', T + 'real/kdf-kdg-9-gb-flow.pdf', T + 'cmp/canva.pdf']);
+  await p.waitForFunction(() => document.querySelectorAll('.cmp-files li').length === 3 && ![...document.querySelectorAll('.cmp-files li')].some((l) => /working|waiting|failed/.test(l.textContent)), null, { timeout: 240000 });
+  f = await dl(p, /Download all/, 'cmp.zip'); const { unzipSync } = await import('fflate'); const z = unzipSync(fs.readFileSync(f));
+  ok('compress batch zip', Object.keys(z).length === 3 && Object.values(z).every((b) => b[0] === 0x25), Object.keys(z).join());
+  // custom level
+  await p.getByRole('radio', { name: /Custom/ }).click();
+  await p.locator('.cmp-custom input[type=range]').first().evaluate((el) => { el.value = '72'; el.dispatchEvent(new Event('input', { bubbles: true })); });
+  await p.waitForFunction(() => document.querySelectorAll('.cmp-lv')[3].querySelector('.r b'), null, { timeout: 60000 });
+  ok('compress custom', true, await p.textContent('.cmp-lv:nth-child(4) .r'));
   // Protect
   p = await page('/protect-pdf/'); await p.setInputFiles('input[type=file]', [T + 'b.pdf']);
   await p.fill('input[type=password] >> nth=0', 'secret1'); await p.fill('input[type=password] >> nth=1', 'secret1');
