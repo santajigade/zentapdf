@@ -3,3 +3,6 @@ dist/
 .astro/
 testfiles/
 testout/
+tools/shorts/out/
+tools/shorts/urls.json
+tools/shorts/qr.js
