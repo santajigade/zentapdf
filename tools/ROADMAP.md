@@ -81,3 +81,7 @@ Brand: ZentaPDF · colour Indigo #4F46E5 · domain TBD (placeholder zentapdf.com
 - Compress PDF: new engine (DPI-aware, CMYK via pdf.js decoder, ICC swap, tiny JPEG icons, dedupe, edit-locked PDFs) + live sizes for all levels, custom DPI/quality, before/after zoom, batch ZIP. Beats Ghostscript on quality at similar size. Done.
 - Edit PDF: whole-line text edit, real background patch, embedded Unicode fonts (₹, symbols) incl. Calibri/Cambria, circle/line/arrow, opacity, fill, tick/cross/date, redo, duplicate, nudge, page thumbnails, edit-locked PDFs. Done.
 - Next (Phase 1): Sign PDF polish (saved signature, initials, all pages), Organise tools (big thumbnails, drag and drop), large files.
+
+## SEO (2026-11-04)
+- Internal links: "More <category> tools" + "Popular tools" on every tool page, all device tests on each test page (median 15 links in, was ~3).
+- IndexNow: GitHub Action on branch site (tools/github/indexnow.yml, copied by deploy.sh) pings all sitemap URLs 2 min after each publish. Key file public/9462406b2206d2f064e7fd4a0a8cd013.txt. First run: 202 accepted.
