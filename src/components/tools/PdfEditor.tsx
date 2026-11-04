@@ -5,9 +5,9 @@ import { runPdfJob, type Progress } from '../../lib/pdfJob';
 import { loadPdfjs } from '../../lib/pdfjs';
 import SignaturePad from './SignaturePad';
 
-type Tool = 'select' | 'edittext' | 'text' | 'whiteout' | 'highlight' | 'rect' | 'draw';
+type Tool = 'select' | 'edittext' | 'text' | 'whiteout' | 'highlight' | 'rect' | 'ellipse' | 'line' | 'arrow' | 'draw';
 type Obj = {
-  id: string; page: number; type: 'text' | 'rect' | 'ink' | 'image';
+  id: string; page: number; type: 'text' | 'rect' | 'ellipse' | 'line' | 'ink' | 'image'; arrow?: boolean;
   x: number; y: number; w: number; h: number; // viewport units (scale 1, top-left origin)
   text?: string; size?: number; font?: string; bold?: boolean; italic?: boolean; hs?: number; cs?: number;
   color: string; fill?: boolean; opacity?: number; width?: number;
@@ -16,24 +16,48 @@ type Obj = {
 type TItem = { key: string; str: string; x: number; y: number; w: number; h: number; base: number; size: number; font: string; bold: boolean; italic?: boolean };
 type PageInfo = { w: number; h: number; rot: number };
 
-const FONTS: [string, string, string][] = [['Helvetica', 'Sans', 'Helvetica, Arial, sans-serif'], ['TimesRoman', 'Serif', '"Times New Roman", Times, serif'], ['Courier', 'Mono', '"Courier New", Courier, monospace']];
-const css = (f?: string) => FONTS.find((x) => x[0] === f)?.[2] ?? FONTS[0][2];
-const pdfFont = (f = 'Helvetica', bold = false, italic = false) => {
-  if (f === 'TimesRoman') return 'TimesRoman' + (bold && italic ? 'BoldItalic' : bold ? 'Bold' : italic ? 'Italic' : '');
-  return f + (bold && italic ? 'BoldOblique' : bold ? 'Bold' : italic ? 'Oblique' : '');
+// fonts shown in the editor are the same files that get embedded, so text looks and measures the same in the PDF
+const FONTS: [string, string, string, string][] = [
+  ['sans', 'Arial', 'ZSans', 'LiberationSans'], ['serif', 'Times', 'ZSerif', 'LiberationSerif'], ['calibri', 'Calibri', 'ZCalibri', 'Carlito'],
+  ['cambria', 'Cambria', 'ZCambria', 'Caladea'], ['mono', 'Courier', 'ZMono', 'LiberationMono'],
+];
+const OLD: Record<string, string> = { Helvetica: 'sans', TimesRoman: 'serif', Courier: 'mono' };
+const fkey = (f?: string) => (f && OLD[f]) || (FONTS.some((x) => x[0] === f) ? f! : 'sans');
+const css = (f?: string) => `"${FONTS.find((x) => x[0] === fkey(f))![2]}", "ZSym", sans-serif`;
+const fontFile = (f: string | undefined, bold = false, italic = false) => {
+  const base = FONTS.find((x) => x[0] === fkey(f))![3];
+  const st = base === 'LiberationMono' ? (bold ? 'Bold' : 'Regular') : bold && italic ? 'BoldItalic' : bold ? 'Bold' : italic ? 'Italic' : 'Regular';
+  return `${base}-${st}.ttf`;
 };
+const SYM = 'DejaVuSans.ttf';
+let facesDone = false;
+function addEditorFonts() {
+  if (facesDone) return; facesDone = true;
+  const st = document.createElement('style');
+  st.textContent = FONTS.map(([k, , fam]) => [[false, false], [true, false], [false, true], [true, true]].map(([b, i]) => `@font-face{font-family:"${fam}";font-weight:${b ? 700 : 400};font-style:${i ? 'italic' : 'normal'};src:url(/fonts/${fontFile(k, b, i)});}`).join('')).join('')
+    + `@font-face{font-family:"ZSym";src:url(/fonts/${SYM});unicode-range:U+0100-024F,U+0370-03FF,U+0400-04FF,U+2000-2BFF,U+20B9;}`;
+  document.head.appendChild(st);
+}
+const needsSym = (t: string) => /[^\u0000-\u00ff\u2013\u2014\u2018-\u201e\u2022\u2026\u20ac\u2122]/.test(t);
 const TOOLS: [Tool, string, string][] = [
   ['select', '↖', 'Select / move'], ['edittext', 'Aa', 'Edit existing text'], ['text', 'T', 'Add text'], ['whiteout', '▭', 'White-out (hide content)'],
-  ['highlight', '▬', 'Highlight'], ['rect', '□', 'Rectangle'], ['draw', '✎', 'Draw'],
+  ['highlight', '▬', 'Highlight'], ['rect', '□', 'Rectangle'], ['ellipse', '○', 'Circle / ellipse'], ['line', '╱', 'Line'], ['arrow', '→', 'Arrow'], ['draw', '✎', 'Draw'],
 ];
 
-const SHORT: Record<string, string> = { edittext: 'Edit text', text: 'Add text', whiteout: 'White-out', highlight: 'Highlight', rect: 'Box', draw: 'Draw' };
+const SHORT: Record<string, string> = { edittext: 'Edit text', text: 'Add text', whiteout: 'White-out', highlight: 'Highlight', rect: 'Box', ellipse: 'Circle', line: 'Line', arrow: 'Arrow', draw: 'Draw' };
 const ICONS: Record<string, string> = {
   edittext: '<path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m13 7 4 4"/><path d="M15 20h6"/>',
   text: '<path d="M5 6V4h14v2"/><path d="M12 4v16"/><path d="M9 20h6"/>',
   whiteout: '<rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 12h10" stroke-dasharray="2 2"/>',
   highlight: '<path d="m9 11-5 5v3h3l5-5"/><path d="m15 5 4 4-7 7-4-4z"/><path d="M14 20h7"/>',
   rect: '<rect x="4" y="5" width="16" height="14" rx="1.5"/>',
+  ellipse: '<ellipse cx="12" cy="12" rx="9" ry="7"/>',
+  line: '<path d="M5 19 19 5"/>',
+  arrow: '<path d="M5 19 19 5"/><path d="M10 5h9v9"/>',
+  stamp: '<path d="m5 12 4 4 10-10"/>',
+  redo: '<path d="m15 14 5-5-5-5"/><path d="M20 9H9a5 5 0 0 0 0 10h3"/>',
+  copy: '<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/>',
+  pages: '<rect x="4" y="3" width="7" height="9" rx="1"/><rect x="13" y="3" width="7" height="9" rx="1"/><rect x="4" y="14" width="7" height="7" rx="1"/><rect x="13" y="14" width="7" height="7" rx="1"/>',
   draw: '<path d="M3 17c3-4 5-8 7-8s1 7 4 7 3-5 7-5"/>',
   sign: '<path d="M3 17c2 0 3-6 5-6s1 5 3 5 2-3 4-3"/><path d="M3 21h18"/><path d="m16 4 4 4-6 6h-4v-4z"/>',
   image: '<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/>',
@@ -45,6 +69,22 @@ const Icon = ({ name }: { name: string }) => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" dangerouslySetInnerHTML={{ __html: ICONS[name] }} />
 );
 
+/** Join text pieces that sit on the same line with the same style, so a whole line can be edited at once. */
+function mergeLine(items: TItem[]): TItem[] {
+  const out: TItem[] = [];
+  for (const it of items) {
+    const l = out[out.length - 1];
+    const gap = l ? it.x - (l.x + l.w) : 0;
+    if (l && Math.abs(l.base - it.base) < Math.max(0.6, it.size * 0.08) && Math.abs(l.size - it.size) < it.size * 0.06 && l.font === it.font && l.bold === it.bold && !!l.italic === !!it.italic && gap > -it.size * 0.25 && gap < it.size * 0.9) {
+      const spaced = /^(\S )+\S$/;
+      // letter-spaced words ("S T A N D A R D"): mark the word gap with two spaces so it can be found again
+      const space = spaced.test(l.str.split('  ').pop()!) && spaced.test(it.str) ? '  ' : gap > it.size * 0.12 && !l.str.endsWith(' ') && !it.str.startsWith(' ') ? ' ' : '';
+      l.str = l.str + space + it.str; l.w = it.x + it.w - l.x; l.h = Math.max(l.h, it.h); l.key += '+' + it.key;
+    } else out.push({ ...it });
+  }
+  return out;
+}
+
 export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 'annotate' }) {
   const [file, setFile] = useState<File | null>(null);
   const [pages, setPages] = useState<PageInfo[]>([]);
@@ -55,9 +95,10 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
   const pdfjsRef = useRef<any>(null);
   const [sel, setSel] = useState<string | null>(null);
   const [editing, setEditing] = useState<string | null>(null);
-  const [style, setStyle] = useState({ color: '#111827', size: 14, font: 'Helvetica', bold: false, italic: false, width: 2 });
+  const [style, setStyle] = useState({ color: '#111827', size: 14, font: 'sans', bold: false, italic: false, width: 2, opacity: 1, fill: false });
   const [scales, setScales] = useState<number[]>([]);
   const [zoom, setZoom] = useState(1);
+  const [curPage, setCurPage] = useState(0);
   const measureCv = useRef<HTMLCanvasElement | null>(null);
   const clickPt = useRef<{ x: number; y: number } | null>(null);
   const scroller = useRef<HTMLDivElement>(null);
@@ -79,8 +120,13 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
   const imgInput = useRef<HTMLInputElement>(null);
 
   // ---------- history ----------
-  const commit = (next: Obj[]) => { setHist((h) => [...h.slice(-50), objs]); setObjs(next); setResult(null); };
-  const undo = () => { if (!hist.length) return; setObjs(hist[hist.length - 1]); setHist(hist.slice(0, -1)); setSel(null); setEditing(null); };
+  const [future, setFuture] = useState<Obj[][]>([]);
+  const clip = useRef<Obj | null>(null);
+  const commit = (next: Obj[]) => { setHist((h) => [...h.slice(-50), objs]); setFuture([]); setObjs(next); setResult(null); };
+  const undo = () => { if (!hist.length) return; setFuture((f) => [objs, ...f].slice(0, 50)); setObjs(hist[hist.length - 1]); setHist(hist.slice(0, -1)); setSel(null); setEditing(null); };
+  const redo = () => { if (!future.length) return; setHist((h) => [...h, objs]); setObjs(future[0]); setFuture(future.slice(1)); setSel(null); setEditing(null); };
+  const shift = (o: Obj, dx: number, dy: number): Obj => ({ ...o, x: o.x + dx, y: o.y + dy, points: o.points?.map(([px, py]) => [px + dx, py + dy] as [number, number]) });
+  const duplicate = (o: Obj | undefined, dx = 12, dy = 12) => { if (!o) return; const n = { ...shift(o, dx, dy), id: uid(), link: undefined, tkey: undefined }; commit([...objs, n]); setSel(n.id); setTool('select'); };
   const patch = (id: string, p: Partial<Obj>) => setObjs((cur) => cur.map((o) => (o.id === id ? { ...o, ...p } : o)));
   const remove = (id: string) => { const link = objs.find((o) => o.id === id)?.link; commit(objs.filter((o) => o.id !== id && o.id !== link)); setSel(null); setEditing(null); };
 
@@ -107,7 +153,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
       setError(e?.name === 'PasswordException' ? 'This PDF is password-protected. Please unlock it first, then try again.' : friendlyError(e));
     } finally { setBusy(null); }
   };
-  useEffect(() => () => docRef.current?.destroy?.(), []);
+  useEffect(() => { addEditorFonts(); return () => docRef.current?.destroy?.(); }, []);
   useEffect(() => { document.querySelector('.tool-box')?.classList.toggle('wide', !!file); }, [file]);
 
   // ---------- page rendering (lazy) + scale tracking ----------
@@ -151,30 +197,43 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
         const nm = real.toLowerCase().replace(/^[a-z]{6}\+/, '');
         let flags = '';
         try { const fo = pg.commonObjs.get(it.fontName); flags = fo?.isMonospace ? 'mono' : fo?.isSerifFont ? 'serif' : ''; } catch {}
-        const font = /courier|consol|mono|lucida ?console|menlo|cmtt|lmmono|inconsolata/.test(nm) ? 'Courier'
-          : /calibri|arial|helvetica|verdana|tahoma|segoe|roboto|opensans|open ?sans|liberation ?sans|dejavu ?sans|gill|futura|gothic|trebuchet|aptos|lato|noto ?sans|source ?sans|candara|corbel|franklin|myriad|frutiger|univers|nirmala|mangal|cmss|lmsans|sans/.test(nm) ? 'Helvetica'
-          : /times|georgia|garamond|cambria|antiqua|palatino|liberation ?serif|minion|bookman|schoolbook|noto ?serif|constantia|baskerville|didot|cmr|cmbx|cmti|cmsl|cmcsc|lmroman|sfrm|sfbx|sfti|nimbus ?rom|charter|utopia|stix|xits|libertine|dejavu ?serif|serif|tex/.test(nm) ? 'TimesRoman'
-          : flags === 'mono' ? 'Courier' : flags === 'serif' ? 'TimesRoman' : /^serif/.test(fam) ? 'TimesRoman' : 'Helvetica';
+        const font = /courier|consol|mono|lucida ?console|menlo|cmtt|lmmono|inconsolata/.test(nm) ? 'mono'
+          : /calibri|carlito|candara|corbel/.test(nm) ? 'calibri'
+          : /cambria|caladea/.test(nm) ? 'cambria'
+          : /arial|helvetica|verdana|tahoma|segoe|roboto|opensans|open ?sans|liberation ?sans|dejavu ?sans|gill|futura|gothic|trebuchet|aptos|lato|noto ?sans|source ?sans|franklin|myriad|frutiger|univers|nirmala|mangal|cmss|lmsans|sans|inter\b|montserrat|poppins/.test(nm) ? 'sans'
+          : /times|georgia|garamond|antiqua|palatino|liberation ?serif|minion|bookman|schoolbook|noto ?serif|constantia|baskerville|didot|cmr|cmbx|cmti|cmsl|cmcsc|lmroman|sfrm|sfbx|sfti|nimbus ?rom|charter|utopia|stix|xits|libertine|dejavu ?serif|serif|tex/.test(nm) ? 'serif'
+          : flags === 'mono' ? 'mono' : flags === 'serif' ? 'serif' : /^serif/.test(fam) ? 'serif' : 'sans';
         const italic = /italic|oblique|cmti|cmsl|sfti|-it\b|,it\b|-ital/.test(nm);
         items.push({ key: `${i}-${k}`, str: it.str.normalize('NFKC'), x: t[4], base: t[5], y: t[5] - size * 0.95, w, h: size * 1.25, size, font, italic, bold: /bold|black|heavy|semibold|demi|,bd|-bd\b|extrabold|cmbx|sfbx/i.test(real) });
       });
-      setTitems((cur) => { const n = cur.slice(); n[i] = items; return n; });
+      setTitems((cur) => { const n = cur.slice(); n[i] = mergeLine(items); return n; });
     } catch { rendered.current.delete(i); }
   };
 
-  // ---------- keyboard ----------
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
+  // ---------- keyboard (handler is refreshed on every render so it never sees old state) ----------
+  const keyFn = useRef<(e: KeyboardEvent) => void>(() => {});
+  {
+    keyFn.current = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && !editing) { setTool(mode === 'sign' ? 'select' : mode === 'annotate' ? 'highlight' : 'edittext'); setSel(null); return; }
       if (editing) return;
       const tag = (e.target as HTMLElement)?.tagName;
       if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+      const mod = e.ctrlKey || e.metaKey, k = e.key.toLowerCase();
       if ((e.key === 'Delete' || e.key === 'Backspace') && sel) { e.preventDefault(); remove(sel); }
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z') { e.preventDefault(); undo(); }
+      if (mod && k === 'z' && !e.shiftKey) { e.preventDefault(); undo(); }
+      if (mod && (k === 'y' || (k === 'z' && e.shiftKey))) { e.preventDefault(); redo(); }
+      const so = objs.find((o) => o.id === sel);
+      if (mod && k === 'd' && so) { e.preventDefault(); duplicate(so); }
+      if (mod && k === 'c' && so) { clip.current = so; }
+      if (mod && k === 'v' && clip.current) { e.preventDefault(); duplicate({ ...clip.current, page: so?.page ?? clip.current.page }, 16, 16); }
+      if (so && e.key.startsWith('Arrow')) {
+        e.preventDefault(); const st = e.shiftKey ? 10 : 1;
+        const dx = e.key === 'ArrowLeft' ? -st : e.key === 'ArrowRight' ? st : 0, dy = e.key === 'ArrowUp' ? -st : e.key === 'ArrowDown' ? st : 0;
+        commit(objs.map((o) => (o.id === so.id ? shift(o, dx, dy) : o)));
+      }
     };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  });
+  }
+  useEffect(() => { const h = (e: KeyboardEvent) => keyFn.current(e); window.addEventListener('keydown', h); return () => window.removeEventListener('keydown', h); }, []);
 
   // ---------- pointer interaction ----------
   const ptOf = (e: PointerEvent, page: number): [number, number] => {
@@ -195,9 +254,12 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
       return;
     }
     const base: Obj = tool === 'draw'
-      ? { id, page, type: 'ink', x, y, w: 0, h: 0, points: [[x, y]], color: style.color, width: style.width }
-      : { id, page, type: 'rect', x, y, w: 0, h: 0, fill: tool !== 'rect', width: style.width, opacity: tool === 'highlight' ? 0.35 : 1,
-          color: tool === 'whiteout' ? '#ffffff' : tool === 'highlight' ? '#facc15' : style.color };
+      ? { id, page, type: 'ink', x, y, w: 0, h: 0, points: [[x, y]], color: style.color, width: style.width, opacity: style.opacity }
+      : tool === 'line' || tool === 'arrow'
+        ? { id, page, type: 'line', arrow: tool === 'arrow', x, y, w: 0, h: 0, points: [[x, y], [x, y]], color: style.color, width: style.width, opacity: style.opacity }
+        : { id, page, type: tool === 'ellipse' ? 'ellipse' : 'rect', x, y, w: 0, h: 0, fill: tool === 'whiteout' || tool === 'highlight' || ((tool === 'rect' || tool === 'ellipse') && style.fill), width: style.width,
+            opacity: tool === 'highlight' ? 0.35 : tool === 'whiteout' ? 1 : style.opacity,
+            color: tool === 'whiteout' ? '#ffffff' : tool === 'highlight' ? '#facc15' : style.color };
     commit([...objs, base]); setSel(id);
     drag.current = { kind: 'create', id, page, sx: x, sy: y };
   };
@@ -209,12 +271,20 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
       setObjs((cur) => cur.map((o) => {
         if (o.id !== d.id) return o;
         if (o.type === 'ink') return { ...o, points: [...o.points!, [x, y]] };
-        return { ...o, x: Math.min(d.sx, x), y: Math.min(d.sy, y), w: Math.abs(x - d.sx), h: Math.abs(y - d.sy) };
+        if (o.type === 'line') {
+          // hold Shift for straight lines (0°, 45°, 90°)
+          let ex = x, ey = y;
+          if (e.shiftKey) { const a = Math.round(Math.atan2(y - d.sy, x - d.sx) / (Math.PI / 4)) * (Math.PI / 4), L = Math.hypot(x - d.sx, y - d.sy); ex = d.sx + L * Math.cos(a); ey = d.sy + L * Math.sin(a); }
+          return { ...o, points: [[d.sx, d.sy], [ex, ey]], x: Math.min(d.sx, ex), y: Math.min(d.sy, ey), w: Math.abs(ex - d.sx), h: Math.abs(ey - d.sy) };
+        }
+        let w = Math.abs(x - d.sx), h = Math.abs(y - d.sy);
+        if (e.shiftKey && (o.type === 'ellipse' || o.type === 'rect') && o.opacity !== 0.35) w = h = Math.max(w, h); // Shift: circle / square
+        return { ...o, x: x < d.sx ? d.sx - w : d.sx, y: y < d.sy ? d.sy - h : d.sy, w, h };
       }));
     } else if (d.kind === 'move') {
       const dx = x - d.sx, dy = y - d.sy;
-      setObjs((cur) => cur.map((o) => (o.id !== d.id ? o : o.type === 'ink'
-        ? { ...o, points: d.orig.points.map(([px, py]: number[]) => [px + dx, py + dy]) }
+      setObjs((cur) => cur.map((o) => (o.id !== d.id ? o : o.type === 'ink' || o.type === 'line'
+        ? { ...o, x: d.orig.x + dx, y: d.orig.y + dy, points: d.orig.points.map(([px, py]: number[]) => [px + dx, py + dy]) }
         : { ...o, x: d.orig.x + dx, y: d.orig.y + dy })));
     } else if (d.kind === 'resize') {
       setObjs((cur) => cur.map((o) => {
@@ -222,6 +292,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
         let w = Math.max(8, d.orig.w + x - d.sx), h = Math.max(8, d.orig.h + y - d.sy);
         if (o.type === 'image') h = w * (d.orig.h / d.orig.w);
         if (o.type === 'text') return { ...o, size: Math.max(6, Math.round(d.orig.size * (1 + (x - d.sx) / Math.max(40, d.orig.w || 100)))) };
+        if (o.type === 'line') { const [a, b] = d.orig.points; const nb: [number, number] = [b[0] + x - d.sx, b[1] + y - d.sy]; return { ...o, points: [a, nb], x: Math.min(a[0], nb[0]), y: Math.min(a[1], nb[1]), w: Math.abs(nb[0] - a[0]), h: Math.abs(nb[1] - a[1]) }; }
         return { ...o, w, h };
       }));
     }
@@ -230,7 +301,9 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
   const onPageUp = () => {
     const d = drag.current; drag.current = null;
     if (d?.kind === 'create') {
-      setObjs((cur) => cur.map((o) => (o.id === d.id && o.type === 'rect' && o.w < 4 && o.h < 4 ? { ...o, x: o.x - 50, y: o.y - 12, w: 100, h: 24 } : o)));
+      setObjs((cur) => cur.map((o) => (o.id !== d.id ? o
+        : (o.type === 'rect' || o.type === 'ellipse') && o.w < 4 && o.h < 4 ? { ...o, x: o.x - 50, y: o.y - (o.type === 'ellipse' ? 50 : 12), w: 100, h: o.type === 'ellipse' ? 100 : 24 }
+        : o.type === 'line' && o.w < 3 && o.h < 3 ? { ...o, points: [o.points![0], [o.points![0][0] + 120, o.points![0][1]]], w: 120 } : o)));
     }
   };
 
@@ -290,19 +363,40 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
       return runs[Math.floor(runs.length / 2)] / 48;
     } catch { return 0; }
   };
+  /** The page area behind a piece of text, drawn without any text: used to hide the old words on photos and coloured boxes. */
+  const cleanPatch = async (page: number, r: { x: number; y: number; w: number; h: number }): Promise<string | null> => {
+    try {
+      const pg = await docRef.current.getPage(page + 1);
+      const k = 3, w = Math.max(1, Math.round(r.w * k)), h = Math.max(1, Math.round(r.h * k));
+      const vp = pg.getViewport({ scale: k, offsetX: -r.x * k, offsetY: -r.y * k });
+      const c = document.createElement('canvas'); c.width = w; c.height = h;
+      const ctx = c.getContext('2d', { willReadFrequently: true })! as any;
+      ctx.fillText = () => {}; ctx.strokeText = () => {};
+      await pg.render({ canvas: c, canvasContext: ctx, viewport: vp }).promise;
+      const d = ctx.getImageData(0, 0, w, h).data;
+      let mn = [255, 255, 255], mx = [0, 0, 0];
+      for (let q = 0; q < d.length; q += 16) for (let ch = 0; ch < 3; ch++) { mn[ch] = Math.min(mn[ch], d[q + ch]); mx[ch] = Math.max(mx[ch], d[q + ch]); }
+      if (mx.every((v, ch) => v - mn[ch] < 14)) return null; // plain background: a filled box is enough
+      return c.toDataURL('image/png');
+    } catch { return null; }
+  };
   const editItem = async (e: PointerEvent, page: number, it: TItem) => {
     e.stopPropagation(); e.preventDefault();
     clickPt.current = { x: e.clientX, y: e.clientY };
     const { bg, fg } = sample(page, it);
     if (!it.bold) { const r = await stemRatio(page, it, bg); (window as any).__stem = r; if (r > 0.125) it = { ...it, bold: true }; }
     const wid = uid(), tid = uid();
-    const white: Obj = { id: wid, page, type: 'rect', x: it.x - 1, y: it.y - it.size * 0.05, w: it.w + 2, h: it.h, fill: true, opacity: 1, color: bg, tkey: it.key };
+    let white: Obj = { id: wid, page, type: 'rect', x: it.x - 1, y: it.y - it.size * 0.05, w: it.w + 2, h: it.h, fill: true, opacity: 1, color: bg, tkey: it.key };
+    const patch = await cleanPatch(page, white);
+    if (patch) white = { ...white, type: 'image', src: patch, kind: 'png', fill: undefined };
     const text: Obj = { id: tid, page, type: 'text', x: it.x, y: it.base - 0.92 * it.size, w: 0, h: 0, text: it.str, size: Math.round(it.size * 10) / 10, font: it.font, bold: it.bold, italic: it.italic, color: fg, link: wid, tkey: it.key };
     // match the original width: letter-spaced text gets character spacing, other text is squeezed/stretched slightly
     const ctx = (measureCv.current ??= document.createElement('canvas')).getContext('2d')!;
     ctx.font = `${it.italic ? 'italic ' : ''}${it.bold ? 700 : 400} ${it.size}px ${css(it.font)}`;
-    if (/^(\S )+\S$/.test(it.str)) {
-      text.text = it.str.replace(/ /g, '');
+    try { await document.fonts.load(ctx.font, it.str); } catch { /* measure with fallback */ }
+    const parts = it.str.split('  ');
+    if (parts.every((x) => /^(\S )+\S$/.test(x))) {
+      text.text = parts.map((x) => x.replace(/ /g, '')).join(' ');
       const nat = ctx.measureText(text.text).width;
       text.cs = Math.max(0, (it.w - nat) / text.text.length);
     } else {
@@ -315,7 +409,8 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
 
   // ---------- images & signatures ----------
   const visiblePage = () => {
-    const mid = window.innerHeight / 2; let best = 0, bestD = Infinity;
+    const sr = scroller.current?.getBoundingClientRect();
+    const mid = sr ? (sr.top + sr.bottom) / 2 : window.innerHeight / 2; let best = 0, bestD = Infinity;
     pageEls.current.forEach((el, i) => { if (!el) return; const r = el.getBoundingClientRect(); const d = Math.abs((r.top + r.bottom) / 2 - mid); if (d < bestD) { bestD = d; best = i; } });
     return best;
   };
@@ -323,6 +418,11 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
     const page = visiblePage(), p = pages[page];
     const w = p.w * widthFrac, h = (w * ih) / iw;
     const o: Obj = { id: uid(), page, type: 'image', x: (p.w - w) / 2, y: Math.max(0, (p.h - h) / 2), w, h, src, kind, color: '#000' };
+    commit([...objs, o]); setSel(o.id); setTool('select');
+  };
+  const addStamp = (t: string) => {
+    const page = visiblePage(), p = pages[page]; const size = t.length > 2 ? Math.max(10, style.size) : Math.max(16, style.size * 1.4);
+    const o: Obj = { id: uid(), page, type: 'text', x: p.w / 2 - size, y: p.h / 3, w: 0, h: 0, text: t, size, font: style.font, bold: t.length <= 2, italic: false, color: t === '✗' ? '#dc2626' : t === '✓' ? '#16a34a' : style.color, opacity: 1 };
     commit([...objs, o]); setSel(o.id); setTool('select');
   };
   const addImageFile = async (f?: File) => {
@@ -341,28 +441,42 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
     setError(''); setBusy({ done: 0, total: 0, label: 'Saving your changes…' });
     try {
       const conv = (page: number, x: number, y: number) => vpRef.current[page].convertToPdfPoint(x, y) as [number, number];
-      const items: any[] = []; const transfer: ArrayBuffer[] = [];
+      const items: any[] = []; const transfer: ArrayBuffer[] = []; const need = new Set<string>(); void transfer;
       for (const o of objs) {
         const rot = pages[o.page].rot;
         if (o.type === 'text') {
           const text = (textRef.current[o.id] ?? o.text ?? '');
           if (!text.trim()) continue;
           const lines = text.split('\n').map((t, i) => { const [x, y] = conv(o.page, o.x, o.y + (i * 1.2 + 0.92) * o.size!); return { text: t, x, y }; });
-          items.push({ type: 'text', page: o.page, lines, size: o.size, color: o.color, font: pdfFont(o.font, o.bold, o.italic), rot, hs: o.hs, cs: o.cs });
-        } else if (o.type === 'rect') {
+          const file = fontFile(o.font, o.bold, o.italic); need.add(file); if (needsSym(text)) need.add(SYM);
+          items.push({ type: 'text', page: o.page, lines, size: o.size, color: o.color, file, sym: SYM, rot, hs: o.hs, cs: o.cs, opacity: o.opacity ?? 1 });
+        } else if (o.type === 'rect' || o.type === 'ellipse') {
           const [x1, y1] = conv(o.page, o.x, o.y), [x2, y2] = conv(o.page, o.x + o.w, o.y + o.h);
-          items.push({ type: 'rect', page: o.page, x: Math.min(x1, x2), y: Math.min(y1, y2), w: Math.abs(x2 - x1), h: Math.abs(y2 - y1), color: o.color, fill: o.fill, opacity: o.opacity, width: o.width });
+          items.push({ type: o.type, page: o.page, x: Math.min(x1, x2), y: Math.min(y1, y2), w: Math.abs(x2 - x1), h: Math.abs(y2 - y1), color: o.color, fill: o.fill, opacity: o.opacity ?? 1, width: o.width });
+        } else if (o.type === 'line') {
+          const [a, b] = o.points!; if (Math.hypot(b[0] - a[0], b[1] - a[1]) < 2) continue;
+          items.push({ type: 'line', page: o.page, a: conv(o.page, a[0], a[1]), b: conv(o.page, b[0], b[1]), arrow: o.arrow, color: o.color, width: o.width, opacity: o.opacity ?? 1 });
         } else if (o.type === 'ink') {
           if (o.points!.length < 2) continue;
-          items.push({ type: 'ink', page: o.page, points: o.points!.map(([x, y]) => conv(o.page, x, y)), color: o.color, width: o.width });
+          items.push({ type: 'ink', page: o.page, points: o.points!.map(([x, y]) => conv(o.page, x, y)), color: o.color, width: o.width, opacity: o.opacity ?? 1 });
         } else if (o.type === 'image') {
           const bytes = await (await fetch(o.src!)).arrayBuffer();
           const [x, y] = conv(o.page, o.x, o.y + o.h);
-          items.push({ type: 'image', page: o.page, key: o.id, bytes, kind: o.kind, x, y, w: o.w, h: o.h, rot }); transfer.push(bytes);
+          items.push({ type: 'image', page: o.page, key: o.id, bytes, kind: o.kind, x, y, w: o.w, h: o.h, rot, opacity: o.opacity ?? 1 }); transfer.push(bytes);
         }
       }
-      const buf = await file.arrayBuffer();
-      const r = await runPdfJob<{ files: Uint8Array[] }>({ op: 'annotate', file: buf, items }, [buf, ...transfer], setBusy);
+      let buf = await file.arrayBuffer();
+      const fonts: Record<string, ArrayBuffer> = {};
+      for (const f of need) fonts[f] = await (await fetch(`/fonts/${f}`)).arrayBuffer();
+      const job = (b: ArrayBuffer) => runPdfJob<{ files: Uint8Array[] }>({ op: 'annotate', file: b, items: structuredClone(items), fonts }, [], setBusy);
+      let r;
+      try { r = await job(buf.slice(0)); }
+      catch (e: any) {
+        // PDFs locked only against editing open without a password: remove the lock, then save
+        if (!/encrypt|password/i.test(String(e?.message))) throw e;
+        const d = await runPdfJob<{ files: Uint8Array[] }>({ op: 'decrypt', file: buf, password: '' }, [], undefined, 'qpdf');
+        buf = d.files[0].slice().buffer; r = await job(buf);
+      }
       setResult(new Blob([r.files[0] as BlobPart], { type: 'application/pdf' }));
     } catch (e) { setError(friendlyError(e)); }
     finally { setBusy(null); }
@@ -387,7 +501,9 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
       if (p.font && selObj.type === 'text') q.font = p.font;
       if (p.bold !== undefined && selObj.type === 'text') q.bold = p.bold;
       if (p.italic !== undefined && selObj.type === 'text') q.italic = p.italic;
-      if (p.width && (selObj.type === 'ink' || selObj.type === 'rect')) q.width = p.width;
+      if (p.width && (selObj.type === 'ink' || selObj.type === 'rect' || selObj.type === 'ellipse' || selObj.type === 'line')) q.width = p.width;
+      if (p.opacity !== undefined && !(selObj.type === 'rect' && (selObj.color === '#ffffff' || selObj.opacity === 0.35))) q.opacity = p.opacity;
+      if (p.fill !== undefined && (selObj.type === 'rect' || selObj.type === 'ellipse')) q.fill = p.fill;
       if (Object.keys(q).length) commit(objs.map((o) => (o.id === sel ? { ...o, ...q } : o)));
     }
   };
@@ -409,6 +525,11 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
           <button type="button" class="ed-btn" title="Add signature" onClick={() => setSigOpen(true)}><Icon name="sign" /><span class="ed-label">Sign</span></button>
           <button type="button" class="ed-btn" title="Add image" onClick={() => imgInput.current?.click()}><Icon name="image" /><span class="ed-label">Image</span></button>
           <input ref={imgInput} type="file" accept="image/*" hidden onChange={(e) => { addImageFile((e.target as HTMLInputElement).files?.[0]); (e.target as HTMLInputElement).value = ''; }} />
+          <span class="ed-stamps" role="group" aria-label="Quick marks">
+            {[['✓', 'Tick'], ['✗', 'Cross'], ['●', 'Dot'], ['date', 'Today\u2019s date']].map(([t, l]) => (
+              <button type="button" class="ed-btn ed-sq" title={`Add ${l}`} aria-label={`Add ${l}`} onClick={() => addStamp(t === 'date' ? new Date().toLocaleDateString('en-GB') : t)}>{t === 'date' ? <span style={{ fontSize: '.72rem', fontWeight: 800 }}>DATE</span> : <span style={{ fontSize: '1.05rem' }}>{t}</span>}</button>
+            ))}
+          </span>
           <span class="ed-sep" />
           <button type="button" class="ed-btn" title="Select & move items" aria-pressed={tool === 'select'} onClick={() => { setTool('select'); setEditing(null); }}><Icon name="select" /><span class="ed-label">Move</span></button>
           <span style={{ flex: 1 }} />
@@ -416,7 +537,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
         </div>
         <div class="ed-row ed-format">
           <label class="ed-field" title="Colour"><input type="color" aria-label="Colour" value={selObj && selObj.type !== 'image' && !(selObj.type === 'rect' && selObj.fill) ? selObj.color : style.color} onInput={(e) => setStyleAndSel({ color: (e.target as HTMLInputElement).value })} /></label>
-          <select class="ed-select" aria-label="Font" value={selObj?.type === 'text' ? selObj.font : style.font} onChange={(e) => setStyleAndSel({ font: (e.target as HTMLSelectElement).value })}>
+          <select class="ed-select" aria-label="Font" value={fkey(selObj?.type === 'text' ? selObj.font : style.font)} onChange={(e) => setStyleAndSel({ font: (e.target as HTMLSelectElement).value })}>
             {FONTS.map(([v, l]) => <option value={v}>{l}</option>)}
           </select>
           <select class="ed-select" aria-label="Text size" value={String(curSize)} onChange={(e) => setStyleAndSel({ size: +(e.target as HTMLSelectElement).value })}>
@@ -425,11 +546,16 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
           <button type="button" class="ed-btn ed-sq" aria-label="Bold" title="Bold" aria-pressed={selObj?.type === 'text' ? !!selObj.bold : style.bold} onClick={() => setStyleAndSel({ bold: !(selObj?.type === 'text' ? selObj.bold : style.bold) })}><b>B</b></button>
           <button type="button" class="ed-btn ed-sq" aria-label="Italic" title="Italic" aria-pressed={selObj?.type === 'text' ? !!selObj.italic : style.italic} onClick={() => setStyleAndSel({ italic: !(selObj?.type === 'text' ? selObj.italic : style.italic) })}><i style={{ fontFamily: 'Georgia, serif' }}>I</i></button>
           <span class="ed-sep" />
-          <select class="ed-select" aria-label="Line width" title="Line width for rectangle and drawing" value={style.width} onChange={(e) => setStyleAndSel({ width: +(e.target as HTMLSelectElement).value })}>
-            {[1, 2, 3, 5, 8].map((w) => <option value={w}>Line {w}px</option>)}
+          <select class="ed-select" aria-label="Line width" title="Line width for shapes and drawing" value={selObj && 'width' in selObj && selObj.width ? selObj.width : style.width} onChange={(e) => setStyleAndSel({ width: +(e.target as HTMLSelectElement).value })}>
+            {[1, 2, 3, 5, 8, 12].map((w) => <option value={w}>Line {w}px</option>)}
           </select>
+          <button type="button" class="ed-btn ed-sq" title="Fill the shape" aria-label="Fill shape" aria-pressed={selObj && (selObj.type === 'rect' || selObj.type === 'ellipse') ? !!selObj.fill : style.fill} onClick={() => setStyleAndSel({ fill: !(selObj && (selObj.type === 'rect' || selObj.type === 'ellipse') ? selObj.fill : style.fill) })}>
+            <svg width="18" height="18" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3" fill="currentColor" opacity=".85" /></svg></button>
+          <label class="ed-field ed-op" title="Opacity">Opacity <input type="range" min={10} max={100} step={5} aria-label="Opacity" value={Math.round(((selObj?.opacity ?? style.opacity) || 1) * 100)} onInput={(e) => setStyleAndSel({ opacity: +(e.target as HTMLInputElement).value / 100 })} /></label>
           <span style={{ flex: 1 }} />
           <button type="button" class="ed-btn" title="Undo (Ctrl+Z)" disabled={!hist.length} onClick={undo}><Icon name="undo" /><span class="ed-label">Undo</span></button>
+          <button type="button" class="ed-btn" title="Redo (Ctrl+Y)" disabled={!future.length} onClick={redo}><Icon name="redo" /><span class="ed-label">Redo</span></button>
+          <button type="button" class="ed-btn" title="Duplicate selected (Ctrl+D)" disabled={!sel} onClick={() => duplicate(selObj)}><Icon name="copy" /><span class="ed-label">Copy</span></button>
           <button type="button" class="ed-btn" title="Delete selected (Del)" disabled={!sel} onClick={() => sel && remove(sel)}><Icon name="trash" /><span class="ed-label">Delete</span></button>
           <span class="ed-sep" />
           <button type="button" class="ed-btn ed-sq" title="Zoom out" aria-label="Zoom out" disabled={zoom <= 0.5} onClick={() => zoomTo(Math.max(0.5, Math.round((zoom - 0.25) * 100) / 100))}>−</button>
@@ -455,7 +581,9 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
         </div>
       )}
 
-      <div ref={scroller} style={{ height: '78vh', overflow: 'auto', background: 'var(--bg-soft)', border: '1px solid var(--border)', borderRadius: '14px', padding: '14px' }}>
+      <div class="ed-main">
+      {pages.length > 1 && <Thumbs doc={docRef.current} pages={pages} cur={curPage} onPick={(i) => pageEls.current[i]?.scrollIntoView({ behavior: 'smooth', block: 'start' })} />}
+      <div ref={scroller} onScroll={() => setCurPage(visiblePage())} style={{ flex: 1, minWidth: 0, height: '78vh', overflow: 'auto', background: 'var(--bg-soft)', border: '1px solid var(--border)', borderRadius: '14px', padding: '14px' }}>
       <div style={{ display: 'grid', gap: '18px', margin: '0 auto', width: `min(${900 * zoom}px, ${100 * zoom}%)` }}>
         {pages.map((p, i) => {
           const s = scales[i] || 1;
@@ -465,17 +593,25 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
               onPointerDown={(e) => onPageDown(e, i)} onPointerMove={(e) => onPageMove(e, i)} onPointerUp={onPageUp} onPointerCancel={onPageUp}>
               <canvas style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} aria-label={`Page ${i + 1}`} />
               <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }} viewBox={`0 0 ${p.w} ${p.h}`}>
-                {objs.filter((o) => o.page === i && o.type === 'ink').map((o) => (
-                  <polyline points={o.points!.map((q) => q.join(',')).join(' ')} fill="none" stroke={o.color} stroke-width={o.width} stroke-linecap="round" stroke-linejoin="round"
-                    style={{ pointerEvents: tool === 'select' ? 'stroke' : 'none', cursor: 'move' }} onPointerDown={(e: any) => onObjDown(e, o, 'move')}
-                    stroke-dasharray={sel === o.id ? '4 3' : undefined} />
-                ))}
+                {objs.filter((o) => o.page === i && (o.type === 'ink' || o.type === 'line')).map((o) => {
+                  const pts = o.points!; const [a, b] = [pts[0], pts[pts.length - 1]];
+                  const ang = Math.atan2(b[1] - a[1], b[0] - a[0]), L = Math.max(8, (o.width ?? 2) * 4);
+                  const head = o.arrow ? `${b[0]},${b[1]} ${b[0] - L * Math.cos(ang - 0.45)},${b[1] - L * Math.sin(ang - 0.45)} ${b[0] - L * Math.cos(ang + 0.45)},${b[1] - L * Math.sin(ang + 0.45)}` : '';
+                  return (
+                    <g opacity={o.opacity ?? 1} style={{ pointerEvents: tool === 'select' ? 'auto' : 'none', cursor: 'move' }} onPointerDown={(e: any) => onObjDown(e, o, 'move')}>
+                      <polyline points={pts.map((q) => q.join(',')).join(' ')} fill="none" stroke="transparent" stroke-width={Math.max(12, (o.width ?? 2) + 10)} style={{ pointerEvents: 'stroke' }} />
+                      <polyline points={pts.map((q) => q.join(',')).join(' ')} fill="none" stroke={o.color} stroke-width={o.width} stroke-linecap="round" stroke-linejoin="round" stroke-dasharray={sel === o.id && o.type === 'ink' ? '4 3' : undefined} />
+                      {head && <polygon points={head} fill={o.color} />}
+                      {sel === o.id && o.type === 'line' && <circle cx={b[0]} cy={b[1]} r="6" fill="var(--brand)" stroke="#fff" stroke-width="2" style={{ pointerEvents: 'auto', cursor: 'crosshair' }} onPointerDown={(e: any) => { e.stopPropagation(); onObjDown(e, o, 'resize'); }} />}
+                    </g>
+                  );
+                })}
               </svg>
               {tool === 'edittext' && (titems[i] || []).filter((t) => !edited.has(t.key)).map((t) => (
                 <div class="ti" title="Click to edit" onPointerDown={(e) => editItem(e as any, i, t)}
                   style={{ position: 'absolute', left: (t.x / p.w) * 100 + '%', top: (t.y / p.h) * 100 + '%', width: (t.w / p.w) * 100 + '%', height: (t.h / p.h) * 100 + '%', cursor: 'text', zIndex: 2 }} />
               ))}
-              {objs.filter((o) => o.page === i && o.type !== 'ink').map((o) => {
+              {objs.filter((o) => o.page === i && o.type !== 'ink' && o.type !== 'line').map((o) => {
                 const isSel = sel === o.id, isEdit = editing === o.id;
                 const box: any = { position: 'absolute', left: (o.x / p.w) * 100 + '%', top: (o.y / p.h) * 100 + '%', outline: isSel ? '2px dashed var(--brand)' : 'none', outlineOffset: '2px', pointerEvents: tool === 'select' || isEdit || (tool === 'edittext' && o.type === 'text') ? 'auto' : 'none', cursor: isEdit || tool === 'edittext' ? 'text' : 'move' };
                 return (
@@ -497,11 +633,11 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
                         } }}
                         onInput={(e) => (textRef.current[o.id] = (e.target as HTMLElement).innerText)}
                         onBlur={(e) => { const t = (e.target as HTMLElement).innerText.replace(/\n$/, ''); textRef.current[o.id] = t; if (!t.trim()) { setObjs((cur) => cur.filter((x) => x.id !== o.id)); } else patch(o.id, { text: t }); setEditing(null); }}
-                        style={{ font: `${o.italic ? 'italic ' : ''}${o.bold ? 700 : 400} ${o.size! * s}px/1.2 ${css(o.font)}`, letterSpacing: o.cs ? o.cs * s + 'px' : undefined, transform: o.hs ? `scaleX(${o.hs})` : undefined, transformOrigin: 'left top', color: o.color, whiteSpace: 'pre', minWidth: '1ch', minHeight: o.size! * 1.2 * s + 'px', outline: 'none', background: isEdit ? 'rgb(79 70 229 / .06)' : 'transparent' }}
+                        style={{ font: `${o.italic ? 'italic ' : ''}${o.bold ? 700 : 400} ${o.size! * s}px/1.2 ${css(o.font)}`, letterSpacing: o.cs ? o.cs * s + 'px' : undefined, transform: o.hs ? `scaleX(${o.hs})` : undefined, transformOrigin: 'left top', color: o.color, opacity: o.opacity ?? 1, whiteSpace: 'pre', minWidth: '1ch', minHeight: o.size! * 1.2 * s + 'px', outline: 'none', background: isEdit ? 'rgb(79 70 229 / .06)' : 'transparent' }}
                         dangerouslySetInnerHTML={{ __html: (o.text ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;') }} />
                     )}
-                    {o.type === 'rect' && <div style={{ width: '100%', height: '100%', background: o.fill ? o.color : 'transparent', opacity: o.opacity, border: o.fill ? (o.color === '#ffffff' && isSel ? '1px solid #ddd' : 'none') : `${(o.width ?? 2) * s}px solid ${o.color}`, mixBlendMode: o.opacity! < 1 ? 'multiply' : 'normal' }} />}
-                    {o.type === 'image' && <img src={o.src} alt="" draggable={false} style={{ width: '100%', height: '100%', display: 'block' }} />}
+                    {(o.type === 'rect' || o.type === 'ellipse') && <div style={{ width: '100%', height: '100%', borderRadius: o.type === 'ellipse' ? '50%' : 0, background: o.fill ? o.color : 'transparent', opacity: o.opacity, border: o.fill ? (o.color === '#ffffff' && isSel ? '1px solid #ddd' : 'none') : `${(o.width ?? 2) * s}px solid ${o.color}`, mixBlendMode: o.opacity === 0.35 ? 'multiply' : 'normal', boxSizing: 'border-box' }} />}
+                    {o.type === 'image' && <img src={o.src} alt="" draggable={false} style={{ width: '100%', height: '100%', display: 'block', opacity: o.opacity ?? 1 }} />}
                     {isSel && !isEdit && tool === 'select' && (
                       <span onPointerDown={(e) => onObjDown(e as any, o, 'resize')} aria-label="Resize"
                         style={{ position: 'absolute', right: '-10px', bottom: '-10px', width: '18px', height: '18px', borderRadius: '50%', background: 'var(--brand)', border: '2px solid #fff', cursor: 'nwse-resize', pointerEvents: 'auto' }} />
@@ -515,8 +651,36 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
         })}
       </div>
       </div>
+      </div>
       <div class="actions"><button type="button" class="btn btn-primary btn-lg" disabled={!!busy} onClick={save}>Save PDF</button></div>
       {sigOpen && <SignaturePad onClose={() => setSigOpen(false)} onDone={(src, w, h) => { setSigOpen(false); placeImage(src, 'png', w, h, 0.25); }} />}
+    </div>
+  );
+}
+
+/** Page thumbnails: click one to jump to that page. */
+function Thumbs({ doc, pages, cur, onPick }: { doc: any; pages: PageInfo[]; cur: number; onPick: (i: number) => void }) {
+  const refs = useRef<(HTMLCanvasElement | null)[]>([]);
+  useEffect(() => {
+    if (!doc) return;
+    let dead = false;
+    const io = new IntersectionObserver((en) => en.forEach(async (e) => {
+      if (!e.isIntersecting) return; const c = e.target as HTMLCanvasElement; io.unobserve(c);
+      const i = Number(c.dataset.i); const pg = await doc.getPage(i + 1); if (dead) return;
+      const vp = pg.getViewport({ scale: 200 / pages[i].w }); c.width = vp.width; c.height = vp.height;
+      await pg.render({ canvas: c, canvasContext: c.getContext('2d')!, viewport: vp }).promise.catch(() => 0);
+    }), { rootMargin: '300px' });
+    refs.current.forEach((c) => c && io.observe(c));
+    return () => { dead = true; io.disconnect(); };
+  }, [doc, pages]);
+  useEffect(() => { refs.current[cur]?.parentElement?.scrollIntoView({ block: 'nearest' }); }, [cur]);
+  return (
+    <div class="ed-thumbs" aria-label="Pages">
+      {pages.map((p, i) => (
+        <button type="button" class={i === cur ? 'on' : ''} aria-label={`Go to page ${i + 1}`} onClick={() => onPick(i)}>
+          <canvas data-i={i} ref={(el) => (refs.current[i] = el)} style={{ aspectRatio: `${p.w} / ${p.h}` }} /><span>{i + 1}</span>
+        </button>
+      ))}
     </div>
   );
 }

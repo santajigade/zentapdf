@@ -78,4 +78,6 @@ Brand: ZentaPDF · colour Indigo #4F46E5 · domain TBD (placeholder zentapdf.com
 ## Quality pass (PDF tools)
 - PPT to PDF: new renderer (master/layout text styles, bullets, charts bar/column/line/pie/area, gradients, table styles, Office fonts). Done.
 - PDF to Excel: table lines → rows/columns/merged cells; borders, fills, bold, font size kept; row-ruled statements. Done.
-- Next: Compress PDF, Edit/Sign polish.
+- Compress PDF: new engine (DPI-aware, CMYK via pdf.js decoder, ICC swap, tiny JPEG icons, dedupe, edit-locked PDFs) + live sizes for all levels, custom DPI/quality, before/after zoom, batch ZIP. Beats Ghostscript on quality at similar size. Done.
+- Edit PDF: whole-line text edit, real background patch, embedded Unicode fonts (₹, symbols) incl. Calibri/Cambria, circle/line/arrow, opacity, fill, tick/cross/date, redo, duplicate, nudge, page thumbnails, edit-locked PDFs. Done.
+- Next (Phase 1): Sign PDF polish (saved signature, initials, all pages), Organise tools (big thumbnails, drag and drop), large files.

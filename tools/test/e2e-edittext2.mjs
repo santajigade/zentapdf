@@ -9,14 +9,14 @@ const items = p.locator('.ti');
 // 1) letter-spaced word
 let bb = await items.nth(0).boundingBox(); await items.nth(0).click({ position: { x: bb.width - 2, y: bb.height / 2 } }); await p.waitForTimeout(300);
 const ls = await p.evaluate(() => { const el = document.activeElement; return { t: el.innerText, ls: getComputedStyle(el).letterSpacing, w: el.getBoundingClientRect().width }; });
-console.log((ls.t === 'STANDARD' && ls.ls !== 'normal' ? 'PASS' : 'FAIL') + ' letter-spaced', JSON.stringify(ls), 'orig width', bb.width.toFixed(1));
+console.log((/^STANDARD( OPERATING)?/.test(ls.t) && !/S T/.test(ls.t) && ls.ls !== 'normal' ? 'PASS' : 'FAIL') + ' letter-spaced', JSON.stringify(ls), 'orig width', bb.width.toFixed(1));
 await p.mouse.click(1250, 980);
 // 2) big title: click inside "Stock" (about 25% of width) and type X
-const title = p.locator('.ti').nth(2); bb = await title.boundingBox();
+const hs = await p.$$eval('.ti', (els) => els.map((e) => e.getBoundingClientRect().height)); const title = p.locator('.ti').nth(hs.indexOf(Math.max(...hs))); bb = await title.boundingBox();
 await title.click({ position: { x: bb.width * 0.25, y: bb.height / 2 } }); await p.waitForTimeout(300);
 await p.keyboard.type('X');
 const t2 = await p.evaluate(() => { const el = document.activeElement; return { t: el.innerText, w: el.getBoundingClientRect().width }; });
-console.log((t2.t !== 'New Stock Item CreationX' && t2.t.includes('X') ? 'PASS' : 'FAIL') + ' caret at click', JSON.stringify(t2), 'orig width', bb.width.toFixed(1));
+console.log((!t2.t.endsWith('X') && t2.t.includes('X') ? 'PASS' : 'FAIL') + ' caret at click', JSON.stringify(t2), 'orig width', bb.width.toFixed(1));
 await p.mouse.click(1250, 980);
 await p.getByRole('button', { name: 'Save PDF' }).first().click();
 const [d] = await Promise.all([p.waitForEvent('download'), p.getByRole('button', { name: 'Download PDF' }).click()]); await d.saveAs('/tmp/testout/sop-ed.pdf');

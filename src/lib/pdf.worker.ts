@@ -3,7 +3,7 @@ import { PDFDocument, degrees, rgb, StandardFonts, LineCapStyle, pushGraphicsSta
 
 type Msg =
   | { op: 'compress'; file: ArrayBuffer; sets: import('./compressImages').Settings[] }
-  | { op: 'annotate'; file: ArrayBuffer; items: any[] }
+  | { op: 'annotate'; file: ArrayBuffer; items: any[]; fonts?: Record<string, ArrayBuffer> }
   | { op: 'edit'; file: ArrayBuffer; kind: string; o: any }
   | { op: 'merge'; files: ArrayBuffer[] }
   | { op: 'count'; file: ArrayBuffer }
@@ -62,29 +62,69 @@ self.onmessage = async (ev: MessageEvent<Msg>) => {
       const hex = (h: string) => { const n = parseInt((h || '#000000').slice(1), 16); return rgb(((n >> 16) & 255) / 255, ((n >> 8) & 255) / 255, (n & 255) / 255); };
       const fonts = new Map<string, any>();
       const font = async (name: string) => { if (!fonts.has(name)) fonts.set(name, await doc.embedFont((StandardFonts as any)[name])); return fonts.get(name); };
+      // real font files (Unicode: ₹, accents, symbols): text that the main font lacks is drawn with the symbol font
+      const files = m.fonts ?? {};
+      if (Object.keys(files).length) { const fontkit = (await import('@pdf-lib/fontkit')).default; doc.registerFontkit(fontkit); }
+      const ttf = new Map<string, { pdf: any; has: (cp: number) => boolean }>();
+      const tfont = async (name: string) => {
+        if (!ttf.has(name)) { const pdf = await doc.embedFont(files[name], { subset: false }); const set = new Set<number>((pdf as any).embedder.font.characterSet); ttf.set(name, { pdf, has: (cp) => set.has(cp) }); }
+        return ttf.get(name)!;
+      };
+      const runs = async (text: string, main: string, sym?: string) => {
+        const a = await tfont(main); const b = sym && files[sym] ? await tfont(sym) : null;
+        const out: { t: string; f: any }[] = [];
+        for (const ch of text) { const cp = ch.codePointAt(0)!; const f = a.has(cp) || !b || !b.has(cp) ? a.pdf : b.pdf; const last = out[out.length - 1]; if (last && last.f === f) last.t += ch; else out.push({ t: ch, f }); }
+        // characters no font has: drop them rather than fail
+        return out.map((r) => ({ ...r, t: [...r.t].filter((c) => r.f === a.pdf ? a.has(c.codePointAt(0)!) || c === ' ' : true).join('') })).filter((r) => r.t);
+      };
       const imgs = new Map<string, any>();
       for (let i = 0; i < m.items.length; i++) {
         const it = m.items[i];
         const pg = pages[it.page];
         if (!pg) continue;
         if (it.type === 'text') {
-          const f = await font(it.font);
           const special = it.hs || it.cs;
           if (special) pg.pushOperators(pushGraphicsState(), setCharacterSqueeze((it.hs || 1) * 100), setCharacterSpacing(it.cs || 0));
-          for (const ln of it.lines) if (ln.text) pg.drawText(ln.text, { x: ln.x, y: ln.y, size: it.size, font: f, color: hex(it.color), rotate: degrees(it.rot) });
+          const opacity = it.opacity ?? 1;
+          if (it.file) {
+            const a = (it.rot * Math.PI) / 180;
+            for (const ln of it.lines) {
+              if (!ln.text) continue;
+              let off = 0;
+              for (const r of await runs(ln.text, it.file, it.sym)) {
+                pg.drawText(r.t, { x: ln.x + off * Math.cos(a), y: ln.y + off * Math.sin(a), size: it.size, font: r.f, color: hex(it.color), rotate: degrees(it.rot), opacity });
+                off += r.f.widthOfTextAtSize(r.t, it.size) * (it.hs || 1) + (it.cs || 0) * [...r.t].length;
+              }
+            }
+          } else {
+            const f = await font(it.font);
+            for (const ln of it.lines) if (ln.text) pg.drawText(ln.text, { x: ln.x, y: ln.y, size: it.size, font: f, color: hex(it.color), rotate: degrees(it.rot), opacity });
+          }
           if (special) pg.pushOperators(popGraphicsState());
+        } else if (it.type === 'ellipse') {
+          pg.drawEllipse({ x: it.x + it.w / 2, y: it.y + it.h / 2, xScale: it.w / 2, yScale: it.h / 2,
+            ...(it.fill ? { color: hex(it.color), opacity: it.opacity } : { borderColor: hex(it.color), borderWidth: it.width, borderOpacity: it.opacity }) });
+        } else if (it.type === 'line') {
+          const [x1, y1] = it.a, [x2, y2] = it.b;
+          pg.drawLine({ start: { x: x1, y: y1 }, end: { x: x2, y: y2 }, thickness: it.width, color: hex(it.color), opacity: it.opacity, lineCap: LineCapStyle.Round });
+          if (it.arrow) {
+            const ang = Math.atan2(y2 - y1, x2 - x1), L = Math.max(8, it.width * 4), sp = 0.45;
+            const p1 = [x2 - L * Math.cos(ang - sp), y2 - L * Math.sin(ang - sp)], p2 = [x2 - L * Math.cos(ang + sp), y2 - L * Math.sin(ang + sp)];
+            // drawSvgPath uses a y-down system starting at (x, y)
+            pg.drawSvgPath(`M ${x2} ${-y2} L ${p1[0]} ${-p1[1]} L ${p2[0]} ${-p2[1]} Z`, { x: 0, y: 0, color: hex(it.color), opacity: it.opacity });
+          }
         } else if (it.type === 'rect') {
           pg.drawRectangle({ x: it.x, y: it.y, width: it.w, height: it.h,
             ...(it.fill ? { color: hex(it.color), opacity: it.opacity } : { borderColor: hex(it.color), borderWidth: it.width, borderOpacity: it.opacity }) });
         } else if (it.type === 'ink') {
           for (let k = 1; k < it.points.length; k++) {
             const [x1, y1] = it.points[k - 1], [x2, y2] = it.points[k];
-            pg.drawLine({ start: { x: x1, y: y1 }, end: { x: x2, y: y2 }, thickness: it.width, color: hex(it.color), lineCap: LineCapStyle.Round });
+            pg.drawLine({ start: { x: x1, y: y1 }, end: { x: x2, y: y2 }, thickness: it.width, color: hex(it.color), opacity: it.opacity ?? 1, lineCap: LineCapStyle.Round });
           }
         } else if (it.type === 'image') {
           let img = imgs.get(it.key);
           if (!img) { img = it.kind === 'png' ? await doc.embedPng(it.bytes) : await doc.embedJpg(it.bytes); imgs.set(it.key, img); }
-          pg.drawImage(img, { x: it.x, y: it.y, width: it.w, height: it.h, rotate: degrees(it.rot) });
+          pg.drawImage(img, { x: it.x, y: it.y, width: it.w, height: it.h, rotate: degrees(it.rot), opacity: it.opacity ?? 1 });
         }
         if (i % 20 === 0) progress(i, m.items.length, 'Saving your changes…');
       }
