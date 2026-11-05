@@ -64,6 +64,46 @@ const search = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stro
     </div>
   </section>
 
+
+  <section class="hb-spot">
+    <div class="container hb-spot-in">
+      <div class="hb-spot-txt">
+        <span class="hb-tag">★ Most used tool</span>
+        <h2>Edit PDF text as easily as a Word document</h2>
+        <p>Click any line and type. Your change keeps the same font, size and colour, so nobody can tell the PDF was edited.</p>
+        <ul>
+          <li><span set:html={icon('editdoc', 18)} />Change existing text in the original font</li>
+          <li><span set:html={icon('sign', 18)} />Add text, images, signatures and initials</li>
+          <li><span set:html={icon('highlighter', 18)} />Highlight, draw shapes, arrows and ticks</li>
+          <li><span set:html={icon('scan', 18)} />Works on scanned pages too</li>
+        </ul>
+        <div class="hb-spot-cta">
+          <a class="btn btn-primary btn-lg" href="/edit-pdf/">Edit a PDF now</a>
+          <button type="button" class="btn btn-ghost btn-lg" id="hb-edit-pick">Choose PDF file</button>
+          <input id="hb-edit-file" type="file" accept=".pdf,application/pdf" hidden />
+        </div>
+        <small class="hb-spot-note">Free · No sign-up · No watermark</small>
+      </div>
+      <div class="hb-demo" aria-hidden="true">
+        <div class="hd-bar"><i style="background:#ede9fe;color:#7c3aed">T</i><i style="background:#dbeafe;color:#2563eb">✎</i><i style="background:#dcfce7;color:#16a34a">▢</i><i style="background:#fef3c7;color:#b45309">✓</i><i style="background:#fce7f3;color:#be185d">➚</i><b>Save PDF</b></div>
+        <div class="hd-page">
+          <div class="hd-head"><span class="hd-logo"></span><span class="hd-title">QUOTATION</span></div>
+          <div class="hd-l w70"></div>
+          <div class="hd-l w55"></div>
+          <div class="hd-edit"><span class="hd-old">Price: ₹ 12,500</span><span class="hd-new">Price: ₹ 11,900</span><span class="hd-caret"></span></div>
+          <div class="hd-l w80"></div>
+          <div class="hd-l w65 hd-hl"><span></span></div>
+          <div class="hd-l w75"></div>
+          <div class="hd-l w40"></div>
+          <svg class="hd-sig" viewBox="0 0 160 60"><path d="M6 44c14-4 18-30 28-30s-6 34 6 34 14-26 22-26-4 22 8 22 10-14 18-14 4 10 12 10 14-6 22-8 14 0 26-2" /></svg>
+          <span class="hd-sigline">Signature</span>
+        </div>
+        <svg class="hd-cursor" viewBox="0 0 24 24"><path d="M4 2l16 10-7 1.5L10 21z" /></svg>
+        <div class="hd-toast">✓ Saved: quotation.pdf</div>
+      </div>
+    </div>
+  </section>
+
   <div class="container hb">
     <div data-hide-on-search>
       <h2 class="hb-h2">Most used tools</h2>
@@ -110,9 +150,19 @@ const search = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stro
       <p id="no-results" class="status" hidden>No tools match your search.</p>
     </details>
 
-    <section class="hb-band" data-hide-on-search>
-      <div><h2>Free. Fast. No sign-up.</h2><p>No account, no watermark and no limit on files. Works on phone, tablet and computer.</p></div>
-      <div class="hb-badges"><span>✓ No watermark</span><span>✓ No email needed</span><span>✓ Best quality output</span></div>
+    <section class="hb-how" data-hide-on-search>
+      <div class="hb-how-head"><h2>Done in three simple steps</h2><p>No software to install and no account to create. It works in any browser.</p></div>
+      <div class="hb-steps">
+        <article class="hs1"><span class="hs-ic" set:html={icon('upload', 26)} /><b>Step 1</b><h3>Add your file</h3><p>Drag and drop or tap to choose a PDF, photo or Office file.</p><div class="hs-anim"><i class="hs-file"></i></div></article>
+        <article class="hs2"><span class="hs-ic" set:html={icon('editdoc', 26)} /><b>Step 2</b><h3>Choose what to do</h3><p>Edit, convert, compress or sign, with a live preview.</p><div class="hs-anim"><i class="hs-bar"><em></em></i></div></article>
+        <article class="hs3"><span class="hs-ic" set:html={icon('extract', 26)} /><b>Step 3</b><h3>Download</h3><p>Your file is ready in seconds, in the best quality.</p><div class="hs-anim"><i class="hs-check">✓</i></div></article>
+      </div>
+      <div class="hb-trust">
+        <div><span style="background:#dcfce7;color:#15803d" set:html={icon('stamp', 22)} /><strong>No watermark</strong><small>Your files stay clean</small></div>
+        <div><span style="background:#dbeafe;color:#1d4ed8" set:html={icon('lock', 22)} /><strong>No sign-up</strong><small>No email, no account</small></div>
+        <div><span style="background:#ede9fe;color:#6d28d9" set:html={icon('star', 22)} /><strong>Best quality</strong><small>Sharp text, original fonts</small></div>
+        <div><span style="background:#ffedd5;color:#c2410c" set:html={icon('touch', 22)} /><strong>Any device</strong><small>PC, Mac, Android, iPhone</small></div>
+      </div>
     </section>
   </div>
 
@@ -139,6 +189,9 @@ const search = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stro
       });
       document.getElementById('no-results')!.hidden = any;
     });
+    const ef = document.getElementById('hb-edit-file') as HTMLInputElement;
+    document.getElementById('hb-edit-pick')?.addEventListener('click', () => ef.click());
+    ef.addEventListener('change', async () => { if (!ef.files?.length) return; try { await putHandoff([ef.files[0]]); } catch { /* opens empty */ } location.href = '/edit-pdf/?from=home'; });
     // drop a file: suggest tools, then open the tool with the file already loaded
     const drop = document.getElementById('hb-drop')!, file = document.getElementById('hb-file') as HTMLInputElement;
     const idle = drop.querySelector<HTMLElement>('.hb-drop-idle')!, pick = drop.querySelector<HTMLElement>('.hb-drop-pick')!;
