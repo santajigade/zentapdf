@@ -56,4 +56,6 @@ await shot('passport-size-photo-for-online-forms', '/reduce-image-size-in-kb/', 
 await shot('scan-documents-to-pdf-with-phone', '/images-to-pdf/', (q) => files(q, ['photo2.jpg', 'rotated_exif6.jpg', 'pic.png']));
 await shot('how-to-convert-heic-to-jpg', '/heic-to-jpg/', (q) => files(q, ['iphone.heic', 'iphone2.heic']));
 await shot('how-to-unlock-pdf', '/unlock-pdf/', async (q) => { await files(q, ['prot.pdf']); await q.waitForSelector('input[type=password]', { timeout: 30000 }); await q.fill('input[type=password]', 'secret1'); });
+await shot('aadhaar-card-pdf-password', '/unlock-pdf/', async (q) => { await files(q, ['e-aadhaar.pdf']); await q.waitForSelector('input[type=password]', { timeout: 30000 }); await q.fill('input[type=password]', 'RAHU1995'); });
+await shot('how-to-repair-corrupted-pdf', '/repair-pdf/', async (q) => { await files(q, ['plus/truncated.pdf']); await q.waitForSelector('.plus-report', { timeout: 30000 }); });
 await b.close(); console.log('done', guides.length);
