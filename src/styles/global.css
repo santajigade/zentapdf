@@ -826,3 +826,7 @@ fieldset.panel input[type=checkbox] { accent-color: var(--pc); width: 17px; heig
 @media (prefers-reduced-motion: reduce) { .hb-demo *, .hb-steps *, .hb-steps article { animation: none !important; } .hd-old { opacity: 0 } .hd-new { max-width: 100% } .hd-sig path { stroke-dashoffset: 0 } .hd-hl span { transform: none } }
 @media (max-width: 900px) { .hb-spot-in { grid-template-columns: 1fr; gap: 34px; } .hb-steps { grid-template-columns: 1fr; } .hb-trust { grid-template-columns: 1fr 1fr; } .hb-trust div:nth-child(3) { border-left: 0; } .hb-trust div:nth-child(n+3) { border-top: 1px solid var(--border); } }
 @media (max-width: 480px) { .hb-trust { grid-template-columns: 1fr; } .hb-trust div + div { border-left: 0; border-top: 1px solid var(--border); } .hb-spot-cta .btn { flex: 1; white-space: nowrap; padding-left: 12px; padding-right: 12px; font-size: 1rem; } }
+
+.guide-views { display: flex; align-items: center; gap: 8px; justify-content: flex-end; color: var(--muted); font-size: .92rem; margin: 18px 0 0; padding-top: 12px; border-top: 1px solid var(--border); }
+.guide-views[hidden] { display: none; }
+.guide-card small .gv { color: inherit; font-size: inherit; line-height: inherit; }

@@ -33,7 +33,7 @@ const toc = g.headings.filter((h) => h.depth === 2);
   <article class="container guide">
     <header class="guide-head">
       <h1>{g.h1}</h1>
-      <p class="guide-meta">By {SITE_NAME} Team · Updated <time datetime={g.updated ?? g.date}>{fmt(g.updated ?? g.date)}</time> · {g.minutes} min read</p>
+      <p class="guide-meta">By {SITE_NAME} Team · Published <time datetime={g.date}>{fmt(g.date)}</time>{g.updated && g.updated !== g.date && <> · Updated <time datetime={g.updated}>{fmt(g.updated)}</time></>} · {g.minutes} min read</p>
       <img class="guide-hero" src={img} alt={g.h1} width="1200" height="630" />
     </header>
     <aside class="guide-cta">
@@ -47,6 +47,7 @@ const toc = g.headings.filter((h) => h.depth === 2);
     {g.faqs?.length && (
       <section><h2 id="faq">Frequently asked questions</h2>{g.faqs.map((f) => <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>)}</section>
     )}
+    <p class="guide-views" id="guide-views" data-slug={g.slug} hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span></span></p>
     <aside class="guide-cta">
       <div><strong>Ready? Use {tool.name} free</strong><span>No sign-up{tool.dt ? ', no download' : ', no watermark'}.</span></div>
       <a class="btn btn-primary" href={tool.href}>Open {tool.name} →</a>
@@ -55,7 +56,18 @@ const toc = g.headings.filter((h) => h.depth === 2);
     <div class="grid">{relatedLinks.map((x) => (x.dt ? <DTCard t={x.dt} /> : <ToolCard tool={x.tool} />))}</div>
     <h2>More guides</h2>
     <div class="guide-grid">{more.map((x) => (
-      <a class="guide-card" href={`/guides/${x.slug}/`}><img src={`/og/guides/${x.slug}.png?v=2`} alt="" width="1200" height="630" loading="lazy" /><div><strong>{x.h1}</strong><small>{x.minutes} min read</small></div></a>
+      <a class="guide-card" href={`/guides/${x.slug}/`}><img src={`/og/guides/${x.slug}.png?v=2`} alt="" width="1200" height="630" loading="lazy" /><div><strong>{x.h1}</strong><small>{fmt(x.date)} · {x.minutes} min read</small></div></a>
     ))}</div>
   </article>
+  <script>
+    // page view counter (one count per browser per day)
+    const el = document.getElementById('guide-views') as HTMLElement | null;
+    if (el) {
+      const slug = el.dataset.slug!; const key = `zv:${slug}:${new Date().toISOString().slice(0, 10)}`;
+      let seen = false; try { seen = !!localStorage.getItem(key); localStorage.setItem(key, '1'); } catch { /* private mode */ }
+      fetch(`/api/views.php?p=${slug}`, seen ? {} : { method: 'POST', headers: { 'X-Zenta': 'view' } })
+        .then((r) => r.json()).then((d) => { const n = d[slug]; if (typeof n === 'number' && n > 0) { el.querySelector('span')!.textContent = `${n.toLocaleString('en-IN')} ${n === 1 ? 'view' : 'views'}`; el.hidden = false; } })
+        .catch(() => {});
+    }
+  </script>
 </Base>

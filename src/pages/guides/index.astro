@@ -4,6 +4,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { guides } from '../../lib/guides';
 import { breadcrumbSchema, abs } from '../../lib/schema';
 const crumbs = [{ name: 'Home', href: '/' }, { name: 'Guides', href: '/guides/' }];
+const fmt = (d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
 const list = { '@context': 'https://schema.org', '@type': 'ItemList', itemListElement: guides.map((g, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(`/guides/${g.slug}/`), name: g.h1 })) };
 ---
 <Base title="PDF & Image Guides – How-To Tutorials | ZentaPDF" description="Free step-by-step guides: compress, edit, sign, merge and protect PDFs, convert and resize images for online forms, and make QR codes and stickers." schema={[breadcrumbSchema(crumbs), list]}>
@@ -14,9 +15,15 @@ const list = { '@context': 'https://schema.org', '@type': 'ItemList', itemListEl
       {guides.map((g) => (
         <a class="guide-card" href={`/guides/${g.slug}/`}>
           <img src={`/og/guides/${g.slug}.png?v=2`} alt="" width="1200" height="630" loading="lazy" />
-          <div><strong>{g.h1}</strong><span>{g.description}</span><small>{g.minutes} min read</small></div>
+          <div><strong>{g.h1}</strong><span>{g.description}</span><small><time datetime={g.date}>{fmt(g.date)}</time> · {g.minutes} min read<span class="gv" data-slug={g.slug}></span></small></div>
         </a>
       ))}
     </div>
   </section>
+  <script>
+    const tags = [...document.querySelectorAll<HTMLElement>('.gv')];
+    fetch(`/api/views.php?p=${tags.map((t) => t.dataset.slug).join(',')}`).then((r) => r.json()).then((d) => {
+      for (const t of tags) { const n = d[t.dataset.slug!]; if (n > 0) t.textContent = ` · ${n.toLocaleString('en-IN')} ${n === 1 ? 'view' : 'views'}`; }
+    }).catch(() => {});
+  </script>
 </Base>
