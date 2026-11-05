@@ -5,6 +5,9 @@ Done:
 - [x] how-to-repair-corrupted-pdf (2026-11-05)
 
 Open:
+- [ ] How to compress an image to 20 KB (compress-image-to-20kb, reduce-image-size-in-kb)
+- [ ] How to add a blank page to a PDF (add-blank-page)
+- [ ] How to convert PNG to ICO for a website favicon (png-to-ico)
 - [ ] How to edit a scanned PDF (edit-pdf)
 - [ ] How to convert PDF to Word without losing formatting (pdf-to-word)
 - [ ] Signature size 10 KB to 20 KB for exam forms (reduce-image-size-in-kb)
