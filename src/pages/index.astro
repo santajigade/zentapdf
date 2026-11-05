@@ -1,52 +1,98 @@
 ---
 import { deviceTests } from '../data/devicetests';
 import Base from '../layouts/Base.astro';
-import ToolCard from '../components/ToolCard.astro';
 import { categories, tools, toolBySlug, type Tool } from '../data/tools';
 import { icon, toolColor } from '../data/icons';
-const title = 'ZentaPDF – Free PDF & Image Tools Online (No Sign-up)';
+const title = 'ZentaPDF: Free PDF & Image Tools Online (No Sign-up)';
 const description = 'Free online PDF and image tools: edit, merge, split, compress and convert PDFs, resize photos to KB, make QR codes and more. Fast, simple, no sign-up.';
 const live = tools.filter((t) => t.live);
-const popular = ['edit-pdf', 'pdf-to-word', 'compress-pdf', 'merge-pdf', 'word-to-pdf', 'jpg-to-pdf', 'reduce-image-size-in-kb', 'sign-pdf'].map(toolBySlug).filter(Boolean) as Tool[];
-const catIcon: Record<string, string> = { organise: 'merge', edit: 'editdoc', convert: 'pdfToImg', security: 'lock', image: 'images', imgconv: 'convert', utility: 'qr', gif: 'gif', topdf: 'imgToPdf' };
+const T = (s: string) => toolBySlug(s) as Tool;
+const col = (t: Tool) => toolColor[t.slug] ?? '#5b5bd6';
+const n = (id: string) => live.filter((t) => t.category === id).length;
+const catIcon: Record<string, string> = { organise: 'merge', edit: 'editdoc', convert: 'word', security: 'lock', image: 'images', imgconv: 'convert', utility: 'qr', gif: 'gif', topdf: 'plus' };
 const order = ['organise', 'edit', 'convert', 'topdf', 'security', 'image', 'imgconv', 'gif', 'utility'];
 const cats = order.map((id) => categories.find((c) => c.id === id)!).filter(Boolean);
+const cat = (id: string) => cats.find((c) => c.id === id)!;
+const chips = ['merge-pdf', 'pdf-to-word', 'compress-pdf', 'reduce-image-size-in-kb', 'sign-pdf'].map(T);
+const featured: [string, string][] = [['edit-pdf', 'edit'], ['compress-pdf', 'convert'], ['pdf-to-word', 'organise'], ['merge-pdf', 'image']];
+const rows: [string, string[]][] = [
+  ['organise', ['merge-pdf', 'split-pdf', 'remove-pages', 'reorder-pdf-pages', 'pages-per-sheet', 'repair-pdf']],
+  ['edit', ['edit-pdf', 'sign-pdf', 'add-page-numbers', 'add-watermark', 'pdf-overlay', 'crop-pdf']],
+  ['convert', ['pdf-to-word', 'pdf-to-excel', 'pdf-to-jpg', 'pdf-to-ppt', 'extract-images-from-pdf', 'pdf-to-markdown']],
+  ['topdf', ['word-to-pdf', 'jpg-to-pdf', 'excel-to-pdf', 'ppt-to-pdf', 'pdf-scanner', 'html-to-pdf']],
+  ['image', ['compress-image', 'reduce-image-size-in-kb', 'resize-image', 'crop-image', 'convert-image', 'whatsapp-sticker-maker']],
+];
+const more = ['security', 'imgconv', 'gif', 'utility'];
+// what to offer for a file dropped on the home page (only tools that open a dropped file straight away)
+const offers = {
+  pdf: ['edit-pdf', 'compress-pdf', 'pdf-to-word', 'sign-pdf', 'merge-pdf', 'split-pdf', 'pdf-to-jpg', 'pdf-to-excel'],
+  img: ['compress-image', 'jpg-to-pdf', 'crop-image', 'remove-exif-data'],
+  word: ['word-to-pdf'], excel: ['excel-to-pdf'], ppt: ['ppt-to-pdf'],
+};
+const offerData = Object.fromEntries(Object.entries(offers).map(([k, v]) => [k, v.map(T).filter((t) => t?.live).map((t) => ({ slug: t.slug, name: t.name, color: col(t), icon: icon(t.icon, 20) }))]));
+const search = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>';
 ---
 <Base title={title} description={description}>
-  <section class="hero hero-compact">
-    <div class="container">
-      <h1>Free PDF &amp; Image Tools</h1>
-      <p class="lead">Edit, merge, compress and convert PDFs, resize photos for forms, make QR codes and more — free, fast and with no sign-up.</p>
-      <div class="search">
-        <input id="tool-search" type="search" placeholder={`Search ${live.length} tools… e.g. merge, 50 kb, qr`} aria-label="Search tools" autocomplete="off" />
+  <section class="hb-hero">
+    <div class="container hb-split">
+      <div>
+        <h1>Free PDF and image tools that just work</h1>
+        <p class="hb-lead">Edit, convert, compress and sign PDFs, or resize photos to any KB. {live.length} tools, no sign-up, no watermark.</p>
+        <label class="hb-search"><span set:html={search} /><input id="tool-search" type="search" placeholder="What do you want to do? e.g. compress pdf, 50 kb" aria-label="Search tools" autocomplete="off" /></label>
+        <div class="hb-chips"><b>Popular:</b>{chips.map((t) => <a href={`/${t.slug}/`}>{t.name}</a>)}</div>
+      </div>
+      <div class="hb-art">
+        <div class="hb-drop" id="hb-drop" role="button" tabindex="0" aria-label="Choose a PDF, image or Office file">
+          <div class="hb-drop-idle">
+            <span class="hb-drop-ic" set:html={icon('upload', 34)} />
+            <strong>Drop your file here</strong>
+            <span>PDF, JPG, PNG, Word, Excel or PowerPoint</span>
+            <span class="btn hb-choose">Choose file</span>
+          </div>
+          <div class="hb-drop-pick" hidden>
+            <strong class="hb-fname"></strong>
+            <span>What do you want to do?</span>
+            <div class="hb-offers"></div>
+            <button type="button" class="hb-other">Choose another file</button>
+          </div>
+        </div>
+        <input id="hb-file" type="file" multiple hidden accept=".pdf,application/pdf,image/*,.doc,.docx,.xls,.xlsx,.ppt,.pptx" />
+        <div class="hb-float f1" aria-hidden="true"><span style="background:#16a34a" set:html={icon('compress', 18)} />3.2 MB → 79 KB</div>
+        <div class="hb-float f2" aria-hidden="true"><span style="background:#2563eb" set:html={icon('word', 18)} />PDF to Word ready</div>
+        <div class="hb-float f3" aria-hidden="true"><span style="background:#7c3aed" set:html={icon('sign', 18)} />Signed ✓</div>
       </div>
     </div>
   </section>
 
-  <div class="container">
-    <section id="popular" data-hide-on-search>
-      <h2 class="home-h2">Popular tools</h2>
-      <div class="grid grid-popular">{popular.map((t) => <ToolCard tool={t} />)}</div>
-    </section>
-
-    <section class="panel" id="browse" data-hide-on-search>
-      <div class="panel-head"><h2 class="home-h2" style="margin:0">Browse by category</h2><span class="muted">{live.length} tools in {cats.length} categories</span></div>
-      <div class="cat-tiles">
-        {cats.map((c) => (
-          <a class={`cat-tile tint-${c.id}`} href={`/${c.slug}/`}>
-            <span class="cat-ic" set:html={icon(catIcon[c.id] ?? 'text', 26)} />
-            <span><strong>{c.name}</strong><small>{live.filter((t) => t.category === c.id).length} tools</small></span>
-          </a>
-        ))}
-        <a class="cat-tile tint-device" href="/device-test/">
-          <span class="cat-ic" set:html={icon('keyboard', 26)} />
-          <span><strong>Device Test</strong><small>{deviceTests.filter((t) => t.live).length} tests</small></span>
-        </a>
+  <div class="container hb">
+    <div data-hide-on-search>
+      <h2 class="hb-h2">Most used tools</h2>
+      <div class="hb-feat">
+        {featured.map(([s, tint]) => { const t = T(s); return (
+          <a class={`hb-fc tint-${tint}`} href={`/${t.slug}/`}><span class="ic" style={`background:${col(t)}`} set:html={icon(t.icon, 30)} /><strong>{t.name}</strong><span class="d">{t.short}</span><em>Open tool →</em></a>
+        ); })}
       </div>
-    </section>
 
-    <section id="all-tools" class="panel">
-      <h2 class="home-h2" style="margin-top:0">All tools</h2>
+      {rows.map(([id, list]) => { const c = cat(id); return (
+        <section class={`hb-row tint-${id}`}>
+          <div class="hb-rowhead"><span class="hb-ci" set:html={icon(catIcon[id], 22)} /><h2><a href={`/${c.slug}/`}>{c.name}</a></h2><small>{n(id)} tools</small><a class="hb-all" href={`/${c.slug}/`}>See all →</a></div>
+          <div class="hb-cards">{list.map(T).filter((t) => t?.live).map((t) => (
+            <a class="hb-tc" href={`/${t.slug}/`}><span class="ic" style={`background:${col(t)}`} set:html={icon(t.icon, 22)} /><strong>{t.name}</strong></a>
+          ))}</div>
+        </section>
+      ); })}
+
+      <h2 class="hb-h2">More categories</h2>
+      <div class="hb-more">
+        {more.map((id) => { const c = cat(id); return (
+          <a class={`tint-${id}`} href={`/${c.slug}/`}><span class="hb-ci" set:html={icon(catIcon[id], 22)} /><strong>{c.name}</strong><small>{n(id)} tools</small></a>
+        ); })}
+        <a class="tint-device" href="/device-test/"><span class="hb-ci" set:html={icon('keyboard', 22)} /><strong>Device Test</strong><small>{deviceTests.filter((t) => t.live).length} tests</small></a>
+      </div>
+    </div>
+
+    <details class="hb-alltools" id="all-tools">
+      <summary><span>All {live.length} tools</span><small>A to Z by category</small></summary>
       <div class="all-cols">
         {cats.map((c) => (
           <div class={`all-group tint-${c.id}`} data-group>
@@ -54,7 +100,7 @@ const cats = order.map((id) => categories.find((c) => c.id === id)!).filter(Bool
             <ul>
               {live.filter((t) => t.category === c.id).map((t) => (
                 <li data-name={`${t.name} ${t.short}`.toLowerCase()}>
-                  <a href={`/${t.slug}/`}><span class="dot" style={`background:${toolColor[t.slug] ?? '#5b5bd6'}`} set:html={icon(t.icon, 14)} />{t.name}</a>
+                  <a href={`/${t.slug}/`}><span class="dot" style={`background:${col(t)}`} set:html={icon(t.icon, 14)} />{t.name}</a>
                 </li>
               ))}
             </ul>
@@ -62,34 +108,63 @@ const cats = order.map((id) => categories.find((c) => c.id === id)!).filter(Bool
         ))}
       </div>
       <p id="no-results" class="status" hidden>No tools match your search.</p>
-    </section>
+    </details>
 
-    <section class="content narrow" style="margin:0 auto" data-hide-on-search>
-      <h2>Why ZentaPDF?</h2>
-      <div class="features">
-        <div><strong>Everything in one place</strong><span>PDF editing, conversion, compression, image tools and generators — {live.length} free tools.</span></div>
-        <div><strong>Free forever</strong><span>No sign-up, no watermark, no limits on how many files you process.</span></div>
-        <div><strong>Fast on any device</strong><span>Works on computers, tablets and phones.</span></div>
-      </div>
+    <section class="hb-band" data-hide-on-search>
+      <div><h2>Free. Fast. No sign-up.</h2><p>No account, no watermark and no limit on files. Works on phone, tablet and computer.</p></div>
+      <div class="hb-badges"><span>✓ No watermark</span><span>✓ No email needed</span><span>✓ Best quality output</span></div>
     </section>
   </div>
+
+  <script define:vars={{ offerData }}>
+    window.__offers = offerData;
+  </script>
   <script>
+    import { putHandoff } from '../lib/handoff';
+    // search: filter the full list
     const input = document.getElementById('tool-search') as HTMLInputElement | null;
+    const all = document.getElementById('all-tools') as HTMLDetailsElement;
     input?.addEventListener('input', () => {
       const q = input.value.trim().toLowerCase();
       document.querySelectorAll<HTMLElement>('[data-hide-on-search]').forEach((el) => (el.hidden = !!q));
+      if (q) all.open = true;
       let any = false;
       document.querySelectorAll<HTMLElement>('[data-group]').forEach((g) => {
         let shown = 0;
         g.querySelectorAll<HTMLElement>('li').forEach((li) => {
-          const words = q.split(/\s+/).filter(Boolean);
-          const hit = !q || words.every((w) => (li.dataset.name ?? '').includes(w));
+          const hit = !q || q.split(/\s+/).filter(Boolean).every((w) => (li.dataset.name ?? '').includes(w));
           li.hidden = !hit; if (hit) shown++;
         });
         g.hidden = shown === 0; if (shown) any = true;
       });
       document.getElementById('no-results')!.hidden = any;
-      if (q) document.getElementById('all-tools')?.scrollIntoView({ block: 'nearest' });
     });
+    // drop a file: suggest tools, then open the tool with the file already loaded
+    const drop = document.getElementById('hb-drop')!, file = document.getElementById('hb-file') as HTMLInputElement;
+    const idle = drop.querySelector<HTMLElement>('.hb-drop-idle')!, pick = drop.querySelector<HTMLElement>('.hb-drop-pick')!;
+    let files: File[] = [];
+    const kind = (f: File) => /pdf$/i.test(f.type) || /\.pdf$/i.test(f.name) ? 'pdf' : /^image\//.test(f.type) ? 'img' : /\.docx?$/i.test(f.name) ? 'word' : /\.xlsx?$/i.test(f.name) ? 'excel' : /\.pptx?$/i.test(f.name) ? 'ppt' : '';
+    const show = (list: File[]) => {
+      const k = kind(list[0]); const offers = (window as any).__offers[k] as { slug: string; name: string; color: string; icon: string }[] | undefined;
+      if (!offers) { alert('Please choose a PDF, image, Word, Excel or PowerPoint file.'); return; }
+      files = list.filter((f) => kind(f) === k);
+      pick.querySelector('.hb-fname')!.textContent = files.length > 1 ? `${files.length} files` : files[0].name;
+      const box = pick.querySelector('.hb-offers')!; box.innerHTML = '';
+      for (const o of offers) {
+        const b = document.createElement('button'); b.type = 'button';
+        b.innerHTML = `<span style="background:${o.color}">${o.icon}</span>${o.name}`;
+        b.onclick = async () => { try { await putHandoff(files); } catch { /* the tool opens without the file */ } location.href = `/${o.slug}/?from=home`; };
+        box.appendChild(b);
+      }
+      idle.hidden = true; pick.hidden = false; drop.parentElement!.classList.add('picked');
+    };
+    const choose = () => { file.click(); };
+    drop.addEventListener('click', (e) => { if (!idle.hidden && !(e.target as HTMLElement).closest('.hb-drop-pick')) choose(); });
+    drop.addEventListener('keydown', (e) => { if ((e.key === 'Enter' || e.key === ' ') && !idle.hidden) { e.preventDefault(); choose(); } });
+    pick.querySelector('.hb-other')!.addEventListener('click', (e) => { e.stopPropagation(); choose(); });
+    file.addEventListener('change', () => { if (file.files?.length) show(Array.from(file.files)); file.value = ''; });
+    drop.addEventListener('dragover', (e) => { e.preventDefault(); drop.classList.add('over'); });
+    drop.addEventListener('dragleave', () => drop.classList.remove('over'));
+    drop.addEventListener('drop', (e) => { e.preventDefault(); drop.classList.remove('over'); if (e.dataTransfer?.files.length) show(Array.from(e.dataTransfer.files)); });
   </script>
 </Base>

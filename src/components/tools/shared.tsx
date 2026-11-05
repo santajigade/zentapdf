@@ -1,4 +1,5 @@
-import { useRef, useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
+import { takeHandoff, accepts } from '../../lib/handoff';
 import type { ComponentChildren } from 'preact';
 
 const UploadIcon = () => (
@@ -20,6 +21,8 @@ export function DropZone({ accept, multiple, label, hint, compact, onFiles }: Dr
   const input = useRef<HTMLInputElement>(null);
   const [over, setOver] = useState(false);
   const pick = () => input.current?.click();
+  // a file chosen on the home page opens here straight away
+  useEffect(() => { if (!/[?&]from=home/.test(location.search)) return; takeHandoff().then((f) => { const ok = f?.filter((x) => accepts(accept, x)); if (ok?.length) { history.replaceState(null, '', location.pathname); onFiles(multiple ? ok : ok.slice(0, 1)); } }); }, []);
   const handle = (list: FileList | null) => {
     if (!list || !list.length) return;
     onFiles(Array.from(list));
