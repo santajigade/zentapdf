@@ -7,7 +7,7 @@ export function runPdfJob<T = any>(msg: any, transfer: Transferable[], onProgres
       const d = e.data;
       if (d.type === 'progress') onProgress?.(d);
       else if (d.type === 'result') { w.terminate(); resolve(d); }
-      else if (d.type === 'error') { w.terminate(); const err = new Error(d.message); err.name = d.name || 'Error'; reject(err); }
+      else if (d.type === 'error') { w.terminate(); const err: any = new Error(d.message); err.name = d.name || 'Error'; err.log = d.log; reject(err); }
     };
     w.onerror = (e) => { w.terminate(); reject(new Error(e.message || 'The browser stopped the task (possibly out of memory).')); };
     w.postMessage(msg, transfer);

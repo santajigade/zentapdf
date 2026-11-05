@@ -43,6 +43,7 @@ import ScanToPdf from '../components/tools/ScanToPdf';
 import PdfToWord from '../components/tools/PdfToWord';
 import PdfToExcel from '../components/tools/PdfToExcel';
 import OfficeToPdf from '../components/tools/OfficeToPdf';
+import PdfPlus from '../components/tools/PdfPlus';
 
 export function getStaticPaths() {
   return tools.filter((t) => t.live).map((t) => ({ params: { tool: t.slug }, props: { tool: t } }));
@@ -108,6 +109,14 @@ const features = isGen ? [
       {tool.slug === 'split-gif' && <GifEdit mode="jpg" client:load />}
       {(tool.slug === 'reduce-image-size-in-kb' || tool.kb) && <TargetSize kb={tool.kb} client:load />}
       {tool.slug === 'compress-pdf' && <CompressPdf client:load />}
+      {tool.slug === 'repair-pdf' && <PdfPlus mode="repair" client:load />}
+      {tool.slug === 'extract-images-from-pdf' && <PdfPlus mode="extract" client:load />}
+      {tool.slug === 'pages-per-sheet' && <PdfPlus mode="nup" client:load />}
+      {tool.slug === 'pdf-overlay' && <PdfPlus mode="overlay" client:load />}
+      {tool.slug === 'page-size' && <PdfPlus mode="pagesize" client:load />}
+      {tool.slug === 'pdf-to-grayscale' && <PdfPlus mode="grayscale" client:load />}
+      {tool.slug === 'delete-blank-pages' && <PdfPlus mode="blank" client:load />}
+      {tool.slug === 'pdf-to-markdown' && <PdfPlus mode="markdown" client:load />}
       {tool.slug === 'protect-pdf' && <PdfPassword mode="protect" client:load />}
       {tool.slug === 'unlock-pdf' && <PdfPassword mode="unlock" client:load />}
       {tool.slug === 'pdf-to-jpg' && <PdfToJpg client:load />}

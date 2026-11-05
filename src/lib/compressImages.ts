@@ -18,7 +18,7 @@ const N = (s: string) => PDFName.of(s);
 const num = (o: any): number | undefined => (o instanceof PDFNumber ? o.asNumber() : undefined);
 const look = (doc: PDFDocument, o: any) => (o instanceof PDFRef ? doc.context.lookup(o) : o);
 
-function filters(dict: PDFDict): string[] {
+export function filters(dict: PDFDict): string[] {
   const f = dict.get(N('Filter'));
   if (!f) return [];
   if (f instanceof PDFArray) return f.asArray().map((x: any) => x.asString?.() ?? String(x));
@@ -121,7 +121,7 @@ export function imagePlacements(doc: PDFDocument): Map<string, { w: number; h: n
 
 // ---------- 2. images ----------
 type ColorInfo = { comps: number; kind: 'rgb' | 'gray' | 'cmyk' | 'indexed'; palette?: Uint8Array; base?: number; hival?: number };
-function colorInfo(doc: PDFDocument, cs: any): ColorInfo | null {
+export function colorInfo(doc: PDFDocument, cs: any): ColorInfo | null {
   cs = look(doc, cs);
   if (cs === N('DeviceRGB') || cs === N('CalRGB')) return { comps: 3, kind: 'rgb' };
   if (cs === N('DeviceGray') || cs === N('CalGray')) return { comps: 1, kind: 'gray' };
@@ -144,7 +144,7 @@ function colorInfo(doc: PDFDocument, cs: any): ColorInfo | null {
 }
 
 /** Undo PNG predictors (Predictor >= 10) on decoded Flate data. */
-function unpredict(data: Uint8Array, w: number, comps: number, predictor: number): Uint8Array {
+export function unpredict(data: Uint8Array, w: number, comps: number, predictor: number): Uint8Array {
   if (predictor < 10) return data;
   const bpp = comps, row = w * comps, rows = Math.floor(data.length / (row + 1));
   const out = new Uint8Array(row * rows);
@@ -193,7 +193,7 @@ export function hasAdobe(b: Uint8Array) {
 const cmykToRgb = (c: number, m: number, y: number, k: number) => [255 - Math.min(255, c + k), 255 - Math.min(255, m + k), 255 - Math.min(255, y + k)];
 
 /** Decode an image stream to RGBA pixels (or a bitmap for JPEG). */
-async function decodeImage(doc: PDFDocument, st: PDFRawStream, w: number, h: number, ci: ColorInfo, f: string[]): Promise<ImageBitmap | ImageData | null> {
+export async function decodeImage(doc: PDFDocument, st: PDFRawStream, w: number, h: number, ci: ColorInfo, f: string[]): Promise<ImageBitmap | ImageData | null> {
   const d = st.dict;
   if (f.length === 1 && (f[0] === '/DCTDecode' || f[0] === '/DCT')) {
     if (ci.kind === 'indexed') return null;

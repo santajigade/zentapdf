@@ -1,5 +1,5 @@
 // Read the text structure of PDF pages (lines → words with position, size and font) for PDF→Word / PDF→Excel.
-export type Word = { text: string; x0: number; x1: number; y: number; size: number; bold: boolean; italic: boolean; font: string; family: string; symbol?: boolean };
+export type Word = { text: string; x0: number; x1: number; y: number; size: number; bold: boolean; italic: boolean; font: string; family: string; symbol?: boolean; fid?: string };
 export type Line = { y: number; x0: number; x1: number; size: number; words: Word[] };
 export type PageText = { w: number; h: number; lines: Line[] };
 
@@ -40,7 +40,7 @@ export async function readPage(page: any): Promise<PageText> {
     if (Math.abs(b) > Math.abs(a) * 0.2 || a <= 0) continue; // skip rotated / upside-down text
     const size = Math.hypot(c, d) || it.height || 10;
     const fi = fontInfo(page, tc.styles, it.fontName);
-    words.push({ text: it.str, x0: vx, x1: vx + it.width * Math.hypot(a, b) / Math.max(1e-6, Math.hypot(t[0], t[1])), y: vy, size, ...fi });
+    words.push({ fid: it.fontName, text: it.str.replace(/[\u0000-\u0008\u000b-\u001f]/g, ""), x0: vx, x1: vx + it.width * Math.hypot(a, b) / Math.max(1e-6, Math.hypot(t[0], t[1])), y: vy, size, ...fi });
   }
   // group into lines by baseline
   words.sort((p, q) => p.y - q.y || p.x0 - q.x0);
@@ -59,7 +59,7 @@ export async function readPage(page: any): Promise<PageText> {
 export function lineText(words: Word[]): string {
   let s = '';
   words.forEach((w, i) => {
-    if (i > 0) { const gap = w.x0 - words[i - 1].x1; if (gap > w.size * 0.18 && !s.endsWith(' ') && !w.text.startsWith(' ')) s += ' '; }
+    if (i > 0) { const gap = w.x0 - words[i - 1].x1; const indic = /[\u0900-\u0DFF]$/.test(words[i - 1].text) && /^[\u0900-\u0DFF]/.test(w.text); if (gap > w.size * (indic ? 0.32 : 0.18) && !s.endsWith(' ') && !w.text.startsWith(' ')) s += ' '; }
     s += w.text;
   });
   return s.replace(/\s+/g, ' ').trim();

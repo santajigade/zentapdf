@@ -22,7 +22,7 @@ async function firstPageThumb(buf: ArrayBuffer): Promise<string> {
     const ctx = c.getContext('2d')!; ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, c.width, c.height);
     await page.render({ canvas: c, canvasContext: ctx, viewport: vp }).promise;
     return c.toDataURL('image/jpeg', 0.8);
-  } finally { doc.destroy(); }
+  } finally { doc.loadingTask.destroy(); }
 }
 
 export default function PdfEdit({ mode }: { mode: Mode }) {

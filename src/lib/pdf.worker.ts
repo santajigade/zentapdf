@@ -1,8 +1,9 @@
 /// <reference lib="webworker" />
-import { PDFDocument, degrees, rgb, StandardFonts, LineCapStyle, pushGraphicsState, popGraphicsState, setCharacterSqueeze, setCharacterSpacing, beginText, endText, setFontAndSize, showText, setTextMatrix, setFillingRgbColor, PDFHexString } from 'pdf-lib';
+import { PDFDocument, degrees, rgb, StandardFonts, LineCapStyle, pushGraphicsState, popGraphicsState, setCharacterSqueeze, setCharacterSpacing, beginText, endText, setFontAndSize, showText, setTextMatrix, setFillingRgbColor, PDFHexString, PDFName, PDFRef } from 'pdf-lib';
 import { originalFont, type Encoder } from './origFont';
 
 type Msg =
+  | { op: 'plus'; kind: 'nup' | 'overlay' | 'pagesize' | 'grayscale' | 'extract' | 'repair' | 'remove'; file: ArrayBuffer; o: any; ov?: ArrayBuffer; ovKind?: 'pdf' | 'png' | 'jpg' }
   | { op: 'compress'; file: ArrayBuffer; sets: import('./compressImages').Settings[] }
   | { op: 'annotate'; file: ArrayBuffer; items: any[]; fonts?: Record<string, ArrayBuffer> }
   | { op: 'edit'; file: ArrayBuffer; kind: string; o: any }
@@ -28,6 +29,7 @@ function stamp(doc: PDFDocument) {
 self.onmessage = async (ev: MessageEvent<Msg>) => {
   const m = ev.data;
   try {
+    if (m.op === 'plus') { await plus(m); return; }
     if (m.op === 'count') {
       const doc = await load(m.file);
       post({ type: 'result', pages: doc.getPageCount() });
@@ -324,3 +326,132 @@ self.onmessage = async (ev: MessageEvent<Msg>) => {
     post({ type: 'error', message: String(e?.message ?? e), name: e?.name });
   }
 };
+
+// ---------- tools in src/lib/pdfplus.ts ----------
+async function plus(m: any) {
+  const P = await import('./pdfplus');
+  const send = (bytes: Uint8Array, extra: any = {}) => post({ type: 'result', files: [bytes], ...extra }, [bytes.buffer]);
+  if (m.kind === 'repair') {
+    // gentle repair: let pdf-lib rebuild the file structure from whatever objects it can read
+    const doc = await PDFDocument.load(m.file, { ignoreEncryption: true, throwOnInvalidObject: false, updateMetadata: false } as any);
+    if (!doc.getPageCount()) throw new Error('No pages could be recovered.');
+    stamp(doc); send(await doc.save({ useObjectStreams: false }), { pages: doc.getPageCount() }); return;
+  }
+  const doc = await load(m.file);
+  if (m.kind === 'remove') {
+    const del: number[] = [...m.o.pages].sort((a: number, b: number) => b - a);
+    for (const i of del) doc.removePage(i);
+    stamp(doc); send(await doc.save({ useObjectStreams: true })); return;
+  }
+  if (m.kind === 'nup') { const b = await P.nup(doc, m.o); send(b); return; }
+  if (m.kind === 'pagesize') { stamp(doc); send(await P.pageSize(doc, m.o)); return; }
+  if (m.kind === 'overlay') {
+    const ov = m.ovKind === 'pdf' ? { pdf: await load(m.ov) } : { img: { bytes: new Uint8Array(m.ov), kind: m.ovKind } };
+    stamp(doc); send(await P.overlay(doc, ov as any, m.o)); return;
+  }
+  if (m.kind === 'grayscale') {
+    const C = await import('./compressImages');
+    const toRGBA = async (st: any) => {
+      const d = st.dict; const w = d.get(PDFName.of('Width'))?.asNumber?.() ?? 0, h = d.get(PDFName.of('Height'))?.asNumber?.() ?? 0;
+      if (d.get(PDFName.of('BitsPerComponent'))?.asNumber?.() !== 8) return null;
+      const ci = C.colorInfo(doc, d.get(PDFName.of('ColorSpace'))); if (!ci) return null;
+      const f = C.filters(d);
+      const pic = await C.decodeImage(doc, st, w, h, ci, f); if (!pic) return null;
+      let data: Uint8ClampedArray;
+      if (pic instanceof ImageData) data = pic.data; else { const c = new OffscreenCanvas(pic.width, pic.height); const x = c.getContext('2d')!; x.drawImage(pic, 0, 0); data = x.getImageData(0, 0, c.width, c.height).data; pic.close(); }
+      return { data: data as unknown as Uint8Array, w, h, jpeg: f.length === 1 && f[0] === '/DCTDecode' };
+    };
+    const enc = await grayJpeg();
+    stamp(doc); send(await P.grayscale(doc, m.o, toRGBA, enc, (d, t, l) => progress(d, t, l))); return;
+  }
+  if (m.kind === 'extract') { await extract(doc, m.o); return; }
+}
+
+let jpegEnc: ((g: Uint8Array, w: number, h: number) => Promise<Uint8Array>) | null = null;
+/** Grayscale JPEG encoder (MozJPEG): one colour channel, so gray pictures stay small. */
+async function grayJpeg() {
+  if (jpegEnc) return jpegEnc;
+  try {
+    const mod = await import('@jsquash/jpeg/encode.js' as any);
+    const wasmUrl = (await import('@jsquash/jpeg/codec/enc/mozjpeg_enc.wasm?url' as any)).default;
+    await mod.init({ locateFile: () => wasmUrl });
+    jpegEnc = async (g, w, h) => {
+      const rgba = new Uint8ClampedArray(w * h * 4); for (let i = 0; i < g.length; i++) { rgba[i * 4] = rgba[i * 4 + 1] = rgba[i * 4 + 2] = g[i]; rgba[i * 4 + 3] = 255; }
+      return new Uint8Array(await mod.default(new ImageData(rgba, w, h), { quality: 85, color_space: 1 }));
+    };
+  } catch {
+    // fallback: browser JPEG (stored as RGB gray)
+    jpegEnc = async (g, w, h) => {
+      const c = new OffscreenCanvas(w, h); const x = c.getContext('2d')!; const id = x.createImageData(w, h);
+      for (let i = 0; i < g.length; i++) { id.data[i * 4] = id.data[i * 4 + 1] = id.data[i * 4 + 2] = g[i]; id.data[i * 4 + 3] = 255; }
+      x.putImageData(id, 0, 0); return new Uint8Array(await (await c.convertToBlob({ type: 'image/jpeg', quality: 0.85 })).arrayBuffer());
+    };
+  }
+  return jpegEnc;
+}
+
+/** Every picture in the PDF, at its original quality. JPEG photos are given back exactly as stored. */
+async function extract(doc: PDFDocument, o: { minSize: number }) {
+  const C = await import('./compressImages');
+  const P = await import('./pdfplus');
+  const { PDFRawStream: RS, PDFRef: RF, decodePDFRawStream } = await import('pdf-lib');
+  const N = (s: string) => PDFName.of(s);
+  const pagesOf = P.imagePages(doc);
+  const all = doc.context.enumerateIndirectObjects().filter(([, s]) => s instanceof RS && (s as any).dict.get(N('Subtype')) === N('Image')) as [any, any][];
+  const masks = new Set<string>(); all.forEach(([, s]) => { const m2 = s.dict.get(N('SMask')); if (m2 instanceof RF) masks.add(m2.toString()); });
+  const out: any[] = []; const skipped: any[] = []; const transfer: ArrayBuffer[] = [];
+  const seen = new Map<string, boolean>();
+  let k = 0;
+  for (const [ref, st] of all) {
+    progress(k++, all.length, `Reading picture ${k} of ${all.length}`);
+    const key = ref.toString(); if (masks.has(key)) continue;
+    const d = st.dict; const w = d.get(N('Width'))?.asNumber?.() ?? 0, h = d.get(N('Height'))?.asNumber?.() ?? 0;
+    if (w < o.minSize && h < o.minSize) continue;
+    const pages = pagesOf.get(key) ?? [];
+    if (!pages.length && o.minSize > 0) continue; // not shown anywhere
+    // identical pictures stored twice: give them once
+    const sig = `${w}x${h}:${st.contents.length}:${st.contents[0]}:${st.contents[st.contents.length >> 1]}:${st.contents[st.contents.length - 1]}`;
+    if (seen.has(sig)) continue; seen.set(sig, true);
+    const f = C.filters(d); const bpc = d.get(N('BitsPerComponent'))?.asNumber?.() ?? 8;
+    const ci = d.get(N('ImageMask')) ? null : C.colorInfo(doc, d.get(N('ColorSpace')));
+    const smask = d.get(N('SMask'));
+    try {
+      if (f.length === 1 && f[0] === '/DCTDecode' && ci && (ci.kind === 'rgb' || ci.kind === 'gray') && !smask && !d.get(N('Decode'))) {
+        const b = st.contents.slice(); out.push({ ref: key, bytes: b, mime: 'image/jpeg', w, h, pages, kind: 'JPEG (original)' }); transfer.push(b.buffer); continue;
+      }
+      let rgba: Uint8ClampedArray | null = null;
+      if (ci && bpc === 8) {
+        const pic = await C.decodeImage(doc, st, w, h, ci, f);
+        if (pic) { if (pic instanceof ImageData) rgba = pic.data; else { const c = new OffscreenCanvas(w, h); const x = c.getContext('2d')!; x.drawImage(pic, 0, 0, w, h); rgba = x.getImageData(0, 0, w, h).data; pic.close(); } }
+      } else if (bpc === 1 && f.every((x: string) => x === '/FlateDecode' || x === '/LZWDecode' || x === '/RunLengthDecode') ) {
+        // black-and-white pictures (scans, line art)
+        const raw = decodePDFRawStream(st).decode(); const row = Math.ceil(w / 8); rgba = new Uint8ClampedArray(w * h * 4);
+        const dec = d.get(N('Decode')); const inv = !!(dec && dec.get?.(0)?.asNumber?.() === 1) !== !!d.get(N('ImageMask'));
+        for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) { const bit = (raw[y * row + (x >> 3)] >> (7 - (x & 7))) & 1; const v = (bit ? 255 : 0) ^ (inv ? 255 : 0); const q = (y * w + x) * 4; rgba[q] = rgba[q + 1] = rgba[q + 2] = v; rgba[q + 3] = 255; }
+      }
+      if (!rgba) { skipped.push({ ref: key, w, h, pages, filter: f.join(' ') }); continue; }
+      let alpha = false;
+      if (smask) {
+        const ms = look2(doc, smask);
+        if (ms instanceof RS) {
+          const mw = ms.dict.get(N('Width'))?.asNumber?.() ?? 0, mh = ms.dict.get(N('Height'))?.asNumber?.() ?? 0;
+          const mf = C.filters(ms.dict);
+          let a: Uint8Array | null = null;
+          if (mf.length === 1 && mf[0] === '/DCTDecode') { const b2 = await createImageBitmap(new Blob([ms.contents as BlobPart], { type: 'image/jpeg' })); const c = new OffscreenCanvas(w, h); const x = c.getContext('2d')!; x.drawImage(b2, 0, 0, w, h); b2.close(); const dd = x.getImageData(0, 0, w, h).data; a = new Uint8Array(w * h); for (let i = 0; i < a.length; i++) a[i] = dd[i * 4]; }
+          else if (ms.dict.get(N('BitsPerComponent'))?.asNumber?.() === 8) {
+            const raw = C.unpredict(decodePDFRawStream(ms).decode(), mw, 1, ms.dict.get(N('DecodeParms'))?.get?.(N('Predictor'))?.asNumber?.() ?? 1);
+            if (mw === w && mh === h) a = raw; else { const src = new Uint8ClampedArray(mw * mh * 4); for (let i = 0; i < mw * mh; i++) { src[i * 4] = src[i * 4 + 1] = src[i * 4 + 2] = raw[i]; src[i * 4 + 3] = 255; } const b2 = await createImageBitmap(new ImageData(src, mw, mh)); const c = new OffscreenCanvas(w, h); const x = c.getContext('2d')!; x.drawImage(b2, 0, 0, w, h); b2.close(); const dd = x.getImageData(0, 0, w, h).data; a = new Uint8Array(w * h); for (let i = 0; i < a.length; i++) a[i] = dd[i * 4]; }
+          }
+          if (a) { for (let i = 0; i < w * h; i++) rgba[i * 4 + 3] = a[i]; alpha = true; }
+        }
+      }
+      const c = new OffscreenCanvas(w, h); c.getContext('2d')!.putImageData(new ImageData(rgba, w, h), 0, 0);
+      const photo = f.length === 1 && f[0] === '/DCTDecode' && !alpha; // CMYK photos: give a normal RGB JPEG
+      const blob = await c.convertToBlob(photo ? { type: 'image/jpeg', quality: 0.95 } : { type: 'image/png' });
+      const b = new Uint8Array(await blob.arrayBuffer());
+      out.push({ ref: key, bytes: b, mime: blob.type, w, h, pages, kind: photo ? 'JPEG (CMYK converted)' : alpha ? 'PNG (transparent)' : 'PNG (lossless)' }); transfer.push(b.buffer);
+    } catch { skipped.push({ ref: key, w, h, pages, filter: f.join(' ') }); }
+  }
+  post({ type: 'result', images: out, skipped }, transfer);
+}
+const look2 = (doc: PDFDocument, o: any) => (o instanceof PDFRef ? doc.context.lookup(o) : o);

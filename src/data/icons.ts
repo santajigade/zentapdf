@@ -1,6 +1,13 @@
 // Simple 24x24 stroke icons (original). Each value is the inner SVG markup.
 const doc = '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/>';
 export const icons: Record<string, string> = {
+  wrench: '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L4 16.8V20h3.2l5.3-5.3a4 4 0 0 0 5.2-5.4l-2.6 2.6-2.5-.4-.4-2.5z"/>',
+  grid: '<rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/>',
+  overlay: '<rect x="3" y="3" width="13" height="13" rx="1.5"/><rect x="8" y="8" width="13" height="13" rx="1.5" stroke-dasharray="3 2"/>',
+  pagesize: doc + '<path d="M8 17l8-8"/><path d="M8 13v4h4M16 13V9h-4"/>',
+  grayscale: '<circle cx="12" cy="12" r="9"/><path d="M12 3v18"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" opacity=".35"/>',
+  blank: doc + '<path d="m9.5 12.5 5 5M14.5 12.5l-5 5"/>',
+  markdown: '<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 15V9l2.5 3L11 9v6"/><path d="M16 9v6M13.5 12.5 16 15l2.5-2.5"/>',
   merge: '<path d="M8 3v5a4 4 0 0 0 4 4 4 4 0 0 1 4 4v5"/><path d="M16 3v5a4 4 0 0 1-4 4"/><path d="m5 6 3-3 3 3"/><path d="m13 6 3-3 3 3"/>',
   split: '<path d="M12 21v-7a4 4 0 0 0-4-4H4"/><path d="M12 14a4 4 0 0 1 4-4h4"/><path d="m7 7-3 3 3 3"/><path d="m17 7 3 3-3 3"/><path d="M12 3v4"/>',
   trash: '<path d="M4 7h16"/><path d="M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13"/><path d="M9 7V4h6v3"/>',
