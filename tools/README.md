@@ -27,3 +27,10 @@ npx lighthouse http://localhost:4321/<slug>/ --form-factor=mobile   # target 95+
 4. `npm run build && python3 tools/seo-audit.py` → must report 0 issues (title/description length, one H1, canonical, broken links, alt text, JSON-LD).
 5. Each guide automatically gets BlogPosting + FAQPage + BreadcrumbList schema, appears on /guides/, in the sitemap, and in a "Guides" box on its tool pages.
 - Share images: run `node tools/og/make-tool-images.mjs` after adding a tool (creates public/og/tools/<slug>.png).
+
+## Daily guides (scheduled task)
+- Queue: `tools/guides/QUEUE.md` (take the next open items, tick them with the date).
+- Sample files for screenshots: `python3 tools/guides/make-samples.py` (writes /tmp/gfiles).
+- Screenshot: serve dist on :4321, then `node tools/guides/shot.mjs <slug> /<tool>/ <files> [wait-selector]`.
+- Thumbnails: `node --experimental-strip-types tools/og/make-guide-og.mjs`.
+- Text rules: no em or en dashes, plain simple English, Indian readers, never invent facts (search official sources first), 800 to 1,200 words, one table, one screenshot, 3 to 4 FAQs, links to tools and other guides.
