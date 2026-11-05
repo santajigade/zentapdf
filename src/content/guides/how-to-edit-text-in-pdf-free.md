@@ -1,87 +1,98 @@
 ---
 title: "How to Edit Text in a PDF for Free (No Software)"
-h1: "How to Edit Text in a PDF for Free – Without Adobe Acrobat"
-description: "Change words, dates, names or numbers in a PDF for free. Click existing text to edit it, add new text, white-out mistakes and save – no software needed."
+h1: "How to Edit Text in a PDF for Free, Without Adobe Acrobat"
+description: "Change words, dates, names or numbers in a PDF for free. Click any line to edit it in the same font, add new text, white-out mistakes and save. No software."
 date: "2026-11-02"
+updated: "2026-11-06"
 tool: "edit-pdf"
 tools: ["sign-pdf", "add-watermark", "pdf-to-text"]
 faqs:
-  - q: "Can I edit text in a PDF without Adobe Acrobat?"
-    a: "Yes. ZentaPDF Edit PDF lets you click existing text and change it, add new text and hide content with white-out, all for free."
-  - q: "Why does the edited text look slightly different?"
-    a: "The replacement uses a standard font that is close to the original (sans-serif, serif or monospace) with the same size, colour and weight. Exact original fonts are not always available inside the PDF."
+  - q: "How do I edit text in a PDF for free?"
+    a: "Open Edit PDF, choose your file, click the line you want to change and type. Click Save PDF and then Download PDF. No sign-up and no watermark."
+  - q: "Will the edited text use the same font?"
+    a: "Yes, in most PDFs. The editor reuses the font that is already inside the PDF, with the same size and colour. If a letter is missing from that font, it picks the closest matching font."
   - q: "Can I edit a scanned PDF?"
-    a: "A scanned PDF is a picture of a page, so it has no editable text. You can still cover parts with White-out and type new text on top."
+    a: "If the scan has a hidden text layer (most scanner apps add one), click a line and edit it like normal text. The old words are covered with the paper colour. A pure picture scan has no text, so use White-out and Add text on top."
   - q: "Can I change a whole paragraph?"
-    a: "Each line is edited separately and does not re-flow into the next line, so keep replacements about the same length as the original line."
+    a: "Each line is edited on its own and does not push the next line down, so keep your new text about as long as the old line."
 ---
 
-PDFs are designed to look the same everywhere — which is great for sharing, but frustrating when you spot a typo, a wrong date or an old phone number. You don't need expensive software to fix it.
+PDFs look the same on every device, which is great for sharing but annoying when you spot a typo, a wrong date or an old phone number. You do not need Adobe Acrobat or any software to fix it. **[Edit PDF](/edit-pdf/)** lets you click any line, type, and save, all in your browser.
 
 ## Three ways to change a PDF
 
-| What you want | Best tool |
+| What you want | Tool in Edit PDF |
 |---|---|
-| Change existing words, numbers or dates | **Edit text** (click on the text) |
-| Add new text, e.g. fill in a form | **Add text** |
+| Change existing words, numbers or dates | **Edit text** (click the line) |
+| Add new text, for example to fill in a form | **Add text** |
 | Hide something completely | **White-out** |
-
-All three are in **[Edit PDF](/edit-pdf/)**.
 
 ## How to edit existing text
 
 ![Clicking existing text in a PDF to edit it](/guides/img/how-to-edit-text-in-pdf-free.webp)
 
 1. Open **[Edit PDF](/edit-pdf/)** and choose your file.
-2. The **Edit text** tool is already selected. Move your mouse over the page — text you can edit is highlighted.
-3. **Click the text** you want to change. It turns into an editable box with your cursor exactly where you clicked.
-4. Type your changes. Click anywhere outside to finish.
+2. **Edit text** is already selected. Move the mouse over the page and the lines you can edit light up.
+3. **Click the line** you want to change. The cursor appears exactly where you clicked. You can also drag to select a few words.
+4. Type your changes, then click anywhere outside the box.
 5. Click **Save PDF**, then **Download PDF**.
 
-The editor automatically matches the **size, colour, bold or italic style, letter spacing** and the closest font style (sans-serif such as Calibri/Arial, serif such as Times, or monospace). It also covers the old text with the same background colour — even inside coloured table headers.
+The editor keeps the look of your document:
 
-> **Tip:** Changed your mind? Press **Ctrl + Z** to undo, or click the text again to re-edit it.
+- It **reuses the original font** stored inside the PDF, so the new words match the rest of the page.
+- Size, colour, bold and italic stay the same.
+- The old text is removed from view and the background behind it is kept, even inside coloured table headers.
+
+> **Tip:** Made a mistake? Press **Ctrl + Z** to undo and **Ctrl + Y** to redo.
 
 ## How to add new text
 
 1. Choose **Add text** in the toolbar.
 2. Click where the text should go and type.
-3. Pick the font, size, colour, **B** (bold) or *I* (italic) in the second toolbar row.
-4. Use **Move** to drag it into the perfect position.
+3. Pick the font, size and colour, and use **B** or *I* for bold or italic. There are 19 fonts, including handwriting styles, and you can type the ₹ sign.
+4. Use **Select / move** to drag it into place.
 
-This is perfect for filling in forms that are not "fillable", adding notes, or writing a date next to a signature.
+This is handy for forms that are not fillable, for notes, or for writing a date next to a signature.
 
 ## How to hide or remove something
 
-Use **White-out** and drag a box over anything you want to hide — an old address, a price, or a personal number. Then use **Add text** to write the new information on top.
+Choose **White-out** and drag a box over anything you want to hide, such as an old address or a price. Then use **Add text** to write the new information on top.
 
-> **Important:** White-out hides content visually, but the original text can still exist underneath and may be copied by someone with the right software. For truly sensitive information (like account numbers), turn the edited page into an image with [PDF to JPG](/pdf-to-jpg/) and back with [JPG to PDF](/jpg-to-pdf/), or remove the page with [Remove Pages](/remove-pages/).
+> **Important:** White-out hides content visually, but the original text can still exist underneath and could be copied with special software. For really sensitive details, such as account numbers, turn the page into an image with [PDF to JPG](/pdf-to-jpg/) and back with [JPG to PDF](/jpg-to-pdf/), or remove the page with [Remove Pages](/remove-pages/).
+
+## Editing scanned PDFs
+
+| Kind of scan | What you can do |
+|---|---|
+| Scan with a hidden text layer (most scanner apps and office copiers) | Click a line and edit it. The old words are covered with the paper colour. |
+| Plain picture scan, no text layer | Use **White-out** over the old words and **Add text** on top. |
+
+Not sure which one you have? Try to select a word in any PDF reader. If you can select it, the scan has a text layer.
 
 ## Tips for the best result
 
-- **Keep the length similar.** Each line is edited on its own and does not push the rest of the paragraph down.
+- **Keep the length similar.** Each line is edited on its own and does not move the rest of the paragraph.
 - **Zoom in** with the **+** button for small text.
-- **Check the font.** If the replacement looks too wide or narrow, adjust the size by 0.5–1 pt.
-- **Use Esc** any time to go back to the Edit text tool.
-
-## What can't be edited?
-
-- **Scanned PDFs** are photos of paper — there is no real text inside. Use White-out + Add text instead.
-- **Rotated or curved text** is skipped by the text editor.
-- **Hindi and other non-Latin scripts** can be read, but typing them is coming soon.
+- **Use the page list** on the left to jump between pages in long files.
+- **Press Esc** to finish editing a line.
 
 ## Common edits people make
 
 | Task | How |
 |---|---|
-| Fix a typo or wrong date | **Edit text** – click the word and retype |
-| Update a phone number or address | **Edit text**, or White-out + Add text |
-| Fill in a printed-style form | **Add text** on each blank line |
+| Fix a typo or wrong date | **Edit text**: click the line and retype |
+| Update a phone number or address | **Edit text**, or White-out plus Add text |
+| Fill in a printed form | **Add text** on each blank line |
 | Mark important lines | **Highlight** |
-| Add a logo or stamp | **Image** |
-| Sign | **Sign** – draw, type or upload |
+| Add a logo or stamp | **Add image** |
+| Tick boxes or add today's date | **Quick marks** (✓, ✗ and date) |
+| Sign | **Add signature**: draw, type or upload |
 
 ## Editing on a phone
 
-The editor works in phone browsers too. Tap text to edit it, use the **+** button to zoom in, and tap **Save PDF** when you're done. For long documents, a computer with a mouse is more comfortable.
+The editor works in phone browsers too. Tap a line to edit it, use **+** to zoom in, and tap **Save PDF** when you are done. For long documents, a computer with a mouse is easier.
 
+## Related guides
+
+- [How to sign a PDF without printing](/guides/how-to-sign-pdf-without-printing/)
+- [How to remove pages from a PDF](/guides/how-to-remove-pages-from-pdf/)
