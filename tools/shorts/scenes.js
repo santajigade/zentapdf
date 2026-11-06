@@ -531,3 +531,256 @@ Object.assign(SOUND, {
   mic: { pop: [0.4], ding: [0.9] },
   webcam: { pop: [0.5, 1.85], ding: [2.9] },
 });
+
+// ===== Batch 3 scenes =====
+const typed = (s, tl, t0, cps) => s.slice(0, Math.max(0, Math.min(s.length, Math.floor((tl - t0) * cps))));
+const thumbPg = (w, h, n, hc, big = true) => `<div style="width:${w}px;height:${h}px;background:#fff;border-radius:10px;overflow:hidden;position:relative;box-shadow:0 0 0 2px #e2e8f0,0 14px 28px -18px rgb(0 0 0 / .45)">
+  <div style="height:${h * 0.13}px;background:${hc}"></div><div style="padding:${w * 0.09}px">${'<div style="height:7px;background:#e2e8f0;border-radius:4px;margin:8px 0"></div>'.repeat(4)}</div>
+  ${big ? `<div style="position:absolute;left:0;right:0;bottom:${h * 0.12}px;text-align:center;font-weight:900;font-size:${w * 0.32}px;color:${hc};opacity:.85">${n}</div>` : ''}</div>`;
+const PAL = ['#ef4444', '#f59e0b', '#22c55e', '#3b82f6', '#8b5cf6', '#ec4899'];
+
+Object.assign(SCENES, {
+  editpdf(tl, ci) {
+    const D = [
+      { t: 'Quotation', l: ['Quotation No. Q 2611', 'Customer: Sharma Traders'], pre: 'Total: ', old: '₹12,500', neu: '₹11,900', hl: 'Valid for 30 days from today' },
+      { t: 'Letter', l: ['Kobe Industries Pvt Ltd', 'Subject: Order confirmation'], pre: 'Date: ', old: '01 Oct 2026', neu: '06 Nov 2026', hl: 'Delivery in two weeks' },
+      { t: 'Certificate', l: ['Certificate of Completion', 'Excel for Beginners'], pre: 'Awarded to ', old: 'Rahul Shah', neu: 'Priya Patil', hl: 'Completed with distinction' },
+    ][ci];
+    const del = Math.max(0, Math.min(D.old.length, Math.floor((tl - 0.5) / 0.04)));
+    const val = tl < 0.95 ? D.old.slice(0, D.old.length - del) : typed(D.neu, tl, 0.95, 16);
+    const editing = tl >= 0.35 && tl < 1.75;
+    const hlW = sg(tl, 1.95, 2.45);
+    const tool = tl < 1.85 ? 0 : 3;
+    const a = sg(tl, 0, 0.35);
+    const W = 720, X = 96;
+    let html = `<div style="display:flex;gap:10px;justify-content:center;opacity:${a}">${chipSel(['Edit text', 'Add text', 'Draw', 'Highlight', 'Image'], tool, 24)}</div>
+    <div class="doc" style="left:${X}px;top:84px;width:${W}px;height:470px;opacity:${a}">
+      <div style="height:64px;background:#1f2937;display:flex;align-items:center;padding:0 30px;color:#fff;font-weight:800;font-size:30px">${D.t}</div>
+      <div style="padding:22px 36px;font-size:32px;color:#1e293b;font-weight:600;line-height:1.25">
+        ${D.l.map((x) => `<div style="margin:10px 0">${x}</div>`).join('')}
+        <div><div style="margin:12px 0;display:inline-block;position:relative;padding:6px 10px;margin-left:-10px;border-radius:8px;outline:${editing ? '3px dashed var(--ac)' : 'none'};background:${editing ? 'color-mix(in srgb,var(--ac) 8%,#fff)' : 'transparent'}">${D.pre}<b>${val}</b>${caret(tl, editing && tl >= 0.5)}
+          ${editing ? `<div style="position:absolute;left:calc(100% + 14px);top:8px;background:var(--ink);color:#fff;font-size:22px;font-weight:700;padding:6px 14px;border-radius:10px;white-space:nowrap">Arial · 14 · Bold</div>` : ''}</div></div>
+        <div><div style="margin:8px 0;position:relative;display:inline-block"><span style="position:absolute;left:-6px;top:4px;height:38px;width:calc(${hlW * 100}% + 12px);background:#fde047;opacity:.65;border-radius:4px"></span><span style="position:relative">${D.hl}</span></div></div>
+        ${[92, 80, 86, 60].map((w) => `<div style="height:14px;background:#e2e8f0;border-radius:7px;margin:20px 0;width:${w}%"></div>`).join('')}
+      </div><div class="bdg" style="right:14px;bottom:14px;background:#e5484d">PDF</div></div>
+    <div style="position:absolute;left:0;right:0;top:580px;text-align:center">${tl < 2.6 ? btn('Apply changes', tl > 2.45 && tl < 2.6) : btn(dlIcon(tl) + 'Download PDF', false)}</div>`;
+    if (tl >= 2.7) html += `<div style="position:absolute;left:0;right:0;top:500px;text-align:center">${pill('✓ Text changed, layout kept', sg(tl, 2.7, 3.0), '#16a34a')}</div>`;
+    return html;
+  },
+
+  rotate(tl, ci) {
+    const D = [{ from: [-90, -90, -90], dir: 0, lbl: 'Rotate right ↻' }, { from: [0, 180, 0], dir: 2, lbl: '180°' }, { from: [90, 0, 90], dir: 1, lbl: 'Rotate left ↺' }][ci];
+    const a = sg(tl, 0, 0.35);
+    let html = `<div style="display:flex;gap:12px;justify-content:center;opacity:${a}">${chipSel(['Rotate right ↻', 'Rotate left ↺', '180°'], D.dir, 26)}</div>`;
+    let k = 0;
+    D.from.forEach((f, i) => {
+      const t0 = 0.8 + k * 0.35; const moving = f !== 0; if (moving) k++;
+      const r = moving ? lerp(f, 0, sg(tl, t0, t0 + 0.4)) : 0;
+      const done = !moving || tl >= t0 + 0.4;
+      const cx = 18 + i * 300 + 138, cy = 250;
+      html += `<div style="position:absolute;left:${cx - 105}px;top:${cy - 140}px;transform:rotate(${r}deg);opacity:${a}">
+        <div style="width:210px;height:280px;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 0 0 ${done && moving && tl < t0 + 1.0 ? 4 : 2}px ${done && moving && tl < t0 + 1.0 ? 'var(--ac)' : '#e2e8f0'},0 14px 28px -18px rgb(0 0 0 / .45)">
+          <div style="padding:18px 16px"><div style="font-weight:900;font-size:26px;color:#1e293b">Invoice ${i + 1}</div>${'<div style="height:8px;background:#e2e8f0;border-radius:4px;margin:12px 0"></div>'.repeat(5)}<div style="height:54px;border-radius:6px;background:${PAL[i + 2]};opacity:.35;margin-top:14px"></div></div></div></div>
+        <div style="position:absolute;left:${cx - 120}px;top:430px;width:240px;text-align:center;opacity:${a}">
+          <div style="font-weight:800;font-size:27px;color:var(--ink)">Page ${i + 1}</div>
+          <div style="display:inline-block;margin-top:8px;width:58px;height:58px;border-radius:50%;line-height:58px;font-size:30px;color:#fff;background:${moving ? 'var(--ac)' : '#cbd5e1'};transform:scale(${moving && tl > t0 - 0.15 && tl < t0 + 0.1 ? 0.85 : 1})">${moving ? (f < 0 ? '↻' : f === 180 ? '⟳' : '↺') : '✓'}</div></div>`;
+    });
+    html += `<div style="position:absolute;left:0;right:0;top:580px;text-align:center">${btn(tl < 2.4 ? 'Rotate PDF' : dlIcon(tl) + 'Download PDF', tl > 2.2 && tl < 2.4)}</div>`;
+    return html;
+  },
+
+  pagenum(tl, ci) {
+    const D = [{ pos: 1, fmt: 2, n: 12 }, { pos: 2, fmt: 1, n: 8 }, { pos: 1, fmt: 0, n: 20 }][ci];
+    const lab = (i) => (D.fmt === 0 ? `${i}` : D.fmt === 1 ? `Page ${i}` : `${i} of ${D.n}`);
+    const a = sg(tl, 0, 0.35);
+    let html = `<div style="display:flex;gap:10px;justify-content:center;opacity:${a}">${chipSel(['Bottom left', 'Bottom centre', 'Bottom right'], D.pos, 25)}</div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px;opacity:${a}">${chipSel(['1, 2, 3', 'Page 1', `1 of ${D.n}`], D.fmt, 25)}</div>`;
+    for (let i = 0; i < 3; i++) {
+      const k = sg(tl, 1.15 + i * 0.25, 1.4 + i * 0.25);
+      const al = ['left', 'center', 'right'][D.pos];
+      html += `<div class="doc" style="left:${18 + i * 300}px;top:150px;width:270px;height:380px;opacity:${a}">${docPage(270, 380, i === 0 ? 'Report' : 'Section ' + (i + 1), { hc: '#334155' })}
+        <div style="position:absolute;left:18px;right:18px;bottom:14px;text-align:${al}"><span style="display:inline-block;font-weight:800;font-size:24px;color:#1e293b;padding:4px 10px;border-radius:8px;opacity:${k};transform:scale(${0.5 + 0.5 * k});background:${tl < 1.6 + i * 0.25 && k > 0 ? 'color-mix(in srgb,var(--ac) 22%,#fff)' : 'transparent'}">${lab(i + 1)}</span></div></div>`;
+    }
+    html += `<div style="position:absolute;left:0;right:0;top:575px;text-align:center">${tl < 2.2 ? btn('Add page numbers', tl > 0.85 && tl < 1.1) : btn(dlIcon(tl) + `Download PDF · ${D.n} pages`, false)}</div>`;
+    return html;
+  },
+
+  reorder(tl, ci) {
+    const before = [1, 2, 3, 4, 5, 6];
+    const after = [[5, 1, 2, 3, 4, 6], [2, 3, 4, 5, 6, 1], [6, 5, 4, 3, 2, 1]][ci];
+    const drag = [5, 1, 0][ci];
+    const pos = (idx) => [20 + (idx % 3) * 300 + 63, 10 + Math.floor(idx / 3) * 262];
+    const tm = sg(tl, 0.7, 1.6), to = sg(tl, 0.85, 1.55);
+    const a = sg(tl, 0, 0.35);
+    let html = '';
+    for (const p of before) {
+      const [x0, y0] = pos(before.indexOf(p)), [x1, y1] = pos(after.indexOf(p));
+      const isD = p === drag;
+      const k = drag ? (isD ? tm : to) : sg(tl, 0.8 + (p - 1) * 0.05, 1.5 + (p - 1) * 0.05);
+      const lift = isD && tl > 0.5 && tl < 1.75 ? 1 : 0;
+      const x = lerp(x0, x1, k), y = lerp(y0, y1, k) - Math.sin(k * Math.PI) * (isD ? 50 : 0);
+      html += `<div style="position:absolute;left:${x}px;top:${y}px;z-index:${isD ? 5 : 1};opacity:${a};transform:scale(${1 + lift * 0.08}) rotate(${lift * 3}deg)">${thumbPg(150, 200, p, PAL[p - 1])}
+        ${isD && lift ? `<div style="position:absolute;right:-20px;bottom:-14px;font-size:50px">✋</div>` : ''}</div>`;
+    }
+    for (let i = 0; i < 6; i++) { const [x, y] = pos(i); html += `<div style="position:absolute;left:${x}px;top:${y + 208}px;width:150px;text-align:center;font-size:22px;font-weight:700;color:#94a3b8">${i + 1}</div>`; }
+    html += `<div style="position:absolute;left:0;right:0;top:560px;display:flex;gap:16px;justify-content:center">${ci === 2 ? btn('⇅ Reverse order', tl > 0.5 && tl < 0.8) : ''}${tl < 2.1 ? btn('Save new order', tl > 1.9 && tl < 2.1) : btn(dlIcon(tl) + 'Download PDF', false)}</div>`;
+    return html;
+  },
+
+  excel2pdf(tl, ci) {
+    const D = [
+      { name: 'Sales report', h: ['Region', 'Q1', 'Q2', 'Q3', 'Total'], r: [['North', '4.2', '4.8', '5.1', '14.1'], ['South', '3.6', '3.9', '4.4', '11.9'], ['East', '2.8', '3.1', '3.3', '9.2'], ['West', '3.9', '4.0', '4.6', '12.5']], info: '1 page · 64 KB' },
+      { name: 'Budget 2027', h: ['Item', 'Jan', 'Feb', 'Mar', 'Total'], r: [['Rent', '45k', '45k', '45k', '135k'], ['Salaries', '3.2L', '3.2L', '3.4L', '9.8L'], ['Travel', '18k', '22k', '15k', '55k'], ['Marketing', '60k', '75k', '80k', '2.2L']], info: '2 pages · 88 KB' },
+      { name: 'Attendance', h: ['Name', 'Mon', 'Tue', 'Wed', 'Days'], r: [['Asha', '✓', '✓', '✓', '22'], ['Vikram', '✓', '✕', '✓', '20'], ['Neha', '✓', '✓', '✓', '23'], ['Imran', '✓', '✓', '✕', '21']], info: '1 page · 52 KB' },
+    ][ci];
+    const pdf = tl >= 1.75;
+    const flip = tl < 1.5 ? 1 : tl < 1.75 ? 1 - sg(tl, 1.5, 1.75) : sg(tl, 1.75, 2.0);
+    const slide = (1 - sg(tl, 0, 0.5)) * 500;
+    const W = 600, H = 470;
+    const cell = (v, i, hd) => `<td style="padding:${pdf ? '12px 10px' : '10px'};border:${pdf ? '0' : '1px solid #d1d5db'};border-bottom:${pdf ? '2px solid #e2e8f0' : '1px solid #d1d5db'};font-weight:${hd ? 800 : 600};font-size:24px;text-align:${i ? 'right' : 'left'};color:${hd && pdf ? '#fff' : '#1e293b'};background:${hd ? (pdf ? '#1f6f43' : '#e8f5ec') : '#fff'}">${v}</td>`;
+    let html = `<div class="doc" style="left:${20 + slide}px;top:30px;width:${W}px;height:${H}px;transform:scaleX(${Math.max(0.001, flip)})">
+      ${!pdf ? `<div style="height:46px;background:#217346;display:flex;gap:10px;align-items:center;padding:0 16px">${'<div style="width:60px;height:12px;border-radius:6px;background:rgb(255 255 255 / .5)"></div>'.repeat(4)}</div>
+        <div style="display:flex;background:#f3f4f6;font-size:20px;color:#6b7280;font-weight:700"><div style="width:40px"></div>${'ABCDE'.split('').map((c) => `<div style="flex:1;text-align:center;padding:4px;border-left:1px solid #d1d5db">${c}</div>`).join('')}</div>` : `<div style="padding:30px 30px 10px;font-weight:900;font-size:34px;color:#1e293b">${D.name}</div>`}
+      <table style="border-collapse:collapse;width:${pdf ? 'calc(100% - 60px)' : '100%'};margin:${pdf ? '0 30px' : '0'}">
+        <tr>${D.h.map((v, i) => cell(v, i, true)).join('')}</tr>${D.r.map((r) => `<tr>${r.map((v, i) => cell(v, i, false)).join('')}</tr>`).join('')}</table>
+      <div class="bdg" style="right:14px;bottom:14px;background:${pdf ? '#e5484d' : '#217346'}">${pdf ? 'PDF' : 'X .xlsx'}</div></div>`;
+    const opts = [['Orientation', 'Landscape'], ['Page size', 'A4'], ['Gridlines', 'Show']];
+    opts.forEach(([l, v], i) => {
+      html += `<div style="position:absolute;left:650px;top:${50 + i * 120}px;width:250px;background:#fff;border:2px solid ${pdf ? '#bbf7d0' : '#e2e8f0'};border-radius:16px;padding:12px 18px;opacity:${sg(tl, 0.3 + i * 0.12, 0.5 + i * 0.12)}"><div style="font-size:21px;font-weight:700;color:#64748b">${l}</div><div style="font-weight:900;font-size:30px;color:${pdf ? '#166534' : 'var(--ink)'}">${pdf ? '✓ ' : ''}${v}</div></div>`;
+    });
+    html += `<div style="position:absolute;left:0;right:0;top:${H + 60}px;text-align:center">${tl < 1.75 ? btn('Convert to PDF', tl > 0.35 && tl < 0.6) : btn(dlIcon(tl) + 'Download PDF', false)}</div>`;
+    if (tl >= 0.6 && tl < 1.75) html += spinner(tl, 'Converting to PDF…', Math.min(sg(tl, 0.6, 0.8), 1 - sg(tl, 1.55, 1.75)));
+    if (tl >= 2.3) html += `<div style="position:absolute;left:640px;width:270px;top:420px;text-align:center">${pill(`✓ ${D.info}`, sg(tl, 2.3, 2.6), '#16a34a')}</div>`;
+    return html;
+  },
+
+  ppt2pdf(tl, ci) {
+    const D = [{ name: 'Pitch deck', n: 12, mb: '1.4 MB', t: ['Our Story', 'Market', 'Growth', 'Team'] }, { name: 'Training', n: 18, mb: '2.1 MB', t: ['Safety First', 'Rules', 'Steps', 'Quiz'] }, { name: 'Product launch', n: 9, mb: '960 KB', t: ['Meet Nova', 'Features', 'Price', 'Launch'] }][ci];
+    const SC = [['#1e3a8a', '#3b82f6'], ['#7c2d12', '#f97316'], ['#14532d', '#22c55e'], ['#581c87', '#a855f7']];
+    const slide = (w, h, j) => `<div style="width:${w}px;height:${h}px;border-radius:${w / 40}px;overflow:hidden;background:linear-gradient(135deg,${SC[j][0]},${SC[j][1]});position:relative;padding:${w * 0.06}px;box-sizing:border-box">
+      <div style="color:#fff;font-weight:900;font-size:${w * 0.075}px">${D.t[j]}</div><div style="width:40%;height:${w * 0.012}px;background:rgb(255 255 255 / .6);border-radius:9px;margin-top:${w * 0.03}px"></div>
+      <div style="position:absolute;right:${w * 0.06}px;bottom:${w * 0.06}px;display:flex;gap:${w * 0.02}px;align-items:flex-end">${[0.35, 0.55, 0.45, 0.8].map((v) => `<div style="width:${w * 0.06}px;height:${h * v * 0.6}px;background:rgb(255 255 255 / .75);border-radius:4px"></div>`).join('')}</div></div>`;
+    const pdf = tl >= 1.75;
+    const flip = tl < 1.5 ? 1 : tl < 1.75 ? 1 - sg(tl, 1.5, 1.75) : sg(tl, 1.75, 2.0);
+    const a = sg(tl, 0, 0.35);
+    let html = `<div style="position:absolute;left:156px;top:0;transform:scaleX(${Math.max(0.001, flip)});opacity:${a};box-shadow:0 24px 50px -24px rgb(0 0 0 / .5);border-radius:15px">${slide(600, 338, 0)}
+      <div class="bdg" style="right:14px;bottom:14px;background:${pdf ? '#e5484d' : '#c43e1c'}">${pdf ? 'PDF' : 'P .pptx'}</div></div>`;
+    for (let j = 0; j < 4; j++) {
+      const k = sg(tl, 0.15 + j * 0.1, 0.45 + j * 0.1); const pj = tl >= 1.9 + j * 0.15;
+      html += `<div style="position:absolute;left:${16 + j * 224}px;top:370px;opacity:${k};transform:translateY(${(1 - k) * 30}px)">${slide(208, 117, j)}
+        <div class="bdg" style="right:6px;bottom:6px;font-size:16px;padding:3px 8px;background:${pj ? '#e5484d' : '#c43e1c'}">${pj ? 'PDF' : 'PPT'}</div>
+        <div style="text-align:center;font-weight:700;font-size:22px;color:#64748b;margin-top:6px">${pj ? 'Page' : 'Slide'} ${j + 1}</div></div>`;
+    }
+    if (tl < 1.75) html += `<div style="position:absolute;left:0;right:0;top:560px;text-align:center">${btn('Convert to PDF', tl > 0.6 && tl < 0.85)}</div>`;
+    if (tl >= 0.85 && tl < 1.75) html += spinner(tl, `Converting ${D.n} slides…`, Math.min(sg(tl, 0.85, 1.0), 1 - sg(tl, 1.55, 1.75)));
+    if (tl >= 2.4) html += `<div style="position:absolute;left:0;right:0;top:560px;text-align:center">${btn(dlIcon(tl) + `${D.name}.pdf · ${D.n} pages · ${D.mb}`, false)}</div>`;
+    return html;
+  },
+
+  redact(tl, ci) {
+    const D = [
+      [['Name', 'Rahul Sharma', 0], ['Email', 'rahul@sharmatraders.in', 1], ['Phone', '+91 98220 41567', 2], ['Account', '5010 0223 1908', 3], ['Amount', '₹48,200', 0]],
+      [['Employee', 'Neha Joshi', 0], ['Email', 'neha.joshi@acme.co', 1], ['Phone', '+91 90110 55432', 2], ['Salary', '₹62,000 per month', 3], ['Joining', '12 Jan 2026', 0]],
+      [['Patient', 'Amit Kulkarni', 3], ['Email', 'amit.k@mailbox.in', 1], ['Phone', '+91 70200 18934', 2], ['Patient ID', 'MR 20871', 0], ['Visit', '28 Oct 2026', 0]],
+    ][ci];
+    const title = ['Invoice', 'Offer letter', 'Lab report'][ci];
+    const mk = [0, sg(tl, 0.5, 0.7), sg(tl, 0.95, 1.15), sg(tl, 1.3, 1.75)];
+    const black = sg(tl, 2.0, 2.3);
+    const a = sg(tl, 0, 0.35);
+    let html = `<div class="doc" style="left:0;top:0;width:530px;height:610px;opacity:${a}"><div style="height:60px;background:#1f2937;color:#fff;font-weight:800;font-size:28px;display:flex;align-items:center;padding:0 26px">${title}</div>
+      <div style="padding:20px 26px">${D.map(([l, v, g]) => {
+        const m = mk[g];
+        return `<div style="margin:22px 0;font-size:24px;color:#64748b;font-weight:700">${l}<div><div style="margin-top:6px;font-size:29px;color:#1e293b;font-weight:700;position:relative;display:inline-block;white-space:nowrap">${v}
+          ${g ? `<span style="position:absolute;left:-6px;top:-4px;bottom:-4px;width:${g === 3 ? `calc(${m * 100}% + 12px)` : 'calc(100% + 12px)'};opacity:${g === 3 ? (m > 0 ? 1 : 0) : m};border:3px dashed ${black ? 'transparent' : '#ef4444'};background:${black ? `rgb(17 17 17 / ${black})` : 'rgb(239 68 68 / .12)'};border-radius:4px"></span>` : ''}</div></div></div>`;
+      }).join('')}</div><div class="bdg" style="right:14px;bottom:14px;background:#e5484d">PDF</div></div>`;
+    if (tl > 1.3 && tl < 1.85) html += `<div style="position:absolute;left:${lerp(40, 330, sg(tl, 1.3, 1.75))}px;top:${135 + D.findIndex((d) => d[2] === 3) * 106}px;font-size:44px">✋</div>`;
+    const b = (t, on, hit) => `<div style="padding:16px 18px;border-radius:14px;font-weight:800;font-size:25px;text-align:center;border:2px solid ${on ? 'var(--ac)' : '#e2e8f0'};background:${on ? 'color-mix(in srgb,var(--ac) 12%,#fff)' : '#fff'};color:var(--ink);transform:scale(${hit ? 0.94 : 1});margin-bottom:14px">${t}</div>`;
+    html += `<div style="position:absolute;left:556px;top:0;width:356px;opacity:${a}">
+      ${field('Word or phrase', '', false)}<div style="height:20px"></div>
+      ${b('✉ Mark emails', mk[1] > 0, tl > 0.4 && tl < 0.6)}${b('☎ Mark phone numbers', mk[2] > 0, tl > 0.85 && tl < 1.05)}${b('▭ Draw a box', mk[3] > 0, tl > 1.2 && tl < 1.4)}
+      <div style="font-size:23px;font-weight:700;color:#64748b;margin:6px 0 10px">Box colour</div><div style="display:flex;gap:10px">${chipSel(['Black', 'White'], 0, 23)}</div>
+      <div style="margin-top:28px">${tl < 2.3 ? btn('Redact PDF', tl > 1.9 && tl < 2.1, 'width:100%;justify-content:center') : btn(dlIcon(tl) + 'Download PDF', false, 'width:100%;justify-content:center')}</div></div>`;
+    if (tl >= 2.4) html += `<div style="position:absolute;left:556px;width:356px;top:585px;text-align:center">${pill('✓ Removed for good', sg(tl, 2.4, 2.7), '#16a34a')}</div>`;
+    return html;
+  },
+
+  cropimg(tl, ci) {
+    const D = [{ r: 1, sel: 1, px: '3024 × 3024', use: 'Instagram post' }, { r: 16 / 9, sel: 4, px: '4032 × 2268', use: 'YouTube thumbnail' }, { r: 9 / 16, sel: 5, px: '1701 × 3024', use: 'Story and Reels' }][ci];
+    const PW = 600, PH = 450, X = 156;
+    let bw = PW, bh = PW / D.r; if (bh > PH) { bh = PH; bw = PH * D.r; }
+    const k = sg(tl, 0.55, 1.2);
+    const cw = lerp(PW, bw, k), ch = lerp(PH, bh, k), cx = (PW - cw) / 2, cy = (PH - ch) / 2;
+    const z = sg(tl, 2.05, 2.5);
+    const s = lerp(1, Math.min(PW / bw, PH / bh), z);
+    let html = `<div style="position:absolute;left:${X}px;top:0;width:${PW}px;height:${PH}px;border-radius:14px;overflow:hidden;background:#0f172a">
+      <div style="position:absolute;inset:0;transform:scale(${s});transform-origin:50% 50%">${photo(ci + 5, PW, PH)}
+      ${z < 1 ? `<div style="position:absolute;left:${cx}px;top:${cy}px;width:${cw}px;height:${ch}px;box-shadow:0 0 0 2000px rgb(0 0 0 / ${0.55 * (1 - z)});outline:4px solid rgb(255 255 255 / ${1 - z})">
+        ${[1, 2].map((q) => `<div style="position:absolute;left:${(q * 100) / 3}%;top:0;bottom:0;width:2px;background:rgb(255 255 255 / ${0.5 * (1 - z)})"></div><div style="position:absolute;top:${(q * 100) / 3}%;left:0;right:0;height:2px;background:rgb(255 255 255 / ${0.5 * (1 - z)})"></div>`).join('')}
+        ${[[0, 0], [1, 0], [0, 1], [1, 1]].map(([u, v]) => `<div style="position:absolute;left:${u ? 'calc(100% - 16px)' : '-8px'};top:${v ? 'calc(100% - 16px)' : '-8px'};width:24px;height:24px;background:#fff;border-radius:5px;opacity:${1 - z}"></div>`).join('')}</div>` : ''}</div>
+      <div style="position:absolute;left:0;right:0;bottom:16px;text-align:center"><span style="background:rgb(0 0 0 / .65);color:#fff;font-weight:800;font-size:30px;padding:8px 18px;border-radius:12px">${k < 1 ? '4032 × 3024' : D.px}</span></div></div>`;
+    html += `<div style="position:absolute;left:0;right:0;top:474px;display:flex;gap:10px;justify-content:center">${chipSel(['Free', '1:1', '4:3', '3:2', '16:9', '9:16'], tl < 0.45 ? 0 : D.sel, 25)}</div>
+      <div style="position:absolute;left:0;right:0;top:560px;text-align:center">${tl < 2.05 ? btn('Crop image', tl > 1.8 && tl < 2.05) : btn(dlIcon(tl) + 'Download image', false)}</div>`;
+    if (tl >= 2.6) html += `<div style="position:absolute;left:0;right:0;top:20px;text-align:center">${pill('✓ Perfect for ' + D.use, sg(tl, 2.6, 2.9), '#16a34a')}</div>`;
+    return html;
+  },
+
+  webp2jpg(tl, ci) {
+    const F = [
+      [['beach-photo', '78 KB', '224 KB', '1600 × 1200'], ['product', '118 KB', '265 KB', '1600 × 1067'], ['banner', '98 KB', '254 KB', '1200 × 1600']],
+      [['sunset', '118 KB', '265 KB', '1600 × 1067'], ['logo-design', '98 KB', '254 KB', '1200 × 1600'], ['team-photo', '78 KB', '224 KB', '1600 × 1200']],
+      [['recipe', '98 KB', '254 KB', '1200 × 1600'], ['screenshot', '78 KB', '224 KB', '1600 × 1200'], ['poster', '118 KB', '265 KB', '1600 × 1067']],
+    ][ci];
+    const a = sg(tl, 0, 0.35);
+    let html = '';
+    F.forEach(([n, s0, s1, px], i) => {
+      const k = sg(tl, 0.15 + i * 0.12, 0.45 + i * 0.12);
+      const t0 = 0.95 + i * 0.3, done = tl >= t0 + 0.35;
+      html += `<div class="file" style="margin-bottom:16px;opacity:${k};transform:translateX(${(1 - k) * 60}px)">${fileIcon(done ? 'JPG' : 'WEBP', done ? 'var(--ac)' : '#0ea5e9')}
+        <div style="flex:1"><div class="fn">${n}.${done ? 'jpg' : 'webp'}</div><div class="fs">${done ? `${s0} → ${s1} · ${px}` : s0 + ' · ' + px}</div></div>
+        ${tl >= t0 && !done ? `<div style="width:44px;height:44px;border-radius:50%;border:5px solid #e2e8f0;border-top-color:var(--ac);transform:rotate(${tl * 720}deg)"></div>` : done ? `<div style="font-size:38px;color:#16a34a;font-weight:900">✓</div>` : ''}</div>`;
+    });
+    html += `<div style="margin-top:12px;opacity:${a}"><div style="font-size:24px;font-weight:700;color:#64748b;margin-bottom:12px">Quality: 90%</div>
+      <div style="height:12px;border-radius:6px;background:#e2e8f0;position:relative"><div style="height:100%;width:83%;background:var(--ac);border-radius:6px"></div><div style="position:absolute;left:calc(83% - 16px);top:-10px;width:32px;height:32px;border-radius:50%;background:#fff;border:4px solid var(--ac)"></div></div></div>
+      <div style="display:flex;gap:12px;justify-content:center;margin-top:30px">${['Opens in WhatsApp', 'Word', 'Any phone'].map((t, i) => pill('✓ ' + t, sg(tl, 2.2 + i * 0.15, 2.45 + i * 0.15), '#16a34a')).join('')}</div>
+      <div style="position:absolute;left:0;right:0;top:575px;text-align:center">${tl < 2.1 ? btn('Convert to JPG', tl > 0.75 && tl < 0.95) : btn(dlIcon(tl) + 'Download all (ZIP)', false)}</div>`;
+    return html;
+  },
+
+  qr(tl, ci) {
+    const D = [
+      { tab: 0, f: [['Website address', 'zentapdf.com']], q: 'https://zentapdf.com', col: '#111111' },
+      { tab: 2, f: [['Network name (SSID)', 'Cafe Guest'], ['Password', 'coffee2026']], q: 'WIFI:T:WPA;S:Cafe Guest;P:coffee2026;;', col: '#1e3a8a' },
+      { tab: 1, f: [['Text', 'Happy Diwali from ZentaPDF!']], q: 'Happy Diwali from ZentaPDF!', col: '#9f1239' },
+    ][ci];
+    const a = sg(tl, 0, 0.35);
+    let t0 = 0.4, html = `<div style="display:flex;gap:10px;justify-content:center;opacity:${a}">${chipSel(['Website', 'Text', 'Wi-Fi', 'WhatsApp', 'Email'], D.tab, 25)}</div>
+      <div style="position:absolute;left:0;top:90px;width:420px;opacity:${a}">`;
+    D.f.forEach(([l, v], i) => {
+      const cps = Math.max(14, v.length / 0.9); const s = typed(v, tl, t0, cps); const on = tl >= t0 && tl < t0 + v.length / cps + 0.1;
+      html += `<div style="margin-bottom:22px">${field(l, `<span style="font-size:${v.length > 16 ? 26 : 32}px;white-space:nowrap">${s}</span>` + caret(tl, on), on)}</div>`;
+      t0 += v.length / cps + 0.15;
+    });
+    const done = sg(tl, t0 - 0.1, t0 + 0.4);
+    const sw = ['#111111', '#1e3a8a', '#9f1239', '#166534'];
+    html += `<div style="font-size:24px;font-weight:700;color:#64748b;margin:8px 0 12px">Colour</div><div style="display:flex;gap:14px">${sw.map((c) => `<div style="width:52px;height:52px;border-radius:14px;background:${c};box-shadow:${c === D.col ? '0 0 0 4px #fff,0 0 0 7px ' + c : 'none'}"></div>`).join('')}</div>
+      <div style="font-size:24px;font-weight:700;color:#64748b;margin:24px 0 12px">Size</div><div style="display:flex;gap:10px">${chipSel(['512 px', '1024 px'], 1, 23)}</div></div>`;
+    const svg = (QR[D.q] || '').replace(/#111111/g, D.col);
+    html += `<div style="position:absolute;left:470px;top:90px;width:420px;height:420px;background:#fff;border-radius:22px;box-shadow:0 0 0 3px ${done >= 1 ? 'var(--ac)' : '#e2e8f0'},0 24px 50px -24px rgb(0 0 0 / .45);display:grid;place-items:center">
+      <div style="width:340px;height:340px;opacity:${0.12 + 0.88 * done};filter:blur(${(1 - done) * 6}px);transform:scale(${0.9 + 0.1 * done})">${svg.replace('<svg ', '<svg width="340" height="340" ')}</div></div>`;
+    html += `<div style="position:absolute;left:0;right:0;top:560px;display:flex;gap:16px;justify-content:center">${btn(dlIcon(tl) + 'Download PNG', tl > 2.3 && tl < 2.5)}${btn('SVG', false, 'background:#fff;color:var(--ink);box-shadow:0 0 0 2px #e2e8f0')}</div>`;
+    if (tl >= 2.6) html += `<div style="position:absolute;left:470px;width:420px;top:30px;text-align:center">${pill('✓ Ready to scan · never expires', sg(tl, 2.6, 2.9), '#16a34a')}</div>`;
+    return html;
+  },
+});
+Object.assign(SOUND, {
+  editpdf: { pop: [0.35, 2.5], tick: [0.55, 0.65, 0.75, 0.85, 1.0, 1.1, 1.2, 1.3, 1.4], whoosh: [1.95], ding: [2.7] },
+  rotate: { pop: [0.8, 1.15, 1.5, 2.25], ding: [2.45] },
+  pagenum: { pop: [0.9, 1.15, 1.4, 1.65], ding: [2.2] },
+  reorder: { pop: [0.6, 1.6, 2.0], whoosh: [0.8], ding: [2.15] },
+  excel2pdf: { pop: [0.4, 1.75], whoosh: [1.5], ding: [2.3] },
+  ppt2pdf: { pop: [0.7, 1.9, 2.05, 2.2, 2.35], whoosh: [1.5], ding: [2.4] },
+  redact: { pop: [0.5, 0.95, 1.3, 1.95], whoosh: [2.05], ding: [2.4] },
+  cropimg: { pop: [0.45, 1.85], whoosh: [2.1], ding: [2.6] },
+  webp2jpg: { pop: [0.8, 1.3, 1.6, 1.9], ding: [2.2] },
+  qr: { tick: [0.45, 0.6, 0.75, 0.9, 1.05, 1.2], pop: [2.35], ding: [1.5] },
+});

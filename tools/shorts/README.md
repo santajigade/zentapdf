@@ -23,7 +23,7 @@ Makes vertical 1080 × 1920 MP4 Shorts (16.5 s, 30 fps, H.264 + AAC) in the styl
 ## Steps
 ```bash
 cd tools/shorts            # inside the zentapdf repo, after npm install (needs playwright, qrcode, ffmpeg, python numpy)
-node -e "global.window={};require('./videos.js');require('fs').writeFileSync('urls.json',JSON.stringify(window.VIDEOS.map(v=>v.url)))"
+node -e "global.window={};require('./videos.js');require('fs').writeFileSync('urls.json',JSON.stringify(window.VIDEOS.flatMap(v=>[v.url,...(v.qrExtra||[])])))"
 node qr.mjs                # makes qr.js
 mkdir -p /tmp/sn && node snap.mjs 0,1,2 0.8,3,4.5,9,15.5 && python3 sheet.py 0,1,2 0.8,3,4.5,9,15.5   # check /tmp/sheet.png
 seq 0 9 | xargs -P 4 -I{} ./build.sh {}    # about 1 minute per video
@@ -40,3 +40,9 @@ Split PDF (red), PDF to JPG (lime), Word to PDF (sky), Protect PDF (slate), Unlo
 Add watermark (purple), Resize image (green), Video to GIF (fuchsia), Mic test (mocha), Webcam test (coral).
 New scenes in `scenes.js` (split, pdf2jpg, word2pdf, protect, unlock, watermark, resize, vid2gif, mic, webcam). Full settings in `videos-batch2.js`.
 Demo numbers for Split, PDF to JPG, Resize, Video to GIF and Protect come from running the real tools on the built site.
+
+## Batch 3 (done, 6 Nov 2026)
+Edit PDF (navy), Rotate PDF (olive), Add page numbers (wine), Reorder pages (graphite), Excel to PDF (pine),
+PPT to PDF (brick), Redact PDF (steel), Crop image (mauve), WebP to JPG (khaki), QR code generator (dusk).
+No device tests (owner's choice). New scenes: editpdf, rotate, pagenum, reorder, excel2pdf, ppt2pdf, redact, cropimg, webp2jpg, qr.
+`qrExtra` in a video adds demo QR codes to `qr.js` (used by the qr scene). WebP to JPG numbers come from the real tool. Full settings in `videos-batch3.js`.
