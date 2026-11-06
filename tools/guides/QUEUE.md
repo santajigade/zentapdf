@@ -3,12 +3,12 @@
 Done:
 - [x] aadhaar-card-pdf-password (2026-11-05)
 - [x] how-to-repair-corrupted-pdf (2026-11-05)
+- [x] how-to-add-blank-page-to-pdf (2026-11-06)
+- [x] how-to-convert-png-to-ico-favicon (2026-11-06)
+- [x] how-to-add-stamp-to-pdf (2026-11-06)
+- [x] Compress an image to 20 KB: skipped 2026-11-06, already covered by how-to-reduce-image-size-in-kb
 
 Open:
-- [ ] How to compress an image to 20 KB (compress-image-to-20kb, reduce-image-size-in-kb)
-- [ ] How to add a blank page to a PDF (add-blank-page)
-- [ ] How to convert PNG to ICO for a website favicon (png-to-ico)
-- [ ] How to add a stamp to a PDF (pdf-overlay, edit-pdf)
 - [ ] How to rearrange PDF pages (reorder-pdf-pages)
 - [ ] How to resize an animated GIF without losing the animation (resize-gif, crop-gif)
 - [ ] How to edit a scanned PDF (edit-pdf)

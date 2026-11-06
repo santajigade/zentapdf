@@ -74,7 +74,7 @@ export default function Favicon({ mode = 'favicon' }: { mode?: 'favicon' | 'ico'
 
   const preview = (s: number) => (
     <div style={{ textAlign: 'center', fontSize: '.8rem', color: 'var(--muted)' }}>
-      <div style={{ width: s, height: s, margin: '0 auto 4px', borderRadius: bgOn && round ? s * 0.22 : 0, background: bgOn ? bg : 'repeating-conic-gradient(#e5e7eb 0 25%, #fff 0 50%) 0 0/8px 8px', display: 'grid', placeItems: 'center', overflow: 'hidden' }}>
+      <div style={{ width: `${s}px`, height: `${s}px`, margin: '0 auto 4px', borderRadius: bgOn && round ? `${s * 0.22}px` : 0, background: bgOn ? bg : 'repeating-conic-gradient(#e5e7eb 0 25%, #fff 0 50%) 0 0/8px 8px', display: 'grid', placeItems: 'center', overflow: 'hidden' }}>
         <img src={url} alt="" style={{ maxWidth: `${100 - pad * 2}%`, maxHeight: `${100 - pad * 2}%` }} />
       </div>{s}px
     </div>
