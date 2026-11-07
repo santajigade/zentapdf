@@ -1,0 +1,570 @@
+{
+  "slug": "simple-invoice-template",
+  "category": "invoice",
+  "name": "Simple Invoice Template",
+  "h1": "Simple Invoice Template (Excel, Word and PDF)",
+  "metaTitle": "Simple Invoice Template: Free Excel, Word & PDF",
+  "metaDescription": "Free simple invoice template in Excel, Word and PDF. Line totals, tax and grand total calculate automatically. Edit, print or email. No sign-up.",
+  "short": "Clean one-page invoice. Excel version adds line totals, tax and grand total for you.",
+  "accent": "#047857",
+  "useCases": [
+    "Billing",
+    "Freelance"
+  ],
+  "industries": [
+    "Freelancers",
+    "Small business",
+    "Services"
+  ],
+  "date": "2026-11-07",
+  "intro": "This simple invoice template gives you a clean, professional bill in a few minutes. The Excel version works out every line amount, the tax and the grand total on its own, while the Word version is easy to fill by hand. Both print neatly on one A4 page and save as PDF for email.",
+  "howTo": [
+    "Download the Excel or Word file and open it in Microsoft Excel, Word, Google Sheets, Google Docs or LibreOffice.",
+    "Replace the grey text in the top left with your business name, address, phone and email.",
+    "Enter the invoice number, invoice date and your client's billing details.",
+    "Type each item or service with its quantity, unit price and tax rate. In Excel the amount and totals update by themselves.",
+    "Add your payment terms and bank or UPI details in the notes box.",
+    "Save as PDF (File > Save As > PDF, or File > Download > PDF in Google) and send it to your client."
+  ],
+  "guide": [
+    {
+      "h": "What this invoice template includes",
+      "p": [
+        "The layout follows the order a client reads a bill: who it is from, who it is for, what was supplied and how much is due. Your business details sit at the top left, and the invoice number, invoice date and due date sit at the top right, so they are easy to find when a client calls about a payment.",
+        "Below that you get separate Bill to and Ship to boxes, a table with fifteen item lines and a totals block with subtotal, tax, discount and total due. A notes area at the bottom holds payment terms and bank details."
+      ]
+    },
+    {
+      "h": "How the Excel formulas work",
+      "p": [
+        "Each line multiplies Qty by Unit price to give the Amount. The line number appears only when you type a description, so unused rows stay blank when printed. Tax is worked out per line from the Tax % column, which means you can mix items with different tax rates on the same invoice.",
+        "The due date is the invoice date plus 30 days. If you give clients 7 or 15 days, simply type a date over the formula. The Discount cell is a plain number, so enter it as an amount, not a percentage."
+      ]
+    },
+    {
+      "h": "Word or Excel: which file should you use?",
+      "p": [
+        "Use the Excel file if you want the maths done for you and plan to reuse the invoice every month. Use the Word file if you send only a few invoices, prefer typing amounts yourself, or want to add a logo and longer descriptions. The PDF is useful as a printed blank form for handwritten bills."
+      ]
+    }
+  ],
+  "tips": [
+    "Number invoices in sequence (INV-0001, INV-0002) and never reuse a number. It makes accounting and tax filing much easier.",
+    "Save one master copy and use Save As for each new invoice, so you never type over an old bill.",
+    "Write clear item descriptions, such as \"Website design, home page and 4 inner pages\", instead of just \"Design work\".",
+    "Check your local tax rules for what an invoice must show, such as a tax number or the place of supply.",
+    "Send invoices as PDF so the layout looks the same on every phone and computer and cannot be changed by accident."
+  ],
+  "faqs": [
+    {
+      "q": "Is this invoice template really free?",
+      "a": "Yes. You can download the Excel, Word and PDF files for free, without sign-up, and use them for personal or business invoices as often as you like."
+    },
+    {
+      "q": "Does it work in Google Sheets?",
+      "a": "Yes. Upload the Excel file to Google Drive and open it with Google Sheets. All the formulas, colours and print settings carry over."
+    },
+    {
+      "q": "How do I add my logo?",
+      "a": "In Word, click above your business name and use Insert > Pictures. In Excel, use Insert > Pictures > Place over cells and drag the logo to the top left corner."
+    },
+    {
+      "q": "Can I change the currency?",
+      "a": "Yes. The amounts are plain numbers, so they work with any currency. Type your currency code in the Currency cell, or apply a currency format to the amount cells."
+    },
+    {
+      "q": "How do I make the PDF smaller before emailing it?",
+      "a": "Invoices saved as PDF are usually small. If you added a large logo, run the file through the free Compress PDF tool on ZentaPDF before you send it."
+    }
+  ],
+  "related": [],
+  "tools": [
+    "word-to-pdf",
+    "excel-to-pdf",
+    "edit-pdf",
+    "compress-pdf"
+  ],
+  "sheet": {
+    "sheets": [
+      {
+        "name": "Invoice",
+        "cols": [
+          6,
+          40,
+          9,
+          13,
+          9,
+          15
+        ],
+        "page": {
+          "orientation": "portrait",
+          "area": "A1:F36"
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              34
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:D1",
+            "v": "[Your Business Name]",
+            "s": "title"
+          },
+          {
+            "c": "E1",
+            "m": "E1:F1",
+            "v": "INVOICE",
+            "s": "title",
+            "align": "right"
+          },
+          {
+            "c": "A2",
+            "m": "A2:C2",
+            "v": "[Street address, City, Postcode]",
+            "s": "plain"
+          },
+          {
+            "c": "A3",
+            "m": "A3:C3",
+            "v": "[Phone]  |  [Email]",
+            "s": "plain"
+          },
+          {
+            "c": "A4",
+            "m": "A4:C4",
+            "v": "[Tax / registration number, if any]",
+            "s": "sub"
+          },
+          {
+            "c": "D2",
+            "m": "D2:E2",
+            "v": "Invoice no.",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "F2",
+            "v": "INV-0001",
+            "s": "input",
+            "align": "right"
+          },
+          {
+            "c": "D3",
+            "m": "D3:E3",
+            "v": "Invoice date",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "F3",
+            "v": "2026-11-07",
+            "s": "input",
+            "fmt": "date",
+            "align": "right"
+          },
+          {
+            "c": "D4",
+            "m": "D4:E4",
+            "v": "Due date",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "F4",
+            "v": "=IF(F3=\"\",\"\",F3+30)",
+            "s": "calc",
+            "fmt": "date",
+            "align": "right"
+          },
+          {
+            "c": "D5",
+            "m": "D5:E5",
+            "v": "Currency",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "F5",
+            "v": "USD",
+            "s": "input",
+            "align": "right"
+          },
+          {
+            "c": "A7",
+            "m": "A7:C7",
+            "v": "BILL TO",
+            "s": "band"
+          },
+          {
+            "c": "D7",
+            "m": "D7:F7",
+            "v": "SHIP TO",
+            "s": "band"
+          },
+          {
+            "c": "A8",
+            "m": "A8:C8",
+            "v": "Bright Leaf Studio",
+            "s": "input"
+          },
+          {
+            "c": "A9",
+            "m": "A9:C9",
+            "v": "Attn: Priya Sharma",
+            "s": "input"
+          },
+          {
+            "c": "A10",
+            "m": "A10:C10",
+            "v": "12 Lake Road, Pune 411001",
+            "s": "input"
+          },
+          {
+            "c": "A11",
+            "m": "A11:C11",
+            "v": "priya@example.com",
+            "s": "input"
+          },
+          {
+            "c": "D8",
+            "m": "D8:F8",
+            "v": "Same as billing address",
+            "s": "input"
+          },
+          {
+            "c": "D9",
+            "m": "D9:F9",
+            "s": "input"
+          },
+          {
+            "c": "D10",
+            "m": "D10:F10",
+            "s": "input"
+          },
+          {
+            "c": "D11",
+            "m": "D11:F11",
+            "s": "input"
+          },
+          {
+            "height": [
+              13,
+              24
+            ]
+          },
+          {
+            "row": 13,
+            "from": "A",
+            "v": [
+              "#",
+              "Description",
+              "Qty",
+              "Unit price",
+              "Tax %",
+              "Amount"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              14,
+              28
+            ],
+            "cols": {
+              "A": {
+                "v": "=IF(B{r}=\"\",\"\",ROW()-13)",
+                "s": "calc",
+                "align": "center"
+              },
+              "B": {
+                "s": "input",
+                "wrap": true
+              },
+              "C": {
+                "s": "input",
+                "fmt": "int",
+                "align": "center"
+              },
+              "D": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "E": {
+                "s": "input",
+                "fmt": "pct",
+                "align": "center"
+              },
+              "F": {
+                "v": "=IF(B{r}=\"\",\"\",C{r}*D{r})",
+                "s": "calc",
+                "fmt": "money"
+              }
+            }
+          },
+          {
+            "data": [
+              [
+                "Logo design, 3 concepts and final files",
+                1,
+                450,
+                0.1
+              ],
+              [
+                "Business card design",
+                1,
+                120,
+                0.1
+              ],
+              [
+                "Printed brochures (per 100)",
+                2,
+                85,
+                0.05
+              ]
+            ],
+            "at": "B14"
+          },
+          {
+            "list": "E14:E28",
+            "items": [
+              "0%",
+              "5%",
+              "10%",
+              "12%",
+              "18%",
+              "20%"
+            ]
+          },
+          {
+            "c": "D30",
+            "m": "D30:E30",
+            "v": "Subtotal",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "F30",
+            "v": "=SUM(F14:F28)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "D31",
+            "m": "D31:E31",
+            "v": "Tax",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "F31",
+            "v": "=SUMPRODUCT(C14:C28,D14:D28,E14:E28)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "D32",
+            "m": "D32:E32",
+            "v": "Discount",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "F32",
+            "v": 0,
+            "s": "input",
+            "fmt": "money"
+          },
+          {
+            "c": "D33",
+            "m": "D33:E33",
+            "v": "=\"TOTAL DUE (\"&F5&\")\"",
+            "s": "total",
+            "align": "right"
+          },
+          {
+            "c": "F33",
+            "v": "=F30+F31-F32",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "A30",
+            "m": "A30:B30",
+            "v": "PAYMENT DETAILS",
+            "s": "band"
+          },
+          {
+            "c": "A31",
+            "m": "A31:B33",
+            "v": "Payment due within 30 days.\nBank: [Bank name]   Account: [Account number]\nIFSC / SWIFT: [Code]   UPI: [your-id@bank]",
+            "s": "note"
+          },
+          {
+            "height": [
+              31,
+              18
+            ]
+          },
+          {
+            "c": "A35",
+            "m": "A35:F35",
+            "v": "Thank you for your business!",
+            "s": "band",
+            "align": "center"
+          }
+        ]
+      }
+    ]
+  },
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 16
+    },
+    "blocks": [
+      {
+        "type": "header",
+        "split": [
+          1.3,
+          1
+        ],
+        "left": [
+          "# [Your Business Name]",
+          "[Street address, City, Postcode]",
+          "[Phone]  |  [Email]",
+          "~ [Tax / registration number, if any]"
+        ],
+        "right": [
+          "# INVOICE",
+          "**Invoice no.**  INV-0001",
+          "**Invoice date**  07 Nov 2026",
+          "**Due date**  07 Dec 2026"
+        ]
+      },
+      {
+        "type": "columns",
+        "cols": [
+          {
+            "title": "Bill to",
+            "fill": true,
+            "lines": [
+              "## Bright Leaf Studio",
+              "Attn: Priya Sharma",
+              "12 Lake Road, Pune 411001",
+              "priya@example.com"
+            ]
+          },
+          {
+            "title": "Ship to",
+            "fill": true,
+            "lines": [
+              "## [Client name]",
+              "[Delivery address]",
+              "[City, Postcode]",
+              "[Phone]"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "columns": [
+          {
+            "h": "#",
+            "w": 0.5,
+            "align": "center"
+          },
+          {
+            "h": "Description",
+            "w": 4.2
+          },
+          {
+            "h": "Qty",
+            "w": 0.8,
+            "align": "center"
+          },
+          {
+            "h": "Unit price",
+            "w": 1.3,
+            "align": "right"
+          },
+          {
+            "h": "Tax %",
+            "w": 0.9,
+            "align": "center"
+          },
+          {
+            "h": "Amount",
+            "w": 1.4,
+            "align": "right"
+          }
+        ],
+        "rows": [
+          [
+            "1",
+            "Logo design, 3 concepts and final files",
+            "1",
+            "450.00",
+            "10%",
+            "450.00"
+          ],
+          [
+            "2",
+            "Business card design",
+            "1",
+            "120.00",
+            "10%",
+            "120.00"
+          ],
+          [
+            "3",
+            "Printed brochures (per 100)",
+            "2",
+            "85.00",
+            "5%",
+            "170.00"
+          ]
+        ],
+        "blank": 5,
+        "totals": [
+          [
+            "Subtotal",
+            "740.00"
+          ],
+          [
+            "Tax",
+            "65.50"
+          ],
+          [
+            "Discount",
+            "0.00"
+          ],
+          [
+            "Total due (USD)",
+            "805.50"
+          ]
+        ]
+      },
+      {
+        "type": "box",
+        "title": "Payment details",
+        "lines": [
+          "Payment due within 30 days of the invoice date.",
+          "Bank: [Bank name]   Account: [Account number]   IFSC / SWIFT: [Code]",
+          "UPI: [your-id@bank]"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Thank you for your business!",
+        "align": "center",
+        "bold": true,
+        "color": "#047857",
+        "before": 6
+      }
+    ]
+  }
+}

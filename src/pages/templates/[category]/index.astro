@@ -1,0 +1,33 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AdSlot from '../../../components/AdSlot.astro';
+import TemplateBrowser from '../../../components/TemplateBrowser.astro';
+import { tplCategories, tplByCategory, type TplCategory } from '../../../lib/templates';
+import { breadcrumbSchema, abs } from '../../../lib/schema';
+
+export function getStaticPaths() { return tplCategories.filter((c) => tplByCategory(c.id).length).map((c) => ({ params: { category: c.slug }, props: { c } })); }
+const { c } = Astro.props as { c: TplCategory };
+const list = tplByCategory(c.id);
+const crumbs = [{ name: 'Home', href: '/' }, { name: 'Templates', href: '/templates/' }, { name: c.name, href: `/templates/${c.slug}/` }];
+const others = tplCategories.filter((x) => x.id !== c.id && tplByCategory(x.id).length);
+const itemList = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: c.title, description: c.description, url: abs(`/templates/${c.slug}/`),
+  mainEntity: { '@type': 'ItemList', numberOfItems: list.length, itemListElement: list.map((t, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(t.url), name: t.name })) } };
+---
+<Base title={c.title} description={c.description} schema={[breadcrumbSchema(crumbs), itemList]} ogImage={list[0] ? `/og/templates/${list[0].slug}.png` : undefined}>
+  <Breadcrumbs items={crumbs} />
+  <section class="container" style={`--tc:${c.color};--tt:${c.tint};--ts:${c.strong}`}>
+    <div class="tpl-cat-head">
+      <span class="tpl-cat-ic" set:html={`<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${c.icon}</svg>`} />
+      <div><h1>Free {c.plural.toLowerCase()}</h1><p>{c.intro}</p></div>
+    </div>
+    <TemplateBrowser list={list} />
+  </section>
+  <AdSlot />
+  <section class="container">
+    <h2>More free templates</h2>
+    <div class="tpl-cats">{others.map((x) => (
+      <a href={`/templates/${x.slug}/`} style={`--tc:${x.color};--tt:${x.tint}`}><span set:html={`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${x.icon}</svg>`} /><b>{x.name}</b><small>{tplByCategory(x.id).length}</small></a>
+    ))}</div>
+  </section>
+</Base>

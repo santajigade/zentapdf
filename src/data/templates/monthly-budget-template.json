@@ -1,0 +1,128 @@
+{
+  "slug": "monthly-budget-template",
+  "category": "excel",
+  "name": "Monthly Budget Template",
+  "h1": "Monthly Budget Template (Excel and PDF)",
+  "metaTitle": "Monthly Budget Template in Excel: Free Download",
+  "metaDescription": "Free monthly budget template in Excel with working formulas. Plan income and expenses, see what is left to save and spot overspending. No sign-up.",
+  "short": "Plan income and 15 expense categories. Totals, savings and overspending update automatically.",
+  "accent": "#15803D",
+  "useCases": ["Personal finance", "Tracking"],
+  "industries": ["Personal", "Families", "Students"],
+  "date": "2026-11-07",
+  "intro": "This monthly budget template in Excel shows in one glance how much came in, how much went out and how much is left to save. Type your planned and actual amounts, and the sheet works out the differences, the share of each budget used and your savings for the month. Lines where you overspend turn red so they stand out.",
+  "howTo": [
+    "Download the Excel file and open it in Microsoft Excel, Google Sheets or LibreOffice Calc.",
+    "Pick the month in the Month cell at the top.",
+    "Under Income, type the amount you plan to receive from each source, then the amount you actually received.",
+    "Under Expenses, set a budget for each category. Rename or delete categories to match your life.",
+    "During the month, update the Actual column from your bank statement, UPI history or receipts.",
+    "Check the three boxes at the top and the red figures to see where to cut back next month."
+  ],
+  "guide": [
+    {
+      "h": "How the budget sheet is laid out",
+      "p": [
+        "The top of the sheet has three summary boxes: total income received, total spent and what is left to save. Below them sit an Income table with three sources and an Expenses table with fifteen common categories, from rent and groceries to subscriptions and gifts. A Savings row at the bottom compares what you actually saved with your goal.",
+        "Every table has a Planned or Budget column and an Actual column. Planning first and recording later is the simple habit that makes a budget work."
+      ]
+    },
+    {
+      "h": "What the formulas do",
+      "p": [
+        "The Difference column subtracts actual spending from the budget, so a positive number means you spent less than planned. If you spend more, the difference turns negative and shows in red. The % used column divides actual by budget. Any category above 100% is highlighted in red, so you can see at once where the money went over.",
+        "Totals add up each column, and the summary boxes read from those totals. All cells with formulas have a light green fill, so you know which cells to leave alone. No macros are used, so the file opens safely in any spreadsheet app."
+      ]
+    },
+    {
+      "h": "Making the budget fit your month",
+      "p": [
+        "Start with fixed costs such as rent, loan EMIs and insurance, because they are the same each month. Then estimate flexible costs such as groceries and fuel from the last two or three months of bank statements. Many people find it helps to set the savings goal first and plan spending from what remains. Save one copy per month, for example Budget-Nov-2026.xlsx, so you can compare months later."
+      ]
+    }
+  ],
+  "tips": [
+    "Update the Actual column once a week. Ten minutes on Sunday is easier than sorting a whole month at the end.",
+    "Keep a small Other line for surprise costs instead of breaking your budget for every new item.",
+    "Look at your three largest categories first. Small changes there save more than cutting tiny items.",
+    "If you share expenses with family, upload the file to Google Drive so everyone can update the same sheet.",
+    "Print the sheet as PDF at the end of the month to keep a simple record."
+  ],
+  "faqs": [
+    { "q": "Does this budget template work in Google Sheets?", "a": "Yes. Upload the Excel file to Google Drive and open it with Google Sheets. The formulas, colours, red warnings and print settings all work there." },
+    { "q": "How do I add more expense categories?", "a": "Right-click a row number inside the Expenses table, choose Insert row, then copy the formulas from the row above into the new row. Because the new row sits inside the table, the totals include it automatically." },
+    { "q": "Why does a difference show in red?", "a": "Red means you spent more than the budget for that category. The figure shows by how much you went over." },
+    { "q": "Can I use it for a yearly budget?", "a": "Yes. Make twelve copies of the sheet, one per month, by right-clicking the sheet tab and choosing Move or Copy with Create a copy ticked." },
+    { "q": "Is my data shared with anyone?", "a": "No. The template is a normal Excel file that you download and keep. Whatever you type stays in your own copy." }
+  ],
+  "related": [],
+  "tools": ["excel-to-pdf", "pdf-to-excel", "compress-pdf", "merge-pdf"],
+  "sheet": {
+    "sheets": [
+      {
+        "name": "Budget",
+        "cols": [28, 14, 14, 14, 12, 26],
+        "freeze": 0,
+        "page": { "orientation": "portrait", "area": "A1:F36" },
+        "cells": [
+          { "height": [1, 32] },
+          { "c": "A1", "m": "A1:F1", "v": "Monthly Budget", "s": "title" },
+          { "c": "A2", "v": "Month", "s": "label" },
+          { "c": "B2", "m": "B2:C2", "v": "2026-11-01", "s": "input", "fmt": "mmmm yyyy", "align": "left" },
+          { "c": "D2", "m": "D2:F2", "v": "Fill the white cells. Green cells calculate for you.", "s": "sub", "align": "right" },
+          { "c": "A4", "m": "A4:B4", "v": "INCOME RECEIVED", "s": "band", "align": "center" },
+          { "c": "C4", "m": "C4:D4", "v": "TOTAL SPENT", "s": "band", "align": "center" },
+          { "c": "E4", "m": "E4:F4", "v": "LEFT TO SAVE", "s": "band", "align": "center" },
+          { "height": [5, 34] },
+          { "c": "A5", "m": "A5:B5", "v": "=C12", "s": "big", "fmt": "#,##0" },
+          { "c": "C5", "m": "C5:D5", "v": "=C31", "s": "big", "fmt": "#,##0" },
+          { "c": "E5", "m": "E5:F5", "v": "=C12-C31", "s": "big", "fmt": "#,##0;[Red]-#,##0" },
+          { "c": "A7", "m": "A7:F7", "v": "INCOME", "s": "band" },
+          { "row": 8, "from": "A", "v": ["Source", "Planned", "Actual", "Difference", "", "Notes"], "s": "header" },
+          { "rows": [9, 11], "cols": {
+            "A": { "s": "input" }, "B": { "s": "input", "fmt": "money" }, "C": { "s": "input", "fmt": "money" },
+            "D": { "v": "=IF(AND(B{r}=\"\",C{r}=\"\"),\"\",C{r}-B{r})", "s": "calc", "fmt": "money" }, "E": { "s": "calc" }, "F": { "s": "input" }
+          } },
+          { "data": [["Salary", 60000, 60000], ["Freelance or side income", 8000, 6500], ["Other (interest, rent received)", 1000, 1200]], "at": "A9" },
+          { "c": "A12", "v": "Total income", "s": "total" },
+          { "c": "B12", "v": "=SUM(B9:B11)", "s": "total", "fmt": "money" },
+          { "c": "C12", "v": "=SUM(C9:C11)", "s": "total", "fmt": "money" },
+          { "c": "D12", "v": "=C12-B12", "s": "total", "fmt": "money" },
+          { "c": "E12", "s": "total" }, { "c": "F12", "s": "total" },
+          { "c": "A14", "m": "A14:F14", "v": "EXPENSES", "s": "band" },
+          { "row": 15, "from": "A", "v": ["Category", "Budget", "Actual", "Difference", "% used", "Notes"], "s": "header" },
+          { "rows": [16, 30], "cols": {
+            "A": { "s": "input" }, "B": { "s": "input", "fmt": "money" }, "C": { "s": "input", "fmt": "money" },
+            "D": { "v": "=IF(AND(B{r}=\"\",C{r}=\"\"),\"\",B{r}-C{r})", "s": "calc", "fmt": "money" },
+            "E": { "v": "=IF(N(B{r})=0,\"\",C{r}/B{r})", "s": "calc", "fmt": "pct", "align": "center" },
+            "F": { "s": "input" }
+          } },
+          { "data": [
+            ["Rent or home loan EMI", 18000, 18000], ["Electricity", 1500, 1720], ["Water and cooking gas", 1200, 1100],
+            ["Mobile and internet", 1000, 999], ["Groceries", 8000, 8650], ["Eating out and delivery", 3000, 2400],
+            ["Transport and fuel", 4000, 3600], ["Insurance", 2500, 2500], ["Medical", 1500, 600],
+            ["Education", 3000, 3000], ["Shopping and clothes", 2500, 3200], ["Entertainment", 1500, 900],
+            ["Subscriptions", 800, 800], ["Gifts and donations", 1000, 500], ["Other", 1500, 750]
+          ], "at": "A16" },
+          { "cf": "D16:D30", "rule": "neg" },
+          { "cf": "E16:E30", "rule": "over", "ref": "AND(ISNUMBER(E16),E16>1)" },
+          { "c": "A31", "v": "Total expenses", "s": "total" },
+          { "c": "B31", "v": "=SUM(B16:B30)", "s": "total", "fmt": "money" },
+          { "c": "C31", "v": "=SUM(C16:C30)", "s": "total", "fmt": "money" },
+          { "c": "D31", "v": "=B31-C31", "s": "total", "fmt": "money" },
+          { "c": "E31", "v": "=IF(B31=0,\"\",C31/B31)", "s": "total", "fmt": "pct", "align": "center" },
+          { "c": "F31", "s": "total" },
+          { "c": "A33", "m": "A33:F33", "v": "SAVINGS", "s": "band" },
+          { "row": 34, "from": "A", "v": ["", "Goal", "Saved", "Difference", "", ""], "s": "header" },
+          { "c": "A35", "v": "Savings this month", "s": "label" },
+          { "c": "B35", "v": 10000, "s": "input", "fmt": "money" },
+          { "c": "C35", "v": "=C12-C31", "s": "calc", "fmt": "money" },
+          { "c": "D35", "v": "=C35-B35", "s": "calc", "fmt": "money" },
+          { "cf": "D35", "rule": "neg" },
+          { "cf": "D35", "rule": "pos" },
+          { "cf": "D9:D11", "rule": "neg" }
+        ]
+      }
+    ]
+  }
+}

@@ -40,3 +40,7 @@ npx lighthouse http://localhost:4321/<slug>/ --form-factor=mobile   # target 95+
 - Screenshot: serve dist on :4321, then `node tools/guides/shot.mjs <slug> /<tool>/ <files> [wait-selector]`.
 - Thumbnails: `node --experimental-strip-types tools/og/make-guide-og.mjs`.
 - Text rules: no em or en dashes, plain simple English, Indian readers, never invent facts (search official sources first), 800 to 1,200 words, one table, one screenshot, 3 to 4 FAQs, links to tools and other guides.
+
+## Free Templates (/templates/)
+- Full playbook: `tools/templates/README.md`. Queue: `tools/templates/QUEUE.json`. Daily scheduled task adds `perDay` templates.
+- `node tools/templates/build.mjs` then `node tools/templates/check.mjs` (0 problems) before pushing.

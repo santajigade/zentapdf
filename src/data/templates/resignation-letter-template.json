@@ -1,0 +1,76 @@
+{
+  "slug": "resignation-letter-template",
+  "category": "letters",
+  "name": "Resignation Letter Template",
+  "h1": "Resignation Letter Template (Word and PDF Format)",
+  "metaTitle": "Resignation Letter Template: Free Word & PDF Format",
+  "metaDescription": "Free resignation letter template in Word and PDF. A polite, professional format with notice period, last working day and handover. Edit and send.",
+  "short": "Polite, professional resignation letter with notice period, last working day and handover.",
+  "accent": "#6D28D9",
+  "useCases": ["HR", "Job change"],
+  "industries": ["Corporate", "All industries"],
+  "date": "2026-11-07",
+  "intro": "This resignation letter template helps you leave a job on good terms. It states your last working day clearly, refers to your notice period, offers a smooth handover and thanks your manager, all in a short and professional format that you can edit in a few minutes.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Fill in your name, the date, and your manager's name, designation and company.",
+    "Enter your current role and your last working day, based on the notice period in your offer letter or company policy.",
+    "Edit the handover paragraph to mention the work you will complete or pass on.",
+    "Keep or shorten the thank-you paragraph so it sounds like you.",
+    "Sign it, save it as PDF and send it by email to your manager, with HR in copy if your company asks for that."
+  ],
+  "guide": [
+    {
+      "h": "What a good resignation letter should say",
+      "p": [
+        "A resignation letter is a formal record, so it should be short, clear and polite. It needs four things: that you are resigning, from which role, your last working day and an offer to help with the handover. This template covers all four in three short paragraphs and a closing.",
+        "You do not have to explain why you are leaving. If you want to give a reason, keep it neutral, such as a new opportunity or personal reasons. Avoid complaints about the company or colleagues, because the letter usually stays in your HR file."
+      ]
+    },
+    {
+      "h": "Working out your last working day",
+      "p": [
+        "Your notice period is normally written in your appointment letter or the company HR policy. Count it from the day you submit the letter, and check whether your company counts calendar days or working days. If you hope to be relieved early, it is better to request it politely in the letter than to assume it, because the final decision usually rests with the company.",
+        "Ask HR for a written acceptance of your resignation and, later, a relieving letter and experience letter. New employers often ask for these."
+      ]
+    },
+    {
+      "h": "Sending it the right way",
+      "p": [
+        "Tell your manager in person or on a call first, then send the letter by email the same day. Attach the letter as a PDF and paste the same text into the email body. Keep a copy of the email and any reply from HR for your records."
+      ]
+    }
+  ],
+  "tips": [
+    "Keep the letter to one page. Three short paragraphs are enough.",
+    "Use the exact last working day as a date, not just \"after my notice period\".",
+    "Offer specific handover help, such as training a colleague or writing process notes.",
+    "Stay positive even if you are unhappy. You may need a reference from this employer later.",
+    "Check your company's policy on leave balance, bonus and notice buyout before you send the letter."
+  ],
+  "faqs": [
+    { "q": "Do I have to give a reason for resigning?", "a": "No. A reason is optional. If you add one, keep it short and neutral, for example \"to pursue a new opportunity\" or \"for personal reasons\"." },
+    { "q": "How long should a resignation letter be?", "a": "Usually half a page to one page. State the resignation, your last working day, your handover offer and a short thank you." },
+    { "q": "Can I send my resignation by email?", "a": "Most companies accept email. Attach this letter as a signed PDF and paste the same text in the email so it is on record. Follow any separate process your HR team uses, such as an HR portal." },
+    { "q": "How do I sign the letter without printing it?", "a": "Save the letter as PDF and use the free Sign PDF tool on ZentaPDF to draw, type or upload your signature, then download the signed copy." }
+  ],
+  "related": [],
+  "tools": ["sign-pdf", "word-to-pdf", "edit-pdf", "pdf-to-word"],
+  "doc": {
+    "page": { "size": "A4", "margin": 22 },
+    "size": 11,
+    "blocks": [
+      { "type": "p", "text": "**[Your Full Name]**\n[Your address]\n[Phone]  |  [Email]", "after": 14 },
+      { "type": "p", "text": "Date: [DD Month YYYY]", "after": 14 },
+      { "type": "p", "text": "To\n**[Manager's Name]**\n[Designation]\n[Company Name]\n[Office address]", "after": 14 },
+      { "type": "p", "text": "**Subject: Resignation from the post of [Your Designation]**", "after": 12 },
+      { "type": "p", "text": "Dear [Manager's Name],", "after": 10 },
+      { "type": "p", "text": "Please accept this letter as formal notice of my resignation from the position of [Your Designation] in the [Department] team at [Company Name]. As per my notice period of [number] days, my last working day will be [DD Month YYYY].", "line": 1.15, "after": 10 },
+      { "type": "p", "text": "Over the coming weeks I will make sure my work is handed over smoothly. I will complete [current task or project], prepare handover notes for my ongoing responsibilities, and help train [colleague's name or my replacement] so the team is not affected.", "line": 1.15, "after": 10 },
+      { "type": "p", "text": "Thank you for the support and guidance you have given me during my time here. I have learned a great deal, and I am grateful for the opportunities to grow in this role. I wish you and the team continued success.", "line": 1.15, "after": 10 },
+      { "type": "p", "text": "Please let me know the next steps for the exit process, including the return of company property and my full and final settlement.", "line": 1.15, "after": 16 },
+      { "type": "p", "text": "Yours sincerely,", "after": 30 },
+      { "type": "p", "text": "**[Your Full Name]**\n[Employee ID]\n[Your Designation], [Department]", "after": 4 }
+    ]
+  }
+}

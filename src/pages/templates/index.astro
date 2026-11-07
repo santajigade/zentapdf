@@ -1,0 +1,79 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import TemplateBrowser from '../../components/TemplateBrowser.astro';
+import { templates, tplCategories, tplByCategory } from '../../lib/templates';
+import { breadcrumbSchema, faqSchema, abs } from '../../lib/schema';
+const crumbs = [{ name: 'Home', href: '/' }, { name: 'Templates', href: '/templates/' }];
+const cats = tplCategories.filter((c) => tplByCategory(c.id).length);
+const faqs = [
+  { q: 'Are these templates really free?', a: 'Yes. Every template is free to download and use for personal or business work. There is no sign-up, no watermark and no limit on downloads.' },
+  { q: 'Which apps open the files?', a: 'Word files open in Microsoft Word, Google Docs and LibreOffice Writer. Excel files open in Microsoft Excel, Google Sheets and LibreOffice Calc. PDF files open in any browser or PDF reader.' },
+  { q: 'Do the Excel templates have working formulas?', a: 'Yes. Totals, taxes, differences and dates are calculated with normal Excel formulas. There are no macros, so the files open safely everywhere.' },
+  { q: 'Who designs these templates?', a: 'The ZentaPDF team designs every template from scratch. New templates are added every day, so check back often or browse by category.' },
+  { q: 'Can I turn my finished template into a PDF?', a: 'Yes. Save it as PDF from Word or Excel, or use the free Word to PDF and Excel to PDF tools on ZentaPDF. You can also sign it with Sign PDF.' },
+];
+const coll = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Free Templates', url: abs('/templates/'),
+  mainEntity: { '@type': 'ItemList', numberOfItems: templates.length, itemListElement: templates.slice(0, 30).map((t, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(t.url), name: t.name })) } };
+const svg = (p: string, n = 26) => `<svg width="${n}" height="${n}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
+---
+<Base title="Free Templates: Word, Excel & PDF, No Sign-up | ZentaPDF" description="Free templates in Word, Excel and PDF: resumes, invoices, budgets, letters, forms, certificates and planners. Original designs, instant download, no sign-up." schema={[breadcrumbSchema(crumbs), coll, faqSchema(faqs)]} ogImage={templates[0] ? `/og/templates/${templates[0].slug}.png` : undefined}>
+  <Breadcrumbs items={crumbs} />
+  <section class="tpl-home-hero">
+    <div class="container">
+      <h1>Free templates for work, school and home</h1>
+      <p>Resumes, invoices, Excel sheets, letters, forms, certificates and planners in Word, Excel and PDF. Original designs, instant download, no sign-up.</p>
+      <div class="search tpl-search" role="search">
+        <input id="tpl-q" type="search" placeholder="Search templates, e.g. invoice, resume, budget" aria-label="Search templates" autocomplete="off" />
+        <div id="tpl-results" class="tpl-results" hidden></div>
+      </div>
+    </div>
+  </section>
+  <section class="container">
+    <h2 class="sr-only">Template categories</h2>
+    <div class="tpl-cats">{cats.map((c) => (
+      <a href={`/templates/${c.slug}/`} style={`--tc:${c.color};--tt:${c.tint}`}><span set:html={svg(c.icon)} /><b>{c.name}</b><small>{tplByCategory(c.id).length} {tplByCategory(c.id).length === 1 ? 'template' : 'templates'}</small></a>
+    ))}</div>
+    <h2>Latest templates</h2>
+    <TemplateBrowser list={templates} />
+  </section>
+  <AdSlot />
+  <section class="container narrow">
+    <h2>Why use ZentaPDF templates?</h2>
+    <div class="tpl-why">
+      <div><b>Free and instant</b><span>Click download and the file is yours. No account, no email, no watermark.</span></div>
+      <div><b>Ready to edit</b><span>Real Word and Excel files with clean styles, so your changes stay neat.</span></div>
+      <div><b>Working formulas</b><span>Excel templates add up totals, taxes and balances for you, without macros.</span></div>
+      <div><b>Print ready</b><span>Margins and page setup are done, so every template prints cleanly on A4.</span></div>
+    </div>
+    <h2>Frequently asked questions</h2>
+    {faqs.map((f) => <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>)}
+  </section>
+  <script>
+    // client-side search over /templates/search.json (loaded on first use)
+    type Row = { n: string; u: string; s: string; d: string; c: string; f: string[]; k: string };
+    const input = document.getElementById('tpl-q') as HTMLInputElement;
+    const box = document.getElementById('tpl-results') as HTMLElement;
+    let rows: Row[] | null = null;
+    const load = () => (rows ? Promise.resolve(rows) : fetch('/templates/search.json').then((r) => r.json()).then((d) => (rows = d)));
+    const esc = (s: string) => s.replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[ch]!);
+    const run = async () => {
+      const q = input.value.trim().toLowerCase();
+      if (q.length < 2) { box.hidden = true; return; }
+      const words = q.split(/\s+/);
+      const list = (await load())
+        .map((r) => { const hay = `${r.n} ${r.c} ${r.d} ${r.k} ${r.f.join(' ')}`.toLowerCase(); const name = r.n.toLowerCase();
+          return { r, score: words.every((w) => hay.includes(w)) ? words.reduce((a, w) => a + (name.includes(w) ? 3 : 1), 0) : 0 }; })
+        .filter((x) => x.score > 0).sort((a, b) => b.score - a.score).slice(0, 8);
+      box.innerHTML = list.length
+        ? list.map(({ r }) => `<a href="${r.u}"><img src="/templates/img/${r.s}-sm.webp" alt="" width="42" height="59" loading="lazy"><span><b>${esc(r.n)}</b><small>${esc(r.c)} · ${r.f.join(', ')}</small></span></a>`).join('')
+        : `<p>No template found for "${esc(input.value)}". Try another word, or browse the categories below.</p>`;
+      box.hidden = false;
+    };
+    input.addEventListener('focus', load, { once: true });
+    input.addEventListener('input', run);
+    document.addEventListener('click', (e) => { if (!(e.target as HTMLElement).closest('.tpl-search')) box.hidden = true; });
+    input.addEventListener('keydown', (e) => { if (e.key === 'Enter') { const a = box.querySelector('a'); if (a) location.href = a.href; } });
+  </script>
+</Base>

@@ -7,6 +7,9 @@ RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
 ErrorDocument 404 /404.html
 
+# Free Templates: every file download goes through download.php (counts downloads, safe paths, no login)
+RewriteRule ^templates/files/([a-z0-9-]+)/[a-z0-9-]+\.(docx|xlsx|pdf)$ /templates/download.php?s=$1&f=$2 [L,QSA]
+
 # repository files that are not part of the website
 RedirectMatch 404 ^/\.github/
 

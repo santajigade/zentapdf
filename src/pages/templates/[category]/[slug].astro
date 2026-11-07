@@ -1,0 +1,128 @@
+---
+// One page per template, built from src/data/templates/<slug>.json
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AdSlot from '../../../components/AdSlot.astro';
+import ToolCard from '../../../components/ToolCard.astro';
+import TemplateCard from '../../../components/TemplateCard.astro';
+import { templates, relatedTemplates, fileUrl, kb, md, plain, type Template } from '../../../lib/templates';
+import { toolBySlug, type Tool } from '../../../data/tools';
+import { breadcrumbSchema, faqSchema, howToSchema, abs } from '../../../lib/schema';
+import { SITE_NAME } from '../../../config.js';
+
+export function getStaticPaths() { return templates.map((t) => ({ params: { category: t.cat.slug, slug: t.slug }, props: { t } })); }
+const { t } = Astro.props as { t: Template };
+const crumbs = [{ name: 'Home', href: '/' }, { name: 'Templates', href: '/templates/' }, { name: t.cat.name, href: `/templates/${t.cat.slug}/` }, { name: t.name, href: t.url }];
+const tools = (t.tools?.length ? t.tools : ['word-to-pdf', 'edit-pdf', 'compress-pdf']).map(toolBySlug).filter((x): x is Tool => !!x?.live);
+const related = relatedTemplates(t, 4);
+const fmt = (d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+const og = `/og/templates/${t.slug}.png`;
+const MIME: Record<string, string> = { docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', pdf: 'application/pdf' };
+const doc = {
+  '@context': 'https://schema.org', '@type': 'DigitalDocument', name: t.name, headline: t.h1, description: t.metaDescription, url: abs(t.url),
+  image: abs(`/templates/img/${t.slug}.webp`), thumbnailUrl: abs(`/templates/img/${t.slug}-sm.webp`), inLanguage: 'en', isAccessibleForFree: true,
+  genre: t.cat.name, keywords: [t.name, ...t.useCases, ...(t.keywords ?? [])].join(', '), encodingFormat: t.files.map((f) => MIME[f.ext]),
+  datePublished: t.date, dateModified: t.updated ?? t.date, numberOfPages: t.pages,
+  author: { '@type': 'Organization', name: `${SITE_NAME} Team`, url: abs('/about/') },
+  publisher: { '@type': 'Organization', name: SITE_NAME, logo: { '@type': 'ImageObject', url: abs('/favicon-512.png') } },
+  associatedMedia: t.files.map((f) => ({ '@type': 'MediaObject', name: `${t.name} (${f.label})`, contentUrl: abs(fileUrl(t, f.ext)), encodingFormat: MIME[f.ext], contentSize: kb(f.size) })),
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+};
+const schema = [breadcrumbSchema(crumbs), doc, howToSchema(`How to use the ${t.name.toLowerCase()}`, t.howTo.map(plain)), faqSchema(t.faqs.map((f) => ({ q: f.q, a: plain(f.a) })))];
+const spec = t as any;
+const pg = spec.doc?.page ?? spec.sheet?.sheets?.[0]?.page ?? {};
+const land = pg.orientation === 'landscape';
+const paper = `${pg.size ?? pg.paper ?? 'A4'}${land ? ' landscape' : ''}`;
+const ih = land ? 636 : 1273;
+const pages = Array.from({ length: t.previews }, (_, i) => (i === 0 ? `/templates/img/${t.slug}.webp` : `/templates/img/${t.slug}-${i + 1}.webp`));
+const icons: Record<string, string> = {
+  docx: '<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="m9.5 12 1.2 5 1.3-4 1.3 4 1.2-5"/>',
+  xlsx: '<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="m10 12 4 5m0-5-4 5"/>',
+  pdf: '<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9.5 17v-4h1.3a1.2 1.2 0 0 1 0 2.4H9.5"/>',
+};
+---
+<Base title={t.metaTitle} description={t.metaDescription} schema={schema} ogImage={og} ogType="article">
+  <Breadcrumbs items={crumbs} />
+  <article class={`container tpl-page${land ? ' is-land' : ''}`} style={`--tc:${t.cat.color};--tt:${t.cat.tint};--ts:${t.cat.strong}`}>
+    <section class="tpl-hero">
+      <div class="tpl-preview">
+        <a href={pages[0]} class="tpl-page-img" target="_blank" rel="noopener" title="Open full-size preview">
+          <img src={pages[0]} alt={`${t.name} preview, page 1`} width="900" height={ih} fetchpriority="high" />
+        </a>
+        {pages.length > 1 && (
+          <div class="tpl-more-pages">{pages.slice(1).map((p, i) => <a href={p} target="_blank" rel="noopener"><img src={p} alt={`${t.name} preview, page ${i + 2}`} width="900" height={ih} loading="lazy" /></a>)}</div>
+        )}
+      </div>
+      <div class="tpl-side">
+        <span class="tpl-cat">{t.cat.name} template</span>
+        <h1>{t.h1}</h1>
+        <p class="tpl-lead">{t.short}</p>
+        <div class="tpl-dl" id="download">
+          <strong>Free download</strong>
+          {t.files.map((f) => (
+            <a class={`tpl-btn fmt-${f.ext}`} href={fileUrl(t, f.ext)} download={`${t.slug}.${f.ext}`} data-ext={f.ext} rel="nofollow">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={icons[f.ext]} />
+              <span><b>Download {f.label}</b><small>.{f.ext} · {kb(f.size)} · {f.app}</small></span>
+              <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12m-5-5 5 5 5-5M5 20h14"/></svg>
+            </a>
+          ))}
+          <p class="tpl-trust">Free for personal and business use · No sign-up · No watermark</p>
+        </div>
+        <ul class="tpl-facts">
+          <li><span>Pages</span><b>{t.pages}</b></li>
+          <li><span>Paper</span><b>{paper}</b></li>
+          <li><span>Updated</span><b><time datetime={t.updated ?? t.date}>{fmt(t.updated ?? t.date)}</time></b></li>
+          <li id="tpl-count" data-slug={t.slug} hidden><span>Downloads</span><b></b></li>
+        </ul>
+        <div class="tpl-tags">{[...t.useCases, ...t.industries].map((x) => <span>{x}</span>)}</div>
+      </div>
+    </section>
+
+    <div class="tpl-content">
+      <p class="tpl-intro">{t.intro}</p>
+      <h2 id="how-to-use">How to use this {t.name.toLowerCase()}</h2>
+      <ol class="tpl-steps">{t.howTo.map((s) => <li set:html={md(s)} />)}</ol>
+    </div>
+
+    <AdSlot />
+
+    <div class="tpl-content">
+      {t.guide.map((g) => (<><h2>{g.h}</h2>{g.p.map((p) => <p set:html={md(p)} />)}</>))}
+      <h2>Tips for best results</h2>
+      <ul class="tpl-tips">{t.tips.map((s) => <li set:html={md(s)} />)}</ul>
+    </div>
+
+    <h2>Finish your document with free tools</h2>
+    <p class="tpl-muted">Turn your filled template into a PDF, sign it, edit it or make it smaller for email.</p>
+    <div class="grid">{tools.map((x) => <ToolCard tool={x} />)}</div>
+
+    <div class="tpl-content">
+      <h2 id="faq">Frequently asked questions</h2>
+      {t.faqs.map((f) => <details class="faq"><summary>{f.q}</summary><p set:html={md(f.a)} /></details>)}
+    </div>
+
+    <AdSlot />
+
+    <h2>Related templates</h2>
+    <div class="tpl-grid">{related.map((x) => <TemplateCard t={x} />)}</div>
+    <p class="tpl-all"><a class="btn btn-ghost" href={`/templates/${t.cat.slug}/`}>All {t.cat.plural.toLowerCase()} →</a> <a class="btn btn-ghost" href="/templates/">Browse all templates →</a></p>
+
+    <aside class="guide-cta">
+      <div><strong>Ready to start?</strong><span>Download the {t.name.toLowerCase()} free in {t.formats.join(', ').replace(/, ([^,]*)$/, ' and $1')}.</span></div>
+      <a class="btn btn-primary" href="#download">Go to downloads ↑</a>
+    </aside>
+  </article>
+  <script>
+    // download counter: the file link goes through /templates/download.php (see .htaccess), which counts it; this shows the total
+    const box = document.getElementById('tpl-count') as HTMLElement | null;
+    const slug = box?.dataset.slug;
+    const show = (n: number) => { if (box && n > 0) { box.querySelector('b')!.textContent = n.toLocaleString('en-IN'); box.hidden = false; } };
+    let total = 0;
+    if (slug) fetch(`/templates/download.php?c=${slug}`).then((r) => r.json()).then((d) => { total = +d[slug] || 0; show(total); }).catch(() => {});
+    document.querySelectorAll<HTMLAnchorElement>('.tpl-btn').forEach((a) => a.addEventListener('click', () => {
+      show(++total);
+      a.classList.add('done');
+      const g = (window as any).gtag; if (g) g('event', 'file_download', { file_extension: a.dataset.ext, file_name: `${slug}.${a.dataset.ext}`, link_url: a.href });
+    }));
+  </script>
+</Base>

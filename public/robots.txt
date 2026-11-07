@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /api/
+Disallow: /templates/download.php
 Allow: /
 Sitemap: https://zentapdf.com/sitemap-index.xml

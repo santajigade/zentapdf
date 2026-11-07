@@ -1,0 +1,58 @@
+[
+  {
+    "id": "resume", "slug": "resume", "name": "Resume", "plural": "Resume templates",
+    "title": "Free Resume Templates: Word & PDF, Instant Download",
+    "description": "Free resume templates in Word (DOCX) and PDF. Clean, ATS-friendly designs for freshers and experienced people. No sign-up, instant download.",
+    "intro": "Clean, ATS-friendly resume and CV templates for freshers, students and experienced professionals. Edit them in Word or Google Docs and save as PDF.",
+    "color": "#2563eb", "tint": "#eff6ff", "strong": "#dbeafe",
+    "icon": "<path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><circle cx=\"11\" cy=\"11\" r=\"2\"/><path d=\"M9 16h6M9 19h4\"/>"
+  },
+  {
+    "id": "invoice", "slug": "invoice-billing", "name": "Invoice & Billing", "plural": "Invoice and billing templates",
+    "title": "Free Invoice Templates: Excel, Word & PDF Download",
+    "description": "Free invoice, bill, receipt and quotation templates in Excel, Word and PDF. Totals and tax calculate automatically. No sign-up, instant download.",
+    "intro": "Invoices, bills, receipts and quotations that add up totals and tax for you. Fill them in Excel or Word, then send a PDF to your client.",
+    "color": "#047857", "tint": "#ecfdf5", "strong": "#d1fae5",
+    "icon": "<path d=\"M6 3h12v18l-3-2-3 2-3-2-3 2z\"/><path d=\"M9 8h6M9 12h6M9 16h3\"/>"
+  },
+  {
+    "id": "excel", "slug": "excel-sheets", "name": "Excel Sheets", "plural": "Excel sheet templates",
+    "title": "Free Excel Templates: Budget, Tracker & Planner Sheets",
+    "description": "Free Excel templates with working formulas: budgets, trackers, attendance, inventory and expense sheets. Print-ready, no macros, instant download.",
+    "intro": "Ready-made Excel sheets with working formulas, drop-down lists and print setup. No macros, so they open safely in Excel, Google Sheets and LibreOffice.",
+    "color": "#15803d", "tint": "#f0fdf4", "strong": "#dcfce7",
+    "icon": "<rect x=\"3\" y=\"4\" width=\"18\" height=\"16\" rx=\"2\"/><path d=\"M3 9h18M3 14h18M9 4v16M15 4v16\"/>"
+  },
+  {
+    "id": "letters", "slug": "letters", "name": "Letters", "plural": "Letter templates",
+    "title": "Free Letter Templates: Word & PDF Formats to Download",
+    "description": "Free letter templates and formats in Word and PDF: cover letters, resignation, leave, offer and request letters. Easy to edit, no sign-up needed.",
+    "intro": "Formal and business letter formats you can edit in minutes: cover letters, resignation, leave, request and offer letters in Word and PDF.",
+    "color": "#7c3aed", "tint": "#f5f3ff", "strong": "#ede9fe",
+    "icon": "<rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"m3 7 9 6 9-6\"/>"
+  },
+  {
+    "id": "forms", "slug": "business-forms", "name": "Business Forms", "plural": "Business form templates",
+    "title": "Free Business Form Templates: Word, Excel & PDF",
+    "description": "Free business form templates: purchase orders, delivery challans, job applications, feedback and HR forms in Word, Excel and PDF. Instant download.",
+    "intro": "Everyday office forms for purchase, sales, HR and admin work. Print them blank or fill them on screen in Word or Excel.",
+    "color": "#b45309", "tint": "#fffbeb", "strong": "#fef3c7",
+    "icon": "<rect x=\"4\" y=\"3\" width=\"16\" height=\"18\" rx=\"2\"/><path d=\"M8 8h8M8 12h8M8 16h5\"/><path d=\"M9 3v2h6V3\"/>"
+  },
+  {
+    "id": "certificates", "slug": "certificates", "name": "Certificates", "plural": "Certificate templates",
+    "title": "Free Certificate Templates: Word & PDF, Print Ready",
+    "description": "Free certificate templates in Word and PDF: appreciation, achievement, participation, experience and training certificates. Print-ready A4 designs.",
+    "intro": "Print-ready certificates for schools, offices and events. Change the name, date and signatures in Word, then print or share as PDF.",
+    "color": "#be123c", "tint": "#fff1f2", "strong": "#ffe4e6",
+    "icon": "<circle cx=\"12\" cy=\"9\" r=\"5\"/><path d=\"m9 13-2 8 5-3 5 3-2-8\"/>"
+  },
+  {
+    "id": "planners", "slug": "planners", "name": "Planners", "plural": "Planner templates",
+    "title": "Free Printable Planner Templates: PDF, Word & Excel",
+    "description": "Free printable planners: daily, weekly and monthly planners, to-do lists, habit and study trackers in PDF, Word and Excel. No sign-up, instant download.",
+    "intro": "Printable daily, weekly and monthly planners, to-do lists and trackers. Print them, write on them, or fill them on your computer.",
+    "color": "#0e7490", "tint": "#ecfeff", "strong": "#cffafe",
+    "icon": "<rect x=\"3\" y=\"5\" width=\"18\" height=\"16\" rx=\"2\"/><path d=\"M3 10h18M8 3v4M16 3v4\"/><path d=\"m9 15 2 2 4-4\"/>"
+  }
+]

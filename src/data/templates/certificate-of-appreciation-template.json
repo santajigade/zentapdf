@@ -1,0 +1,171 @@
+{
+  "slug": "certificate-of-appreciation-template",
+  "category": "certificates",
+  "name": "Certificate of Appreciation Template",
+  "h1": "Certificate of Appreciation Template (Word and PDF)",
+  "metaTitle": "Certificate of Appreciation Template: Free Word & PDF",
+  "metaDescription": "Free certificate of appreciation template in Word and PDF. Elegant A4 landscape design for employees, volunteers, students and speakers. Print ready.",
+  "short": "Elegant A4 landscape certificate to thank employees, volunteers, students or guest speakers.",
+  "accent": "#9F1239",
+  "useCases": [
+    "Recognition",
+    "Events"
+  ],
+  "industries": [
+    "Schools",
+    "Corporate",
+    "NGOs",
+    "Events"
+  ],
+  "date": "2026-11-07",
+  "intro": "This certificate of appreciation template is a simple, elegant way to say thank you on paper. It prints on A4 landscape with a double border, a large name line, a short reason for the award and two signature lines. Change the text in Word, print as many copies as you need, or share it as a PDF.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Replace [Recipient Name] with the person's full name, spelled exactly as they use it.",
+    "Edit the reason line, for example \"for outstanding dedication during the annual sports day\".",
+    "Change the organisation name, the date and the names and titles under the two signature lines.",
+    "Print on thick paper (200 to 300 gsm) in landscape, at 100% scale with no fit-to-page shrinking.",
+    "For digital certificates, save as PDF and sign them with the Sign PDF tool."
+  ],
+  "guide": [
+    {
+      "h": "When to use a certificate of appreciation",
+      "p": [
+        "A certificate of appreciation recognises effort or support rather than a test result. Schools give them to volunteers, parents and guest speakers. Companies give them to employees for a project, to long-serving staff, or to vendors and partners. NGOs and clubs use them to thank donors and event helpers.",
+        "Because it is a gesture of thanks, the wording matters more than decoration. One clear sentence about what the person did makes the certificate personal and memorable."
+      ]
+    },
+    {
+      "h": "Writing the reason line",
+      "p": [
+        "Be specific. Instead of \"for your hard work\", write \"for leading the clean campus drive and organising 60 volunteers\" or \"for exceptional customer service during the festive season\". Keep it to one or two lines so it fits under the name. If you are printing many certificates with the same reason, change only the name and date on each copy.",
+        "The design uses safe, widely available fonts, so it looks the same on any computer. You can switch to a script font for the name if you have one installed."
+      ]
+    },
+    {
+      "h": "Printing many names quickly",
+      "p": [
+        "For a list of names, use Mail Merge in Microsoft Word (Mailings > Start Mail Merge) with an Excel list of names, or make one copy per person and save each as PDF. To send a single file to the printer, combine all the PDFs with Merge PDF."
+      ]
+    }
+  ],
+  "tips": [
+    "Double-check the spelling of every name. It is the one thing recipients always notice.",
+    "Use cream or ivory card for a classic look, or white for a modern one.",
+    "Print one test copy before the full batch to check margins and the border.",
+    "Sign in blue or black ink with a smooth pen, or add scanned signatures in Word.",
+    "Hand over certificates in person where possible. It makes the thanks feel real."
+  ],
+  "faqs": [
+    {
+      "q": "What size is this certificate?",
+      "a": "It is A4 landscape (297 x 210 mm). It also prints well on US Letter if you choose Fit to page in the print dialog, with a slightly smaller margin."
+    },
+    {
+      "q": "Can I add a logo or seal?",
+      "a": "Yes. In Word, use Insert > Pictures, set the picture wrap to In Front of Text and place it above the title or between the signature lines."
+    },
+    {
+      "q": "How do I make certificates for many people?",
+      "a": "Use Mail Merge in Word with a list of names in Excel, or make one copy per person, save each as PDF and combine them with Merge PDF to print in one go."
+    },
+    {
+      "q": "Can I send it by email instead of printing?",
+      "a": "Yes. Save the certificate as PDF, add signatures with the Sign PDF tool and email it. PDF keeps the border and fonts exactly as designed."
+    }
+  ],
+  "related": [],
+  "tools": [
+    "sign-pdf",
+    "merge-pdf",
+    "word-to-pdf",
+    "pdf-to-jpg"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "orientation": "landscape",
+      "margin": 26,
+      "border": {
+        "double": true,
+        "size": 18,
+        "space": 18
+      },
+      "vcenter": true
+    },
+    "font": "Calibri",
+    "headFont": "Cambria",
+    "size": 13,
+    "blocks": [
+      {
+        "type": "spacer",
+        "h": 28
+      },
+      {
+        "type": "p",
+        "text": "[ORGANISATION NAME]",
+        "align": "center",
+        "bold": true,
+        "color": "#6B7280",
+        "size": 12,
+        "after": 14
+      },
+      {
+        "type": "title",
+        "text": "Certificate of Appreciation",
+        "align": "center",
+        "size": 40,
+        "color": "#9F1239"
+      },
+      {
+        "type": "p",
+        "text": "This certificate is proudly presented to",
+        "align": "center",
+        "italic": true,
+        "color": "#4B5563",
+        "size": 14,
+        "after": 12
+      },
+      {
+        "type": "p",
+        "text": "[Recipient Name]",
+        "align": "center",
+        "size": 32,
+        "bold": true,
+        "font": "Cambria",
+        "after": 4
+      },
+      {
+        "type": "rule",
+        "accent": true,
+        "weight": 8,
+        "after": 12
+      },
+      {
+        "type": "p",
+        "text": "in sincere appreciation of [your outstanding dedication and valuable contribution to the Annual Science Fair 2026].\nYour effort and commitment made a real difference.",
+        "align": "center",
+        "size": 13,
+        "line": 1.2,
+        "after": 6
+      },
+      {
+        "type": "p",
+        "text": "Presented on [DD Month YYYY]",
+        "align": "center",
+        "color": "#4B5563",
+        "size": 12,
+        "after": 0
+      },
+      {
+        "type": "signature",
+        "space": 64,
+        "align": "center",
+        "items": [
+          "[Name]\n[Title, for example Principal]",
+          "[Name]\n[Title, for example Event Coordinator]"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+---
+import type { Template } from '../lib/templates';
+interface Props { t: Template; lazy?: boolean }
+const { t, lazy = true } = Astro.props;
+---
+<a class={`tpl-card${t.land ? ' tpl-land' : ''}`} href={t.url} style={`--tc:${t.cat.color};--tt:${t.cat.tint}`}
+  data-formats={t.formats.join('|')} data-uses={t.useCases.join('|')} data-inds={t.industries.join('|')} data-name={t.name.toLowerCase()}>
+  <span class="tpl-thumb"><img src={`/templates/img/${t.slug}-sm.webp`} alt={`${t.name} preview`} width="420" height="594" loading={lazy ? 'lazy' : 'eager'} decoding="async" /></span>
+  <span class="tpl-body">
+    <span class="tpl-cat">{t.cat.name}</span>
+    <strong>{t.name}</strong>
+    <span class="desc">{t.short}</span>
+    <span class="tpl-fmts">{t.formats.map((f) => <span class={`fmt fmt-${f.toLowerCase()}`}>{f}</span>)}</span>
+  </span>
+</a>

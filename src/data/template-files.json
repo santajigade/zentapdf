@@ -1,0 +1,66 @@
+{
+ "certificate-of-appreciation-template": {
+  "files": {
+   "docx": 10617,
+   "pdf": 31440
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-07"
+ },
+ "fresher-resume-template": {
+  "files": {
+   "docx": 11685,
+   "pdf": 41122
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-07"
+ },
+ "job-application-form-template": {
+  "files": {
+   "docx": 12225,
+   "pdf": 63278
+  },
+  "pages": 2,
+  "previews": 2,
+  "built": "2026-11-07"
+ },
+ "monthly-budget-template": {
+  "files": {
+   "xlsx": 9259,
+   "pdf": 31252
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-07"
+ },
+ "resignation-letter-template": {
+  "files": {
+   "docx": 10590,
+   "pdf": 22783
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-07"
+ },
+ "simple-invoice-template": {
+  "files": {
+   "docx": 11887,
+   "xlsx": 9101,
+   "pdf": 55535
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-07"
+ },
+ "weekly-planner-template": {
+  "files": {
+   "docx": 11497,
+   "pdf": 76186
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-07"
+ }
+}

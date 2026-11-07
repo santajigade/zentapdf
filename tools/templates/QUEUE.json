@@ -1,0 +1,510 @@
+{
+ "perDay": 3,
+ "statuses": "queued -> generated -> review (held back, needs a fix or the owner's look) -> published",
+ "items": [
+  {
+   "keyword": "simple invoice template",
+   "slug": "simple-invoice-template",
+   "category": "invoice",
+   "priority": 0,
+   "status": "published",
+   "date": "2026-11-07",
+   "note": ""
+  },
+  {
+   "keyword": "fresher resume template",
+   "slug": "fresher-resume-template",
+   "category": "resume",
+   "priority": 0,
+   "status": "published",
+   "date": "2026-11-07",
+   "note": ""
+  },
+  {
+   "keyword": "monthly budget template excel",
+   "slug": "monthly-budget-template",
+   "category": "excel",
+   "priority": 0,
+   "status": "published",
+   "date": "2026-11-07",
+   "note": ""
+  },
+  {
+   "keyword": "resignation letter template",
+   "slug": "resignation-letter-template",
+   "category": "letters",
+   "priority": 0,
+   "status": "published",
+   "date": "2026-11-07",
+   "note": ""
+  },
+  {
+   "keyword": "job application form",
+   "slug": "job-application-form-template",
+   "category": "forms",
+   "priority": 0,
+   "status": "published",
+   "date": "2026-11-07",
+   "note": ""
+  },
+  {
+   "keyword": "certificate of appreciation template",
+   "slug": "certificate-of-appreciation-template",
+   "category": "certificates",
+   "priority": 0,
+   "status": "published",
+   "date": "2026-11-07",
+   "note": ""
+  },
+  {
+   "keyword": "weekly planner template",
+   "slug": "weekly-planner-template",
+   "category": "planners",
+   "priority": 0,
+   "status": "published",
+   "date": "2026-11-07",
+   "note": ""
+  },
+  {
+   "keyword": "gst invoice format in excel",
+   "slug": "gst-invoice-format",
+   "category": "invoice",
+   "priority": 1,
+   "status": "queued",
+   "date": "",
+   "note": "Indian GST tax invoice: GSTIN, HSN/SAC, CGST/SGST/IGST split, amount in words. Check official GST invoice rules before writing."
+  },
+  {
+   "keyword": "quotation format in excel",
+   "slug": "quotation-format",
+   "category": "invoice",
+   "priority": 1,
+   "status": "queued",
+   "date": "",
+   "note": "Price quotation with validity date, terms and auto totals."
+  },
+  {
+   "keyword": "cover letter template",
+   "slug": "cover-letter-template",
+   "category": "letters",
+   "priority": 1,
+   "status": "queued",
+   "date": "",
+   "note": "General one-page job cover letter."
+  },
+  {
+   "keyword": "experienced resume template",
+   "slug": "experienced-resume-template",
+   "category": "resume",
+   "priority": 1,
+   "status": "queued",
+   "date": "",
+   "note": "Two-page resume for 3 to 10 years of experience, achievements first."
+  },
+  {
+   "keyword": "attendance sheet in excel",
+   "slug": "attendance-sheet-excel",
+   "category": "excel",
+   "priority": 1,
+   "status": "queued",
+   "date": "",
+   "note": "Monthly staff/student attendance with P/A/L codes, COUNTIF totals, percentage."
+  },
+  {
+   "keyword": "expense tracker excel",
+   "slug": "expense-tracker-excel",
+   "category": "excel",
+   "priority": 1,
+   "status": "queued",
+   "date": "",
+   "note": "Daily expense log with category drop-down and monthly summary by category (SUMIF)."
+  },
+  {
+   "keyword": "leave application for office",
+   "slug": "leave-application-letter",
+   "category": "letters",
+   "priority": 1,
+   "status": "queued",
+   "date": "",
+   "note": "Leave request letter to manager with dates and handover."
+  },
+  {
+   "keyword": "salary slip format in excel",
+   "slug": "salary-slip-format",
+   "category": "excel",
+   "priority": 1,
+   "status": "queued",
+   "date": "",
+   "note": "Payslip with earnings, deductions, net pay formulas. Generic, tell readers to check local statutory deductions."
+  },
+  {
+   "keyword": "rent receipt format",
+   "slug": "rent-receipt-template",
+   "category": "invoice",
+   "priority": 1,
+   "status": "queued",
+   "date": "",
+   "note": "Monthly rent receipt with landlord/tenant details and signature line; Word + Excel."
+  },
+  {
+   "keyword": "daily planner template",
+   "slug": "daily-planner-template",
+   "category": "planners",
+   "priority": 1,
+   "status": "queued",
+   "date": "",
+   "note": "Hour-by-hour daily planner with priorities and notes."
+  },
+  {
+   "keyword": "to do list template",
+   "slug": "to-do-list-template",
+   "category": "planners",
+   "priority": 1,
+   "status": "queued",
+   "date": "",
+   "note": "Printable checklist to-do list with priority and due columns; Excel version with done strike-through."
+  },
+  {
+   "keyword": "purchase order template",
+   "slug": "purchase-order-template",
+   "category": "forms",
+   "priority": 1,
+   "status": "queued",
+   "date": "",
+   "note": "PO with vendor, ship to, items, tax and total formulas."
+  },
+  {
+   "keyword": "certificate of completion template",
+   "slug": "certificate-of-completion-template",
+   "category": "certificates",
+   "priority": 1,
+   "status": "queued",
+   "date": "",
+   "note": "Course/training completion certificate, landscape."
+  },
+  {
+   "keyword": "experience certificate format",
+   "slug": "experience-certificate-format",
+   "category": "certificates",
+   "priority": 1,
+   "status": "queued",
+   "date": "",
+   "note": "Employer experience/relieving certificate on letterhead, portrait."
+  },
+  {
+   "keyword": "offer letter format",
+   "slug": "offer-letter-format",
+   "category": "letters",
+   "priority": 1,
+   "status": "queued",
+   "date": "",
+   "note": "Job offer letter with role, CTC placeholder, joining date, acceptance line."
+  },
+  {
+   "keyword": "receipt template",
+   "slug": "payment-receipt-template",
+   "category": "invoice",
+   "priority": 1,
+   "status": "queued",
+   "date": "",
+   "note": "Simple payment receipt, two per A4 page."
+  },
+  {
+   "keyword": "monthly planner template",
+   "slug": "monthly-planner-template",
+   "category": "planners",
+   "priority": 2,
+   "status": "queued",
+   "date": "",
+   "note": "Month grid calendar with goals and notes."
+  },
+  {
+   "keyword": "student resume template",
+   "slug": "student-resume-template",
+   "category": "resume",
+   "priority": 2,
+   "status": "queued",
+   "date": "",
+   "note": "Resume for school/college students with activities and achievements."
+  },
+  {
+   "keyword": "simple resume format",
+   "slug": "simple-resume-format",
+   "category": "resume",
+   "priority": 2,
+   "status": "queued",
+   "date": "",
+   "note": "Plain classic resume, serif headings."
+  },
+  {
+   "keyword": "proforma invoice template",
+   "slug": "proforma-invoice-template",
+   "category": "invoice",
+   "priority": 2,
+   "status": "queued",
+   "date": "",
+   "note": "Proforma invoice for advance payment / export, clearly marked not a tax invoice."
+  },
+  {
+   "keyword": "delivery challan format",
+   "slug": "delivery-challan-format",
+   "category": "forms",
+   "priority": 2,
+   "status": "queued",
+   "date": "",
+   "note": "Goods delivery challan with item list and receiver signature."
+  },
+  {
+   "keyword": "inventory management excel",
+   "slug": "inventory-tracker-excel",
+   "category": "excel",
+   "priority": 2,
+   "status": "queued",
+   "date": "",
+   "note": "Stock in/out, reorder level flag, stock value."
+  },
+  {
+   "keyword": "timesheet template excel",
+   "slug": "timesheet-template-excel",
+   "category": "excel",
+   "priority": 2,
+   "status": "queued",
+   "date": "",
+   "note": "Weekly timesheet with hours, overtime and totals."
+  },
+  {
+   "keyword": "loan emi calculator excel",
+   "slug": "loan-emi-schedule-excel",
+   "category": "excel",
+   "priority": 2,
+   "status": "queued",
+   "date": "",
+   "note": "EMI with PMT and full amortisation schedule."
+  },
+  {
+   "keyword": "project plan gantt chart excel",
+   "slug": "gantt-chart-excel",
+   "category": "excel",
+   "priority": 2,
+   "status": "queued",
+   "date": "",
+   "note": "Simple Gantt with start/end dates and conditional-format bars."
+  },
+  {
+   "keyword": "meeting minutes template",
+   "slug": "meeting-minutes-template",
+   "category": "forms",
+   "priority": 2,
+   "status": "queued",
+   "date": "",
+   "note": "Minutes with attendees, agenda, decisions, action items table."
+  },
+  {
+   "keyword": "employee information form",
+   "slug": "employee-information-form",
+   "category": "forms",
+   "priority": 2,
+   "status": "queued",
+   "date": "",
+   "note": "New joiner details form."
+  },
+  {
+   "keyword": "noc letter format",
+   "slug": "noc-letter-format",
+   "category": "letters",
+   "priority": 2,
+   "status": "queued",
+   "date": "",
+   "note": "No objection certificate letter, generic purpose."
+  },
+  {
+   "keyword": "relieving letter format",
+   "slug": "relieving-letter-format",
+   "category": "letters",
+   "priority": 2,
+   "status": "queued",
+   "date": "",
+   "note": "Employer relieving letter."
+  },
+  {
+   "keyword": "internship certificate format",
+   "slug": "internship-certificate-template",
+   "category": "certificates",
+   "priority": 2,
+   "status": "queued",
+   "date": "",
+   "note": "Internship completion certificate."
+  },
+  {
+   "keyword": "participation certificate template",
+   "slug": "certificate-of-participation-template",
+   "category": "certificates",
+   "priority": 2,
+   "status": "queued",
+   "date": "",
+   "note": "Event participation certificate."
+  },
+  {
+   "keyword": "habit tracker printable",
+   "slug": "habit-tracker-template",
+   "category": "planners",
+   "priority": 2,
+   "status": "queued",
+   "date": "",
+   "note": "31-day habit tracker grid."
+  },
+  {
+   "keyword": "study timetable template",
+   "slug": "study-timetable-template",
+   "category": "planners",
+   "priority": 2,
+   "status": "queued",
+   "date": "",
+   "note": "Weekly study timetable by subject and hour."
+  },
+  {
+   "keyword": "business letter format",
+   "slug": "business-letter-format",
+   "category": "letters",
+   "priority": 2,
+   "status": "queued",
+   "date": "",
+   "note": "Formal business letter on simple letterhead."
+  },
+  {
+   "keyword": "service invoice template",
+   "slug": "service-invoice-template",
+   "category": "invoice",
+   "priority": 2,
+   "status": "queued",
+   "date": "",
+   "note": "Hourly service invoice: hours x rate."
+  },
+  {
+   "keyword": "petty cash book excel",
+   "slug": "petty-cash-book-excel",
+   "category": "excel",
+   "priority": 2,
+   "status": "queued",
+   "date": "",
+   "note": "Petty cash register with running balance."
+  },
+  {
+   "keyword": "visitor log book format",
+   "slug": "visitor-register-template",
+   "category": "forms",
+   "priority": 2,
+   "status": "queued",
+   "date": "",
+   "note": "Visitor register table, landscape."
+  },
+  {
+   "keyword": "bill of materials template",
+   "slug": "bill-of-materials-template",
+   "category": "excel",
+   "priority": 3,
+   "status": "queued",
+   "date": "",
+   "note": "BOM with part numbers, qty, unit cost, extended cost."
+  },
+  {
+   "keyword": "sales report template excel",
+   "slug": "sales-report-excel",
+   "category": "excel",
+   "priority": 3,
+   "status": "queued",
+   "date": "",
+   "note": "Monthly sales by product/region with totals and % change."
+  },
+  {
+   "keyword": "job offer acceptance letter",
+   "slug": "offer-acceptance-letter",
+   "category": "letters",
+   "priority": 3,
+   "status": "queued",
+   "date": "",
+   "note": "Candidate accepts offer."
+  },
+  {
+   "keyword": "salary increment letter",
+   "slug": "salary-increment-letter",
+   "category": "letters",
+   "priority": 3,
+   "status": "queued",
+   "date": "",
+   "note": "Employer letter announcing revised pay."
+  },
+  {
+   "keyword": "employee of the month certificate",
+   "slug": "employee-of-the-month-certificate",
+   "category": "certificates",
+   "priority": 3,
+   "status": "queued",
+   "date": "",
+   "note": "Recognition certificate."
+  },
+  {
+   "keyword": "meal planner template",
+   "slug": "weekly-meal-planner",
+   "category": "planners",
+   "priority": 3,
+   "status": "queued",
+   "date": "",
+   "note": "Weekly meal plan with grocery list."
+  },
+  {
+   "keyword": "travel itinerary template",
+   "slug": "travel-itinerary-template",
+   "category": "planners",
+   "priority": 3,
+   "status": "queued",
+   "date": "",
+   "note": "Day-by-day trip plan with bookings table."
+  },
+  {
+   "keyword": "leave application form for employees",
+   "slug": "leave-application-form",
+   "category": "forms",
+   "priority": 3,
+   "status": "queued",
+   "date": "",
+   "note": "HR leave form with approval section."
+  },
+  {
+   "keyword": "customer feedback form",
+   "slug": "customer-feedback-form",
+   "category": "forms",
+   "priority": 3,
+   "status": "queued",
+   "date": "",
+   "note": "Rating grid and comments."
+  },
+  {
+   "keyword": "credit note format",
+   "slug": "credit-note-template",
+   "category": "invoice",
+   "priority": 3,
+   "status": "queued",
+   "date": "",
+   "note": "Credit note against an earlier invoice."
+  },
+  {
+   "keyword": "chronological resume template",
+   "slug": "chronological-resume-template",
+   "category": "resume",
+   "priority": 3,
+   "status": "queued",
+   "date": "",
+   "note": "Classic reverse-chronological resume, two-tone header."
+  },
+  {
+   "keyword": "teacher resume template",
+   "slug": "teacher-resume-template",
+   "category": "resume",
+   "priority": 3,
+   "status": "queued",
+   "date": "",
+   "note": "Resume for teachers with subjects, classes and results."
+  }
+ ]
+}

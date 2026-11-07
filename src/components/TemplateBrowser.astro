@@ -1,0 +1,65 @@
+---
+// Template grid with filters (format, use case, industry) and pagination. All cards are in the HTML (crawlable);
+// filtering and paging happen in the browser.
+import TemplateCard from './TemplateCard.astro';
+import type { Template } from '../lib/templates';
+interface Props { list: Template[]; perPage?: number }
+const { list, perPage = 24 } = Astro.props;
+const uniq = (a: string[]) => [...new Set(a)].sort();
+const groups = [
+  { key: 'formats', name: 'Format', values: uniq(list.flatMap((t) => t.formats)) },
+  { key: 'uses', name: 'Use case', values: uniq(list.flatMap((t) => t.useCases)) },
+  { key: 'inds', name: 'Industry', values: uniq(list.flatMap((t) => t.industries)) },
+].filter((g) => g.values.length > 1);
+---
+<div class="tpl-browser" data-per={perPage}>
+  {groups.length > 0 && (
+    <div class="tpl-filters" role="group" aria-label="Filter templates">
+      {groups.map((g) => (
+        <label class="tpl-filter"><span>{g.name}</span>
+          <select data-key={g.key}><option value="">All</option>{g.values.map((v) => <option value={v}>{v}</option>)}</select>
+        </label>
+      ))}
+      <span class="tpl-count" aria-live="polite"><b>{list.length}</b> templates</span>
+    </div>
+  )}
+  <div class="tpl-grid">{list.map((t, i) => <TemplateCard t={t} lazy={i > 3} />)}</div>
+  <p class="tpl-empty" hidden>No templates match these filters yet. New templates are added every day.</p>
+  <nav class="tpl-pager" aria-label="Pages" hidden></nav>
+</div>
+<script>
+  for (const root of document.querySelectorAll<HTMLElement>('.tpl-browser')) {
+    const per = +root.dataset.per! || 24;
+    const cards = [...root.querySelectorAll<HTMLElement>('.tpl-card')];
+    const sels = [...root.querySelectorAll<HTMLSelectElement>('select[data-key]')];
+    const pager = root.querySelector<HTMLElement>('.tpl-pager')!;
+    const count = root.querySelector('.tpl-count b');
+    const empty = root.querySelector<HTMLElement>('.tpl-empty')!;
+    let page = 1;
+    // remember filters and page in the URL (?format=Excel&page=2) so links can be shared
+    const q = new URLSearchParams(location.search);
+    const names: Record<string, string> = { formats: 'format', uses: 'use', inds: 'industry' };
+    sels.forEach((s) => { const v = q.get(names[s.dataset.key!]); if (v && [...s.options].some((o) => o.value === v)) s.value = v; });
+    page = Math.max(1, +(q.get('page') || 1));
+    const render = (push = false) => {
+      const match = cards.filter((c) => sels.every((s) => !s.value || (c.dataset[s.dataset.key!] || '').split('|').includes(s.value)));
+      const pages = Math.max(1, Math.ceil(match.length / per));
+      page = Math.min(page, pages);
+      cards.forEach((c) => (c.hidden = true));
+      match.slice((page - 1) * per, page * per).forEach((c) => (c.hidden = false));
+      if (count) count.textContent = String(match.length);
+      empty.hidden = match.length > 0;
+      pager.hidden = pages < 2;
+      pager.innerHTML = Array.from({ length: pages }, (_, i) => `<button type="button" data-p="${i + 1}"${i + 1 === page ? ' aria-current="page"' : ''}>${i + 1}</button>`).join('');
+      if (push) {
+        const u = new URL(location.href);
+        sels.forEach((s) => (s.value ? u.searchParams.set(names[s.dataset.key!], s.value) : u.searchParams.delete(names[s.dataset.key!])));
+        page > 1 ? u.searchParams.set('page', String(page)) : u.searchParams.delete('page');
+        history.replaceState(null, '', u);
+      }
+    };
+    sels.forEach((s) => s.addEventListener('change', () => { page = 1; render(true); }));
+    pager.addEventListener('click', (e) => { const b = (e.target as HTMLElement).closest('button'); if (!b) return; page = +b.dataset.p!; render(true); root.scrollIntoView({ behavior: 'smooth' }); });
+    render();
+  }
+</script>

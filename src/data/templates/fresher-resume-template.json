@@ -1,0 +1,253 @@
+{
+  "slug": "fresher-resume-template",
+  "category": "resume",
+  "name": "Fresher Resume Template",
+  "h1": "Fresher Resume Template (Word and PDF, ATS Friendly)",
+  "metaTitle": "Fresher Resume Template: Free Word & PDF Download",
+  "metaDescription": "Free fresher resume template in Word and PDF. One clean page, ATS friendly, with sections for education, projects, internships and skills. No sign-up.",
+  "short": "One-page, ATS-friendly resume for students and freshers with projects and internships.",
+  "accent": "#1D4ED8",
+  "useCases": [
+    "Job search",
+    "Campus placement"
+  ],
+  "industries": [
+    "Students",
+    "IT and software",
+    "Engineering"
+  ],
+  "date": "2026-11-07",
+  "intro": "This fresher resume template fits your education, projects, internships and skills on one tidy page. It uses a single column, standard headings and real text (no tables of icons), so applicant tracking systems can read it and recruiters can scan it in seconds.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Replace the grey text at the top with your name, phone, email, city and LinkedIn or portfolio link.",
+    "Write a two-line career objective that names the role you want and one strength you bring.",
+    "Fill in education with the latest degree first, then add two or three projects and any internship.",
+    "List skills that match the job post, then delete any section you do not need.",
+    "Save as PDF and name the file clearly, for example Priya-Sharma-Resume.pdf, before you apply."
+  ],
+  "guide": [
+    {
+      "h": "Why a one-page, single-column layout works for freshers",
+      "p": [
+        "Recruiters often spend well under a minute on a first read of a resume, and many companies pass every application through an applicant tracking system (ATS) first. A single column with clear headings such as Education, Projects and Skills is easy for both to read. Two-column designs, text boxes and skill bars can look attractive, but some systems read them in the wrong order or skip them.",
+        "As a fresher you rarely need more than one page. Keep the strongest proof of your ability near the top: your degree, your best project and any internship."
+      ]
+    },
+    {
+      "h": "What to write in each section",
+      "p": [
+        "**Career objective:** two lines, specific to the role. \"Computer science graduate seeking a junior web developer role, with hands-on React and Node.js project work\" says far more than a general line about growth and learning.",
+        "**Projects:** for each project, name it, list the tools you used and give one result. Numbers help, such as the number of users, the speed gained or the marks scored. **Internships and training:** treat them like jobs, with dates and two short points on what you did.",
+        "**Skills:** split technical skills and tools from soft skills, and copy the exact words used in the job post where they are true for you. Add certifications only if they are relevant to the role."
+      ]
+    },
+    {
+      "h": "Before you send it",
+      "p": [
+        "Read the resume aloud once to catch spelling mistakes, check that your phone number and email are correct, and save it as a PDF so the layout stays the same on every device. If a portal asks for a file under a set size, the PDF from this template is already small, but you can shrink it further with Compress PDF."
+      ]
+    }
+  ],
+  "tips": [
+    "Tailor the objective and skills for each job instead of sending the same file everywhere.",
+    "Use action words such as built, designed, tested, led and improved to start each bullet point.",
+    "Keep fonts and sizes as they are. The template already uses safe fonts that look the same on any computer.",
+    "Leave out personal details that are not needed, such as full address, father's name or a photo, unless the employer asks for them.",
+    "Add your LinkedIn or GitHub link only if the profile is complete and up to date."
+  ],
+  "faqs": [
+    {
+      "q": "Is this resume template ATS friendly?",
+      "a": "Yes. It uses a single column, standard section headings and normal text, with no images, charts or text boxes, which are the things that most often confuse applicant tracking systems."
+    },
+    {
+      "q": "Can I edit it in Google Docs?",
+      "a": "Yes. Upload the Word file to Google Drive and open it with Google Docs. When you finish, use File > Download > PDF document."
+    },
+    {
+      "q": "Should a fresher resume be one page?",
+      "a": "For most freshers, yes. One well-organised page with your degree, best projects, internships and skills is easier for recruiters to read than two thin pages."
+    },
+    {
+      "q": "How do I add a photo?",
+      "a": "Only add a photo if the job post asks for one. In Word, click at the start of your name and use Insert > Pictures, then set the picture's wrap to Square and move it to the right."
+    },
+    {
+      "q": "The job portal says my file is too large. What can I do?",
+      "a": "Save the resume as PDF and run it through the free Compress PDF tool. A one-page resume without photos is usually well under 200 KB."
+    }
+  ],
+  "related": [],
+  "tools": [
+    "word-to-pdf",
+    "pdf-to-word",
+    "compress-pdf",
+    "edit-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 15
+    },
+    "size": 10,
+    "blocks": [
+      {
+        "type": "title",
+        "text": "[Your Full Name]",
+        "size": 24,
+        "sub": "[Phone]  |  [Email]  |  [City, Country]  |  [linkedin.com/in/your-profile]",
+        "subSize": 9.5
+      },
+      {
+        "type": "heading",
+        "text": "Career objective",
+        "before": 2
+      },
+      {
+        "type": "p",
+        "text": "Computer engineering graduate looking for a junior software developer role. Built three full-stack web projects with React and Node.js and enjoy turning user feedback into clean, working features.",
+        "after": 4
+      },
+      {
+        "type": "heading",
+        "text": "Education"
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 0,
+        "split": [
+          3,
+          1
+        ],
+        "left": [
+          "## B.E. in Computer Engineering",
+          "[College name], [University]"
+        ],
+        "right": [
+          "**2022 to 2026**",
+          "CGPA: 8.4 / 10"
+        ]
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 4,
+        "split": [
+          3,
+          1
+        ],
+        "left": [
+          "## Higher Secondary (Class XII), Science",
+          "[School name], [Board]"
+        ],
+        "right": [
+          "**2022**",
+          "Score: 86%"
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Projects"
+      },
+      {
+        "type": "p",
+        "text": "**Expense Tracker Web App**  |  React, Node.js, MongoDB",
+        "after": 1
+      },
+      {
+        "type": "bullets",
+        "gap": 1,
+        "items": [
+          "Built a responsive app to log daily expenses with charts by category and month.",
+          "Added login with email and password and deployed it for 40 classmates who used it for a semester."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "**Smart Attendance System**  |  Python, OpenCV  |  Final year project",
+        "after": 1
+      },
+      {
+        "type": "bullets",
+        "gap": 1,
+        "items": [
+          "Used face detection to mark attendance from a classroom camera, cutting roll call time from 8 minutes to under 1 minute.",
+          "Led a team of four and presented the project at the college tech fest."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Internship and training"
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 0,
+        "split": [
+          3,
+          1
+        ],
+        "left": [
+          "## Web Development Intern, [Company name]"
+        ],
+        "right": [
+          "**Jun to Aug 2025**"
+        ]
+      },
+      {
+        "type": "bullets",
+        "gap": 1,
+        "items": [
+          "Fixed 25+ front-end bugs and built two new form pages in React for a client dashboard.",
+          "Wrote unit tests that raised test coverage of the forms module from 40% to 75%."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Skills"
+      },
+      {
+        "type": "fields",
+        "labelWidth": 0.22,
+        "rowHeight": 5.5,
+        "items": [
+          [
+            "Languages",
+            "JavaScript, Python, Java, SQL"
+          ],
+          [
+            "Tools",
+            "React, Node.js, Git, VS Code, MongoDB, MySQL"
+          ],
+          [
+            "Soft skills",
+            "Teamwork, clear communication, problem solving"
+          ]
+        ],
+        "lines": false
+      },
+      {
+        "type": "heading",
+        "text": "Certifications and activities"
+      },
+      {
+        "type": "bullets",
+        "gap": 1,
+        "items": [
+          "[Certification name], [Issuer], 2025",
+          "Volunteer, college coding club: ran weekly beginner sessions for 30 juniors"
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Languages"
+      },
+      {
+        "type": "p",
+        "text": "English (fluent), Hindi (fluent), Marathi (native)"
+      }
+    ]
+  }
+}

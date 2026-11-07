@@ -25,7 +25,7 @@ for url, s in pages.items():
         try: json.loads(js)
         except Exception as e: issues.append(f'{url}: bad JSON-LD {e}')
     for href in re.findall(r'href="(/[^"#?]*)', s):
-        if href.startswith('/_astro') or re.search(r'\.(svg|png|ico|xml|webp|css|js)$', href): 
+        if href.startswith('/_astro') or re.search(r'\.(svg|png|ico|xml|webp|css|js|json|docx|xlsx|pdf)$', href): 
             if not os.path.exists(os.path.join(D, href.lstrip('/'))): issues.append(f'{url}: missing asset {href}')
             continue
         if href not in pages and href + '/' not in pages: issues.append(f'{url}: broken link {href}')

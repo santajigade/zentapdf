@@ -1,0 +1,359 @@
+{
+  "slug": "job-application-form-template",
+  "category": "forms",
+  "name": "Job Application Form Template",
+  "h1": "Job Application Form Template (Word and Printable PDF)",
+  "metaTitle": "Job Application Form Template: Free Word & PDF",
+  "metaDescription": "Free job application form template in Word and printable PDF. Personal details, education, work history, references and declaration. No sign-up.",
+  "short": "Two-page employment application form with education, work history, references and declaration.",
+  "accent": "#B45309",
+  "useCases": [
+    "HR",
+    "Hiring"
+  ],
+  "industries": [
+    "Small business",
+    "Retail",
+    "Hospitality",
+    "Manufacturing"
+  ],
+  "date": "2026-11-07",
+  "intro": "This job application form template gives small businesses a neat, consistent way to collect details from every candidate. Print the PDF for walk-in applicants or send the Word file so people can type their answers. It covers personal details, the position applied for, education, work history, skills, references and a signed declaration.",
+  "howTo": [
+    "Download the Word file if you want to add your logo or change the questions, or the PDF if you only need to print it.",
+    "In Word, replace [Company Name] at the top with your business name and add your logo if you like.",
+    "Delete any question you do not need, so the form asks only for information you will actually use.",
+    "Print copies for walk-in candidates, or email the Word file so applicants can type their answers.",
+    "Collect the signed forms and keep them with the candidate's resume.",
+    "Store completed forms securely and dispose of them once you no longer need them."
+  ],
+  "guide": [
+    {
+      "h": "Why use an application form as well as a resume",
+      "p": [
+        "Every resume looks different, which makes it hard to compare candidates fairly. A standard form asks every applicant the same questions in the same order, so you can quickly check notice period, expected salary, availability and references side by side. It also gives you a signed declaration that the information is true.",
+        "For roles where candidates may not have a resume, such as shop, warehouse or hotel staff, the form is often the main document you receive."
+      ]
+    },
+    {
+      "h": "What the form covers",
+      "p": [
+        "Page one asks for the position and how the person heard about it, personal and contact details, an emergency contact and education with space for four qualifications. Page two covers the last three jobs with reasons for leaving, skills and languages, two references and a declaration with a signature line, plus a small office-use box for your interview notes.",
+        "Only ask for what you need to make a hiring decision. Avoid questions about religion, caste, marital status or similar personal matters unless the law or the job clearly requires them, and follow the employment and data protection laws that apply where you hire."
+      ]
+    },
+    {
+      "h": "Making the form your own",
+      "p": [
+        "Because the template is a normal Word document, you can add your logo, change the accent colour, rename fields or add a question about a driving licence or shift preference. Keep it to two pages so it prints on one sheet front and back. When you finish editing, save a PDF copy for printing so the layout never shifts."
+      ]
+    }
+  ],
+  "tips": [
+    "Print the form front and back on one sheet to save paper and keep both pages together.",
+    "Add the job title to the top before printing if you are hiring for one role only.",
+    "Ask candidates to fill the form in capital letters for easy reading.",
+    "Keep completed forms in a locked drawer or a password-protected folder.",
+    "Scan signed forms with your phone and combine them into one PDF per candidate."
+  ],
+  "faqs": [
+    {
+      "q": "Can candidates fill this form on a computer?",
+      "a": "Yes. Send them the Word file. They can type next to each label and send it back, or print and sign it. For a PDF, they can use the free Edit PDF tool on ZentaPDF to type on the form."
+    },
+    {
+      "q": "Can I add my company logo?",
+      "a": "Yes. Open the Word file, click at the start of the top line and use Insert > Pictures. Resize the logo so the form stays on two pages."
+    },
+    {
+      "q": "What information should a job application form not ask for?",
+      "a": "Avoid personal questions that have nothing to do with the job, such as religion, caste or plans to have children. Check the employment and privacy laws in your country before adding sensitive questions."
+    },
+    {
+      "q": "How do I combine the signed form with the resume?",
+      "a": "Scan or photograph both, then use Merge PDF on ZentaPDF to join them into one file per candidate."
+    }
+  ],
+  "related": [],
+  "tools": [
+    "edit-pdf",
+    "merge-pdf",
+    "jpg-to-pdf",
+    "word-to-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 14
+    },
+    "size": 10,
+    "blocks": [
+      {
+        "type": "title",
+        "band": true,
+        "text": "Job Application Form",
+        "sub": "[Company Name]  |  [Address]  |  [Phone]  |  [Email]",
+        "size": 22
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "items": [
+          [
+            "Position applied for",
+            ""
+          ],
+          [
+            "Date of application",
+            ""
+          ],
+          [
+            "Expected salary",
+            ""
+          ],
+          [
+            "Available to join from",
+            ""
+          ],
+          [
+            "How did you hear about us?",
+            ""
+          ],
+          [
+            "Notice period",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Personal details"
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "items": [
+          [
+            "Full name",
+            ""
+          ],
+          [
+            "Date of birth",
+            ""
+          ],
+          [
+            "Mobile",
+            ""
+          ],
+          [
+            "Email",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "fields",
+        "labelWidth": 0.19,
+        "items": [
+          [
+            "Current address",
+            ""
+          ],
+          [
+            "",
+            ""
+          ],
+          [
+            "Permanent address",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "items": [
+          [
+            "City",
+            ""
+          ],
+          [
+            "Postcode",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Emergency contact"
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "items": [
+          [
+            "Name",
+            ""
+          ],
+          [
+            "Relationship",
+            ""
+          ],
+          [
+            "Phone",
+            ""
+          ],
+          [
+            "Alternate phone",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Education"
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "rowHeight": 9.5,
+        "columns": [
+          {
+            "h": "Qualification",
+            "w": 1.6
+          },
+          {
+            "h": "School / college / university",
+            "w": 2.6
+          },
+          {
+            "h": "Year",
+            "w": 0.8,
+            "align": "center"
+          },
+          {
+            "h": "Marks / grade",
+            "w": 1,
+            "align": "center"
+          }
+        ],
+        "blank": 4
+      },
+      {
+        "type": "heading",
+        "text": "Work history (latest first)",
+        "pagebreak": true
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "rowHeight": 11,
+        "columns": [
+          {
+            "h": "Employer and city",
+            "w": 2
+          },
+          {
+            "h": "Job title",
+            "w": 1.4
+          },
+          {
+            "h": "From",
+            "w": 0.8,
+            "align": "center"
+          },
+          {
+            "h": "To",
+            "w": 0.8,
+            "align": "center"
+          },
+          {
+            "h": "Reason for leaving",
+            "w": 1.8
+          }
+        ],
+        "blank": 3
+      },
+      {
+        "type": "heading",
+        "text": "Skills and languages"
+      },
+      {
+        "type": "fields",
+        "labelWidth": 0.24,
+        "items": [
+          [
+            "Key skills",
+            ""
+          ],
+          [
+            "Software / machines",
+            ""
+          ],
+          [
+            "Languages known",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "References"
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "rowHeight": 9,
+        "columns": [
+          {
+            "h": "Name",
+            "w": 1.4
+          },
+          {
+            "h": "Relationship",
+            "w": 1.1
+          },
+          {
+            "h": "Company",
+            "w": 1.4
+          },
+          {
+            "h": "Phone / email",
+            "w": 1.6
+          }
+        ],
+        "blank": 2
+      },
+      {
+        "type": "heading",
+        "text": "Declaration"
+      },
+      {
+        "type": "p",
+        "text": "I confirm that the information given in this form is true and complete to the best of my knowledge. I understand that false information may lead to my application being rejected or my employment being ended.",
+        "after": 2
+      },
+      {
+        "type": "signature",
+        "space": 22,
+        "items": [
+          "Applicant's signature",
+          "Date",
+          "Place"
+        ]
+      },
+      {
+        "type": "box",
+        "title": "For office use only",
+        "lines": [
+          "Interviewed by: ____________________   Date: ____________   Result:  Selected  /  On hold  /  Not selected",
+          "Remarks: _______________________________________________________________________________"
+        ],
+        "small": true
+      }
+    ]
+  }
+}
