@@ -7,12 +7,12 @@ Done:
 - [x] how-to-convert-png-to-ico-favicon (2026-11-06)
 - [x] how-to-add-stamp-to-pdf (2026-11-06)
 - [x] Compress an image to 20 KB: skipped 2026-11-06, already covered by how-to-reduce-image-size-in-kb
+- [x] how-to-rearrange-pdf-pages (2026-11-07)
+- [x] how-to-resize-animated-gif (2026-11-07)
+- [x] Edit a scanned PDF: skipped 2026-11-07, already covered by how-to-edit-text-in-pdf-free (section "Editing scanned PDFs")
+- [x] how-to-convert-pdf-to-word (2026-11-07)
 
 Open:
-- [ ] How to rearrange PDF pages (reorder-pdf-pages)
-- [ ] How to resize an animated GIF without losing the animation (resize-gif, crop-gif)
-- [ ] How to edit a scanned PDF (edit-pdf)
-- [ ] How to convert PDF to Word without losing formatting (pdf-to-word)
 - [ ] Signature size 10 KB to 20 KB for exam forms (reduce-image-size-in-kb)
 - [ ] How to convert PDF to Excel (pdf-to-excel)
 - [ ] How to print multiple pages on one sheet (pages-per-sheet)

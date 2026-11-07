@@ -24,4 +24,10 @@ for n, col in (('photo1.jpg', (40, 110, 200)), ('photo2.jpg', (200, 90, 40))):
     for _ in range(300): x, y = random.randint(0, 1600), random.randint(0, 1200); d.ellipse((x, y, x + 40, y + 40), fill=tuple(random.randint(0, 255) for _ in range(3)))
     im.save(f'{D}/{n}', quality=92)
 im = Image.new('RGB', (900, 300), 'white'); d = ImageDraw.Draw(im); d.line([(60, 200), (200, 80), (300, 220), (420, 90), (560, 210), (800, 120)], fill=(20, 40, 160), width=8); im.save(f'{D}/signature.jpg', quality=92)
+frames = []
+for k in range(12):
+    im = Image.new('RGB', (480, 360), (245, 248, 255)); d = ImageDraw.Draw(im)
+    x = 40 + k * 30; d.ellipse((x, 140, x + 80, 220), fill=(230, 90, 40)); d.rectangle((0, 300, 480, 360), fill=(40, 110, 200))
+    frames.append(im)
+frames[0].save(f'{D}/animation.gif', save_all=True, append_images=frames[1:], duration=100, loop=0)
 print('samples in', D, sorted(os.listdir(D)))
