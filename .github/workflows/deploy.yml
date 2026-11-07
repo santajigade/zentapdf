@@ -1,10 +1,10 @@
-# Auto deploy: once a day (08:20 IST, about an hour after the daily guides task) build main, check SEO
-# and publish dist/ to the `site` branch. Skips when main has not changed since the last publish.
-# Publish now: Actions tab > Deploy > Run workflow (always publishes).
+# Auto deploy: every push to main builds the site, runs the SEO audit (must be 0 issues)
+# and publishes dist/ to the `site` branch, then pings IndexNow.
+# Publish again by hand: Actions tab > Deploy > Run workflow.
 name: Deploy
 on:
-  schedule:
-    - cron: '50 2 * * *'
+  push:
+    branches: [main]
   workflow_dispatch:
 concurrency:
   group: deploy
@@ -16,27 +16,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Skip if main is already published
-        id: check
-        run: |
-          last=$(git fetch -q origin site --depth 1 && git show FETCH_HEAD:deployed-commit.txt 2>/dev/null || true)
-          if [ "${{ github.event_name }}" = "schedule" ] && [ "$last" = "$(git rev-parse HEAD)" ]; then echo "skip=1" >> "$GITHUB_OUTPUT"; echo "Nothing new on main."; fi
-      - if: steps.check.outputs.skip != '1'
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-      - if: steps.check.outputs.skip != '1'
-        run: npm ci
-      - if: steps.check.outputs.skip != '1'
-        name: Build and SEO check (stops the deploy if anything fails)
+      - run: npm ci
+      - name: Build and SEO check (stops the deploy if anything fails)
         run: npx astro build && python3 tools/seo-audit.py | tee /tmp/audit.txt && grep -q " 0 issues" /tmp/audit.txt
-      - if: steps.check.outputs.skip != '1'
-        name: Publish to site branch
+      - name: Publish to site branch
         run: bash deploy.sh
       # Pushes made with GITHUB_TOKEN do not start the IndexNow workflow on the site branch, so ping here.
-      - if: steps.check.outputs.skip != '1'
-        name: IndexNow
+      - name: IndexNow
         run: |
           sleep 120
           urls=$(grep -o '<loc>[^<]*</loc>' dist/sitemap-0.xml | sed 's#<loc>##;s#</loc>##' | python3 -c "import sys,json;print(json.dumps([l.strip() for l in sys.stdin if l.strip()]))")
