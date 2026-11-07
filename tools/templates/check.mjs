@@ -45,7 +45,7 @@ for (const t of specs) {
   if (!b) { bad(s, 'files not built (run node tools/templates/build.mjs)'); continue; }
   for (const ext of Object.keys(b.files)) if (!fs.existsSync(path.join(ROOT, `public/templates/files/${s}/${s}.${ext}`))) bad(s, `missing file .${ext}`);
   if (t.doc && !b.files.docx) bad(s, 'Word file missing'); if (t.sheet && !b.files.xlsx) bad(s, 'Excel file missing');
-  for (const f of [`public/templates/img/${s}.webp`, `public/templates/img/${s}-sm.webp`, `public/og/templates/${s}.png`]) if (!fs.existsSync(path.join(ROOT, f))) bad(s, `missing ${f}`);
+  for (const f of [`public/templates/img/${s}.webp`, `public/templates/img/${s}-sm.webp`, `public/og/templates/${s}.jpg`]) if (!fs.existsSync(path.join(ROOT, f))) bad(s, `missing ${f}`);
   const maxPages = t.maxPages ?? (t.category === 'resume' || t.category === 'certificates' || t.category === 'planners' ? 1 : 2);
   if (b.pages > maxPages) bad(s, `PDF has ${b.pages} pages (max ${maxPages}); tighten the layout`);
   // Excel: recalculate in LibreOffice and look for formula errors in every sheet

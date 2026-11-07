@@ -14,7 +14,7 @@ const others = tplCategories.filter((x) => x.id !== c.id && tplByCategory(x.id).
 const itemList = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: c.title, description: c.description, url: abs(`/templates/${c.slug}/`),
   mainEntity: { '@type': 'ItemList', numberOfItems: list.length, itemListElement: list.map((t, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(t.url), name: t.name })) } };
 ---
-<Base title={c.title} description={c.description} schema={[breadcrumbSchema(crumbs), itemList]} ogImage={list[0] ? `/og/templates/${list[0].slug}.png` : undefined}>
+<Base title={c.title} description={c.description} schema={[breadcrumbSchema(crumbs), itemList]} ogImage={list[0] ? `/og/templates/${list[0].slug}.jpg` : undefined}>
   <Breadcrumbs items={crumbs} />
   <section class="container" style={`--tc:${c.color};--tt:${c.tint};--ts:${c.strong}`}>
     <div class="tpl-cat-head">

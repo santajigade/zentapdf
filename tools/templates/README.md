@@ -12,7 +12,7 @@ in the Claude sandbox and committed, because Hostinger cannot run LibreOffice. P
 | Pages | `src/pages/templates/index.astro`, `[category]/index.astro`, `[category]/[slug].astro`, `search.json.ts` |
 | Loader | `src/lib/templates.ts` · cards `src/components/TemplateCard.astro`, `TemplateBrowser.astro` (filters + pages) |
 | Generated files | `public/templates/files/<slug>/<slug>.(docx|xlsx|pdf)` |
-| Previews | `public/templates/img/<slug>.webp`, `-2.webp`, `-3.webp`, `-sm.webp` · share image `public/og/templates/<slug>.png` |
+| Previews | `public/templates/img/<slug>.webp`, `-2.webp`, `-3.webp`, `-sm.webp` · share image `public/og/templates/<slug>.jpg` |
 | Download counter | `public/templates/download.php` (files are rewritten to it in `public/.htaccess`; counts in `../zentapdf-data/downloads.json`, outside public_html) |
 | Keyword queue | `tools/templates/QUEUE.json` (`perDay` = how many to add per day) |
 | Engines | `docx-engine.mjs` (Word), `xlsx-engine.mjs` (Excel), `build.mjs` (all files + PDF + previews), `images.py`, `check.mjs` (quality gate) |

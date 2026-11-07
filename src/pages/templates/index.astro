@@ -18,7 +18,7 @@ const coll = { '@context': 'https://schema.org', '@type': 'CollectionPage', name
   mainEntity: { '@type': 'ItemList', numberOfItems: templates.length, itemListElement: templates.slice(0, 30).map((t, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(t.url), name: t.name })) } };
 const svg = (p: string, n = 26) => `<svg width="${n}" height="${n}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
 ---
-<Base title="Free Templates: Word, Excel & PDF, No Sign-up | ZentaPDF" description="Free templates in Word, Excel and PDF: resumes, invoices, budgets, letters, forms, certificates and planners. Original designs, instant download, no sign-up." schema={[breadcrumbSchema(crumbs), coll, faqSchema(faqs)]} ogImage={templates[0] ? `/og/templates/${templates[0].slug}.png` : undefined}>
+<Base title="Free Templates: Word, Excel & PDF, No Sign-up | ZentaPDF" description="Free templates in Word, Excel and PDF: resumes, invoices, budgets, letters, forms, certificates and planners. Original designs, instant download, no sign-up." schema={[breadcrumbSchema(crumbs), coll, faqSchema(faqs)]} ogImage={templates[0] ? `/og/templates/${templates[0].slug}.jpg` : undefined}>
   <Breadcrumbs items={crumbs} />
   <section class="tpl-home-hero">
     <div class="container">

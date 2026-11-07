@@ -61,7 +61,7 @@ for (const { slug, src, dir } of toPdf) {
 }
 execFileSync('python3', [path.join(ROOT, 'tools/templates/images.py'), TMP, ...toPdf.map((x) => x.slug)], { stdio: 'inherit' });
 
-// Share image (1200 x 630) per template: light category tint, title, page preview. public/og/templates/<slug>.png
+// Share image (1200 x 630) per template: light category tint, title, page preview. public/og/templates/<slug>.jpg
 {
   const { createRequire } = await import('node:module');
   const { chromium } = createRequire(import.meta.url)('playwright');
@@ -89,7 +89,7 @@ execFileSync('python3', [path.join(ROOT, 'tools/templates/images.py'), TMP, ...t
       <div style="position:absolute;left:64px;bottom:50px;background:${c.color};color:#fff;border-radius:999px;padding:10px 26px;font-size:25px;font-weight:800">zentapdf.com/templates</div>
     </div></body></html>`);
     await page.waitForTimeout(100);
-    await page.screenshot({ path: path.join(OG, `${slug}.png`) });
+    await page.screenshot({ path: path.join(OG, `${slug}.jpg`), type: 'jpeg', quality: 86 });
   }
   await browser.close();
 }
