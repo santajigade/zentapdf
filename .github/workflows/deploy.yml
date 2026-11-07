@@ -1,0 +1,32 @@
+# Auto deploy: every push to main builds the site, checks SEO and publishes dist/ to the `site` branch.
+name: Deploy
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Build and SEO check (stops the deploy if anything fails)
+        run: npx astro build && python3 tools/seo-audit.py | tee /tmp/audit.txt && grep -q " 0 issues" /tmp/audit.txt
+      - name: Publish to site branch
+        run: bash deploy.sh
+      # Pushes made with GITHUB_TOKEN do not start the IndexNow workflow on the site branch, so ping here.
+      - name: IndexNow
+        run: |
+          sleep 120
+          urls=$(grep -o '<loc>[^<]*</loc>' dist/sitemap-0.xml | sed 's#<loc>##;s#</loc>##' | python3 -c "import sys,json;print(json.dumps([l.strip() for l in sys.stdin if l.strip()]))")
+          body=$(printf '{"host":"zentapdf.com","key":"9462406b2206d2f064e7fd4a0a8cd013","keyLocation":"https://zentapdf.com/9462406b2206d2f064e7fd4a0a8cd013.txt","urlList":%s}' "$urls")
+          curl -s -o /dev/null -w "IndexNow: %{http_code}\n" -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' -d "$body"

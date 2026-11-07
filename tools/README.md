@@ -28,6 +28,9 @@ npx lighthouse http://localhost:4321/<slug>/ --form-factor=mobile   # target 95+
 5. Each guide automatically gets BlogPosting + FAQPage + BreadcrumbList schema, appears on /guides/, in the sitemap, and in a "Guides" box on its tool pages.
 - Share images: run `node tools/og/make-tool-images.mjs` after adding a tool (creates public/og/tools/<slug>.png).
 
+## Auto deploy
+- Every push to main runs `.github/workflows/deploy.yml`: build, SEO audit (must be 0 issues), `deploy.sh`, then IndexNow. Running `bash deploy.sh` by hand still works.
+
 ## Daily guides (scheduled task)
 - Queue: `tools/guides/QUEUE.md` (take the next open items, tick them with the date).
 - Sample files for screenshots: `python3 tools/guides/make-samples.py` (writes /tmp/gfiles).

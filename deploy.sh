@@ -15,5 +15,8 @@ fi
 git -C "$TMP" init -q -b site
 git -C "$TMP" add -A
 git -C "$TMP" -c user.name="ZentaPDF" -c user.email="santaji.gade@gmail.com" commit -q -m "Publish site $(date -u +%Y-%m-%dT%H:%MZ)"
-git -C "$TMP" push -q -f "$(git remote get-url origin)" site:site
+# In GitHub Actions, reuse the checkout's token for the push (no effect when run locally)
+AUTH=$(git config --get-regexp '^http\..*\.extraheader$' 2>/dev/null | head -1 | cut -d' ' -f2- || true)
+if [ -n "$AUTH" ]; then git -C "$TMP" -c http.extraheader="$AUTH" push -q -f "$(git remote get-url origin)" site:site
+else git -C "$TMP" push -q -f "$(git remote get-url origin)" site:site; fi
 echo "Published to branch 'site'."
