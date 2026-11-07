@@ -29,9 +29,12 @@ npx lighthouse http://localhost:4321/<slug>/ --form-factor=mobile   # target 95+
 - Share images: run `node tools/og/make-tool-images.mjs` after adding a tool (creates public/og/tools/<slug>.png).
 
 ## Auto deploy
-- Every push to main runs `.github/workflows/deploy.yml`: build, SEO audit (must be 0 issues), `deploy.sh`, then IndexNow. Running `bash deploy.sh` by hand still works.
+- `.github/workflows/deploy.yml` runs daily at 08:20 IST: if main changed since the last publish, it builds, runs the SEO audit (must be 0 issues), runs `deploy.sh`, then pings IndexNow.
+- Publish now: GitHub > Actions > Deploy > Run workflow. Running `bash deploy.sh` by hand still works.
+- The daily guides task only pushes to main; it does not run deploy.sh.
 
 ## Daily guides (scheduled task)
+- Publishing: push to main only; the Deploy workflow publishes at 08:20 IST.
 - Queue: `tools/guides/QUEUE.md` (take the next open items, tick them with the date).
 - Sample files for screenshots: `python3 tools/guides/make-samples.py` (writes /tmp/gfiles).
 - Screenshot: serve dist on :4321, then `node tools/guides/shot.mjs <slug> /<tool>/ <files> [wait-selector]`.
