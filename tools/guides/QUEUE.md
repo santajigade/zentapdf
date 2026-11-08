@@ -11,12 +11,12 @@ Done:
 - [x] how-to-resize-animated-gif (2026-11-07)
 - [x] Edit a scanned PDF: skipped 2026-11-07, already covered by how-to-edit-text-in-pdf-free (section "Editing scanned PDFs")
 - [x] how-to-convert-pdf-to-word (2026-11-07)
+- [x] Signature size 10 KB to 20 KB: skipped 2026-11-08, already covered by how-to-reduce-image-size-in-kb (section "Compressing a signature")
+- [x] how-to-convert-pdf-to-excel (2026-11-08)
+- [x] how-to-print-multiple-pages-on-one-sheet (2026-11-08)
+- [x] how-to-add-letterhead-to-pdf (2026-11-08)
 
 Open:
-- [ ] Signature size 10 KB to 20 KB for exam forms (reduce-image-size-in-kb)
-- [ ] How to convert PDF to Excel (pdf-to-excel)
-- [ ] How to print multiple pages on one sheet (pages-per-sheet)
-- [ ] How to add a letterhead to a PDF (pdf-overlay)
 - [ ] How to compress a PDF to 1 MB or 2 MB (compress-pdf)
 - [ ] How to convert multiple JPG photos to one PDF on phone (jpg-to-pdf)
 - [ ] How to split a PDF into separate pages (split-pdf)
