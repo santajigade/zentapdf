@@ -1,0 +1,184 @@
+{
+  "slug": "cover-letter-template",
+  "category": "letters",
+  "name": "Cover Letter Template",
+  "h1": "Cover Letter Template (Word and PDF Format)",
+  "metaTitle": "Cover Letter Template: Free Word & PDF Format",
+  "metaDescription": "Free cover letter template in Word and PDF. A one-page format with a strong opening, three achievement points and a confident close. Edit and send today.",
+  "short": "One-page job cover letter with a clear opening, three achievement points and a polite close.",
+  "accent": "#0F766E",
+  "useCases": [
+    "Job search",
+    "Job change"
+  ],
+  "industries": [
+    "All industries",
+    "Professionals",
+    "Corporate"
+  ],
+  "date": "2026-11-08",
+  "intro": "This cover letter template gives you a one-page letter that hiring managers can read in under a minute. It opens with the role you want, backs it up with three short achievement points, shows why you chose this company and closes with a polite request for an interview. Just replace the grey text with your own details.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Put your name, target role and contact details in the header at the top.",
+    "Add the date, the hiring manager's name and the company address. Find the name on the job post or the company's LinkedIn page if you can.",
+    "Write the job title and reference number in the subject line, exactly as they appear in the job advert.",
+    "Replace the three bullet points with your own results, using numbers wherever possible.",
+    "Read it aloud, check spelling, then save as PDF and attach it with your resume."
+  ],
+  "guide": [
+    {
+      "h": "How this cover letter is structured",
+      "p": [
+        "Most career advisers suggest a cover letter of under one page, in three to five short paragraphs. This template follows that shape. The opening paragraph names the job and gives one headline reason to read on. The middle has three bullet points of results from your current or last role, then a paragraph on why this company appeals to you. The closing paragraph points to your resume and asks for a conversation.",
+        "The layout uses a simple header, one font and normal margins, so it prints cleanly and is easy for applicant tracking systems to read."
+      ]
+    },
+    {
+      "h": "Writing a strong opening and achievement points",
+      "p": [
+        "Skip lines such as \"I am writing to express my interest\" on their own. Say which role you want and add one fact that makes you worth a look, such as years of experience or a result you are proud of.",
+        "For the bullets, use the pattern action, result, number: \"Grew organic traffic by 40% in 12 months by fixing site speed and publishing 60 articles.\" Pick the three results that match the job post most closely, not your three biggest overall."
+      ]
+    },
+    {
+      "h": "Make it fit the job, not just you",
+      "p": [
+        "Read the job advert and note the two or three skills it repeats. Use the same words in your letter where they are true for you. Then change the company paragraph for every application, mentioning something real about that employer. A letter that could go to any company usually gets treated that way."
+      ]
+    }
+  ],
+  "tips": [
+    "Keep it under 400 words and one page.",
+    "Address a real person where you can. \"Dear Hiring Manager\" is fine when you cannot find a name.",
+    "Do not repeat your resume line by line. Add context and results instead.",
+    "If the job post asks for something specific, such as notice period or expected salary, answer it in the letter.",
+    "Name the file clearly, for example Priya-Sharma-Cover-Letter.pdf."
+  ],
+  "faqs": [
+    {
+      "q": "Is this cover letter template free?",
+      "a": "Yes. Download the Word and PDF files free, without sign-up, and use them for as many job applications as you like."
+    },
+    {
+      "q": "Do I need a cover letter if the job only asks for a resume?",
+      "a": "It is optional, but a short, targeted letter can help you stand out, especially when you are changing careers or explaining a gap."
+    },
+    {
+      "q": "Can freshers use this cover letter?",
+      "a": "Yes. Replace work results with college projects, internships or achievements in clubs and competitions, and mention your degree in the opening line."
+    },
+    {
+      "q": "Should I send the cover letter as Word or PDF?",
+      "a": "Send a PDF unless the employer asks for Word. A PDF keeps the layout the same on every device. Use the free Word to PDF tool if you need to convert it."
+    },
+    {
+      "q": "Can I paste it into an email instead?",
+      "a": "Yes. Copy the paragraphs from the opening line to your name into the email body, and put the job title in the email subject."
+    }
+  ],
+  "related": [
+    "resignation-letter-template",
+    "fresher-resume-template"
+  ],
+  "tools": [
+    "word-to-pdf",
+    "pdf-to-word",
+    "edit-pdf",
+    "merge-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 22
+    },
+    "size": 11,
+    "font": "Calibri",
+    "headFont": "Cambria",
+    "titleSize": 24,
+    "blocks": [
+      {
+        "type": "header",
+        "split": [
+          1.5,
+          1
+        ],
+        "left": [
+          "# [Your Full Name]",
+          "~ [Target role, e.g. Digital Marketing Executive]"
+        ],
+        "right": [
+          "[Phone]",
+          "[Email]",
+          "[City, Country]",
+          "[linkedin.com/in/your-profile]"
+        ],
+        "after": 12
+      },
+      {
+        "type": "p",
+        "text": "[DD Month YYYY]",
+        "after": 10
+      },
+      {
+        "type": "p",
+        "text": "**[Hiring Manager's Name]**\n[Designation]\n[Company Name]\n[Company address, City]",
+        "after": 10
+      },
+      {
+        "type": "p",
+        "text": "**Subject: Application for [Job Title] (Job ref: [Reference number])**",
+        "color": "#0F766E",
+        "after": 10
+      },
+      {
+        "type": "p",
+        "text": "Dear [Mr / Ms Last Name],",
+        "after": 8
+      },
+      {
+        "type": "p",
+        "text": "I am writing to apply for the [Job Title] role at [Company Name], which I saw on [where you found the job]. With [number] years of experience in [your field] and a record of [one headline result], I would like to bring the same energy and results to your team.",
+        "line": 1.15,
+        "after": 8
+      },
+      {
+        "type": "p",
+        "text": "In my current role as [Your Current Title] at [Current Company], I:",
+        "line": 1.15,
+        "after": 3
+      },
+      {
+        "type": "bullets",
+        "gap": 2,
+        "items": [
+          "Grew [metric, e.g. organic website traffic] by [40%] in [12 months] by [what you did].",
+          "Managed [budget, team or projects] worth [amount or size] and delivered them on time.",
+          "Introduced [tool or process] that cut [time or cost] by [number]."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "What draws me to [Company Name] is [something specific: a product, a value, recent news or a project]. Your need for someone who can [key requirement from the job post] matches the work I enjoy most, and I am confident I can make a useful contribution from the first month.",
+        "line": 1.15,
+        "after": 8
+      },
+      {
+        "type": "p",
+        "text": "My resume is attached with more detail. I would welcome the chance to discuss how I can help your team, and I am available for a call or interview at a time that suits you. Thank you for your time and consideration.",
+        "line": 1.15,
+        "after": 14
+      },
+      {
+        "type": "p",
+        "text": "Yours sincerely,",
+        "after": 26
+      },
+      {
+        "type": "p",
+        "text": "**[Your Full Name]**\n[Phone]  |  [Email]",
+        "after": 4
+      }
+    ]
+  }
+}

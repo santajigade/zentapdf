@@ -1,0 +1,742 @@
+{
+  "slug": "quotation-format",
+  "category": "invoice",
+  "name": "Quotation Format",
+  "h1": "Quotation Format (Excel, Word and PDF)",
+  "metaTitle": "Quotation Format in Excel: Free Word & PDF Template",
+  "metaDescription": "Free quotation format in Excel, Word and PDF. Line discounts, tax and total calculate automatically, with validity date, terms and a customer sign-off box.",
+  "short": "Price quote with validity date, line discounts, tax, terms and a customer acceptance box.",
+  "accent": "#3730A3",
+  "useCases": [
+    "Billing",
+    "Sales"
+  ],
+  "industries": [
+    "Small business",
+    "Services",
+    "Freelancers",
+    "Manufacturing"
+  ],
+  "date": "2026-11-08",
+  "intro": "This quotation format helps you send a clear price offer before any work starts. It lists each item with quantity, rate and discount, adds tax and a total, and shows how long the price is valid. The Excel version does all the maths, and both files end with terms and a box where the customer signs to accept.",
+  "howTo": [
+    "Download the Excel or Word file and open it in Microsoft Excel, Word, Google Sheets, Google Docs or LibreOffice.",
+    "Replace the grey business details at the top with your name, address, phone and email.",
+    "Enter the customer's details, a quote number and the quote date. In Excel the Valid until date fills in 30 days later.",
+    "Write a one-line subject that names the job, so the customer knows what the quote covers.",
+    "Add each item with its quantity, unit, rate and any discount percentage. Set your tax rate, or 0% if you do not charge tax.",
+    "Edit the terms, save as PDF and email it. Ask the customer to sign the acceptance box and send it back."
+  ],
+  "guide": [
+    {
+      "h": "What to include in a quotation",
+      "p": [
+        "A good quote answers five questions: who is quoting, for whom, for what, at what price and until when. This template has a block for your details, a Quote for box for the customer, a quote number and date, a subject line, an item table and a totals block.",
+        "Below the prices you get numbered terms covering validity, payment, delivery time, what is not included and how extra work is charged. Listing exclusions clearly is one of the easiest ways to avoid arguments later."
+      ]
+    },
+    {
+      "h": "How the Excel quotation calculates",
+      "p": [
+        "Each line works out Qty times Rate, minus the Disc % for that line, so you can give a discount on one item without changing the others. The Subtotal adds all lines, Tax applies the single rate you enter in the Tax rate cell, and Total adds the two.",
+        "The Valid until date is the quote date plus 30 days. For a shorter offer, such as 7 or 15 days, simply type a date over the formula. The Currency cell feeds the label on the total line."
+      ]
+    },
+    {
+      "h": "Quotation, estimate or invoice?",
+      "p": [
+        "A quotation is a fixed price offer that the customer can accept. An estimate is a rough guide that may change. An invoice is sent after the work is done to ask for payment. Once the customer accepts this quote, copy the same items into an invoice so the figures match."
+      ]
+    }
+  ],
+  "tips": [
+    "Give every quote its own number, such as QT-2026-014, so you can find it quickly when the customer replies.",
+    "Describe items in plain words the customer understands, not internal codes.",
+    "Keep the validity short if your material costs change often.",
+    "Follow up two or three days after sending the quote. A short call often wins the job.",
+    "If you charge GST or VAT, check your local rules on whether the tax must be shown separately on the final invoice."
+  ],
+  "faqs": [
+    {
+      "q": "Is this quotation template free?",
+      "a": "Yes. You can download the Excel, Word and PDF files free, without sign-up, and use them for any number of quotes."
+    },
+    {
+      "q": "Can I give a discount on the whole quote?",
+      "a": "The Excel file has a discount column for each line. To discount everything, enter the same percentage on every line, or add a line called Discount with a negative rate."
+    },
+    {
+      "q": "Does the quotation work in Google Sheets?",
+      "a": "Yes. Upload the Excel file to Google Drive and open it with Google Sheets. The formulas, drop-down list and print layout carry over."
+    },
+    {
+      "q": "Is a signed quotation a contract?",
+      "a": "A signed quote is a strong written record of what both sides agreed. Whether it is legally binding depends on your local law and the terms, so take advice for large or risky jobs."
+    },
+    {
+      "q": "How do I send the quote as a PDF?",
+      "a": "In Excel or Word use File > Save As > PDF, or File > Download > PDF in Google. You can also use the free Excel to PDF or Word to PDF tools on ZentaPDF."
+    }
+  ],
+  "related": [
+    "simple-invoice-template",
+    "gst-invoice-format"
+  ],
+  "tools": [
+    "excel-to-pdf",
+    "word-to-pdf",
+    "sign-pdf",
+    "edit-pdf"
+  ],
+  "sheet": {
+    "font": "Calibri",
+    "sheets": [
+      {
+        "name": "Quotation",
+        "cols": [
+          9,
+          40,
+          8,
+          8,
+          13,
+          8,
+          16
+        ],
+        "page": {
+          "orientation": "portrait",
+          "area": "A1:G41"
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              38
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:G1",
+            "v": "QUOTATION",
+            "s": "big"
+          },
+          {
+            "c": "A2",
+            "m": "A2:G2",
+            "v": "[Your Business Name]  |  [Address, City]  |  [Phone]  |  [Email]",
+            "s": "sub",
+            "align": "center"
+          },
+          {
+            "c": "A4",
+            "m": "A4:C4",
+            "v": "QUOTE FOR",
+            "s": "band"
+          },
+          {
+            "c": "E4",
+            "m": "E4:G4",
+            "v": "QUOTE DETAILS",
+            "s": "band"
+          },
+          {
+            "c": "A5",
+            "m": "A5:C5",
+            "v": "Kavya Interiors Pvt Ltd",
+            "s": "input"
+          },
+          {
+            "c": "A6",
+            "m": "A6:C6",
+            "v": "Attn: Rohan Mehta, Marketing Head",
+            "s": "input"
+          },
+          {
+            "c": "A7",
+            "m": "A7:C7",
+            "v": "Unit 4, Andheri East, Mumbai 400069",
+            "s": "input"
+          },
+          {
+            "c": "A8",
+            "m": "A8:C8",
+            "v": "rohan@example.com",
+            "s": "input"
+          },
+          {
+            "c": "E5",
+            "v": "Quote no.",
+            "s": "label"
+          },
+          {
+            "c": "F5",
+            "m": "F5:G5",
+            "v": "QT-2026-014",
+            "s": "input",
+            "align": "right"
+          },
+          {
+            "c": "E6",
+            "v": "Quote date",
+            "s": "label"
+          },
+          {
+            "c": "F6",
+            "m": "F6:G6",
+            "v": "2026-11-08",
+            "s": "input",
+            "align": "right",
+            "fmt": "date"
+          },
+          {
+            "c": "E7",
+            "v": "Valid until",
+            "s": "label"
+          },
+          {
+            "c": "F7",
+            "m": "F7:G7",
+            "v": "=IF(F6=\"\",\"\",F6+30)",
+            "s": "calc",
+            "align": "right",
+            "fmt": "date"
+          },
+          {
+            "c": "E8",
+            "v": "Prepared by",
+            "s": "label"
+          },
+          {
+            "c": "F8",
+            "m": "F8:G8",
+            "v": "[Your name]",
+            "s": "input",
+            "align": "right"
+          },
+          {
+            "c": "E9",
+            "v": "Currency",
+            "s": "label"
+          },
+          {
+            "c": "F9",
+            "m": "F9:G9",
+            "v": "INR",
+            "s": "input",
+            "align": "right"
+          },
+          {
+            "c": "A11",
+            "v": "Subject",
+            "s": "label"
+          },
+          {
+            "c": "B11",
+            "m": "B11:G11",
+            "v": "Website redesign for Kavya Interiors (5 pages and blog)",
+            "s": "input"
+          },
+          {
+            "height": [
+              13,
+              24
+            ]
+          },
+          {
+            "row": 13,
+            "from": "A",
+            "v": [
+              "#",
+              "Item and description",
+              "Qty",
+              "Unit",
+              "Rate",
+              "Disc %",
+              "Amount"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              14,
+              25
+            ],
+            "cols": {
+              "A": {
+                "v": "=IF(B{r}=\"\",\"\",ROW()-13)",
+                "s": "calc",
+                "align": "center"
+              },
+              "B": {
+                "s": "input",
+                "wrap": true
+              },
+              "C": {
+                "s": "input",
+                "fmt": "#,##0.##",
+                "align": "center"
+              },
+              "D": {
+                "s": "input",
+                "align": "center"
+              },
+              "E": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "F": {
+                "s": "input",
+                "fmt": "0%",
+                "align": "center"
+              },
+              "G": {
+                "v": "=IF(B{r}=\"\",\"\",C{r}*E{r}*(1-F{r}))",
+                "s": "calc",
+                "fmt": "money"
+              }
+            }
+          },
+          {
+            "data": [
+              [
+                "Discovery workshop and site map",
+                1,
+                "Job",
+                15000,
+                0
+              ],
+              [
+                "UI design, home page and 4 inner pages",
+                5,
+                "Page",
+                6000,
+                0.1
+              ],
+              [
+                "Responsive website build on WordPress",
+                1,
+                "Job",
+                40000,
+                0.1
+              ],
+              [
+                "Blog setup with 5 starter posts uploaded",
+                1,
+                "Job",
+                8000,
+                0
+              ],
+              [
+                "Hosting and domain setup",
+                1,
+                "Job",
+                3500,
+                0
+              ],
+              [
+                "Website care plan (updates, backups, fixes)",
+                12,
+                "Month",
+                2000,
+                0.15
+              ]
+            ],
+            "at": "B14"
+          },
+          {
+            "list": "D14:D25",
+            "items": [
+              "Job",
+              "Page",
+              "Hour",
+              "Day",
+              "Month",
+              "Nos",
+              "Set",
+              "Kg"
+            ]
+          },
+          {
+            "c": "E27",
+            "m": "E27:F27",
+            "v": "Subtotal",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "G27",
+            "v": "=SUM(G14:G25)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "E28",
+            "m": "E28:F28",
+            "v": "Tax rate",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "G28",
+            "v": 0.18,
+            "s": "input",
+            "fmt": "0.##%"
+          },
+          {
+            "note": "G28",
+            "text": "Your sales tax, VAT or GST rate. Enter 0% if you do not charge tax."
+          },
+          {
+            "c": "E29",
+            "m": "E29:F29",
+            "v": "Tax",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "G29",
+            "v": "=G27*G28",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "E30",
+            "m": "E30:F30",
+            "v": "=\"TOTAL (\"&F9&\")\"",
+            "s": "total",
+            "align": "right"
+          },
+          {
+            "c": "G30",
+            "v": "=G27+G29",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "height": [
+              30,
+              22
+            ]
+          },
+          {
+            "c": "A27",
+            "m": "A27:C27",
+            "v": "TERMS AND CONDITIONS",
+            "s": "band"
+          },
+          {
+            "c": "A28",
+            "m": "A28:C33",
+            "v": "1. Prices are valid until the date shown above.\n2. Payment: 50% advance on approval, balance on delivery.\n3. Delivery: [20] working days after the advance is received.\n4. Not included: [content writing, stock photos, paid plugins].\n5. Extra work outside this scope will be quoted separately.",
+            "s": "note"
+          },
+          {
+            "height": [
+              28,
+              16
+            ]
+          },
+          {
+            "height": [
+              29,
+              16
+            ]
+          },
+          {
+            "height": [
+              30,
+              22
+            ]
+          },
+          {
+            "height": [
+              31,
+              16
+            ]
+          },
+          {
+            "height": [
+              32,
+              16
+            ]
+          },
+          {
+            "height": [
+              33,
+              16
+            ]
+          },
+          {
+            "c": "A35",
+            "m": "A35:C35",
+            "v": "CUSTOMER ACCEPTANCE",
+            "s": "band"
+          },
+          {
+            "c": "A36",
+            "m": "A36:C36",
+            "v": "I accept this quotation and its terms.",
+            "s": "sub"
+          },
+          {
+            "c": "A37",
+            "v": "Name",
+            "s": "label"
+          },
+          {
+            "c": "B37",
+            "m": "B37:C37",
+            "s": "input"
+          },
+          {
+            "c": "A38",
+            "v": "Signature",
+            "s": "label"
+          },
+          {
+            "c": "B38",
+            "m": "B38:C38",
+            "s": "input"
+          },
+          {
+            "c": "A39",
+            "v": "Date",
+            "s": "label"
+          },
+          {
+            "c": "B39",
+            "m": "B39:C39",
+            "s": "input",
+            "fmt": "date"
+          },
+          {
+            "height": [
+              38,
+              28
+            ]
+          },
+          {
+            "c": "E37",
+            "m": "E37:G37",
+            "v": "For [Your Business Name]",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "E39",
+            "m": "E39:G39",
+            "v": "Authorised signatory",
+            "s": "sub",
+            "align": "right"
+          },
+          {
+            "c": "A41",
+            "m": "A41:G41",
+            "v": "Thank you for the opportunity to quote. Please call or email us with any questions.",
+            "s": "sub",
+            "align": "center"
+          }
+        ]
+      }
+    ]
+  },
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 17
+    },
+    "size": 10,
+    "font": "Calibri",
+    "headFont": "Cambria",
+    "blocks": [
+      {
+        "type": "title",
+        "text": "Quotation",
+        "size": 30,
+        "caps": true,
+        "sub": "[Your Business Name]  |  [Address, City]  |  [Phone]  |  [Email]"
+      },
+      {
+        "type": "rule",
+        "accent": true,
+        "weight": 18,
+        "after": 8
+      },
+      {
+        "type": "columns",
+        "cols": [
+          {
+            "title": "Quote for",
+            "w": 1.2,
+            "lines": [
+              "## Kavya Interiors Pvt Ltd",
+              "Attn: Rohan Mehta, Marketing Head",
+              "Unit 4, Andheri East, Mumbai 400069",
+              "rohan@example.com"
+            ]
+          },
+          {
+            "title": "Quote details",
+            "w": 1,
+            "fill": true,
+            "lines": [
+              "**Quote no.**  QT-2026-014",
+              "**Quote date**  08 Nov 2026",
+              "**Valid until**  08 Dec 2026",
+              "**Prepared by**  [Your name]"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "**Subject:** Website redesign for Kavya Interiors (5 pages and blog)",
+        "after": 6
+      },
+      {
+        "type": "table",
+        "columns": [
+          {
+            "h": "#",
+            "w": 0.4,
+            "align": "center"
+          },
+          {
+            "h": "Item and description",
+            "w": 3.6
+          },
+          {
+            "h": "Qty",
+            "w": 0.6,
+            "align": "center"
+          },
+          {
+            "h": "Unit",
+            "w": 0.7,
+            "align": "center"
+          },
+          {
+            "h": "Rate",
+            "w": 1.1,
+            "align": "right"
+          },
+          {
+            "h": "Disc %",
+            "w": 0.7,
+            "align": "center"
+          },
+          {
+            "h": "Amount",
+            "w": 1.3,
+            "align": "right"
+          }
+        ],
+        "rows": [
+          [
+            "1",
+            "Discovery workshop and site map",
+            "1",
+            "Job",
+            "15,000.00",
+            "0%",
+            "15,000.00"
+          ],
+          [
+            "2",
+            "UI design, home page and 4 inner pages",
+            "5",
+            "Page",
+            "6,000.00",
+            "10%",
+            "27,000.00"
+          ],
+          [
+            "3",
+            "Responsive website build on WordPress",
+            "1",
+            "Job",
+            "40,000.00",
+            "10%",
+            "36,000.00"
+          ],
+          [
+            "4",
+            "Blog setup with 5 starter posts uploaded",
+            "1",
+            "Job",
+            "8,000.00",
+            "0%",
+            "8,000.00"
+          ],
+          [
+            "5",
+            "Hosting and domain setup",
+            "1",
+            "Job",
+            "3,500.00",
+            "0%",
+            "3,500.00"
+          ],
+          [
+            "6",
+            "Website care plan (updates, backups, fixes)",
+            "12",
+            "Month",
+            "2,000.00",
+            "15%",
+            "20,400.00"
+          ]
+        ],
+        "blank": 2,
+        "totals": [
+          [
+            "Subtotal",
+            "109,900.00"
+          ],
+          [
+            "Tax (18%)",
+            "19,782.00"
+          ],
+          [
+            "Total (INR)",
+            "129,682.00"
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Terms and conditions",
+        "before": 4
+      },
+      {
+        "type": "bullets",
+        "numbered": true,
+        "gap": 1,
+        "items": [
+          "Prices are valid until the date shown above.",
+          "Payment: 50% advance on approval, balance on delivery.",
+          "Delivery: [20] working days after the advance is received.",
+          "Not included: [content writing, stock photos, paid plugins].",
+          "Extra work outside this scope will be quoted separately."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Customer acceptance"
+      },
+      {
+        "type": "p",
+        "text": "I accept this quotation and its terms. Please go ahead with the work.",
+        "after": 2
+      },
+      {
+        "type": "signature",
+        "space": 24,
+        "items": [
+          "Customer name and signature",
+          "Date",
+          "For [Your Business Name]"
+        ]
+      }
+    ]
+  }
+}

@@ -70,8 +70,8 @@
    "slug": "gst-invoice-format",
    "category": "invoice",
    "priority": 1,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-08",
    "note": "Indian GST tax invoice: GSTIN, HSN/SAC, CGST/SGST/IGST split, amount in words. Check official GST invoice rules before writing."
   },
   {
@@ -79,8 +79,8 @@
    "slug": "quotation-format",
    "category": "invoice",
    "priority": 1,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-08",
    "note": "Price quotation with validity date, terms and auto totals."
   },
   {
@@ -88,8 +88,8 @@
    "slug": "cover-letter-template",
    "category": "letters",
    "priority": 1,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-08",
    "note": "General one-page job cover letter."
   },
   {

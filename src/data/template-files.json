@@ -8,6 +8,15 @@
   "previews": 1,
   "built": "2026-11-07"
  },
+ "cover-letter-template": {
+  "files": {
+   "docx": 11294,
+   "pdf": 34234
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-08"
+ },
  "fresher-resume-template": {
   "files": {
    "docx": 11684,
@@ -16,6 +25,16 @@
   "pages": 1,
   "previews": 1,
   "built": "2026-11-07"
+ },
+ "gst-invoice-format": {
+  "files": {
+   "docx": 12952,
+   "xlsx": 12510,
+   "pdf": 80336
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-08"
  },
  "job-application-form-template": {
   "files": {
@@ -34,6 +53,16 @@
   "pages": 1,
   "previews": 1,
   "built": "2026-11-07"
+ },
+ "quotation-format": {
+  "files": {
+   "docx": 12498,
+   "xlsx": 11370,
+   "pdf": 68385
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-08"
  },
  "resignation-letter-template": {
   "files": {

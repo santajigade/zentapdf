@@ -1,0 +1,847 @@
+{
+  "slug": "gst-invoice-format",
+  "category": "invoice",
+  "name": "GST Invoice Format",
+  "h1": "GST Invoice Format (Excel, Word and PDF)",
+  "metaTitle": "GST Invoice Format in Excel: Free Word & PDF Template",
+  "metaDescription": "Free GST tax invoice format in Excel, Word and PDF with GSTIN, HSN/SAC, place of supply and automatic CGST, SGST or IGST split. Edit and print in minutes.",
+  "short": "Indian GST tax invoice with HSN/SAC, place of supply and automatic CGST, SGST or IGST split in Excel.",
+  "accent": "#9A3412",
+  "useCases": [
+    "Billing",
+    "GST"
+  ],
+  "industries": [
+    "Small business",
+    "Retail",
+    "Services",
+    "Manufacturing"
+  ],
+  "date": "2026-11-08",
+  "intro": "This GST invoice format gives you a ready tax invoice with the details Indian GST rules ask for: GSTIN, HSN or SAC code, place of supply and the tax split. The Excel version works out the taxable value, CGST, SGST or IGST and the rounded total for you, and the Word version is easy to type into and print.",
+  "howTo": [
+    "Download the Excel or Word file and open it in Microsoft Excel, Word, Google Sheets, Google Docs or LibreOffice.",
+    "Replace the sample business name, address and GSTIN at the top with your own registered details.",
+    "Enter the invoice number, invoice date, place of supply and whether tax is payable on reverse charge.",
+    "In Excel, pick the supply type: Intra-State for a buyer in your own state, Inter-State for a buyer in another state.",
+    "Fill in the buyer's details and GSTIN, then add each item with its HSN or SAC code, quantity, unit, rate and GST rate.",
+    "Type the invoice total in words, add your bank or UPI details, then sign and save as PDF to send."
+  ],
+  "guide": [
+    {
+      "h": "What a GST tax invoice must show",
+      "p": [
+        "Rule 46 of the CGST Rules lists the details of a tax invoice. They include the supplier's name, address and GSTIN, a serial number of up to 16 characters that is unique for the financial year, the date, the recipient's details and GSTIN if registered, the HSN or SAC code, description, quantity, taxable value, tax rates and tax amounts, place of supply for inter-state sales, whether reverse charge applies, and a signature.",
+        "This template has a labelled place for each of these. Rules change, so check the latest version on the official CBIC or GST portal, or with your tax adviser."
+      ]
+    },
+    {
+      "h": "How the Excel formulas split the tax",
+      "p": [
+        "Taxable value is Qty times Rate minus any Discount. When Supply type is Intra-State, the GST rate is split in half between CGST and SGST. When it is Inter-State, the full rate goes into IGST. Each line total adds the taxable value and the tax.",
+        "The totals block adds each column, rounds the invoice to the nearest rupee and shows the round off separately. The GST % drop-down lists common rates, but always confirm the rate for your HSN or SAC code."
+      ]
+    },
+    {
+      "h": "HSN codes, units and amount in words",
+      "p": [
+        "Businesses with turnover up to Rs 5 crore in the previous year must show at least a 4-digit HSN code on B2B invoices, and those above Rs 5 crore need 6 digits. Write the quantity unit as a short code such as NOS, KGS, MTR or ROL.",
+        "The amount in words is a plain text cell, so type it yourself after the total is final."
+      ]
+    }
+  ],
+  "tips": [
+    "Use one invoice number series per financial year, such as INV/2026-27/0001, and never skip or reuse a number.",
+    "The first two digits of a GSTIN are the state code. Compare yours with the buyer's place of supply to choose Intra-State or Inter-State.",
+    "If you are registered under the composition scheme, you issue a bill of supply instead of a tax invoice, so check which document applies to you.",
+    "If e-invoicing applies to your business, generate the invoice on the official IRP so it gets an IRN and QR code."
+  ],
+  "faqs": [
+    {
+      "q": "Is this GST invoice format free to use?",
+      "a": "Yes. The Excel, Word and PDF files are free to download without sign-up, and you can use them for as many invoices as you need."
+    },
+    {
+      "q": "Does the Excel file calculate CGST, SGST and IGST?",
+      "a": "Yes. Choose Intra-State or Inter-State in the Supply type cell and every line shows CGST and SGST, or IGST, along with the totals and round off."
+    },
+    {
+      "q": "Can I use this invoice for e-invoicing?",
+      "a": "No. Businesses that must issue e-invoices have to report them on the government Invoice Registration Portal, which adds an IRN and QR code. This template suits businesses that are not covered by e-invoicing."
+    },
+    {
+      "q": "Which GST rate should I use for my product?",
+      "a": "It depends on the HSN or SAC code of the item. Check the current rate list on the official GST portal or with your accountant. The rates in the sample are only examples."
+    }
+  ],
+  "related": [
+    "simple-invoice-template",
+    "quotation-format"
+  ],
+  "tools": [
+    "excel-to-pdf",
+    "word-to-pdf",
+    "sign-pdf",
+    "compress-pdf"
+  ],
+  "sheet": {
+    "font": "Arial",
+    "sheets": [
+      {
+        "name": "Tax Invoice",
+        "cols": [
+          4,
+          27,
+          9,
+          6,
+          6,
+          10,
+          9,
+          12,
+          7,
+          10,
+          10,
+          10,
+          12
+        ],
+        "page": {
+          "orientation": "portrait",
+          "area": "A1:M38"
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              22
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:M1",
+            "v": "TAX INVOICE   (Original for recipient)",
+            "s": "band",
+            "align": "center"
+          },
+          {
+            "height": [
+              2,
+              30
+            ]
+          },
+          {
+            "c": "A2",
+            "m": "A2:G2",
+            "v": "[Your Business Name]",
+            "s": "title"
+          },
+          {
+            "c": "A3",
+            "m": "A3:G3",
+            "v": "[Shop / office address, City, PIN code]",
+            "s": "plain"
+          },
+          {
+            "c": "A4",
+            "m": "A4:G4",
+            "v": "GSTIN: 27AAAAA0000A1Z5   |   State: Maharashtra   |   State code: 27",
+            "s": "label"
+          },
+          {
+            "c": "A5",
+            "m": "A5:G5",
+            "v": "[Phone]  |  [Email]",
+            "s": "plain"
+          },
+          {
+            "c": "A6",
+            "m": "A6:G6",
+            "v": "Sample GSTIN shown. Replace it with your own.",
+            "s": "sub"
+          },
+          {
+            "c": "I2",
+            "m": "I2:J2",
+            "v": "Invoice no.",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "K2",
+            "m": "K2:M2",
+            "v": "INV/2026-27/0001",
+            "s": "input",
+            "align": "right"
+          },
+          {
+            "c": "I3",
+            "m": "I3:J3",
+            "v": "Invoice date",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "K3",
+            "m": "K3:M3",
+            "v": "2026-11-08",
+            "s": "input",
+            "align": "right",
+            "fmt": "date"
+          },
+          {
+            "c": "I4",
+            "m": "I4:J4",
+            "v": "Place of supply",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "K4",
+            "m": "K4:M4",
+            "v": "Maharashtra (27)",
+            "s": "input",
+            "align": "right"
+          },
+          {
+            "c": "I5",
+            "m": "I5:J5",
+            "v": "Supply type",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "K5",
+            "m": "K5:M5",
+            "v": "Intra-State",
+            "s": "input",
+            "align": "right"
+          },
+          {
+            "c": "I6",
+            "m": "I6:J6",
+            "v": "Reverse charge",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "K6",
+            "m": "K6:M6",
+            "v": "No",
+            "s": "input",
+            "align": "right"
+          },
+          {
+            "list": "K5",
+            "items": [
+              "Intra-State",
+              "Inter-State"
+            ]
+          },
+          {
+            "list": "K6",
+            "items": [
+              "No",
+              "Yes"
+            ]
+          },
+          {
+            "note": "K5",
+            "text": "Intra-State: supplier and place of supply in the same state, so CGST + SGST. Inter-State: different states, so IGST."
+          },
+          {
+            "c": "A8",
+            "m": "A8:F8",
+            "v": "BILL TO (RECIPIENT)",
+            "s": "band"
+          },
+          {
+            "c": "G8",
+            "m": "G8:M8",
+            "v": "SHIP TO (DELIVERY ADDRESS)",
+            "s": "band"
+          },
+          {
+            "c": "A9",
+            "m": "A9:F9",
+            "v": "Kavya Interiors Pvt Ltd",
+            "s": "input"
+          },
+          {
+            "c": "G9",
+            "m": "G9:M9",
+            "s": "input",
+            "v": "Same as billing address"
+          },
+          {
+            "c": "A10",
+            "m": "A10:F10",
+            "v": "Unit 4, Andheri East, Mumbai 400069",
+            "s": "input"
+          },
+          {
+            "c": "G10",
+            "m": "G10:M10",
+            "s": "input"
+          },
+          {
+            "c": "A11",
+            "m": "A11:F11",
+            "v": "GSTIN: 27BBBBB1111B1Z2",
+            "s": "input"
+          },
+          {
+            "c": "G11",
+            "m": "G11:M11",
+            "s": "input"
+          },
+          {
+            "c": "A12",
+            "m": "A12:F12",
+            "v": "State: Maharashtra   |   State code: 27",
+            "s": "input"
+          },
+          {
+            "c": "G12",
+            "m": "G12:M12",
+            "s": "input"
+          },
+          {
+            "height": [
+              14,
+              30
+            ]
+          },
+          {
+            "row": 14,
+            "from": "A",
+            "v": [
+              "#",
+              "Description of goods / services",
+              "HSN / SAC",
+              "Qty",
+              "Unit",
+              "Rate",
+              "Discount",
+              "Taxable value",
+              "GST %",
+              "CGST",
+              "SGST",
+              "IGST",
+              "Total"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              15,
+              26
+            ],
+            "cols": {
+              "A": {
+                "v": "=IF(B{r}=\"\",\"\",ROW()-14)",
+                "s": "calc",
+                "align": "center"
+              },
+              "B": {
+                "s": "input",
+                "wrap": true
+              },
+              "C": {
+                "s": "input",
+                "align": "center",
+                "fmt": "@"
+              },
+              "D": {
+                "s": "input",
+                "fmt": "#,##0.##",
+                "align": "center"
+              },
+              "E": {
+                "s": "input",
+                "align": "center"
+              },
+              "F": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "G": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "H": {
+                "v": "=IF(B{r}=\"\",\"\",D{r}*F{r}-G{r})",
+                "s": "calc",
+                "fmt": "money"
+              },
+              "I": {
+                "s": "input",
+                "fmt": "0.##%",
+                "align": "center"
+              },
+              "J": {
+                "v": "=IF(B{r}=\"\",\"\",IF($K$5=\"Intra-State\",H{r}*I{r}/2,0))",
+                "s": "calc",
+                "fmt": "money"
+              },
+              "K": {
+                "v": "=IF(B{r}=\"\",\"\",IF($K$5=\"Intra-State\",H{r}*I{r}/2,0))",
+                "s": "calc",
+                "fmt": "money"
+              },
+              "L": {
+                "v": "=IF(B{r}=\"\",\"\",IF($K$5=\"Inter-State\",H{r}*I{r},0))",
+                "s": "calc",
+                "fmt": "money"
+              },
+              "M": {
+                "v": "=IF(B{r}=\"\",\"\",H{r}+J{r}+K{r}+L{r})",
+                "s": "calc",
+                "fmt": "money"
+              }
+            }
+          },
+          {
+            "data": [
+              [
+                "Modular switch 6A, white",
+                "8536",
+                40,
+                "NOS",
+                85,
+                0,
+                null,
+                0.18
+              ],
+              [
+                "Copper wire 1.5 sq mm, 90 m coil",
+                "8544",
+                5,
+                "ROL",
+                1450,
+                0,
+                null,
+                0.18
+              ],
+              [
+                "Electrical installation labour",
+                "9954",
+                1,
+                "OTH",
+                3500,
+                0,
+                null,
+                0.18
+              ]
+            ],
+            "at": "B15"
+          },
+          {
+            "list": "I15:I26",
+            "items": [
+              "0%",
+              "0.25%",
+              "3%",
+              "5%",
+              "18%",
+              "40%"
+            ]
+          },
+          {
+            "c": "I28",
+            "m": "I28:L28",
+            "v": "Total taxable value",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "M28",
+            "v": "=SUM(H15:H26)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "I29",
+            "m": "I29:L29",
+            "v": "CGST",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "M29",
+            "v": "=SUM(J15:J26)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "I30",
+            "m": "I30:L30",
+            "v": "SGST",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "M30",
+            "v": "=SUM(K15:K26)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "I31",
+            "m": "I31:L31",
+            "v": "IGST",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "M31",
+            "v": "=SUM(L15:L26)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "I32",
+            "m": "I32:L32",
+            "v": "Round off",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "M32",
+            "v": "=ROUND(SUM(M28:M31),0)-SUM(M28:M31)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "I33",
+            "m": "I33:L33",
+            "v": "INVOICE TOTAL (INR)",
+            "s": "total",
+            "align": "right"
+          },
+          {
+            "c": "M33",
+            "v": "=SUM(M28:M32)",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "height": [
+              33,
+              22
+            ]
+          },
+          {
+            "c": "A28",
+            "m": "A28:G28",
+            "v": "AMOUNT IN WORDS",
+            "s": "band"
+          },
+          {
+            "c": "A29",
+            "m": "A29:G29",
+            "v": "Rupees Sixteen Thousand Six Hundred Ninety Seven Only",
+            "s": "input"
+          },
+          {
+            "note": "A29",
+            "text": "Type the invoice total in words. Excel does not convert it automatically."
+          },
+          {
+            "c": "A31",
+            "m": "A31:G31",
+            "v": "BANK DETAILS",
+            "s": "band"
+          },
+          {
+            "c": "A32",
+            "m": "A32:G33",
+            "v": "Bank: [Bank name]   A/c no.: [Account number]\nIFSC: [IFSC code]   UPI: [your-id@bank]",
+            "s": "note"
+          },
+          {
+            "c": "A35",
+            "m": "A35:G35",
+            "v": "DECLARATION",
+            "s": "band"
+          },
+          {
+            "c": "A36",
+            "m": "A36:G38",
+            "v": "We declare that this invoice shows the actual price of the goods or services described and that all particulars are true and correct.\nTerms: [Payment due within 15 days]",
+            "s": "note"
+          },
+          {
+            "c": "I35",
+            "m": "I35:M35",
+            "v": "For [Your Business Name]",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "I38",
+            "m": "I38:M38",
+            "v": "Authorised Signatory",
+            "s": "sub",
+            "align": "right"
+          },
+          {
+            "height": [
+              36,
+              16
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 12
+    },
+    "size": 9,
+    "font": "Arial",
+    "titleSize": 18,
+    "blocks": [
+      {
+        "type": "title",
+        "band": true,
+        "text": "TAX INVOICE",
+        "sub": "Original for recipient",
+        "align": "center",
+        "size": 16
+      },
+      {
+        "type": "columns",
+        "cols": [
+          {
+            "title": "Supplier",
+            "fill": true,
+            "lines": [
+              "## [Your Business Name]",
+              "[Shop / office address, City, PIN code]",
+              "GSTIN: 27AAAAA0000A1Z5",
+              "State: Maharashtra, Code 27",
+              "[Phone]  |  [Email]"
+            ]
+          },
+          {
+            "title": "Bill to (recipient)",
+            "fill": true,
+            "lines": [
+              "## Kavya Interiors Pvt Ltd",
+              "Unit 4, Andheri East, Mumbai 400069",
+              "GSTIN: 27BBBBB1111B1Z2",
+              "State: Maharashtra, Code 27"
+            ]
+          },
+          {
+            "title": "Ship to",
+            "fill": true,
+            "lines": [
+              "## Same as billing address",
+              "[Delivery address, if different]",
+              "[State, Code]"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "fields",
+        "cols": 3,
+        "labelWidth": 0.5,
+        "rowHeight": 6,
+        "items": [
+          [
+            "Invoice no.",
+            "INV/2026-27/0001"
+          ],
+          [
+            "Invoice date",
+            "08 Nov 2026"
+          ],
+          [
+            "Place of supply",
+            "Maharashtra (27)"
+          ],
+          [
+            "Supply type",
+            "Intra-State"
+          ],
+          [
+            "Reverse charge",
+            "No"
+          ],
+          [
+            "Due date",
+            "23 Nov 2026"
+          ]
+        ]
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "columns": [
+          {
+            "h": "#",
+            "w": 0.35,
+            "align": "center"
+          },
+          {
+            "h": "Description",
+            "w": 2.4
+          },
+          {
+            "h": "HSN / SAC",
+            "w": 0.8,
+            "align": "center"
+          },
+          {
+            "h": "Qty",
+            "w": 0.95,
+            "align": "center"
+          },
+          {
+            "h": "Rate",
+            "w": 0.95,
+            "align": "right"
+          },
+          {
+            "h": "Taxable value",
+            "w": 1.1,
+            "align": "right"
+          },
+          {
+            "h": "GST %",
+            "w": 0.7,
+            "align": "center"
+          },
+          {
+            "h": "CGST",
+            "w": 0.85,
+            "align": "right"
+          },
+          {
+            "h": "SGST",
+            "w": 0.85,
+            "align": "right"
+          },
+          {
+            "h": "IGST",
+            "w": 0.7,
+            "align": "right"
+          },
+          {
+            "h": "Total",
+            "w": 1.05,
+            "align": "right"
+          }
+        ],
+        "rows": [
+          [
+            "1",
+            "Modular switch 6A, white",
+            "8536",
+            "40 NOS",
+            "85.00",
+            "3,400.00",
+            "18%",
+            "306.00",
+            "306.00",
+            "0.00",
+            "4,012.00"
+          ],
+          [
+            "2",
+            "Copper wire 1.5 sq mm, 90 m coil",
+            "8544",
+            "5 ROL",
+            "1,450.00",
+            "7,250.00",
+            "18%",
+            "652.50",
+            "652.50",
+            "0.00",
+            "8,555.00"
+          ],
+          [
+            "3",
+            "Electrical installation labour",
+            "9954",
+            "1 OTH",
+            "3,500.00",
+            "3,500.00",
+            "18%",
+            "315.00",
+            "315.00",
+            "0.00",
+            "4,130.00"
+          ]
+        ],
+        "blank": 3,
+        "rowHeight": 6,
+        "totals": [
+          [
+            "Total taxable value",
+            "14,150.00"
+          ],
+          [
+            "CGST",
+            "1,273.50"
+          ],
+          [
+            "SGST",
+            "1,273.50"
+          ],
+          [
+            "IGST",
+            "0.00"
+          ],
+          [
+            "Round off",
+            "0.00"
+          ],
+          [
+            "Invoice total (INR)",
+            "16,697.00"
+          ]
+        ],
+        "small": true
+      },
+      {
+        "type": "box",
+        "title": "Amount in words",
+        "lines": [
+          "Rupees Sixteen Thousand Six Hundred Ninety Seven Only"
+        ]
+      },
+      {
+        "type": "columns",
+        "cols": [
+          {
+            "title": "Bank details",
+            "lines": [
+              "Bank: [Bank name]",
+              "A/c no.: [Account number]",
+              "IFSC: [IFSC code]   UPI: [your-id@bank]"
+            ]
+          },
+          {
+            "title": "Declaration",
+            "lines": [
+              "We declare that this invoice shows the actual price of the goods or services described and that all particulars are true and correct.",
+              "Terms: [Payment due within 15 days]"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "signature",
+        "space": 18,
+        "items": [
+          "Receiver's signature and date",
+          "For [Your Business Name], Authorised Signatory"
+        ]
+      }
+    ]
+  }
+}
