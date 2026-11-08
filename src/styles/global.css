@@ -933,3 +933,13 @@ fieldset.panel input[type=checkbox] { accent-color: var(--pc); width: 17px; heig
 .tpl-land .tpl-thumb { padding: 16px; } .tpl-land .tpl-thumb img { object-position: center; }
 .logo { flex: none; }
 @media (max-width: 400px) { .logo { font-size: 1.05rem; gap: 7px; } .logo img { width: 28px; height: 28px; } .nav a { padding: 8px 6px; font-size: .86rem; } .nav { gap: 2px; } }
+
+/* home search: instant results */
+.hb-search-wrap { position: relative; max-width: 560px; z-index: 5; }
+.hb-results { position: absolute; left: 0; right: 0; top: calc(100% + 8px); background: var(--card); border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 18px 40px rgba(17,24,39,.16); padding: 6px; display: grid; max-height: 420px; overflow: auto; }
+.hb-results[hidden] { display: none; }
+.hb-results a { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; color: var(--text); text-decoration: none; font-weight: 600; }
+.hb-results a .dot { flex: none; width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; color: #fff; }
+.hb-results a:hover, .hb-results a.on { background: var(--brand-50); color: var(--brand); }
+.hb-results .hb-moreres { justify-content: center; color: var(--brand); font-size: .9rem; border-top: 1px solid var(--border); border-radius: 0 0 10px 10px; }
+.hb-nores { margin: 0; padding: 12px; color: var(--muted); font-size: .92rem; }

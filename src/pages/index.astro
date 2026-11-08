@@ -38,7 +38,10 @@ const search = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stro
       <div>
         <h1>Free PDF and image tools that just work</h1>
         <p class="hb-lead">Edit, convert, compress and sign PDFs, or resize photos to any KB. {live.length} tools, no sign-up, no watermark.</p>
-        <label class="hb-search"><span set:html={search} /><input id="tool-search" type="search" placeholder="What do you want to do? e.g. compress pdf, 50 kb" aria-label="Search tools" autocomplete="off" /></label>
+        <div class="hb-search-wrap">
+          <label class="hb-search"><span set:html={search} /><input id="tool-search" type="search" placeholder="What do you want to do? e.g. compress pdf, 50 kb" aria-label="Search tools" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="hb-results" /></label>
+          <div class="hb-results" id="hb-results" role="listbox" hidden></div>
+        </div>
         <div class="hb-chips"><b>Popular:</b>{chips.map((t) => <a href={`/${t.slug}/`}>{t.name}</a>)}</div>
       </div>
       <div class="hb-art">
@@ -139,7 +142,7 @@ const search = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stro
             <h3><a href={`/${c.slug}/`}>{c.name}</a></h3>
             <ul>
               {live.filter((t) => t.category === c.id).map((t) => (
-                <li data-name={`${t.name} ${t.short}`.toLowerCase()}>
+                <li data-name={`${t.name} ${t.slug.replace(/-/g, ' ')} ${t.short}`.toLowerCase()} data-title={t.name.toLowerCase()}>
                   <a href={`/${t.slug}/`}><span class="dot" style={`background:${col(t)}`} set:html={icon(t.icon, 14)} />{t.name}</a>
                 </li>
               ))}
@@ -171,24 +174,57 @@ const search = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stro
   </script>
   <script>
     import { putHandoff } from '../lib/handoff';
-    // search: filter the full list
-    const input = document.getElementById('tool-search') as HTMLInputElement | null;
-    const all = document.getElementById('all-tools') as HTMLDetailsElement;
-    input?.addEventListener('input', () => {
-      const q = input.value.trim().toLowerCase();
-      document.querySelectorAll<HTMLElement>('[data-hide-on-search]').forEach((el) => (el.hidden = !!q));
-      if (q) all.open = true;
-      let any = false;
+    // search: instant results under the box, Enter opens the best match
+    const input = document.getElementById('tool-search') as HTMLInputElement;
+    const box = document.getElementById('hb-results')!;
+    const items = [...document.querySelectorAll<HTMLLIElement>('#all-tools li')].map((li) => ({ a: li.querySelector('a')!, name: li.dataset.name ?? '', title: li.dataset.title ?? '' }));
+    const STOP = new Set(['to', 'in', 'a', 'an', 'the', 'for', 'my', 'of', 'and', 'online', 'free', 'tool', 'tools', 'file', 'files', 'how', 'convert', 'converter', 'into']);
+    const norm = (q: string) => q.toLowerCase().replace(/(\d+)\s*kb\b/g, '$1kb').replace(/\bjpeg\b/g, 'jpg').replace(/[^a-z0-9 ]+/g, ' ').trim();
+    let active = -1, hits: typeof items = [];
+    const render = () => {
+      box.innerHTML = '';
+      if (!input.value.trim()) { box.hidden = true; input.setAttribute('aria-expanded', 'false'); return; }
+      if (!hits.length) { box.innerHTML = '<p class="hb-nores">No tool found. Try a shorter word, for example "pdf" or "jpg".</p>'; }
+      hits.slice(0, 8).forEach((h, k) => {
+        const a = h.a.cloneNode(true) as HTMLAnchorElement; a.setAttribute('role', 'option'); a.id = `hbr-${k}`;
+        if (k === active) { a.classList.add('on'); a.setAttribute('aria-selected', 'true'); }
+        box.appendChild(a);
+      });
+      if (hits.length > 8) { const m = document.createElement('a'); m.href = '#all-tools'; m.className = 'hb-moreres'; m.textContent = `See all ${hits.length} matching tools ↓`; m.onclick = () => { showAll(); box.hidden = true; }; box.appendChild(m); }
+      box.hidden = false; input.setAttribute('aria-expanded', 'true');
+    };
+    const search = () => {
+      const raw = norm(input.value); const words = raw.split(/\s+/).filter((w) => w && !STOP.has(w));
+      const terms = words.length ? words : raw.split(/\s+/).filter(Boolean);
+      hits = !raw ? [] : items.map((it) => {
+        if (!terms.every((w) => it.name.replace(/(\d+) kb/g, '$1kb').includes(w))) return null;
+        const t = it.title; let score = 0;
+        if (t === raw || t.replace(/ to /g, ' ') === terms.join(' ')) score += 100;
+        terms.forEach((w, k) => { if (t.includes(w)) score += 10 - k; if (t.startsWith(w)) score += 5; });
+        if (terms.length > 1 && t.indexOf(terms[0]) > -1 && t.indexOf(terms[0]) < t.indexOf(terms[terms.length - 1])) score += 8; // "png to webp" not "webp to png"
+        return { ...it, score };
+      }).filter(Boolean).sort((a: any, b: any) => b.score - a.score) as any;
+      active = hits.length ? 0 : -1; render(); filterAll(terms);
+    };
+    // the full A to Z list below follows the search too
+    const filterAll = (terms: string[]) => {
       document.querySelectorAll<HTMLElement>('[data-group]').forEach((g) => {
         let shown = 0;
-        g.querySelectorAll<HTMLElement>('li').forEach((li) => {
-          const hit = !q || q.split(/\s+/).filter(Boolean).every((w) => (li.dataset.name ?? '').includes(w));
-          li.hidden = !hit; if (hit) shown++;
-        });
-        g.hidden = shown === 0; if (shown) any = true;
+        g.querySelectorAll<HTMLElement>('li').forEach((li) => { const hit = !terms.length || terms.every((w) => (li.dataset.name ?? '').replace(/(\d+) kb/g, '$1kb').includes(w)); li.hidden = !hit; if (hit) shown++; });
+        g.hidden = shown === 0;
       });
-      document.getElementById('no-results')!.hidden = any;
+    };
+    const showAll = () => { const d = document.getElementById('all-tools') as HTMLDetailsElement; d.open = true; };
+    input.addEventListener('input', search);
+    input.addEventListener('focus', () => { if (input.value.trim()) render(); });
+    input.addEventListener('keydown', (e) => {
+      const n = Math.min(hits.length, 8);
+      if (e.key === 'ArrowDown' && n) { e.preventDefault(); active = (active + 1) % n; render(); }
+      else if (e.key === 'ArrowUp' && n) { e.preventDefault(); active = (active - 1 + n) % n; render(); }
+      else if (e.key === 'Enter') { e.preventDefault(); if (hits[active]) location.href = hits[active].a.href; else if (input.value.trim()) { showAll(); document.getElementById('all-tools')!.scrollIntoView({ behavior: 'smooth' }); } }
+      else if (e.key === 'Escape') { box.hidden = true; }
     });
+    document.addEventListener('click', (e) => { if (!(e.target as HTMLElement).closest('.hb-search-wrap')) box.hidden = true; });
     const ef = document.getElementById('hb-edit-file') as HTMLInputElement;
     document.getElementById('hb-edit-pick')?.addEventListener('click', () => ef.click());
     ef.addEventListener('change', async () => { if (!ef.files?.length) return; try { await putHandoff([ef.files[0]]); } catch { /* opens empty */ } location.href = '/edit-pdf/?from=home'; });
