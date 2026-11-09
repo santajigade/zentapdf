@@ -15,13 +15,13 @@ Done:
 - [x] how-to-convert-pdf-to-excel (2026-11-08)
 - [x] how-to-print-multiple-pages-on-one-sheet (2026-11-08)
 - [x] how-to-add-letterhead-to-pdf (2026-11-08)
+- [x] Compress a PDF to 1 MB or 2 MB: skipped 2026-11-09, already covered by how-to-compress-pdf-for-email (and compress-pdf-to-100kb)
+- [x] Multiple JPG photos to one PDF on phone: skipped 2026-11-09, already covered by scan-documents-to-pdf-with-phone (section "Option 2")
+- [x] how-to-split-pdf-into-separate-pages (2026-11-09)
+- [x] how-to-add-page-numbers-to-pdf (2026-11-09)
+- [x] how-to-convert-word-to-pdf-on-phone (2026-11-09)
 
 Open:
-- [ ] How to compress a PDF to 1 MB or 2 MB (compress-pdf)
-- [ ] How to convert multiple JPG photos to one PDF on phone (jpg-to-pdf)
-- [ ] How to split a PDF into separate pages (split-pdf)
-- [ ] How to add page numbers to a PDF (add-page-numbers)
-- [ ] How to convert Word to PDF on phone (word-to-pdf)
 - [ ] How to extract images from a PDF (extract-images-from-pdf)
 - [ ] How to convert a PDF to black and white for printing (pdf-to-grayscale)
 - [ ] How to remove blank pages from a scanned PDF (delete-blank-pages)
