@@ -52,11 +52,36 @@ body{width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;bac
 .k{display:inline-grid;place-items:center;height:64px;border-radius:12px;background:#f1f5f9;border:2px solid #e2e8f0;font-weight:700;font-size:22px;color:#334155}
 .k.on{background:var(--ac);border-color:var(--ac);color:#fff;transform:translateY(2px)}
 .k.done{background:#dcfce7;border-color:#86efac;color:#166534}
+
+/* feed 1080x1350 (Instagram / LinkedIn / Facebook feed) */
+body.feed,.feed #s{width:1080px;height:1350px}
+.feed .hdr{top:34px}.feed .hdr img{width:60px;height:60px}.feed .hdr{font-size:36px}
+.feed .eb{top:118px;font-size:22px}
+.feed .h1{top:168px;font-size:74px}
+.feed .card{top:340px;height:812px}.feed .ch{top:24px}.feed .sc{top:100px}.feed .note{bottom:14px;font-size:24px}
+.feed .lbl,.feed .chips{display:none}
+.feed .band{top:1156px;height:194px}.feed .band h4{top:30px;font-size:46px}.feed .band p{top:92px;font-size:26px}
+.feed .band .u{top:134px;font-size:24px;padding:8px 22px}.feed .qr{top:22px;width:150px;height:150px;padding:10px;border-radius:16px}
+.feed .cv .tt{font-size:110px}.feed .cv .pl{margin-top:40px}.feed .cv .ur{margin-top:50px}
+/* wide 1920x1080 (YouTube / LinkedIn / Facebook landscape) */
+body.wide,.wide #s{width:1920px;height:1080px}
+.wide .bg{background:linear-gradient(110deg,var(--tint) 0%,#fff 50%,var(--tint) 100%)}
+.wide .hdr{left:80px;top:70px}
+.wide .eb{left:80px;top:196px}
+.wide .h1{left:80px;top:256px;font-size:82px}
+.wide .card{left:870px;top:100px;width:992px;height:880px}
+.wide .lbl{left:80px;top:500px}
+.wide .chips{left:80px;right:auto;width:740px;top:544px;gap:12px}.wide .chip{font-size:24px;padding:10px 20px}
+.wide .band{left:80px;right:auto;width:740px;top:770px;height:230px;border-radius:32px}
+.wide .band h4{left:40px;top:40px;font-size:46px}.wide .band p{left:40px;top:104px;font-size:26px}.wide .band .u{left:40px;top:152px;font-size:26px;padding:10px 24px}
+.wide .qr{right:28px;top:28px;width:174px;height:174px;padding:12px}
+.wide .cv .tt{font-size:120px}.wide .cv .lg{width:120px;height:120px}.wide .cv .pl{margin-top:30px}.wide .cv .bx{margin-top:30px}.wide .cv .sm{margin-top:26px}.wide .cv .ur{margin-top:36px}
 </style></head><body><div id="s"></div>
 <script src="scenes.js"></script>
 <script>
 const P = new URLSearchParams(location.search);
 const V = VIDEOS[+(P.get('v') || 0)];
+const FMT = P.get('f') || 'short'; document.body.className = FMT;
 const S = document.getElementById('s');
 for (const [k, v] of Object.entries(V.theme)) S.style.setProperty('--' + k, v);
 const ease = (x) => x < 0 ? 0 : x > 1 ? 1 : x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;

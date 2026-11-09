@@ -1,6 +1,7 @@
 #!/bin/bash
 # build one short: frames, soundtrack, mp4, thumbnail
-v=$1; cd "$(dirname "$0")"
+v=$1; export F=${2:-short}; cd "$(dirname "$0")"
+NAME=$( [ "$F" = short ] && echo short || ([ "$F" = feed ] && echo 1080x1350 || echo 1920x1080) )
 id=$(node -e "global.window={};require('./videos.js');console.log(window.VIDEOS[$v].id)")
 node rec.mjs $v || exit 1
 EV=$(node -e "
@@ -11,8 +12,8 @@ C.forEach((c,ci)=>{ (S.pop||[]).forEach(x=>ev.pop.push(+(c+x).toFixed(3)));
   let ticks=S.tick||[]; if(V.scene==='keyboard') ticks=ticks.slice(0,[5,8,11][ci]);
   ticks.forEach(x=>ev.tick.push(+(c+x).toFixed(3))); (S.ding||[]).forEach(x=>ev.ding.push(+(c+x).toFixed(3))); });
 console.log(JSON.stringify(ev));")
-python3 track.py /tmp/fr/a$v.wav 16.5 "$EV"
+python3 track.py /tmp/fr/a$v$F.wav 16.5 "$EV"
 mkdir -p out
-ffmpeg -y -loglevel error -framerate 30 -i /tmp/fr/v$v/f%04d.jpg -i /tmp/fr/a$v.wav -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p -c:a aac -b:a 160k -shortest -movflags +faststart out/zentapdf-short-$id.mp4
-node snap1.mjs $v out/zentapdf-short-$id-thumbnail.png
-echo done $v $id
+ffmpeg -y -loglevel error -framerate 30 -i /tmp/fr/v$v$F/f%04d.jpg -i /tmp/fr/a$v$F.wav -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p -c:a aac -b:a 160k -shortest -movflags +faststart out/zentapdf-$NAME-$id.mp4
+node snap1.mjs $v out/zentapdf-$NAME-$id-thumbnail.png
+echo done $v $F $id

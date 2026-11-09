@@ -1,6 +1,8 @@
 # ZentaPDF YouTube Shorts maker
 
-Makes vertical 1080 × 1920 MP4 Shorts (16.5 s, 30 fps, H.264 + AAC) in the style of batch 1.
+Makes 16.5 s MP4 videos (30 fps, H.264 + AAC) in the style of batch 1, in three sizes:
+Shorts 1080 × 1920 (default), feed 1080 × 1350 (`F=feed` / `?f=feed`) and landscape 1920 × 1080 (`F=wide` / `?f=wide`).
+Same demo scenes in every size; `short.html` changes the layout around them.
 
 ## Style rules (always)
 - Layout: cover (0 to 1.7 s) → tool card demo, 3 cycles of 4.2 s → closing "Try it free today" cover.
@@ -27,6 +29,7 @@ node -e "global.window={};require('./videos.js');require('fs').writeFileSync('ur
 node qr.mjs                # makes qr.js
 mkdir -p /tmp/sn && node snap.mjs 0,1,2 0.8,3,4.5,9,15.5 && python3 sheet.py 0,1,2 0.8,3,4.5,9,15.5   # check /tmp/sheet.png
 seq 0 9 | xargs -P 4 -I{} ./build.sh {}    # about 1 minute per video
+# other sizes: ./build.sh N feed  or  ./build.sh N wide   (previews: F=feed node snap.mjs ...)
 ```
 Then check frames of every MP4, zip `out/`, and give a table of title + description for each video.
 
@@ -46,3 +49,8 @@ Edit PDF (navy), Rotate PDF (olive), Add page numbers (wine), Reorder pages (gra
 PPT to PDF (brick), Redact PDF (steel), Crop image (mauve), WebP to JPG (khaki), QR code generator (dusk).
 No device tests (owner's choice). New scenes: editpdf, rotate, pagenum, reorder, excel2pdf, ppt2pdf, redact, cropimg, webp2jpg, qr.
 `qrExtra` in a video adds demo QR codes to `qr.js` (used by the qr scene). WebP to JPG numbers come from the real tool. Full settings in `videos-batch3.js`.
+
+## Batch 4 (done, 9 Nov 2026): 5 tools in 1080 × 1350 and 1920 × 1080
+Remove pages (berry + peach), PDF scanner (ocean + lime), PDF to PPT (sunset orange + amber), PDF to text (deep sea + aqua),
+Barcode generator (grape + mint). Two-colour themes (accent and second colour differ). Barcodes are real (jsbarcode encodings).
+Output names: `zentapdf-1080x1350-<id>.mp4`, `zentapdf-1920x1080-<id>.mp4`. Full settings in `videos-batch4.js`.
