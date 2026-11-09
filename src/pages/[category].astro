@@ -15,7 +15,7 @@ const crumbs = [{ name: 'Home', href: '/' }, { name: cat.name, href: `/${cat.slu
 <Base title={cat.title} description={cat.description} schema={[breadcrumbSchema(crumbs)]}>
   <Breadcrumbs items={crumbs} />
   <section class="container">
-    <div class="tool-head"><h1>{cat.name} tools</h1><p>{cat.description}</p></div>
+    <div class="tool-head"><h1>{cat.name.replace(/ Tools$/, "")} tools</h1><p>{cat.description}</p></div>
     <div class={`cat-band tint-${cat.id}`}><div class="grid">{list.map((t) => <ToolCard tool={t} />)}</div></div>
   </section>
 </Base>

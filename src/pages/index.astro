@@ -9,8 +9,8 @@ const live = tools.filter((t) => t.live);
 const T = (s: string) => toolBySlug(s) as Tool;
 const col = (t: Tool) => toolColor[t.slug] ?? '#5b5bd6';
 const n = (id: string) => live.filter((t) => t.category === id).length;
-const catIcon: Record<string, string> = { organise: 'merge', edit: 'editdoc', convert: 'word', security: 'lock', image: 'images', imgconv: 'convert', utility: 'qr', gif: 'gif', topdf: 'plus' };
-const order = ['organise', 'edit', 'convert', 'topdf', 'security', 'image', 'imgconv', 'gif', 'utility'];
+const catIcon: Record<string, string> = { audio: 'music', organise: 'merge', edit: 'editdoc', convert: 'word', security: 'lock', image: 'images', imgconv: 'convert', utility: 'qr', gif: 'gif', topdf: 'plus' };
+const order = ['organise', 'edit', 'convert', 'topdf', 'security', 'image', 'imgconv', 'audio', 'gif', 'utility'];
 const cats = order.map((id) => categories.find((c) => c.id === id)!).filter(Boolean);
 const cat = (id: string) => cats.find((c) => c.id === id)!;
 const chips = ['merge-pdf', 'pdf-to-word', 'compress-pdf', 'reduce-image-size-in-kb', 'sign-pdf'].map(T);
@@ -20,6 +20,7 @@ const rows: [string, string[]][] = [
   ['edit', ['edit-pdf', 'sign-pdf', 'add-page-numbers', 'add-watermark', 'pdf-overlay', 'crop-pdf']],
   ['convert', ['pdf-to-word', 'pdf-to-excel', 'pdf-to-jpg', 'pdf-to-ppt', 'extract-images-from-pdf', 'pdf-to-markdown']],
   ['topdf', ['word-to-pdf', 'jpg-to-pdf', 'excel-to-pdf', 'ppt-to-pdf', 'pdf-scanner', 'html-to-pdf']],
+  ['audio', ['mp3-cutter', 'audio-converter', 'video-to-mp3', 'ringtone-maker', 'volume-booster', 'audio-compressor']],
   ['image', ['compress-image', 'reduce-image-size-in-kb', 'resize-image', 'crop-image', 'convert-image', 'whatsapp-sticker-maker']],
 ];
 const more = ['security', 'imgconv', 'gif', 'utility'];
@@ -28,6 +29,8 @@ const offers = {
   pdf: ['edit-pdf', 'compress-pdf', 'pdf-to-word', 'sign-pdf', 'merge-pdf', 'split-pdf', 'pdf-to-jpg', 'pdf-to-excel'],
   img: ['compress-image', 'jpg-to-pdf', 'crop-image', 'remove-exif-data'],
   word: ['word-to-pdf'], excel: ['excel-to-pdf'], ppt: ['ppt-to-pdf'],
+  audio: ['mp3-cutter', 'audio-converter', 'audio-compressor', 'volume-booster', 'ringtone-maker', 'audio-normalizer'],
+  video: ['video-to-mp3', 'mp3-cutter', 'video-to-gif'],
 };
 const offerData = Object.fromEntries(Object.entries(offers).map(([k, v]) => [k, v.map(T).filter((t) => t?.live).map((t) => ({ slug: t.slug, name: t.name, color: col(t), icon: icon(t.icon, 20) }))]));
 const search = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>';
@@ -49,7 +52,7 @@ const search = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stro
           <div class="hb-drop-idle">
             <span class="hb-drop-ic" set:html={icon('upload', 34)} />
             <strong>Drop your file here</strong>
-            <span>PDF, JPG, PNG, Word, Excel or PowerPoint</span>
+            <span>PDF, images, Word, Excel, PowerPoint, audio or video</span>
             <span class="btn hb-choose">Choose file</span>
           </div>
           <div class="hb-drop-pick" hidden>
@@ -59,7 +62,7 @@ const search = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stro
             <button type="button" class="hb-other">Choose another file</button>
           </div>
         </div>
-        <input id="hb-file" type="file" multiple hidden accept=".pdf,application/pdf,image/*,.doc,.docx,.xls,.xlsx,.ppt,.pptx" />
+        <input id="hb-file" type="file" multiple hidden accept=".pdf,application/pdf,image/*,.doc,.docx,.xls,.xlsx,.ppt,.pptx,audio/*,video/*,.mp3,.wav,.m4a,.flac,.ogg,.mkv" />
         <div class="hb-float f1" aria-hidden="true"><span style="background:#16a34a" set:html={icon('compress', 18)} />3.2 MB → 79 KB</div>
         <div class="hb-float f2" aria-hidden="true"><span style="background:#2563eb" set:html={icon('word', 18)} />PDF to Word ready</div>
         <div class="hb-float f3" aria-hidden="true"><span style="background:#7c3aed" set:html={icon('sign', 18)} />Signed ✓</div>
@@ -232,10 +235,10 @@ const search = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stro
     const drop = document.getElementById('hb-drop')!, file = document.getElementById('hb-file') as HTMLInputElement;
     const idle = drop.querySelector<HTMLElement>('.hb-drop-idle')!, pick = drop.querySelector<HTMLElement>('.hb-drop-pick')!;
     let files: File[] = [];
-    const kind = (f: File) => /pdf$/i.test(f.type) || /\.pdf$/i.test(f.name) ? 'pdf' : /^image\//.test(f.type) ? 'img' : /\.docx?$/i.test(f.name) ? 'word' : /\.xlsx?$/i.test(f.name) ? 'excel' : /\.pptx?$/i.test(f.name) ? 'ppt' : '';
+    const kind = (f: File) => /pdf$/i.test(f.type) || /\.pdf$/i.test(f.name) ? 'pdf' : /^image\//.test(f.type) ? 'img' : /\.docx?$/i.test(f.name) ? 'word' : /\.xlsx?$/i.test(f.name) ? 'excel' : /\.pptx?$/i.test(f.name) ? 'ppt' : /^audio\//.test(f.type) || /\.(mp3|wav|m4a|aac|ogg|opus|flac|wma|amr|aiff?)$/i.test(f.name) ? 'audio' : /^video\//.test(f.type) || /\.(mp4|mov|mkv|webm|avi)$/i.test(f.name) ? 'video' : '';
     const show = (list: File[]) => {
       const k = kind(list[0]); const offers = (window as any).__offers[k] as { slug: string; name: string; color: string; icon: string }[] | undefined;
-      if (!offers) { alert('Please choose a PDF, image, Word, Excel or PowerPoint file.'); return; }
+      if (!offers) { alert('Please choose a PDF, image, Office, audio or video file.'); return; }
       files = list.filter((f) => kind(f) === k);
       pick.querySelector('.hb-fname')!.textContent = files.length > 1 ? `${files.length} files` : files[0].name;
       const box = pick.querySelector('.hb-offers')!; box.innerHTML = '';

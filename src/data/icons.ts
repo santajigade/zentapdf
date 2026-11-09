@@ -1,6 +1,17 @@
 // Simple 24x24 stroke icons (original). Each value is the inner SVG markup.
 const doc = '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/>';
 export const icons: Record<string, string> = {
+  scissors: '<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/>',
+  bell: '<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/><path d="M2 8c0-2.2.7-4.3 2-6M22 8a10 10 0 0 0-2-6"/>',
+  music: '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>',
+  volume: '<path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/>',
+  videoaudio: '<rect x="2" y="5" width="13" height="14" rx="2"/><path d="m15 10 4-2v8l-4-2"/><path d="M7 10v4M10 9v6"/>',
+  metronome: '<path d="M9 3h6l4 18H5z"/><path d="M12 15 17 6"/><path d="M7.5 15h9"/>',
+  pitch: '<path d="M3 12h3l3-7 4 14 3-7h5"/><path d="M19 3v4M17 5h4"/>',
+  tempo: '<circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M10 2h4M19 5l1.5-1.5"/>',
+  joinaudio: '<path d="M2 10v4M5 7v10M8 9v6"/><path d="M16 9v6M19 6v12M22 10v4"/><path d="M10.5 12h3"/>',
+  normalize: '<path d="M2 12h2M6 8v8M9 5v14M12 7v10M15 9v6M18 7v10M21 10v4"/><path d="M3 4h18M3 20h18" stroke-dasharray="2 2"/>',
+  sine: '<path d="M2 12c2.5-7 5-7 7.5 0s5 7 7.5 0 2.5-4 5-4"/>',
   wrench: '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L4 16.8V20h3.2l5.3-5.3a4 4 0 0 0 5.2-5.4l-2.6 2.6-2.5-.4-.4-2.5z"/>',
   grid: '<rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/>',
   overlay: '<rect x="3" y="3" width="13" height="13" rx="1.5"/><rect x="8" y="8" width="13" height="13" rx="1.5" stroke-dasharray="3 2"/>',
@@ -75,6 +86,9 @@ export const icon = (name: string, size = 24) =>
 // Solid tile colour per tool (original ZentaPDF palette)
 const C = { red: '#e5484d', orange: '#f76b15', amber: '#e5a000', green: '#30a46c', teal: '#12a594', cyan: '#0797b9', blue: '#3e63dd', indigo: '#5b5bd6', violet: '#8e4ec6', pink: '#d6409f', slate: '#5b6475' };
 export const toolColor: Record<string, string> = {
+  'mp3-cutter': C.violet, 'ringtone-maker': C.pink, 'audio-converter': C.blue, 'wav-to-mp3': C.teal, 'm4a-to-mp3': C.indigo, 'mp3-to-wav': C.cyan, 'ogg-to-mp3': C.orange, 'flac-to-mp3': C.green,
+  'audio-compressor': C.green, 'volume-booster': C.orange, 'video-to-mp3': C.red, 'bpm-finder': C.amber, 'pitch-changer': C.violet, 'audio-speed-changer': C.cyan, 'audio-joiner': C.red,
+  'reverse-audio': C.indigo, 'audio-normalizer': C.teal, 'voice-recorder': C.red, 'tone-generator': C.blue,
   'merge-pdf': C.red, 'split-pdf': C.orange, 'remove-pages': C.pink, 'extract-pages': C.teal, 'reorder-pdf-pages': C.violet, 'rotate-pdf': C.indigo, 'add-blank-page': C.slate,
   'edit-pdf': C.violet, 'sign-pdf': C.blue, 'add-page-numbers': C.indigo, 'add-watermark': C.pink, 'crop-pdf': C.teal, 'flatten-pdf': C.cyan, 'edit-pdf-metadata': C.slate,
   'protect-pdf': C.blue, 'unlock-pdf': C.cyan,

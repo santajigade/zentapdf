@@ -20,6 +20,7 @@ const footCols = [
   { title: 'Edit PDF', all: '/edit-pdf-tools/', slugs: ['edit-pdf', 'sign-pdf', 'add-watermark', 'add-page-numbers', 'crop-pdf'] },
   { title: 'Convert', all: '/convert-pdf/', slugs: ['pdf-to-word', 'word-to-pdf', 'pdf-to-excel', 'jpg-to-pdf', 'pdf-to-jpg'] },
   { title: 'Image tools', all: '/image-tools/', slugs: ['compress-image', 'resize-image', 'crop-image', 'convert-image', 'rotate-image'] },
+  { title: 'Audio tools', all: '/audio-tools/', slugs: ['mp3-cutter', 'audio-converter', 'video-to-mp3', 'ringtone-maker', 'voice-recorder'] },
 ];
 const year = new Date().getFullYear();
 const SOCIAL = [
@@ -89,6 +90,7 @@ const orgSchema = [
         {categories.slice(0, 4).map((c) => <a class="hide-sm" href={`/${c.slug}/`}>{c.name.replace(' PDF', '')}</a>)}
         <a class="hide-sm" href="/image-tools/">Images</a>
         <a class="hide-sm" href="/gif-tools/">GIF</a>
+        <a class="hide-sm" href="/audio-tools/">Audio</a>
         <a class="hide-sm" href="/device-test/">Device Test</a>
         <a href="/templates/">Templates</a>
         <a class="hide-xs" href="/guides/">Guides</a>
@@ -107,7 +109,7 @@ const orgSchema = [
       <div class="foot-grid">
         <div class="foot-brand">
           <a class="logo" href="/"><img src="/logo.svg" width="28" height="28" alt="" /><span>Zenta<b>PDF</b></span></a>
-          <p>Free online PDF and image tools. Fast, simple and no sign-up.</p>
+          <p>Free online PDF, image and audio tools. Fast, simple and no sign-up.</p>
           <ul class="social" aria-label="Follow ZentaPDF">
             {SOCIAL.map((x) => <li><a href={x.url} target="_blank" rel="noopener me" aria-label={`ZentaPDF on ${x.name}`} title={x.name} style={`--sc:${x.color}`}><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d={x.icon} fill="currentColor" /></svg></a></li>)}
           </ul>

@@ -44,6 +44,13 @@ import PdfToWord from '../components/tools/PdfToWord';
 import PdfToExcel from '../components/tools/PdfToExcel';
 import OfficeToPdf from '../components/tools/OfficeToPdf';
 import PdfPlus from '../components/tools/PdfPlus';
+import AudioCutter from '../components/tools/audio/AudioCutter';
+import AudioConvert from '../components/tools/audio/AudioConvert';
+import AudioEffect from '../components/tools/audio/AudioEffect';
+import AudioJoiner from '../components/tools/audio/AudioJoiner';
+import BpmFinder from '../components/tools/audio/BpmFinder';
+import VoiceRecorder from '../components/tools/audio/VoiceRecorder';
+import ToneGenerator from '../components/tools/audio/ToneGenerator';
 
 export function getStaticPaths() {
   return tools.filter((t) => t.live).map((t) => ({ params: { tool: t.slug }, props: { tool: t } }));
@@ -64,7 +71,16 @@ const schema = [
 ];
 const isGen = tool.category === 'utility';
 const isImage = tool.category === 'image' || tool.category === 'gif' || tool.category === 'imgconv' || tool.slug === 'jpg-to-pdf' || tool.slug === 'images-to-pdf';
-const features = isGen ? [
+const isAudio = tool.category === 'audio';
+const audioFeatures = [
+  { t: '100% private', d: 'Your files never leave your device. All audio is processed inside your browser.' },
+  { t: 'Free, no sign-up', d: 'No account, no email, no watermark and no daily limits.' },
+  { t: 'Fast', d: 'Most files are ready in a few seconds, with a progress bar for long jobs.' },
+  { t: 'Many formats', d: 'MP3, WAV, M4A, AAC, OGG, FLAC, WMA and the sound from MP4, MOV and WEBM videos.' },
+  { t: 'Good quality', d: 'LAME MP3 encoding up to 320 kbps, lossless WAV and FLAC, smooth fades and a clean limiter.' },
+  { t: 'Phone and computer', d: 'Works on Android, iPhone, Windows and Mac. Drag and drop or tap to choose a file.' },
+];
+const features = isAudio ? audioFeatures : isGen ? [
   { t: 'Free forever', d: 'No sign-up, no watermark and no limits on how many you create.' },
   { t: 'Instant preview', d: 'See the result change as you type, then download in one click.' },
   { t: 'Print quality', d: 'High-resolution PNG and vector SVG downloads where available.' },
@@ -82,10 +98,11 @@ const features = isGen ? [
   <Breadcrumbs items={crumbs} />
   <section class="container narrow">
     <div class="tool-head">
-      <h1>{tool.title}</h1>
+      <h1>{tool.h1 ?? tool.title}</h1>
       <p>{tool.short}</p>
     </div>
     <div class={`tool-box cat-${tool.category}`}>
+      {isAudio && <p class="privacy-note"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span><b>Your files never leave your device.</b> Everything runs in your browser; nothing is uploaded.</span></p>}
       {tool.slug === 'merge-pdf' && <MergePdf client:load />}
       {tool.slug === 'split-pdf' && <SplitPdf client:load />}
       {(tool.slug === 'jpg-to-pdf' || tool.slug === 'images-to-pdf') && <JpgToPdf client:load />}
@@ -161,6 +178,21 @@ const features = isGen ? [
       {tool.slug === 'crop-pdf' && <PdfEdit mode="crop" client:load />}
       {tool.slug === 'flatten-pdf' && <PdfEdit mode="flatten" client:load />}
       {tool.slug === 'edit-pdf-metadata' && <PdfEdit mode="metadata" client:load />}
+      {tool.slug === 'mp3-cutter' && <AudioCutter client:load />}
+      {tool.slug === 'ringtone-maker' && <AudioCutter mode="ringtone" client:load />}
+      {tool.slug === 'audio-converter' && <AudioConvert client:load />}
+      {isAudio && tool.from && <AudioConvert from={tool.from} to={tool.to as any} client:load />}
+      {tool.slug === 'audio-compressor' && <AudioConvert mode="compress" client:load />}
+      {tool.slug === 'video-to-mp3' && <AudioConvert mode="video" client:load />}
+      {tool.slug === 'volume-booster' && <AudioEffect mode="volume" client:load />}
+      {tool.slug === 'audio-normalizer' && <AudioEffect mode="normalize" client:load />}
+      {tool.slug === 'reverse-audio' && <AudioEffect mode="reverse" client:load />}
+      {tool.slug === 'pitch-changer' && <AudioEffect mode="pitch" client:load />}
+      {tool.slug === 'audio-speed-changer' && <AudioEffect mode="speed" client:load />}
+      {tool.slug === 'audio-joiner' && <AudioJoiner client:load />}
+      {tool.slug === 'bpm-finder' && <BpmFinder client:load />}
+      {tool.slug === 'voice-recorder' && <VoiceRecorder client:load />}
+      {tool.slug === 'tone-generator' && <ToneGenerator client:load />}
       <noscript><p class="error">Please turn on JavaScript to use this tool.</p></noscript>
     </div>
   </section>
@@ -169,8 +201,17 @@ const features = isGen ? [
     <h2>{tool.howToName}</h2>
     <ol class="steps">{tool.steps!.map((s) => <li>{s}</li>)}</ol>
     <AdSlot />
-    <h2>Why use ZentaPDF {tool.name}?</h2>
+    {tool.formats && <>
+      <h2>Supported formats</h2>
+      <ul class="fmt-list">{tool.formats.map((f) => <li>{f}</li>)}</ul>
+    </>}
+    <h2>{isAudio ? 'Key features' : `Why use ZentaPDF ${tool.name}?`}</h2>
     <div class="features">{features.map((f) => <div><strong>{f.t}</strong><span>{f.d}</span></div>)}</div>
+    {isAudio && <>
+      <h2>Your privacy</h2>
+      <p>{tool.name} works entirely in your web browser using the Web Audio API and WebAssembly. Your {tool.slug === 'voice-recorder' ? 'recordings are' : 'files are'} never uploaded to our server or anyone else's, nothing is stored, and the result is created on your own device. You can even disconnect from the internet after the page has loaded.</p>
+      {(tool.slug === 'voice-recorder' || tool.slug === 'tone-generator') && <p>Want to check your {tool.slug === 'voice-recorder' ? 'microphone' : 'speakers or headphones'} first? Try our free <a href={tool.slug === 'voice-recorder' ? '/device-test/mic-test/' : '/device-test/speaker-test/'}>{tool.slug === 'voice-recorder' ? 'Mic Test' : 'Speaker and Headphone Test'}</a>.</p>}
+    </>}
     <h2>Frequently asked questions</h2>
     {tool.faqs!.map((f) => <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>)}
     {guidesForTool(tool.slug).length > 0 && <>
@@ -180,9 +221,9 @@ const features = isGen ? [
     <h2>Related tools</h2>
     <div class="grid">{related.map((t) => <ToolCard tool={t} />)}</div>
     {sameCat.length > 0 && <>
-      <h2>More {cat.name} tools</h2>
+      <h2>More {cat.name.replace(/ Tools$/, "")} tools</h2>
       <ul class="link-chips">{sameCat.map((t) => <li><a href={`/${t.slug}/`}>{t.name}</a></li>)}</ul>
-      <p><a href={`/${cat.slug}/`}>All {cat.name} tools →</a></p>
+      <p><a href={`/${cat.slug}/`}>All {cat.name.replace(/ Tools$/, "")} tools →</a></p>
     </>}
     <h2>Popular tools</h2>
     <ul class="link-chips">{popular.map((t) => <li><a href={`/${t.slug}/`}>{t.name}</a></li>)}<li><a href="/device-test/">Device tests</a></li></ul>

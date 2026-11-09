@@ -80,6 +80,11 @@ const schema = [
     <div class="grid">{related.map((r) => <DTCard t={r} />)}</div>
     <h2>All device tests</h2>
     <ul class="link-chips">{deviceTests.filter((d) => d.live && d.slug !== t.slug).map((d) => <li><a href={`/device-test/${d.slug}/`}>{d.name}</a></li>)}</ul>
+    {(t.slug === 'mic-test' || t.slug === 'speaker-test') && <>
+      <h2>Audio tools</h2>
+      <p>{t.slug === 'mic-test' ? <>Microphone working? Record and save your voice as MP3 with our free <a href="/voice-recorder/">Online Voice Recorder</a>.</> : <>Need a steady test sound? Play any frequency with our free <a href="/tone-generator/">Tone Generator</a>.</>}</p>
+      <ul class="link-chips">{[['voice-recorder', 'Voice Recorder'], ['tone-generator', 'Tone Generator'], ['mp3-cutter', 'MP3 Cutter'], ['volume-booster', 'Volume Booster'], ['audio-converter', 'Audio Converter']].map(([s2, n]) => <li><a href={`/${s2}/`}>{n}</a></li>)}</ul>
+    </>}
     <h2>Popular PDF tools</h2>
     <ul class="link-chips">{[['pdf-to-word', 'PDF to Word'], ['compress-pdf', 'Compress PDF'], ['merge-pdf', 'Merge PDF'], ['jpg-to-pdf', 'JPG to PDF'], ['edit-pdf', 'Edit PDF'], ['compress-image', 'Compress Image']].map(([s2, n]) => <li><a href={`/${s2}/`}>{n}</a></li>)}</ul>
     <p style="margin-top:18px"><a href="/device-test/">← All device tests</a></p>

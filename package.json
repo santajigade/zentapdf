@@ -11,6 +11,10 @@
   "dependencies": {
     "@astrojs/preact": "^6.1.1",
     "@astrojs/sitemap": "^3.7.4",
+    "@breezystack/lamejs": "^1.2.7",
+    "@ffmpeg/core": "^0.12.10",
+    "@ffmpeg/ffmpeg": "^0.12.15",
+    "@ffmpeg/util": "^0.12.2",
     "@jsquash/jpeg": "^1.6.0",
     "@m-lab/ndt7": "^0.1.5",
     "@neslinesli93/qpdf-wasm": "^0.3.0",
@@ -33,6 +37,8 @@
     "pptxgenjs": "^4.0.1",
     "preact": "^11.1.0",
     "qrcode": "^1.5.4",
+    "soundtouchjs": "^0.3.0",
+    "wavesurfer.js": "^8.0.5",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {

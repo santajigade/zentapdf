@@ -44,3 +44,10 @@ npx lighthouse http://localhost:4321/<slug>/ --form-factor=mobile   # target 95+
 ## Free Templates (/templates/)
 - Full playbook: `tools/templates/README.md`. Queue: `tools/templates/QUEUE.json`. Daily scheduled task adds `perDay` templates.
 - `node tools/templates/build.mjs` then `node tools/templates/check.mjs` (0 problems) before pushing.
+
+## Audio tools (category `audio`, /audio-tools/)
+- Screens: `src/components/tools/audio/` (AudioCutter: cutter + ringtone, AudioConvert: converter, format pages, compressor, video to MP3, AudioEffect: volume, normalize, reverse, pitch, speed, AudioJoiner, BpmFinder, VoiceRecorder, ToneGenerator).
+- Engine: `src/lib/audio/` (core.ts decode/encode, dsp.ts effects and BPM, mp3.worker.ts LAME, stretch.worker.ts SoundTouch, ffmpeg.ts lazy loader).
+- ffmpeg.wasm single-thread core is self-hosted in `public/ffmpeg/0.12.10/` and loaded only when needed (OGG, FLAC, WMA/AMR/MKV input, AAC when the browser has no AAC encoder, files over 100 MB).
+- Every audio page shows the "Your files never leave your device" note (template in `[tool].astro`), plus Supported formats and Privacy sections.
+- Tests: `node tools/test/e2e-audio.mjs [cut|ring|conv|comp|vol|video|bpm|fx|join|rec|tone]` (test files in sandbox testfiles/audio).
