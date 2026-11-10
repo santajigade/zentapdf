@@ -1,0 +1,405 @@
+{
+  "slug": "experienced-resume-template",
+  "category": "resume",
+  "name": "Experienced Resume Template",
+  "h1": "Experienced Resume Template (Word and PDF, Two Pages)",
+  "metaTitle": "Experienced Resume Template: Free Word & PDF Format",
+  "metaDescription": "Free resume template for experienced professionals in Word and PDF. Two pages, achievements first, ATS friendly layout for 3 to 10+ years. No sign-up.",
+  "short": "Two-page resume for professionals with 3 to 10+ years of experience, career highlights first.",
+  "accent": "#0B4F6C",
+  "maxPages": 2,
+  "useCases": [
+    "Job search",
+    "Job change"
+  ],
+  "industries": [
+    "Professionals",
+    "Corporate",
+    "IT and software"
+  ],
+  "date": "2026-11-10",
+  "intro": "This experienced resume template puts your biggest results at the top of page one, then lists your jobs with the latest first. It is built for people with roughly 3 to 10 or more years of work, uses a single column with standard headings, and fits on two pages so there is room for a real career story without padding.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Replace the name, job title and contact line in the coloured band at the top.",
+    "Rewrite the summary in three lines: your role, your years of experience and what you are known for.",
+    "Fill the Career highlights box with your four best results, each with a number.",
+    "Update the three skill columns with words from the job post that are true for you.",
+    "Add your jobs with the latest first. Give recent roles three or four bullets and older roles one or two.",
+    "Fill selected projects, education, certifications and the extra details on page two, and delete anything that does not apply.",
+    "Save as PDF, check that it is still two pages, and name it like Rahul-Mehta-Resume.pdf."
+  ],
+  "guide": [
+    {
+      "h": "One page or two pages?",
+      "p": [
+        "There is no fixed rule. Many career advisers say one page is enough for people with under about ten years of work, while a second page makes sense when you have a long record of relevant jobs, projects or certifications. The test is simple: every line on page two should help you get this job. If it does not, cut it and use one page.",
+        "This template is set up for two pages. Page one carries the summary, highlights, skills and your latest jobs, because a recruiter may only skim the top before deciding to read on."
+      ]
+    },
+    {
+      "h": "Why highlights come before job history",
+      "p": [
+        "With several jobs behind you, your best work can get buried under older roles. The **Career highlights** box pulls four results to the top, such as money saved, time cut, revenue grown or team size. Write each one as an action plus a number, for example \"Cut release time by 35% by moving to monthly releases\".",
+        "Under each job, keep the same idea. Start bullets with a verb like led, built, cut, grew or launched, and say what changed because of you rather than listing daily duties."
+      ]
+    },
+    {
+      "h": "Keeping it readable for ATS software",
+      "p": [
+        "Many employers pass resumes through an applicant tracking system before a person reads them. This template uses real text, a single reading order and plain headings such as Work experience and Education, with no photos, charts or text boxes. Use the same job titles and skill names that appear in the job post where they honestly describe you, and spell out short forms once, for example Project Management Professional (PMP)."
+      ]
+    }
+  ],
+  "tips": [
+    "Tailor the summary, highlights and skills for each application. A general resume is easy to skip.",
+    "Show numbers wherever you can: budgets, team size, users, percentage gains, time saved.",
+    "Go back about 10 to 15 years in detail. Older jobs can be one line each or left out.",
+    "Keep the notice period line honest and up to date, since many Indian recruiters ask for it first.",
+    "Do not add salary, a photo or personal details like date of birth unless the employer asks."
+  ],
+  "faqs": [
+    {
+      "q": "Who is this resume template for?",
+      "a": "It suits professionals with about 3 to 10 or more years of experience in any field, such as IT, finance, sales, operations or engineering. The sample text shows a project manager, so replace it with your own role and results."
+    },
+    {
+      "q": "Can I make it one page?",
+      "a": "Yes. Delete older roles, the training section and the additional information, and cut each job to its strongest two or three bullets. Check the page count after you save it as PDF."
+    },
+    {
+      "q": "Is the template ATS friendly?",
+      "a": "Yes. It uses normal text in a single column with standard headings. The coloured band at the top is a simple shaded table cell with real text inside, not an image."
+    },
+    {
+      "q": "Can I edit it in Google Docs?",
+      "a": "Yes. Upload the Word file to Google Drive, open it with Google Docs, edit it and use File > Download > PDF document when you are done."
+    },
+    {
+      "q": "Should I include every job I have had?",
+      "a": "Not always. List the jobs that matter for the role you want. Very old or unrelated jobs can be grouped as one line, such as Earlier roles in retail sales, 2012 to 2016."
+    }
+  ],
+  "related": [
+    "fresher-resume-template",
+    "cover-letter-template"
+  ],
+  "tools": [
+    "word-to-pdf",
+    "pdf-to-word",
+    "compress-pdf",
+    "edit-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 16
+    },
+    "size": 10,
+    "font": "Arial",
+    "headFont": "Cambria",
+    "titleSize": 24,
+    "blocks": [
+      {
+        "type": "title",
+        "band": true,
+        "text": "[Your Full Name]",
+        "size": 24,
+        "sub": "Senior Project Manager  |  8 years in IT services and product delivery\n[Phone]   |   [Email]   |   [City, Country]   |   [linkedin.com/in/your-profile]"
+      },
+      {
+        "type": "heading",
+        "text": "Professional summary",
+        "before": 0
+      },
+      {
+        "type": "p",
+        "text": "Project manager with 8 years of experience running software projects for banking and retail clients. Known for bringing late projects back on track, building calm and accountable teams, and turning client goals into clear plans with dates, owners and budgets.",
+        "line": 1.1,
+        "after": 4
+      },
+      {
+        "type": "box",
+        "title": "Career highlights",
+        "lines": [
+          "**Delivered 14 projects** worth over [INR 40 crore / USD 5 million] in total, 12 of them on or before the agreed date.",
+          "**Cut release time by 35%** by moving a 40 person team from quarterly to monthly releases.",
+          "**Kept a key client** worth [INR 6 crore] a year after a failed launch, by leading a 90 day recovery plan.",
+          "**Grew a team from 6 to 22 people** and promoted four engineers into lead roles."
+        ],
+        "after": 6
+      },
+      {
+        "type": "heading",
+        "text": "Core skills"
+      },
+      {
+        "type": "columns",
+        "after": 4,
+        "cols": [
+          {
+            "title": "Delivery",
+            "lines": [
+              "Agile and Scrum",
+              "Project planning",
+              "Risk and issue logs",
+              "Budget control"
+            ]
+          },
+          {
+            "title": "People",
+            "lines": [
+              "Team building",
+              "Stakeholder updates",
+              "Vendor management",
+              "Coaching and hiring"
+            ]
+          },
+          {
+            "title": "Tools",
+            "lines": [
+              "Jira and Confluence",
+              "MS Project",
+              "Excel and Power BI",
+              "Azure DevOps"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Work experience"
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 0,
+        "split": [
+          3,
+          1.2
+        ],
+        "left": [
+          "## Senior Project Manager",
+          "[Company name]  |  [City]"
+        ],
+        "right": [
+          "**Apr 2022 to Present**"
+        ]
+      },
+      {
+        "type": "bullets",
+        "gap": 1.5,
+        "items": [
+          "Lead a portfolio of 5 projects for two banking clients with a combined yearly budget of [INR 18 crore].",
+          "Set up a weekly risk review that cut unplanned delays from 9 per quarter to 3.",
+          "Introduced a shared dashboard in Power BI so clients see progress, budget and open issues in one place.",
+          "Hire and coach a team of 22 developers, testers and analysts across two cities."
+        ]
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 0,
+        "split": [
+          3,
+          1.2
+        ],
+        "left": [
+          "## Project Manager",
+          "[Company name]  |  [City]"
+        ],
+        "right": [
+          "**Jun 2019 to Mar 2022**"
+        ]
+      },
+      {
+        "type": "bullets",
+        "gap": 1.5,
+        "items": [
+          "Ran the launch of a mobile shopping app used by [1.2 million] customers in its first year.",
+          "Moved the team to two week sprints and raised on time delivery of features from 60% to 88%.",
+          "Managed three outside vendors and saved [INR 45 lakh] by renegotiating support contracts.",
+          "Wrote the delivery playbook used to onboard new clients, cutting project set up time from 3 weeks to 1."
+        ]
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 0,
+        "split": [
+          3,
+          1.2
+        ],
+        "left": [
+          "## Associate Project Manager",
+          "[Company name]  |  [City]"
+        ],
+        "right": [
+          "**Jul 2017 to May 2019**"
+        ]
+      },
+      {
+        "type": "bullets",
+        "gap": 1.5,
+        "items": [
+          "Planned and tracked 20+ small projects of 2 to 4 months each for retail clients.",
+          "Wrote the project status report template that the whole delivery unit still uses."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Work experience (continued)",
+        "pagebreak": true
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 0,
+        "split": [
+          3,
+          1.2
+        ],
+        "left": [
+          "## Business Analyst",
+          "[Company name]  |  [City]"
+        ],
+        "right": [
+          "**Aug 2016 to Jun 2017**"
+        ]
+      },
+      {
+        "type": "bullets",
+        "gap": 1.5,
+        "items": [
+          "Gathered requirements from store managers and turned them into user stories for a billing system.",
+          "Tested each release with users and cut reported defects after go-live by half."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Selected projects"
+      },
+      {
+        "type": "table",
+        "columns": [
+          {
+            "h": "Project",
+            "w": 1.6
+          },
+          {
+            "h": "Client and size",
+            "w": 1.4
+          },
+          {
+            "h": "Result",
+            "w": 2.2
+          }
+        ],
+        "rows": [
+          [
+            "**Core banking upgrade**",
+            "[Bank name], 60 people, 18 months",
+            "Went live on the agreed date with zero data loss across 2 million accounts."
+          ],
+          [
+            "**Retail loyalty app**",
+            "[Retailer name], 25 people, 9 months",
+            "Reached [300,000] sign-ups in 6 months and a 4.5 store rating."
+          ],
+          [
+            "**Support cost review**",
+            "Internal, 5 people, 3 months",
+            "Saved [INR 45 lakh] a year by merging three vendor contracts."
+          ]
+        ],
+        "rowHeight": 8,
+        "small": true,
+        "top": true,
+        "after": 6
+      },
+      {
+        "type": "heading",
+        "text": "Education"
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 0,
+        "split": [
+          3,
+          1.2
+        ],
+        "left": [
+          "## MBA, Operations Management",
+          "[College name], [University]"
+        ],
+        "right": [
+          "**2014 to 2016**"
+        ]
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 4,
+        "split": [
+          3,
+          1.2
+        ],
+        "left": [
+          "## B.Tech, Information Technology",
+          "[College name], [University]"
+        ],
+        "right": [
+          "**2010 to 2014**"
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Certifications"
+      },
+      {
+        "type": "bullets",
+        "gap": 1.5,
+        "items": [
+          "Project Management Professional (PMP), [Issuer], [Year]",
+          "Certified ScrumMaster (CSM), [Issuer], [Year]",
+          "[Any other certification that fits the job], [Issuer], [Year]"
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Training, awards and community"
+      },
+      {
+        "type": "bullets",
+        "gap": 1.5,
+        "items": [
+          "Delivery Excellence Award, [Company name], 2023, for the banking recovery project.",
+          "Speaker at [event name] on running remote Agile teams, 2024.",
+          "Mentor for 10 junior project managers through the company leadership programme."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Additional information"
+      },
+      {
+        "type": "fields",
+        "labelWidth": 0.22,
+        "rowHeight": 5.5,
+        "lines": false,
+        "items": [
+          [
+            "Languages",
+            "English (fluent), Hindi (fluent), [Your other language]"
+          ],
+          [
+            "Notice period",
+            "[30 / 60 / 90 days]"
+          ]
+        ],
+        "after": 0
+      }
+    ]
+  }
+}

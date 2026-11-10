@@ -97,8 +97,8 @@
    "slug": "experienced-resume-template",
    "category": "resume",
    "priority": 1,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-10",
    "note": "Two-page resume for 3 to 10 years of experience, achievements first."
   },
   {
@@ -106,8 +106,8 @@
    "slug": "attendance-sheet-excel",
    "category": "excel",
    "priority": 1,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-10",
    "note": "Monthly staff/student attendance with P/A/L codes, COUNTIF totals, percentage."
   },
   {
@@ -115,8 +115,8 @@
    "slug": "expense-tracker-excel",
    "category": "excel",
    "priority": 1,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-10",
    "note": "Daily expense log with category drop-down and monthly summary by category (SUMIF)."
   },
   {

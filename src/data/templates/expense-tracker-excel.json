@@ -1,0 +1,715 @@
+{
+  "slug": "expense-tracker-excel",
+  "category": "excel",
+  "name": "Expense Tracker Excel",
+  "h1": "Expense Tracker Excel Template (Daily Log and Monthly Summary)",
+  "metaTitle": "Expense Tracker Excel: Free Daily Expense Sheet",
+  "metaDescription": "Free expense tracker in Excel with a daily log, category and payment drop-downs and a monthly summary that totals spending by category. No macros.",
+  "short": "Daily expense log with drop-downs and a monthly summary by category and payment mode.",
+  "accent": "#BE185D",
+  "useCases": [
+    "Personal finance",
+    "Tracking"
+  ],
+  "industries": [
+    "Personal",
+    "Families",
+    "Freelancers"
+  ],
+  "date": "2026-11-10",
+  "intro": "This expense tracker in Excel has two sheets. On the Expenses sheet you add one line for each payment, and the Summary sheet totals what you spent in any month by category and by payment mode, next to a budget you set. The formulas are plain SUMIFS, so the file works in Excel, Google Sheets and LibreOffice with no macros.",
+  "howTo": [
+    "Download the Excel file and open it in Microsoft Excel, Google Sheets or LibreOffice Calc.",
+    "On the Summary sheet, change the categories and monthly budget to suit you. Leave a row blank if you need fewer.",
+    "Go to the Expenses sheet and delete the sample lines.",
+    "Each time you pay for something, add the date, what it was for, the amount and pick a category and payment mode from the drop-downs.",
+    "Open the Summary sheet and type any date in the Month cell to see that month's spending, money left and % used.",
+    "At month end, save the Summary sheet as PDF if you want a record to share or keep."
+  ],
+  "guide": [
+    {
+      "h": "What is inside the file",
+      "p": [
+        "**Expenses sheet:** 60 rows with Date, What you paid for, Category, Paid by, Amount and Notes. The header row stays in view as you scroll and repeats on every printed page. A small line at the top counts your entries and their total.",
+        "**Summary sheet:** a Month cell, three big figures for budget, spent and left, a table of 12 categories with budget, spent, left and % used, and a Paid by table that splits the month by Cash, UPI, cards and net banking. Categories over budget turn red."
+      ]
+    },
+    {
+      "h": "How the monthly totals are calculated",
+      "p": [
+        "The Spent column uses SUMIFS. It adds up the Amount column only for lines where the category matches and the date falls between the first and last day of the chosen month. That means you can keep several months of entries on one sheet and still see each month on its own by changing a single date.",
+        "Because the match is exact, an entry typed as \"grocery\" will not count under Groceries. The drop-down list stops this, and it reads the category names from the Summary sheet, so renaming a category there updates the list too."
+      ]
+    },
+    {
+      "h": "Getting real value from tracking",
+      "p": [
+        "Most people are surprised by small spends, such as food delivery, short rides and subscriptions, rather than big bills. Logging every payment for a full month, then comparing spent with budget, shows where the money really goes. Set next month's budgets from what you actually spent, not what you hoped to spend."
+      ]
+    }
+  ],
+  "tips": [
+    "Add expenses the same day, or copy them from your bank or UPI app once a week.",
+    "Use the Notes column for details you may need later, like a bill number or who you paid.",
+    "For more than 60 lines, insert rows above the last row of the log so the Summary formulas include them.",
+    "Keep one file per year and start a fresh copy each January."
+  ],
+  "faqs": [
+    {
+      "q": "Can I use this expense tracker in Google Sheets?",
+      "a": "Yes. Upload the file to Google Drive and open it with Google Sheets. The drop-downs, SUMIFS formulas and red highlights keep working."
+    },
+    {
+      "q": "Can I track more than one month?",
+      "a": "Yes. Keep adding lines on the Expenses sheet. The Summary sheet shows only the month in its Month cell, so change that date to see any other month."
+    },
+    {
+      "q": "How do I add or rename a category?",
+      "a": "Type over a category name on the Summary sheet, or fill one of the rows you are not using. The Category drop-down on the Expenses sheet reads that list, so it updates too."
+    },
+    {
+      "q": "Why is an expense missing from the summary?",
+      "a": "Check that its date is a real date in the chosen month and that its category matches a name on the Summary sheet exactly. Picking from the drop-down avoids spelling differences."
+    },
+    {
+      "q": "Can I use it for business expenses?",
+      "a": "Yes, for simple tracking. Rename the categories to things like travel, office supplies and software. For tax claims, keep the bills and follow your accountant's advice and the official rules where you live."
+    }
+  ],
+  "related": [
+    "monthly-budget-template",
+    "attendance-sheet-excel"
+  ],
+  "tools": [
+    "excel-to-pdf",
+    "pdf-to-excel",
+    "compress-pdf",
+    "merge-pdf"
+  ],
+  "sheet": {
+    "font": "Calibri",
+    "sheets": [
+      {
+        "name": "Summary",
+        "cols": [
+          24,
+          16,
+          16,
+          16,
+          16
+        ],
+        "tab": "#BE185D",
+        "page": {
+          "orientation": "portrait",
+          "area": "A1:E32",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              30
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:E1",
+            "v": "Monthly Expense Summary",
+            "s": "title"
+          },
+          {
+            "c": "A3",
+            "v": "Month",
+            "s": "label"
+          },
+          {
+            "c": "B3",
+            "v": "2026-11-01",
+            "s": "input",
+            "fmt": "mmmm yyyy",
+            "align": "left"
+          },
+          {
+            "c": "C3",
+            "m": "C3:E3",
+            "v": "Type any date in the month you want to see.",
+            "s": "sub"
+          },
+          {
+            "c": "A4",
+            "v": "From",
+            "s": "label"
+          },
+          {
+            "c": "B4",
+            "v": "=DATE(YEAR(B3),MONTH(B3),1)",
+            "s": "calc",
+            "fmt": "date",
+            "align": "center"
+          },
+          {
+            "c": "C4",
+            "v": "To",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "D4",
+            "v": "=EOMONTH(B3,0)",
+            "s": "calc",
+            "fmt": "date",
+            "align": "center"
+          },
+          {
+            "c": "A6",
+            "v": "BUDGET",
+            "s": "band",
+            "align": "center"
+          },
+          {
+            "c": "B6",
+            "m": "B6:C6",
+            "v": "SPENT THIS MONTH",
+            "s": "band",
+            "align": "center"
+          },
+          {
+            "c": "D6",
+            "m": "D6:E6",
+            "v": "LEFT",
+            "s": "band",
+            "align": "center"
+          },
+          {
+            "height": [
+              7,
+              32
+            ]
+          },
+          {
+            "c": "A7",
+            "v": "=B21",
+            "s": "big",
+            "fmt": "#,##0"
+          },
+          {
+            "c": "B7",
+            "m": "B7:C7",
+            "v": "=C21",
+            "s": "big",
+            "fmt": "#,##0"
+          },
+          {
+            "c": "D7",
+            "m": "D7:E7",
+            "v": "=B21-C21",
+            "s": "big",
+            "fmt": "#,##0;[Red]-#,##0"
+          },
+          {
+            "row": 8,
+            "from": "A",
+            "v": [
+              "Category",
+              "Monthly budget",
+              "Spent",
+              "Left",
+              "% of budget used"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              9,
+              20
+            ],
+            "cols": {
+              "A": {
+                "s": "input"
+              },
+              "B": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "C": {
+                "v": "=IF(A{r}=\"\",\"\",SUMIFS(Expenses!$E$6:$E$65,Expenses!$C$6:$C$65,A{r},Expenses!$A$6:$A$65,\">=\"&$B$4,Expenses!$A$6:$A$65,\"<=\"&$D$4))",
+                "s": "calc",
+                "fmt": "money"
+              },
+              "D": {
+                "v": "=IF(A{r}=\"\",\"\",N(B{r})-N(C{r}))",
+                "s": "calc",
+                "fmt": "money"
+              },
+              "E": {
+                "v": "=IF(N(B{r})=0,\"\",N(C{r})/B{r})",
+                "s": "calc",
+                "fmt": "pct",
+                "align": "center"
+              }
+            }
+          },
+          {
+            "data": [
+              [
+                "Groceries",
+                9000
+              ],
+              [
+                "Rent and bills",
+                22000
+              ],
+              [
+                "Transport and fuel",
+                4500
+              ],
+              [
+                "Eating out",
+                3000
+              ],
+              [
+                "Health and medicine",
+                2000
+              ],
+              [
+                "Shopping",
+                3500
+              ],
+              [
+                "Education",
+                2500
+              ],
+              [
+                "Entertainment",
+                1500
+              ],
+              [
+                "Travel",
+                4000
+              ],
+              [
+                "Gifts and family",
+                2000
+              ],
+              [
+                "Personal care",
+                1200
+              ],
+              [
+                "Other",
+                1500
+              ]
+            ],
+            "at": "A9"
+          },
+          {
+            "c": "A21",
+            "v": "Total",
+            "s": "total"
+          },
+          {
+            "c": "B21",
+            "v": "=SUM(B9:B20)",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "C21",
+            "v": "=SUM(C9:C20)",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "D21",
+            "v": "=B21-C21",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "E21",
+            "v": "=IF(B21=0,\"\",C21/B21)",
+            "s": "total",
+            "fmt": "pct",
+            "align": "center"
+          },
+          {
+            "cf": "D9:D21",
+            "rule": "neg"
+          },
+          {
+            "cf": "E9:E20",
+            "rule": "over",
+            "ref": "AND(ISNUMBER(E9),E9>1)"
+          },
+          {
+            "c": "A23",
+            "m": "A23:C23",
+            "v": "PAID BY",
+            "s": "band"
+          },
+          {
+            "row": 24,
+            "from": "A",
+            "v": [
+              "Payment mode",
+              "Spent",
+              "Share of month"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              25,
+              30
+            ],
+            "cols": {
+              "A": {
+                "s": "plain"
+              },
+              "B": {
+                "v": "=SUMIFS(Expenses!$E$6:$E$65,Expenses!$D$6:$D$65,A{r},Expenses!$A$6:$A$65,\">=\"&$B$4,Expenses!$A$6:$A$65,\"<=\"&$D$4)",
+                "s": "calc",
+                "fmt": "money"
+              },
+              "C": {
+                "v": "=IF($C$21=0,\"\",B{r}/$C$21)",
+                "s": "calc",
+                "fmt": "pct",
+                "align": "center"
+              }
+            }
+          },
+          {
+            "data": [
+              [
+                "Cash"
+              ],
+              [
+                "UPI"
+              ],
+              [
+                "Debit card"
+              ],
+              [
+                "Credit card"
+              ],
+              [
+                "Net banking"
+              ],
+              [
+                "Other"
+              ]
+            ],
+            "at": "A25"
+          },
+          {
+            "cf": "C25:C30",
+            "rule": "bar"
+          },
+          {
+            "c": "A32",
+            "m": "A32:E32",
+            "v": "Spent only counts entries in the Expenses sheet whose date falls between From and To and whose category matches this list exactly. Rename categories here and the drop-down on the Expenses sheet changes too.",
+            "s": "note"
+          },
+          {
+            "height": [
+              32,
+              30
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Expenses",
+        "cols": [
+          13,
+          30,
+          20,
+          14,
+          13,
+          22
+        ],
+        "freeze": 5,
+        "tab": "#BE185D",
+        "page": {
+          "orientation": "portrait",
+          "area": "A1:F65",
+          "titles": "5:5",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              30
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:D1",
+            "v": "Expense Tracker",
+            "s": "title"
+          },
+          {
+            "c": "E1",
+            "m": "E1:F1",
+            "v": "Daily log",
+            "s": "sub",
+            "align": "right"
+          },
+          {
+            "c": "A2",
+            "m": "A2:F2",
+            "v": "Add one line for every payment. Category and payment mode have drop-down lists. The Summary sheet adds it all up.",
+            "s": "note"
+          },
+          {
+            "height": [
+              2,
+              26
+            ]
+          },
+          {
+            "c": "A3",
+            "v": "Entries",
+            "s": "label"
+          },
+          {
+            "c": "B3",
+            "v": "=COUNT(E6:E65)",
+            "s": "calc",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "C3",
+            "v": "Total of all entries",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "D3",
+            "v": "=SUM(E6:E65)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "row": 5,
+            "from": "A",
+            "v": [
+              "Date",
+              "What you paid for",
+              "Category",
+              "Paid by",
+              "Amount",
+              "Notes"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              6,
+              65
+            ],
+            "cols": {
+              "A": {
+                "s": "input",
+                "fmt": "date",
+                "align": "center"
+              },
+              "B": {
+                "s": "input"
+              },
+              "C": {
+                "s": "input"
+              },
+              "D": {
+                "s": "input"
+              },
+              "E": {
+                "s": "input",
+                "fmt": "#,##0.00 ;[Red]-#,##0.00 "
+              },
+              "F": {
+                "s": "input"
+              }
+            }
+          },
+          {
+            "data": [
+              [
+                "2026-11-01",
+                "Monthly rent",
+                "Rent and bills",
+                "Net banking",
+                18000,
+                "House owner"
+              ],
+              [
+                "2026-11-01",
+                "Vegetables and fruit",
+                "Groceries",
+                "UPI",
+                640,
+                ""
+              ],
+              [
+                "2026-11-02",
+                "Metro card recharge",
+                "Transport and fuel",
+                "UPI",
+                500,
+                ""
+              ],
+              [
+                "2026-11-03",
+                "Electricity bill",
+                "Rent and bills",
+                "UPI",
+                1720,
+                "Oct usage"
+              ],
+              [
+                "2026-11-03",
+                "Lunch with team",
+                "Eating out",
+                "Credit card",
+                850,
+                ""
+              ],
+              [
+                "2026-11-04",
+                "Monthly groceries",
+                "Groceries",
+                "Debit card",
+                4250,
+                "Supermarket"
+              ],
+              [
+                "2026-11-05",
+                "Mobile recharge",
+                "Rent and bills",
+                "UPI",
+                349,
+                "28 days"
+              ],
+              [
+                "2026-11-06",
+                "Petrol",
+                "Transport and fuel",
+                "Credit card",
+                1500,
+                ""
+              ],
+              [
+                "2026-11-07",
+                "Medicines",
+                "Health and medicine",
+                "Cash",
+                420,
+                ""
+              ],
+              [
+                "2026-11-08",
+                "Movie tickets",
+                "Entertainment",
+                "UPI",
+                600,
+                "Two tickets"
+              ],
+              [
+                "2026-11-09",
+                "Milk for the week",
+                "Groceries",
+                "Cash",
+                392,
+                ""
+              ],
+              [
+                "2026-11-10",
+                "Online course fee",
+                "Education",
+                "Debit card",
+                1999,
+                ""
+              ],
+              [
+                "2026-11-11",
+                "Shirt",
+                "Shopping",
+                "Credit card",
+                1299,
+                ""
+              ],
+              [
+                "2026-11-12",
+                "Haircut",
+                "Personal care",
+                "Cash",
+                300,
+                ""
+              ],
+              [
+                "2026-11-13",
+                "Dinner order",
+                "Eating out",
+                "UPI",
+                540,
+                ""
+              ],
+              [
+                "2026-11-14",
+                "Birthday gift",
+                "Gifts and family",
+                "UPI",
+                1500,
+                "For niece"
+              ],
+              [
+                "2026-11-15",
+                "Internet bill",
+                "Rent and bills",
+                "Net banking",
+                799,
+                ""
+              ],
+              [
+                "2026-11-16",
+                "Auto rides",
+                "Transport and fuel",
+                "Cash",
+                260,
+                ""
+              ],
+              [
+                "2026-11-17",
+                "Vegetables and fruit",
+                "Groceries",
+                "UPI",
+                710,
+                ""
+              ]
+            ],
+            "at": "A6"
+          },
+          {
+            "list": "C6:C65",
+            "ref": "Summary!$A$9:$A$20"
+          },
+          {
+            "list": "D6:D65",
+            "items": [
+              "Cash",
+              "UPI",
+              "Debit card",
+              "Credit card",
+              "Net banking",
+              "Other"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,4 +1,13 @@
 {
+ "attendance-sheet-excel": {
+  "files": {
+   "xlsx": 13775,
+   "pdf": 43066
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-10"
+ },
  "certificate-of-appreciation-template": {
   "files": {
    "docx": 10616,
@@ -16,6 +25,24 @@
   "pages": 1,
   "previews": 1,
   "built": "2026-11-08"
+ },
+ "expense-tracker-excel": {
+  "files": {
+   "xlsx": 12438,
+   "pdf": 52965
+  },
+  "pages": 2,
+  "previews": 2,
+  "built": "2026-11-10"
+ },
+ "experienced-resume-template": {
+  "files": {
+   "docx": 13514,
+   "pdf": 77196
+  },
+  "pages": 2,
+  "previews": 2,
+  "built": "2026-11-10"
  },
  "fresher-resume-template": {
   "files": {

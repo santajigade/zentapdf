@@ -1,0 +1,1583 @@
+{
+  "slug": "attendance-sheet-excel",
+  "category": "excel",
+  "name": "Attendance Sheet in Excel",
+  "h1": "Attendance Sheet in Excel (Monthly, Free Excel and PDF)",
+  "metaTitle": "Attendance Sheet in Excel: Free Monthly Template",
+  "metaDescription": "Free monthly attendance sheet in Excel for staff or students. P, A, L and H codes, auto totals and attendance percentage. Print ready, no macros.",
+  "short": "Monthly attendance register for 20 staff or students with day codes, totals and attendance %.",
+  "accent": "#4338CA",
+  "useCases": [
+    "Tracking",
+    "HR"
+  ],
+  "industries": [
+    "Small business",
+    "Schools",
+    "All industries"
+  ],
+  "date": "2026-11-10",
+  "intro": "This monthly attendance sheet in Excel has one row per person and one column per day. Type a code such as P or A in each cell and the sheet counts present, absent, leave and half days, then works out each person's attendance percentage. It works for an office team, a shop or a classroom of up to 20 people.",
+  "howTo": [
+    "Download the Excel file and open it in Microsoft Excel, Google Sheets or LibreOffice Calc.",
+    "Type the first day of the month as a date in the Month cell. The day numbers, weekday letters and days in month change by themselves.",
+    "Add your organisation, department and the names and IDs of your staff or students. Delete the sample names first.",
+    "Each day, pick a code from the drop-down in every cell: P present, A absent, L leave, H half day, O weekly off or holiday.",
+    "Read the totals on the right and the Present each day row at the bottom. Attendance below 75% turns red.",
+    "At month end, print the sheet on one landscape page or save it as PDF, then save a copy of the file for the next month."
+  ],
+  "guide": [
+    {
+      "h": "How the formulas work",
+      "p": [
+        "Each total column uses COUNTIF to count one code across the 31 day cells in that row. **Work days** adds P, A, L and H, so weekly offs and holidays marked O do not count against anyone. **Attend. %** is present days plus half of the half days, divided by work days.",
+        "The day numbers and weekday letters at the top are formulas too. They read the Month cell, so in a 30 day month the 31st column stays blank, and in February only 28 or 29 days show."
+      ]
+    },
+    {
+      "h": "Leave rules differ, so check yours",
+      "p": [
+        "Organisations count leave in different ways. Some treat paid leave as present, some count only present days, and schools often have their own minimum attendance rules. This sheet keeps leave separate and does not decide pay. If your policy is different, change the formula in the Attend. % column, and check your company policy, school rules or local labour rules before you use the numbers for pay or exams."
+      ]
+    },
+    {
+      "h": "Keeping records month by month",
+      "p": [
+        "Save one file or one copy of the sheet for each month instead of typing over last month. Many employers have to keep attendance and wage records for a number of years, and the period depends on your country and state, so check the official rules that apply to you. A PDF copy at month end is an easy, fixed record to share with a manager or accountant."
+      ]
+    }
+  ],
+  "tips": [
+    "Use the drop-down so codes stay the same. A typed \"p \" with a space will not be counted.",
+    "Mark holidays and weekly offs with O for everyone so nobody's percentage drops.",
+    "Need more than 20 people? Insert rows inside the staff list and copy the formulas from the row above into the new rows.",
+    "Freeze panes are set, so names and dates stay in view while you scroll."
+  ],
+  "faqs": [
+    {
+      "q": "Can I use this attendance sheet for students?",
+      "a": "Yes. Put the class or section in the Department cell, student names in the Name column and roll numbers in the ID column. The codes and percentage work the same way."
+    },
+    {
+      "q": "Does it work in Google Sheets?",
+      "a": "Yes. Upload the file to Google Drive and open it with Google Sheets. The drop-downs, formulas and red highlights all keep working."
+    },
+    {
+      "q": "How is the attendance percentage worked out?",
+      "a": "It is (P + half of H) divided by (P + A + L + H). Weekly offs and holidays marked O are left out. You can change the formula if your organisation counts leave as present."
+    },
+    {
+      "q": "Does it track hours or overtime?",
+      "a": "No. It records whether each person was present each day. To track hours worked, use a timesheet instead."
+    },
+    {
+      "q": "How do I start a new month?",
+      "a": "Save a copy of the file, clear the day cells, then change the Month cell to the first day of the new month. The day numbers and weekday letters update by themselves."
+    }
+  ],
+  "related": [
+    "monthly-budget-template"
+  ],
+  "tools": [
+    "excel-to-pdf",
+    "pdf-to-excel",
+    "compress-pdf",
+    "merge-pdf"
+  ],
+  "sheet": {
+    "font": "Arial",
+    "sheets": [
+      {
+        "name": "Attendance",
+        "cols": [
+          5,
+          20,
+          7,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          4.5,
+          4.5,
+          4.5,
+          4.5,
+          4.5,
+          7,
+          8.5
+        ],
+        "freeze": 7,
+        "tab": "#4338CA",
+        "page": {
+          "orientation": "landscape",
+          "area": "A1:AO32",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              30
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:X1",
+            "v": "Monthly Attendance Sheet",
+            "s": "title"
+          },
+          {
+            "c": "Y1",
+            "m": "Y1:AO1",
+            "v": "Type a code in each day cell. Totals update by themselves.",
+            "s": "sub",
+            "align": "right"
+          },
+          {
+            "c": "A3",
+            "m": "A3:B3",
+            "v": "Month",
+            "s": "label"
+          },
+          {
+            "c": "C3",
+            "m": "C3:G3",
+            "v": "2026-11-01",
+            "s": "input",
+            "fmt": "mmmm yyyy",
+            "align": "left"
+          },
+          {
+            "c": "I3",
+            "m": "I3:M3",
+            "v": "Organisation",
+            "s": "label"
+          },
+          {
+            "c": "N3",
+            "m": "N3:W3",
+            "v": "[Company or school name]",
+            "s": "input"
+          },
+          {
+            "c": "Y3",
+            "m": "Y3:AC3",
+            "v": "Department",
+            "s": "label"
+          },
+          {
+            "c": "AD3",
+            "m": "AD3:AN3",
+            "v": "[Department or class]",
+            "s": "input"
+          },
+          {
+            "c": "A4",
+            "m": "A4:B4",
+            "v": "Days in month",
+            "s": "label"
+          },
+          {
+            "c": "C4",
+            "v": "=DAY(EOMONTH(C3,0))",
+            "s": "calc",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "I4",
+            "m": "I4:AO4",
+            "v": "Codes:  P = Present   A = Absent   L = Leave   H = Half day   O = Weekly off or holiday",
+            "s": "note"
+          },
+          {
+            "height": [
+              6,
+              20
+            ]
+          },
+          {
+            "c": "A6",
+            "m": "A6:A7",
+            "v": "No.",
+            "s": "header"
+          },
+          {
+            "c": "B6",
+            "m": "B6:B7",
+            "v": "Name",
+            "s": "header"
+          },
+          {
+            "c": "C6",
+            "m": "C6:C7",
+            "v": "ID",
+            "s": "header"
+          },
+          {
+            "c": "D6",
+            "v": "=IF(1>$C$4,\"\",1)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "D7",
+            "v": "=IF(1>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),1))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "E6",
+            "v": "=IF(2>$C$4,\"\",2)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "E7",
+            "v": "=IF(2>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),2))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "F6",
+            "v": "=IF(3>$C$4,\"\",3)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "F7",
+            "v": "=IF(3>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),3))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "G6",
+            "v": "=IF(4>$C$4,\"\",4)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "G7",
+            "v": "=IF(4>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),4))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "H6",
+            "v": "=IF(5>$C$4,\"\",5)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "H7",
+            "v": "=IF(5>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),5))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "I6",
+            "v": "=IF(6>$C$4,\"\",6)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "I7",
+            "v": "=IF(6>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),6))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "J6",
+            "v": "=IF(7>$C$4,\"\",7)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "J7",
+            "v": "=IF(7>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),7))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "K6",
+            "v": "=IF(8>$C$4,\"\",8)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "K7",
+            "v": "=IF(8>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),8))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "L6",
+            "v": "=IF(9>$C$4,\"\",9)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "L7",
+            "v": "=IF(9>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),9))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "M6",
+            "v": "=IF(10>$C$4,\"\",10)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "M7",
+            "v": "=IF(10>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),10))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "N6",
+            "v": "=IF(11>$C$4,\"\",11)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "N7",
+            "v": "=IF(11>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),11))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "O6",
+            "v": "=IF(12>$C$4,\"\",12)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "O7",
+            "v": "=IF(12>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),12))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "P6",
+            "v": "=IF(13>$C$4,\"\",13)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "P7",
+            "v": "=IF(13>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),13))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "Q6",
+            "v": "=IF(14>$C$4,\"\",14)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "Q7",
+            "v": "=IF(14>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),14))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "R6",
+            "v": "=IF(15>$C$4,\"\",15)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "R7",
+            "v": "=IF(15>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),15))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "S6",
+            "v": "=IF(16>$C$4,\"\",16)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "S7",
+            "v": "=IF(16>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),16))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "T6",
+            "v": "=IF(17>$C$4,\"\",17)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "T7",
+            "v": "=IF(17>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),17))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "U6",
+            "v": "=IF(18>$C$4,\"\",18)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "U7",
+            "v": "=IF(18>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),18))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "V6",
+            "v": "=IF(19>$C$4,\"\",19)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "V7",
+            "v": "=IF(19>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),19))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "W6",
+            "v": "=IF(20>$C$4,\"\",20)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "W7",
+            "v": "=IF(20>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),20))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "X6",
+            "v": "=IF(21>$C$4,\"\",21)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "X7",
+            "v": "=IF(21>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),21))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "Y6",
+            "v": "=IF(22>$C$4,\"\",22)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "Y7",
+            "v": "=IF(22>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),22))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "Z6",
+            "v": "=IF(23>$C$4,\"\",23)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "Z7",
+            "v": "=IF(23>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),23))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "AA6",
+            "v": "=IF(24>$C$4,\"\",24)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "AA7",
+            "v": "=IF(24>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),24))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "AB6",
+            "v": "=IF(25>$C$4,\"\",25)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "AB7",
+            "v": "=IF(25>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),25))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "AC6",
+            "v": "=IF(26>$C$4,\"\",26)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "AC7",
+            "v": "=IF(26>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),26))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "AD6",
+            "v": "=IF(27>$C$4,\"\",27)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "AD7",
+            "v": "=IF(27>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),27))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "AE6",
+            "v": "=IF(28>$C$4,\"\",28)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "AE7",
+            "v": "=IF(28>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),28))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "AF6",
+            "v": "=IF(29>$C$4,\"\",29)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "AF7",
+            "v": "=IF(29>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),29))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "AG6",
+            "v": "=IF(30>$C$4,\"\",30)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "AG7",
+            "v": "=IF(30>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),30))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "AH6",
+            "v": "=IF(31>$C$4,\"\",31)",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "AH7",
+            "v": "=IF(31>$C$4,\"\",MID(\"SuMoTuWeThFrSa\",2*WEEKDAY(DATE(YEAR($C$3),MONTH($C$3),31))-1,2))",
+            "s": "header",
+            "align": "center"
+          },
+          {
+            "c": "AI6",
+            "m": "AI6:AI7",
+            "v": "P",
+            "s": "header"
+          },
+          {
+            "c": "AJ6",
+            "m": "AJ6:AJ7",
+            "v": "A",
+            "s": "header"
+          },
+          {
+            "c": "AK6",
+            "m": "AK6:AK7",
+            "v": "L",
+            "s": "header"
+          },
+          {
+            "c": "AL6",
+            "m": "AL6:AL7",
+            "v": "H",
+            "s": "header"
+          },
+          {
+            "c": "AM6",
+            "m": "AM6:AM7",
+            "v": "O",
+            "s": "header"
+          },
+          {
+            "c": "AN6",
+            "m": "AN6:AN7",
+            "v": "Work days",
+            "s": "header"
+          },
+          {
+            "c": "AO6",
+            "m": "AO6:AO7",
+            "v": "Attend. %",
+            "s": "header"
+          },
+          {
+            "rows": [
+              8,
+              27
+            ],
+            "cols": {
+              "A": {
+                "v": "={r}-7",
+                "s": "calc",
+                "fmt": "int",
+                "align": "center"
+              },
+              "B": {
+                "s": "input"
+              },
+              "C": {
+                "s": "input",
+                "align": "center"
+              },
+              "D": {
+                "s": "input",
+                "align": "center"
+              },
+              "E": {
+                "s": "input",
+                "align": "center"
+              },
+              "F": {
+                "s": "input",
+                "align": "center"
+              },
+              "G": {
+                "s": "input",
+                "align": "center"
+              },
+              "H": {
+                "s": "input",
+                "align": "center"
+              },
+              "I": {
+                "s": "input",
+                "align": "center"
+              },
+              "J": {
+                "s": "input",
+                "align": "center"
+              },
+              "K": {
+                "s": "input",
+                "align": "center"
+              },
+              "L": {
+                "s": "input",
+                "align": "center"
+              },
+              "M": {
+                "s": "input",
+                "align": "center"
+              },
+              "N": {
+                "s": "input",
+                "align": "center"
+              },
+              "O": {
+                "s": "input",
+                "align": "center"
+              },
+              "P": {
+                "s": "input",
+                "align": "center"
+              },
+              "Q": {
+                "s": "input",
+                "align": "center"
+              },
+              "R": {
+                "s": "input",
+                "align": "center"
+              },
+              "S": {
+                "s": "input",
+                "align": "center"
+              },
+              "T": {
+                "s": "input",
+                "align": "center"
+              },
+              "U": {
+                "s": "input",
+                "align": "center"
+              },
+              "V": {
+                "s": "input",
+                "align": "center"
+              },
+              "W": {
+                "s": "input",
+                "align": "center"
+              },
+              "X": {
+                "s": "input",
+                "align": "center"
+              },
+              "Y": {
+                "s": "input",
+                "align": "center"
+              },
+              "Z": {
+                "s": "input",
+                "align": "center"
+              },
+              "AA": {
+                "s": "input",
+                "align": "center"
+              },
+              "AB": {
+                "s": "input",
+                "align": "center"
+              },
+              "AC": {
+                "s": "input",
+                "align": "center"
+              },
+              "AD": {
+                "s": "input",
+                "align": "center"
+              },
+              "AE": {
+                "s": "input",
+                "align": "center"
+              },
+              "AF": {
+                "s": "input",
+                "align": "center"
+              },
+              "AG": {
+                "s": "input",
+                "align": "center"
+              },
+              "AH": {
+                "s": "input",
+                "align": "center"
+              },
+              "AI": {
+                "v": "=IF($B{r}=\"\",\"\",COUNTIF(D{r}:AH{r},\"P\"))",
+                "s": "calc",
+                "fmt": "int",
+                "align": "center"
+              },
+              "AJ": {
+                "v": "=IF($B{r}=\"\",\"\",COUNTIF(D{r}:AH{r},\"A\"))",
+                "s": "calc",
+                "fmt": "int",
+                "align": "center"
+              },
+              "AK": {
+                "v": "=IF($B{r}=\"\",\"\",COUNTIF(D{r}:AH{r},\"L\"))",
+                "s": "calc",
+                "fmt": "int",
+                "align": "center"
+              },
+              "AL": {
+                "v": "=IF($B{r}=\"\",\"\",COUNTIF(D{r}:AH{r},\"H\"))",
+                "s": "calc",
+                "fmt": "int",
+                "align": "center"
+              },
+              "AM": {
+                "v": "=IF($B{r}=\"\",\"\",COUNTIF(D{r}:AH{r},\"O\"))",
+                "s": "calc",
+                "fmt": "int",
+                "align": "center"
+              },
+              "AN": {
+                "v": "=IF($B{r}=\"\",\"\",AI{r}+AJ{r}+AK{r}+AL{r})",
+                "s": "calc",
+                "fmt": "int",
+                "align": "center"
+              },
+              "AO": {
+                "v": "=IF(N(AN{r})=0,\"\",(AI{r}+0.5*AL{r})/AN{r})",
+                "s": "calc",
+                "fmt": "pct",
+                "align": "center"
+              }
+            }
+          },
+          {
+            "data": [
+              [
+                "Aarav Sharma",
+                "E101",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "H",
+                "P",
+                "O",
+                "H",
+                "P",
+                "P",
+                "L",
+                "P",
+                "P",
+                "O",
+                "P",
+                "P",
+                "P",
+                "A",
+                "P",
+                "L",
+                "O",
+                "P"
+              ],
+              [
+                "Priya Nair",
+                "E102",
+                "O",
+                "P",
+                "A",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "L",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P"
+              ],
+              [
+                "Rohan Gupta",
+                "E103",
+                "O",
+                "A",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "L",
+                "P",
+                "P",
+                "P",
+                "H",
+                "P",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "H",
+                "L",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P"
+              ],
+              [
+                "Sneha Patil",
+                "E104",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P",
+                "H",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P",
+                "P",
+                "L",
+                "H",
+                "P",
+                "P",
+                "O",
+                "P"
+              ],
+              [
+                "Imran Khan",
+                "E105",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P",
+                "H",
+                "A",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P"
+              ],
+              [
+                "Kavya Reddy",
+                "E106",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "L",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P",
+                "A",
+                "P",
+                "P",
+                "L",
+                "P",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P"
+              ],
+              [
+                "Arjun Singh",
+                "E107",
+                "O",
+                "P",
+                "P",
+                "P",
+                "A",
+                "A",
+                "P",
+                "O",
+                "P",
+                "P",
+                "A",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P",
+                "P",
+                "L",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P"
+              ],
+              [
+                "Meera Iyer",
+                "E108",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P",
+                "P",
+                "P",
+                "H",
+                "P",
+                "P",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P",
+                "H",
+                "P",
+                "A",
+                "P",
+                "P",
+                "O",
+                "P"
+              ],
+              [
+                "Vikram Joshi",
+                "E109",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "A",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P"
+              ],
+              [
+                "Fatima Sheikh",
+                "E110",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "L",
+                "O",
+                "A",
+                "P",
+                "L",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P"
+              ],
+              [
+                "Neha Verma",
+                "E111",
+                "O",
+                "A",
+                "P",
+                "P",
+                "A",
+                "P",
+                "P",
+                "O",
+                "P",
+                "L",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "A",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P"
+              ],
+              [
+                "Rahul Das",
+                "E112",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "H",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "P",
+                "O",
+                "P"
+              ]
+            ],
+            "at": "B8"
+          },
+          {
+            "c": "A28",
+            "m": "A28:C28",
+            "v": "Present each day",
+            "s": "total"
+          },
+          {
+            "c": "D28",
+            "v": "=IF(COUNTA(D8:D27)=0,\"\",COUNTIF(D8:D27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "E28",
+            "v": "=IF(COUNTA(E8:E27)=0,\"\",COUNTIF(E8:E27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "F28",
+            "v": "=IF(COUNTA(F8:F27)=0,\"\",COUNTIF(F8:F27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "G28",
+            "v": "=IF(COUNTA(G8:G27)=0,\"\",COUNTIF(G8:G27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "H28",
+            "v": "=IF(COUNTA(H8:H27)=0,\"\",COUNTIF(H8:H27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "I28",
+            "v": "=IF(COUNTA(I8:I27)=0,\"\",COUNTIF(I8:I27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "J28",
+            "v": "=IF(COUNTA(J8:J27)=0,\"\",COUNTIF(J8:J27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "K28",
+            "v": "=IF(COUNTA(K8:K27)=0,\"\",COUNTIF(K8:K27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "L28",
+            "v": "=IF(COUNTA(L8:L27)=0,\"\",COUNTIF(L8:L27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "M28",
+            "v": "=IF(COUNTA(M8:M27)=0,\"\",COUNTIF(M8:M27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "N28",
+            "v": "=IF(COUNTA(N8:N27)=0,\"\",COUNTIF(N8:N27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "O28",
+            "v": "=IF(COUNTA(O8:O27)=0,\"\",COUNTIF(O8:O27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "P28",
+            "v": "=IF(COUNTA(P8:P27)=0,\"\",COUNTIF(P8:P27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "Q28",
+            "v": "=IF(COUNTA(Q8:Q27)=0,\"\",COUNTIF(Q8:Q27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "R28",
+            "v": "=IF(COUNTA(R8:R27)=0,\"\",COUNTIF(R8:R27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "S28",
+            "v": "=IF(COUNTA(S8:S27)=0,\"\",COUNTIF(S8:S27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "T28",
+            "v": "=IF(COUNTA(T8:T27)=0,\"\",COUNTIF(T8:T27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "U28",
+            "v": "=IF(COUNTA(U8:U27)=0,\"\",COUNTIF(U8:U27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "V28",
+            "v": "=IF(COUNTA(V8:V27)=0,\"\",COUNTIF(V8:V27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "W28",
+            "v": "=IF(COUNTA(W8:W27)=0,\"\",COUNTIF(W8:W27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "X28",
+            "v": "=IF(COUNTA(X8:X27)=0,\"\",COUNTIF(X8:X27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "Y28",
+            "v": "=IF(COUNTA(Y8:Y27)=0,\"\",COUNTIF(Y8:Y27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "Z28",
+            "v": "=IF(COUNTA(Z8:Z27)=0,\"\",COUNTIF(Z8:Z27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "AA28",
+            "v": "=IF(COUNTA(AA8:AA27)=0,\"\",COUNTIF(AA8:AA27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "AB28",
+            "v": "=IF(COUNTA(AB8:AB27)=0,\"\",COUNTIF(AB8:AB27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "AC28",
+            "v": "=IF(COUNTA(AC8:AC27)=0,\"\",COUNTIF(AC8:AC27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "AD28",
+            "v": "=IF(COUNTA(AD8:AD27)=0,\"\",COUNTIF(AD8:AD27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "AE28",
+            "v": "=IF(COUNTA(AE8:AE27)=0,\"\",COUNTIF(AE8:AE27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "AF28",
+            "v": "=IF(COUNTA(AF8:AF27)=0,\"\",COUNTIF(AF8:AF27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "AG28",
+            "v": "=IF(COUNTA(AG8:AG27)=0,\"\",COUNTIF(AG8:AG27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "AH28",
+            "v": "=IF(COUNTA(AH8:AH27)=0,\"\",COUNTIF(AH8:AH27,\"P\"))",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "AI28",
+            "v": "=SUM(AI8:AI27)",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "AJ28",
+            "v": "=SUM(AJ8:AJ27)",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "AK28",
+            "v": "=SUM(AK8:AK27)",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "AL28",
+            "v": "=SUM(AL8:AL27)",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "AM28",
+            "v": "=SUM(AM8:AM27)",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "AN28",
+            "v": "=SUM(AN8:AN27)",
+            "s": "total",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "AO28",
+            "v": "=IF(AN28=0,\"\",(AI28+0.5*AL28)/AN28)",
+            "s": "total",
+            "fmt": "pct",
+            "align": "center"
+          },
+          {
+            "c": "A30",
+            "m": "A30:AO30",
+            "v": "Attendance % = (P + half of H) divided by work days (P + A + L + H). Weekly offs and holidays (O) are left out. If your organisation counts paid leave as present, change the formula in the Attend. % column to add L to the top.",
+            "s": "note"
+          },
+          {
+            "height": [
+              30,
+              28
+            ]
+          },
+          {
+            "c": "A32",
+            "m": "A32:L32",
+            "v": "Prepared by: ______________________",
+            "s": "plain"
+          },
+          {
+            "c": "P32",
+            "m": "P32:Z32",
+            "v": "Checked by: ______________________",
+            "s": "plain"
+          },
+          {
+            "c": "AC32",
+            "m": "AC32:AO32",
+            "v": "Date: ______________",
+            "s": "plain"
+          },
+          {
+            "list": "D8:AH27",
+            "items": [
+              "P",
+              "A",
+              "L",
+              "H",
+              "O"
+            ]
+          },
+          {
+            "cf": "D8:AH27",
+            "rule": "over",
+            "ref": "D8=\"A\""
+          },
+          {
+            "cf": "AO8:AO27",
+            "rule": "over",
+            "ref": "AND(ISNUMBER(AO8),AO8<0.75)"
+          }
+        ]
+      }
+    ]
+  }
+}
