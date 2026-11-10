@@ -30,4 +30,12 @@ for k in range(12):
     x = 40 + k * 30; d.ellipse((x, 140, x + 80, 220), fill=(230, 90, 40)); d.rectangle((0, 300, 480, 360), fill=(40, 110, 200))
     frames.append(im)
 frames[0].save(f'{D}/animation.gif', save_all=True, append_images=frames[1:], duration=100, loop=0)
+# PDF with photos and a transparent logo (for Extract Images); no ASCII85 so images are stored like in most real PDFs
+from reportlab import rl_config; rl_config.useA85 = 0
+logo = Image.new('RGBA', (400, 400), (0, 0, 0, 0)); ImageDraw.Draw(logo).ellipse((20, 20, 380, 380), fill=(230, 90, 40, 255)); logo.save(f'{D}/logo.png')
+c = canvas.Canvas(f'{D}/photos.pdf', pagesize=A4)
+for i, n in enumerate(('photo1.jpg', 'photo2.jpg')):
+    c.setFont('Helvetica-Bold', 22); c.drawString(60, H - 80, f'Product catalogue page {i + 1}')
+    c.drawImage(f'{D}/{n}', 60, H - 480, 480, 360); c.drawImage(f'{D}/logo.png', 420, 60, 120, 120, mask='auto'); c.showPage()
+c.save()
 print('samples in', D, sorted(os.listdir(D)))

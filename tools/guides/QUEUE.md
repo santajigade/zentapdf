@@ -20,11 +20,11 @@ Done:
 - [x] how-to-split-pdf-into-separate-pages (2026-11-09)
 - [x] how-to-add-page-numbers-to-pdf (2026-11-09)
 - [x] how-to-convert-word-to-pdf-on-phone (2026-11-09)
+- [x] how-to-extract-images-from-pdf (2026-11-10)
+- [x] how-to-convert-pdf-to-black-and-white (2026-11-10)
+- [x] how-to-delete-blank-pages-from-pdf (2026-11-10)
 
 Open:
-- [ ] How to extract images from a PDF (extract-images-from-pdf)
-- [ ] How to convert a PDF to black and white for printing (pdf-to-grayscale)
-- [ ] How to remove blank pages from a scanned PDF (delete-blank-pages)
 - [ ] How to change PDF page size from Letter to A4 (page-size)
 - [ ] How to add a watermark to a PDF (add-watermark)
 - [ ] How to fill a PDF form on phone (pdf-form-filler)
