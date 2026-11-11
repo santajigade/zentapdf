@@ -38,4 +38,22 @@ for i, n in enumerate(('photo1.jpg', 'photo2.jpg')):
     c.setFont('Helvetica-Bold', 22); c.drawString(60, H - 80, f'Product catalogue page {i + 1}')
     c.drawImage(f'{D}/{n}', 60, H - 480, 480, 360); c.drawImage(f'{D}/logo.png', 420, 60, 120, 120, mask='auto'); c.showPage()
 c.save()
+# US Letter document (for Change Page Size) and a fillable form (for PDF Form Filler)
+from reportlab.lib.pagesizes import letter
+c = canvas.Canvas(f'{D}/letter.pdf', pagesize=letter); LW, LH = letter
+for i in (1, 2):
+    c.setFillColorRGB(.1, .2, .6); c.setFont('Helvetica-Bold', 22); c.drawString(60, LH - 80, f'Project report page {i}')
+    c.setFillColorRGB(0, 0, 0); c.setFont('Helvetica', 11)
+    for k in range(20): c.drawString(60, LH - 120 - k * 16, f'Line {k + 1}: this page was made on US Letter paper (8.5 x 11 inches)')
+    c.setFillColorRGB(.9, .3, .1); c.rect(60, 80, 140, 60, fill=1, stroke=0); c.showPage()
+c.save()
+c = canvas.Canvas(f'{D}/form.pdf', pagesize=A4); f = c.acroForm
+c.setFont('Helvetica-Bold', 20); c.drawString(60, H - 70, 'Membership Application Form')
+c.setFont('Helvetica', 11)
+for k, (lab, nm) in enumerate((('Full name', 'name'), ('Date of birth', 'dob'), ('Mobile number', 'mobile'), ('Email', 'email'), ('City', 'city'))):
+    y = H - 130 - k * 45; c.drawString(60, y + 6, lab); f.textfield(name=nm, x=200, y=y, width=300, height=22, borderColor=None, fillColor=None, forceBorder=True)
+y = H - 370; c.drawString(60, y + 4, 'Membership type'); f.choice(name='plan', value='Yearly', options=['Monthly', 'Yearly', 'Life'], x=200, y=y, width=150, height=20, forceBorder=True)
+y = H - 420; f.checkbox(name='agree', x=60, y=y, size=16, buttonStyle='check', forceBorder=True); c.drawString(85, y + 3, 'I agree to the rules of the club')
+c.drawString(60, H - 470, 'Address'); f.textfield(name='address', x=200, y=H - 530, width=300, height=70, fieldFlags='multiline', forceBorder=True)
+c.showPage(); c.save()
 print('samples in', D, sorted(os.listdir(D)))

@@ -23,11 +23,11 @@ Done:
 - [x] how-to-extract-images-from-pdf (2026-11-10)
 - [x] how-to-convert-pdf-to-black-and-white (2026-11-10)
 - [x] how-to-delete-blank-pages-from-pdf (2026-11-10)
+- [x] how-to-change-pdf-page-size-letter-to-a4 (2026-11-11)
+- [x] how-to-add-watermark-to-pdf (2026-11-11)
+- [x] how-to-fill-pdf-form-on-phone (2026-11-11)
 
 Open:
-- [ ] How to change PDF page size from Letter to A4 (page-size)
-- [ ] How to add a watermark to a PDF (add-watermark)
-- [ ] How to fill a PDF form on phone (pdf-form-filler)
 - [ ] How to rotate a PDF and save it (rotate-pdf)
 - [ ] How to make a booklet from a PDF (pages-per-sheet)
 - [ ] How to convert Excel to PDF on one page (excel-to-pdf)
