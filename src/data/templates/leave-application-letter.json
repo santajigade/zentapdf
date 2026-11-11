@@ -1,0 +1,86 @@
+{
+  "slug": "leave-application-letter",
+  "category": "letters",
+  "name": "Leave Application Letter for Office",
+  "h1": "Leave Application Letter for Office (Word and PDF Format)",
+  "metaTitle": "Leave Application for Office: Free Word & PDF Format",
+  "metaDescription": "Free leave application letter for office in Word and PDF. Clear leave details table, reason, work handover and an approval section for your manager.",
+  "short": "Office leave letter with a leave details table, short reason, handover plan and manager approval section.",
+  "accent": "#4D7C0F",
+  "useCases": ["HR", "Leave request"],
+  "industries": ["Corporate", "All industries"],
+  "date": "2026-11-11",
+  "intro": "This leave application letter helps you ask your manager for time off in a clear and polite way. The leave type, dates, number of days and handover person sit in a small table at the top, so your manager and HR can see everything at a glance, and a short approval section at the bottom keeps the record in one place.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Add your name, employee ID, team and the date, then your manager's name and designation.",
+    "Fill in the leave details table: type of leave, first and last day, total days, the colleague covering your work and how you can be reached.",
+    "Write one or two lines about the reason. Keep personal or medical details general.",
+    "Edit the handover paragraph so it names the tasks you will finish or pass on before you go.",
+    "Save it as PDF, sign it and send it to your manager by email, with HR in copy if your company asks for that."
+  ],
+  "guide": [
+    {
+      "h": "What the letter contains",
+      "p": [
+        "The page opens with your details and the date, followed by the manager it is addressed to and a short subject line. Next is a **leave details table** with the leave type, from date, to date, total working days, the person covering your work and your contact number while you are away.",
+        "Below the table are three short paragraphs: the request, the handover plan and a thank you. The last part is a **For office use** section where your manager can tick approved or not approved, sign and add a date. If your company uses an HR portal, you can keep this section for your own copy or delete it."
+      ]
+    },
+    {
+      "h": "Choosing the right type of leave",
+      "p": [
+        "Common types are casual leave, sick leave, earned or privilege leave, and unpaid leave. Names, yearly limits and rules about notice and medical certificates are different in every company and can also depend on local labour laws, so check your appointment letter, HR policy or employee handbook before you choose.",
+        "Check your leave balance first. If you are asking for more days than you have left, say so in the letter and ask whether the extra days can be treated as unpaid leave."
+      ]
+    },
+    {
+      "h": "When to send it",
+      "p": [
+        "For planned leave such as a holiday, a family function or a wedding, send the letter as early as you can, ideally a few weeks ahead, so your manager can plan the work. For sudden sick leave, send a short message on the first morning and share the full letter when you are able to. Wait for approval before you book anything you cannot cancel."
+      ]
+    }
+  ],
+  "tips": [
+    "Write exact dates, such as 18 November to 21 November, not just \"next week\".",
+    "Count working days only if your company does not count weekends and holidays as leave.",
+    "Name one colleague who will cover urgent work, and tell them before you send the letter.",
+    "Keep the reason short and polite. You do not need to share private details.",
+    "Set an out of office reply once your leave is approved."
+  ],
+  "faqs": [
+    { "q": "How do I write a leave application for office?", "a": "Address it to your manager, add a clear subject line, state the type of leave and the exact dates, give a short reason, explain who will handle your work and close with a thank you. This template has all of these parts ready to edit." },
+    { "q": "Do I need to give a reason for my leave?", "a": "A short reason is usual, such as a family function or a medical appointment. For personal or health matters a general reason is enough. Your company policy may ask for proof for some leave types, such as a medical certificate for longer sick leave." },
+    { "q": "Can I send a leave application by email?", "a": "Yes, most offices accept email. Paste the letter in the email body or attach it as a PDF, and use a clear subject such as \"Leave application, 18 to 21 November\". Follow any HR portal process your company uses." },
+    { "q": "Can I use this for half-day leave?", "a": "Yes. Put the same date in the from and to rows, write 0.5 in total days, and mention whether you need the first half or the second half of the day." },
+    { "q": "How do I sign the letter without printing it?", "a": "Save the letter as PDF and open the free Sign PDF tool on ZentaPDF. Draw, type or upload your signature, place it above your name and download the signed copy." }
+  ],
+  "related": ["resignation-letter-template", "cover-letter-template"],
+  "tools": ["sign-pdf", "word-to-pdf", "edit-pdf", "pdf-to-word"],
+  "doc": {
+    "page": { "size": "A4", "margin": 20 },
+    "font": "Cambria",
+    "headFont": "Arial",
+    "size": 10.5,
+    "titleSize": 18,
+    "blocks": [
+      { "type": "header", "split": [1.4, 1], "after": 10, "left": ["# [Your Full Name]", "[Designation], [Department]", "~ Employee ID: [ID]   |   [Phone]   |   [Email]"], "right": ["## Leave Application", "Date: [DD Month YYYY]"] },
+      { "type": "p", "text": "To\n**[Manager's Name]**\n[Designation]\n[Company Name], [City]", "after": 10 },
+      { "type": "p", "text": "**Subject: Application for [type of leave] from [DD Month] to [DD Month YYYY]**", "after": 10 },
+      { "type": "p", "text": "Dear [Manager's Name],", "after": 8 },
+      { "type": "p", "text": "I would like to request leave for the dates below, due to [short reason, for example a family function or a medical appointment]. The details are given here for your approval.", "line": 1.15, "after": 8 },
+      { "type": "heading", "text": "Leave details", "size": 10.5, "before": 2 },
+      { "type": "fields", "cols": 2, "labelWidth": 0.42, "rowHeight": 7.5, "items": [
+        ["Type of leave", "[Casual / Sick / Earned]"], ["Total days", "[number] working days"],
+        ["From", "[DD Month YYYY]"], ["To", "[DD Month YYYY]"],
+        ["Back at work on", "[DD Month YYYY]"], ["Leave balance", "[days left before this leave]"],
+        ["Work covered by", "[Colleague's name]"], ["Contact on leave", "[Phone or email]"]
+      ], "after": 10 },
+      { "type": "p", "text": "Before my leave I will complete [task or deliverable] and share handover notes for my open work with [colleague's name], who has agreed to handle anything urgent. I will be reachable on the number above for important matters.", "line": 1.15, "after": 8 },
+      { "type": "p", "text": "I request you to kindly approve my leave. Thank you for your support.", "line": 1.15, "after": 12 },
+      { "type": "p", "text": "Yours sincerely,", "after": 26 },
+      { "type": "p", "text": "**[Your Full Name]**\n[Designation], [Department]", "after": 14 },
+      { "type": "box", "title": "For office use", "lines": ["Leave:   ☐ Approved     ☐ Not approved     ☐ Approved with changes: [new dates]", "Approved by: ..............................................   Signature: ................................   Date: ......................"], "after": 0 }
+    ]
+  }
+}

@@ -124,8 +124,8 @@
    "slug": "leave-application-letter",
    "category": "letters",
    "priority": 1,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-11",
    "note": "Leave request letter to manager with dates and handover."
   },
   {
@@ -133,8 +133,8 @@
    "slug": "salary-slip-format",
    "category": "excel",
    "priority": 1,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-11",
    "note": "Payslip with earnings, deductions, net pay formulas. Generic, tell readers to check local statutory deductions."
   },
   {
@@ -142,8 +142,8 @@
    "slug": "rent-receipt-template",
    "category": "invoice",
    "priority": 1,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-11",
    "note": "Monthly rent receipt with landlord/tenant details and signature line; Word + Excel."
   },
   {

@@ -72,6 +72,15 @@
   "previews": 2,
   "built": "2026-11-07"
  },
+ "leave-application-letter": {
+  "files": {
+   "docx": 11487,
+   "pdf": 47166
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-11"
+ },
  "monthly-budget-template": {
   "files": {
    "xlsx": 9259,
@@ -91,6 +100,16 @@
   "previews": 1,
   "built": "2026-11-08"
  },
+ "rent-receipt-template": {
+  "files": {
+   "docx": 11668,
+   "xlsx": 10763,
+   "pdf": 59731
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-11"
+ },
  "resignation-letter-template": {
   "files": {
    "docx": 10588,
@@ -99,6 +118,15 @@
   "pages": 1,
   "previews": 1,
   "built": "2026-11-07"
+ },
+ "salary-slip-format": {
+  "files": {
+   "xlsx": 9277,
+   "pdf": 42905
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-11"
  },
  "simple-invoice-template": {
   "files": {

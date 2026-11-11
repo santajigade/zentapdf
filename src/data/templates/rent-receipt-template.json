@@ -1,0 +1,837 @@
+{
+  "slug": "rent-receipt-template",
+  "category": "invoice",
+  "name": "Rent Receipt Format",
+  "h1": "Rent Receipt Format (Word, Excel and PDF Template)",
+  "metaTitle": "Rent Receipt Format: Free Word, Excel & PDF Template",
+  "metaDescription": "Free rent receipt format in Word, Excel and PDF. Two receipts per page, a yearly rent log with totals, landlord PAN reminder and signature space.",
+  "short": "Monthly house rent receipt with landlord, tenant and payment details, plus an Excel yearly rent log.",
+  "accent": "#0F766E",
+  "useCases": [
+    "Billing",
+    "Personal finance"
+  ],
+  "industries": [
+    "Personal",
+    "Families",
+    "Small business"
+  ],
+  "date": "2026-11-11",
+  "intro": "This rent receipt format gives landlords and tenants a simple record of every rent payment. The Word file prints two receipts on one A4 page, and the Excel file has a fill-in receipt plus a yearly rent log that adds up the total for you, which helps when an employer asks for rent receipts for house rent allowance (HRA).",
+  "howTo": [
+    "Download the Word file to print or fill receipts, or the Excel file if you want the yearly log and totals.",
+    "Fill in the receipt number, date and the month the rent is for.",
+    "Add the tenant's name and the full address of the rented property.",
+    "Enter the rent amount in figures and in words, the payment mode and the UPI, bank or cheque reference.",
+    "Add the landlord's name and address, and the landlord's PAN if your yearly rent needs it.",
+    "Ask the landlord to sign each receipt, then save it as PDF and keep a copy for your records."
+  ],
+  "guide": [
+    {
+      "h": "What each receipt includes",
+      "p": [
+        "Every receipt has a receipt number, the date, the rent month and period, the tenant's name, the property address, the amount in figures and words, the payment mode with a reference number, the landlord's name, address and PAN, and a signature line. The Word file has two receipts on one page with a cut line between them, filled with sample details for October and November that you can replace.",
+        "The Excel file has two tabs. **Receipt** is a single receipt where the period and total fill in by themselves. **Rent Log** lists twelve months from the start of the financial year you choose, with the date paid, mode and receipt number, and adds up the total rent for the year."
+      ]
+    },
+    {
+      "h": "Using rent receipts for HRA in India",
+      "p": [
+        "Salaried people who claim HRA usually give rent receipts to their employer. Under current income tax rules, the landlord's PAN is generally needed when the rent paid in the year is more than Rs 1,00,000, and HRA exemption is available only under the old tax regime. The Rent Log shows a reminder when your yearly total crosses Rs 1,00,000.",
+        "Rules and thresholds can change, and employers may ask for more proof, such as a rent agreement. Check the Income Tax Department website or ask your employer's payroll team before you submit."
+      ]
+    },
+    {
+      "h": "Cash payments and the revenue stamp",
+      "p": [
+        "When rent above Rs 5,000 is paid in cash, a Re 1 revenue stamp is commonly fixed on the receipt and the landlord signs across it. Payments by UPI, bank transfer or cheque do not normally need one. Paying digitally also gives both sides a bank record, which is the easiest proof if anyone asks later."
+      ]
+    }
+  ],
+  "tips": [
+    "Use one receipt per month, even if you pay several months together, so each period is clear.",
+    "Number receipts in order, for example RR-2026-10, RR-2026-11, to avoid duplicates.",
+    "Write the amount in words exactly matching the figure.",
+    "Keep the rent log updated every month so the yearly total is ready when your employer asks.",
+    "Store signed receipts as PDF in one folder for the whole financial year."
+  ],
+  "faqs": [
+    {
+      "q": "Who should sign a rent receipt?",
+      "a": "The landlord, or the person who receives the rent on the landlord's behalf, signs the receipt. The tenant keeps the signed copy as proof of payment."
+    },
+    {
+      "q": "Is landlord PAN mandatory on a rent receipt?",
+      "a": "For HRA claims in India, the landlord's PAN is generally required when yearly rent is above Rs 1,00,000. If the landlord has no PAN, employers usually ask for a written declaration from the landlord. Check the current rules with your employer."
+    },
+    {
+      "q": "Can I make one rent receipt for the whole year?",
+      "a": "Some employers accept it, but many prefer monthly receipts. Monthly receipts are safer because each one matches a payment in your bank statement. The Rent Log in the Excel file gives you the yearly total as well."
+    },
+    {
+      "q": "Can I use this rent receipt for a shop or office?",
+      "a": "Yes. Change the property address to the shop or office address. Business rent may have other tax rules, such as GST in some cases, so check with your accountant."
+    },
+    {
+      "q": "How do I add the landlord's signature digitally?",
+      "a": "Save the filled receipt as PDF and open it in the free Sign PDF tool on ZentaPDF. The landlord can draw or upload a signature and download the signed copy."
+    }
+  ],
+  "related": [
+    "simple-invoice-template",
+    "monthly-budget-template"
+  ],
+  "tools": [
+    "sign-pdf",
+    "word-to-pdf",
+    "excel-to-pdf",
+    "merge-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 14
+    },
+    "font": "Calibri",
+    "headFont": "Arial",
+    "size": 10.5,
+    "titleSize": 17,
+    "blocks": [
+      {
+        "type": "header",
+        "split": [
+          1.3,
+          1
+        ],
+        "after": 6,
+        "left": [
+          "# RENT RECEIPT",
+          "~ Receipt no. RR-2026-10"
+        ],
+        "right": [
+          "**Date:**  01 Oct 2026",
+          "**Rent for:**  October 2026"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Received with thanks from **Rahul Mehta** the sum of **Rs 18,000** (Eighteen thousand rupees only) towards rent for the property at **Flat 302, Shanti Residency, Baner, Pune 411045**, as detailed below.",
+        "line": 1.2,
+        "after": 8
+      },
+      {
+        "type": "table",
+        "columns": [
+          {
+            "h": "Description",
+            "w": 2.2
+          },
+          {
+            "h": "Period",
+            "w": 2.4,
+            "align": "center"
+          },
+          {
+            "h": "Amount (Rs)",
+            "w": 1.3,
+            "align": "right"
+          }
+        ],
+        "rows": [
+          [
+            "House rent",
+            "01 Oct 2026 to 31 Oct 2026",
+            "18,000.00"
+          ]
+        ],
+        "totals": [
+          [
+            "Total received",
+            "18,000.00"
+          ]
+        ],
+        "rowHeight": 6.5,
+        "after": 6
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "labelWidth": 0.38,
+        "rowHeight": 6.5,
+        "items": [
+          [
+            "Payment mode",
+            "UPI"
+          ],
+          [
+            "Reference no.",
+            "[UPI, bank or cheque ref]"
+          ],
+          [
+            "Landlord",
+            "Sunita Kulkarni"
+          ],
+          [
+            "Landlord PAN",
+            "[ABCDE1234F]"
+          ],
+          [
+            "Landlord address",
+            "[Landlord's address]"
+          ],
+          [
+            "Paid on",
+            "01 Oct 2026"
+          ]
+        ],
+        "after": 0
+      },
+      {
+        "type": "signature",
+        "items": [
+          "Tenant (optional)",
+          "Landlord's signature"
+        ],
+        "space": 18,
+        "align": "center",
+        "after": 2
+      },
+      {
+        "type": "p",
+        "text": "Cash payment above Rs 5,000: fix a Re 1 revenue stamp here and sign across it.",
+        "size": 8.5,
+        "muted": true,
+        "italic": true,
+        "align": "right",
+        "after": 0
+      },
+      {
+        "type": "p",
+        "text": "- - - - - - - - - - - - - - - - - - - - - -   cut here   - - - - - - - - - - - - - - - - - - - - - -",
+        "align": "center",
+        "size": 8,
+        "muted": true,
+        "before": 10,
+        "after": 12
+      },
+      {
+        "type": "header",
+        "split": [
+          1.3,
+          1
+        ],
+        "after": 6,
+        "left": [
+          "# RENT RECEIPT",
+          "~ Receipt no. RR-2026-11"
+        ],
+        "right": [
+          "**Date:**  01 Nov 2026",
+          "**Rent for:**  November 2026"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Received with thanks from **Rahul Mehta** the sum of **Rs 18,000** (Eighteen thousand rupees only) towards rent for the property at **Flat 302, Shanti Residency, Baner, Pune 411045**, as detailed below.",
+        "line": 1.2,
+        "after": 8
+      },
+      {
+        "type": "table",
+        "columns": [
+          {
+            "h": "Description",
+            "w": 2.2
+          },
+          {
+            "h": "Period",
+            "w": 2.4,
+            "align": "center"
+          },
+          {
+            "h": "Amount (Rs)",
+            "w": 1.3,
+            "align": "right"
+          }
+        ],
+        "rows": [
+          [
+            "House rent",
+            "01 Nov 2026 to 30 Nov 2026",
+            "18,000.00"
+          ]
+        ],
+        "totals": [
+          [
+            "Total received",
+            "18,000.00"
+          ]
+        ],
+        "rowHeight": 6.5,
+        "after": 6
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "labelWidth": 0.38,
+        "rowHeight": 6.5,
+        "items": [
+          [
+            "Payment mode",
+            "UPI"
+          ],
+          [
+            "Reference no.",
+            "[UPI, bank or cheque ref]"
+          ],
+          [
+            "Landlord",
+            "Sunita Kulkarni"
+          ],
+          [
+            "Landlord PAN",
+            "[ABCDE1234F]"
+          ],
+          [
+            "Landlord address",
+            "[Landlord's address]"
+          ],
+          [
+            "Paid on",
+            "01 Nov 2026"
+          ]
+        ],
+        "after": 0
+      },
+      {
+        "type": "signature",
+        "items": [
+          "Tenant (optional)",
+          "Landlord's signature"
+        ],
+        "space": 18,
+        "align": "center",
+        "after": 2
+      },
+      {
+        "type": "p",
+        "text": "Cash payment above Rs 5,000: fix a Re 1 revenue stamp here and sign across it.",
+        "size": 8.5,
+        "muted": true,
+        "italic": true,
+        "align": "right",
+        "after": 0
+      }
+    ]
+  },
+  "sheet": {
+    "font": "Calibri",
+    "sheets": [
+      {
+        "name": "Receipt",
+        "cols": [
+          22,
+          24,
+          18,
+          24
+        ],
+        "tab": "#0F766E",
+        "page": {
+          "orientation": "portrait",
+          "area": "A1:D27",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              32
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:B1",
+            "v": "RENT RECEIPT",
+            "s": "title"
+          },
+          {
+            "c": "C1",
+            "m": "C1:D1",
+            "v": "Type in the white cells only.",
+            "s": "sub",
+            "align": "right"
+          },
+          {
+            "c": "A3",
+            "v": "Receipt no.",
+            "s": "label"
+          },
+          {
+            "c": "B3",
+            "v": "RR-2026-11",
+            "s": "input"
+          },
+          {
+            "c": "C3",
+            "v": "Receipt date",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "D3",
+            "v": "2026-11-01",
+            "s": "input",
+            "fmt": "date",
+            "align": "center"
+          },
+          {
+            "c": "A4",
+            "v": "Rent for month",
+            "s": "label"
+          },
+          {
+            "c": "B4",
+            "v": "2026-11-01",
+            "s": "input",
+            "fmt": "mmmm yyyy",
+            "align": "left"
+          },
+          {
+            "c": "C4",
+            "v": "Period",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "D4",
+            "v": "=IF(B4=\"\",\"\",TEXT(DATE(YEAR(B4),MONTH(B4),1),\"dd mmm\")&\" to \"&TEXT(EOMONTH(B4,0),\"dd mmm yyyy\"))",
+            "s": "calc",
+            "align": "center"
+          },
+          {
+            "c": "A6",
+            "m": "A6:D6",
+            "v": "TENANT AND PROPERTY",
+            "s": "band"
+          },
+          {
+            "c": "A7",
+            "v": "Tenant name",
+            "s": "label"
+          },
+          {
+            "c": "B7",
+            "m": "B7:D7",
+            "v": "Rahul Mehta",
+            "s": "input"
+          },
+          {
+            "c": "A8",
+            "v": "Property address",
+            "s": "label"
+          },
+          {
+            "c": "B8",
+            "m": "B8:D8",
+            "v": "Flat 302, Shanti Residency, Baner, Pune 411045",
+            "s": "input"
+          },
+          {
+            "c": "A10",
+            "m": "A10:D10",
+            "v": "PAYMENT",
+            "s": "band"
+          },
+          {
+            "c": "A11",
+            "v": "Monthly rent",
+            "s": "label"
+          },
+          {
+            "c": "B11",
+            "v": 18000,
+            "s": "input",
+            "fmt": "money"
+          },
+          {
+            "c": "C11",
+            "v": "Maintenance or other",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "D11",
+            "v": 0,
+            "s": "input",
+            "fmt": "money"
+          },
+          {
+            "height": [
+              12,
+              24
+            ]
+          },
+          {
+            "c": "A12",
+            "v": "Total received",
+            "s": "total"
+          },
+          {
+            "c": "B12",
+            "v": "=N(B11)+N(D11)",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "C12",
+            "v": "Payment mode",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "D12",
+            "v": "UPI",
+            "s": "input",
+            "align": "center"
+          },
+          {
+            "list": "D12",
+            "items": [
+              "UPI",
+              "Bank transfer",
+              "Cheque",
+              "Cash"
+            ]
+          },
+          {
+            "c": "A13",
+            "v": "Amount in words",
+            "s": "label"
+          },
+          {
+            "c": "B13",
+            "m": "B13:D13",
+            "v": "Eighteen thousand rupees only",
+            "s": "input"
+          },
+          {
+            "c": "A14",
+            "v": "Reference no.",
+            "s": "label"
+          },
+          {
+            "c": "B14",
+            "m": "B14:D14",
+            "v": "[UPI, bank or cheque reference]",
+            "s": "input"
+          },
+          {
+            "c": "A16",
+            "m": "A16:D16",
+            "v": "LANDLORD",
+            "s": "band"
+          },
+          {
+            "c": "A17",
+            "v": "Landlord name",
+            "s": "label"
+          },
+          {
+            "c": "B17",
+            "m": "B17:D17",
+            "v": "Sunita Kulkarni",
+            "s": "input"
+          },
+          {
+            "c": "A18",
+            "v": "Landlord address",
+            "s": "label"
+          },
+          {
+            "c": "B18",
+            "m": "B18:D18",
+            "v": "[Landlord's address]",
+            "s": "input"
+          },
+          {
+            "c": "A19",
+            "v": "Landlord PAN",
+            "s": "label"
+          },
+          {
+            "c": "B19",
+            "v": "[ABCDE1234F]",
+            "s": "input"
+          },
+          {
+            "height": [
+              19,
+              28
+            ]
+          },
+          {
+            "c": "C19",
+            "m": "C19:D19",
+            "v": "=IF(N('Rent Log'!C19)>100000,\"Yearly rent in the Rent Log is above Rs 1,00,000: add the landlord PAN.\",\"PAN is generally needed when yearly rent is above Rs 1,00,000.\")",
+            "s": "note"
+          },
+          {
+            "c": "A21",
+            "m": "A21:D21",
+            "v": "Received the above amount with thanks for the period shown.",
+            "s": "plain"
+          },
+          {
+            "c": "C24",
+            "m": "C24:D24",
+            "v": "______________________________",
+            "s": "plain",
+            "align": "center"
+          },
+          {
+            "c": "C25",
+            "m": "C25:D25",
+            "v": "Landlord's signature",
+            "s": "label",
+            "align": "center"
+          },
+          {
+            "c": "A24",
+            "m": "A24:B26",
+            "v": "Cash payment above Rs 5,000: fix a Re 1 revenue stamp next to the signature and sign across it. Check current rules for your case.",
+            "s": "note"
+          }
+        ]
+      },
+      {
+        "name": "Rent Log",
+        "cols": [
+          5,
+          16,
+          14,
+          14,
+          15,
+          15,
+          24
+        ],
+        "tab": "#134E4A",
+        "freeze": 6,
+        "page": {
+          "orientation": "portrait",
+          "area": "A1:G21",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              32
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:E1",
+            "v": "Yearly Rent Log",
+            "s": "title"
+          },
+          {
+            "c": "F1",
+            "m": "F1:G1",
+            "v": "One row per month. Total is for HRA records.",
+            "s": "sub",
+            "align": "right"
+          },
+          {
+            "c": "A3",
+            "m": "A3:B3",
+            "v": "Year starts in",
+            "s": "label"
+          },
+          {
+            "c": "C3",
+            "v": "2026-04-01",
+            "s": "input",
+            "fmt": "mmm yyyy",
+            "align": "center"
+          },
+          {
+            "c": "D3",
+            "m": "D3:G3",
+            "v": "Change this to the first month of your financial year. Months fill in by themselves.",
+            "s": "note"
+          },
+          {
+            "c": "A4",
+            "m": "A4:B4",
+            "v": "Tenant",
+            "s": "label"
+          },
+          {
+            "c": "C4",
+            "m": "C4:E4",
+            "v": "=Receipt!B7",
+            "s": "calc"
+          },
+          {
+            "height": [
+              6,
+              26
+            ]
+          },
+          {
+            "row": 6,
+            "from": "A",
+            "v": [
+              "#",
+              "Month",
+              "Rent paid",
+              "Paid on",
+              "Mode",
+              "Receipt no.",
+              "Reference no."
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              7,
+              18
+            ],
+            "cols": {
+              "A": {
+                "v": "=ROW()-6",
+                "s": "calc",
+                "align": "center"
+              },
+              "B": {
+                "v": "=EDATE($C$3,ROW()-7)",
+                "s": "calc",
+                "fmt": "mmmm yyyy",
+                "align": "center"
+              },
+              "C": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "D": {
+                "s": "input",
+                "fmt": "date",
+                "align": "center"
+              },
+              "E": {
+                "s": "input",
+                "align": "center"
+              },
+              "F": {
+                "s": "input",
+                "align": "center"
+              },
+              "G": {
+                "s": "input"
+              }
+            }
+          },
+          {
+            "list": "E7:E18",
+            "items": [
+              "UPI",
+              "Bank transfer",
+              "Cheque",
+              "Cash"
+            ]
+          },
+          {
+            "data": [
+              [
+                18000,
+                "2026-04-02",
+                "UPI",
+                "RR-2026-04"
+              ],
+              [
+                18000,
+                "2026-05-03",
+                "UPI",
+                "RR-2026-05"
+              ],
+              [
+                18000,
+                "2026-06-01",
+                "UPI",
+                "RR-2026-06"
+              ],
+              [
+                18000,
+                "2026-07-02",
+                "Bank transfer",
+                "RR-2026-07"
+              ],
+              [
+                18000,
+                "2026-08-01",
+                "UPI",
+                "RR-2026-08"
+              ],
+              [
+                18000,
+                "2026-09-03",
+                "UPI",
+                "RR-2026-09"
+              ],
+              [
+                18000,
+                "2026-10-01",
+                "UPI",
+                "RR-2026-10"
+              ],
+              [
+                18000,
+                "2026-11-01",
+                "UPI",
+                "RR-2026-11"
+              ]
+            ],
+            "at": "C7"
+          },
+          {
+            "height": [
+              19,
+              24
+            ]
+          },
+          {
+            "c": "A19",
+            "m": "A19:B19",
+            "v": "Total for the year",
+            "s": "total"
+          },
+          {
+            "c": "C19",
+            "v": "=SUM(C7:C18)",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "D19",
+            "m": "D19:G19",
+            "v": "=COUNT(C7:C18)&\" of 12 months entered\"",
+            "s": "total",
+            "align": "right"
+          },
+          {
+            "height": [
+              20,
+              30
+            ]
+          },
+          {
+            "c": "A20",
+            "m": "A20:G21",
+            "v": "=IF(C19>100000,\"Yearly rent is above Rs 1,00,000, so employers generally ask for the landlord's PAN for HRA. Check current income tax rules.\",\"Yearly rent is Rs 1,00,000 or less so far. Landlord PAN is generally needed only above this amount.\")",
+            "s": "note"
+          }
+        ]
+      }
+    ]
+  }
+}

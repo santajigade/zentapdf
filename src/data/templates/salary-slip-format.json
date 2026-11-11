@@ -1,0 +1,148 @@
+{
+  "slug": "salary-slip-format",
+  "category": "excel",
+  "name": "Salary Slip Format in Excel",
+  "h1": "Salary Slip Format in Excel (XLSX and PDF Payslip)",
+  "metaTitle": "Salary Slip Format in Excel: Free Payslip Template",
+  "metaDescription": "Free salary slip format in Excel with working formulas. Paid days, earned salary, deductions and net pay calculate by themselves. Print or save as PDF.",
+  "short": "Monthly payslip in Excel: paid days, earnings, deductions and net pay all calculate from a few inputs.",
+  "accent": "#1E3A8A",
+  "useCases": ["HR", "Payroll"],
+  "industries": ["Small business", "Startups", "All industries"],
+  "date": "2026-11-11",
+  "intro": "This salary slip format in Excel gives small businesses and HR teams a clean one-page payslip that does the maths for you. Type the monthly salary structure and the loss of pay days, and the sheet works out paid days, earned salary, total deductions and net pay. It opens in Excel, Google Sheets and LibreOffice with no macros.",
+  "howTo": [
+    "Download the Excel file and open it in Microsoft Excel, Google Sheets or LibreOffice Calc.",
+    "Replace the company name and address at the top with your own.",
+    "Pick the pay month and fill in the employee details: name, ID, designation, department, PAN, UAN and bank account.",
+    "Enter the loss of pay days. Days in month and paid days fill in by themselves.",
+    "Type the monthly fixed amount for each earning, such as basic, HRA and special allowance. The Earned column adjusts for paid days.",
+    "Check the PF rate and type the other deductions, such as professional tax and income tax, as they apply to this employee.",
+    "Update the net pay in words, then print or save the sheet as PDF and share it with the employee."
+  ],
+  "guide": [
+    {
+      "h": "What is inside the sheet",
+      "p": [
+        "The payslip has four parts on one A4 page. **Employee details** hold the pay month, name, ID, designation, department, joining date, PAN, UAN, bank account and pay mode. **Attendance** shows days in the month, loss of pay days and paid days. **Earnings and deductions** sit side by side, each with eight rows. The **net pay** box at the bottom shows gross earnings minus total deductions, with a line for the amount in words and two signature lines.",
+        "White cells are for typing. Tinted cells hold formulas, so leave them as they are unless you want to change how the sheet calculates."
+      ]
+    },
+    {
+      "h": "How the formulas work",
+      "p": [
+        "Days in month comes from the pay month you pick. Paid days is days in month minus loss of pay days. Each earned amount is the monthly fixed amount multiplied by paid days and divided by days in month, rounded to the nearest rupee. For a one-time payment such as a bonus or incentive, type the amount straight into the Earned column for that row.",
+        "Provident fund is worked out as a rate on earned basic, with 12% filled in as a starting point. Gross earnings, total deductions and net pay add up by themselves."
+      ]
+    },
+    {
+      "h": "Check deductions with official rules",
+      "p": [
+        "Deductions are not the same for everyone. Provident fund rules, including any wage ceiling, ESI eligibility, professional tax slabs (set by each state, and not charged in every state) and income tax all depend on the law, the salary level and the employee's choices. This template does not decide these for you. Check the EPFO, ESIC, your state and the Income Tax Department websites, or ask your payroll adviser, before you fill in the amounts."
+      ]
+    }
+  ],
+  "tips": [
+    "Make one copy of the file per employee, then duplicate the sheet tab for each new month.",
+    "Name the PDF with the employee ID and month, such as EMP-0142 October 2026, so it is easy to find later.",
+    "Keep the salary structure the same as the offer letter, so the employee can match the two.",
+    "Employees need payslips for loans, visas and rent agreements, so send them every month without being asked.",
+    "Protect the formula cells in Excel (Review, Protect Sheet) if other people will fill in the file."
+  ],
+  "faqs": [
+    { "q": "How is net pay calculated in this salary slip?", "a": "Net pay is gross earnings minus total deductions. Gross earnings is the sum of the Earned column, which is already adjusted for loss of pay days." },
+    { "q": "Does the template calculate PF, ESI and professional tax automatically?", "a": "Only PF is calculated, as a rate on earned basic that you can change. ESI, professional tax, income tax and other deductions are typed in, because their rules depend on the state, the salary level and the law at the time. Check official sources before you use them." },
+    { "q": "Can I use this salary slip format in Google Sheets?", "a": "Yes. Upload the file to Google Drive and open it with Google Sheets. All formulas work there, and you can download a PDF from the File menu." },
+    { "q": "What if the employee had no loss of pay this month?", "a": "Type 0 in loss of pay days. Paid days then equals days in month and every earned amount equals the monthly fixed amount." },
+    { "q": "How do I send the payslip as a PDF?", "a": "Use Save as PDF or Export in your spreadsheet app, or upload the Excel file to the free Excel to PDF tool on ZentaPDF. You can then add a signature with Sign PDF." }
+  ],
+  "related": ["attendance-sheet-excel", "expense-tracker-excel"],
+  "tools": ["excel-to-pdf", "sign-pdf", "compress-pdf", "pdf-to-excel"],
+  "sheet": {
+    "font": "Arial",
+    "sheets": [
+      {
+        "name": "Salary Slip",
+        "cols": [26, 14, 14, 2, 26, 15],
+        "tab": "#1E3A8A",
+        "page": { "orientation": "portrait", "area": "A1:F38", "fitHeight": 1 },
+        "cells": [
+          { "height": [1, 32] },
+          { "c": "A1", "m": "A1:F1", "v": "[Company Name]", "s": "title", "align": "center" },
+          { "c": "A2", "m": "A2:F2", "v": "[Company address, City, PIN code]   |   [Phone]   |   [Email]", "s": "sub", "align": "center" },
+          { "height": [3, 24] },
+          { "c": "A3", "m": "A3:F3", "v": "=\"SALARY SLIP FOR \"&UPPER(TEXT(B6,\"mmmm yyyy\"))", "s": "header" },
+
+          { "c": "A5", "m": "A5:F5", "v": "EMPLOYEE DETAILS", "s": "band" },
+          { "c": "A6", "v": "Pay month", "s": "label" },
+          { "c": "B6", "m": "B6:C6", "v": "2026-10-01", "s": "input", "fmt": "mmmm yyyy", "align": "left" },
+          { "c": "E6", "v": "Employee ID", "s": "label" },
+          { "c": "F6", "v": "EMP-0142", "s": "input" },
+          { "c": "A7", "v": "Employee name", "s": "label" },
+          { "c": "B7", "m": "B7:C7", "v": "Ananya Rao", "s": "input" },
+          { "c": "E7", "v": "PAN", "s": "label" },
+          { "c": "F7", "v": "[ABCDE1234F]", "s": "input" },
+          { "c": "A8", "v": "Designation", "s": "label" },
+          { "c": "B8", "m": "B8:C8", "v": "Accounts Executive", "s": "input" },
+          { "c": "E8", "v": "UAN", "s": "label" },
+          { "c": "F8", "v": "[12-digit UAN]", "s": "input" },
+          { "c": "A9", "v": "Department", "s": "label" },
+          { "c": "B9", "m": "B9:C9", "v": "Finance", "s": "input" },
+          { "c": "E9", "v": "Bank account", "s": "label" },
+          { "c": "F9", "v": "[XXXX 1234]", "s": "input" },
+          { "c": "A10", "v": "Date of joining", "s": "label" },
+          { "c": "B10", "m": "B10:C10", "v": "2024-06-03", "s": "input", "fmt": "date", "align": "left" },
+          { "c": "E10", "v": "Pay mode", "s": "label" },
+          { "c": "F10", "v": "Bank transfer", "s": "input" },
+          { "list": "F10", "items": ["Bank transfer", "Cheque", "Cash", "UPI"] },
+
+          { "c": "A12", "m": "A12:F12", "v": "ATTENDANCE", "s": "band" },
+          { "c": "A13", "v": "Days in month", "s": "label" },
+          { "c": "B13", "v": "=DAY(EOMONTH(B6,0))", "s": "calc", "fmt": "int", "align": "center" },
+          { "c": "E13", "v": "Loss of pay (LOP) days", "s": "label" },
+          { "c": "F13", "v": 1, "s": "input", "fmt": "0.0", "align": "center" },
+          { "c": "A14", "v": "Paid days", "s": "label" },
+          { "c": "B14", "v": "=B13-N(F13)", "s": "calc", "fmt": "0.0", "align": "center" },
+          { "c": "E14", "v": "Paid leave taken", "s": "label" },
+          { "c": "F14", "v": 2, "s": "input", "fmt": "0.0", "align": "center" },
+
+          { "height": [16, 30] },
+          { "row": 16, "from": "A", "v": ["Earnings", "Monthly fixed", "Earned this month"], "s": "header" },
+          { "row": 16, "from": "E", "v": ["Deductions", "Amount"], "s": "header" },
+          { "rows": [17, 24], "cols": {
+            "A": { "s": "input" },
+            "B": { "s": "input", "fmt": "money" },
+            "C": { "v": "=IF(B{r}=\"\",\"\",ROUND(N(B{r})*$B$14/$B$13,0))", "s": "calc", "fmt": "money" },
+            "E": { "s": "input" },
+            "F": { "s": "input", "fmt": "money" }
+          } },
+          { "data": [["Basic salary", 25000], ["House rent allowance (HRA)", 10000], ["Special allowance", 8000], ["Other allowance", 1500]], "at": "A17" },
+          { "data": [["Provident fund (employee)"], ["Professional tax", 200], ["Income tax (TDS)", 1500], ["ESI (employee)", 0], ["Salary advance or loan", 0], ["Other deduction"]], "at": "E17" },
+          { "c": "F17", "v": "=ROUND(N(C17)*N($B$27),0)", "s": "calc", "fmt": "money" },
+          { "c": "A25", "v": "Gross earnings", "s": "total" },
+          { "c": "B25", "v": "=SUM(B17:B24)", "s": "total", "fmt": "money" },
+          { "c": "C25", "v": "=SUM(C17:C24)", "s": "total", "fmt": "money" },
+          { "c": "E25", "v": "Total deductions", "s": "total" },
+          { "c": "F25", "v": "=SUM(F17:F24)", "s": "total", "fmt": "money" },
+
+          { "c": "A27", "v": "PF rate on earned basic", "s": "label" },
+          { "c": "B27", "v": 0.12, "s": "input", "fmt": "pct", "align": "center" },
+          { "c": "C27", "m": "C27:F28", "v": "12% is a starting point. PF wage ceilings, ESI, professional tax and income tax depend on the law, the state and the salary. Check official rules before you fill them in.", "s": "note" },
+          { "c": "A29", "v": "Earned is monthly fixed x paid days / days in month. For a bonus, type it in the Earned column.", "s": "note", "m": "A29:B30" },
+
+          { "height": [32, 34] },
+          { "c": "A32", "m": "A32:C32", "v": "NET PAY  (gross earnings minus total deductions)", "s": "band" },
+          { "c": "E32", "m": "E32:F32", "v": "=C25-F25", "s": "big", "fmt": "#,##0.00;[Red]-#,##0.00" },
+          { "c": "A33", "v": "Net pay in words", "s": "label" },
+          { "c": "B33", "m": "B33:F33", "v": "Rupees thirty eight thousand four hundred sixty two only", "s": "input" },
+
+          { "c": "A36", "v": "______________________", "s": "plain" },
+          { "c": "E36", "m": "E36:F36", "v": "______________________", "s": "plain", "align": "right" },
+          { "c": "A37", "v": "Employee signature", "s": "label" },
+          { "c": "E37", "m": "E37:F37", "v": "Authorised signatory", "s": "label", "align": "right" },
+          { "c": "A38", "m": "A38:F38", "v": "This is a computer generated salary slip.", "s": "note", "align": "center" }
+        ]
+      }
+    ]
+  }
+}
