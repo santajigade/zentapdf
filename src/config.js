@@ -6,3 +6,6 @@ export const GA4_ID = 'G-5R1VE7T2BP'; // e.g. 'G-XXXXXXX' — leave empty to dis
 export const GSC_VERIFICATION = ''; // Google Search Console meta tag content
 export const ADSENSE_CLIENT = ''; // e.g. 'ca-pub-XXXX' — leave empty until approved
 export const CONTACT_EMAIL = 'hello@zentapdf.com';
+// Pinterest: paste the content="..." value from Pinterest's "Claim website" meta tag here.
+export const PINTEREST_VERIFY = '';
+export const PINTEREST_URL = 'https://www.pinterest.com/zentapdf/'; // change if the Pinterest username is different

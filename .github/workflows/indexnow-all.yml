@@ -1,0 +1,15 @@
+# Manual: send ALL sitemap URLs to IndexNow once (Actions tab > IndexNow (submit all pages) > Run workflow).
+name: IndexNow (submit all pages)
+on:
+  workflow_dispatch:
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          git fetch -q origin site
+          mkdir site && git archive FETCH_HEAD | tar -x -C site
+          KEY=$(ls public | grep -E '^[0-9a-f]{32}\.txt$')
+          curl -s -o /dev/null -w 'key file HTTP %{http_code}\n' https://zentapdf.com/$KEY
+          python3 tools/indexnow.py /dev/null site

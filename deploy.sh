@@ -7,10 +7,10 @@ npx astro build
 TMP=$(mktemp -d)
 cp -r dist/. "$TMP"/
 git rev-parse HEAD > "$TMP/deployed-commit.txt"
-# GitHub job that pings IndexNow (Bing etc.) after each publish
-mkdir -p "$TMP/.github/workflows" && cp tools/github/indexnow.yml "$TMP/.github/workflows/indexnow.yml"
 # Keep previous builds' hashed assets so pages cached in browsers/CDN never lose their CSS/JS
+OLD_TREE=$(mktemp)
 if git fetch -q origin site 2>/dev/null; then
+  git ls-tree -r FETCH_HEAD > "$OLD_TREE" 2>/dev/null || true
   git archive FETCH_HEAD _astro 2>/dev/null | tar -x -C "$TMP" --skip-old-files 2>/dev/null || true
 fi
 git -C "$TMP" init -q -b site
@@ -21,3 +21,5 @@ AUTH=$(git config --get-regexp '^http\..*\.extraheader$' 2>/dev/null | head -1 |
 if [ -n "$AUTH" ]; then git -C "$TMP" -c http.extraheader="$AUTH" push -q -f "$(git remote get-url origin)" site:site
 else git -C "$TMP" push -q -f "$(git remote get-url origin)" site:site; fi
 echo "Published to branch 'site'."
+# Tell IndexNow (Bing, ChatGPT search, DuckDuckGo, Yahoo) which sitemap pages are new or changed. Never fails the publish.
+if [ -n "${GITHUB_ACTIONS:-}" ]; then sleep 90; python3 tools/indexnow.py "$OLD_TREE" dist || true; fi

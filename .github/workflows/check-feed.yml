@@ -1,0 +1,15 @@
+# Manual: fetch the pin feed as Pinterestbot from outside (Actions tab > Check pin feed > Run workflow).
+name: Check pin feed
+on:
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          UA="Mozilla/5.0 (compatible; Pinterestbot/1.0; +http://www.pinterest.com/bot.html)"
+          curl -s -A "$UA" -D - -o /tmp/f.xml -w 'time %{time_total}s size %{size_download}\n' https://zentapdf.com/pins/feed.xml | grep -iE '^HTTP|content-type|time '
+          python3 -c "import xml.dom.minidom as m;d=m.parse('/tmp/f.xml');print('valid XML,',len(d.getElementsByTagName('item')),'items')"
+          for u in $(grep -o 'media:content url="[^"]*"' /tmp/f.xml | cut -d'"' -f2 | head -6); do
+            curl -s -o /dev/null -A "$UA" -w "%{http_code} %{content_type} %{size_download}B $u\n" "$u"
+          done

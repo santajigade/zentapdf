@@ -51,3 +51,11 @@ npx lighthouse http://localhost:4321/<slug>/ --form-factor=mobile   # target 95+
 - ffmpeg.wasm single-thread core is self-hosted in `public/ffmpeg/0.12.10/` and loaded only when needed (OGG, FLAC, WMA/AMR/MKV input, AAC when the browser has no AAC encoder, files over 100 MB).
 - Every audio page shows the "Your files never leave your device" note (template in `[tool].astro`), plus Supported formats and Privacy sections.
 - Tests: `node tools/test/e2e-audio.mjs [cut|ring|conv|comp|vol|video|bpm|fx|join|rec|tone]` (test files in sandbox testfiles/audio).
+
+## Traffic plumbing (IndexNow + Pinterest)
+- IndexNow: key file `public/9462406b2206d2f064e7fd4a0a8cd013.txt`. After each publish `deploy.sh` runs `tools/indexnow.py`, which sends only sitemap pages whose HTML changed since the last deployed build. It never fails the deploy. Send every page once: Actions > "IndexNow (submit all pages)".
+- Pinterest verify tag and profile link: `PINTEREST_VERIFY` and `PINTEREST_URL` in `src/config.js`.
+- Pins: `src/lib/pins.ts` (which pages, colours, ticks, hashtags), `src/lib/pinimg.ts` (1000x1500 JPG, cached in `.og-cache/`). Images are built only for released pins (`PINS_ALL=1 npx astro build` renders all for a preview).
+- Schedule: `src/data/pins.json` (page id to release date, 4 a day). New guides are pinned the day after their date; new tools and tests get tomorrow's date automatically in the deploy workflow (`tools/pins/pins.py add-new`).
+- Feed: `/pins/feed.xml` (latest 60). The deploy workflow also runs daily at 09:00 IST to release the day's pins. Check it from outside: Actions > "Check pin feed".
+- "A lot now": `npx astro build && python3 tools/pins/pins.py lot 10`, then commit, push and upload the `pins-lot-DATE.csv` in Pinterest. Those pages go in `src/data/pins-manual.json` and stay out of the feed.
