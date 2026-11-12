@@ -1,7 +1,7 @@
 """Pinterest pin schedule and bulk upload.
 
 Needs a fresh build (reads dist/pins/index.json).
-  python3 tools/pins/pins.py make            # first time only: schedule every page, popular first, then round robin by category, 4 a day from tomorrow
+  python3 tools/pins/pins.py make            # first time only: schedule every page, popular first, then round robin by category, 5 a day from tomorrow
   python3 tools/pins/pins.py add-new         # give pages that have no date yet (new tools or tests) tomorrow's date
   python3 tools/pins/pins.py lot [10]        # "a lot now": next 10 scheduled pins released today, kept out of the feed, .csv written
 Board name for the .csv: BOARD below.
@@ -9,7 +9,7 @@ Board name for the .csv: BOARD below.
 import sys, json, csv, datetime, os
 
 BOARD = 'Free PDF Tools Online'
-PER_DAY = 4
+PER_DAY = 5
 SCHED = 'src/data/pins.json'
 MANUAL = 'src/data/pins-manual.json'
 POPULAR = ['edit-pdf', 'merge-pdf', 'compress-pdf', 'pdf-to-word', 'reduce-image-size-in-kb', 'sign-pdf', 'jpg-to-pdf', 'split-pdf',
