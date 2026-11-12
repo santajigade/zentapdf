@@ -57,5 +57,5 @@ npx lighthouse http://localhost:4321/<slug>/ --form-factor=mobile   # target 95+
 - Pinterest verify tag and profile link: `PINTEREST_VERIFY` and `PINTEREST_URL` in `src/config.js`.
 - Pins: `src/lib/pins.ts` (which pages, colours, ticks, hashtags), `src/lib/pinimg.ts` (1000x1500 JPG, cached in `.og-cache/`). Images are built only for released pins (`PINS_ALL=1 npx astro build` renders all for a preview).
 - Schedule: `src/data/pins.json` (page id to release date, 4 a day). New guides are pinned the day after their date; new tools and tests get tomorrow's date automatically in the deploy workflow (`tools/pins/pins.py add-new`).
-- Feed: `/pins/feed.xml` (latest 60). The deploy workflow also runs daily at 09:00 IST to release the day's pins. Check it from outside: Actions > "Check pin feed".
+- Feed: `/pins/feed.xml` (latest 60). The deploy workflow also runs daily at 06:00 IST to release the day's pins. Check it from outside: Actions > "Check pin feed".
 - "A lot now": `npx astro build && python3 tools/pins/pins.py lot 10`, then commit, push and upload the `pins-lot-DATE.csv` in Pinterest. Those pages go in `src/data/pins-manual.json` and stay out of the feed.

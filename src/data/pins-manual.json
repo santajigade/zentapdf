@@ -1,1 +1,12 @@
-[]
+[
+ "tool/compress-pdf",
+ "tool/edit-pdf",
+ "tool/merge-pdf",
+ "tool/pdf-to-word",
+ "tool/jpg-to-pdf",
+ "tool/reduce-image-size-in-kb",
+ "tool/sign-pdf",
+ "tool/split-pdf",
+ "tool/compress-image",
+ "tool/mp3-cutter"
+]

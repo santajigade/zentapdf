@@ -1,6 +1,6 @@
 # Auto deploy: every push to main builds the site, runs the SEO audit (must be 0 issues)
 # and publishes dist/ to the `site` branch, then pings IndexNow with the changed pages.
-# Also runs daily at 09:00 IST so the Pinterest feed (/pins/feed.xml) releases the day's pins.
+# Also runs daily at 06:00 IST so the Pinterest feed (/pins/feed.xml) releases the day's pins.
 # Publish again by hand: Actions tab > Deploy > Run workflow.
 name: Deploy
 on:
@@ -8,7 +8,7 @@ on:
     branches: [main]
   workflow_dispatch:
   schedule:
-    - cron: '30 3 * * *'   # 09:00 IST daily rebuild so the Pinterest feed releases the day's pins
+    - cron: '30 0 * * *'   # 06:00 IST daily rebuild so the Pinterest feed releases the day's pins
 concurrency:
   group: deploy
   cancel-in-progress: false

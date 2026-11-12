@@ -8,7 +8,7 @@ Board name for the .csv: BOARD below.
 """
 import sys, json, csv, datetime, os
 
-BOARD = 'Free PDF Tools'  # change when the board is created
+BOARD = 'Free PDF Tools Online'
 PER_DAY = 4
 SCHED = 'src/data/pins.json'
 MANUAL = 'src/data/pins-manual.json'
