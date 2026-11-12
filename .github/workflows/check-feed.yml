@@ -6,10 +6,15 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - run: |
           UA="Mozilla/5.0 (compatible; Pinterestbot/1.0; +http://www.pinterest.com/bot.html)"
           curl -s -A "$UA" -D - -o /tmp/f.xml -w 'time %{time_total}s size %{size_download}\n' https://zentapdf.com/pins/feed.xml | grep -iE '^HTTP|content-type|time '
           python3 -c "import xml.dom.minidom as m;d=m.parse('/tmp/f.xml');print('valid XML,',len(d.getElementsByTagName('item')),'items')"
           for u in $(grep -o 'media:content url="[^"]*"' /tmp/f.xml | cut -d'"' -f2 | head -6); do
             curl -s -o /dev/null -A "$UA" -w "%{http_code} %{content_type} %{size_download}B $u\n" "$u"
+          done
+          echo "== hand-uploaded (.csv) pins: images must load, and must NOT be in the feed"
+          for id in $(python3 -c "import json;print(' '.join(i.split('/',1)[1] for i in json.load(open('src/data/pins-manual.json'))))"); do
+            echo "$(curl -s -o /dev/null -A "$UA" -w '%{http_code} %{content_type}' https://zentapdf.com/pins/$id.jpg) $id in-feed:$(grep -c "pin-tool/$id<" /tmp/f.xml)"
           done
