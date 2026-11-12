@@ -1,0 +1,632 @@
+{
+  "slug": "to-do-list-template",
+  "category": "planners",
+  "name": "To-Do List Template",
+  "h1": "To-Do List Template (Excel, Word and Printable PDF)",
+  "metaTitle": "To-Do List Template: Free Excel, Word & PDF",
+  "metaDescription": "Free to-do list template in Excel, Word and printable PDF. Priority and due date columns, and the Excel sheet strikes out done tasks and flags overdue ones.",
+  "short": "Printable checklist with priority and due columns, plus an Excel sheet that strikes out done tasks.",
+  "accent": "#0369A1",
+  "useCases": [
+    "Planning",
+    "Tracking"
+  ],
+  "industries": [
+    "Personal",
+    "Students",
+    "Professionals",
+    "Small business"
+  ],
+  "date": "2026-11-12",
+  "intro": "This to-do list template comes in two forms. The printable page has 20 task rows with a tick box, a priority to circle, a due date and notes, plus a small box for what you must do today. The Excel sheet holds up to 40 tasks, greys out and strikes through finished ones, and counts what is done and what is overdue.",
+  "howTo": [
+    "Download the PDF to print, the Word file to type in, or the Excel file if you want the list to track itself.",
+    "On the printed page, write each task on its own row and circle H, M or L for high, medium or low priority.",
+    "Add a due date where there is one, and use Notes for phone numbers, amounts or the next step.",
+    "Copy your three most important tasks into the Must do today box, and anything you are waiting for from others into the next column.",
+    "In Excel, type tasks in the white cells and pick a category and priority from the drop-down lists.",
+    "When a task is finished, choose Yes in the Done column. The row turns grey with a line through it and the counters at the top update."
+  ],
+  "guide": [
+    {
+      "h": "What the Excel sheet does for you",
+      "p": [
+        "**Days left** shows how many days remain until each due date, and goes red when the date has passed. **Status** reads Done, Overdue, Due soon (two days or less) or Open. Overdue tasks are highlighted in red so they stand out.",
+        "The four boxes at the top count your total tasks, finished tasks and overdue tasks, and show the percentage complete. The sheet has no macros, so it works the same in Excel, Google Sheets and LibreOffice. To sort by due date or priority, select the table and use Sort in the Data menu."
+      ]
+    },
+    {
+      "h": "How to choose priorities",
+      "p": [
+        "A simple way is to ask two questions about each task: is it important, and is it urgent? Important and urgent tasks are high priority, so do them first. Important tasks that are not urgent, such as study or health, deserve a fixed time in your week before they become urgent.",
+        "Urgent tasks that are not important can often be handed to someone else or done quickly in one batch. Tasks that are neither can usually wait or be dropped. This idea is often called the Eisenhower matrix, and the H, M and L marks on this template are a quick way to use it."
+      ]
+    },
+    {
+      "h": "Keeping the list useful",
+      "p": [
+        "Write tasks as clear actions, such as Call bank about card limit, rather than one word like Bank. Break big jobs into steps you can finish in one sitting. Look at the list at the start and end of each day, and move unfinished tasks to a new page or row instead of letting old ones pile up."
+      ]
+    }
+  ],
+  "tips": [
+    "Keep your Must do today box to three tasks. A short list gets finished.",
+    "Start a fresh printed page each week and copy over only the tasks that still matter.",
+    "Use the Category column in Excel with Filter in the Data menu to see work and home tasks separately.",
+    "Do any task that takes under two minutes straight away instead of writing it down.",
+    "Save the Excel file in cloud storage so you can update it from your phone."
+  ],
+  "faqs": [
+    {
+      "q": "How do I mark a task as done in the Excel to-do list?",
+      "a": "Click the Done cell for that task and choose Yes from the drop-down. The row turns grey with a line through it, and the Done and Complete boxes at the top update."
+    },
+    {
+      "q": "Why does a task show Overdue?",
+      "a": "Status shows Overdue when the due date is earlier than today and Done is not set to Yes. Change the date or mark it done and the red highlight goes away."
+    },
+    {
+      "q": "Can I add more than 40 tasks?",
+      "a": "Yes. Insert new rows above the last task row, then copy the formulas in Days left and Status down into them. The counters include rows you insert inside the table."
+    },
+    {
+      "q": "Does it work in Google Sheets?",
+      "a": "Yes. Upload the file to Google Drive and open it with Google Sheets. The drop-down lists, formulas and grey strike-through all work there."
+    },
+    {
+      "q": "Can I print the Excel list?",
+      "a": "Yes. The print area is set to A4 portrait and the column headings repeat on every page. You can also save it as a PDF with the Excel to PDF tool."
+    }
+  ],
+  "related": [
+    "daily-planner-template",
+    "weekly-planner-template"
+  ],
+  "tools": [
+    "excel-to-pdf",
+    "edit-pdf",
+    "word-to-pdf",
+    "merge-pdf"
+  ],
+  "sheet": {
+    "font": "Arial",
+    "sheets": [
+      {
+        "name": "To-Do List",
+        "cols": [
+          9,
+          38,
+          13,
+          11,
+          14,
+          10,
+          12,
+          26
+        ],
+        "freeze": 7,
+        "page": {
+          "orientation": "portrait",
+          "area": "A1:H47",
+          "titles": "7:7",
+          "fitHeight": 0
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              32
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:H1",
+            "v": "To-Do List",
+            "s": "title"
+          },
+          {
+            "c": "A2",
+            "m": "A2:H2",
+            "v": "Choose Yes in the Done column to strike a task out. Days left and Status update by themselves.",
+            "s": "sub"
+          },
+          {
+            "c": "A4",
+            "m": "A4:B4",
+            "v": "TOTAL TASKS",
+            "s": "band",
+            "align": "center"
+          },
+          {
+            "c": "C4",
+            "m": "C4:D4",
+            "v": "DONE",
+            "s": "band",
+            "align": "center"
+          },
+          {
+            "c": "E4",
+            "m": "E4:F4",
+            "v": "OVERDUE",
+            "s": "band",
+            "align": "center"
+          },
+          {
+            "c": "G4",
+            "m": "G4:H4",
+            "v": "COMPLETE",
+            "s": "band",
+            "align": "center"
+          },
+          {
+            "height": [
+              5,
+              32
+            ]
+          },
+          {
+            "c": "A5",
+            "m": "A5:B5",
+            "v": "=COUNTA(B8:B47)",
+            "s": "big",
+            "fmt": "0"
+          },
+          {
+            "c": "C5",
+            "m": "C5:D5",
+            "v": "=COUNTIFS(A8:A47,\"Yes\",B8:B47,\"<>\")",
+            "s": "big",
+            "fmt": "0"
+          },
+          {
+            "c": "E5",
+            "m": "E5:F5",
+            "v": "=COUNTIF(G8:G47,\"Overdue\")",
+            "s": "big",
+            "fmt": "0"
+          },
+          {
+            "c": "G5",
+            "m": "G5:H5",
+            "v": "=IF(A5=0,0,C5/A5)",
+            "s": "big",
+            "fmt": "0%"
+          },
+          {
+            "height": [
+              7,
+              24
+            ]
+          },
+          {
+            "row": 7,
+            "from": "A",
+            "v": [
+              "Done?",
+              "Task",
+              "Category",
+              "Priority",
+              "Due date",
+              "Days left",
+              "Status",
+              "Notes"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              8,
+              47
+            ],
+            "cols": {
+              "A": {
+                "s": "check"
+              },
+              "B": {
+                "s": "input"
+              },
+              "C": {
+                "s": "input",
+                "align": "center"
+              },
+              "D": {
+                "s": "input",
+                "align": "center"
+              },
+              "E": {
+                "s": "input",
+                "fmt": "date",
+                "align": "center"
+              },
+              "F": {
+                "v": "=IF(OR(B{r}=\"\",E{r}=\"\",A{r}=\"Yes\"),\"\",E{r}-TODAY())",
+                "s": "calc",
+                "fmt": "0",
+                "align": "center"
+              },
+              "G": {
+                "v": "=IF(B{r}=\"\",\"\",IF(A{r}=\"Yes\",\"Done\",IF(E{r}=\"\",\"Open\",IF(E{r}<TODAY(),\"Overdue\",IF(E{r}-TODAY()<=2,\"Due soon\",\"Open\")))))",
+                "s": "calc",
+                "align": "center"
+              },
+              "H": {
+                "s": "input"
+              }
+            }
+          },
+          {
+            "data": [
+              [
+                "Yes",
+                "Pay electricity bill online",
+                "Money",
+                "High",
+                "2026-11-10",
+                null,
+                null,
+                "Paid by UPI"
+              ],
+              [
+                "Yes",
+                "Book train tickets for Diwali trip",
+                "Home",
+                "High",
+                "2026-11-11"
+              ],
+              [
+                "",
+                "Send project report to manager",
+                "Work",
+                "High",
+                "2026-11-13",
+                null,
+                null,
+                "Add sales chart"
+              ],
+              [
+                "",
+                "Revise chapters 4 and 5 for exam",
+                "Study",
+                "High",
+                "2026-11-16"
+              ],
+              [
+                "",
+                "Call plumber about kitchen tap",
+                "Home",
+                "Medium",
+                "2026-11-14"
+              ],
+              [
+                "",
+                "Renew car insurance",
+                "Money",
+                "Medium",
+                "2026-11-20",
+                null,
+                null,
+                "Compare 3 quotes"
+              ],
+              [
+                "",
+                "Buy groceries for the week",
+                "Shopping",
+                "Medium",
+                "2026-11-15"
+              ],
+              [
+                "",
+                "Book dentist appointment",
+                "Health",
+                "Low",
+                "2026-11-22"
+              ],
+              [
+                "",
+                "Update resume with new project",
+                "Work",
+                "Low",
+                "2026-11-28"
+              ],
+              [
+                "",
+                "Clear email inbox",
+                "Work",
+                "Low",
+                ""
+              ]
+            ],
+            "at": "A8"
+          },
+          {
+            "list": "A8:A47",
+            "items": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "list": "C8:C47",
+            "items": [
+              "Work",
+              "Home",
+              "Study",
+              "Shopping",
+              "Health",
+              "Money",
+              "Family",
+              "Other"
+            ]
+          },
+          {
+            "list": "D8:D47",
+            "items": [
+              "High",
+              "Medium",
+              "Low"
+            ]
+          },
+          {
+            "cf": "A8:H47",
+            "rule": "done",
+            "ref": "$A8=\"Yes\""
+          },
+          {
+            "cf": "G8:G47",
+            "rule": "over",
+            "ref": "G8=\"Overdue\""
+          },
+          {
+            "cf": "F8:F47",
+            "rule": "neg"
+          },
+          {
+            "note": "A7",
+            "text": "Pick Yes when a task is finished. The whole row turns grey with a line through it."
+          },
+          {
+            "note": "E7",
+            "text": "Leave blank for tasks with no deadline."
+          }
+        ]
+      }
+    ]
+  },
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 13
+    },
+    "size": 10,
+    "font": "Arial",
+    "headFont": "Arial",
+    "blocks": [
+      {
+        "type": "title",
+        "band": true,
+        "text": "To-Do List",
+        "size": 24,
+        "sub": "Plan it, do it, tick it off."
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "labelWidth": 0.22,
+        "after": 3,
+        "items": [
+          [
+            "Date",
+            ""
+          ],
+          [
+            "Week of",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "table",
+        "rowHeight": 8.4,
+        "after": 5,
+        "columns": [
+          {
+            "h": "✓",
+            "w": 0.35,
+            "align": "center"
+          },
+          {
+            "h": "Task",
+            "w": 3.1
+          },
+          {
+            "h": "Priority",
+            "w": 0.95,
+            "align": "center"
+          },
+          {
+            "h": "Due",
+            "w": 0.8,
+            "align": "center"
+          },
+          {
+            "h": "Notes",
+            "w": 1.6
+          }
+        ],
+        "rows": [
+          [
+            "☐",
+            "",
+            "H   M   L",
+            "",
+            ""
+          ],
+          [
+            "☐",
+            "",
+            "H   M   L",
+            "",
+            ""
+          ],
+          [
+            "☐",
+            "",
+            "H   M   L",
+            "",
+            ""
+          ],
+          [
+            "☐",
+            "",
+            "H   M   L",
+            "",
+            ""
+          ],
+          [
+            "☐",
+            "",
+            "H   M   L",
+            "",
+            ""
+          ],
+          [
+            "☐",
+            "",
+            "H   M   L",
+            "",
+            ""
+          ],
+          [
+            "☐",
+            "",
+            "H   M   L",
+            "",
+            ""
+          ],
+          [
+            "☐",
+            "",
+            "H   M   L",
+            "",
+            ""
+          ],
+          [
+            "☐",
+            "",
+            "H   M   L",
+            "",
+            ""
+          ],
+          [
+            "☐",
+            "",
+            "H   M   L",
+            "",
+            ""
+          ],
+          [
+            "☐",
+            "",
+            "H   M   L",
+            "",
+            ""
+          ],
+          [
+            "☐",
+            "",
+            "H   M   L",
+            "",
+            ""
+          ],
+          [
+            "☐",
+            "",
+            "H   M   L",
+            "",
+            ""
+          ],
+          [
+            "☐",
+            "",
+            "H   M   L",
+            "",
+            ""
+          ],
+          [
+            "☐",
+            "",
+            "H   M   L",
+            "",
+            ""
+          ],
+          [
+            "☐",
+            "",
+            "H   M   L",
+            "",
+            ""
+          ],
+          [
+            "☐",
+            "",
+            "H   M   L",
+            "",
+            ""
+          ],
+          [
+            "☐",
+            "",
+            "H   M   L",
+            "",
+            ""
+          ],
+          [
+            "☐",
+            "",
+            "H   M   L",
+            "",
+            ""
+          ],
+          [
+            "☐",
+            "",
+            "H   M   L",
+            "",
+            ""
+          ]
+        ],
+        "grid": true
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "rowHeight": 8.4,
+        "after": 0,
+        "headFill": "#E0F2FE",
+        "headText": "#0369A1",
+        "columns": [
+          {
+            "h": "Must do today"
+          },
+          {
+            "h": "Waiting on others"
+          }
+        ],
+        "rows": [
+          [
+            "1.",
+            ""
+          ],
+          [
+            "2.",
+            ""
+          ],
+          [
+            "3.",
+            ""
+          ]
+        ]
+      }
+    ]
+  }
+}

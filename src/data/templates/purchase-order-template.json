@@ -1,0 +1,825 @@
+{
+  "slug": "purchase-order-template",
+  "category": "forms",
+  "name": "Purchase Order Template",
+  "h1": "Purchase Order Template (Excel, Word and PDF)",
+  "metaTitle": "Purchase Order Template: Free Excel, Word & PDF",
+  "metaDescription": "Free purchase order template in Excel, Word and PDF. Vendor and ship-to details, line items with tax per line, and totals that calculate automatically.",
+  "short": "PO with vendor and ship-to boxes, line items with tax per line, freight, totals and approval signatures.",
+  "accent": "#334155",
+  "useCases": [
+    "Purchase",
+    "Billing"
+  ],
+  "industries": [
+    "Small business",
+    "Manufacturing",
+    "Retail",
+    "Corporate"
+  ],
+  "date": "2026-11-12",
+  "intro": "A purchase order (PO) is the document a buyer sends to a supplier to order goods or services at an agreed price. This purchase order template has your company details, PO number and dates, vendor and ship-to boxes, an item table with a tax rate on each line, and totals for tax and freight. The Excel version does all the maths for you.",
+  "howTo": [
+    "Download the Excel file if you want totals to calculate, or the Word file if you prefer to type a fixed order. The PDF is for printing blank copies.",
+    "Replace the grey text in brackets with your company name, address, tax number and contact details.",
+    "Give each order its own PO number, such as PO-2026-0087, and fill the PO date and the date you need delivery by.",
+    "Enter the vendor's name, address and tax number, and the address where the goods must be delivered.",
+    "Add one row per item with an item code, a clear description, quantity, unit, unit price and tax rate.",
+    "Check the subtotal, tax, freight and total, then have the order approved and signed.",
+    "Save it as PDF, send it to the vendor and keep a copy to match against their invoice and delivery."
+  ],
+  "guide": [
+    {
+      "h": "What a purchase order should include",
+      "p": [
+        "Most purchase orders carry the same core details: a unique PO number and date, buyer and vendor names and addresses, a description of each item with quantity and price, the tax and the total, the delivery address and date, and the payment terms. This template has a place for each of these, plus a vendor quote reference so you can link the order to the price you were offered.",
+        "Describe items clearly enough that the vendor cannot send the wrong thing, for example size, colour, grade or model number. Vague lines such as packing material lead to wrong deliveries and disputes."
+      ]
+    },
+    {
+      "h": "Purchase order and invoice: what is the difference",
+      "p": [
+        "The buyer issues the purchase order before the goods are sent. Once the vendor accepts it, the PO records what was agreed. The vendor then raises an invoice to ask for payment. Many businesses check every invoice against the PO and the goods received before they pay, which is often called three-way matching.",
+        "In India, the vendor's tax invoice is the document used for GST, not the purchase order. Many buyers still show both GSTINs and the expected tax on the PO so the invoice matches. Tax rates in the file are samples only. Check the correct GST, VAT or sales tax rate for each item with official sources or your accountant."
+      ]
+    },
+    {
+      "h": "How the Excel version works",
+      "p": [
+        "White cells are for typing and tinted cells hold formulas. Amount is quantity times unit price. Tax adds up quantity times price times the tax rate for every line, so items with different rates work on the same order. Add freight, and enter a discount as a negative number in the Other line. The sheet prints on one A4 page and has no macros."
+      ]
+    }
+  ],
+  "tips": [
+    "Use one numbering series for all POs and never reuse a number.",
+    "Get a written quote first and enter its reference on the PO.",
+    "Ask the vendor to sign and return the PO so both sides agree on price and dates.",
+    "Keep PDFs of all POs in one folder, named by PO number, for audits and follow ups.",
+    "When goods arrive, count them against the PO before signing the delivery note."
+  ],
+  "faqs": [
+    {
+      "q": "Who issues a purchase order, the buyer or the seller?",
+      "a": "The buyer. The buyer sends the purchase order to the seller to place an order. The seller replies with an invoice when the goods or services are supplied."
+    },
+    {
+      "q": "Is a purchase order legally binding?",
+      "a": "In many places a PO becomes a binding agreement once the seller accepts it, for example by signing it or supplying the goods. Rules differ by country and contract, so take legal advice for large or unusual orders."
+    },
+    {
+      "q": "Do I need to show GST on a purchase order?",
+      "a": "A PO is not a tax invoice, but many Indian businesses show both GSTINs and the expected GST so the supplier's invoice matches. Check current GST rules on the official GST portal or with your accountant."
+    },
+    {
+      "q": "Can I use different tax rates for different items?",
+      "a": "Yes. The Excel file has a Tax % cell on every line, and the Tax total adds them all up correctly."
+    },
+    {
+      "q": "How do I send the purchase order as a PDF?",
+      "a": "In Excel or Word use Save as PDF, or upload the file to the free Excel to PDF or Word to PDF tool on ZentaPDF. You can sign it with Sign PDF before sending."
+    }
+  ],
+  "related": [
+    "quotation-format",
+    "simple-invoice-template",
+    "gst-invoice-format"
+  ],
+  "tools": [
+    "excel-to-pdf",
+    "word-to-pdf",
+    "sign-pdf",
+    "pdf-to-excel"
+  ],
+  "sheet": {
+    "font": "Calibri",
+    "sheets": [
+      {
+        "name": "Purchase Order",
+        "cols": [
+          6,
+          12,
+          36,
+          8,
+          8,
+          12,
+          9,
+          15
+        ],
+        "page": {
+          "orientation": "portrait",
+          "area": "A1:H41",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              34
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:D1",
+            "v": "[Your Company Name]",
+            "s": "title"
+          },
+          {
+            "c": "E1",
+            "m": "E1:H1",
+            "v": "PURCHASE ORDER",
+            "s": "big"
+          },
+          {
+            "c": "A2",
+            "m": "A2:D2",
+            "v": "[Street address, City, PIN]",
+            "s": "sub"
+          },
+          {
+            "c": "A3",
+            "m": "A3:D3",
+            "v": "GSTIN / Tax ID: [your number]",
+            "s": "sub"
+          },
+          {
+            "c": "A4",
+            "m": "A4:D4",
+            "v": "[Phone]  |  [Email]",
+            "s": "sub"
+          },
+          {
+            "c": "E2",
+            "m": "E2:F2",
+            "v": "PO number",
+            "s": "label"
+          },
+          {
+            "c": "G2",
+            "m": "G2:H2",
+            "v": "PO-2026-0087",
+            "s": "input",
+            "align": "right"
+          },
+          {
+            "c": "E3",
+            "m": "E3:F3",
+            "v": "PO date",
+            "s": "label"
+          },
+          {
+            "c": "G3",
+            "m": "G3:H3",
+            "v": "2026-11-12",
+            "s": "input",
+            "fmt": "date",
+            "align": "right"
+          },
+          {
+            "c": "E4",
+            "m": "E4:F4",
+            "v": "Deliver by",
+            "s": "label"
+          },
+          {
+            "c": "G4",
+            "m": "G4:H4",
+            "v": "2026-11-26",
+            "s": "input",
+            "fmt": "date",
+            "align": "right"
+          },
+          {
+            "c": "E5",
+            "m": "E5:F5",
+            "v": "Payment terms",
+            "s": "label"
+          },
+          {
+            "c": "G5",
+            "m": "G5:H5",
+            "v": "Net 30 days",
+            "s": "input",
+            "align": "right"
+          },
+          {
+            "c": "E6",
+            "m": "E6:F6",
+            "v": "Vendor quote ref.",
+            "s": "label"
+          },
+          {
+            "c": "G6",
+            "m": "G6:H6",
+            "v": "QT-1182",
+            "s": "input",
+            "align": "right"
+          },
+          {
+            "c": "A8",
+            "m": "A8:D8",
+            "v": "VENDOR",
+            "s": "band"
+          },
+          {
+            "c": "E8",
+            "m": "E8:H8",
+            "v": "SHIP TO",
+            "s": "band"
+          },
+          {
+            "c": "A9",
+            "m": "A9:D9",
+            "v": "Shree Ganesh Packaging Pvt Ltd",
+            "s": "input"
+          },
+          {
+            "c": "E9",
+            "m": "E9:H9",
+            "v": "[Your Company Name], Warehouse 2",
+            "s": "input"
+          },
+          {
+            "c": "A10",
+            "m": "A10:D10",
+            "v": "Plot 21, MIDC Bhosari, Pune 411026",
+            "s": "input"
+          },
+          {
+            "c": "E10",
+            "m": "E10:H10",
+            "v": "Survey No. 54, Chakan, Pune 410501",
+            "s": "input"
+          },
+          {
+            "c": "A11",
+            "m": "A11:D11",
+            "v": "GSTIN: [vendor GSTIN]",
+            "s": "input"
+          },
+          {
+            "c": "E11",
+            "m": "E11:H11",
+            "v": "Receiver: [name], [phone]",
+            "s": "input"
+          },
+          {
+            "c": "A12",
+            "m": "A12:D12",
+            "v": "Contact: Amit Kulkarni, [phone]",
+            "s": "input"
+          },
+          {
+            "c": "E12",
+            "m": "E12:H12",
+            "v": "Receiving hours: 10 am to 6 pm, Mon to Sat",
+            "s": "input"
+          },
+          {
+            "height": [
+              14,
+              24
+            ]
+          },
+          {
+            "row": 14,
+            "from": "A",
+            "v": [
+              "#",
+              "Item code",
+              "Description",
+              "Qty",
+              "Unit",
+              "Unit price",
+              "Tax %",
+              "Amount"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              15,
+              28
+            ],
+            "cols": {
+              "A": {
+                "v": "=IF(C{r}=\"\",\"\",ROW()-14)",
+                "s": "calc",
+                "align": "center"
+              },
+              "B": {
+                "s": "input"
+              },
+              "C": {
+                "s": "input",
+                "wrap": true
+              },
+              "D": {
+                "s": "input",
+                "fmt": "#,##0.##",
+                "align": "center"
+              },
+              "E": {
+                "s": "input",
+                "align": "center"
+              },
+              "F": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "G": {
+                "s": "input",
+                "fmt": "0.##%",
+                "align": "center"
+              },
+              "H": {
+                "v": "=IF(C{r}=\"\",\"\",D{r}*F{r})",
+                "s": "calc",
+                "fmt": "money"
+              }
+            }
+          },
+          {
+            "data": [
+              [
+                "CB-312",
+                "Corrugated box, 3 ply, 12 x 10 x 8 in, brown",
+                2000,
+                "Nos",
+                18.5,
+                0.18
+              ],
+              [
+                "TP-4865",
+                "BOPP packing tape, 48 mm x 65 m, clear",
+                300,
+                "Roll",
+                42,
+                0.18
+              ],
+              [
+                "BW-1100",
+                "Bubble wrap roll, 1 m x 100 m",
+                20,
+                "Roll",
+                950,
+                0.18
+              ],
+              [
+                "SF-2350",
+                "Stretch film, 23 micron, 500 mm wide",
+                40,
+                "Roll",
+                520,
+                0.18
+              ],
+              [
+                "KP-120",
+                "Kraft paper roll, 120 GSM",
+                150,
+                "Kg",
+                68,
+                0.18
+              ]
+            ],
+            "at": "B15"
+          },
+          {
+            "list": "E15:E28",
+            "items": [
+              "Nos",
+              "Box",
+              "Roll",
+              "Kg",
+              "Litre",
+              "Metre",
+              "Set",
+              "Pack",
+              "Hour",
+              "Job"
+            ]
+          },
+          {
+            "note": "G14",
+            "text": "Tax rate for each line, for example GST or VAT. Rates here are samples only. Check the correct rate for each item."
+          },
+          {
+            "c": "F30",
+            "m": "F30:G30",
+            "v": "Subtotal",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "H30",
+            "v": "=SUM(H15:H28)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "F31",
+            "m": "F31:G31",
+            "v": "Tax",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "H31",
+            "v": "=SUMPRODUCT(D15:D28,F15:F28,G15:G28)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "F32",
+            "m": "F32:G32",
+            "v": "Shipping / freight",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "H32",
+            "v": 1500,
+            "s": "input",
+            "fmt": "money"
+          },
+          {
+            "c": "F33",
+            "m": "F33:G33",
+            "v": "Other (+) / discount (-)",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "H33",
+            "v": 0,
+            "s": "input",
+            "fmt": "money"
+          },
+          {
+            "note": "H33",
+            "text": "Enter a discount as a negative number, for example -500."
+          },
+          {
+            "c": "F34",
+            "m": "F34:G34",
+            "v": "TOTAL",
+            "s": "total",
+            "align": "right"
+          },
+          {
+            "c": "H34",
+            "v": "=H30+H31+H32+H33",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "height": [
+              34,
+              22
+            ]
+          },
+          {
+            "c": "A30",
+            "m": "A30:D30",
+            "v": "TERMS AND INSTRUCTIONS",
+            "s": "band"
+          },
+          {
+            "c": "A31",
+            "m": "A31:D35",
+            "v": "1. Quote this PO number on your invoice, delivery challan and every package.\n2. Goods must match the description, quantity and price above.\n3. Deliver by the date shown. Tell us at once about any delay.\n4. Payment as per the payment terms, from receipt of a correct invoice.\n5. Send invoices to [accounts@yourcompany.com].",
+            "s": "note"
+          },
+          {
+            "height": [
+              31,
+              17
+            ]
+          },
+          {
+            "height": [
+              32,
+              17
+            ]
+          },
+          {
+            "height": [
+              33,
+              17
+            ]
+          },
+          {
+            "height": [
+              34,
+              17
+            ]
+          },
+          {
+            "height": [
+              35,
+              17
+            ]
+          },
+          {
+            "c": "A37",
+            "m": "A37:C37",
+            "v": "PREPARED BY",
+            "s": "band"
+          },
+          {
+            "c": "D37",
+            "m": "D37:F37",
+            "v": "APPROVED BY",
+            "s": "band"
+          },
+          {
+            "c": "G37",
+            "m": "G37:H37",
+            "v": "ACCEPTED BY VENDOR",
+            "s": "band"
+          },
+          {
+            "height": [
+              38,
+              34
+            ]
+          },
+          {
+            "c": "A38",
+            "m": "A38:C38",
+            "s": "input"
+          },
+          {
+            "c": "D38",
+            "m": "D38:F38",
+            "s": "input"
+          },
+          {
+            "c": "G38",
+            "m": "G38:H38",
+            "s": "input"
+          },
+          {
+            "c": "A39",
+            "m": "A39:C39",
+            "v": "Name, signature and date",
+            "s": "sub"
+          },
+          {
+            "c": "D39",
+            "m": "D39:F39",
+            "v": "Name, signature and date",
+            "s": "sub"
+          },
+          {
+            "c": "G39",
+            "m": "G39:H39",
+            "v": "Signature, stamp and date",
+            "s": "sub"
+          },
+          {
+            "c": "A41",
+            "m": "A41:H41",
+            "v": "Please sign and return a copy of this purchase order to confirm you accept it.",
+            "s": "sub",
+            "align": "center"
+          }
+        ]
+      }
+    ]
+  },
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 15
+    },
+    "size": 9.5,
+    "font": "Calibri",
+    "headFont": "Arial",
+    "titleSize": 22,
+    "blocks": [
+      {
+        "type": "header",
+        "split": [
+          1.15,
+          1
+        ],
+        "after": 8,
+        "left": [
+          "## [Your Company Name]",
+          "[Street address, City, PIN]",
+          "GSTIN / Tax ID: [your number]",
+          "~ [Phone]  |  [Email]"
+        ],
+        "right": [
+          "# PURCHASE ORDER",
+          "**PO no.**  PO-2026-0087",
+          "**PO date**  12 Nov 2026",
+          "**Deliver by**  26 Nov 2026"
+        ]
+      },
+      {
+        "type": "columns",
+        "after": 6,
+        "cols": [
+          {
+            "title": "Vendor",
+            "fill": true,
+            "lines": [
+              "## Shree Ganesh Packaging Pvt Ltd",
+              "Plot 21, MIDC Bhosari, Pune 411026",
+              "GSTIN: [vendor GSTIN]",
+              "Contact: Amit Kulkarni, [phone]"
+            ]
+          },
+          {
+            "title": "Ship to",
+            "fill": true,
+            "lines": [
+              "## [Your Company Name], Warehouse 2",
+              "Survey No. 54, Chakan, Pune 410501",
+              "Receiver: [name], [phone]",
+              "Receiving hours: 10 am to 6 pm, Mon to Sat"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "after": 6,
+        "headFill": "#E2E8F0",
+        "headText": "#334155",
+        "columns": [
+          {
+            "h": "Requested by",
+            "align": "center"
+          },
+          {
+            "h": "Ship via",
+            "align": "center"
+          },
+          {
+            "h": "Payment terms",
+            "align": "center"
+          },
+          {
+            "h": "Vendor quote ref.",
+            "align": "center"
+          }
+        ],
+        "rows": [
+          [
+            "[Name, department]",
+            "Vendor transport",
+            "Net 30 days",
+            "QT-1182"
+          ]
+        ]
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "columns": [
+          {
+            "h": "#",
+            "w": 0.35,
+            "align": "center"
+          },
+          {
+            "h": "Item code",
+            "w": 0.85
+          },
+          {
+            "h": "Description",
+            "w": 2.9
+          },
+          {
+            "h": "Qty",
+            "w": 0.6,
+            "align": "center"
+          },
+          {
+            "h": "Unit",
+            "w": 0.55,
+            "align": "center"
+          },
+          {
+            "h": "Unit price",
+            "w": 0.9,
+            "align": "right"
+          },
+          {
+            "h": "Tax %",
+            "w": 0.6,
+            "align": "center"
+          },
+          {
+            "h": "Amount",
+            "w": 1.1,
+            "align": "right"
+          }
+        ],
+        "rows": [
+          [
+            "1",
+            "CB-312",
+            "Corrugated box, 3 ply, 12 x 10 x 8 in, brown",
+            "2,000",
+            "Nos",
+            "18.50",
+            "18%",
+            "37,000.00"
+          ],
+          [
+            "2",
+            "TP-4865",
+            "BOPP packing tape, 48 mm x 65 m, clear",
+            "300",
+            "Roll",
+            "42.00",
+            "18%",
+            "12,600.00"
+          ],
+          [
+            "3",
+            "BW-1100",
+            "Bubble wrap roll, 1 m x 100 m",
+            "20",
+            "Roll",
+            "950.00",
+            "18%",
+            "19,000.00"
+          ],
+          [
+            "4",
+            "SF-2350",
+            "Stretch film, 23 micron, 500 mm wide",
+            "40",
+            "Roll",
+            "520.00",
+            "18%",
+            "20,800.00"
+          ],
+          [
+            "5",
+            "KP-120",
+            "Kraft paper roll, 120 GSM",
+            "150",
+            "Kg",
+            "68.00",
+            "18%",
+            "10,200.00"
+          ]
+        ],
+        "blank": 2,
+        "totals": [
+          [
+            "Subtotal",
+            "99,600.00"
+          ],
+          [
+            "Tax",
+            "17,928.00"
+          ],
+          [
+            "Shipping / freight",
+            "1,500.00"
+          ],
+          [
+            "Total (INR)",
+            "119,028.00"
+          ]
+        ]
+      },
+      {
+        "type": "box",
+        "title": "Terms and instructions",
+        "small": true,
+        "lines": [
+          "1. Quote this PO number on your invoice, delivery challan and every package.",
+          "2. Goods must match the description, quantity and price above.",
+          "3. Deliver by the date shown. Tell us at once about any delay.",
+          "4. Payment as per the payment terms, from receipt of a correct invoice.",
+          "5. Send invoices to [accounts@yourcompany.com]."
+        ]
+      },
+      {
+        "type": "signature",
+        "space": 20,
+        "items": [
+          "Prepared by",
+          "Approved by",
+          "Accepted by vendor (sign and stamp)"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Please sign and return a copy of this purchase order to confirm you accept it.",
+        "muted": true,
+        "align": "center",
+        "size": 8.5
+      }
+    ]
+  }
+}

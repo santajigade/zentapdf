@@ -26,6 +26,15 @@
   "previews": 1,
   "built": "2026-11-08"
  },
+ "daily-planner-template": {
+  "files": {
+   "docx": 11173,
+   "pdf": 55885
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-12"
+ },
  "expense-tracker-excel": {
   "files": {
    "xlsx": 12438,
@@ -90,6 +99,16 @@
   "previews": 1,
   "built": "2026-11-07"
  },
+ "purchase-order-template": {
+  "files": {
+   "docx": 12818,
+   "xlsx": 11835,
+   "pdf": 74332
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-12"
+ },
  "quotation-format": {
   "files": {
    "docx": 12498,
@@ -137,6 +156,16 @@
   "pages": 1,
   "previews": 1,
   "built": "2026-11-07"
+ },
+ "to-do-list-template": {
+  "files": {
+   "docx": 11344,
+   "xlsx": 12535,
+   "pdf": 65886
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-12"
  },
  "weekly-planner-template": {
   "files": {

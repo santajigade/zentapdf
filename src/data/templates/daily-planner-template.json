@@ -1,0 +1,249 @@
+{
+  "slug": "daily-planner-template",
+  "category": "planners",
+  "name": "Daily Planner Template",
+  "h1": "Daily Planner Template (Printable PDF and Word)",
+  "metaTitle": "Daily Planner Template: Free Printable PDF & Word",
+  "metaDescription": "Free printable daily planner template in PDF and Word. Hour-by-hour schedule from 6 am to 10 pm, top 3 priorities, to-do list, meals, water and notes.",
+  "short": "One A4 page per day: hourly schedule from 6 am to 10 pm, top 3 priorities, to-do list, meals and notes.",
+  "accent": "#A16207",
+  "useCases": [
+    "Planning",
+    "Study"
+  ],
+  "industries": [
+    "Personal",
+    "Students",
+    "Professionals"
+  ],
+  "date": "2026-11-12",
+  "intro": "This daily planner template gives you one A4 page for each day. The left side is an hour-by-hour schedule from 6 am to 10 pm, and the right side holds your top three priorities, a short to-do list, meals, a water tracker and exercise. A strip at the bottom has room for notes, wins and what to carry into tomorrow.",
+  "howTo": [
+    "Download the PDF to print right away, or the Word file if you want to type in it or change the times.",
+    "Print it in portrait on A4 or Letter paper at actual size. Print a few copies so you always have tomorrow's page ready.",
+    "Write the date and circle the day at the top, then write one main focus for the day.",
+    "Fill fixed things first in the schedule, such as classes, meetings, travel and meals.",
+    "Pick your top three priorities and give each one a time slot in the schedule.",
+    "Add smaller tasks to the to-do boxes and tick them off as you finish them.",
+    "Before bed, fill the notes strip and write anything unfinished under For tomorrow."
+  ],
+  "guide": [
+    {
+      "h": "What is on the page",
+      "p": [
+        "**Today's main focus:** one line for the single result that would make the day a good one. **Schedule:** 17 hourly rows from 6 am to 10 pm. Write the start time next to anything that does not begin on the hour.",
+        "**Focus panel:** next to the schedule you get three numbered priority lines, six to-do boxes, lines for breakfast, lunch and dinner, eight water glasses to tick and a line for exercise. **Bottom strip:** three columns for notes, wins and gratitude, and tasks for tomorrow."
+      ]
+    },
+    {
+      "h": "How to plan a day in five minutes",
+      "p": [
+        "Many people find it easiest to plan the night before, so they wake up knowing what comes first. Start with the things that cannot move, then place your priorities in the best free hours. Hard work such as study, writing or deep focus usually goes best in the hours when you have the most energy.",
+        "This way of giving each task its own block of time is often called time blocking. It works because a task with a time slot is much more likely to get done than a task that sits on a list. Leave some empty rows for breaks, travel and surprises, because a fully packed day rarely goes to plan."
+      ]
+    },
+    {
+      "h": "Using it in Word or with a weekly plan",
+      "p": [
+        "The Word file uses simple tables, so you can type straight into the boxes, change the hours (for example 5 am to 9 pm), or rename the panel lines. If you also use a weekly planner, choose the week's big goals there and copy the right ones into each day's top three."
+      ]
+    }
+  ],
+  "tips": [
+    "Keep the top three realistic. If you finish them early, pick more from the to-do list.",
+    "Write appointments in pen and tasks in pencil so you can move tasks without a mess.",
+    "Group small jobs such as calls, emails and payments into one block instead of doing them all day.",
+    "Look at yesterday's For tomorrow column first when you plan a new day.",
+    "Keep finished pages in a folder. They are a useful record of what you did and when."
+  ],
+  "faqs": [
+    {
+      "q": "What paper size is this daily planner?",
+      "a": "A4 portrait. It also prints on US Letter if you choose Fit to page in your print settings."
+    },
+    {
+      "q": "Can I change the times on the schedule?",
+      "a": "Yes. Open the Word file and type new times in the first column, for example if you start work at 5 am or at noon."
+    },
+    {
+      "q": "Can I fill the planner on my phone?",
+      "a": "You can open the PDF on your phone and type on it with the free Edit PDF tool on ZentaPDF, but it is easiest to use printed or on a computer."
+    },
+    {
+      "q": "How do I make a planner for the whole month?",
+      "a": "Print the page as many times as you need, or set the number of copies in the print dialog. For a digital set, join copies with Merge PDF."
+    },
+    {
+      "q": "Is this planner free for personal and office use?",
+      "a": "Yes. You can download, print and change it as many times as you like for yourself, your family, your class or your team."
+    }
+  ],
+  "related": [
+    "weekly-planner-template"
+  ],
+  "tools": [
+    "edit-pdf",
+    "merge-pdf",
+    "word-to-pdf",
+    "pdf-to-jpg"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 12
+    },
+    "size": 10,
+    "font": "Calibri",
+    "headFont": "Times New Roman",
+    "blocks": [
+      {
+        "type": "title",
+        "text": "Daily Planner",
+        "size": 30,
+        "sub": "**Date:** ______________________        **Day:**   M     T     W     T     F     S     S"
+      },
+      {
+        "type": "fields",
+        "labelWidth": 0.2,
+        "rowHeight": 8,
+        "after": 4,
+        "items": [
+          [
+            "Today's main focus",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "rowHeight": 9.9,
+        "after": 4,
+        "columns": [
+          {
+            "h": "Time",
+            "w": 0.62,
+            "align": "center"
+          },
+          {
+            "h": "Schedule",
+            "w": 3
+          },
+          {
+            "h": "Focus",
+            "w": 2
+          }
+        ],
+        "rows": [
+          [
+            "6 am",
+            "",
+            "**Top 3 priorities**"
+          ],
+          [
+            "7 am",
+            "",
+            "1."
+          ],
+          [
+            "8 am",
+            "",
+            "2."
+          ],
+          [
+            "9 am",
+            "",
+            "3."
+          ],
+          [
+            "10 am",
+            "",
+            "**To-do**"
+          ],
+          [
+            "11 am",
+            "",
+            "☐"
+          ],
+          [
+            "12 pm",
+            "",
+            "☐"
+          ],
+          [
+            "1 pm",
+            "",
+            "☐"
+          ],
+          [
+            "2 pm",
+            "",
+            "☐"
+          ],
+          [
+            "3 pm",
+            "",
+            "☐"
+          ],
+          [
+            "4 pm",
+            "",
+            "☐"
+          ],
+          [
+            "5 pm",
+            "",
+            "**Meals**"
+          ],
+          [
+            "6 pm",
+            "",
+            "Breakfast:"
+          ],
+          [
+            "7 pm",
+            "",
+            "Lunch:"
+          ],
+          [
+            "8 pm",
+            "",
+            "Dinner:"
+          ],
+          [
+            "9 pm",
+            "",
+            "**Water**   ○   ○   ○   ○   ○   ○   ○   ○"
+          ],
+          [
+            "10 pm",
+            "",
+            "**Exercise:**"
+          ]
+        ]
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "rowHeight": 8,
+        "after": 0,
+        "headFill": "#FEF3C7",
+        "headText": "#A16207",
+        "columns": [
+          {
+            "h": "Notes"
+          },
+          {
+            "h": "Wins and gratitude"
+          },
+          {
+            "h": "For tomorrow"
+          }
+        ],
+        "blank": 4
+      }
+    ]
+  }
+}
