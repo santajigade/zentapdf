@@ -26,12 +26,12 @@ Done:
 - [x] how-to-change-pdf-page-size-letter-to-a4 (2026-11-11)
 - [x] how-to-add-watermark-to-pdf (2026-11-11)
 - [x] how-to-fill-pdf-form-on-phone (2026-11-11)
+- [x] how-to-rotate-pdf (2026-11-12)
+- [x] Make a booklet from a PDF: skipped 2026-11-12, already covered by how-to-print-multiple-pages-on-one-sheet (section "How to print a PDF as a booklet")
+- [x] how-to-convert-excel-to-pdf-on-one-page (2026-11-12)
+- [x] how-to-convert-ppt-to-pdf (2026-11-12)
 
 Open:
-- [ ] How to rotate a PDF and save it (rotate-pdf)
-- [ ] How to make a booklet from a PDF (pages-per-sheet)
-- [ ] How to convert Excel to PDF on one page (excel-to-pdf)
-- [ ] How to convert PPT to PDF (ppt-to-pdf)
 - [ ] How to convert PDF to Markdown for ChatGPT and Claude (pdf-to-markdown)
 - [ ] How to redact a PDF (redact-pdf)
 - [ ] How to make a QR code for a Google Form or Wi-Fi (qr-code-generator)
