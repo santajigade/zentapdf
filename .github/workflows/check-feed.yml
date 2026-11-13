@@ -15,6 +15,6 @@ jobs:
             curl -s -o /dev/null -A "$UA" -w "%{http_code} %{content_type} %{size_download}B $u\n" "$u"
           done
           echo "== hand-uploaded (.csv) pins: images must load, and must NOT be in the feed"
-          for id in $(python3 -c "import json;print(' '.join(i.split('/',1)[1] for i in json.load(open('src/data/pins-manual.json'))))"); do
+          for id in $(python3 -c "import json;print(' '.join(i.replace('tool/','',1).replace('test/','device-test/',1).replace('guide/','guides/',1) for i in json.load(open('src/data/pins-manual.json'))))"); do
             echo "$(curl -s -o /dev/null -A "$UA" -w '%{http_code} %{content_type}' https://zentapdf.com/pins/$id.jpg) $id in-feed:$(grep -c "pin-tool/$id<" /tmp/f.xml)"
           done
