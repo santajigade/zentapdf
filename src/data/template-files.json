@@ -17,6 +17,15 @@
   "previews": 1,
   "built": "2026-11-07"
  },
+ "certificate-of-completion-template": {
+  "files": {
+   "docx": 10878,
+   "pdf": 44644
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-13"
+ },
  "cover-letter-template": {
   "files": {
    "docx": 11294,
@@ -43,6 +52,15 @@
   "pages": 2,
   "previews": 2,
   "built": "2026-11-10"
+ },
+ "experience-certificate-format": {
+  "files": {
+   "docx": 11661,
+   "pdf": 43044
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-13"
  },
  "experienced-resume-template": {
   "files": {
@@ -98,6 +116,15 @@
   "pages": 1,
   "previews": 1,
   "built": "2026-11-07"
+ },
+ "offer-letter-format": {
+  "files": {
+   "docx": 13047,
+   "pdf": 72469
+  },
+  "pages": 2,
+  "previews": 2,
+  "built": "2026-11-13"
  },
  "purchase-order-template": {
   "files": {

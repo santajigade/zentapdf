@@ -1,0 +1,345 @@
+{
+  "slug": "offer-letter-format",
+  "category": "letters",
+  "name": "Offer Letter Format",
+  "h1": "Offer Letter Format (Word and PDF)",
+  "metaTitle": "Offer Letter Format: Free Job Offer Letter Word & PDF",
+  "metaDescription": "Free job offer letter format in Word and PDF with role, joining date, CTC, probation, notice period, salary breakup table and an acceptance section.",
+  "short": "Job offer letter with an offer summary table, salary breakup annexure and a signed acceptance section.",
+  "accent": "#2F5D50",
+  "useCases": [
+    "Hiring",
+    "HR"
+  ],
+  "industries": [
+    "Corporate",
+    "Small business",
+    "Startups",
+    "IT and software"
+  ],
+  "date": "2026-11-13",
+  "related": [
+    "experience-certificate-format",
+    "salary-slip-format",
+    "cover-letter-template"
+  ],
+  "intro": "This offer letter format helps you make a clear, professional job offer in writing. Page one has the letter and an offer summary table with the role, joining date, location, CTC, probation and notice period. Page two has a salary breakup annexure and an acceptance section for the candidate to sign and return.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Put your company name, address and contact details in the coloured band, or delete the band if you print on letterhead.",
+    "Add the reference number, date and the candidate's name and address.",
+    "Fill in the offer summary table: job title, department, reporting manager, work location, joining date, employment type, annual CTC, probation and notice period.",
+    "Complete the salary breakup in the annexure so the monthly and annual columns add up to the CTC you are offering.",
+    "Edit the conditions list to match your hiring process, such as documents and background checks.",
+    "Set a clear date to accept, sign the letter, and send it as a PDF. The candidate signs the acceptance section and returns it."
+  ],
+  "guide": [
+    {
+      "h": "What a job offer letter should include",
+      "p": [
+        "A good offer letter removes doubt before the person joins. At a minimum it states the job title, department and reporting manager, work location, joining date, total pay with a breakup, probation period, notice period, key conditions and a deadline to accept. This template covers each of these, with the main terms in one table so the candidate can see them at a glance.",
+        "An offer letter is usually followed by an appointment letter or employment contract on or after the joining date, which sets out the full terms and company policies. Keep the two consistent."
+      ]
+    },
+    {
+      "h": "Getting the salary breakup right",
+      "p": [
+        "Candidates often compare CTC with their in-hand salary, so a clear breakup builds trust. The annexure lists common parts of pay: basic, house rent allowance, special allowance, employer PF contribution, gratuity and any variable or bonus. Not every company uses every line, so remove what does not apply.",
+        "Rules on how pay is structured, PF, gratuity, professional tax and minimum wages differ by country and, in India, by state and by the labour codes in force. Check the current official rules or ask your payroll advisor or CA before you fix the numbers. This template does not calculate tax or deductions for you."
+      ]
+    },
+    {
+      "h": "Probation, notice period and other terms",
+      "p": [
+        "State the probation length and the notice period both during and after probation. If you have a joining bonus with a clawback, a service agreement, a transfer clause or confidentiality terms, mention them briefly here and give the full detail in the appointment letter. For anything unusual, get advice from a qualified lawyer."
+      ]
+    }
+  ],
+  "tips": [
+    "Make sure the joining date, CTC and notice period match what you agreed in the interview.",
+    "Write the CTC in figures and words to avoid confusion.",
+    "Give the candidate a reasonable time to accept, such as 5 to 7 working days.",
+    "Keep the signed acceptance copy in the employee file."
+  ],
+  "faqs": [
+    {
+      "q": "Is an offer letter the same as an appointment letter?",
+      "a": "No. An offer letter is given before joining and sets out the main terms. An appointment letter or contract is usually given on or after the joining date with the full terms, duties and policies."
+    },
+    {
+      "q": "Is there a format required by law for offer letters?",
+      "a": "In most places, including India, there is no single required format. The terms you write and the candidate accepts matter, so keep them clear and check local labour rules where they apply."
+    },
+    {
+      "q": "Should I attach a salary breakup?",
+      "a": "Yes, it is good practice. Page two of this template has a breakup table with monthly and annual columns that you fill in."
+    },
+    {
+      "q": "How does the candidate accept the offer?",
+      "a": "They sign and date the acceptance section on page two and send it back by the date you set. They can sign the PDF online with the Sign PDF tool."
+    },
+    {
+      "q": "Can I use this for interns or contract staff?",
+      "a": "Yes. Change the employment type row to Internship or Fixed-term contract, add the end date, and adjust the pay and notice terms."
+    }
+  ],
+  "tools": [
+    "word-to-pdf",
+    "sign-pdf",
+    "edit-pdf",
+    "merge-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 18
+    },
+    "font": "Arial",
+    "headFont": "Cambria",
+    "size": 10.5,
+    "blocks": [
+      {
+        "type": "title",
+        "band": true,
+        "text": "[Company Name Pvt Ltd]",
+        "sub": "[Office address, City, PIN code]   |   [Phone]   |   [careers@company.com]",
+        "size": 20
+      },
+      {
+        "type": "header",
+        "split": [
+          1.5,
+          1
+        ],
+        "rule": false,
+        "after": 6,
+        "left": [
+          "**To**",
+          "**[Candidate Full Name]**",
+          "[Address line, City, PIN code]",
+          "[Email]  |  [Phone]"
+        ],
+        "right": [
+          "**Ref. no.:** [HR/OFR/2026/118]",
+          "**Date:** [DD Month YYYY]"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "**Subject: Offer of employment for the position of [Job Title]**",
+        "color": "#2F5D50",
+        "after": 8
+      },
+      {
+        "type": "p",
+        "text": "Dear [Candidate First Name],",
+        "after": 6
+      },
+      {
+        "type": "p",
+        "text": "Thank you for the time you spent with us during the selection process. We are pleased to offer you the position of **[Job Title]** at **[Company Name Pvt Ltd]**. The main terms of this offer are given below, and the salary breakup is in Annexure A.",
+        "line": 1.15,
+        "after": 8
+      },
+      {
+        "type": "heading",
+        "text": "Offer summary",
+        "size": 11,
+        "before": 2
+      },
+      {
+        "type": "table",
+        "columns": [
+          {
+            "h": "Term",
+            "w": 1
+          },
+          {
+            "h": "Details",
+            "w": 2.2
+          }
+        ],
+        "rows": [
+          [
+            "Job title",
+            "[Job Title]"
+          ],
+          [
+            "Department / reporting to",
+            "[Department]  /  [Manager's Name, Designation]"
+          ],
+          [
+            "Work location",
+            "[Office city]  ([On-site / Hybrid / Remote])"
+          ],
+          [
+            "Date of joining",
+            "[DD Month YYYY]"
+          ],
+          [
+            "Employment type",
+            "[Full-time, permanent]"
+          ],
+          [
+            "Annual CTC",
+            "Rs [amount] ([amount in words]), as per Annexure A"
+          ],
+          [
+            "Probation",
+            "[6] months from the date of joining"
+          ],
+          [
+            "Notice period",
+            "[15] days during probation, [60] days after confirmation"
+          ],
+          [
+            "Working days and hours",
+            "[Monday to Friday, 9:30 am to 6:30 pm]"
+          ]
+        ],
+        "rowHeight": 6.4,
+        "after": 6
+      },
+      {
+        "type": "p",
+        "text": "This offer is subject to the following:",
+        "after": 3
+      },
+      {
+        "type": "bullets",
+        "gap": 1.5,
+        "items": [
+          "Satisfactory verification of your documents, previous employment and references.",
+          "Submission of [educational certificates, relieving letter from your last employer, ID and address proof] on or before your joining date.",
+          "Signing of the appointment letter and company policies, including confidentiality, on joining."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Please sign the acceptance section on page 2 and return it to us by **[DD Month YYYY]**. If we do not hear from you by then, this offer will lapse. We look forward to welcoming you to the team.",
+        "line": 1.15,
+        "after": 10
+      },
+      {
+        "type": "p",
+        "text": "Warm regards,",
+        "after": 24
+      },
+      {
+        "type": "p",
+        "text": "**[Authorised Signatory Name]**\n[Designation, for example HR Manager]\n[Company Name Pvt Ltd]",
+        "after": 0
+      },
+      {
+        "type": "heading",
+        "text": "Annexure A: Salary breakup",
+        "size": 12,
+        "pagebreak": true
+      },
+      {
+        "type": "p",
+        "text": "Fill in the amounts so that the total matches the annual CTC above. Remove any line that does not apply. Check current PF, gratuity, professional tax and wage rules with official sources or your payroll advisor.",
+        "size": 9.5,
+        "muted": true,
+        "after": 6
+      },
+      {
+        "type": "table",
+        "columns": [
+          {
+            "h": "Component",
+            "w": 2.2
+          },
+          {
+            "h": "Monthly (Rs)",
+            "w": 1,
+            "align": "right"
+          },
+          {
+            "h": "Annual (Rs)",
+            "w": 1,
+            "align": "right"
+          }
+        ],
+        "rows": [
+          [
+            "Basic salary",
+            "[amount]",
+            "[amount]"
+          ],
+          [
+            "House rent allowance (HRA)",
+            "[amount]",
+            "[amount]"
+          ],
+          [
+            "Special allowance",
+            "[amount]",
+            "[amount]"
+          ],
+          [
+            "Other allowances [name]",
+            "[amount]",
+            "[amount]"
+          ],
+          [
+            "**A. Gross salary**",
+            "**[amount]**",
+            "**[amount]**"
+          ],
+          [
+            "Employer PF contribution",
+            "[amount]",
+            "[amount]"
+          ],
+          [
+            "Gratuity (if applicable)",
+            "[amount]",
+            "[amount]"
+          ],
+          [
+            "Insurance or other benefits",
+            "[amount]",
+            "[amount]"
+          ],
+          [
+            "**B. Employer contributions**",
+            "**[amount]**",
+            "**[amount]**"
+          ],
+          [
+            "C. Variable pay or bonus (target)",
+            "",
+            "[amount]"
+          ]
+        ],
+        "totals": [
+          [
+            "Total CTC (A + B + C)",
+            "Rs [amount]"
+          ]
+        ],
+        "grid": true,
+        "rowHeight": 6.6,
+        "after": 6
+      },
+      {
+        "type": "p",
+        "text": "In-hand monthly pay will be lower than the gross salary after employee PF, professional tax and income tax (TDS), as applicable.",
+        "size": 9.5,
+        "muted": true,
+        "after": 14
+      },
+      {
+        "type": "box",
+        "title": "Acceptance by the candidate",
+        "lines": [
+          "I, [Candidate Full Name], have read and understood the terms of this offer and accept the position of [Job Title]. I confirm that I will join on [DD Month YYYY].",
+          " ",
+          "Signature: .............................................      Date: ............................      Place: ............................"
+        ],
+        "after": 0
+      }
+    ]
+  }
+}

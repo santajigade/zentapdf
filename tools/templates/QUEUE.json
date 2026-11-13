@@ -178,8 +178,8 @@
    "slug": "certificate-of-completion-template",
    "category": "certificates",
    "priority": 1,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-13",
    "note": "Course/training completion certificate, landscape."
   },
   {
@@ -187,8 +187,8 @@
    "slug": "experience-certificate-format",
    "category": "certificates",
    "priority": 1,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-13",
    "note": "Employer experience/relieving certificate on letterhead, portrait."
   },
   {
@@ -196,8 +196,8 @@
    "slug": "offer-letter-format",
    "category": "letters",
    "priority": 1,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-13",
    "note": "Job offer letter with role, CTC placeholder, joining date, acceptance line."
   },
   {

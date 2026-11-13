@@ -1,0 +1,194 @@
+{
+  "slug": "certificate-of-completion-template",
+  "category": "certificates",
+  "name": "Certificate of Completion Template",
+  "h1": "Certificate of Completion Template (Word and PDF)",
+  "metaTitle": "Certificate of Completion Template: Free Word & PDF",
+  "metaDescription": "Free certificate of completion template in Word and PDF for courses, training and workshops. A4 landscape with course hours, date and certificate ID.",
+  "short": "A4 landscape certificate for a course, training or workshop, with hours, completion date and certificate ID.",
+  "accent": "#701A75",
+  "useCases": [
+    "Recognition",
+    "Study",
+    "Events"
+  ],
+  "industries": [
+    "Schools",
+    "Corporate",
+    "Students",
+    "Professionals"
+  ],
+  "date": "2026-11-13",
+  "related": [
+    "certificate-of-appreciation-template"
+  ],
+  "intro": "This certificate of completion template confirms that a person has finished a course, training programme or workshop. It prints on A4 landscape with a coloured title band, a large name line, the course title, and a row for duration, completion date, certificate ID and grade, followed by two signature lines. Edit it in Word, then print it or share it as a PDF.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Replace [ORGANISATION OR TRAINING PROVIDER] with your institute, company or trainer name.",
+    "Type the participant's full name exactly as they want it to appear.",
+    "Enter the course or programme title and the dates or mode, for example \"online, 6 weeks\".",
+    "Fill in the duration in hours, the completion date, a certificate ID and the grade. Delete the grade if you do not grade the course.",
+    "Change the names and titles under the two signature lines, for example the trainer and the head of the institute.",
+    "Print on thick paper in landscape at 100% scale, or save as PDF and add signatures with the Sign PDF tool."
+  ],
+  "guide": [
+    {
+      "h": "What a certificate of completion should show",
+      "p": [
+        "A good completion certificate answers four questions at a glance: who finished, what they finished, when, and who says so. That means the participant's name, the course title, the completion date, and the name and signature of the trainer or organisation. This template has all four, plus a duration line, because many employers and professional bodies ask how many hours of learning a course involved.",
+        "A certificate of completion shows that someone attended or finished a programme. It is not the same as a degree, licence or accredited qualification. If your course is accredited by a board or professional body, check their rules, because they may require exact wording, a registration number or their own logo."
+      ]
+    },
+    {
+      "h": "Using the certificate ID",
+      "p": [
+        "The certificate ID makes each copy unique and easy to check. A simple pattern works well, such as the course code, year and a running number (for example WD-2026-0142). Keep a list of issued IDs in Excel with the name, course and date. When an employer emails to verify a certificate, you can confirm it in seconds."
+      ]
+    },
+    {
+      "h": "Printing certificates for a whole batch",
+      "p": [
+        "For a full class, use Mail Merge in Word (Mailings > Start Mail Merge) with an Excel sheet of names, IDs and grades. Or make one copy per person, save each as PDF and combine them with Merge PDF so you can print the batch in one go."
+      ]
+    }
+  ],
+  "tips": [
+    "Check the spelling of every name and course title before printing.",
+    "Use the same date format on every certificate, for example 13 November 2026.",
+    "Give the course a clear, specific title, such as \"Advanced Excel for Accounts\" rather than \"Training\".",
+    "Add your logo in Word with Insert > Pictures and set the wrap to In Front of Text."
+  ],
+  "faqs": [
+    {
+      "q": "What is the difference between a certificate of completion and a certificate of achievement?",
+      "a": "A certificate of completion confirms that the person finished a course or programme. A certificate of achievement usually recognises a result, such as a top score or winning a contest. You can retitle this template if you need the other kind."
+    },
+    {
+      "q": "Do I have to show the course hours?",
+      "a": "No, but it helps. Employers and professional bodies often look for the number of hours. If your course is short or informal, you can delete that field in Word."
+    },
+    {
+      "q": "Can I use this for online courses?",
+      "a": "Yes. Write the mode in the course line, for example \"online, live sessions\", save the certificate as PDF and email it to each participant."
+    },
+    {
+      "q": "Is a certificate of completion a legal qualification?",
+      "a": "Not by itself. It is a record that someone completed your programme. Only accredited bodies can issue formal qualifications, so check with them if your course is part of one."
+    },
+    {
+      "q": "What paper should I print it on?",
+      "a": "Use A4 card of 200 to 300 gsm in white or ivory. Print at 100% scale with no fit-to-page shrinking so the border and band stay even."
+    }
+  ],
+  "tools": [
+    "sign-pdf",
+    "merge-pdf",
+    "word-to-pdf",
+    "pdf-to-jpg"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "orientation": "landscape",
+      "margin": 22,
+      "border": {
+        "double": false,
+        "size": 30,
+        "space": 14
+      },
+      "vcenter": true
+    },
+    "font": "Arial",
+    "headFont": "Times New Roman",
+    "size": 12,
+    "blocks": [
+      {
+        "type": "title",
+        "band": true,
+        "text": "CERTIFICATE OF COMPLETION",
+        "sub": "[ORGANISATION OR TRAINING PROVIDER]",
+        "align": "center",
+        "size": 30
+      },
+      {
+        "type": "p",
+        "text": "This is to certify that",
+        "align": "center",
+        "italic": true,
+        "color": "#4B5563",
+        "size": 13,
+        "before": 8,
+        "after": 8
+      },
+      {
+        "type": "p",
+        "text": "[Participant Full Name]",
+        "align": "center",
+        "size": 32,
+        "bold": true,
+        "font": "Times New Roman",
+        "color": "#701A75",
+        "after": 8
+      },
+      {
+        "type": "p",
+        "text": "has successfully completed the course",
+        "align": "center",
+        "color": "#4B5563",
+        "size": 13,
+        "after": 6
+      },
+      {
+        "type": "p",
+        "text": "[Course or Programme Title]",
+        "align": "center",
+        "size": 20,
+        "bold": true,
+        "after": 2
+      },
+      {
+        "type": "p",
+        "text": "[held online / at venue name], from [DD Month YYYY] to [DD Month YYYY]",
+        "align": "center",
+        "size": 12,
+        "after": 20
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "labelWidth": 0.32,
+        "rowHeight": 8.5,
+        "items": [
+          [
+            "Duration",
+            "[24] hours"
+          ],
+          [
+            "Completed on",
+            "[DD Mon YYYY]"
+          ],
+          [
+            "Certificate ID",
+            "[WD-2026-0142]"
+          ],
+          [
+            "Grade",
+            "[A / Pass]"
+          ]
+        ],
+        "after": 4
+      },
+      {
+        "type": "signature",
+        "space": 54,
+        "align": "center",
+        "items": [
+          "[Name]\n[Trainer or Course Instructor]",
+          "[Name]\n[Director or Head of Institute]"
+        ],
+        "after": 0
+      }
+    ]
+  }
+}

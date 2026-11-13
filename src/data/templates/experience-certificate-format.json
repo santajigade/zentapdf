@@ -1,0 +1,236 @@
+{
+  "slug": "experience-certificate-format",
+  "category": "certificates",
+  "name": "Experience Certificate Format",
+  "h1": "Experience Certificate Format (Word and PDF)",
+  "metaTitle": "Experience Certificate Format: Free Word & PDF Sample",
+  "metaDescription": "Free experience certificate format in Word and PDF. Letterhead layout with employment details, duties and conduct line for HR to issue to employees.",
+  "short": "Experience certificate on a letterhead layout with employment details, key duties and an HR signature block.",
+  "accent": "#7F1D1D",
+  "useCases": [
+    "HR",
+    "Job change"
+  ],
+  "industries": [
+    "Corporate",
+    "Small business",
+    "All industries"
+  ],
+  "date": "2026-11-13",
+  "related": [
+    "resignation-letter-template",
+    "offer-letter-format",
+    "salary-slip-format"
+  ],
+  "intro": "This experience certificate format lets HR or a business owner confirm, in writing, that a person worked with the company. It has a letterhead area, a reference number and date, a clear table of employment details, a short list of duties and a signature block with space for the company seal. Fill it in Word, print it on your letterhead or save it as a PDF.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Replace the letterhead lines at the top with your company name, address and contact details, or delete them if you will print on pre-printed letterhead.",
+    "Add a reference number and the date of issue.",
+    "Fill in the employment details table: name, employee ID, designation, department, date of joining, last working day and total service.",
+    "Edit the three duty lines so they describe the person's real work in plain words.",
+    "Keep or adjust the conduct sentence so it is true for this employee.",
+    "Sign as the authorised person, add the company seal, and give the employee a signed print or a signed PDF."
+  ],
+  "guide": [
+    {
+      "h": "What an experience certificate contains",
+      "p": [
+        "An experience certificate (also called an experience letter or service certificate) confirms who worked with you, in what role, and for how long. Most include the employee's full name and ID, designation, department, date of joining and last working day, a short summary of duties, a line on conduct, and the signature of HR or a manager with the company seal. Salary is usually left out.",
+        "New employers, background check agencies and visa or education applications often ask for this document, so keep it factual. Write only what your records support."
+      ]
+    },
+    {
+      "h": "Experience certificate or relieving letter?",
+      "p": [
+        "They are related but not the same. A relieving letter confirms that the employee has been relieved of duties and has completed the exit process. An experience certificate describes the work the person did and how long they were with you. Many companies issue both, often after the full and final settlement. Some combine them into one letter. Follow your own company policy here, because there is no single format required by law."
+      ]
+    },
+    {
+      "h": "Writing the duties and conduct lines",
+      "p": [
+        "Keep the duties short and specific, such as \"handled accounts payable for 3 branches\" or \"maintained the company website and social media pages\". Avoid praise you cannot back up. If you include a conduct line, keep it simple and true. If you are not able to say something positive, it is fine to remove that sentence and state only the facts of employment."
+      ]
+    }
+  ],
+  "tips": [
+    "Match the dates with your payroll and attendance records before signing.",
+    "Use the employee's name exactly as it appears in their ID and company records.",
+    "Give each certificate a reference number and keep a copy in the employee file.",
+    "Use the same designation the employee held on their last day, and mention promotions in the duties lines if useful.",
+    "Send a signed PDF if the employee needs it quickly, and keep the signed original on file."
+  ],
+  "faqs": [
+    {
+      "q": "Who should sign an experience certificate?",
+      "a": "Usually the HR manager, the head of the department or the business owner. Add the company seal or stamp next to the signature if your company uses one."
+    },
+    {
+      "q": "Should I mention salary in the experience certificate?",
+      "a": "Most companies do not. Salary details are usually given in salary slips or a separate salary certificate when the employee asks for one."
+    },
+    {
+      "q": "Can I issue it on plain paper?",
+      "a": "It is better to use your company letterhead, because new employers and verification agencies expect it. This file has a letterhead area at the top that you can fill in or delete if your paper is pre-printed."
+    },
+    {
+      "q": "When should an experience certificate be given?",
+      "a": "Most employers issue it on or after the last working day, often once the exit process and final settlement are done. Check your company policy and any rules that apply in your state or country."
+    },
+    {
+      "q": "Can an employee ask for it in a different format?",
+      "a": "Yes. Some embassies or universities ask for extra details such as working hours per week. Edit the details table in Word to add those rows."
+    }
+  ],
+  "tools": [
+    "word-to-pdf",
+    "sign-pdf",
+    "compress-pdf",
+    "edit-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 20
+    },
+    "font": "Cambria",
+    "headFont": "Calibri",
+    "size": 11,
+    "titleSize": 20,
+    "blocks": [
+      {
+        "type": "header",
+        "split": [
+          1.6,
+          1
+        ],
+        "after": 14,
+        "left": [
+          "# [COMPANY NAME PVT LTD]",
+          "~ [Office address line, City, PIN code]"
+        ],
+        "right": [
+          "[Phone]",
+          "[hr@company.com]",
+          "[www.company.com]"
+        ]
+      },
+      {
+        "type": "header",
+        "split": [
+          1,
+          1
+        ],
+        "rule": false,
+        "after": 8,
+        "left": [
+          "**Ref. no.:** [HR/EXP/2026/031]"
+        ],
+        "right": [
+          "**Date:** [DD Month YYYY]"
+        ]
+      },
+      {
+        "type": "title",
+        "text": "Experience Certificate",
+        "align": "center",
+        "size": 22,
+        "caps": true,
+        "sub": "TO WHOM IT MAY CONCERN",
+        "subSize": 10
+      },
+      {
+        "type": "p",
+        "text": "This is to certify that **[Mr / Ms Full Name]** worked with **[Company Name Pvt Ltd]** as **[Designation]** in the [Department] department. The details of employment as per our records are given below.",
+        "line": 1.2,
+        "after": 8
+      },
+      {
+        "type": "table",
+        "columns": [
+          {
+            "h": "Employment details",
+            "w": 1
+          },
+          {
+            "h": "As per company records",
+            "w": 1.6
+          }
+        ],
+        "rows": [
+          [
+            "Employee name",
+            "[Full Name]"
+          ],
+          [
+            "Employee ID",
+            "[EMP-0457]"
+          ],
+          [
+            "Designation",
+            "[Senior Accounts Executive]"
+          ],
+          [
+            "Department",
+            "[Finance and Accounts]"
+          ],
+          [
+            "Date of joining",
+            "[DD Month YYYY]"
+          ],
+          [
+            "Last working day",
+            "[DD Month YYYY]"
+          ],
+          [
+            "Total service",
+            "[3 years 4 months]"
+          ]
+        ],
+        "grid": true,
+        "rowHeight": 6.8,
+        "after": 8
+      },
+      {
+        "type": "p",
+        "text": "During this period, [his / her / their] main responsibilities included:",
+        "after": 3
+      },
+      {
+        "type": "bullets",
+        "gap": 2,
+        "items": [
+          "[Handling accounts payable and vendor payments for three branches.]",
+          "[Preparing monthly bank reconciliations and GST working papers.]",
+          "[Supporting the annual audit and training two junior team members.]"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "[His / Her / Their] conduct during the period of employment was [good]. We wish [him / her / them] success in all future work.",
+        "line": 1.2,
+        "after": 6
+      },
+      {
+        "type": "p",
+        "text": "This certificate is issued on the request of the employee for whatever purpose it may serve.",
+        "line": 1.2,
+        "after": 10
+      },
+      {
+        "type": "p",
+        "text": "For **[Company Name Pvt Ltd]**",
+        "after": 0
+      },
+      {
+        "type": "signature",
+        "space": 34,
+        "items": [
+          "**[Authorised Signatory Name]**\n[HR Manager]",
+          "Company seal"
+        ],
+        "after": 0
+      }
+    ]
+  }
+}
