@@ -30,11 +30,11 @@ Done:
 - [x] Make a booklet from a PDF: skipped 2026-11-12, already covered by how-to-print-multiple-pages-on-one-sheet (section "How to print a PDF as a booklet")
 - [x] how-to-convert-excel-to-pdf-on-one-page (2026-11-12)
 - [x] how-to-convert-ppt-to-pdf (2026-11-12)
+- [x] how-to-convert-pdf-to-markdown (2026-11-13)
+- [x] how-to-redact-a-pdf (2026-11-13)
+- [x] how-to-make-qr-code-for-google-form-or-wifi (2026-11-13)
 
 Open:
-- [ ] How to convert PDF to Markdown for ChatGPT and Claude (pdf-to-markdown)
-- [ ] How to redact a PDF (redact-pdf)
-- [ ] How to make a QR code for a Google Form or Wi-Fi (qr-code-generator)
 - [ ] How to make WhatsApp stickers from photos (whatsapp-sticker-maker)
 - [ ] How to convert a video to GIF (video-to-gif)
 - [ ] How to convert HEIC photos to PDF (heic-to-jpg)
