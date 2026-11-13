@@ -12,11 +12,11 @@ faqs:
     a: "No. A scanned page is a picture with no text inside, so there is nothing to convert. The tool shows a message when no text is found."
   - q: "Are tables kept in the Markdown?"
     a: "Yes, when the Convert tables option is on. Tables with lines or clear columns become Markdown tables. Check them in the Preview tab before you copy."
-  - q: "Is my PDF uploaded anywhere?"
-    a: "No. ZentaPDF reads the PDF inside your browser on your own device. The Markdown is made there too, and nothing is sent to a server."
+  - q: "How do I save the Markdown as a file?"
+    a: "Click Download Markdown. You get a .md file that opens in any text editor or notes app, and you can attach it in a chat where file uploads are allowed."
 ---
 
-To convert a PDF to Markdown, open **[PDF to Markdown](/pdf-to-markdown/)**, choose your PDF and click **Copy Markdown**. You get clean text with headings, bullet points and tables marked in Markdown, ready to paste into ChatGPT, Claude or any notes app. It is free and works in your browser.
+To convert a PDF to Markdown, open **[PDF to Markdown](/pdf-to-markdown/)**, choose your PDF and click **Copy Markdown**. You get clean text with headings, bullet points and tables marked in Markdown, ready to paste into ChatGPT, Claude or any notes app. It is free and needs no sign up.
 
 ## What is Markdown and why AI tools like it
 
@@ -48,8 +48,6 @@ Why this helps with ChatGPT and Claude:
 4. Check the options: **Convert tables**, **Remove page headers, footers and numbers** and **Mark page breaks (---)**. The result updates when you change them.
 5. Click the **Markdown** tab to see the raw text.
 6. Click **Copy Markdown** to copy it, or **Download Markdown** to save a .md file.
-
-The PDF stays on your device. Nothing is uploaded.
 
 ## How to use the Markdown in ChatGPT or Claude
 

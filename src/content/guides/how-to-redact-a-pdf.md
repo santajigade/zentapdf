@@ -16,7 +16,7 @@ faqs:
     a: "Yes, but the search buttons will not find anything because scanned pages have no text. Drag boxes by hand over the parts you want to hide."
 ---
 
-To redact a PDF, open **[Redact PDF](/redact-pdf/)**, choose your file, mark the text you want to hide with **Mark all** or by dragging boxes, then click **Redact PDF** and download the safe copy. The marked text is removed from the file for good, not just covered. It is free and the PDF never leaves your device.
+To redact a PDF, open **[Redact PDF](/redact-pdf/)**, choose your file, mark the text you want to hide with **Mark all** or by dragging boxes, then click **Redact PDF** and download the safe copy. The marked text is removed from the file for good, not just covered. It is free and needs no sign up.
 
 ## Why a black box is not enough
 
