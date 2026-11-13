@@ -3,6 +3,7 @@
 Needs a fresh build (reads dist/pins/index.json).
   python3 tools/pins/pins.py make            # first time only: schedule every page, popular first, then round robin by category, 5 a day from tomorrow
   python3 tools/pins/pins.py add-new         # give pages that have no date yet (new tools or tests) tomorrow's date
+  python3 tools/pins/pins.py csv [28]        # scheduled .csv: every pin not yet uploaded, 5 a day from tomorrow, Publish date filled in (main way now)
   python3 tools/pins/pins.py lot [10]        # "a lot now": next 10 scheduled pins released today, kept out of the feed, .csv written
 Board name for the .csv: BOARD below.
 """
@@ -66,6 +67,28 @@ elif cmd == 'lot':
             p = byid[i]
             w.writerow([p['title'][:100], p['image'], BOARD, '', p['description'][:500], p['link'], '', p['keywords']])
     print(f'{len(pick)} pins moved to today and to pins-manual.json; wrote {out}. Deploy, then upload the .csv.')
+
+elif cmd == 'csv':
+    # Scheduled .csv: every pin not yet uploaded, 5 a day at fixed IST times, up to DAYS days ahead (Pinterest allows about 30).
+    days = int(sys.argv[2]) if len(sys.argv) > 2 else 28
+    times = ['10:00', '13:00', '16:00', '19:00', '21:30'][:PER_DAY]
+    todo = [i for i, d in sorted(sched.items(), key=lambda x: (x[1], list(sched).index(x[0]))) if i not in manual and i in byid]
+    todo += [p['id'] for p in pins if p['id'] not in sched and p['id'] not in manual and p['id'] not in todo]
+    pick = todo[:days * PER_DAY]
+    start = today + datetime.timedelta(days=1)
+    out = f'pins-csv-{iso(start)}.csv'
+    with open(out, 'w', newline='', encoding='utf-8') as f:
+        w = csv.writer(f)
+        w.writerow(['Title', 'Media URL', 'Pinterest board', 'Thumbnail', 'Description', 'Link', 'Publish date', 'Keywords'])
+        for n, i in enumerate(pick):
+            day = start + datetime.timedelta(days=n // PER_DAY)
+            hh, mm = map(int, times[n % PER_DAY].split(':'))
+            utc = datetime.datetime(day.year, day.month, day.day, hh, mm, tzinfo=IST).astimezone(datetime.timezone.utc)
+            p = byid[i]
+            w.writerow([p['title'][:100], p['image'], BOARD, '', p['description'][:500], p['link'], utc.strftime('%Y-%m-%dT%H:%M:%S'), p['keywords']])
+            sched[i] = iso(day); manual.append(i)
+    save(SCHED, sched); save(MANUAL, manual)
+    print(f'{len(pick)} pins, {iso(start)} to {iso(start + datetime.timedelta(days=(len(pick) - 1) // PER_DAY))}; wrote {out}. Deploy first, then upload.')
 
 else:
     print(__doc__)

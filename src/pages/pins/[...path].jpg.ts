@@ -1,11 +1,10 @@
 import type { APIRoute } from 'astro';
-import { pinQueue, allPins } from '../../lib/pins';
+import { allPins } from '../../lib/pins';
 import { pinJpg } from '../../lib/pinimg';
 
-// Tall Pinterest images, only for pages already released (keeps builds fast).
+// Tall Pinterest images for every page (pins are uploaded by .csv, scheduled ahead). Cached in .og-cache so rebuilds stay fast.
 export function getStaticPaths() {
-  // PINS_ALL=1 renders every pin (local preview only)
-  const list = process.env.PINS_ALL ? allPins : pinQueue().map((p) => p.pin);
+  const list = allPins;
   return list.map((pin) => ({ params: { path: pin.img.replace(/^\/pins\//, '').replace(/\.jpg$/, '') }, props: { pin } }));
 }
 export const GET: APIRoute = async ({ props }) =>
