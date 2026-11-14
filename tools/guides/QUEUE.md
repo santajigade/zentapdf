@@ -33,9 +33,9 @@ Done:
 - [x] how-to-convert-pdf-to-markdown (2026-11-13)
 - [x] how-to-redact-a-pdf (2026-11-13)
 - [x] how-to-make-qr-code-for-google-form-or-wifi (2026-11-13)
+- [x] how-to-make-whatsapp-stickers-from-photos (2026-11-14)
+- [x] how-to-convert-video-to-gif (2026-11-14)
+- [x] how-to-convert-heic-to-pdf (2026-11-14)
 
 Open:
-- [ ] How to make WhatsApp stickers from photos (whatsapp-sticker-maker)
-- [ ] How to convert a video to GIF (video-to-gif)
-- [ ] How to convert HEIC photos to PDF (heic-to-jpg)
 - [ ] How to crop a PDF page (crop-pdf)

@@ -86,4 +86,20 @@ c.setFont('Helvetica', 11)
 for r, row in enumerate((('01-10-2026', 'Salary credit', '45,000.00'), ('05-10-2026', 'Electricity bill', '1,250.00'), ('12-10-2026', 'UPI to Rahul Sharma', '2,000.00'), ('20-10-2026', 'Mobile recharge', '299.00'))):
     for k, t in enumerate(row): c.drawString(60 + k * 160, H - 255 - r * 20, t)
 c.showPage(); c.save()
+# Sticker art with a transparent background (for WhatsApp Sticker Maker)
+im = Image.new('RGBA', (800, 800), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+for k in range(8):
+    import math; a = k * math.pi / 4; cx, cy = 400 + 200 * math.cos(a), 400 + 200 * math.sin(a)
+    d.ellipse((cx - 130, cy - 130, cx + 130, cy + 130), fill=(250, 170, 40, 255))
+d.ellipse((250, 250, 550, 550), fill=(200, 70, 30, 255)); d.ellipse((330, 350, 370, 390), fill=(20, 20, 20, 255)); d.ellipse((430, 350, 470, 390), fill=(20, 20, 20, 255))
+d.arc((330, 380, 470, 490), 20, 160, fill=(20, 20, 20, 255), width=12); im.save(f'{D}/sticker.png')
+# iPhone style HEIC photos (for HEIC to PDF), needs pillow-heif
+try:
+    import pillow_heif; pillow_heif.register_heif_opener()
+    for n in ('photo1', 'photo2'): Image.open(f'{D}/{n}.jpg').save(f'{D}/IMG_{n[-1]}.heic', quality=80)
+except ImportError: print('pillow-heif missing: no HEIC samples')
+# Short WebM video clip (for Video to GIF; WebM because test Chromium has no H.264), needs ffmpeg
+import shutil, subprocess
+if shutil.which('ffmpeg'):
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'lavfi', '-i', 'testsrc2=size=640x360:rate=25:duration=8', '-c:v', 'libvpx-vp9', '-b:v', '600k', f'{D}/clip.webm'], check=True)
 print('samples in', D, sorted(os.listdir(D)))
