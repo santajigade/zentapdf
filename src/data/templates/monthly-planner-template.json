@@ -1,0 +1,1204 @@
+{
+  "slug": "monthly-planner-template",
+  "category": "planners",
+  "name": "Monthly Planner Template",
+  "h1": "Monthly Planner Template (Printable PDF, Word and Excel)",
+  "metaTitle": "Monthly Planner Template: Free Printable PDF, Word & Excel",
+  "metaDescription": "Free monthly planner template: a printable one-page month grid with goals, key dates and review, plus an Excel calendar that fills in dates for any month.",
+  "short": "One-page month grid with goals, important dates and a month review, plus an Excel calendar that fills itself in.",
+  "accent": "#C2410C",
+  "useCases": [
+    "Planning",
+    "Study"
+  ],
+  "industries": [
+    "Personal",
+    "Students",
+    "Professionals"
+  ],
+  "date": "2026-11-14",
+  "intro": "This monthly planner template puts your whole month on one page, so deadlines, bills and plans are easy to see at a glance. Print the blank PDF or Word version for any month, or use the Excel version, which fills in the dates by itself once you type the month.",
+  "howTo": [
+    "Download the PDF to print, the Word file to type on, or the Excel file for a calendar that fills in its own dates.",
+    "Write the month and year at the top, then write the date numbers in the grid. The week starts on Monday.",
+    "In Excel, type any date of the month in the Month cell. All the dates, including blank days before the 1st, update by themselves.",
+    "Add fixed events first: bill due dates, exams, birthdays, meetings and trips.",
+    "Choose up to three main goals for the month and write them in the goals box.",
+    "Copy deadlines into Important dates so they stand out from everyday plans.",
+    "On the last day of the month, fill in the review lines and carry unfinished goals to next month."
+  ],
+  "guide": [
+    {
+      "h": "What is on the page",
+      "p": [
+        "The printable page has a Monday to Sunday grid with six week rows, so every month fits, even one that spreads over six weeks. Each day box has room for two or three short notes. Below the grid there is a table with Top goals and a Done box, Important dates and deadlines, and Notes, and two review lines: what went well and what to change next month.",
+        "The Excel file has the same idea on one sheet. Dates come from formulas, today's date turns red, and each day has a white box for plans. The goals list has a Done? drop-down that strikes a finished goal through, and the Important dates list turns a row red when it is within the next 7 days."
+      ]
+    },
+    {
+      "h": "How to plan a month that works",
+      "p": [
+        "Start with things that cannot move, such as bill dates, exams and appointments. Then add your goals and break each one into small steps you can place on specific days, for example one chapter of a book every Sunday. Many people use one colour for work or study, another for home and another for deadlines, which makes a busy month easier to read.",
+        "Keep the goals short. Two or three goals you actually finish are better than ten that stay open. A short review at the end of the month shows you what to repeat and what to drop."
+      ]
+    },
+    {
+      "h": "Using it with weekly and daily planners",
+      "p": [
+        "The monthly page is for the big picture. If you need more detail, plan each week with the free weekly planner and each busy day with the daily planner on ZentaPDF, copying tasks down from the month view."
+      ]
+    }
+  ],
+  "tips": [
+    "Fill next month's planner in the last week of the current month.",
+    "Write bill due dates one or two days early so you never pay late.",
+    "Keep the printed page where you see it every day, such as on a desk or fridge.",
+    "Use pencil or the Word file for plans that may change.",
+    "Tick goals off as soon as you finish them. It keeps you going."
+  ],
+  "faqs": [
+    {
+      "q": "Is this monthly planner for a specific month?",
+      "a": "No. The printable version is undated, so you can use it for any month of any year. In the Excel version you type the month once and the dates fill in by themselves."
+    },
+    {
+      "q": "Does the week start on Monday or Sunday?",
+      "a": "The week starts on Monday in both the printable and Excel versions. In the Word file you can change the day names in the top row if you prefer Sunday first."
+    },
+    {
+      "q": "Can I print it on Letter size paper?",
+      "a": "Yes. The PDF is A4. When you print on Letter paper, choose Fit to page in the print settings so nothing is cut off."
+    },
+    {
+      "q": "Can I use the Excel version in Google Sheets?",
+      "a": "Yes. Upload the file to Google Drive and open it with Google Sheets. The date formulas, drop-down and colour rules work there too. It has no macros."
+    },
+    {
+      "q": "How do I fill the planner on my phone or tablet?",
+      "a": "Open the PDF in the free Edit PDF tool on ZentaPDF, add your text in the boxes and download it. You can also open the Word file in any Word app."
+    }
+  ],
+  "related": [
+    "weekly-planner-template",
+    "daily-planner-template",
+    "to-do-list-template"
+  ],
+  "tools": [
+    "edit-pdf",
+    "word-to-pdf",
+    "excel-to-pdf",
+    "pdf-to-jpg"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 11
+    },
+    "font": "Arial",
+    "headFont": "Palatino Linotype",
+    "size": 9.5,
+    "titleSize": 26,
+    "blocks": [
+      {
+        "type": "header",
+        "rule": true,
+        "after": 4,
+        "split": [
+          1.2,
+          1
+        ],
+        "left": [
+          "# Monthly Planner",
+          "~ Plan the month on one page. Review it on the last day."
+        ],
+        "right": [
+          "**Month:** ______________________",
+          "**Year:** ____________"
+        ]
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "top": true,
+        "rowHeight": 24.5,
+        "after": 4,
+        "columns": [
+          {
+            "h": "MON",
+            "align": "left"
+          },
+          {
+            "h": "TUE",
+            "align": "left"
+          },
+          {
+            "h": "WED",
+            "align": "left"
+          },
+          {
+            "h": "THU",
+            "align": "left"
+          },
+          {
+            "h": "FRI",
+            "align": "left"
+          },
+          {
+            "h": "SAT",
+            "align": "left"
+          },
+          {
+            "h": "SUN",
+            "align": "left"
+          }
+        ],
+        "blank": 6
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "rowHeight": 6.6,
+        "after": 3,
+        "headFill": "#FFEDD5",
+        "headText": "#C2410C",
+        "columns": [
+          {
+            "h": "Top goals this month",
+            "w": 1.5
+          },
+          {
+            "h": "Done",
+            "w": 0.35,
+            "align": "center"
+          },
+          {
+            "h": "Important dates and deadlines",
+            "w": 1.6
+          },
+          {
+            "h": "Notes",
+            "w": 1.4
+          }
+        ],
+        "rows": [
+          [
+            "1.",
+            "☐",
+            "",
+            ""
+          ],
+          [
+            "2.",
+            "☐",
+            "",
+            ""
+          ],
+          [
+            "3.",
+            "☐",
+            "",
+            ""
+          ],
+          [
+            "",
+            "☐",
+            "",
+            ""
+          ],
+          [
+            "",
+            "☐",
+            "",
+            ""
+          ],
+          [
+            "",
+            "☐",
+            "",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "fields",
+        "cols": 1,
+        "labelWidth": 0.26,
+        "rowHeight": 9,
+        "after": 0,
+        "items": [
+          [
+            "What went well",
+            ""
+          ],
+          [
+            "What to change next month",
+            ""
+          ]
+        ]
+      }
+    ]
+  },
+  "sheet": {
+    "font": "Arial",
+    "sheets": [
+      {
+        "name": "Monthly Planner",
+        "cols": [
+          17,
+          17,
+          17,
+          17,
+          17,
+          17,
+          17
+        ],
+        "tab": "#C2410C",
+        "page": {
+          "orientation": "portrait",
+          "area": "A1:G33",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              34
+            ]
+          },
+          {
+            "c": "A1",
+            "v": "Monthly Planner",
+            "s": "title",
+            "m": "A1:D1"
+          },
+          {
+            "c": "E1",
+            "v": "Type any date in the month in C3.",
+            "s": "sub",
+            "m": "E1:G1",
+            "align": "right"
+          },
+          {
+            "c": "A3",
+            "v": "Month",
+            "s": "label",
+            "m": "A3:B3"
+          },
+          {
+            "c": "C3",
+            "v": "2026-11-01",
+            "s": "input",
+            "m": "C3:D3",
+            "fmt": "mmmm yyyy",
+            "align": "center"
+          },
+          {
+            "c": "E3",
+            "v": "Grid starts on",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "F3",
+            "v": "=DATE(YEAR(C3),MONTH(C3),1)-WEEKDAY(DATE(YEAR(C3),MONTH(C3),1),2)+1",
+            "s": "calc",
+            "m": "F3:G3",
+            "fmt": "ddd dd mmm yyyy",
+            "align": "center"
+          },
+          {
+            "height": [
+              5,
+              22
+            ]
+          },
+          {
+            "row": 5,
+            "from": "A",
+            "v": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "s": "header"
+          },
+          {
+            "height": [
+              6,
+              17
+            ]
+          },
+          {
+            "height": [
+              7,
+              46
+            ]
+          },
+          {
+            "c": "A6",
+            "v": "=IF(MONTH($F$3+0)=MONTH($C$3),$F$3+0,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "A7",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "B6",
+            "v": "=IF(MONTH($F$3+1)=MONTH($C$3),$F$3+1,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "B7",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "C6",
+            "v": "=IF(MONTH($F$3+2)=MONTH($C$3),$F$3+2,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "C7",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "D6",
+            "v": "=IF(MONTH($F$3+3)=MONTH($C$3),$F$3+3,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "D7",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "E6",
+            "v": "=IF(MONTH($F$3+4)=MONTH($C$3),$F$3+4,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "E7",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "F6",
+            "v": "=IF(MONTH($F$3+5)=MONTH($C$3),$F$3+5,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "F7",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "G6",
+            "v": "=IF(MONTH($F$3+6)=MONTH($C$3),$F$3+6,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "G7",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "height": [
+              8,
+              17
+            ]
+          },
+          {
+            "height": [
+              9,
+              46
+            ]
+          },
+          {
+            "c": "A8",
+            "v": "=IF(MONTH($F$3+7)=MONTH($C$3),$F$3+7,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "A9",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "B8",
+            "v": "=IF(MONTH($F$3+8)=MONTH($C$3),$F$3+8,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "B9",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "C8",
+            "v": "=IF(MONTH($F$3+9)=MONTH($C$3),$F$3+9,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "C9",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "D8",
+            "v": "=IF(MONTH($F$3+10)=MONTH($C$3),$F$3+10,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "D9",
+            "v": "Pay credit card bill",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "E8",
+            "v": "=IF(MONTH($F$3+11)=MONTH($C$3),$F$3+11,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "E9",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "F8",
+            "v": "=IF(MONTH($F$3+12)=MONTH($C$3),$F$3+12,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "F9",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "G8",
+            "v": "=IF(MONTH($F$3+13)=MONTH($C$3),$F$3+13,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "G9",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "height": [
+              10,
+              17
+            ]
+          },
+          {
+            "height": [
+              11,
+              46
+            ]
+          },
+          {
+            "c": "A10",
+            "v": "=IF(MONTH($F$3+14)=MONTH($C$3),$F$3+14,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "A11",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "B10",
+            "v": "=IF(MONTH($F$3+15)=MONTH($C$3),$F$3+15,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "B11",
+            "v": "Dentist 5 pm",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "C10",
+            "v": "=IF(MONTH($F$3+16)=MONTH($C$3),$F$3+16,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "C11",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "D10",
+            "v": "=IF(MONTH($F$3+17)=MONTH($C$3),$F$3+17,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "D11",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "E10",
+            "v": "=IF(MONTH($F$3+18)=MONTH($C$3),$F$3+18,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "E11",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "F10",
+            "v": "=IF(MONTH($F$3+19)=MONTH($C$3),$F$3+19,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "F11",
+            "v": "Book club, 7 pm",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "G10",
+            "v": "=IF(MONTH($F$3+20)=MONTH($C$3),$F$3+20,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "G11",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "height": [
+              12,
+              17
+            ]
+          },
+          {
+            "height": [
+              13,
+              46
+            ]
+          },
+          {
+            "c": "A12",
+            "v": "=IF(MONTH($F$3+21)=MONTH($C$3),$F$3+21,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "A13",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "B12",
+            "v": "=IF(MONTH($F$3+22)=MONTH($C$3),$F$3+22,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "B13",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "C12",
+            "v": "=IF(MONTH($F$3+23)=MONTH($C$3),$F$3+23,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "C13",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "D12",
+            "v": "=IF(MONTH($F$3+24)=MONTH($C$3),$F$3+24,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "D13",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "E12",
+            "v": "=IF(MONTH($F$3+25)=MONTH($C$3),$F$3+25,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "E13",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "F12",
+            "v": "=IF(MONTH($F$3+26)=MONTH($C$3),$F$3+26,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "F13",
+            "v": "Mom's birthday",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "G12",
+            "v": "=IF(MONTH($F$3+27)=MONTH($C$3),$F$3+27,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "G13",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "height": [
+              14,
+              17
+            ]
+          },
+          {
+            "height": [
+              15,
+              46
+            ]
+          },
+          {
+            "c": "A14",
+            "v": "=IF(MONTH($F$3+28)=MONTH($C$3),$F$3+28,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "A15",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "B14",
+            "v": "=IF(MONTH($F$3+29)=MONTH($C$3),$F$3+29,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "B15",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "C14",
+            "v": "=IF(MONTH($F$3+30)=MONTH($C$3),$F$3+30,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "C15",
+            "v": "Project report due",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "D14",
+            "v": "=IF(MONTH($F$3+31)=MONTH($C$3),$F$3+31,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "D15",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "E14",
+            "v": "=IF(MONTH($F$3+32)=MONTH($C$3),$F$3+32,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "E15",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "F14",
+            "v": "=IF(MONTH($F$3+33)=MONTH($C$3),$F$3+33,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "F15",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "G14",
+            "v": "=IF(MONTH($F$3+34)=MONTH($C$3),$F$3+34,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "G15",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "height": [
+              16,
+              17
+            ]
+          },
+          {
+            "height": [
+              17,
+              46
+            ]
+          },
+          {
+            "c": "A16",
+            "v": "=IF(MONTH($F$3+35)=MONTH($C$3),$F$3+35,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "A17",
+            "v": "Monthly budget review",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "B16",
+            "v": "=IF(MONTH($F$3+36)=MONTH($C$3),$F$3+36,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "B17",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "C16",
+            "v": "=IF(MONTH($F$3+37)=MONTH($C$3),$F$3+37,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "C17",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "D16",
+            "v": "=IF(MONTH($F$3+38)=MONTH($C$3),$F$3+38,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "D17",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "E16",
+            "v": "=IF(MONTH($F$3+39)=MONTH($C$3),$F$3+39,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "E17",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "F16",
+            "v": "=IF(MONTH($F$3+40)=MONTH($C$3),$F$3+40,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "F17",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "G16",
+            "v": "=IF(MONTH($F$3+41)=MONTH($C$3),$F$3+41,\"\")",
+            "s": "calc",
+            "fmt": "d",
+            "align": "left",
+            "bold": true
+          },
+          {
+            "c": "G17",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "cf": "A6:G17",
+            "rule": "over",
+            "ref": "A6=TODAY()"
+          },
+          {
+            "note": "A6",
+            "text": "Dates fill in from the month in C3. Today's date turns red."
+          },
+          {
+            "c": "A19",
+            "v": "GOALS FOR THE MONTH",
+            "s": "band",
+            "m": "A19:D19"
+          },
+          {
+            "c": "E19",
+            "v": "IMPORTANT DATES",
+            "s": "band",
+            "m": "E19:G19"
+          },
+          {
+            "height": [
+              20,
+              22
+            ]
+          },
+          {
+            "c": "A20",
+            "v": "Goal",
+            "s": "header",
+            "m": "A20:C20"
+          },
+          {
+            "c": "D20",
+            "v": "Done?",
+            "s": "header"
+          },
+          {
+            "c": "E20",
+            "v": "Date",
+            "s": "header"
+          },
+          {
+            "c": "F20",
+            "v": "What",
+            "s": "header",
+            "m": "F20:G20"
+          },
+          {
+            "c": "A21",
+            "v": "Read 2 books",
+            "s": "input",
+            "m": "A21:C21"
+          },
+          {
+            "c": "D21",
+            "v": "Yes",
+            "s": "check"
+          },
+          {
+            "c": "E21",
+            "v": "2026-11-05",
+            "s": "input",
+            "fmt": "date",
+            "align": "center"
+          },
+          {
+            "c": "F21",
+            "v": "Credit card bill",
+            "s": "input",
+            "m": "F21:G21"
+          },
+          {
+            "c": "A22",
+            "v": "Walk 8,000 steps on 20 days",
+            "s": "input",
+            "m": "A22:C22"
+          },
+          {
+            "c": "D22",
+            "v": "No",
+            "s": "check"
+          },
+          {
+            "c": "E22",
+            "v": "2026-11-21",
+            "s": "input",
+            "fmt": "date",
+            "align": "center"
+          },
+          {
+            "c": "F22",
+            "v": "Mom's birthday",
+            "s": "input",
+            "m": "F22:G22"
+          },
+          {
+            "c": "A23",
+            "v": "Save Rs 10,000",
+            "s": "input",
+            "m": "A23:C23"
+          },
+          {
+            "c": "D23",
+            "v": "No",
+            "s": "check"
+          },
+          {
+            "c": "E23",
+            "v": "2026-11-25",
+            "s": "input",
+            "fmt": "date",
+            "align": "center"
+          },
+          {
+            "c": "F23",
+            "v": "Project report due",
+            "s": "input",
+            "m": "F23:G23"
+          },
+          {
+            "c": "A24",
+            "v": "Finish module 3 of online course",
+            "s": "input",
+            "m": "A24:C24"
+          },
+          {
+            "c": "D24",
+            "v": "No",
+            "s": "check"
+          },
+          {
+            "c": "E24",
+            "v": "2026-11-30",
+            "s": "input",
+            "fmt": "date",
+            "align": "center"
+          },
+          {
+            "c": "F24",
+            "v": "Budget review",
+            "s": "input",
+            "m": "F24:G24"
+          },
+          {
+            "c": "A25",
+            "s": "input",
+            "m": "A25:C25"
+          },
+          {
+            "c": "D25",
+            "s": "check"
+          },
+          {
+            "c": "E25",
+            "s": "input",
+            "fmt": "date",
+            "align": "center"
+          },
+          {
+            "c": "F25",
+            "s": "input",
+            "m": "F25:G25"
+          },
+          {
+            "c": "A26",
+            "s": "input",
+            "m": "A26:C26"
+          },
+          {
+            "c": "D26",
+            "s": "check"
+          },
+          {
+            "c": "E26",
+            "s": "input",
+            "fmt": "date",
+            "align": "center"
+          },
+          {
+            "c": "F26",
+            "s": "input",
+            "m": "F26:G26"
+          },
+          {
+            "list": "D21:D26",
+            "items": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "cf": "A21:D26",
+            "rule": "done",
+            "ref": "$D21=\"Yes\""
+          },
+          {
+            "cf": "E21:G26",
+            "rule": "over",
+            "ref": "AND($E21<>\"\",$E21>=TODAY(),$E21-TODAY()<=7)"
+          },
+          {
+            "height": [
+              27,
+              22
+            ]
+          },
+          {
+            "c": "A27",
+            "v": "Goals done",
+            "s": "total",
+            "m": "A27:C27"
+          },
+          {
+            "c": "D27",
+            "v": "=COUNTIF(D21:D26,\"Yes\")&\" of \"&COUNTA(A21:A26)",
+            "s": "total",
+            "align": "center"
+          },
+          {
+            "c": "E27",
+            "v": "=COUNTIFS(E21:E26,\">=\"&TODAY(),E21:E26,\"<=\"&(TODAY()+7))&\" date(s) in the next 7 days\"",
+            "s": "calc",
+            "m": "E27:G27",
+            "align": "center"
+          },
+          {
+            "c": "A29",
+            "v": "NOTES",
+            "s": "band",
+            "m": "A29:G29"
+          },
+          {
+            "c": "A30",
+            "s": "input",
+            "m": "A30:G32",
+            "wrap": true
+          },
+          {
+            "c": "A33",
+            "v": "Rows in red under Important dates are within the next 7 days. Pick Yes under Done? to strike a goal out.",
+            "s": "note",
+            "m": "A33:G33"
+          }
+        ]
+      }
+    ]
+  }
+}

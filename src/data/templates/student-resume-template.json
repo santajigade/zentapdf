@@ -1,0 +1,341 @@
+{
+  "slug": "student-resume-template",
+  "category": "resume",
+  "name": "Student Resume Template",
+  "h1": "Student Resume Template (Word and PDF)",
+  "metaTitle": "Student Resume Template: Free Word & PDF Format",
+  "metaDescription": "Free student resume template in Word and PDF for school and college students. One page, with education, projects, activities, achievements and skills.",
+  "short": "One-page resume for school and college students, built around education, activities and achievements.",
+  "accent": "#166534",
+  "useCases": [
+    "Job search",
+    "Campus placement"
+  ],
+  "industries": [
+    "Students",
+    "Education"
+  ],
+  "date": "2026-11-14",
+  "intro": "This student resume template is made for school and college students who have little or no work experience yet. It puts education, projects, activities and achievements first, so you can apply for internships, part-time jobs, scholarships or college programs with a clean one-page resume.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice.",
+    "Replace [Your Full Name] and the contact line with your phone, email, city and LinkedIn link if you have one.",
+    "Change the line under your name to say what you are studying and what you are applying for.",
+    "Update Education with your course, college or school, years and scores. Add three or four subjects that match the role.",
+    "Under Projects and activities, list clubs, college roles, coursework projects, part-time work or family business help, with one or two bullet points each.",
+    "Add awards, skills, languages and volunteering, then delete any section you do not need.",
+    "Read it aloud to check for mistakes, save it as PDF and send the PDF with your application."
+  ],
+  "guide": [
+    {
+      "h": "What the template includes",
+      "p": [
+        "The file is a one-page resume with a centred name and contact line, a short Profile, Education with the degree, relevant subjects and a small table for Class XII and Class X scores, Projects and activities with dates and bullet points, Achievements, a three-column Skills block for computer skills, work skills and languages, and a final line for volunteering and interests. It is filled with a realistic sample for a second-year B.Com student so you can see how much to write in each part.",
+        "It uses simple headings, plain bullet points and no tables for the main text, so it stays easy to read for people and for the applicant tracking systems many companies use."
+      ]
+    },
+    {
+      "h": "What to write when you have no work experience",
+      "p": [
+        "Most student resumes are built from school and college life. Good things to include are class or college projects, leadership roles in clubs and events, sports, competitions and quizzes, volunteering, online courses, and part-time or family business work. Write what you did and add a number where you can, such as people served, money raised, responses collected or hours given.",
+        "Put Education near the top while it is your strongest section. Keep each entry short, two bullet points at most, and start each bullet with an action word such as built, managed, organised or presented."
+      ]
+    },
+    {
+      "h": "Photos, personal details and length",
+      "p": [
+        "Keep your student resume to one page. In many countries, such as the US, UK and Canada, a photo, date of birth and family details are usually left off. Some employers in India and other countries still ask for them, so follow the job post or your college placement cell. Never add sensitive numbers such as your Aadhaar or bank account number."
+      ]
+    }
+  ],
+  "tips": [
+    "Change the line under your name for each application so it names the role you want.",
+    "Add your score or grade only if it helps you. Many students leave out low scores.",
+    "Use a simple, professional email address made from your name.",
+    "Ask a teacher or placement officer to read your resume before you send it.",
+    "Update the resume every semester while new projects and results are fresh in your mind."
+  ],
+  "faqs": [
+    {
+      "q": "Can a school student use this resume template?",
+      "a": "Yes. Replace the college entries with your school, class and board, and list school clubs, competitions, sports and volunteering under Projects and activities."
+    },
+    {
+      "q": "How long should a student resume be?",
+      "a": "One page is enough for almost every student. This template is designed to fit on one A4 page. If yours runs over, shorten bullets or remove Class X details."
+    },
+    {
+      "q": "Should I include my percentage or CGPA?",
+      "a": "Include it if it is good or if the employer asks for it. Many internships and campus roles in India have a minimum score, so it is common to show it."
+    },
+    {
+      "q": "Can I edit this resume in Google Docs?",
+      "a": "Yes. Upload the Word file to Google Drive and open it with Google Docs. Then use File, Download, PDF to save the finished resume."
+    },
+    {
+      "q": "How do I make my resume PDF smaller for an online form?",
+      "a": "Save it as PDF from Word, then use the free Compress PDF tool on ZentaPDF if the upload limit is small, such as 200 KB or 500 KB."
+    }
+  ],
+  "related": [
+    "fresher-resume-template",
+    "cover-letter-template"
+  ],
+  "tools": [
+    "word-to-pdf",
+    "compress-pdf",
+    "pdf-to-word",
+    "edit-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 13
+    },
+    "font": "Calibri",
+    "headFont": "Palatino Linotype",
+    "size": 10,
+    "titleSize": 25,
+    "blocks": [
+      {
+        "type": "title",
+        "text": "[Your Full Name]",
+        "size": 25,
+        "align": "center",
+        "sub": "Second-year B.Com student  |  Looking for a summer internship in accounts or marketing\n[Phone]   |   [Email]   |   [City, State]   |   [linkedin.com/in/your-profile]",
+        "subSize": 9.5
+      },
+      {
+        "type": "rule",
+        "accent": true,
+        "weight": 12,
+        "after": 2
+      },
+      {
+        "type": "heading",
+        "text": "Profile",
+        "caps": false,
+        "size": 12.5,
+        "before": 2
+      },
+      {
+        "type": "p",
+        "text": "Commerce student with a strong record in accountancy and economics, experience running college events and a part-time role at a family retail shop. Comfortable with Excel, quick to learn new tools and happy to work with customers and teams.",
+        "line": 1.1,
+        "after": 2
+      },
+      {
+        "type": "heading",
+        "text": "Education",
+        "caps": false,
+        "size": 12.5,
+        "before": 7
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 1,
+        "split": [
+          3,
+          1.1
+        ],
+        "left": [
+          "## Bachelor of Commerce (B.Com), second year",
+          "[College name], [University], [City]"
+        ],
+        "right": [
+          "**2025 to 2028 (expected)**",
+          "First-year score: 78%"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "**Relevant subjects:** Financial Accounting, Business Economics, Business Statistics, Marketing Basics",
+        "size": 9.5,
+        "after": 3
+      },
+      {
+        "type": "table",
+        "columns": [
+          {
+            "h": "Class",
+            "w": 1.1
+          },
+          {
+            "h": "School and board",
+            "w": 2.4
+          },
+          {
+            "h": "Year",
+            "w": 0.7,
+            "align": "center"
+          },
+          {
+            "h": "Score",
+            "w": 0.7,
+            "align": "center"
+          }
+        ],
+        "rows": [
+          [
+            "**Class XII, Commerce**",
+            "[School name], [Board]",
+            "2025",
+            "88%"
+          ],
+          [
+            "**Class X**",
+            "[School name], [Board]",
+            "2023",
+            "91%"
+          ]
+        ],
+        "rowHeight": 6,
+        "small": true,
+        "headFill": "#DCFCE7",
+        "headText": "#166534",
+        "after": 2
+      },
+      {
+        "type": "heading",
+        "text": "Projects and activities",
+        "caps": false,
+        "size": 12.5,
+        "before": 7
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 0,
+        "split": [
+          3,
+          1.1
+        ],
+        "left": [
+          "## Treasurer, Commerce Association, [College name]"
+        ],
+        "right": [
+          "**Jul 2025 to Present**"
+        ]
+      },
+      {
+        "type": "bullets",
+        "gap": 1,
+        "items": [
+          "Manage a yearly budget of Rs 60,000 for 6 events and keep every bill and receipt on record.",
+          "Built an Excel sheet to track sponsorships, which helped raise Rs 25,000 from 8 local businesses."
+        ]
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 0,
+        "split": [
+          3,
+          1.1
+        ],
+        "left": [
+          "## Survey project: How students spend pocket money"
+        ],
+        "right": [
+          "**Jan to Mar 2026**"
+        ]
+      },
+      {
+        "type": "bullets",
+        "gap": 1,
+        "items": [
+          "Business Statistics coursework: designed a Google Forms survey, collected 210 responses and presented charts and findings to the class."
+        ]
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 0,
+        "split": [
+          3,
+          1.1
+        ],
+        "left": [
+          "## Part-time sales helper, [Shop name] (family retail shop)"
+        ],
+        "right": [
+          "**Weekends, 2024 to Present**"
+        ]
+      },
+      {
+        "type": "bullets",
+        "gap": 1,
+        "items": [
+          "Serve 40 to 60 customers on busy days, handle UPI and cash billing and update the stock register."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Achievements",
+        "caps": false,
+        "size": 12.5,
+        "before": 7
+      },
+      {
+        "type": "bullets",
+        "gap": 1,
+        "items": [
+          "First place, inter-college business quiz, [Event name], 2025",
+          "Merit scholarship for top 5% of the first-year B.Com batch"
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Skills",
+        "caps": false,
+        "size": 12.5,
+        "before": 7
+      },
+      {
+        "type": "columns",
+        "after": 2,
+        "cols": [
+          {
+            "title": "Computer",
+            "lines": [
+              "MS Excel (SUMIF, charts)",
+              "Google Sheets and Forms",
+              "Tally basics",
+              "Canva"
+            ]
+          },
+          {
+            "title": "Work skills",
+            "lines": [
+              "Bookkeeping basics",
+              "Customer service",
+              "Event planning",
+              "Team leadership"
+            ]
+          },
+          {
+            "title": "Languages",
+            "lines": [
+              "English (fluent)",
+              "Hindi (fluent)",
+              "Gujarati (native)"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Volunteering and interests",
+        "caps": false,
+        "size": 12.5,
+        "before": 7
+      },
+      {
+        "type": "p",
+        "text": "Volunteer tutor for Class VIII maths at a local NGO, 2 hours a week since 2024.  |  Interests: chess, photography, personal finance blogs.",
+        "after": 0
+      }
+    ]
+  }
+}

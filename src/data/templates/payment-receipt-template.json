@@ -1,0 +1,846 @@
+{
+  "slug": "payment-receipt-template",
+  "category": "invoice",
+  "name": "Payment Receipt Template",
+  "h1": "Payment Receipt Template (Word, Excel and PDF)",
+  "metaTitle": "Payment Receipt Template: Free Word, Excel & PDF Format",
+  "metaDescription": "Free payment receipt template in Word, Excel and PDF. Two receipts per A4 page, balance due worked out for you, and a receipt log with totals by payment mode.",
+  "short": "Simple money receipt for any payment, two per page, with an Excel receipt log that totals what you received.",
+  "accent": "#9D174D",
+  "useCases": [
+    "Billing",
+    "Freelance"
+  ],
+  "industries": [
+    "Small business",
+    "Freelancers",
+    "Services"
+  ],
+  "date": "2026-11-14",
+  "intro": "This payment receipt template gives your customer written proof that you received their money. The Word file prints two receipts on one A4 page, and the Excel file works out the balance still due on the invoice and keeps a log of every receipt you issue, with totals by payment mode.",
+  "howTo": [
+    "Download the Word file to print receipts, or the Excel file if you want the balance and receipt log to work out by themselves.",
+    "Replace [Your Business Name], address, phone and email with your own details.",
+    "Give each receipt a new number and enter the date you received the money.",
+    "Fill in who paid, what the payment is for and the invoice number it is against.",
+    "Enter the amount in figures and in words, the payment mode and the UPI, cheque or bank reference.",
+    "Check the balance due line. In Excel it is the invoice total minus everything received so far.",
+    "Sign the receipt, save it as PDF and send a copy to the customer. Add a row to the Receipt Log."
+  ],
+  "guide": [
+    {
+      "h": "What the template contains",
+      "p": [
+        "Each receipt has a receipt number and date, **Received from** and **Received by** boxes, what the payment is for with the invoice number, the amount received, the balance due, the amount in words, the payment mode and reference, the date paid and two signature lines. The Word file has two filled samples on one page with a cut line: a full payment by UPI and a part payment by cheque.",
+        "The Excel file has two tabs. **Receipt** is one receipt where total paid so far and balance due fill in by themselves, with a status line that says fully paid, part payment, or a warning if more was received than the invoice total. **Receipt Log** lists up to 35 receipts and shows the total received, the number of receipts and a split by UPI, bank, cheque, cash and card."
+      ]
+    },
+    {
+      "h": "Receipt or invoice: which one do you need?",
+      "p": [
+        "An invoice asks for money. A receipt confirms that money has been paid. Most businesses send the invoice first and the receipt after payment, and both should carry the same invoice number so they are easy to match.",
+        "This template is a plain payment receipt, not a tax invoice. In India, a GST registered business that takes an advance before supplying may need to issue a **receipt voucher** with GST details instead. GST rules change, so check the official GST portal or your accountant before you rely on a plain receipt for tax purposes."
+      ]
+    },
+    {
+      "h": "Cash payments",
+      "p": [
+        "For cash, write the receipt at once, because there is no bank record to fall back on. Indian income tax law generally does not allow a person to receive Rs 2,00,000 or more in cash from one person in a single day, and the Receipt Log turns a cash row red at that amount as a reminder. A revenue stamp is also commonly fixed on cash receipts above Rs 5,000. Rules change, so check what applies to you."
+      ]
+    }
+  ],
+  "tips": [
+    "Number receipts in one series, for example PR-0142, PR-0143, and never reuse a number.",
+    "Always mention the invoice number so part payments are easy to match later.",
+    "Write the amount in words exactly as in figures.",
+    "For cheques, note the cheque number and bank, and confirm the cheque has cleared."
+  ],
+  "faqs": [
+    {
+      "q": "Is a payment receipt the same as an invoice?",
+      "a": "No. An invoice is a request for payment, and a receipt is proof that payment was received. You can use this receipt together with the free simple invoice or GST invoice templates on ZentaPDF."
+    },
+    {
+      "q": "Can I show a part payment on this receipt?",
+      "a": "Yes. Enter the invoice total, the amount received earlier and the amount received now in the Excel file. The balance due works out by itself. The second sample receipt in the Word file shows a part payment."
+    },
+    {
+      "q": "Do I need to sign a payment receipt?",
+      "a": "A signature from the person who received the money makes the receipt stronger proof. Save the filled receipt as PDF and use the free Sign PDF tool on ZentaPDF to add your signature."
+    },
+    {
+      "q": "Is this a GST receipt voucher?",
+      "a": "No. It is a general payment receipt. If you are GST registered and receive an advance, check the current GST rules, because a receipt voucher with GSTIN, tax rate and place of supply may be needed."
+    },
+    {
+      "q": "Can I use it outside India?",
+      "a": "Yes. Change Rs to your currency and remove the India notes. The layout and formulas work the same anywhere."
+    }
+  ],
+  "related": [
+    "simple-invoice-template",
+    "gst-invoice-format",
+    "rent-receipt-template"
+  ],
+  "tools": [
+    "sign-pdf",
+    "word-to-pdf",
+    "excel-to-pdf",
+    "merge-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 12
+    },
+    "font": "Arial",
+    "headFont": "Cambria",
+    "size": 10,
+    "titleSize": 17,
+    "blocks": [
+      {
+        "type": "title",
+        "band": true,
+        "text": "PAYMENT RECEIPT",
+        "size": 17,
+        "sub": "Receipt no. **PR-0142**   |   Date: **14 Nov 2026**"
+      },
+      {
+        "type": "columns",
+        "after": 5,
+        "cols": [
+          {
+            "title": "Received from",
+            "fill": true,
+            "lines": [
+              "## Anjali Desai",
+              "Desai Home Bakers",
+              "[Customer address]"
+            ]
+          },
+          {
+            "title": "Received by",
+            "fill": true,
+            "lines": [
+              "## [Your Business Name]",
+              "[Street address, City, PIN]",
+              "[Phone]  |  [Email]"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "columns": [
+          {
+            "h": "Payment for",
+            "w": 2.6
+          },
+          {
+            "h": "Invoice / ref.",
+            "w": 1.2,
+            "align": "center"
+          },
+          {
+            "h": "Amount (Rs)",
+            "w": 1.1,
+            "align": "right"
+          }
+        ],
+        "rows": [
+          [
+            "Website design, final instalment",
+            "INV-2026-118",
+            "15,000.00"
+          ]
+        ],
+        "rowHeight": 7,
+        "totals": [
+          [
+            "Balance due after this payment",
+            "0.00"
+          ],
+          [
+            "Total received",
+            "15,000.00"
+          ]
+        ],
+        "after": 4
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "labelWidth": 0.36,
+        "rowHeight": 6.5,
+        "items": [
+          [
+            "Amount in words",
+            "Fifteen thousand rupees only"
+          ],
+          [
+            "Payment mode",
+            "UPI"
+          ],
+          [
+            "Transaction ref.",
+            "[UPI transaction ID]"
+          ],
+          [
+            "Paid on",
+            "14 Nov 2026"
+          ]
+        ],
+        "after": 0
+      },
+      {
+        "type": "signature",
+        "items": [
+          "Payer (optional)",
+          "Received by: name and signature"
+        ],
+        "space": 14,
+        "after": 0
+      },
+      {
+        "type": "p",
+        "text": "- - - - - - - - - - - - - - - - - - - - - - - -   cut here   - - - - - - - - - - - - - - - - - - - - - - - -",
+        "align": "center",
+        "size": 8,
+        "muted": true,
+        "before": 6,
+        "after": 8
+      },
+      {
+        "type": "title",
+        "band": true,
+        "text": "PAYMENT RECEIPT",
+        "size": 17,
+        "sub": "Receipt no. **PR-0143**   |   Date: **15 Nov 2026**"
+      },
+      {
+        "type": "columns",
+        "after": 5,
+        "cols": [
+          {
+            "title": "Received from",
+            "fill": true,
+            "lines": [
+              "## Karan Malhotra",
+              "Malhotra Traders",
+              "[Customer address]"
+            ]
+          },
+          {
+            "title": "Received by",
+            "fill": true,
+            "lines": [
+              "## [Your Business Name]",
+              "[Street address, City, PIN]",
+              "[Phone]  |  [Email]"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "columns": [
+          {
+            "h": "Payment for",
+            "w": 2.6
+          },
+          {
+            "h": "Invoice / ref.",
+            "w": 1.2,
+            "align": "center"
+          },
+          {
+            "h": "Amount (Rs)",
+            "w": 1.1,
+            "align": "right"
+          }
+        ],
+        "rows": [
+          [
+            "Annual maintenance contract, part payment",
+            "INV-2026-121",
+            "8,000.00"
+          ]
+        ],
+        "rowHeight": 7,
+        "totals": [
+          [
+            "Balance due after this payment",
+            "12,000.00"
+          ],
+          [
+            "Total received",
+            "8,000.00"
+          ]
+        ],
+        "after": 4
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "labelWidth": 0.36,
+        "rowHeight": 6.5,
+        "items": [
+          [
+            "Amount in words",
+            "Eight thousand rupees only"
+          ],
+          [
+            "Payment mode",
+            "Cheque"
+          ],
+          [
+            "Transaction ref.",
+            "Cheque no. [000000], [Bank name]"
+          ],
+          [
+            "Paid on",
+            "15 Nov 2026"
+          ]
+        ],
+        "after": 0
+      },
+      {
+        "type": "signature",
+        "items": [
+          "Payer (optional)",
+          "Received by: name and signature"
+        ],
+        "space": 14,
+        "after": 0
+      }
+    ]
+  },
+  "sheet": {
+    "font": "Arial",
+    "sheets": [
+      {
+        "name": "Receipt",
+        "cols": [
+          22,
+          24,
+          20,
+          24
+        ],
+        "tab": "#9D174D",
+        "page": {
+          "orientation": "portrait",
+          "area": "A1:D30",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              34
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:B1",
+            "v": "PAYMENT RECEIPT",
+            "s": "title"
+          },
+          {
+            "c": "C1",
+            "m": "C1:D1",
+            "v": "Fill the white cells. Tinted cells work out by themselves.",
+            "s": "sub",
+            "align": "right"
+          },
+          {
+            "c": "A3",
+            "m": "A3:D3",
+            "v": "[Your Business Name]",
+            "s": "label"
+          },
+          {
+            "c": "A4",
+            "m": "A4:D4",
+            "v": "[Street address, City, PIN]   |   [Phone]   |   [Email]",
+            "s": "plain"
+          },
+          {
+            "c": "A6",
+            "v": "Receipt no.",
+            "s": "label"
+          },
+          {
+            "c": "B6",
+            "v": "PR-0142",
+            "s": "input",
+            "align": "center"
+          },
+          {
+            "c": "C6",
+            "v": "Receipt date",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "D6",
+            "v": "2026-11-14",
+            "s": "input",
+            "fmt": "date",
+            "align": "center"
+          },
+          {
+            "c": "A8",
+            "m": "A8:D8",
+            "v": "RECEIVED FROM",
+            "s": "band"
+          },
+          {
+            "c": "A9",
+            "v": "Name",
+            "s": "label"
+          },
+          {
+            "c": "B9",
+            "m": "B9:D9",
+            "v": "Anjali Desai",
+            "s": "input"
+          },
+          {
+            "c": "A10",
+            "v": "Company",
+            "s": "label"
+          },
+          {
+            "c": "B10",
+            "m": "B10:D10",
+            "v": "Desai Home Bakers",
+            "s": "input"
+          },
+          {
+            "c": "A11",
+            "v": "Address",
+            "s": "label"
+          },
+          {
+            "c": "B11",
+            "m": "B11:D11",
+            "v": "[Customer address]",
+            "s": "input"
+          },
+          {
+            "c": "A13",
+            "m": "A13:D13",
+            "v": "PAYMENT DETAILS",
+            "s": "band"
+          },
+          {
+            "c": "A14",
+            "v": "Payment for",
+            "s": "label"
+          },
+          {
+            "c": "B14",
+            "m": "B14:D14",
+            "v": "Website design, final instalment",
+            "s": "input"
+          },
+          {
+            "c": "A15",
+            "v": "Invoice no.",
+            "s": "label"
+          },
+          {
+            "c": "B15",
+            "v": "INV-2026-118",
+            "s": "input",
+            "align": "center"
+          },
+          {
+            "c": "C15",
+            "v": "Invoice total",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "D15",
+            "v": 25000,
+            "s": "input",
+            "fmt": "money"
+          },
+          {
+            "c": "A16",
+            "v": "Payment mode",
+            "s": "label"
+          },
+          {
+            "c": "B16",
+            "v": "UPI",
+            "s": "input",
+            "align": "center"
+          },
+          {
+            "list": "B16",
+            "items": [
+              "UPI",
+              "Bank transfer",
+              "Cheque",
+              "Cash",
+              "Card",
+              "Other"
+            ]
+          },
+          {
+            "c": "C16",
+            "v": "Received earlier",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "D16",
+            "v": 10000,
+            "s": "input",
+            "fmt": "money"
+          },
+          {
+            "c": "A17",
+            "v": "Transaction ref.",
+            "s": "label"
+          },
+          {
+            "c": "B17",
+            "v": "[UPI, cheque or bank ref]",
+            "s": "input"
+          },
+          {
+            "c": "C17",
+            "v": "Received now",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "D17",
+            "v": 15000,
+            "s": "input",
+            "fmt": "money"
+          },
+          {
+            "height": [
+              18,
+              26
+            ]
+          },
+          {
+            "c": "A18",
+            "m": "A18:B18",
+            "v": "=IF(D19<0,\"Check: received is more than the invoice total\",IF(D19=0,\"Invoice fully paid\",\"Part payment, balance still due\"))",
+            "s": "calc",
+            "align": "center"
+          },
+          {
+            "c": "C18",
+            "v": "Total paid so far",
+            "s": "total",
+            "align": "right"
+          },
+          {
+            "c": "D18",
+            "v": "=N(D16)+N(D17)",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "C19",
+            "v": "Balance due",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "D19",
+            "v": "=N(D15)-N(D18)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "cf": "D19",
+            "rule": "neg"
+          },
+          {
+            "c": "A21",
+            "v": "Amount in words",
+            "s": "label"
+          },
+          {
+            "c": "B21",
+            "m": "B21:D21",
+            "v": "Fifteen thousand rupees only",
+            "s": "input"
+          },
+          {
+            "c": "A22",
+            "v": "Notes",
+            "s": "label"
+          },
+          {
+            "c": "B22",
+            "m": "B22:D22",
+            "v": "Thank you for your payment.",
+            "s": "input"
+          },
+          {
+            "c": "A24",
+            "m": "A24:D24",
+            "v": "=\"Received with thanks the sum of Rs \"&TEXT(N(D17),\"#,##0.00\")&\" from \"&IF(B9=\"\",\"[payer]\",B9)&\" on \"&TEXT(D6,\"dd mmm yyyy\")&\".\"",
+            "s": "plain"
+          },
+          {
+            "c": "C27",
+            "m": "C27:D27",
+            "v": "______________________________",
+            "s": "plain",
+            "align": "center"
+          },
+          {
+            "c": "C28",
+            "m": "C28:D28",
+            "v": "Received by: name and signature",
+            "s": "label",
+            "align": "center"
+          },
+          {
+            "c": "A27",
+            "m": "A27:B29",
+            "v": "This is a payment receipt, not a tax invoice. If you are GST registered and take an advance before supplying, check whether you need a GST receipt voucher.",
+            "s": "note"
+          }
+        ]
+      },
+      {
+        "name": "Receipt Log",
+        "cols": [
+          5,
+          13,
+          12,
+          24,
+          14,
+          13,
+          14
+        ],
+        "tab": "#831843",
+        "freeze": 5,
+        "page": {
+          "orientation": "portrait",
+          "area": "A1:G42",
+          "titles": "5:5",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              32
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:E1",
+            "v": "Receipt Log",
+            "s": "title"
+          },
+          {
+            "c": "F1",
+            "m": "F1:G1",
+            "v": "One row per receipt you issue.",
+            "s": "sub",
+            "align": "right"
+          },
+          {
+            "c": "A3",
+            "m": "A3:B3",
+            "v": "Total received",
+            "s": "label"
+          },
+          {
+            "c": "C3",
+            "m": "C3:D3",
+            "v": "=SUM(G6:G40)",
+            "s": "big",
+            "fmt": "money"
+          },
+          {
+            "c": "E3",
+            "v": "Receipts",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "F3",
+            "v": "=COUNT(G6:G40)",
+            "s": "big",
+            "fmt": "0"
+          },
+          {
+            "height": [
+              3,
+              28
+            ]
+          },
+          {
+            "height": [
+              5,
+              24
+            ]
+          },
+          {
+            "row": 5,
+            "from": "A",
+            "v": [
+              "#",
+              "Date",
+              "Receipt no.",
+              "Received from",
+              "Invoice no.",
+              "Mode",
+              "Amount"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              6,
+              40
+            ],
+            "cols": {
+              "A": {
+                "v": "=IF(D{r}=\"\",\"\",ROW()-5)",
+                "s": "calc",
+                "align": "center"
+              },
+              "B": {
+                "s": "input",
+                "fmt": "date",
+                "align": "center"
+              },
+              "C": {
+                "s": "input",
+                "align": "center"
+              },
+              "D": {
+                "s": "input"
+              },
+              "E": {
+                "s": "input",
+                "align": "center"
+              },
+              "F": {
+                "s": "input",
+                "align": "center"
+              },
+              "G": {
+                "s": "input",
+                "fmt": "money"
+              }
+            }
+          },
+          {
+            "list": "F6:F40",
+            "items": [
+              "UPI",
+              "Bank transfer",
+              "Cheque",
+              "Cash",
+              "Card",
+              "Other"
+            ]
+          },
+          {
+            "data": [
+              [
+                "2026-11-03",
+                "PR-0138",
+                "Ritu Sharma",
+                "INV-2026-109",
+                "UPI",
+                6500
+              ],
+              [
+                "2026-11-05",
+                "PR-0139",
+                "Green Leaf Cafe",
+                "INV-2026-111",
+                "Bank transfer",
+                22000
+              ],
+              [
+                "2026-11-08",
+                "PR-0140",
+                "Suresh Iyer",
+                "INV-2026-114",
+                "Cash",
+                3000
+              ],
+              [
+                "2026-11-11",
+                "PR-0141",
+                "Malhotra Traders",
+                "INV-2026-121",
+                "UPI",
+                5000
+              ],
+              [
+                "2026-11-14",
+                "PR-0142",
+                "Anjali Desai",
+                "INV-2026-118",
+                "UPI",
+                15000
+              ],
+              [
+                "2026-11-15",
+                "PR-0143",
+                "Malhotra Traders",
+                "INV-2026-121",
+                "Cheque",
+                8000
+              ]
+            ],
+            "at": "B6"
+          },
+          {
+            "cf": "F6:G40",
+            "rule": "over",
+            "ref": "AND($F6=\"Cash\",N($G6)>=200000)"
+          },
+          {
+            "height": [
+              41,
+              22
+            ]
+          },
+          {
+            "c": "A41",
+            "m": "A41:F41",
+            "v": "Total",
+            "s": "total",
+            "align": "right"
+          },
+          {
+            "c": "G41",
+            "v": "=SUM(G6:G40)",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "A42",
+            "m": "A42:G42",
+            "v": "=\"By mode: UPI \"&TEXT(SUMIF(F6:F40,\"UPI\",G6:G40),\"#,##0\")&\"  |  Bank \"&TEXT(SUMIF(F6:F40,\"Bank transfer\",G6:G40),\"#,##0\")&\"  |  Cheque \"&TEXT(SUMIF(F6:F40,\"Cheque\",G6:G40),\"#,##0\")&\"  |  Cash \"&TEXT(SUMIF(F6:F40,\"Cash\",G6:G40),\"#,##0\")&\"  |  Card \"&TEXT(SUMIF(F6:F40,\"Card\",G6:G40),\"#,##0\")",
+            "s": "note"
+          },
+          {
+            "note": "F5",
+            "text": "A cash row turns red at Rs 2,00,000 or more. Indian tax law generally does not allow receiving this much cash from one person in a day. Check current rules."
+          }
+        ]
+      }
+    ]
+  }
+}

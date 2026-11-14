@@ -205,8 +205,8 @@
    "slug": "payment-receipt-template",
    "category": "invoice",
    "priority": 1,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-14",
    "note": "Simple payment receipt, two per A4 page."
   },
   {
@@ -214,8 +214,8 @@
    "slug": "monthly-planner-template",
    "category": "planners",
    "priority": 2,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-14",
    "note": "Month grid calendar with goals and notes."
   },
   {
@@ -223,8 +223,8 @@
    "slug": "student-resume-template",
    "category": "resume",
    "priority": 2,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-14",
    "note": "Resume for school/college students with activities and achievements."
   },
   {

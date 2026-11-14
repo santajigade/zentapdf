@@ -117,6 +117,16 @@
   "previews": 1,
   "built": "2026-11-07"
  },
+ "monthly-planner-template": {
+  "files": {
+   "docx": 11123,
+   "xlsx": 11047,
+   "pdf": 54715
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-14"
+ },
  "offer-letter-format": {
   "files": {
    "docx": 13047,
@@ -125,6 +135,16 @@
   "pages": 2,
   "previews": 2,
   "built": "2026-11-13"
+ },
+ "payment-receipt-template": {
+  "files": {
+   "docx": 11700,
+   "xlsx": 13316,
+   "pdf": 58605
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-14"
  },
  "purchase-order-template": {
   "files": {
@@ -183,6 +203,15 @@
   "pages": 1,
   "previews": 1,
   "built": "2026-11-07"
+ },
+ "student-resume-template": {
+  "files": {
+   "docx": 12266,
+   "pdf": 55267
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-14"
  },
  "to-do-list-template": {
   "files": {
