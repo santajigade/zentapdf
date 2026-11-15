@@ -36,6 +36,16 @@ Done:
 - [x] how-to-make-whatsapp-stickers-from-photos (2026-11-14)
 - [x] how-to-convert-video-to-gif (2026-11-14)
 - [x] how-to-convert-heic-to-pdf (2026-11-14)
+- [x] how-to-crop-pdf (2026-11-15)
+- [x] how-to-make-ringtone-from-song (2026-11-15)
+- [x] how-to-extract-audio-from-video (2026-11-15)
 
 Open:
-- [ ] How to crop a PDF page (crop-pdf)
+- [ ] How to remove location and EXIF data from photos (remove-exif-data)
+- [ ] How to convert PDF to JPG on phone or PC (pdf-to-jpg)
+- [ ] How to flatten a PDF form so answers cannot be changed (flatten-pdf)
+- [ ] How to make a barcode for products and shop items (barcode-generator)
+- [ ] How to convert WebP images to JPG (webp-to-jpg)
+- [ ] How to join two or more audio files into one (audio-joiner)
+- [ ] How to increase the volume of an audio file (volume-booster)
+- [ ] How to convert EPUB to PDF (epub-to-pdf)

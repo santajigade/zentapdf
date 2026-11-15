@@ -102,4 +102,7 @@ except ImportError: print('pillow-heif missing: no HEIC samples')
 import shutil, subprocess
 if shutil.which('ffmpeg'):
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'lavfi', '-i', 'testsrc2=size=640x360:rate=25:duration=8', '-c:v', 'libvpx-vp9', '-b:v', '600k', f'{D}/clip.webm'], check=True)
+    # Song (for Ringtone Maker, MP3 Cutter) and a video with sound (for Video to MP3)
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'lavfi', '-i', "aevalsrc='0.4*sin(2*PI*(220+110*floor(mod(t,4)))*t)*(0.6+0.4*sin(2*PI*0.5*t))':s=44100:d=75", '-ac', '2', '-b:a', '192k', f'{D}/song.mp3'], check=True)
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'lavfi', '-i', 'testsrc2=size=640x360:rate=25:duration=12', '-f', 'lavfi', '-i', 'sine=frequency=440:duration=12', '-c:v', 'libvpx-vp9', '-b:v', '600k', '-c:a', 'libopus', '-shortest', f'{D}/lecture.webm'], check=True)
 print('samples in', D, sorted(os.listdir(D)))

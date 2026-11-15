@@ -8,7 +8,7 @@ const { tools } = await import(ROOT + '/src/data/tools.ts');
 const { deviceTests } = await import(ROOT + '/src/data/devicetests.ts');
 const logo = fs.readFileSync(ROOT + '/public/logo.svg', 'utf8').replace('<svg ', '<svg width="56" height="56" ');
 // same tints as the home page category tiles
-const TINT = { device: ['#ecfeff', '#cffafe', '#0e7490'], organise: ['#eff6ff', '#dbeafe', '#2563eb'], edit: ['#f5f3ff', '#ede9fe', '#7c3aed'], convert: ['#ecfdf5', '#d1fae5', '#047857'], security: ['#fffbeb', '#fef3c7', '#b45309'], image: ['#fff1f2', '#ffe4e6', '#be123c'], imgconv: ['#f0fdfa', '#ccfbf1', '#0f766e'], topdf: ['#fff7ed', '#ffedd5', '#c2410c'], gif: ['#fdf2f8', '#fce7f3', '#be185d'], utility: ['#f0f9ff', '#e0f2fe', '#0369a1'] };
+const TINT = { device: ['#ecfeff', '#cffafe', '#0e7490'], organise: ['#eff6ff', '#dbeafe', '#2563eb'], edit: ['#f5f3ff', '#ede9fe', '#7c3aed'], convert: ['#ecfdf5', '#d1fae5', '#047857'], security: ['#fffbeb', '#fef3c7', '#b45309'], image: ['#fff1f2', '#ffe4e6', '#be123c'], imgconv: ['#f0fdfa', '#ccfbf1', '#0f766e'], topdf: ['#fff7ed', '#ffedd5', '#c2410c'], gif: ['#fdf2f8', '#fce7f3', '#be185d'], utility: ['#f0f9ff', '#e0f2fe', '#0369a1'], audio: ['#fdf4ff', '#fae8ff', '#a21caf'] };
 const guides = fs.readdirSync(ROOT + '/src/content/guides').filter((f) => f.endsWith('.md')).map((f) => {
   const src = fs.readFileSync(ROOT + '/src/content/guides/' + f, 'utf8');
   return { slug: f.replace('.md', ''), h1: src.match(/^h1:\s*"(.*)"/m)[1], tool: src.match(/^tool:\s*"(.*)"/m)?.[1] };
