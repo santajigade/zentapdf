@@ -1,0 +1,838 @@
+{
+  "slug": "proforma-invoice-template",
+  "category": "invoice",
+  "name": "Proforma Invoice Template",
+  "h1": "Proforma Invoice Template (Excel, Word and PDF)",
+  "metaTitle": "Proforma Invoice Template: Free Excel, Word & PDF",
+  "metaDescription": "Free proforma invoice template in Excel, Word and PDF. Estimated tax, advance amount and validity date calculate for you. Clearly marked not a tax invoice.",
+  "short": "Proforma invoice for advance payment, export or approval, with estimated tax, advance due and validity date.",
+  "accent": "#0C4A6E",
+  "useCases": [
+    "Billing",
+    "Sales"
+  ],
+  "industries": [
+    "Small business",
+    "Manufacturing",
+    "Services"
+  ],
+  "date": "2026-11-15",
+  "intro": "A proforma invoice is a first bill you send before the sale is final. It tells the buyer what they will get, the price, estimated tax and payment terms, so they can approve the order, arrange funds or pay an advance. This template is clearly marked as not a tax invoice and works for local orders and exports.",
+  "howTo": [
+    "Download the Excel or Word file. Use Excel if you want the totals to calculate for you.",
+    "Add your business name, address, phone, email and tax number at the top, and replace the sample buyer details.",
+    "Enter the proforma number, date and the number of days the offer is valid. In Excel the Valid until date is worked out for you.",
+    "List each item with its description, HSN or SAC code if you use one, quantity, unit, rate and tax %. Amount, tax and total fill in by themselves in Excel.",
+    "Type the advance % you want. The sheet shows the advance due now and the balance due later.",
+    "Check the payment terms, delivery terms and bank details, then save as PDF and send it to the buyer.",
+    "When the goods or services are supplied, issue a proper tax invoice for the final sale."
+  ],
+  "guide": [
+    {
+      "h": "What the template includes",
+      "p": [
+        "The page has a dark header band with the words Proforma Invoice and a clear line that says it is not a tax invoice. Under it are boxes for Seller and Buyer, a details strip for proforma number, date, valid until, place of supply and delivery terms, and an item table with HSN or SAC code, quantity, unit, rate, tax % and amount.",
+        "Below the items are the subtotal, estimated tax, freight, total, the advance requested and the balance due. The page ends with bank details, payment and delivery terms, and space for an authorised signature. The Excel version uses real formulas for every amount, a drop-down for units and a print area set to one A4 page."
+      ]
+    },
+    {
+      "h": "Proforma invoice or tax invoice?",
+      "p": [
+        "A proforma invoice is an offer or estimate. It is usually sent before the sale, to get approval or an advance, or to support import papers or a bank letter of credit. It is generally not treated as a tax document, so the buyer cannot use it to claim input tax credit, and it is not entered as a sale in your accounts.",
+        "A tax invoice is issued when the sale actually happens, and it must follow the invoice rules of your country. In India that means the GST invoice rules. Rules on tax for advances also differ for goods and services, so check with your accountant or the official GST portal if you are unsure."
+      ]
+    },
+    {
+      "h": "When businesses use a proforma invoice",
+      "p": [
+        "Common uses are asking for an advance before making a custom order, sending an export buyer a price confirmation so they can open a letter of credit or apply for an import licence, giving a company buyer a document for internal approval, and confirming a price before starting a service. Always state how long the prices are valid."
+      ]
+    }
+  ],
+  "tips": [
+    "Use a separate number series for proforma invoices, such as PI-2026-001, so they never mix with tax invoices.",
+    "Write the validity period clearly. Prices for raw materials and currency rates can change quickly.",
+    "For exports, add the currency, Incoterm such as FOB or CIF, port of loading and country of origin in the delivery terms.",
+    "Keep the tax rates in the sample as examples only. Check the correct rate for each item before sending.",
+    "Send the PDF, not the editable file, so the numbers cannot be changed by mistake."
+  ],
+  "faqs": [
+    {
+      "q": "Is a proforma invoice a legal tax invoice?",
+      "a": "No. A proforma invoice is an estimate sent before the sale. It is not a tax invoice, and buyers generally cannot claim input tax credit on it. Issue a proper tax invoice when you make the supply."
+    },
+    {
+      "q": "Do I need to show GST on a proforma invoice?",
+      "a": "It is common to show the estimated tax so the buyer knows the full amount to pay. The template has a tax % column for this. The final tax is charged on the tax invoice."
+    },
+    {
+      "q": "How long is a proforma invoice valid?",
+      "a": "There is no fixed legal period. Sellers set their own, often 7 to 30 days for local orders and longer for exports. Type the number of days in the template and it shows the date."
+    },
+    {
+      "q": "Can I use this proforma invoice for export?",
+      "a": "Yes. Change the currency in the totals, add the buyer's country, and write the Incoterm, port and shipping details in the delivery terms. Your bank or buyer may ask for extra details."
+    },
+    {
+      "q": "How do I send the proforma invoice as a PDF?",
+      "a": "In Excel use File, Save As, PDF, or use the free Excel to PDF tool on ZentaPDF. Then you can add your signature with the Sign PDF tool."
+    }
+  ],
+  "related": [
+    "quotation-format",
+    "gst-invoice-format",
+    "payment-receipt-template"
+  ],
+  "tools": [
+    "excel-to-pdf",
+    "word-to-pdf",
+    "sign-pdf",
+    "pdf-to-excel"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 14
+    },
+    "font": "Calibri",
+    "headFont": "Palatino Linotype",
+    "size": 9.5,
+    "titleSize": 22,
+    "blocks": [
+      {
+        "type": "title",
+        "band": true,
+        "text": "PROFORMA INVOICE",
+        "size": 22,
+        "sub": "Estimate for order approval and advance payment"
+      },
+      {
+        "type": "p",
+        "text": "**This is not a tax invoice.** It is an estimate for approval and advance payment. A tax invoice will be issued when the goods are supplied.",
+        "align": "center",
+        "size": 8.5,
+        "color": "#0C4A6E",
+        "after": 6
+      },
+      {
+        "type": "columns",
+        "after": 5,
+        "cols": [
+          {
+            "title": "Seller",
+            "lines": [
+              "## [Your Business Name]",
+              "[Street address, City, PIN]",
+              "GSTIN / Tax ID: [your number]",
+              "[Phone]  |  [Email]"
+            ]
+          },
+          {
+            "title": "Buyer",
+            "lines": [
+              "## Lakshmi Agro Foods Pvt Ltd",
+              "Survey No. 112, Peenya Industrial Area",
+              "Bengaluru, Karnataka 560058",
+              "GSTIN: [buyer GSTIN]  |  Attn: Suresh Rao"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "after": 6,
+        "headFill": "#E0F2FE",
+        "headText": "#0C4A6E",
+        "columns": [
+          {
+            "h": "Proforma no.",
+            "align": "center"
+          },
+          {
+            "h": "Date",
+            "align": "center"
+          },
+          {
+            "h": "Valid until",
+            "align": "center"
+          },
+          {
+            "h": "Place of supply",
+            "align": "center"
+          },
+          {
+            "h": "Delivery",
+            "align": "center"
+          }
+        ],
+        "rows": [
+          [
+            "PI-2026-041",
+            "15 Nov 2026",
+            "15 Dec 2026",
+            "Karnataka",
+            "3 weeks from advance"
+          ]
+        ]
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "columns": [
+          {
+            "h": "#",
+            "w": 0.35,
+            "align": "center"
+          },
+          {
+            "h": "Description",
+            "w": 3
+          },
+          {
+            "h": "HSN / SAC",
+            "w": 0.85,
+            "align": "center"
+          },
+          {
+            "h": "Qty",
+            "w": 0.55,
+            "align": "center"
+          },
+          {
+            "h": "Unit",
+            "w": 0.55,
+            "align": "center"
+          },
+          {
+            "h": "Rate",
+            "w": 0.95,
+            "align": "right"
+          },
+          {
+            "h": "Tax %",
+            "w": 0.6,
+            "align": "center"
+          },
+          {
+            "h": "Amount",
+            "w": 1.1,
+            "align": "right"
+          }
+        ],
+        "rows": [
+          [
+            "1",
+            "SS storage tank, 1,000 litre, with legs",
+            "[HSN]",
+            "2",
+            "Nos",
+            "68,500.00",
+            "18%",
+            "137,000.00"
+          ],
+          [
+            "2",
+            "Food grade pump, 1 HP, with fittings",
+            "[HSN]",
+            "2",
+            "Nos",
+            "14,200.00",
+            "18%",
+            "28,400.00"
+          ],
+          [
+            "3",
+            "SS pipeline, 2 inch, fitted on site",
+            "[HSN]",
+            "40",
+            "Metre",
+            "850.00",
+            "18%",
+            "34,000.00"
+          ],
+          [
+            "4",
+            "Installation and testing",
+            "[SAC]",
+            "1",
+            "Job",
+            "12,000.00",
+            "18%",
+            "12,000.00"
+          ]
+        ],
+        "blank": 1,
+        "totals": [
+          [
+            "Subtotal",
+            "211,400.00"
+          ],
+          [
+            "Estimated tax",
+            "38,052.00"
+          ],
+          [
+            "Freight and packing",
+            "4,500.00"
+          ],
+          [
+            "Total (INR)",
+            "253,952.00"
+          ]
+        ]
+      },
+      {
+        "type": "columns",
+        "after": 6,
+        "cols": [
+          {
+            "title": "Advance requested",
+            "fill": true,
+            "lines": [
+              "**Advance (50%)**   INR 126,976.00",
+              "**Balance before dispatch**   INR 126,976.00",
+              "~ Amount in words: [Rupees ... only]"
+            ]
+          },
+          {
+            "title": "Bank details",
+            "fill": true,
+            "lines": [
+              "**Account name**  [Your Business Name]",
+              "**Bank and branch**  [Bank name, branch]",
+              "**Account no.**  [Account number]   **IFSC**  [IFSC]",
+              "**UPI**  [your UPI ID]"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Terms",
+        "size": 10.5,
+        "before": 2
+      },
+      {
+        "type": "bullets",
+        "numbered": true,
+        "gap": 1,
+        "items": [
+          "Prices are valid until the date shown above.",
+          "Work starts after the advance is received. Balance is due before dispatch.",
+          "Tax rates shown are estimates. Final tax will be charged on the tax invoice.",
+          "Please quote the proforma number with your payment."
+        ]
+      },
+      {
+        "type": "signature",
+        "space": 22,
+        "items": [
+          "Buyer acceptance (name, sign, date)",
+          "For [Your Business Name], authorised signatory"
+        ]
+      }
+    ]
+  },
+  "sheet": {
+    "font": "Calibri",
+    "sheets": [
+      {
+        "name": "Proforma Invoice",
+        "cols": [
+          5,
+          34,
+          10,
+          7,
+          8,
+          12,
+          8,
+          15
+        ],
+        "page": {
+          "orientation": "portrait",
+          "area": "A1:H44",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              36
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:H1",
+            "v": "PROFORMA INVOICE",
+            "s": "big"
+          },
+          {
+            "c": "A2",
+            "m": "A2:H2",
+            "v": "This is not a tax invoice. It is an estimate for approval and advance payment.",
+            "s": "sub",
+            "align": "center"
+          },
+          {
+            "c": "A4",
+            "m": "A4:D4",
+            "v": "SELLER",
+            "s": "band"
+          },
+          {
+            "c": "E4",
+            "m": "E4:H4",
+            "v": "BUYER",
+            "s": "band"
+          },
+          {
+            "c": "A5",
+            "m": "A5:D5",
+            "v": "[Your Business Name]",
+            "s": "input",
+            "bold": true
+          },
+          {
+            "c": "E5",
+            "m": "E5:H5",
+            "v": "Lakshmi Agro Foods Pvt Ltd",
+            "s": "input",
+            "bold": true
+          },
+          {
+            "c": "A6",
+            "m": "A6:D6",
+            "v": "[Street address, City, PIN]",
+            "s": "input"
+          },
+          {
+            "c": "E6",
+            "m": "E6:H6",
+            "v": "Survey No. 112, Peenya Industrial Area, Bengaluru 560058",
+            "s": "input"
+          },
+          {
+            "c": "A7",
+            "m": "A7:D7",
+            "v": "GSTIN / Tax ID: [your number]",
+            "s": "input"
+          },
+          {
+            "c": "E7",
+            "m": "E7:H7",
+            "v": "GSTIN: [buyer GSTIN]",
+            "s": "input"
+          },
+          {
+            "c": "A8",
+            "m": "A8:D8",
+            "v": "[Phone]  |  [Email]",
+            "s": "input"
+          },
+          {
+            "c": "E8",
+            "m": "E8:H8",
+            "v": "Attn: Suresh Rao, [phone]",
+            "s": "input"
+          },
+          {
+            "row": 10,
+            "from": "A",
+            "v": [
+              "",
+              "Proforma no.",
+              "Date",
+              "",
+              "Valid (days)",
+              "Valid until",
+              "",
+              "Place of supply"
+            ],
+            "s": "header"
+          },
+          {
+            "c": "A10",
+            "m": "A10:B10",
+            "v": "Proforma no.",
+            "s": "header"
+          },
+          {
+            "c": "C10",
+            "m": "C10:D10",
+            "v": "Date",
+            "s": "header"
+          },
+          {
+            "c": "F10",
+            "m": "F10:G10",
+            "v": "Valid until",
+            "s": "header"
+          },
+          {
+            "c": "A11",
+            "m": "A11:B11",
+            "v": "PI-2026-041",
+            "s": "input",
+            "align": "center"
+          },
+          {
+            "c": "C11",
+            "m": "C11:D11",
+            "v": "2026-11-15",
+            "s": "input",
+            "fmt": "date",
+            "align": "center"
+          },
+          {
+            "c": "E11",
+            "v": 30,
+            "s": "input",
+            "fmt": "int",
+            "align": "center"
+          },
+          {
+            "c": "F11",
+            "m": "F11:G11",
+            "v": "=IF(C11=\"\",\"\",C11+E11)",
+            "s": "calc",
+            "fmt": "date",
+            "align": "center"
+          },
+          {
+            "c": "H11",
+            "v": "Karnataka",
+            "s": "input",
+            "align": "center"
+          },
+          {
+            "height": [
+              13,
+              22
+            ]
+          },
+          {
+            "row": 13,
+            "from": "A",
+            "v": [
+              "#",
+              "Description",
+              "HSN / SAC",
+              "Qty",
+              "Unit",
+              "Rate",
+              "Tax %",
+              "Amount"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              14,
+              25
+            ],
+            "cols": {
+              "A": {
+                "v": "=IF(B{r}=\"\",\"\",ROW()-13)",
+                "s": "calc",
+                "align": "center"
+              },
+              "B": {
+                "s": "input",
+                "wrap": true
+              },
+              "C": {
+                "s": "input",
+                "align": "center"
+              },
+              "D": {
+                "s": "input",
+                "fmt": "#,##0.##",
+                "align": "center"
+              },
+              "E": {
+                "s": "input",
+                "align": "center"
+              },
+              "F": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "G": {
+                "s": "input",
+                "fmt": "0.##%",
+                "align": "center"
+              },
+              "H": {
+                "v": "=IF(B{r}=\"\",\"\",D{r}*F{r})",
+                "s": "calc",
+                "fmt": "money"
+              }
+            }
+          },
+          {
+            "data": [
+              [
+                "SS storage tank, 1,000 litre, with legs",
+                "[HSN]",
+                2,
+                "Nos",
+                68500,
+                0.18
+              ],
+              [
+                "Food grade pump, 1 HP, with fittings",
+                "[HSN]",
+                2,
+                "Nos",
+                14200,
+                0.18
+              ],
+              [
+                "SS pipeline, 2 inch, fitted on site",
+                "[HSN]",
+                40,
+                "Metre",
+                850,
+                0.18
+              ],
+              [
+                "Installation and testing",
+                "[SAC]",
+                1,
+                "Job",
+                12000,
+                0.18
+              ]
+            ],
+            "at": "B14"
+          },
+          {
+            "list": "E14:E25",
+            "items": [
+              "Nos",
+              "Set",
+              "Box",
+              "Kg",
+              "Litre",
+              "Metre",
+              "Pack",
+              "Hour",
+              "Day",
+              "Job"
+            ]
+          },
+          {
+            "note": "G13",
+            "text": "Estimated tax rate for each line, for example GST or VAT. Sample rates only. Check the correct rate for each item."
+          },
+          {
+            "c": "F27",
+            "m": "F27:G27",
+            "v": "Subtotal",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "H27",
+            "v": "=SUM(H14:H25)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "F28",
+            "m": "F28:G28",
+            "v": "Estimated tax",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "H28",
+            "v": "=SUMPRODUCT(D14:D25,F14:F25,G14:G25)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "F29",
+            "m": "F29:G29",
+            "v": "Freight and packing",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "H29",
+            "v": 4500,
+            "s": "input",
+            "fmt": "money"
+          },
+          {
+            "c": "F30",
+            "m": "F30:G30",
+            "v": "TOTAL (INR)",
+            "s": "total",
+            "align": "right"
+          },
+          {
+            "c": "H30",
+            "v": "=H27+H28+H29",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "F32",
+            "m": "F32:G32",
+            "v": "Advance %",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "H32",
+            "v": 0.5,
+            "s": "input",
+            "fmt": "0%"
+          },
+          {
+            "c": "F33",
+            "m": "F33:G33",
+            "v": "Advance due now",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "H33",
+            "v": "=ROUND(H30*H32,2)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "F34",
+            "m": "F34:G34",
+            "v": "Balance due",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "H34",
+            "v": "=H30-H33",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "A27",
+            "m": "A27:D27",
+            "v": "BANK DETAILS",
+            "s": "band"
+          },
+          {
+            "c": "A28",
+            "m": "A28:D28",
+            "v": "Account name: [Your Business Name]",
+            "s": "plain"
+          },
+          {
+            "c": "A29",
+            "m": "A29:D29",
+            "v": "Bank and branch: [Bank name, branch]",
+            "s": "plain"
+          },
+          {
+            "c": "A30",
+            "m": "A30:D30",
+            "v": "Account no.: [Account number]   IFSC: [IFSC]",
+            "s": "plain"
+          },
+          {
+            "c": "A31",
+            "m": "A31:D31",
+            "v": "UPI: [your UPI ID]",
+            "s": "plain"
+          },
+          {
+            "c": "A33",
+            "m": "A33:D33",
+            "v": "TERMS",
+            "s": "band"
+          },
+          {
+            "c": "A34",
+            "m": "A34:D38",
+            "v": "1. Prices are valid until the date shown above.\n2. Work starts after the advance is received. Balance is due before dispatch.\n3. Tax rates shown are estimates. Final tax will be charged on the tax invoice.\n4. Please quote the proforma number with your payment.",
+            "s": "note"
+          },
+          {
+            "height": [
+              35,
+              17
+            ]
+          },
+          {
+            "height": [
+              36,
+              17
+            ]
+          },
+          {
+            "height": [
+              37,
+              17
+            ]
+          },
+          {
+            "height": [
+              38,
+              17
+            ]
+          },
+          {
+            "c": "A40",
+            "m": "A40:C40",
+            "v": "BUYER ACCEPTANCE",
+            "s": "band"
+          },
+          {
+            "c": "E40",
+            "m": "E40:H40",
+            "v": "FOR [YOUR BUSINESS NAME]",
+            "s": "band"
+          },
+          {
+            "height": [
+              41,
+              34
+            ]
+          },
+          {
+            "c": "A41",
+            "m": "A41:C41",
+            "s": "input"
+          },
+          {
+            "c": "E41",
+            "m": "E41:H41",
+            "s": "input"
+          },
+          {
+            "c": "A42",
+            "m": "A42:C42",
+            "v": "Name, signature and date",
+            "s": "sub"
+          },
+          {
+            "c": "E42",
+            "m": "E42:H42",
+            "v": "Authorised signatory",
+            "s": "sub"
+          },
+          {
+            "c": "A44",
+            "m": "A44:H44",
+            "v": "A tax invoice will be issued when the goods or services are supplied.",
+            "s": "sub",
+            "align": "center"
+          }
+        ]
+      }
+    ]
+  }
+}

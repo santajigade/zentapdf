@@ -1,0 +1,245 @@
+{
+  "slug": "simple-resume-format",
+  "category": "resume",
+  "name": "Simple Resume Format",
+  "h1": "Simple Resume Format (Word and PDF)",
+  "metaTitle": "Simple Resume Format: Free Word & PDF Download",
+  "metaDescription": "Free simple resume format in Word and PDF. A plain, classic one-page layout with summary, work experience, education and skills. Easy to edit and ATS-friendly.",
+  "short": "Plain, classic one-page resume with serif headings, clear dates and no graphics. Works for almost any job.",
+  "accent": "#44403C",
+  "useCases": [
+    "Job search",
+    "Job change"
+  ],
+  "industries": [
+    "All industries",
+    "Professionals"
+  ],
+  "date": "2026-11-15",
+  "intro": "This simple resume format is a plain, classic one-page layout for people who want a clean resume without colours, photos or graphics. It follows the common reverse chronological order, with your latest job first, and works for office, sales, support, accounts and most other roles.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice.",
+    "Replace [Your Full Name], the job title line and your phone, email and city at the top.",
+    "Rewrite the Summary in two or three lines: who you are, your years of experience and what you are good at.",
+    "Under Work experience, start with your current or latest job. Keep the job title, company, city and dates, then write three or four bullet points for each role.",
+    "Add your highest qualification first under Education, then your skills, certifications and languages.",
+    "Delete any line you do not need so the resume stays on one page.",
+    "Check spelling and dates, save the file as PDF and attach the PDF to your application."
+  ],
+  "guide": [
+    {
+      "h": "What the template includes",
+      "p": [
+        "The file is a one-page A4 resume in a serif font with your name at the top and a single contact line under it. It has six short sections: Summary, Work experience with two sample jobs, Education, Skills, Certifications and Languages. Each job shows the title and company on the left and the dates on the right, followed by bullet points.",
+        "It is filled with a realistic sample for an operations executive with about five years of experience, so you can see how much to write. Grey text in square brackets marks the details you must replace with your own."
+      ]
+    },
+    {
+      "h": "Why a simple format works",
+      "p": [
+        "Many companies use applicant tracking systems that read your resume before a person does. These systems read plain text, standard headings and simple bullet points best. Text inside images, text boxes or complex designs can be skipped or read in the wrong order. A simple layout also lets a recruiter scan your job titles, companies and dates in a few seconds.",
+        "This template uses normal headings such as Work experience and Education, plain bullets and one column for the main content, so it stays easy to read on screen, on paper and in tracking software."
+      ]
+    },
+    {
+      "h": "Writing strong bullet points",
+      "p": [
+        "Start each bullet with an action word such as managed, reduced, trained or handled. Then say what you did and, where you can, add a number: orders per day, money saved, team size or time cut. Two short lines with a result are better than a long list of duties.",
+        "Match your words to the job post. If the post asks for vendor management or MS Excel, use those words in your bullets and skills when they are true for you."
+      ]
+    }
+  ],
+  "tips": [
+    "Use the same job title words as the job post in your top line when they truly fit your experience.",
+    "Write dates in one style throughout, such as Mar 2023 to Present.",
+    "Leave out photo, date of birth and family details unless the employer asks for them.",
+    "Save the file name as your name, for example Priya-Sharma-Resume.pdf.",
+    "Keep older jobs to one or two bullet points so space goes to your recent work."
+  ],
+  "faqs": [
+    {
+      "q": "What is the best simple resume format?",
+      "a": "For most people the reverse chronological format is best: your latest job first, then older jobs, followed by education and skills. This template uses that order."
+    },
+    {
+      "q": "Is this resume format ATS-friendly?",
+      "a": "Yes. It uses standard section headings, plain bullet points and no images or text boxes, which tracking systems can read easily. Always send the PDF or Word file the job post asks for."
+    },
+    {
+      "q": "Can freshers use this simple resume format?",
+      "a": "Yes. Move Education above Work experience and replace the jobs with internships, projects or part-time work. You can also try the fresher resume template on ZentaPDF."
+    },
+    {
+      "q": "How do I edit this resume in Google Docs?",
+      "a": "Upload the Word file to Google Drive, open it with Google Docs and edit the text. Then choose File, Download, PDF document to save your finished resume."
+    },
+    {
+      "q": "My resume PDF is too big for the job portal. What can I do?",
+      "a": "Use the free Compress PDF tool on ZentaPDF to make the file smaller. A one-page text resume like this one is usually small already."
+    }
+  ],
+  "related": [
+    "experienced-resume-template",
+    "fresher-resume-template",
+    "cover-letter-template"
+  ],
+  "tools": [
+    "word-to-pdf",
+    "compress-pdf",
+    "pdf-to-word",
+    "edit-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 18
+    },
+    "font": "Times New Roman",
+    "headFont": "Times New Roman",
+    "size": 11,
+    "titleSize": 26,
+    "blocks": [
+      {
+        "type": "title",
+        "text": "[Your Full Name]",
+        "size": 26,
+        "color": "#1C1917",
+        "sub": "Operations Executive\n[Phone]   |   [Email]   |   [City, State]   |   [linkedin.com/in/your-profile]",
+        "subSize": 10.5
+      },
+      {
+        "type": "rule",
+        "weight": 8,
+        "after": 2
+      },
+      {
+        "type": "heading",
+        "text": "Summary",
+        "size": 11.5,
+        "before": 4
+      },
+      {
+        "type": "p",
+        "text": "Operations executive with 5 years of experience in order processing, vendor coordination and team support for e-commerce and retail businesses. Known for clear records, quick problem solving and keeping daily work on time.",
+        "line": 1.1,
+        "after": 2
+      },
+      {
+        "type": "heading",
+        "text": "Work experience",
+        "size": 11.5,
+        "before": 8
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 0,
+        "split": [
+          3,
+          1.2
+        ],
+        "left": [
+          "## Operations Executive",
+          "_[Company name], [City]_"
+        ],
+        "right": [
+          "**Apr 2023 to Present**"
+        ]
+      },
+      {
+        "type": "bullets",
+        "gap": 1.5,
+        "items": [
+          "Manage daily processing of 300 to 400 online orders across two warehouses.",
+          "Reduced late dispatches from 9% to 3% in six months by setting up a daily cut-off checklist.",
+          "Coordinate with 12 courier and packaging vendors on rates, pickups and claims.",
+          "Train new team members on the order system and prepare weekly reports in Excel."
+        ]
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 0,
+        "split": [
+          3,
+          1.2
+        ],
+        "left": [
+          "## Customer Support Associate",
+          "_[Company name], [City]_"
+        ],
+        "right": [
+          "**Jun 2021 to Mar 2023**"
+        ]
+      },
+      {
+        "type": "bullets",
+        "gap": 1.5,
+        "items": [
+          "Answered 60 to 80 customer calls, emails and chats a day about orders, returns and refunds.",
+          "Kept a customer rating of 4.6 out of 5 across 18 months.",
+          "Suggested a new returns reply template that cut average reply time by 20%."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Education",
+        "size": 11.5,
+        "before": 8
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 0,
+        "split": [
+          3,
+          1.2
+        ],
+        "left": [
+          "## Bachelor of Business Administration (BBA)",
+          "_[College name], [University], [City]_"
+        ],
+        "right": [
+          "**2018 to 2021**"
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Skills",
+        "size": 11.5,
+        "before": 8
+      },
+      {
+        "type": "p",
+        "text": "**Work:** Order management, vendor coordination, inventory checks, customer service, report writing\n**Tools:** MS Excel (VLOOKUP, pivot tables), Google Sheets, Shopify admin, Zoho Desk, Tally basics",
+        "line": 1.15,
+        "after": 2
+      },
+      {
+        "type": "heading",
+        "text": "Certifications",
+        "size": 11.5,
+        "before": 8
+      },
+      {
+        "type": "bullets",
+        "gap": 1,
+        "items": [
+          "[Certificate name], [Issuing organisation], [Year]",
+          "Advanced Excel course, [Institute name], 2022"
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Languages",
+        "size": 11.5,
+        "before": 6
+      },
+      {
+        "type": "p",
+        "text": "English (fluent)   |   Hindi (fluent)   |   [Other language]",
+        "after": 0
+      }
+    ]
+  }
+}

@@ -232,8 +232,8 @@
    "slug": "simple-resume-format",
    "category": "resume",
    "priority": 2,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-15",
    "note": "Plain classic resume, serif headings."
   },
   {
@@ -241,8 +241,8 @@
    "slug": "proforma-invoice-template",
    "category": "invoice",
    "priority": 2,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-15",
    "note": "Proforma invoice for advance payment / export, clearly marked not a tax invoice."
   },
   {
@@ -250,8 +250,8 @@
    "slug": "delivery-challan-format",
    "category": "forms",
    "priority": 2,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-15",
    "note": "Goods delivery challan with item list and receiver signature."
   },
   {

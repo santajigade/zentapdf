@@ -1,0 +1,859 @@
+{
+  "slug": "delivery-challan-format",
+  "category": "forms",
+  "name": "Delivery Challan Format",
+  "h1": "Delivery Challan Format (Excel, Word and PDF)",
+  "metaTitle": "Delivery Challan Format: Free Excel, Word & PDF",
+  "metaDescription": "Free delivery challan format in Excel, Word and PDF. Consignor, consignee, transport details, HSN, item list with value and a receiver signature. Easy to print.",
+  "short": "Goods delivery challan with copy marking, transport details, HSN item list, total value and receiver signature.",
+  "accent": "#4C1D95",
+  "useCases": [
+    "GST",
+    "Sales"
+  ],
+  "industries": [
+    "Small business",
+    "Manufacturing",
+    "Retail"
+  ],
+  "date": "2026-11-15",
+  "intro": "A delivery challan is a document that goes with goods when they move from one place to another, often when there is no sale yet or the bill comes later. This free delivery challan format lists the goods, quantities, value and transport details, and has space for the receiver to sign that the goods arrived.",
+  "howTo": [
+    "Download the Excel or Word file. Excel works out the line values and totals for you.",
+    "Add your business name, address and GSTIN at the top, then the challan number and date.",
+    "Tick the reason for sending the goods, such as job work, sent on approval or branch transfer.",
+    "Fill in the consignee name, address and GSTIN, and the delivery address if it is different.",
+    "Enter transport details: transporter, vehicle number, LR or docket number and e-way bill number if one is needed.",
+    "List each item with HSN code, description, quantity, unit and rate. Tax columns are for challans that go with a supply.",
+    "Print three copies, mark each one, sign it and send the goods. Keep the copy the receiver signs as proof of delivery."
+  ],
+  "guide": [
+    {
+      "h": "What the template includes",
+      "p": [
+        "The top of the page has your business details on the left and the challan title, number and date on the right, with tick boxes for Original for consignee, Duplicate for transporter and Triplicate for consigner. Below that are tick boxes for the reason for transport, boxes for the consignee and the delivery address, and a strip for transporter, vehicle number, LR number, e-way bill number and place of supply.",
+        "The item table has columns for HSN code, description, quantity, unit, rate, taxable value, tax % and tax amount, with totals under it. The page ends with a receiving note, remarks and three signature lines. The Excel file has real formulas for values, tax and totals, a unit drop-down and a one-page A4 print area."
+      ]
+    },
+    {
+      "h": "When is a delivery challan used?",
+      "p": [
+        "In India, the GST rules allow a delivery challan instead of a tax invoice in some cases, such as sending goods for job work, moving goods for reasons other than a sale, and supplying liquid gas when the exact quantity is not known at dispatch. Many businesses also use one for goods sent on approval, branch or warehouse transfers, and goods sent in parts with one invoice.",
+        "The exact rules, the details you must show and when an e-way bill is needed can change. Check the latest CGST rules on the official GST portal or ask your tax adviser before you rely on any challan."
+      ]
+    },
+    {
+      "h": "Delivery challan or invoice?",
+      "p": [
+        "A tax invoice is a bill that asks for payment for a sale. A delivery challan only records that goods have been sent and received. If a challan is followed by a sale, issue the tax invoice as your tax rules require and quote the challan number on it so both records match."
+      ]
+    }
+  ],
+  "tips": [
+    "Use a running number series such as DC-2026-0153 and never reuse a number.",
+    "Write the vehicle number and e-way bill number before the goods leave, not after.",
+    "Ask the receiver to write the date and time and any short or damaged items before signing.",
+    "Keep the signed copy with your invoice or job work records.",
+    "Save the filled challan as PDF so you can email or WhatsApp it to the customer."
+  ],
+  "faqs": [
+    {
+      "q": "What is a delivery challan in GST?",
+      "a": "It is a document issued in place of a tax invoice when goods move without a sale at that time, for example for job work or branch transfer. The GST rules list the cases and the details it should show."
+    },
+    {
+      "q": "How many copies of a delivery challan are needed?",
+      "a": "For GST purposes it is usually made in three copies: original for consignee, duplicate for transporter and triplicate for consigner. Tick the right box on each printed copy."
+    },
+    {
+      "q": "Do I need an e-way bill with a delivery challan?",
+      "a": "It depends on the value, the reason for moving the goods and the latest rules. The template has a field for the e-way bill number. Check the official GST e-way bill portal to see if you need one."
+    },
+    {
+      "q": "Should a delivery challan show GST?",
+      "a": "A challan must show the value of the goods. Tax rate and amount are shown when the goods move for a supply to the consignee. Leave the tax columns blank when they do not apply."
+    },
+    {
+      "q": "Can I use this challan outside India?",
+      "a": "Yes. Replace GSTIN and HSN with the tax number and item codes used in your country, or delete those columns, and use it as a simple delivery note."
+    }
+  ],
+  "related": [
+    "purchase-order-template",
+    "gst-invoice-format",
+    "quotation-format"
+  ],
+  "tools": [
+    "excel-to-pdf",
+    "word-to-pdf",
+    "sign-pdf",
+    "pdf-to-excel"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 13
+    },
+    "font": "Arial",
+    "headFont": "Cambria",
+    "size": 9,
+    "titleSize": 21,
+    "blocks": [
+      {
+        "type": "header",
+        "split": [
+          1.1,
+          1
+        ],
+        "after": 6,
+        "left": [
+          "# DELIVERY CHALLAN",
+          "## [Your Business Name]",
+          "[Street address, City, State, PIN]",
+          "GSTIN: [your GSTIN]   |   State code: [00]",
+          "~ [Phone]  |  [Email]"
+        ],
+        "right": [
+          "**Challan no.**  DC-2026-0153",
+          "**Challan date**  15 Nov 2026",
+          "**Ref. order / invoice no.**  [if any]",
+          "~ ☐ Original for consignee   ☐ Duplicate for transporter",
+          "~ ☐ Triplicate for consigner"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "**Reason for transport:**   ☐ Job work     ☐ Sent on approval     ☐ Branch or stock transfer     ☐ Supply, invoice to follow     ☐ Other: [ ]",
+        "size": 8.5,
+        "after": 6
+      },
+      {
+        "type": "columns",
+        "after": 5,
+        "cols": [
+          {
+            "title": "Consignee (receiver)",
+            "fill": true,
+            "lines": [
+              "## Prakash Engineering Works",
+              "Plot 7, GIDC Vatva, Ahmedabad, Gujarat 382445",
+              "GSTIN: [consignee GSTIN]",
+              "Contact: Nilesh Patel, [phone]"
+            ]
+          },
+          {
+            "title": "Delivery address",
+            "fill": true,
+            "lines": [
+              "## Same as consignee",
+              "[Write a different address here if needed]",
+              "Receiving hours: 9 am to 6 pm",
+              "Gate pass required: Yes"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "after": 6,
+        "headFill": "#EDE9FE",
+        "headText": "#4C1D95",
+        "columns": [
+          {
+            "h": "Transporter",
+            "w": 1.3,
+            "align": "center"
+          },
+          {
+            "h": "Vehicle no.",
+            "align": "center"
+          },
+          {
+            "h": "LR / docket no.",
+            "align": "center"
+          },
+          {
+            "h": "E-way bill no.",
+            "w": 1.1,
+            "align": "center"
+          },
+          {
+            "h": "Place of supply",
+            "align": "center"
+          }
+        ],
+        "rows": [
+          [
+            "Shree Ram Roadways",
+            "GJ 01 AB 4521",
+            "LR-88213",
+            "[12-digit number]",
+            "Gujarat"
+          ]
+        ]
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "columns": [
+          {
+            "h": "#",
+            "w": 0.35,
+            "align": "center"
+          },
+          {
+            "h": "HSN",
+            "w": 0.7,
+            "align": "center"
+          },
+          {
+            "h": "Description of goods",
+            "w": 2.55
+          },
+          {
+            "h": "Qty",
+            "w": 0.55,
+            "align": "center"
+          },
+          {
+            "h": "Unit",
+            "w": 0.55,
+            "align": "center"
+          },
+          {
+            "h": "Rate",
+            "w": 0.85,
+            "align": "right"
+          },
+          {
+            "h": "Taxable value",
+            "w": 1.05,
+            "align": "right"
+          },
+          {
+            "h": "Tax %",
+            "w": 0.7,
+            "align": "center"
+          },
+          {
+            "h": "Tax amount",
+            "w": 0.95,
+            "align": "right"
+          }
+        ],
+        "rows": [
+          [
+            "1",
+            "[HSN]",
+            "MS flanges, 4 inch, for machining",
+            "120",
+            "Nos",
+            "450.00",
+            "54,000.00",
+            "",
+            ""
+          ],
+          [
+            "2",
+            "[HSN]",
+            "MS round bar, 50 mm, cut to 300 mm",
+            "85",
+            "Kg",
+            "72.00",
+            "6,120.00",
+            "",
+            ""
+          ],
+          [
+            "3",
+            "[HSN]",
+            "Machining drawings set, Rev. 2",
+            "1",
+            "Set",
+            "0.00",
+            "0.00",
+            "",
+            ""
+          ]
+        ],
+        "blank": 4,
+        "totals": [
+          [
+            "Total quantity",
+            "206"
+          ],
+          [
+            "Total taxable value",
+            "60,120.00"
+          ],
+          [
+            "Tax (if applicable)",
+            "0.00"
+          ],
+          [
+            "Total value (INR)",
+            "60,120.00"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "**Remarks:** Goods sent for job work. Return after machining with this challan number.",
+        "size": 8.5,
+        "after": 6
+      },
+      {
+        "type": "box",
+        "title": "Received by consignee",
+        "small": true,
+        "lines": [
+          "Received the above goods in good condition, except as noted: [short, damaged or missing items]",
+          "Date and time received: [ ]"
+        ]
+      },
+      {
+        "type": "signature",
+        "space": 22,
+        "items": [
+          "Receiver name, sign and stamp",
+          "Driver / transporter sign",
+          "For [Your Business Name]"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "This challan is not a tax invoice. Please quote the challan number in all related papers.",
+        "muted": true,
+        "align": "center",
+        "size": 8
+      }
+    ]
+  },
+  "sheet": {
+    "font": "Arial",
+    "sheets": [
+      {
+        "name": "Delivery Challan",
+        "cols": [
+          5,
+          10,
+          32,
+          8,
+          8,
+          10,
+          13,
+          7,
+          12
+        ],
+        "page": {
+          "orientation": "portrait",
+          "area": "A1:I42",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              32
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:E1",
+            "v": "DELIVERY CHALLAN",
+            "s": "title"
+          },
+          {
+            "c": "A2",
+            "m": "A2:E2",
+            "v": "[Your Business Name]",
+            "s": "label"
+          },
+          {
+            "c": "A3",
+            "m": "A3:E3",
+            "v": "[Street address, City, State, PIN]",
+            "s": "sub"
+          },
+          {
+            "c": "A4",
+            "m": "A4:E4",
+            "v": "GSTIN: [your GSTIN]  |  [Phone]  |  [Email]",
+            "s": "sub"
+          },
+          {
+            "c": "F1",
+            "v": "Copy",
+            "s": "label"
+          },
+          {
+            "c": "F2",
+            "m": "F2:G2",
+            "v": "Challan no.",
+            "s": "label"
+          },
+          {
+            "c": "H2",
+            "m": "H2:I2",
+            "v": "DC-2026-0153",
+            "s": "input",
+            "align": "right"
+          },
+          {
+            "c": "F3",
+            "m": "F3:G3",
+            "v": "Challan date",
+            "s": "label"
+          },
+          {
+            "c": "H3",
+            "m": "H3:I3",
+            "v": "2026-11-15",
+            "s": "input",
+            "fmt": "date",
+            "align": "right"
+          },
+          {
+            "c": "F4",
+            "m": "F4:G4",
+            "v": "Reason",
+            "s": "label"
+          },
+          {
+            "c": "H4",
+            "m": "H4:I4",
+            "v": "Job work",
+            "s": "input",
+            "align": "right"
+          },
+          {
+            "c": "F5",
+            "m": "F5:G5",
+            "v": "Ref. order / invoice",
+            "s": "label"
+          },
+          {
+            "c": "H5",
+            "m": "H5:I5",
+            "v": "[if any]",
+            "s": "input",
+            "align": "right"
+          },
+          {
+            "c": "G1",
+            "m": "G1:I1",
+            "v": "Original for consignee",
+            "s": "input",
+            "align": "center"
+          },
+          {
+            "list": "G1",
+            "items": [
+              "Original for consignee",
+              "Duplicate for transporter",
+              "Triplicate for consigner"
+            ]
+          },
+          {
+            "list": "H4",
+            "items": [
+              "Job work",
+              "Sent on approval",
+              "Branch or stock transfer",
+              "Supply, invoice to follow",
+              "Other"
+            ]
+          },
+          {
+            "c": "A7",
+            "m": "A7:D7",
+            "v": "CONSIGNEE (RECEIVER)",
+            "s": "band"
+          },
+          {
+            "c": "E7",
+            "m": "E7:I7",
+            "v": "DELIVERY ADDRESS",
+            "s": "band"
+          },
+          {
+            "c": "A8",
+            "m": "A8:D8",
+            "v": "Prakash Engineering Works",
+            "s": "input",
+            "bold": true
+          },
+          {
+            "c": "E8",
+            "m": "E8:I8",
+            "v": "Same as consignee",
+            "s": "input"
+          },
+          {
+            "c": "A9",
+            "m": "A9:D9",
+            "v": "Plot 7, GIDC Vatva, Ahmedabad, Gujarat 382445",
+            "s": "input"
+          },
+          {
+            "c": "E9",
+            "m": "E9:I9",
+            "v": "[Write a different address here if needed]",
+            "s": "input"
+          },
+          {
+            "c": "A10",
+            "m": "A10:D10",
+            "v": "GSTIN: [consignee GSTIN]",
+            "s": "input"
+          },
+          {
+            "c": "E10",
+            "m": "E10:I10",
+            "v": "Receiving hours: 9 am to 6 pm",
+            "s": "input"
+          },
+          {
+            "c": "A11",
+            "m": "A11:D11",
+            "v": "Contact: Nilesh Patel, [phone]",
+            "s": "input"
+          },
+          {
+            "c": "E11",
+            "m": "E11:I11",
+            "v": "Gate pass required: Yes",
+            "s": "input"
+          },
+          {
+            "c": "A13",
+            "m": "A13:C13",
+            "v": "Transporter",
+            "s": "header"
+          },
+          {
+            "c": "D13",
+            "m": "D13:E13",
+            "v": "Vehicle no.",
+            "s": "header"
+          },
+          {
+            "c": "F13",
+            "v": "LR / docket no.",
+            "s": "header"
+          },
+          {
+            "c": "G13",
+            "m": "G13:H13",
+            "v": "E-way bill no.",
+            "s": "header"
+          },
+          {
+            "c": "I13",
+            "v": "Place of supply",
+            "s": "header"
+          },
+          {
+            "c": "A14",
+            "m": "A14:C14",
+            "v": "Shree Ram Roadways",
+            "s": "input",
+            "align": "center"
+          },
+          {
+            "c": "D14",
+            "m": "D14:E14",
+            "v": "GJ 01 AB 4521",
+            "s": "input",
+            "align": "center"
+          },
+          {
+            "c": "F14",
+            "v": "LR-88213",
+            "s": "input",
+            "align": "center"
+          },
+          {
+            "c": "G14",
+            "m": "G14:H14",
+            "v": "[12-digit number]",
+            "s": "input",
+            "align": "center"
+          },
+          {
+            "c": "I14",
+            "v": "Gujarat",
+            "s": "input",
+            "align": "center"
+          },
+          {
+            "height": [
+              16,
+              26
+            ]
+          },
+          {
+            "row": 16,
+            "from": "A",
+            "v": [
+              "#",
+              "HSN",
+              "Description of goods",
+              "Qty",
+              "Unit",
+              "Rate",
+              "Taxable value",
+              "Tax %",
+              "Tax amount"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              17,
+              28
+            ],
+            "cols": {
+              "A": {
+                "v": "=IF(C{r}=\"\",\"\",ROW()-16)",
+                "s": "calc",
+                "align": "center"
+              },
+              "B": {
+                "s": "input",
+                "align": "center"
+              },
+              "C": {
+                "s": "input",
+                "wrap": true
+              },
+              "D": {
+                "s": "input",
+                "fmt": "#,##0.##",
+                "align": "center"
+              },
+              "E": {
+                "s": "input",
+                "align": "center"
+              },
+              "F": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "G": {
+                "v": "=IF(C{r}=\"\",\"\",D{r}*F{r})",
+                "s": "calc",
+                "fmt": "money"
+              },
+              "H": {
+                "s": "input",
+                "fmt": "0.##%",
+                "align": "center"
+              },
+              "I": {
+                "v": "=IF(OR(C{r}=\"\",H{r}=\"\"),\"\",ROUND(D{r}*F{r}*H{r},2))",
+                "s": "calc",
+                "fmt": "money"
+              }
+            }
+          },
+          {
+            "data": [
+              [
+                "[HSN]",
+                "MS flanges, 4 inch, for machining",
+                120,
+                "Nos",
+                450
+              ],
+              [
+                "[HSN]",
+                "MS round bar, 50 mm, cut to 300 mm",
+                85,
+                "Kg",
+                72
+              ],
+              [
+                "[HSN]",
+                "Machining drawings set, Rev. 2",
+                1,
+                "Set",
+                0
+              ]
+            ],
+            "at": "B17"
+          },
+          {
+            "list": "E17:E28",
+            "items": [
+              "Nos",
+              "Set",
+              "Box",
+              "Kg",
+              "Litre",
+              "Metre",
+              "Pack",
+              "Roll",
+              "Bag",
+              "Cylinder"
+            ]
+          },
+          {
+            "note": "H16",
+            "text": "Fill tax only when the goods move for a supply to the consignee. Leave blank for job work or transfers. Check the correct rate for each item."
+          },
+          {
+            "c": "F30",
+            "v": "Total qty",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "G30",
+            "m": "G30:I30",
+            "v": "=SUM(D17:D28)",
+            "s": "calc",
+            "fmt": "#,##0.##",
+            "align": "right"
+          },
+          {
+            "c": "F31",
+            "v": "Taxable value",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "G31",
+            "m": "G31:I31",
+            "v": "=SUM(G17:G28)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "F32",
+            "v": "Tax",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "G32",
+            "m": "G32:I32",
+            "v": "=SUM(I17:I28)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "E33",
+            "m": "E33:F33",
+            "v": "TOTAL VALUE",
+            "s": "total",
+            "align": "right"
+          },
+          {
+            "c": "G33",
+            "m": "G33:I33",
+            "v": "=G31+G32",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "A30",
+            "m": "A30:D33",
+            "v": "Remarks: Goods sent for job work. Return after machining with this challan number.",
+            "s": "note"
+          },
+          {
+            "c": "A35",
+            "m": "A35:I35",
+            "v": "RECEIVED BY CONSIGNEE",
+            "s": "band"
+          },
+          {
+            "c": "A36",
+            "m": "A36:I36",
+            "v": "Received the above goods in good condition, except as noted: [short, damaged or missing items]      Date and time: [ ]",
+            "s": "note"
+          },
+          {
+            "height": [
+              36,
+              30
+            ]
+          },
+          {
+            "c": "A38",
+            "m": "A38:C38",
+            "v": "RECEIVER",
+            "s": "band"
+          },
+          {
+            "c": "D38",
+            "m": "D38:F38",
+            "v": "DRIVER / TRANSPORTER",
+            "s": "band"
+          },
+          {
+            "c": "G38",
+            "m": "G38:I38",
+            "v": "FOR [YOUR BUSINESS NAME]",
+            "s": "band"
+          },
+          {
+            "height": [
+              39,
+              34
+            ]
+          },
+          {
+            "c": "A39",
+            "m": "A39:C39",
+            "s": "input"
+          },
+          {
+            "c": "D39",
+            "m": "D39:F39",
+            "s": "input"
+          },
+          {
+            "c": "G39",
+            "m": "G39:I39",
+            "s": "input"
+          },
+          {
+            "c": "A40",
+            "m": "A40:C40",
+            "v": "Name, sign and stamp",
+            "s": "sub"
+          },
+          {
+            "c": "D40",
+            "m": "D40:F40",
+            "v": "Name and sign",
+            "s": "sub"
+          },
+          {
+            "c": "G40",
+            "m": "G40:I40",
+            "v": "Authorised signatory",
+            "s": "sub"
+          },
+          {
+            "c": "A42",
+            "m": "A42:I42",
+            "v": "This challan is not a tax invoice. Please quote the challan number in all related papers.",
+            "s": "sub",
+            "align": "center"
+          },
+          {
+            "height": [
+              13,
+              26
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

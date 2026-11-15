@@ -44,6 +44,16 @@
   "previews": 1,
   "built": "2026-11-12"
  },
+ "delivery-challan-format": {
+  "files": {
+   "docx": 12941,
+   "xlsx": 12113,
+   "pdf": 88480
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-15"
+ },
  "expense-tracker-excel": {
   "files": {
    "xlsx": 12438,
@@ -146,6 +156,16 @@
   "previews": 1,
   "built": "2026-11-14"
  },
+ "proforma-invoice-template": {
+  "files": {
+   "docx": 12913,
+   "xlsx": 11751,
+   "pdf": 70011
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-15"
+ },
  "purchase-order-template": {
   "files": {
    "docx": 12818,
@@ -203,6 +223,15 @@
   "pages": 1,
   "previews": 1,
   "built": "2026-11-07"
+ },
+ "simple-resume-format": {
+  "files": {
+   "docx": 11542,
+   "pdf": 51646
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-15"
  },
  "student-resume-template": {
   "files": {
