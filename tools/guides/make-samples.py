@@ -98,6 +98,18 @@ try:
     import pillow_heif; pillow_heif.register_heif_opener()
     for n in ('photo1', 'photo2'): Image.open(f'{D}/{n}.jpg').save(f'{D}/IMG_{n[-1]}.heic', quality=80)
 except ImportError: print('pillow-heif missing: no HEIC samples')
+# Photo with camera data and GPS location (for Remove Photo Metadata)
+ex = Image.Exif(); ex[0x010F] = 'Samsung'; ex[0x0110] = 'Galaxy M34'; ex[0x0131] = 'M346BXXU3'; ex[0x0132] = '2026:10:05 18:42:10'
+ex.get_ifd(0x8769).update({0x9003: '2026:10:05 18:42:10', 0x8827: 200})
+ex.get_ifd(0x8825).update({1: 'N', 2: (18.0, 31.0, 12.6), 3: 'E', 4: (73.0, 51.0, 24.3)})
+im = Image.open(f'{D}/photo1.jpg'); im.save(f'{D}/IMG_20261005_184210.jpg', quality=92, exif=ex)
+# Filled form (for Flatten PDF)
+c = canvas.Canvas(f'{D}/form-filled.pdf', pagesize=A4); f = c.acroForm
+c.setFont('Helvetica-Bold', 20); c.drawString(60, H - 70, 'Membership Application Form'); c.setFont('Helvetica', 11)
+for k, (lab, nm, v) in enumerate((('Full name', 'name', 'Priya Deshmukh'), ('Date of birth', 'dob', '14/03/1996'), ('Mobile number', 'mobile', '98XXXXXX21'), ('City', 'city', 'Pune'))):
+    y = H - 130 - k * 45; c.drawString(60, y + 6, lab); f.textfield(name=nm, value=v, x=200, y=y, width=300, height=22, forceBorder=True)
+y = H - 330; f.checkbox(name='agree', checked=True, x=60, y=y, size=16, buttonStyle='check', forceBorder=True); c.drawString(85, y + 3, 'I agree to the rules of the club')
+c.showPage(); c.save()
 # Short WebM video clip (for Video to GIF; WebM because test Chromium has no H.264), needs ffmpeg
 import shutil, subprocess
 if shutil.which('ffmpeg'):

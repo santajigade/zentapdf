@@ -39,11 +39,11 @@ Done:
 - [x] how-to-crop-pdf (2026-11-15)
 - [x] how-to-make-ringtone-from-song (2026-11-15)
 - [x] how-to-extract-audio-from-video (2026-11-15)
+- [x] how-to-remove-exif-data-from-photos (2026-11-16)
+- [x] how-to-convert-pdf-to-jpg (2026-11-16)
+- [x] how-to-flatten-pdf-form (2026-11-16)
 
 Open:
-- [ ] How to remove location and EXIF data from photos (remove-exif-data)
-- [ ] How to convert PDF to JPG on phone or PC (pdf-to-jpg)
-- [ ] How to flatten a PDF form so answers cannot be changed (flatten-pdf)
 - [ ] How to make a barcode for products and shop items (barcode-generator)
 - [ ] How to convert WebP images to JPG (webp-to-jpg)
 - [ ] How to join two or more audio files into one (audio-joiner)
