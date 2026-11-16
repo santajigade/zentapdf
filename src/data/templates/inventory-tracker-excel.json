@@ -1,0 +1,780 @@
+{
+  "slug": "inventory-tracker-excel",
+  "category": "excel",
+  "name": "Inventory Tracker Excel",
+  "h1": "Inventory Tracker Excel Template (Stock List and Stock In/Out Log)",
+  "metaTitle": "Inventory Management Excel: Free Stock Tracker",
+  "metaDescription": "Free inventory management Excel sheet. Log stock in and out, see stock on hand, stock value and reorder alerts that turn red. Works in Google Sheets.",
+  "short": "Stock list plus an in and out log: stock on hand, stock value and reorder alerts update by themselves.",
+  "accent": "#0F766E",
+  "useCases": [
+    "Tracking",
+    "Purchase"
+  ],
+  "industries": [
+    "Small business",
+    "Retail",
+    "Manufacturing"
+  ],
+  "date": "2026-11-16",
+  "intro": "This inventory tracker in Excel keeps a stock list and a log of every item that comes in or goes out. Stock on hand, stock value and a reorder status work out by themselves, and items that need reordering turn red. It works in Excel, Google Sheets and LibreOffice with no macros.",
+  "howTo": [
+    "Download the Excel file and open it in Microsoft Excel, Google Sheets or LibreOffice Calc.",
+    "On the Stock sheet, replace the sample items with your own: item code, name, category, unit and where it is kept.",
+    "Type the opening stock you have today, the reorder level, the usual reorder quantity and the unit cost for each item.",
+    "Delete the sample lines on the Moves sheet. Each time stock arrives or leaves, add a line with the date, item code, In or Out, quantity and the bill or PO number.",
+    "Check the Stock sheet. The four boxes at the top show the item count, total stock value, items to reorder and items out of stock.",
+    "Print the Stock sheet or save it as PDF when you place orders."
+  ],
+  "guide": [
+    {
+      "h": "What is inside the file",
+      "p": [
+        "**Stock sheet:** room for 30 items with item code, name, category, unit, location, opening stock, stock in, stock out, in stock, reorder level, reorder quantity, unit cost, stock value and status. It prints on one landscape page.",
+        "**Moves sheet:** 60 lines for stock movements with date, item code, item name, In or Out, quantity, bill or PO number and notes. The item name fills in from the code, and shows \"Code not found\" if the code is not on the Stock sheet."
+      ]
+    },
+    {
+      "h": "How the formulas work",
+      "p": [
+        "Stock in and Stock out use SUMIFS. They add up the Quantity column on the Moves sheet for lines with the same item code and the word In or Out. In stock is opening stock plus stock in minus stock out, and stock value is in stock multiplied by unit cost.",
+        "Status shows **Out of stock** when nothing is left, **Reorder** when stock is at or below the reorder level, and **OK** otherwise. The whole row turns red for Reorder and Out of stock, so you can see at a glance what to buy."
+      ]
+    },
+    {
+      "h": "Setting a sensible reorder level",
+      "p": [
+        "A common way is to take how many units you sell or use in a day, multiply by the number of days your supplier takes to deliver, then add a small safety stock for busy weeks. For example, if you sell 5 notebooks a day, delivery takes 6 days and you keep 10 spare, the reorder level is 40."
+      ]
+    }
+  ],
+  "tips": [
+    "Never edit the Stock in or Stock out cells by hand. Fix mistakes by adding a correcting line on the Moves sheet.",
+    "Record damaged, expired or free items as Out with a note, so your stock matches the shelf.",
+    "Count the shelves once a month and compare with the In stock column to catch errors early."
+  ],
+  "faqs": [
+    {
+      "q": "Can I use this inventory sheet in Google Sheets?",
+      "a": "Yes. Upload the file to Google Drive and open it with Google Sheets. The SUMIFS formulas, drop-down lists and red highlights keep working."
+    },
+    {
+      "q": "How do I add more than 30 items or 60 moves?",
+      "a": "Insert new rows above the last row of each table and copy the formulas down from the row above. Inserting inside the range keeps the totals and lookups correct."
+    },
+    {
+      "q": "Does it track stock value at cost or selling price?",
+      "a": "At cost. Stock value is the quantity in stock multiplied by the unit cost you type. If you want selling value too, add a column for selling price and multiply it by In stock."
+    },
+    {
+      "q": "Can I use it for more than one shop or godown?",
+      "a": "Use the Location column for small setups. For separate branches, keep one copy of the file for each place."
+    },
+    {
+      "q": "Is this the same as a GST stock register?",
+      "a": "No. It is a simple stock tracker. Businesses registered under GST may need to keep stock records in a set way, so check the official GST rules or ask your accountant."
+    }
+  ],
+  "related": [
+    "purchase-order-template",
+    "delivery-challan-format",
+    "expense-tracker-excel"
+  ],
+  "tools": [
+    "excel-to-pdf",
+    "pdf-to-excel",
+    "compress-pdf",
+    "merge-pdf"
+  ],
+  "sheet": {
+    "font": "Calibri",
+    "sheets": [
+      {
+        "name": "Stock",
+        "cols": [
+          10,
+          27,
+          12,
+          10,
+          11,
+          9,
+          8,
+          8,
+          9,
+          9,
+          9,
+          10,
+          12,
+          13
+        ],
+        "freeze": 6,
+        "tab": "#0F766E",
+        "page": {
+          "orientation": "landscape",
+          "area": "A1:N36",
+          "titles": "6:6",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              32
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:H1",
+            "v": "Inventory Tracker",
+            "s": "title"
+          },
+          {
+            "c": "I1",
+            "m": "I1:N1",
+            "v": "[Shop or company name]   |   Stock as on: [date]",
+            "s": "sub",
+            "align": "right"
+          },
+          {
+            "c": "A2",
+            "m": "A2:N2",
+            "v": "White cells are for you to fill. Stock in and stock out add up by themselves from the Moves sheet. Rows turn red when stock falls to the reorder level.",
+            "s": "note"
+          },
+          {
+            "height": [
+              2,
+              16
+            ]
+          },
+          {
+            "c": "A3",
+            "m": "A3:C3",
+            "v": "ITEMS IN LIST",
+            "s": "band",
+            "align": "center"
+          },
+          {
+            "c": "D3",
+            "m": "D3:G3",
+            "v": "TOTAL STOCK VALUE",
+            "s": "band",
+            "align": "center"
+          },
+          {
+            "c": "H3",
+            "m": "H3:K3",
+            "v": "ITEMS TO REORDER",
+            "s": "band",
+            "align": "center"
+          },
+          {
+            "c": "L3",
+            "m": "L3:N3",
+            "v": "OUT OF STOCK",
+            "s": "band",
+            "align": "center"
+          },
+          {
+            "height": [
+              4,
+              30
+            ]
+          },
+          {
+            "c": "A4",
+            "m": "A4:C4",
+            "v": "=COUNTA(B7:B36)",
+            "s": "big",
+            "fmt": "#,##0"
+          },
+          {
+            "c": "D4",
+            "m": "D4:G4",
+            "v": "=SUM(M7:M36)",
+            "s": "big",
+            "fmt": "#,##0.00"
+          },
+          {
+            "c": "H4",
+            "m": "H4:K4",
+            "v": "=COUNTIF(N7:N36,\"Reorder\")",
+            "s": "big",
+            "fmt": "#,##0"
+          },
+          {
+            "c": "L4",
+            "m": "L4:N4",
+            "v": "=COUNTIF(N7:N36,\"Out of stock\")",
+            "s": "big",
+            "fmt": "#,##0"
+          },
+          {
+            "height": [
+              6,
+              30
+            ]
+          },
+          {
+            "row": 6,
+            "from": "A",
+            "v": [
+              "Item code",
+              "Item name",
+              "Category",
+              "Unit",
+              "Location",
+              "Opening stock",
+              "Stock in",
+              "Stock out",
+              "In stock",
+              "Reorder level",
+              "Reorder qty",
+              "Unit cost",
+              "Stock value",
+              "Status"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              7,
+              36
+            ],
+            "cols": {
+              "A": {
+                "s": "input",
+                "fmt": "text",
+                "align": "center"
+              },
+              "B": {
+                "s": "input"
+              },
+              "C": {
+                "s": "input"
+              },
+              "D": {
+                "s": "input",
+                "align": "center"
+              },
+              "E": {
+                "s": "input"
+              },
+              "F": {
+                "s": "input",
+                "fmt": "int",
+                "align": "center"
+              },
+              "G": {
+                "v": "=IF($A{r}=\"\",\"\",SUMIFS(Moves!$E$5:$E$64,Moves!$B$5:$B$64,$A{r},Moves!$D$5:$D$64,\"In\"))",
+                "s": "calc",
+                "fmt": "int",
+                "align": "center"
+              },
+              "H": {
+                "v": "=IF($A{r}=\"\",\"\",SUMIFS(Moves!$E$5:$E$64,Moves!$B$5:$B$64,$A{r},Moves!$D$5:$D$64,\"Out\"))",
+                "s": "calc",
+                "fmt": "int",
+                "align": "center"
+              },
+              "I": {
+                "v": "=IF($A{r}=\"\",\"\",N(F{r})+G{r}-H{r})",
+                "s": "calc",
+                "fmt": "#,##0;[Red]-#,##0",
+                "align": "center",
+                "bold": true
+              },
+              "J": {
+                "s": "input",
+                "fmt": "int",
+                "align": "center"
+              },
+              "K": {
+                "s": "input",
+                "fmt": "int",
+                "align": "center"
+              },
+              "L": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "M": {
+                "v": "=IF($A{r}=\"\",\"\",MAX(0,I{r})*N(L{r}))",
+                "s": "calc",
+                "fmt": "money"
+              },
+              "N": {
+                "v": "=IF($A{r}=\"\",\"\",IF(I{r}<=0,\"Out of stock\",IF(I{r}<=N(J{r}),\"Reorder\",\"OK\")))",
+                "s": "calc",
+                "align": "center"
+              }
+            }
+          },
+          {
+            "data": [
+              [
+                "ST-001",
+                "A4 copier paper (500 sheets)",
+                "Paper",
+                "Ream",
+                "Rack A1",
+                40,
+                null,
+                null,
+                null,
+                10,
+                15,
+                210
+              ],
+              [
+                "ST-002",
+                "Blue ballpoint pens",
+                "Writing",
+                "Box of 10",
+                "Rack B2",
+                25,
+                null,
+                null,
+                null,
+                8,
+                20,
+                55
+              ],
+              [
+                "ST-003",
+                "Black gel pens",
+                "Writing",
+                "Box of 10",
+                "Rack B2",
+                18,
+                null,
+                null,
+                null,
+                8,
+                15,
+                90
+              ],
+              [
+                "ST-004",
+                "HB pencils",
+                "Writing",
+                "Box of 10",
+                "Rack B3",
+                30,
+                null,
+                null,
+                null,
+                10,
+                20,
+                40
+              ],
+              [
+                "ST-005",
+                "Long notebooks (172 pages)",
+                "Paper",
+                "Pcs",
+                "Rack A2",
+                120,
+                null,
+                null,
+                null,
+                40,
+                100,
+                48
+              ],
+              [
+                "ST-006",
+                "Box files",
+                "Filing",
+                "Pcs",
+                "Rack C1",
+                35,
+                null,
+                null,
+                null,
+                10,
+                25,
+                65
+              ],
+              [
+                "ST-007",
+                "Stapler, medium",
+                "Desk items",
+                "Pcs",
+                "Rack D1",
+                12,
+                null,
+                null,
+                null,
+                4,
+                10,
+                145
+              ],
+              [
+                "ST-008",
+                "Staple pins No. 10",
+                "Desk items",
+                "Box",
+                "Rack D1",
+                60,
+                null,
+                null,
+                null,
+                20,
+                50,
+                12
+              ],
+              [
+                "ST-009",
+                "Whiteboard markers",
+                "Writing",
+                "Pack of 4",
+                "Rack B4",
+                20,
+                null,
+                null,
+                null,
+                6,
+                15,
+                120
+              ],
+              [
+                "ST-010",
+                "Glue sticks",
+                "Desk items",
+                "Pcs",
+                "Rack D2",
+                50,
+                null,
+                null,
+                null,
+                15,
+                40,
+                25
+              ],
+              [
+                "ST-011",
+                "Printer toner 88A",
+                "Printing",
+                "Pcs",
+                "Store room",
+                6,
+                null,
+                null,
+                null,
+                2,
+                4,
+                1450
+              ],
+              [
+                "ST-012",
+                "Sticky notes 3 x 3 in",
+                "Paper",
+                "Pad",
+                "Rack A3",
+                45,
+                null,
+                null,
+                null,
+                15,
+                40,
+                30
+              ],
+              [
+                "ST-013",
+                "Brown envelopes A4",
+                "Filing",
+                "Pack of 50",
+                "Rack C2",
+                10,
+                null,
+                null,
+                null,
+                4,
+                8,
+                180
+              ],
+              [
+                "ST-014",
+                "Calculator, 12 digit",
+                "Desk items",
+                "Pcs",
+                "Counter",
+                8,
+                null,
+                null,
+                null,
+                3,
+                6,
+                320
+              ]
+            ],
+            "at": "A7"
+          },
+          {
+            "cf": "A7:N36",
+            "rule": "over",
+            "ref": "OR($N7=\"Reorder\",$N7=\"Out of stock\")"
+          },
+          {
+            "list": "C7:C36",
+            "items": [
+              "Paper",
+              "Writing",
+              "Filing",
+              "Desk items",
+              "Printing",
+              "Other"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Moves",
+        "cols": [
+          13,
+          12,
+          32,
+          10,
+          10,
+          16,
+          26
+        ],
+        "freeze": 4,
+        "tab": "#14B8A6",
+        "page": {
+          "orientation": "portrait",
+          "area": "A1:G64",
+          "titles": "4:4",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              30
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:E1",
+            "v": "Stock Moves",
+            "s": "title"
+          },
+          {
+            "c": "F1",
+            "m": "F1:G1",
+            "v": "Stock in and out log",
+            "s": "sub",
+            "align": "right"
+          },
+          {
+            "c": "A2",
+            "m": "A2:G2",
+            "v": "Add one line each time stock comes in (purchase, return) or goes out (sale, use, damage). Pick the item code and In or Out from the drop-downs.",
+            "s": "note"
+          },
+          {
+            "height": [
+              2,
+              26
+            ]
+          },
+          {
+            "row": 4,
+            "from": "A",
+            "v": [
+              "Date",
+              "Item code",
+              "Item name",
+              "In or Out",
+              "Quantity",
+              "Bill or PO no.",
+              "Notes"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              5,
+              64
+            ],
+            "cols": {
+              "A": {
+                "s": "input",
+                "fmt": "date",
+                "align": "center"
+              },
+              "B": {
+                "s": "input",
+                "fmt": "text",
+                "align": "center"
+              },
+              "C": {
+                "v": "=IF(B{r}=\"\",\"\",IFERROR(INDEX(Stock!$B$7:$B$36,MATCH(B{r},Stock!$A$7:$A$36,0)),\"Code not found\"))",
+                "s": "calc"
+              },
+              "D": {
+                "s": "input",
+                "align": "center"
+              },
+              "E": {
+                "s": "input",
+                "fmt": "int",
+                "align": "center"
+              },
+              "F": {
+                "s": "input"
+              },
+              "G": {
+                "s": "input"
+              }
+            }
+          },
+          {
+            "data": [
+              [
+                "2026-11-02",
+                "ST-005",
+                null,
+                "Out",
+                70,
+                "Bill 2041",
+                "School order"
+              ],
+              [
+                "2026-11-03",
+                "ST-001",
+                null,
+                "Out",
+                22,
+                "Bill 2042",
+                ""
+              ],
+              [
+                "2026-11-04",
+                "ST-011",
+                null,
+                "Out",
+                5,
+                "Bill 2045",
+                "Office client"
+              ],
+              [
+                "2026-11-05",
+                "ST-002",
+                null,
+                "Out",
+                12,
+                "Bill 2047",
+                ""
+              ],
+              [
+                "2026-11-06",
+                "ST-001",
+                null,
+                "In",
+                30,
+                "PO 118",
+                "Supplier: Sai Traders"
+              ],
+              [
+                "2026-11-07",
+                "ST-009",
+                null,
+                "Out",
+                15,
+                "Bill 2051",
+                ""
+              ],
+              [
+                "2026-11-08",
+                "ST-012",
+                null,
+                "Out",
+                20,
+                "Bill 2053",
+                ""
+              ],
+              [
+                "2026-11-09",
+                "ST-005",
+                null,
+                "Out",
+                25,
+                "Bill 2056",
+                ""
+              ],
+              [
+                "2026-11-10",
+                "ST-007",
+                null,
+                "Out",
+                12,
+                "Bill 2058",
+                ""
+              ],
+              [
+                "2026-11-11",
+                "ST-003",
+                null,
+                "Out",
+                6,
+                "Bill 2060",
+                ""
+              ],
+              [
+                "2026-11-12",
+                "ST-006",
+                null,
+                "In",
+                20,
+                "PO 121",
+                ""
+              ],
+              [
+                "2026-11-12",
+                "ST-013",
+                null,
+                "Out",
+                5,
+                "Bill 2063",
+                ""
+              ],
+              [
+                "2026-11-13",
+                "ST-010",
+                null,
+                "Out",
+                18,
+                "Bill 2065",
+                ""
+              ],
+              [
+                "2026-11-14",
+                "ST-004",
+                null,
+                "Out",
+                18,
+                "Bill 2068",
+                "Damaged 2 counted here"
+              ]
+            ],
+            "at": "A5"
+          },
+          {
+            "list": "B5:B64",
+            "ref": "Stock!$A$7:$A$36"
+          },
+          {
+            "list": "D5:D64",
+            "items": [
+              "In",
+              "Out"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

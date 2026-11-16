@@ -1,0 +1,610 @@
+{
+  "slug": "loan-emi-schedule-excel",
+  "category": "excel",
+  "name": "Loan EMI Calculator Excel",
+  "h1": "Loan EMI Calculator in Excel (EMI Formula and Repayment Schedule)",
+  "metaTitle": "Loan EMI Calculator Excel: Free Repayment Schedule",
+  "metaDescription": "Free loan EMI calculator in Excel with the PMT formula, total interest, a yearly summary and a month by month schedule with part prepayments. No macros.",
+  "short": "EMI, total interest, yearly summary and a monthly amortisation schedule with space for part prepayments.",
+  "accent": "#6D28D9",
+  "useCases": [
+    "Personal finance",
+    "Planning"
+  ],
+  "industries": [
+    "Personal",
+    "Families",
+    "Professionals"
+  ],
+  "date": "2026-11-16",
+  "intro": "This loan EMI calculator in Excel works out the monthly EMI for a home, car, education or personal loan and lays out every payment until the loan closes. Type the loan amount, interest rate, tenure and first EMI date, and the sheet shows the EMI, total interest, a yearly summary and a full monthly schedule. You can also test part prepayments to see how many EMIs they save.",
+  "howTo": [
+    "Download the Excel file and open it in Microsoft Excel, Google Sheets or LibreOffice Calc.",
+    "On the Loan sheet, type the loan type, lender, loan amount, yearly interest rate, tenure in years and first EMI date.",
+    "Read the monthly EMI, total interest, total amount paid and loan closing month in the Result box.",
+    "Look at the yearly summary to see how much principal and interest you pay in each loan year.",
+    "Open the Schedule sheet to see every EMI with its opening balance, interest, principal and closing balance.",
+    "To test a part prepayment, type an amount in the Extra payment column for any month and watch the schedule and EMIs saved update."
+  ],
+  "guide": [
+    {
+      "h": "What is inside the file",
+      "p": [
+        "**Loan sheet:** the loan inputs, a Result box with EMI, total interest, total paid, closing month and EMIs saved, a principal and interest split with bars, and a yearly summary for up to 30 years. It prints on one page.",
+        "**Schedule sheet:** up to 360 monthly rows with EMI number, date, opening balance, EMI, interest, principal, extra payment, closing balance and loan year. The header repeats on every printed page."
+      ]
+    },
+    {
+      "h": "The EMI formula used",
+      "p": [
+        "The EMI comes from the standard reducing balance formula: EMI = P x R x (1 + R)^N / ((1 + R)^N minus 1), where P is the loan amount, R is the yearly rate divided by 12 and N is the number of months. In Excel this is the PMT function, and the sheet rounds the result up to the next rupee or unit.",
+        "Each month, interest is the opening balance multiplied by the monthly rate, and the rest of the EMI repays principal. That is why early EMIs are mostly interest and later EMIs are mostly principal."
+      ]
+    },
+    {
+      "h": "Part prepayments and floating rates",
+      "p": [
+        "An extra payment cuts the balance at once, so less interest builds up and the loan closes sooner with the same EMI. Lenders may handle prepayments, charges and rate changes in their own way. Many home loans have a floating rate, so treat this sheet as a planning estimate and compare it with the schedule from your lender."
+      ]
+    }
+  ],
+  "tips": [
+    "Try a few tenures side by side by changing the years and noting the total interest each time.",
+    "Even one extra EMI a year, typed in the Extra payment column, can cut years off a long loan.",
+    "When your lender changes the rate, start a fresh copy with the current outstanding balance, the new rate and the remaining tenure.",
+    "Keep the sanction letter handy to check the rate type, fees and prepayment terms."
+  ],
+  "faqs": [
+    {
+      "q": "Will my EMI match the bank exactly?",
+      "a": "It should be very close, but it can differ slightly because lenders round amounts and count days in their own way. Use your lender's schedule as the final figure."
+    },
+    {
+      "q": "Can I use this EMI calculator in Google Sheets?",
+      "a": "Yes. Upload the file to Google Drive and open it with Google Sheets. PMT, EDATE and SUMIFS all work there."
+    },
+    {
+      "q": "Does it work for car, personal and education loans?",
+      "a": "Yes, for any loan with a fixed monthly EMI on a reducing balance. Change the loan type, amount, rate and tenure. It does not cover flat rate loans or step-up EMIs."
+    },
+    {
+      "q": "How do I add a one-time prepayment?",
+      "a": "Find the month on the Schedule sheet and type the amount in its Extra payment cell. The balance drops in that month and the loan ends earlier."
+    },
+    {
+      "q": "What is the longest loan it can show?",
+      "a": "Up to 30 years, which is 360 monthly EMIs. A longer tenure is capped at 360 months."
+    }
+  ],
+  "related": [
+    "monthly-budget-template",
+    "expense-tracker-excel"
+  ],
+  "tools": [
+    "excel-to-pdf",
+    "pdf-to-excel",
+    "compress-pdf",
+    "merge-pdf"
+  ],
+  "maxPages": 12,
+  "sheet": {
+    "font": "Cambria",
+    "sheets": [
+      {
+        "name": "Loan",
+        "cols": [
+          22,
+          12,
+          15,
+          17,
+          15,
+          18
+        ],
+        "tab": "#6D28D9",
+        "page": {
+          "orientation": "portrait",
+          "area": "A1:F53",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              34
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:F1",
+            "v": "Loan EMI Calculator",
+            "s": "title"
+          },
+          {
+            "c": "A2",
+            "m": "A2:F2",
+            "v": "Monthly EMI, total interest and a full repayment schedule for any home, car, education or personal loan.",
+            "s": "sub"
+          },
+          {
+            "c": "A4",
+            "m": "A4:C4",
+            "v": "LOAN DETAILS (type in the white cells)",
+            "s": "band"
+          },
+          {
+            "c": "D4",
+            "m": "D4:F4",
+            "v": "RESULT",
+            "s": "band"
+          },
+          {
+            "c": "A5",
+            "v": "Loan type",
+            "s": "label"
+          },
+          {
+            "c": "B5",
+            "m": "B5:C5",
+            "v": "Home loan",
+            "s": "input"
+          },
+          {
+            "c": "A6",
+            "v": "Lender",
+            "s": "label"
+          },
+          {
+            "c": "B6",
+            "m": "B6:C6",
+            "v": "[Bank or lender name]",
+            "s": "input"
+          },
+          {
+            "c": "A7",
+            "v": "Loan amount",
+            "s": "label"
+          },
+          {
+            "c": "B7",
+            "m": "B7:C7",
+            "v": 3000000,
+            "s": "input",
+            "fmt": "#,##0",
+            "align": "left"
+          },
+          {
+            "c": "A8",
+            "v": "Interest rate a year",
+            "s": "label"
+          },
+          {
+            "c": "B8",
+            "m": "B8:C8",
+            "v": 0.085,
+            "s": "input",
+            "fmt": "0.00%",
+            "align": "left"
+          },
+          {
+            "c": "A9",
+            "v": "Tenure in years",
+            "s": "label"
+          },
+          {
+            "c": "B9",
+            "m": "B9:C9",
+            "v": 30,
+            "s": "input",
+            "fmt": "int",
+            "align": "left"
+          },
+          {
+            "c": "A10",
+            "v": "First EMI date",
+            "s": "label"
+          },
+          {
+            "c": "B10",
+            "m": "B10:C10",
+            "v": "2026-12-05",
+            "s": "input",
+            "fmt": "date",
+            "align": "left"
+          },
+          {
+            "c": "A11",
+            "v": "Number of EMIs",
+            "s": "label"
+          },
+          {
+            "c": "B11",
+            "m": "B11:C11",
+            "v": "=MIN(360,ROUND(B9*12,0))",
+            "s": "calc",
+            "fmt": "int",
+            "align": "left"
+          },
+          {
+            "c": "D5",
+            "m": "D5:F5",
+            "v": "Monthly EMI",
+            "s": "label",
+            "align": "center"
+          },
+          {
+            "height": [
+              6,
+              24
+            ]
+          },
+          {
+            "height": [
+              7,
+              24
+            ]
+          },
+          {
+            "c": "D6",
+            "m": "D6:F7",
+            "v": "=IF(OR(N(B7)<=0,N(B11)<=0),0,ROUNDUP(PMT(B8/12,B11,-B7),0))",
+            "s": "big",
+            "fmt": "#,##0"
+          },
+          {
+            "c": "D8",
+            "v": "Total interest",
+            "s": "label"
+          },
+          {
+            "c": "E8",
+            "m": "E8:F8",
+            "v": "=SUM(Schedule!E6:E365)",
+            "s": "calc",
+            "fmt": "#,##0"
+          },
+          {
+            "c": "D9",
+            "v": "Total amount paid",
+            "s": "label"
+          },
+          {
+            "c": "E9",
+            "m": "E9:F9",
+            "v": "=N(B7)+E8",
+            "s": "calc",
+            "fmt": "#,##0"
+          },
+          {
+            "c": "D10",
+            "v": "Loan closes on",
+            "s": "label"
+          },
+          {
+            "c": "E10",
+            "m": "E10:F10",
+            "v": "=IF(COUNT(Schedule!A6:A365)=0,\"\",MAX(Schedule!B6:B365))",
+            "s": "calc",
+            "fmt": "mmm yyyy",
+            "align": "right"
+          },
+          {
+            "c": "D11",
+            "v": "EMIs saved",
+            "s": "label"
+          },
+          {
+            "c": "E11",
+            "m": "E11:F11",
+            "v": "=MAX(0,B11-COUNT(Schedule!A6:A365))",
+            "s": "calc",
+            "fmt": "int",
+            "align": "right"
+          },
+          {
+            "c": "A13",
+            "m": "A13:F13",
+            "v": "WHERE YOUR MONEY GOES",
+            "s": "band"
+          },
+          {
+            "c": "A14",
+            "m": "A14:B14",
+            "v": "Principal (loan amount)",
+            "s": "label"
+          },
+          {
+            "c": "C14",
+            "v": "=N(B7)",
+            "s": "calc",
+            "fmt": "#,##0"
+          },
+          {
+            "c": "D14",
+            "v": "=IF(E9=0,\"\",C14/E9)",
+            "s": "calc",
+            "fmt": "pct1",
+            "align": "center"
+          },
+          {
+            "c": "E14",
+            "m": "E14:F14",
+            "v": "=D14",
+            "s": "plain",
+            "fmt": "pct1"
+          },
+          {
+            "c": "A15",
+            "m": "A15:B15",
+            "v": "Interest",
+            "s": "label"
+          },
+          {
+            "c": "C15",
+            "v": "=E8",
+            "s": "calc",
+            "fmt": "#,##0"
+          },
+          {
+            "c": "D15",
+            "v": "=IF(E9=0,\"\",C15/E9)",
+            "s": "calc",
+            "fmt": "pct1",
+            "align": "center"
+          },
+          {
+            "c": "E15",
+            "m": "E15:F15",
+            "v": "=D15",
+            "s": "plain",
+            "fmt": "pct1"
+          },
+          {
+            "cf": "E14:F15",
+            "rule": "bar"
+          },
+          {
+            "c": "A16",
+            "m": "A16:B16",
+            "v": "Extra payments made",
+            "s": "label"
+          },
+          {
+            "c": "C16",
+            "v": "=SUM(Schedule!G6:G365)",
+            "s": "calc",
+            "fmt": "#,##0"
+          },
+          {
+            "c": "D16",
+            "m": "D16:F16",
+            "v": "Add part prepayments on the Schedule sheet.",
+            "s": "note",
+            "align": "right"
+          },
+          {
+            "c": "A18",
+            "m": "A18:F18",
+            "v": "Year by year: the figures come from the monthly Schedule sheet. Loan year 1 is your first 12 EMIs.",
+            "s": "note"
+          },
+          {
+            "c": "A20",
+            "m": "A20:F20",
+            "v": "YEARLY SUMMARY",
+            "s": "band"
+          },
+          {
+            "height": [
+              21,
+              30
+            ]
+          },
+          {
+            "row": 21,
+            "from": "A",
+            "v": [
+              "Loan year",
+              "EMIs paid",
+              "Principal paid",
+              "Interest paid",
+              "Extra paid",
+              "Balance at year end"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              22,
+              51
+            ],
+            "cols": {
+              "A": {
+                "v": "=IF(ROW()-21>ROUNDUP(COUNT(Schedule!$A$6:$A$365)/12,0),\"\",ROW()-21)",
+                "s": "calc",
+                "fmt": "int",
+                "align": "center"
+              },
+              "B": {
+                "v": "=IF(A{r}=\"\",\"\",COUNTIF(Schedule!$I$6:$I$365,A{r}))",
+                "s": "calc",
+                "fmt": "int",
+                "align": "center"
+              },
+              "C": {
+                "v": "=IF(A{r}=\"\",\"\",SUMIFS(Schedule!$F$6:$F$365,Schedule!$I$6:$I$365,A{r}))",
+                "s": "calc",
+                "fmt": "#,##0"
+              },
+              "D": {
+                "v": "=IF(A{r}=\"\",\"\",SUMIFS(Schedule!$E$6:$E$365,Schedule!$I$6:$I$365,A{r}))",
+                "s": "calc",
+                "fmt": "#,##0"
+              },
+              "E": {
+                "v": "=IF(A{r}=\"\",\"\",SUMIFS(Schedule!$G$6:$G$365,Schedule!$I$6:$I$365,A{r}))",
+                "s": "calc",
+                "fmt": "#,##0"
+              },
+              "F": {
+                "v": "=IF(A{r}=\"\",\"\",MAX(0,N($B$7)-SUM($C$22:C{r})-SUM($E$22:E{r})))",
+                "s": "calc",
+                "fmt": "#,##0"
+              }
+            }
+          },
+          {
+            "c": "A53",
+            "m": "A53:F53",
+            "v": "This is an estimate for planning. Your lender may round EMIs differently, change a floating rate or add fees, so check the sanction letter and the schedule from your lender.",
+            "s": "note"
+          },
+          {
+            "height": [
+              53,
+              28
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Schedule",
+        "cols": [
+          8,
+          13,
+          15,
+          12,
+          13,
+          13,
+          13,
+          15,
+          8
+        ],
+        "freeze": 4,
+        "tab": "#A78BFA",
+        "page": {
+          "orientation": "portrait",
+          "area": "A1:I365",
+          "titles": "4:4",
+          "fitHeight": 0,
+          "pageNumbers": true
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              30
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:F1",
+            "v": "Monthly Repayment Schedule",
+            "s": "title"
+          },
+          {
+            "c": "G1",
+            "m": "G1:I1",
+            "v": "=Loan!B5&\"  |  EMI \"&TEXT(Loan!D6,\"#,##0\")",
+            "s": "sub",
+            "align": "right"
+          },
+          {
+            "c": "A2",
+            "m": "A2:I2",
+            "v": "Everything fills in from the Loan sheet. To see the effect of a part prepayment, type the amount in the Extra payment column for that month.",
+            "s": "note"
+          },
+          {
+            "height": [
+              2,
+              26
+            ]
+          },
+          {
+            "height": [
+              4,
+              30
+            ]
+          },
+          {
+            "row": 4,
+            "from": "A",
+            "v": [
+              "EMI no.",
+              "EMI date",
+              "Opening balance",
+              "EMI",
+              "Interest",
+              "Principal",
+              "Extra payment",
+              "Closing balance",
+              "Loan year"
+            ],
+            "s": "header"
+          },
+          {
+            "c": "A5",
+            "m": "A5:I5",
+            "v": "Interest = opening balance x yearly rate / 12. Principal = EMI minus interest. Extra payment cuts the balance straight away.",
+            "s": "note"
+          },
+          {
+            "rows": [
+              6,
+              365
+            ],
+            "cols": {
+              "A": {
+                "v": "=IF(ROW()=6,IF(AND(N(Loan!$B$7)>0,N(Loan!$B$11)>0),1,\"\"),IF(A{p}=\"\",\"\",IF(H{p}>0.005,A{p}+1,\"\")))",
+                "s": "calc",
+                "fmt": "int",
+                "align": "center"
+              },
+              "B": {
+                "v": "=IF(A{r}=\"\",\"\",EDATE(Loan!$B$10,A{r}-1))",
+                "s": "calc",
+                "fmt": "date",
+                "align": "center"
+              },
+              "C": {
+                "v": "=IF(A{r}=\"\",\"\",IF(A{r}=1,Loan!$B$7,H{p}))",
+                "s": "calc",
+                "fmt": "money"
+              },
+              "D": {
+                "v": "=IF(A{r}=\"\",\"\",MIN(Loan!$D$6,C{r}+E{r}))",
+                "s": "calc",
+                "fmt": "money"
+              },
+              "E": {
+                "v": "=IF(A{r}=\"\",\"\",C{r}*Loan!$B$8/12)",
+                "s": "calc",
+                "fmt": "money"
+              },
+              "F": {
+                "v": "=IF(A{r}=\"\",\"\",D{r}-E{r})",
+                "s": "calc",
+                "fmt": "money"
+              },
+              "G": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "H": {
+                "v": "=IF(A{r}=\"\",\"\",MAX(0,C{r}-F{r}-N(G{r})))",
+                "s": "calc",
+                "fmt": "money"
+              },
+              "I": {
+                "v": "=IF(A{r}=\"\",\"\",ROUNDUP(A{r}/12,0))",
+                "s": "calc",
+                "fmt": "int",
+                "align": "center"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

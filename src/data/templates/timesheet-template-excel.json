@@ -1,0 +1,681 @@
+{
+  "slug": "timesheet-template-excel",
+  "category": "excel",
+  "name": "Weekly Timesheet Template Excel",
+  "h1": "Weekly Timesheet Template in Excel (Hours, Overtime and Pay)",
+  "metaTitle": "Timesheet Template Excel: Free Weekly Timesheet",
+  "metaDescription": "Free weekly timesheet in Excel. Enter time in, time out and breaks; hours, overtime and gross pay calculate by themselves. Print, sign or save as PDF.",
+  "short": "One-page weekly timesheet: hours, daily and weekly overtime and gross pay work out from time in and out.",
+  "accent": "#C2410C",
+  "useCases": [
+    "HR",
+    "Payroll",
+    "Tracking"
+  ],
+  "industries": [
+    "Small business",
+    "Freelancers",
+    "All industries"
+  ],
+  "date": "2026-11-16",
+  "intro": "This weekly timesheet in Excel turns time in, time out and break minutes into hours worked, overtime and gross pay. You set the hourly rate, the normal hours a day and a week, and the overtime rate to match your own job. It fits on one page with space for the employee and manager to sign.",
+  "howTo": [
+    "Download the Excel file and open it in Microsoft Excel, Google Sheets or LibreOffice Calc.",
+    "Fill in the employee name, ID, department and manager at the top.",
+    "Type the first day of the week in Week starting. The days and dates for all seven rows fill in by themselves.",
+    "Set the hourly rate, the normal hours a day, the normal hours a week and the overtime rate in the settings band.",
+    "For each day, type the time in and time out in 24 hour format, like 09:30 and 18:30, and the break in minutes.",
+    "Check the week summary for total hours, overtime hours and gross pay.",
+    "Print the sheet or save it as PDF, then sign it and send it to the manager for approval."
+  ],
+  "guide": [
+    {
+      "h": "What is inside the file",
+      "p": [
+        "One sheet with employee details, a settings band, a seven day table and a week summary. The table has Day, Date, Time in, Time out, Break (min), Hours worked, Normal hours, Overtime (day) and Notes. Overtime cells turn red on days that go past the daily limit.",
+        "The summary shows total hours, overtime by day, overtime by week, overtime hours paid, normal hours paid, normal pay, overtime pay and gross pay, followed by two signature boxes."
+      ]
+    },
+    {
+      "h": "How hours and overtime are calculated",
+      "p": [
+        "Hours worked is time out minus time in, minus the break. The formula uses MOD, so a night shift that starts at 22:00 and ends at 06:00 still counts as 8 hours.",
+        "The sheet works out overtime two ways: hours above the daily limit added up over the week, and hours above the weekly limit. It pays the **larger** of the two, so the same hour is never counted twice. If your employer only uses a weekly limit, set the daily limit to 24."
+      ]
+    },
+    {
+      "h": "Overtime rules differ",
+      "p": [
+        "There is no single rule for overtime. The daily and weekly limits, the overtime rate and who qualifies depend on the country, state, industry and the employment contract. The sample uses 9 hours a day, 48 a week and 1.5 times pay only as example numbers. Check the labour rules that apply to you or ask your HR team before using the sheet for payroll."
+      ]
+    }
+  ],
+  "tips": [
+    "Fill the timesheet every day rather than from memory at the end of the week.",
+    "Leave time in and time out blank on weekly offs and leave days, and write the reason in Notes.",
+    "Use the Notes column for client names or project codes if you bill your hours.",
+    "Save each signed week as a PDF with the week date in the file name."
+  ],
+  "faqs": [
+    {
+      "q": "Can I use this timesheet in Google Sheets?",
+      "a": "Yes. Upload the file to Google Drive and open it with Google Sheets. Type times with a colon, like 09:30, so they are read as times."
+    },
+    {
+      "q": "Does it handle night shifts?",
+      "a": "Yes. If the time out is earlier than the time in, the sheet treats it as the next morning, so 22:00 to 06:00 counts as 8 hours before the break."
+    },
+    {
+      "q": "How do I use it without overtime?",
+      "a": "Set the normal hours a day to 24 and the hours a week to 168. Overtime then stays at zero and every hour is paid at the normal rate."
+    },
+    {
+      "q": "Does gross pay include tax or PF deductions?",
+      "a": "No. Gross pay is hours multiplied by the rates you set. Deductions such as income tax, PF or ESI depend on official rules and the salary structure, so they are not included."
+    },
+    {
+      "q": "Can I track two weeks or a month?",
+      "a": "Make a copy of the sheet tab for each week. Right click the tab name, choose Move or Copy, tick Create a copy, then change the Week starting date."
+    }
+  ],
+  "related": [
+    "attendance-sheet-excel",
+    "salary-slip-format",
+    "expense-tracker-excel"
+  ],
+  "tools": [
+    "excel-to-pdf",
+    "sign-pdf",
+    "compress-pdf",
+    "merge-pdf"
+  ],
+  "sheet": {
+    "font": "Arial",
+    "sheets": [
+      {
+        "name": "Timesheet",
+        "cols": [
+          13,
+          11,
+          10,
+          10,
+          10,
+          11,
+          11,
+          12,
+          22
+        ],
+        "tab": "#C2410C",
+        "page": {
+          "orientation": "portrait",
+          "area": "A1:I32",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              36
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:I1",
+            "v": "WEEKLY TIMESHEET",
+            "s": "band",
+            "align": "center"
+          },
+          {
+            "c": "A2",
+            "m": "A2:I2",
+            "v": "[Company name]   |   [Address or branch]",
+            "s": "sub",
+            "align": "center"
+          },
+          {
+            "c": "A4",
+            "m": "A4:B4",
+            "v": "Employee name",
+            "s": "label"
+          },
+          {
+            "c": "C4",
+            "m": "C4:E4",
+            "v": "[Full name]",
+            "s": "input"
+          },
+          {
+            "c": "F4",
+            "m": "F4:G4",
+            "v": "Employee ID",
+            "s": "label"
+          },
+          {
+            "c": "H4",
+            "m": "H4:I4",
+            "v": "[EMP-0000]",
+            "s": "input"
+          },
+          {
+            "c": "A5",
+            "m": "A5:B5",
+            "v": "Department",
+            "s": "label"
+          },
+          {
+            "c": "C5",
+            "m": "C5:E5",
+            "v": "[Department]",
+            "s": "input"
+          },
+          {
+            "c": "F5",
+            "m": "F5:G5",
+            "v": "Manager",
+            "s": "label"
+          },
+          {
+            "c": "H5",
+            "m": "H5:I5",
+            "v": "[Manager name]",
+            "s": "input"
+          },
+          {
+            "c": "A6",
+            "m": "A6:B6",
+            "v": "Week starting",
+            "s": "label"
+          },
+          {
+            "c": "C6",
+            "m": "C6:E6",
+            "v": "2026-11-16",
+            "s": "input",
+            "fmt": "dddd, dd mmm yyyy",
+            "align": "left"
+          },
+          {
+            "c": "F6",
+            "m": "F6:G6",
+            "v": "Week ending",
+            "s": "label"
+          },
+          {
+            "c": "H6",
+            "m": "H6:I6",
+            "v": "=C6+6",
+            "s": "calc",
+            "fmt": "date",
+            "align": "left"
+          },
+          {
+            "c": "A8",
+            "m": "A8:I8",
+            "v": "PAY AND OVERTIME SETTINGS (change these to match your contract or local rules)",
+            "s": "band"
+          },
+          {
+            "height": [
+              9,
+              22
+            ]
+          },
+          {
+            "c": "A9",
+            "m": "A9:B9",
+            "v": "Hourly rate",
+            "s": "label"
+          },
+          {
+            "c": "C9",
+            "v": 250,
+            "s": "input",
+            "fmt": "money"
+          },
+          {
+            "c": "D9",
+            "m": "D9:E9",
+            "v": "Normal hours a day",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "F9",
+            "v": 9,
+            "s": "input",
+            "fmt": "num",
+            "align": "center"
+          },
+          {
+            "c": "G9",
+            "m": "G9:H9",
+            "v": "Normal hours a week",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "I9",
+            "v": 48,
+            "s": "input",
+            "fmt": "num",
+            "align": "center"
+          },
+          {
+            "height": [
+              10,
+              22
+            ]
+          },
+          {
+            "c": "A10",
+            "m": "A10:B10",
+            "v": "Overtime rate (times)",
+            "s": "label"
+          },
+          {
+            "c": "C10",
+            "v": 1.5,
+            "s": "input",
+            "fmt": "0.00\"x\"",
+            "align": "center"
+          },
+          {
+            "c": "D10",
+            "m": "D10:I10",
+            "v": "Times are 24 hour, like 09:30 or 18:45. Break is in minutes.",
+            "s": "note"
+          },
+          {
+            "height": [
+              11,
+              30
+            ]
+          },
+          {
+            "row": 11,
+            "from": "A",
+            "v": [
+              "Day",
+              "Date",
+              "Time in",
+              "Time out",
+              "Break (min)",
+              "Hours worked",
+              "Normal hours",
+              "Overtime (day)",
+              "Notes"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              12,
+              18
+            ],
+            "cols": {
+              "A": {
+                "v": "=TEXT(B{r},\"dddd\")",
+                "s": "calc",
+                "bold": true
+              },
+              "B": {
+                "v": "=$C$6+ROW()-12",
+                "s": "calc",
+                "fmt": "dd mmm",
+                "align": "center"
+              },
+              "C": {
+                "s": "input",
+                "fmt": "time",
+                "align": "center"
+              },
+              "D": {
+                "s": "input",
+                "fmt": "time",
+                "align": "center"
+              },
+              "E": {
+                "s": "input",
+                "fmt": "int",
+                "align": "center"
+              },
+              "F": {
+                "v": "=IF(OR(C{r}=\"\",D{r}=\"\"),0,MAX(0,ROUND(MOD(D{r}-C{r},1)*24-N(E{r})/60,2)))",
+                "s": "calc",
+                "fmt": "0.00;-0.00;\"-\"",
+                "align": "center"
+              },
+              "G": {
+                "v": "=MIN(F{r},$F$9)",
+                "s": "calc",
+                "fmt": "0.00;-0.00;\"-\"",
+                "align": "center"
+              },
+              "H": {
+                "v": "=MAX(0,F{r}-$F$9)",
+                "s": "calc",
+                "fmt": "0.00;-0.00;\"-\"",
+                "align": "center"
+              },
+              "I": {
+                "s": "input"
+              }
+            }
+          },
+          {
+            "data": [
+              [
+                0.3958333333333333,
+                0.7708333333333334,
+                30,
+                null,
+                null,
+                null,
+                ""
+              ],
+              [
+                0.3958333333333333,
+                0.7708333333333334,
+                30,
+                null,
+                null,
+                null,
+                ""
+              ],
+              [
+                0.3958333333333333,
+                0.7708333333333334,
+                30,
+                null,
+                null,
+                null,
+                "Client visit"
+              ],
+              [
+                0.3958333333333333,
+                0.875,
+                30,
+                null,
+                null,
+                null,
+                "Month-end stock count"
+              ],
+              [
+                0.3958333333333333,
+                0.7708333333333334,
+                30,
+                null,
+                null,
+                null,
+                ""
+              ],
+              [
+                0.4166666666666667,
+                0.5833333333333334,
+                0,
+                null,
+                null,
+                null,
+                "Half day"
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                "Weekly off"
+              ]
+            ],
+            "at": "C12"
+          },
+          {
+            "cf": "H12:H18",
+            "rule": "over",
+            "ref": "H12>0"
+          },
+          {
+            "c": "A19",
+            "m": "A19:E19",
+            "v": "Week total",
+            "s": "total"
+          },
+          {
+            "c": "F19",
+            "v": "=SUM(F12:F18)",
+            "s": "total",
+            "fmt": "0.00",
+            "align": "center"
+          },
+          {
+            "c": "G19",
+            "v": "=SUM(G12:G18)",
+            "s": "total",
+            "fmt": "0.00",
+            "align": "center"
+          },
+          {
+            "c": "H19",
+            "v": "=SUM(H12:H18)",
+            "s": "total",
+            "fmt": "0.00",
+            "align": "center"
+          },
+          {
+            "c": "I19",
+            "v": "",
+            "s": "total"
+          },
+          {
+            "height": [
+              12,
+              24
+            ]
+          },
+          {
+            "height": [
+              13,
+              24
+            ]
+          },
+          {
+            "height": [
+              14,
+              24
+            ]
+          },
+          {
+            "height": [
+              15,
+              24
+            ]
+          },
+          {
+            "height": [
+              16,
+              24
+            ]
+          },
+          {
+            "height": [
+              17,
+              24
+            ]
+          },
+          {
+            "height": [
+              18,
+              24
+            ]
+          },
+          {
+            "c": "A21",
+            "m": "A21:I21",
+            "v": "WEEK SUMMARY",
+            "s": "band"
+          },
+          {
+            "c": "A22",
+            "m": "A22:D22",
+            "v": "Total hours worked",
+            "s": "label"
+          },
+          {
+            "c": "E22",
+            "v": "=F19",
+            "s": "calc",
+            "fmt": "hours",
+            "align": "right"
+          },
+          {
+            "c": "A23",
+            "m": "A23:D23",
+            "v": "Overtime counted by day (over the daily limit)",
+            "s": "label"
+          },
+          {
+            "c": "E23",
+            "v": "=H19",
+            "s": "calc",
+            "fmt": "hours",
+            "align": "right"
+          },
+          {
+            "c": "A24",
+            "m": "A24:D24",
+            "v": "Overtime counted by week (over the weekly limit)",
+            "s": "label"
+          },
+          {
+            "c": "E24",
+            "v": "=MAX(0,F19-I9)",
+            "s": "calc",
+            "fmt": "hours",
+            "align": "right"
+          },
+          {
+            "c": "A25",
+            "m": "A25:D25",
+            "v": "Overtime hours paid (the larger of the two)",
+            "s": "label"
+          },
+          {
+            "c": "E25",
+            "v": "=MAX(E23,E24)",
+            "s": "calc",
+            "fmt": "hours",
+            "align": "right",
+            "bold": true
+          },
+          {
+            "c": "A26",
+            "m": "A26:D26",
+            "v": "Normal hours paid",
+            "s": "label"
+          },
+          {
+            "c": "E26",
+            "v": "=E22-E25",
+            "s": "calc",
+            "fmt": "hours",
+            "align": "right"
+          },
+          {
+            "c": "G22",
+            "v": "Normal pay",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "H22",
+            "m": "H22:I22",
+            "v": "=ROUND(E26*C9,2)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "G23",
+            "v": "Overtime pay",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "H23",
+            "m": "H23:I23",
+            "v": "=ROUND(E25*C9*C10,2)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "G24",
+            "v": "Gross pay",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "A28",
+            "m": "A28:I28",
+            "v": "Gross pay is before any deductions such as tax, PF or ESI. Overtime limits and rates differ by country, state, industry and contract, so check the rules that apply to you.",
+            "s": "note"
+          },
+          {
+            "height": [
+              28,
+              28
+            ]
+          },
+          {
+            "c": "A30",
+            "m": "A30:D30",
+            "v": "I confirm these hours are correct.",
+            "s": "plain"
+          },
+          {
+            "c": "F30",
+            "m": "F30:I30",
+            "v": "Approved by",
+            "s": "plain"
+          },
+          {
+            "height": [
+              31,
+              34
+            ]
+          },
+          {
+            "c": "A31",
+            "m": "A31:D31",
+            "v": "",
+            "s": "input"
+          },
+          {
+            "c": "F31",
+            "m": "F31:I31",
+            "v": "",
+            "s": "input"
+          },
+          {
+            "c": "A32",
+            "m": "A32:D32",
+            "v": "Employee signature and date",
+            "s": "note"
+          },
+          {
+            "c": "F32",
+            "m": "F32:I32",
+            "v": "Manager signature and date",
+            "s": "note"
+          },
+          {
+            "c": "H24",
+            "m": "H24:I25",
+            "v": "=H22+H23",
+            "s": "big",
+            "fmt": "#,##0.00"
+          }
+        ]
+      }
+    ]
+  }
+}

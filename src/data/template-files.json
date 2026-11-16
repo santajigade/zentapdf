@@ -100,6 +100,15 @@
   "previews": 1,
   "built": "2026-11-08"
  },
+ "inventory-tracker-excel": {
+  "files": {
+   "xlsx": 15235,
+   "pdf": 39766
+  },
+  "pages": 2,
+  "previews": 2,
+  "built": "2026-11-16"
+ },
  "job-application-form-template": {
   "files": {
    "docx": 12225,
@@ -117,6 +126,15 @@
   "pages": 1,
   "previews": 1,
   "built": "2026-11-11"
+ },
+ "loan-emi-schedule-excel": {
+  "files": {
+   "xlsx": 42176,
+   "pdf": 94206
+  },
+  "pages": 9,
+  "previews": 3,
+  "built": "2026-11-16"
  },
  "monthly-budget-template": {
   "files": {
@@ -241,6 +259,15 @@
   "pages": 1,
   "previews": 1,
   "built": "2026-11-14"
+ },
+ "timesheet-template-excel": {
+  "files": {
+   "xlsx": 9708,
+   "pdf": 42833
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-16"
  },
  "to-do-list-template": {
   "files": {

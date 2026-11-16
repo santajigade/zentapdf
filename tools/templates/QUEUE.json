@@ -259,8 +259,8 @@
    "slug": "inventory-tracker-excel",
    "category": "excel",
    "priority": 2,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-16",
    "note": "Stock in/out, reorder level flag, stock value."
   },
   {
@@ -268,8 +268,8 @@
    "slug": "timesheet-template-excel",
    "category": "excel",
    "priority": 2,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-16",
    "note": "Weekly timesheet with hours, overtime and totals."
   },
   {
@@ -277,8 +277,8 @@
    "slug": "loan-emi-schedule-excel",
    "category": "excel",
    "priority": 2,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-16",
    "note": "EMI with PMT and full amortisation schedule."
   },
   {
