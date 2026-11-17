@@ -42,10 +42,10 @@ Done:
 - [x] how-to-remove-exif-data-from-photos (2026-11-16)
 - [x] how-to-convert-pdf-to-jpg (2026-11-16)
 - [x] how-to-flatten-pdf-form (2026-11-16)
+- [x] how-to-make-barcode-for-products (2026-11-17)
+- [x] how-to-convert-webp-to-jpg (2026-11-17)
+- [x] how-to-join-audio-files (2026-11-17)
 
 Open:
-- [ ] How to make a barcode for products and shop items (barcode-generator)
-- [ ] How to convert WebP images to JPG (webp-to-jpg)
-- [ ] How to join two or more audio files into one (audio-joiner)
 - [ ] How to increase the volume of an audio file (volume-booster)
 - [ ] How to convert EPUB to PDF (epub-to-pdf)
