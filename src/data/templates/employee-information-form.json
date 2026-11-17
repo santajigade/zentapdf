@@ -1,0 +1,558 @@
+{
+  "slug": "employee-information-form",
+  "category": "forms",
+  "name": "Employee Information Form",
+  "h1": "Employee Information Form (Word and PDF Format)",
+  "metaTitle": "Employee Information Form: Free Word & PDF Format",
+  "metaDescription": "Free employee information form in Word and PDF. Collect job, personal, contact, ID, bank, emergency contact, nominee and education details from new joiners.",
+  "short": "Two page new joiner form: job, personal, contact, ID, bank, emergency, nominee, education and documents.",
+  "accent": "#1E5F8C",
+  "useCases": [
+    "HR",
+    "Hiring"
+  ],
+  "industries": [
+    "Small business",
+    "Startups",
+    "Corporate",
+    "All industries"
+  ],
+  "date": "2026-11-17",
+  "intro": "An employee information form collects the details HR needs when a new person joins: job details, personal and contact details, ID and tax numbers, bank account for salary, emergency contacts and nominees. This form puts all of it on two A4 pages with a photo box, a document checklist and a declaration for the employee to sign. Print it blank for new joiners or let them fill it in Word.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Replace the company name, address, HR email and phone at the top.",
+    "Remove any section or number you do not need, such as Passport or ESIC, so you only collect what you use.",
+    "Fill in the job details yourself before handing the form to the new joiner, or ask your manager to do it.",
+    "Ask the employee to fill the remaining sections, attach the listed documents and sign the declaration.",
+    "Check the form against the original documents and complete the For HR use only box.",
+    "Scan the signed form to PDF and store it in the employee file with restricted access."
+  ],
+  "guide": [
+    {
+      "h": "What is inside the file",
+      "p": [
+        "Page one has a header with a photo box and five numbered sections: Job details, Personal details, Contact details, ID, tax and statutory numbers, and Bank details for salary. Page two has tables for emergency contacts, family and nominee details, education and previous employment, a ticklist of documents attached, a declaration with signature lines and a box for HR use.",
+        "Employment type has four options to circle. The nominee table has a share % column, which is useful when you also collect PF or insurance nominations."
+      ]
+    },
+    {
+      "h": "Which details to collect in India",
+      "p": [
+        "Indian employers usually ask new joiners for PAN for income tax, the UAN if the person already has a PF account, bank details for salary, and copies of education and past employment papers. PF and ESI have their own official forms, such as the PF declaration and nomination forms, and this form does not replace them. Rules on which numbers you must collect depend on your company size and the laws that apply, so check the official EPFO and ESIC websites or ask your payroll adviser."
+      ]
+    },
+    {
+      "h": "Keep employee data safe",
+      "p": [
+        "This form holds personal data, ID numbers and bank details. Collect only the details you really need, keep paper copies in a locked file and scanned copies in a folder that only HR can open. Data protection laws, such as India's Digital Personal Data Protection Act, 2023, may set rules on how you collect, use and delete this data. Check the rules that apply to your business."
+      ]
+    }
+  ],
+  "tips": [
+    "Send the form to new joiners a few days before their first day so they can gather documents.",
+    "Ask employees to update the form once a year or when they move house or change bank.",
+    "Never share the filled form by group email or chat. Use a secure folder or HR system.",
+    "Keep a blank PDF on your shared drive so managers always use the latest version."
+  ],
+  "faqs": [
+    {
+      "q": "Is an employee information form required by law?",
+      "a": "The form itself is not a fixed legal format. It is a simple way to collect details that you need for payroll, tax and records. Some details may be required under the laws that apply to you, so check official sources."
+    },
+    {
+      "q": "Can I fill this form on a computer?",
+      "a": "Yes. Open the Word file, click after each label and type on the line. Save it as PDF before you send it."
+    },
+    {
+      "q": "Should I collect Aadhaar numbers?",
+      "a": "Only if you have a clear need. The form marks Aadhaar as if given, and you can delete the field. Check current rules before collecting or storing Aadhaar details."
+    },
+    {
+      "q": "Can I use it for interns and contract staff?",
+      "a": "Yes. Circle the right employment type. You can delete sections that do not apply, such as previous employment for a fresher."
+    },
+    {
+      "q": "How is this different from a job application form?",
+      "a": "A job application form is filled before hiring to judge a candidate. An employee information form is filled after the person joins, to set up their records, salary and emergency contacts."
+    }
+  ],
+  "related": [
+    "job-application-form-template",
+    "offer-letter-format",
+    "salary-slip-format"
+  ],
+  "tools": [
+    "word-to-pdf",
+    "edit-pdf",
+    "sign-pdf",
+    "jpg-to-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 14
+    },
+    "size": 9.5,
+    "font": "Segoe UI",
+    "headFont": "Cambria",
+    "titleSize": 22,
+    "blocks": [
+      {
+        "type": "columns",
+        "after": 2,
+        "cols": [
+          {
+            "w": 3,
+            "lines": [
+              "# Employee Information Form",
+              "## [Company Name]",
+              "~ [Address]  |  [HR email]  |  [Phone]",
+              "~ Please write in capital letters. Fill every box that applies and write NA where it does not."
+            ]
+          },
+          {
+            "w": 1,
+            "fill": true,
+            "align": "center",
+            "lines": [
+              "~ Paste a recent",
+              "~ passport size",
+              "~ photo here"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "1. Job details",
+        "caps": false,
+        "size": 12,
+        "before": 5
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "labelWidth": 0.4,
+        "items": [
+          [
+            "Employee ID",
+            ""
+          ],
+          [
+            "Date of joining",
+            ""
+          ],
+          [
+            "Designation",
+            ""
+          ],
+          [
+            "Department",
+            ""
+          ],
+          [
+            "Reporting manager",
+            ""
+          ],
+          [
+            "Work location",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "fields",
+        "labelWidth": 0.2,
+        "after": 3,
+        "items": [
+          [
+            "Employment type",
+            "Full time   /   Part time   /   Contract   /   Intern   (circle one)"
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "2. Personal details",
+        "caps": false,
+        "size": 12,
+        "before": 5
+      },
+      {
+        "type": "fields",
+        "labelWidth": 0.2,
+        "items": [
+          [
+            "Full name (as on ID)",
+            ""
+          ],
+          [
+            "Father or spouse name",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "fields",
+        "cols": 3,
+        "labelWidth": 0.45,
+        "items": [
+          [
+            "Date of birth",
+            ""
+          ],
+          [
+            "Gender",
+            ""
+          ],
+          [
+            "Blood group",
+            ""
+          ],
+          [
+            "Marital status",
+            ""
+          ],
+          [
+            "Nationality",
+            ""
+          ],
+          [
+            "Languages",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "3. Contact details",
+        "caps": false,
+        "size": 12,
+        "before": 5
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "labelWidth": 0.4,
+        "items": [
+          [
+            "Mobile",
+            ""
+          ],
+          [
+            "Alternate mobile",
+            ""
+          ],
+          [
+            "Personal email",
+            ""
+          ],
+          [
+            "Work email",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "fields",
+        "labelWidth": 0.2,
+        "rowHeight": 10,
+        "items": [
+          [
+            "Current address",
+            ""
+          ],
+          [
+            "Permanent address",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "4. ID, tax and statutory numbers",
+        "caps": false,
+        "size": 12,
+        "before": 5
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "labelWidth": 0.4,
+        "items": [
+          [
+            "PAN",
+            ""
+          ],
+          [
+            "Aadhaar (if given)",
+            ""
+          ],
+          [
+            "UAN (old PF number)",
+            ""
+          ],
+          [
+            "ESIC number",
+            ""
+          ],
+          [
+            "Passport number",
+            ""
+          ],
+          [
+            "Passport valid till",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Fill only the numbers that apply where you work. Outside India, use your local tax and social security numbers instead.",
+        "muted": true,
+        "italic": true,
+        "size": 8.5,
+        "after": 5
+      },
+      {
+        "type": "heading",
+        "text": "5. Bank details for salary",
+        "caps": false,
+        "size": 12,
+        "before": 5
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "labelWidth": 0.4,
+        "items": [
+          [
+            "Account holder name",
+            ""
+          ],
+          [
+            "Bank name",
+            ""
+          ],
+          [
+            "Account number",
+            ""
+          ],
+          [
+            "IFSC / branch code",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "6. Emergency contacts",
+        "caps": false,
+        "size": 12,
+        "before": 5,
+        "pagebreak": true
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "rowHeight": 7,
+        "columns": [
+          {
+            "h": "Name",
+            "w": 1.6
+          },
+          {
+            "h": "Relationship",
+            "w": 1
+          },
+          {
+            "h": "Mobile",
+            "w": 1.1
+          },
+          {
+            "h": "Address or city",
+            "w": 1.8
+          }
+        ],
+        "blank": 2
+      },
+      {
+        "type": "heading",
+        "text": "7. Family and nominee details",
+        "caps": false,
+        "size": 12,
+        "before": 5
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "rowHeight": 7,
+        "columns": [
+          {
+            "h": "Name",
+            "w": 1.6
+          },
+          {
+            "h": "Relationship",
+            "w": 1
+          },
+          {
+            "h": "Date of birth",
+            "w": 1
+          },
+          {
+            "h": "Share %",
+            "w": 0.7,
+            "align": "center"
+          },
+          {
+            "h": "Dependent (Y/N)",
+            "w": 1.1,
+            "align": "center"
+          }
+        ],
+        "blank": 3
+      },
+      {
+        "type": "heading",
+        "text": "8. Education",
+        "caps": false,
+        "size": 12,
+        "before": 5
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "rowHeight": 7,
+        "columns": [
+          {
+            "h": "Qualification",
+            "w": 1.3
+          },
+          {
+            "h": "School, college or university",
+            "w": 2.4
+          },
+          {
+            "h": "Year",
+            "w": 0.7,
+            "align": "center"
+          },
+          {
+            "h": "Marks / grade",
+            "w": 0.9,
+            "align": "center"
+          }
+        ],
+        "blank": 3
+      },
+      {
+        "type": "heading",
+        "text": "9. Previous employment (latest first)",
+        "caps": false,
+        "size": 12,
+        "before": 5
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "rowHeight": 7,
+        "columns": [
+          {
+            "h": "Company",
+            "w": 1.7
+          },
+          {
+            "h": "Designation",
+            "w": 1.3
+          },
+          {
+            "h": "From",
+            "w": 0.8,
+            "align": "center"
+          },
+          {
+            "h": "To",
+            "w": 0.8,
+            "align": "center"
+          },
+          {
+            "h": "Last salary",
+            "w": 1.1
+          }
+        ],
+        "blank": 2
+      },
+      {
+        "type": "heading",
+        "text": "10. Documents attached (tick)",
+        "caps": false,
+        "size": 12,
+        "before": 5
+      },
+      {
+        "type": "columns",
+        "after": 4,
+        "cols": [
+          {
+            "lines": [
+              "[  ]  PAN card copy",
+              "[  ]  Address proof",
+              "[  ]  Two passport size photos"
+            ]
+          },
+          {
+            "lines": [
+              "[  ]  Degree or mark sheets",
+              "[  ]  Relieving or experience letter",
+              "[  ]  Last three payslips"
+            ]
+          },
+          {
+            "lines": [
+              "[  ]  Cancelled cheque",
+              "[  ]  Signed offer letter",
+              "[  ]  Other: ____________"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Declaration",
+        "caps": false,
+        "size": 12,
+        "before": 5
+      },
+      {
+        "type": "p",
+        "text": "I confirm that the details in this form are true and complete. I will inform HR in writing if any of them change. I agree that the company may use these details for employment, payroll and statutory records.",
+        "after": 2
+      },
+      {
+        "type": "signature",
+        "space": 12,
+        "items": [
+          "Employee signature",
+          "Date",
+          "Place"
+        ]
+      },
+      {
+        "type": "box",
+        "title": "For HR use only",
+        "small": true,
+        "after": 0,
+        "lines": [
+          "Details checked by: ______________________   Date: ____________   Entered in HR system on: ____________",
+          "Remarks: _______________________________________________________________________________"
+        ]
+      }
+    ]
+  }
+}

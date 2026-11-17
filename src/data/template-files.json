@@ -54,6 +54,15 @@
   "previews": 1,
   "built": "2026-11-15"
  },
+ "employee-information-form": {
+  "files": {
+   "docx": 13389,
+   "pdf": 94125
+  },
+  "pages": 2,
+  "previews": 2,
+  "built": "2026-11-17"
+ },
  "expense-tracker-excel": {
   "files": {
    "xlsx": 12438,
@@ -89,6 +98,15 @@
   "pages": 1,
   "previews": 1,
   "built": "2026-11-07"
+ },
+ "gantt-chart-excel": {
+  "files": {
+   "xlsx": 12894,
+   "pdf": 39641
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-17"
  },
  "gst-invoice-format": {
   "files": {
@@ -135,6 +153,15 @@
   "pages": 9,
   "previews": 3,
   "built": "2026-11-16"
+ },
+ "meeting-minutes-template": {
+  "files": {
+   "docx": 12763,
+   "pdf": 69145
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-17"
  },
  "monthly-budget-template": {
   "files": {

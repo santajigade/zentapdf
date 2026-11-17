@@ -1,0 +1,356 @@
+{
+  "slug": "meeting-minutes-template",
+  "category": "forms",
+  "name": "Meeting Minutes Template",
+  "h1": "Meeting Minutes Template (Word and PDF Format)",
+  "metaTitle": "Meeting Minutes Template: Free Word & PDF Format",
+  "metaDescription": "Free meeting minutes template in Word and PDF. Record attendees, agenda items, decisions and action items with owners and due dates. Easy to edit and share.",
+  "short": "Minutes format with attendance, agenda and decisions table, action items with owners and dates, and sign-off.",
+  "accent": "#14532D",
+  "useCases": [
+    "Meetings",
+    "Planning"
+  ],
+  "industries": [
+    "Corporate",
+    "Small business",
+    "NGOs",
+    "Schools"
+  ],
+  "date": "2026-11-17",
+  "intro": "Meeting minutes are the written record of what a meeting decided and who will do what next. This meeting minutes template gives you one page for the meeting details, who attended, the discussion and decision for each agenda item, an action items table and the next meeting date. It comes filled with a sample monthly review so you can see how much to write, then you replace it with your own notes.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Replace the organisation name, meeting number, date, time and venue at the top.",
+    "Write the chairperson, the person taking minutes, who was present and who sent apologies.",
+    "For each agenda item, note who led it, the main points in one or two lines and the decision taken.",
+    "List every action item with one owner and a due date. Leave the status as Open.",
+    "Add the next meeting date and topics, then send the minutes to everyone within a day or two.",
+    "After the chairperson approves the minutes, sign them and save a PDF copy for your records."
+  ],
+  "guide": [
+    {
+      "h": "What to include in meeting minutes",
+      "p": [
+        "Good minutes cover the basics: the group name, meeting date, time and place, who chaired, who attended and who was absent. They say whether the previous minutes and the agenda were approved. For each agenda item they record the topic, who presented it, the decision and who is responsible, with deadlines. They end with the time the meeting closed and the next meeting details.",
+        "This template has a place for each of these. Minutes do not need to repeat every word that was said. Write the decision and the reason in short, plain sentences."
+      ]
+    },
+    {
+      "h": "What is inside the file",
+      "p": [
+        "An A4 page with a header for the meeting title and details, three shaded boxes for the chair, members present and apologies, a five column discussion table (#, Agenda item, Led by, Key points discussed, Decision), an action items table with owner, due date and status, a next meeting section and three signature lines. Add or remove table rows as you need."
+      ]
+    },
+    {
+      "h": "Formal meetings have their own rules",
+      "p": [
+        "Board meetings, society meetings and general meetings of a company often have rules about notice, quorum, how minutes are signed and how long they must be kept. These rules depend on the law that applies to your organisation and on its own constitution or bye-laws. Use this template for team and office meetings, and check the official rules or ask your company secretary before using it for statutory minutes."
+      ]
+    }
+  ],
+  "tips": [
+    "Take rough notes during the meeting and write the clean minutes the same day.",
+    "Write decisions in the past tense, like Agreed to move go-live to 1 January.",
+    "Give every action item one owner, even when two people help.",
+    "Start the next meeting by checking the open action items from the last minutes.",
+    "Keep a numbered series, like MOM-2026-11, so minutes are easy to find later."
+  ],
+  "faqs": [
+    {
+      "q": "Who should write the meeting minutes?",
+      "a": "Usually a secretary, a team member or someone chosen at the start of the meeting. It helps if the minute taker is not also leading the discussion."
+    },
+    {
+      "q": "What is the difference between an agenda and minutes?",
+      "a": "An agenda is the list of topics sent before the meeting. Minutes are the record made during and after the meeting of what was discussed, decided and assigned."
+    },
+    {
+      "q": "Should minutes record who said what?",
+      "a": "For most office meetings, no. Record the main points, the decision and the action owners. Some formal meetings need votes or objections recorded, so follow your organisation's rules."
+    },
+    {
+      "q": "Can I use this template for online meetings?",
+      "a": "Yes. Type the video call link in the Venue line and list the people who joined online under Present."
+    },
+    {
+      "q": "How do I share the minutes?",
+      "a": "Save the Word file as PDF and email it, or upload it to your shared folder. A PDF keeps the layout the same on every phone and computer."
+    }
+  ],
+  "related": [
+    "to-do-list-template",
+    "weekly-planner-template",
+    "job-application-form-template"
+  ],
+  "tools": [
+    "word-to-pdf",
+    "sign-pdf",
+    "edit-pdf",
+    "merge-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 12
+    },
+    "size": 9.5,
+    "font": "Calibri",
+    "headFont": "Georgia",
+    "titleSize": 24,
+    "blocks": [
+      {
+        "type": "header",
+        "split": [
+          1.3,
+          1
+        ],
+        "after": 4,
+        "left": [
+          "# Meeting Minutes",
+          "## [Organisation or team name]",
+          "~ Monthly operations review"
+        ],
+        "right": [
+          "**Meeting no.**  MOM-2026-11",
+          "**Date**  17 Nov 2026",
+          "**Time**  10:00 am to 11:15 am",
+          "**Venue**  Conference room 2 / [video link]"
+        ]
+      },
+      {
+        "type": "columns",
+        "after": 4,
+        "cols": [
+          {
+            "title": "Chaired by",
+            "fill": true,
+            "lines": [
+              "## Ritu Sharma, Operations Head",
+              "Minutes taken by: Anil Mehta"
+            ]
+          },
+          {
+            "title": "Present",
+            "fill": true,
+            "w": 1.4,
+            "lines": [
+              "Ritu Sharma, Anil Mehta, Farah Khan (Accounts), Suresh Iyer (Stores), Deepa Nair (Sales), Vikram Rao (IT)"
+            ]
+          },
+          {
+            "title": "Apologies / absent",
+            "fill": true,
+            "w": 0.8,
+            "lines": [
+              "Kiran Patel (on leave)",
+              "Guest: none"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "labelWidth": 0.42,
+        "after": 4,
+        "items": [
+          [
+            "Previous minutes",
+            "Approved with no changes"
+          ],
+          [
+            "Agenda",
+            "Approved as circulated"
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "before": 6,
+        "text": "Discussion and decisions"
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "top": true,
+        "headFill": "#DCEBE1",
+        "headText": "#14532D",
+        "columns": [
+          {
+            "h": "#",
+            "w": 0.3,
+            "align": "center"
+          },
+          {
+            "h": "Agenda item",
+            "w": 1.3
+          },
+          {
+            "h": "Led by",
+            "w": 0.8
+          },
+          {
+            "h": "Key points discussed",
+            "w": 2.6
+          },
+          {
+            "h": "Decision",
+            "w": 1.7
+          }
+        ],
+        "rows": [
+          [
+            "1",
+            "Sales for October",
+            "Deepa",
+            "Sales were 6% above target. Delivery delays caused three complaints.",
+            "Share the complaint details with Stores this week."
+          ],
+          [
+            "2",
+            "Stock levels",
+            "Suresh",
+            "Packing material ran short twice. Supplier lead time is now 10 days instead of 5.",
+            "Raise the reorder level for boxes and tape."
+          ],
+          [
+            "3",
+            "Pending payments",
+            "Farah",
+            "Rs 4.2 lakh is overdue by more than 60 days from five customers.",
+            "Sales and Accounts to call each customer together."
+          ],
+          [
+            "4",
+            "New billing software",
+            "Vikram",
+            "Trial version tested by Accounts. Staff need training before go-live.",
+            "Go-live moved to 1 Jan 2027."
+          ],
+          [
+            "5",
+            "Any other business",
+            "Ritu",
+            "Office closed on [holiday date]. Leave plans due with HR by 30 Nov.",
+            "Noted."
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "before": 6,
+        "text": "Action items"
+      },
+      {
+        "type": "table",
+        "grid": false,
+        "zebra": true,
+        "columns": [
+          {
+            "h": "#",
+            "w": 0.3,
+            "align": "center"
+          },
+          {
+            "h": "Action",
+            "w": 3
+          },
+          {
+            "h": "Owner",
+            "w": 1
+          },
+          {
+            "h": "Due date",
+            "w": 0.9,
+            "align": "center"
+          },
+          {
+            "h": "Status",
+            "w": 0.9,
+            "align": "center"
+          }
+        ],
+        "rows": [
+          [
+            "1",
+            "Send complaint list and delivery dates to Stores",
+            "Deepa",
+            "19 Nov 2026",
+            "Open"
+          ],
+          [
+            "2",
+            "Update reorder levels for packing material in the stock sheet",
+            "Suresh",
+            "21 Nov 2026",
+            "Open"
+          ],
+          [
+            "3",
+            "Call five overdue customers and agree payment dates",
+            "Farah, Deepa",
+            "28 Nov 2026",
+            "Open"
+          ],
+          [
+            "4",
+            "Book a two hour training session on the billing software",
+            "Vikram",
+            "5 Dec 2026",
+            "Open"
+          ]
+        ],
+        "rowHeight": 6.5,
+        "after": 4
+      },
+      {
+        "type": "heading",
+        "before": 6,
+        "text": "Next meeting"
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "labelWidth": 0.3,
+        "rowHeight": 6.5,
+        "after": 3,
+        "items": [
+          [
+            "Date",
+            "15 Dec 2026"
+          ],
+          [
+            "Time",
+            "10:00 am"
+          ],
+          [
+            "Venue",
+            "Conference room 2"
+          ],
+          [
+            "Topics",
+            "Year-end stock count, billing go-live"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Meeting closed at 11:15 am. Minutes sent to all members on [date sent].",
+        "muted": true,
+        "size": 9,
+        "after": 2
+      },
+      {
+        "type": "signature",
+        "space": 12,
+        "items": [
+          "Chairperson signature",
+          "Minutes taken by",
+          "Date approved"
+        ]
+      }
+    ]
+  }
+}

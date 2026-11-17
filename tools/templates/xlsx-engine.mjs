@@ -5,7 +5,8 @@
 //   { "rows": [6, 30], "cols": { "A": { "s": "input", "fmt": "date" }, "E": { "v": "=IF(C{r}=\"\",\"\",C{r}*D{r})", "s": "calc" } } }
 //   { "data": [["2026-11-01", "Rent", 1200]], "at": "A6" }                       sample values (dates as YYYY-MM-DD)
 //   { "list": "C6:C30", "items": ["Food", "Rent"] }  or  { "list": "C6:C30", "ref": "Lists!$A$2:$A$12" }
-//   { "cf": "E6:E30", "rule": "neg" | "pos" | "bar" | "done", "ref": "F6" }     conditional formats
+//   { "cf": "E6:E30", "rule": "neg" | "pos" | "bar" | "done" | "over", "ref": "F6" }     conditional formats
+//   { "cf": "I7:X36", "rule": "fill", "ref": "AND(...)", "color": "#B91C1C", "text": "#FFFFFF" }  custom fill (e.g. Gantt bars; first op wins)
 //   { "height": [1, 30] }  row height     { "note": "B3", "text": "..." }     cell comment
 // Styles: title, sub, header, label, input, calc, total, note, band, plain, big, check
 import ExcelJS from 'exceljs';
@@ -98,6 +99,7 @@ export async function makeXlsx(spec, accentHex, title) {
           pos: [{ type: 'cellIs', operator: 'greaterThan', formulae: [0], style: { font: { color: { argb: 'FF047857' }, bold: true } } }],
           bar: [{ type: 'dataBar', minLength: 0, maxLength: 100, cfvo: [{ type: 'num', value: 0 }, { type: 'num', value: 1 }], color: { argb: 'FF' + A } }],
           done: [{ type: 'expression', formulae: [op.ref], style: { font: { color: { argb: 'FF9CA3AF' }, strike: true }, fill: { type: 'pattern', pattern: 'solid', bgColor: { argb: 'FFF3F4F6' } } } }],
+          fill: [{ type: 'expression', formulae: [op.ref], style: { font: { color: { argb: 'FF' + hex(op.text || 'FFFFFF') } }, fill: { type: 'pattern', pattern: 'solid', bgColor: { argb: 'FF' + (op.color ? hex(op.color) : A) } } } }],
           over: [{ type: 'expression', formulae: [op.ref], style: { font: { color: { argb: 'FFB91C1C' }, bold: true }, fill: { type: 'pattern', pattern: 'solid', bgColor: { argb: 'FFFEE2E2' } } } }],
         }[op.rule];
         ws.addConditionalFormatting({ ref: op.cf, rules });

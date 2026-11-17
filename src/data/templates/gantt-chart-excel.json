@@ -1,0 +1,1042 @@
+{
+  "slug": "gantt-chart-excel",
+  "category": "excel",
+  "name": "Gantt Chart Template Excel",
+  "h1": "Gantt Chart Template in Excel (Project Plan with Timeline)",
+  "metaTitle": "Gantt Chart Excel Template: Free Project Plan",
+  "metaDescription": "Free Gantt chart template in Excel. Type each task, start date and days; end dates, status and weekly timeline bars appear by themselves. No macros.",
+  "short": "One-page project plan with a 16 week Gantt timeline, progress bars, late flags and working day end dates.",
+  "accent": "#0369A1",
+  "useCases": [
+    "Planning",
+    "Tracking"
+  ],
+  "industries": [
+    "Small business",
+    "Startups",
+    "Professionals",
+    "IT and software"
+  ],
+  "date": "2026-11-17",
+  "intro": "This Gantt chart template in Excel turns a simple task list into a project plan with a timeline. You type each task, its owner, the start date, the number of days and how much is done, and the sheet fills in the end date, the status and a coloured bar across 16 weeks. It prints on one landscape page, so you can share the plan in a meeting or as a PDF.",
+  "howTo": [
+    "Download the Excel file and open it in Microsoft Excel, Google Sheets or LibreOffice Calc.",
+    "Type the project name in the top line and the project manager name in the box below it.",
+    "Enter the Project start date. The 16 week timeline starts from the Monday of that week.",
+    "Choose Yes or No in Working days only. Yes skips Saturdays and Sundays when the end date is worked out.",
+    "Replace the sample tasks with your own. For each task type the owner, start date and number of days.",
+    "Update % done as work moves ahead, for example 50% for a task that is half finished.",
+    "Check the Status column and the bars. Late tasks turn red so you can follow up quickly.",
+    "Print the sheet or save it as PDF to share the plan with your team or client."
+  ],
+  "guide": [
+    {
+      "h": "What is inside the file",
+      "p": [
+        "One sheet called Gantt with room for 30 tasks. The columns are #, Task, Owner, Start, Days, End, % done and Status, followed by 16 week columns. Each week column shows the month and the Monday date at the top.",
+        "The top of the sheet shows the project start, the project end (the latest end date of all tasks), today's date, the overall % done and the number of late tasks. Overall % done is weighted by days, so a long task counts more than a short one. A small legend at the bottom explains the colours."
+      ]
+    },
+    {
+      "h": "How the bars and status work",
+      "p": [
+        "The bars are made with conditional formatting, not with a chart, so there is nothing to redraw. A week cell turns light blue when the task runs during that week. The done part of the task is shaded dark blue based on % done. If the end date has passed and the task is not 100% done, the whole bar turns red and the status says **Late**.",
+        "Status is worked out from today's date: Not started, In progress, Late or Done. The current week is highlighted in amber in the header, so you can see at a glance where the project should be."
+      ]
+    },
+    {
+      "h": "Working days and holidays",
+      "p": [
+        "When Working days only is set to Yes, the End date uses the WORKDAY function, which skips Saturdays and Sundays. It does not know your public holidays, because these differ by country, state and company. If a holiday falls inside a task, add one more day to that task. Set it to No if your team works every day or you plan in calendar days."
+      ]
+    }
+  ],
+  "tips": [
+    "Break big jobs into tasks of 2 to 10 days so progress is easy to judge.",
+    "Give every task one owner. Shared tasks tend to slip.",
+    "Update % done once a week, before your team meeting.",
+    "Keep the first sample plan as a copy and start each new project from a fresh download.",
+    "If a task cannot start until another ends, set its start date to the day after the earlier task ends."
+  ],
+  "faqs": [
+    {
+      "q": "Does this Gantt chart work in Google Sheets?",
+      "a": "Yes. Upload the file to Google Drive and open it with Google Sheets. The formulas, the Yes or No drop-down and the coloured bars all work there."
+    },
+    {
+      "q": "Can I show more than 16 weeks?",
+      "a": "The print layout is set for 16 weeks on one page. For a longer project, move the Project start date forward to see later weeks, or copy the last week column to the right and widen the print area."
+    },
+    {
+      "q": "Can I add more than 30 tasks?",
+      "a": "Yes. Insert rows inside the task table, above the last task row, and copy the formulas in the #, End and Status columns down. The bar colours follow the new rows."
+    },
+    {
+      "q": "Does it link tasks to each other?",
+      "a": "No. Each task has its own start date. To show that one task follows another, type a start date after the end date of the earlier task. Changing one task does not move the others."
+    },
+    {
+      "q": "Does it use macros?",
+      "a": "No. The file has only normal formulas and conditional formatting, so it opens safely and nothing needs to be enabled."
+    }
+  ],
+  "related": [
+    "to-do-list-template",
+    "timesheet-template-excel",
+    "weekly-planner-template"
+  ],
+  "tools": [
+    "excel-to-pdf",
+    "pdf-to-excel",
+    "merge-pdf",
+    "compress-pdf"
+  ],
+  "sheet": {
+    "font": "Segoe UI",
+    "sheets": [
+      {
+        "name": "Gantt",
+        "cols": [
+          4,
+          28,
+          10,
+          10,
+          6,
+          10,
+          7.5,
+          11.5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "tab": "#0369A1",
+        "freeze": 7,
+        "page": {
+          "orientation": "landscape",
+          "area": "A1:X40",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              34
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:X1",
+            "v": "PROJECT PLAN AND GANTT CHART",
+            "s": "band",
+            "align": "center"
+          },
+          {
+            "c": "A2",
+            "m": "A2:X2",
+            "v": "[Project name]   |   [Company or team name]",
+            "s": "sub",
+            "align": "center"
+          },
+          {
+            "height": [
+              3,
+              22
+            ]
+          },
+          {
+            "height": [
+              4,
+              22
+            ]
+          },
+          {
+            "c": "A3",
+            "m": "A3:B3",
+            "v": "Project manager",
+            "s": "label"
+          },
+          {
+            "c": "C3",
+            "m": "C3:D3",
+            "v": "[Name]",
+            "s": "input"
+          },
+          {
+            "c": "E3",
+            "m": "E3:F3",
+            "v": "Project start",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "G3",
+            "m": "G3:H3",
+            "v": "2026-11-02",
+            "s": "input",
+            "fmt": "dd mmm yyyy",
+            "align": "center"
+          },
+          {
+            "c": "J3",
+            "m": "J3:M3",
+            "v": "Project end",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "N3",
+            "m": "N3:P3",
+            "v": "=IF(COUNT(F8:F37)=0,\"\",MAX(F8:F37))",
+            "s": "calc",
+            "fmt": "dd mmm yyyy",
+            "align": "center"
+          },
+          {
+            "c": "R3",
+            "m": "R3:T3",
+            "v": "Overall done",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "U3",
+            "m": "U3:X3",
+            "v": "=IFERROR(SUMPRODUCT(E8:E37,G8:G37)/SUM(E8:E37),0)",
+            "s": "calc",
+            "fmt": "pct",
+            "align": "center",
+            "bold": true
+          },
+          {
+            "c": "A4",
+            "m": "A4:B4",
+            "v": "Working days only?",
+            "s": "label"
+          },
+          {
+            "c": "C4",
+            "v": "Yes",
+            "s": "input",
+            "align": "center"
+          },
+          {
+            "list": "C4",
+            "items": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "c": "D4",
+            "m": "D4:H4",
+            "v": "Yes skips Saturdays and Sundays. No counts every day.",
+            "s": "note"
+          },
+          {
+            "c": "J4",
+            "m": "J4:M4",
+            "v": "Today",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "N4",
+            "m": "N4:P4",
+            "v": "=TODAY()",
+            "s": "calc",
+            "fmt": "dd mmm yyyy",
+            "align": "center"
+          },
+          {
+            "c": "R4",
+            "m": "R4:T4",
+            "v": "Tasks late",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "U4",
+            "m": "U4:X4",
+            "v": "=COUNTIF(H8:H37,\"Late\")",
+            "s": "calc",
+            "fmt": "int",
+            "align": "center",
+            "bold": true
+          },
+          {
+            "height": [
+              6,
+              18
+            ]
+          },
+          {
+            "c": "A6",
+            "m": "A6:H6",
+            "v": "Tasks (white cells are yours to fill)",
+            "s": "band"
+          },
+          {
+            "height": [
+              7,
+              30
+            ]
+          },
+          {
+            "row": 7,
+            "from": "A",
+            "v": [
+              "#",
+              "Task",
+              "Owner",
+              "Start",
+              "Days",
+              "End",
+              "% done",
+              "Status"
+            ],
+            "s": "header"
+          },
+          {
+            "c": "I7",
+            "v": "=$G$3-WEEKDAY($G$3,3)",
+            "s": "header",
+            "fmt": "dd"
+          },
+          {
+            "c": "I6",
+            "v": "=I7",
+            "s": "band",
+            "fmt": "mmm",
+            "align": "center"
+          },
+          {
+            "c": "J7",
+            "v": "=I7+7",
+            "s": "header",
+            "fmt": "dd"
+          },
+          {
+            "c": "J6",
+            "v": "=J7",
+            "s": "band",
+            "fmt": "mmm",
+            "align": "center"
+          },
+          {
+            "c": "K7",
+            "v": "=J7+7",
+            "s": "header",
+            "fmt": "dd"
+          },
+          {
+            "c": "K6",
+            "v": "=K7",
+            "s": "band",
+            "fmt": "mmm",
+            "align": "center"
+          },
+          {
+            "c": "L7",
+            "v": "=K7+7",
+            "s": "header",
+            "fmt": "dd"
+          },
+          {
+            "c": "L6",
+            "v": "=L7",
+            "s": "band",
+            "fmt": "mmm",
+            "align": "center"
+          },
+          {
+            "c": "M7",
+            "v": "=L7+7",
+            "s": "header",
+            "fmt": "dd"
+          },
+          {
+            "c": "M6",
+            "v": "=M7",
+            "s": "band",
+            "fmt": "mmm",
+            "align": "center"
+          },
+          {
+            "c": "N7",
+            "v": "=M7+7",
+            "s": "header",
+            "fmt": "dd"
+          },
+          {
+            "c": "N6",
+            "v": "=N7",
+            "s": "band",
+            "fmt": "mmm",
+            "align": "center"
+          },
+          {
+            "c": "O7",
+            "v": "=N7+7",
+            "s": "header",
+            "fmt": "dd"
+          },
+          {
+            "c": "O6",
+            "v": "=O7",
+            "s": "band",
+            "fmt": "mmm",
+            "align": "center"
+          },
+          {
+            "c": "P7",
+            "v": "=O7+7",
+            "s": "header",
+            "fmt": "dd"
+          },
+          {
+            "c": "P6",
+            "v": "=P7",
+            "s": "band",
+            "fmt": "mmm",
+            "align": "center"
+          },
+          {
+            "c": "Q7",
+            "v": "=P7+7",
+            "s": "header",
+            "fmt": "dd"
+          },
+          {
+            "c": "Q6",
+            "v": "=Q7",
+            "s": "band",
+            "fmt": "mmm",
+            "align": "center"
+          },
+          {
+            "c": "R7",
+            "v": "=Q7+7",
+            "s": "header",
+            "fmt": "dd"
+          },
+          {
+            "c": "R6",
+            "v": "=R7",
+            "s": "band",
+            "fmt": "mmm",
+            "align": "center"
+          },
+          {
+            "c": "S7",
+            "v": "=R7+7",
+            "s": "header",
+            "fmt": "dd"
+          },
+          {
+            "c": "S6",
+            "v": "=S7",
+            "s": "band",
+            "fmt": "mmm",
+            "align": "center"
+          },
+          {
+            "c": "T7",
+            "v": "=S7+7",
+            "s": "header",
+            "fmt": "dd"
+          },
+          {
+            "c": "T6",
+            "v": "=T7",
+            "s": "band",
+            "fmt": "mmm",
+            "align": "center"
+          },
+          {
+            "c": "U7",
+            "v": "=T7+7",
+            "s": "header",
+            "fmt": "dd"
+          },
+          {
+            "c": "U6",
+            "v": "=U7",
+            "s": "band",
+            "fmt": "mmm",
+            "align": "center"
+          },
+          {
+            "c": "V7",
+            "v": "=U7+7",
+            "s": "header",
+            "fmt": "dd"
+          },
+          {
+            "c": "V6",
+            "v": "=V7",
+            "s": "band",
+            "fmt": "mmm",
+            "align": "center"
+          },
+          {
+            "c": "W7",
+            "v": "=V7+7",
+            "s": "header",
+            "fmt": "dd"
+          },
+          {
+            "c": "W6",
+            "v": "=W7",
+            "s": "band",
+            "fmt": "mmm",
+            "align": "center"
+          },
+          {
+            "c": "X7",
+            "v": "=W7+7",
+            "s": "header",
+            "fmt": "dd"
+          },
+          {
+            "c": "X6",
+            "v": "=X7",
+            "s": "band",
+            "fmt": "mmm",
+            "align": "center"
+          },
+          {
+            "rows": [
+              8,
+              37
+            ],
+            "cols": {
+              "A": {
+                "v": "=IF(B{r}=\"\",\"\",ROW()-7)",
+                "s": "calc",
+                "align": "center"
+              },
+              "B": {
+                "s": "input"
+              },
+              "C": {
+                "s": "input"
+              },
+              "D": {
+                "s": "input",
+                "fmt": "dd mmm yy",
+                "align": "center"
+              },
+              "E": {
+                "s": "input",
+                "fmt": "int",
+                "align": "center"
+              },
+              "F": {
+                "v": "=IF(OR(D{r}=\"\",E{r}=\"\"),\"\",IF($C$4=\"Yes\",WORKDAY(D{r},MAX(1,E{r})-1),D{r}+MAX(1,E{r})-1))",
+                "s": "calc",
+                "fmt": "dd mmm yy",
+                "align": "center"
+              },
+              "G": {
+                "s": "input",
+                "fmt": "pct",
+                "align": "center"
+              },
+              "H": {
+                "v": "=IF(OR(B{r}=\"\",D{r}=\"\",E{r}=\"\"),\"\",IF(N(G{r})>=1,\"Done\",IF(F{r}<TODAY(),\"Late\",IF(D{r}>TODAY(),\"Not started\",\"In progress\"))))",
+                "s": "calc",
+                "align": "center"
+              },
+              "I": {
+                "s": "calc"
+              },
+              "J": {
+                "s": "calc"
+              },
+              "K": {
+                "s": "calc"
+              },
+              "L": {
+                "s": "calc"
+              },
+              "M": {
+                "s": "calc"
+              },
+              "N": {
+                "s": "calc"
+              },
+              "O": {
+                "s": "calc"
+              },
+              "P": {
+                "s": "calc"
+              },
+              "Q": {
+                "s": "calc"
+              },
+              "R": {
+                "s": "calc"
+              },
+              "S": {
+                "s": "calc"
+              },
+              "T": {
+                "s": "calc"
+              },
+              "U": {
+                "s": "calc"
+              },
+              "V": {
+                "s": "calc"
+              },
+              "W": {
+                "s": "calc"
+              },
+              "X": {
+                "s": "calc"
+              }
+            }
+          },
+          {
+            "data": [
+              [
+                "Kick-off meeting and scope",
+                "Priya",
+                "2026-11-02",
+                2,
+                null,
+                1
+              ],
+              [
+                "Collect content and photos",
+                "Rahul",
+                "2026-11-04",
+                8,
+                null,
+                1
+              ],
+              [
+                "Sitemap and wireframes",
+                "Neha",
+                "2026-11-09",
+                6,
+                null,
+                0.8
+              ],
+              [
+                "Visual design for all pages",
+                "Neha",
+                "2026-11-16",
+                10,
+                null,
+                0.3
+              ],
+              [
+                "Client review and changes",
+                "Priya",
+                "2026-11-30",
+                5,
+                null,
+                0
+              ],
+              [
+                "Front-end build",
+                "Arjun",
+                "2026-12-07",
+                15,
+                null,
+                0
+              ],
+              [
+                "Content entry and basic SEO",
+                "Rahul",
+                "2026-12-21",
+                8,
+                null,
+                0
+              ],
+              [
+                "Contact form and payments",
+                "Arjun",
+                "2026-12-28",
+                6,
+                null,
+                0
+              ],
+              [
+                "Testing on phone and desktop",
+                "Kavya",
+                "2027-01-06",
+                7,
+                null,
+                0
+              ],
+              [
+                "Fixes from testing",
+                "Arjun",
+                "2027-01-15",
+                5,
+                null,
+                0
+              ],
+              [
+                "Staff training",
+                "Priya",
+                "2027-01-22",
+                2,
+                null,
+                0
+              ],
+              [
+                "Launch and go-live checks",
+                "Arjun",
+                "2027-01-26",
+                2,
+                null,
+                0
+              ],
+              [
+                "Support after launch",
+                "Kavya",
+                "2027-01-28",
+                10,
+                null,
+                0
+              ]
+            ],
+            "at": "B8"
+          },
+          {
+            "cf": "I8:X37",
+            "rule": "fill",
+            "ref": "AND(AND($D8<>\"\",$F8<>\"\",I$7<=$F8,I$7+6>=$D8),N($G8)>0,I$7<=$D8+ROUND(($F8-$D8+1)*$G8,0)-1)",
+            "color": "#0369A1"
+          },
+          {
+            "cf": "I8:X37",
+            "rule": "fill",
+            "ref": "AND(AND($D8<>\"\",$F8<>\"\",I$7<=$F8,I$7+6>=$D8),$H8=\"Late\")",
+            "color": "#DC2626"
+          },
+          {
+            "cf": "I8:X37",
+            "rule": "fill",
+            "ref": "AND($D8<>\"\",$F8<>\"\",I$7<=$F8,I$7+6>=$D8)",
+            "color": "#7DD3FC",
+            "text": "#0C4A6E"
+          },
+          {
+            "cf": "I8:X37",
+            "rule": "fill",
+            "ref": "AND(TODAY()>=I$7,TODAY()<I$7+7)",
+            "color": "#FEF3C7",
+            "text": "#78350F"
+          },
+          {
+            "cf": "I7:X7",
+            "rule": "fill",
+            "ref": "AND(TODAY()>=I$7,TODAY()<I$7+7)",
+            "color": "#D97706"
+          },
+          {
+            "cf": "H8:H37",
+            "rule": "fill",
+            "ref": "$H8=\"Done\"",
+            "color": "#DCFCE7",
+            "text": "#166534"
+          },
+          {
+            "cf": "H8:H37",
+            "rule": "over",
+            "ref": "$H8=\"Late\""
+          },
+          {
+            "height": [
+              8,
+              19
+            ]
+          },
+          {
+            "height": [
+              9,
+              19
+            ]
+          },
+          {
+            "height": [
+              10,
+              19
+            ]
+          },
+          {
+            "height": [
+              11,
+              19
+            ]
+          },
+          {
+            "height": [
+              12,
+              19
+            ]
+          },
+          {
+            "height": [
+              13,
+              19
+            ]
+          },
+          {
+            "height": [
+              14,
+              19
+            ]
+          },
+          {
+            "height": [
+              15,
+              19
+            ]
+          },
+          {
+            "height": [
+              16,
+              19
+            ]
+          },
+          {
+            "height": [
+              17,
+              19
+            ]
+          },
+          {
+            "height": [
+              18,
+              19
+            ]
+          },
+          {
+            "height": [
+              19,
+              19
+            ]
+          },
+          {
+            "height": [
+              20,
+              19
+            ]
+          },
+          {
+            "height": [
+              21,
+              19
+            ]
+          },
+          {
+            "height": [
+              22,
+              19
+            ]
+          },
+          {
+            "height": [
+              23,
+              19
+            ]
+          },
+          {
+            "height": [
+              24,
+              19
+            ]
+          },
+          {
+            "height": [
+              25,
+              19
+            ]
+          },
+          {
+            "height": [
+              26,
+              19
+            ]
+          },
+          {
+            "height": [
+              27,
+              19
+            ]
+          },
+          {
+            "height": [
+              28,
+              19
+            ]
+          },
+          {
+            "height": [
+              29,
+              19
+            ]
+          },
+          {
+            "height": [
+              30,
+              19
+            ]
+          },
+          {
+            "height": [
+              31,
+              19
+            ]
+          },
+          {
+            "height": [
+              32,
+              19
+            ]
+          },
+          {
+            "height": [
+              33,
+              19
+            ]
+          },
+          {
+            "height": [
+              34,
+              19
+            ]
+          },
+          {
+            "height": [
+              35,
+              19
+            ]
+          },
+          {
+            "height": [
+              36,
+              19
+            ]
+          },
+          {
+            "height": [
+              37,
+              19
+            ]
+          },
+          {
+            "height": [
+              39,
+              30
+            ]
+          },
+          {
+            "c": "A39",
+            "m": "A39:H39",
+            "v": "End date, status and bars fill in by themselves. Change Project start to move the timeline. Each column is one week, starting Monday.",
+            "s": "note"
+          },
+          {
+            "c": "I39",
+            "v": "",
+            "s": "plain"
+          },
+          {
+            "cf": "I39",
+            "rule": "fill",
+            "ref": "TRUE",
+            "color": "#0369A1"
+          },
+          {
+            "c": "J39",
+            "m": "J39:L39",
+            "v": "Done part",
+            "s": "plain"
+          },
+          {
+            "c": "M39",
+            "v": "",
+            "s": "plain"
+          },
+          {
+            "cf": "M39",
+            "rule": "fill",
+            "ref": "TRUE",
+            "color": "#7DD3FC"
+          },
+          {
+            "c": "N39",
+            "m": "N39:P39",
+            "v": "Still to do",
+            "s": "plain"
+          },
+          {
+            "c": "Q39",
+            "v": "",
+            "s": "plain"
+          },
+          {
+            "cf": "Q39",
+            "rule": "fill",
+            "ref": "TRUE",
+            "color": "#DC2626"
+          },
+          {
+            "c": "R39",
+            "m": "R39:T39",
+            "v": "Late",
+            "s": "plain"
+          },
+          {
+            "c": "U39",
+            "v": "",
+            "s": "plain"
+          },
+          {
+            "cf": "U39",
+            "rule": "fill",
+            "ref": "TRUE",
+            "color": "#FEF3C7"
+          },
+          {
+            "c": "V39",
+            "m": "V39:X39",
+            "v": "This week",
+            "s": "plain"
+          },
+          {
+            "height": [
+              40,
+              26
+            ]
+          },
+          {
+            "c": "A40",
+            "m": "A40:X40",
+            "v": "Working days skip Saturdays and Sundays only. Public holidays are not skipped, so add extra days to a task if a holiday falls inside it.",
+            "s": "note"
+          }
+        ]
+      }
+    ]
+  }
+}

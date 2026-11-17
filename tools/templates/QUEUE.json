@@ -286,8 +286,8 @@
    "slug": "gantt-chart-excel",
    "category": "excel",
    "priority": 2,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-17",
    "note": "Simple Gantt with start/end dates and conditional-format bars."
   },
   {
@@ -295,8 +295,8 @@
    "slug": "meeting-minutes-template",
    "category": "forms",
    "priority": 2,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-17",
    "note": "Minutes with attendees, agenda, decisions, action items table."
   },
   {
@@ -304,8 +304,8 @@
    "slug": "employee-information-form",
    "category": "forms",
    "priority": 2,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-17",
    "note": "New joiner details form."
   },
   {
