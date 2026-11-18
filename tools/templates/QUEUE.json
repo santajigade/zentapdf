@@ -313,8 +313,8 @@
    "slug": "noc-letter-format",
    "category": "letters",
    "priority": 2,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-18",
    "note": "No objection certificate letter, generic purpose."
   },
   {
@@ -322,8 +322,8 @@
    "slug": "relieving-letter-format",
    "category": "letters",
    "priority": 2,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-18",
    "note": "Employer relieving letter."
   },
   {
@@ -331,8 +331,8 @@
    "slug": "internship-certificate-template",
    "category": "certificates",
    "priority": 2,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-18",
    "note": "Internship completion certificate."
   },
   {

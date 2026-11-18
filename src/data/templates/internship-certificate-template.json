@@ -1,0 +1,237 @@
+{
+  "slug": "internship-certificate-template",
+  "category": "certificates",
+  "name": "Internship Certificate Format",
+  "h1": "Internship Certificate Format (Word and PDF)",
+  "metaTitle": "Internship Certificate Format: Free Word & PDF Template",
+  "metaDescription": "Free internship certificate format in Word and PDF. Portrait certificate with intern, college, role, dates, project and supervisor signature lines.",
+  "short": "Portrait internship completion certificate with intern and college details, project summary and two signature lines.",
+  "accent": "#B23A48",
+  "useCases": [
+    "Recognition",
+    "Study",
+    "HR"
+  ],
+  "industries": [
+    "Corporate",
+    "Startups",
+    "Students",
+    "IT and software"
+  ],
+  "date": "2026-11-18",
+  "related": [
+    "certificate-of-completion-template",
+    "experience-certificate-format",
+    "student-resume-template"
+  ],
+  "intro": "This internship certificate format lets a company confirm that a student or trainee completed an internship with them. It is a portrait A4 certificate with a coloured title band, the intern's name in large type, college and course details, role, department, dates, a short project summary, a certificate number and two signature lines. Edit it in Word and save it as a PDF to share.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Replace the company name in the title band and add your logo above it if you have one.",
+    "Type the intern's full name exactly as it appears in their college records.",
+    "Fill in the college, course, role, department, start date, end date and duration.",
+    "Rewrite the project line in one or two plain sentences that describe the real work done.",
+    "Add a certificate number and the date of issue, then sign as the supervisor and as HR or the head of the company.",
+    "Save the file as a PDF, add the company seal if you use one, and share it with the intern."
+  ],
+  "guide": [
+    {
+      "h": "What to include in an internship certificate",
+      "p": [
+        "A clear internship certificate names the organisation, the intern, their college and course, the role or designation, the department or team, and the start and end dates. Many also add a short line on the project or duties, a certificate number for verification, the date of issue and the signature of the supervisor or an authorised person.",
+        "This file has all of these. Remove any field you do not need, such as the grade line, rather than leaving it empty."
+      ]
+    },
+    {
+      "h": "Certificate or internship completion letter?",
+      "p": [
+        "A certificate is short and formal and is the usual proof that the internship was completed. A completion letter is a business letter on letterhead that gives more detail about duties and performance. Some colleges ask for one, some for both. Check what the intern's college or the next employer needs before you issue it."
+      ]
+    },
+    {
+      "h": "Why the details matter for students",
+      "p": [
+        "Students use internship certificates for college credit, job applications, higher studies and visa or admission files. Colleges and employers may check the dates and the name against their own records, so keep every detail factual. Write the duration in weeks or months and use the same dates as your attendance or stipend records."
+      ]
+    }
+  ],
+  "tips": [
+    "Use one certificate number pattern, such as INT-2026-001, so you can verify copies later.",
+    "Keep the project line factual: what the intern worked on, not general praise.",
+    "If the intern worked remotely, write \"remote\" next to the department so the record is clear.",
+    "Print on thick white paper or save as PDF so colours stay sharp.",
+    "Keep a signed copy with your internship records."
+  ],
+  "faqs": [
+    {
+      "q": "Who should sign an internship certificate?",
+      "a": "Usually the intern's supervisor or mentor and one authorised person, such as the HR manager, a director or the business owner. This file has two signature lines for that."
+    },
+    {
+      "q": "Can I use this for a virtual or remote internship?",
+      "a": "Yes. Write \"remote\" or \"online\" in the department or location line. Everything else stays the same."
+    },
+    {
+      "q": "Should the stipend be mentioned?",
+      "a": "It is not usually needed on a certificate. If a college or the intern asks for it, give it in a separate letter."
+    },
+    {
+      "q": "Can the issue date be different from the end date?",
+      "a": "Yes. The end date is the last day of the internship and the issue date is when you sign the certificate. Both are shown separately in this file."
+    },
+    {
+      "q": "Does this certificate have any official status?",
+      "a": "It is a record issued by your organisation. Whether a college gives credit for it depends on that college's own rules, so the intern should check with them."
+    }
+  ],
+  "tools": [
+    "word-to-pdf",
+    "sign-pdf",
+    "pdf-to-jpg",
+    "compress-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 20,
+      "border": {
+        "double": false,
+        "size": 12,
+        "space": 16
+      },
+      "vcenter": true
+    },
+    "font": "Segoe UI",
+    "headFont": "Georgia",
+    "size": 11,
+    "blocks": [
+      {
+        "type": "spacer",
+        "h": 16
+      },
+      {
+        "type": "title",
+        "band": true,
+        "text": "INTERNSHIP CERTIFICATE",
+        "sub": "[COMPANY NAME PVT LTD]  |  [City]",
+        "align": "center",
+        "size": 28
+      },
+      {
+        "type": "p",
+        "text": "Certificate no. [INT-2026-037]",
+        "align": "right",
+        "muted": true,
+        "size": 9.5,
+        "after": 26
+      },
+      {
+        "type": "p",
+        "text": "This is to certify that",
+        "align": "center",
+        "italic": true,
+        "color": "#4B5563",
+        "size": 13,
+        "after": 12
+      },
+      {
+        "type": "p",
+        "text": "[Intern Full Name]",
+        "align": "center",
+        "size": 32,
+        "bold": true,
+        "font": "Georgia",
+        "color": "#B23A48",
+        "after": 8
+      },
+      {
+        "type": "p",
+        "text": "a student of [B.Tech Computer Science, 3rd year] at [College or University Name]",
+        "align": "center",
+        "size": 12,
+        "after": 18
+      },
+      {
+        "type": "p",
+        "text": "has successfully completed an internship with us as",
+        "align": "center",
+        "color": "#4B5563",
+        "size": 12,
+        "after": 4
+      },
+      {
+        "type": "p",
+        "text": "[Software Development Intern]",
+        "align": "center",
+        "size": 19,
+        "bold": true,
+        "after": 24
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "labelWidth": 0.4,
+        "rowHeight": 10.5,
+        "items": [
+          [
+            "Department",
+            "[Product Engineering]"
+          ],
+          [
+            "Duration",
+            "[8 weeks]"
+          ],
+          [
+            "Start date",
+            "[DD Month YYYY]"
+          ],
+          [
+            "End date",
+            "[DD Month YYYY]"
+          ],
+          [
+            "Supervisor",
+            "[Name, Designation]"
+          ],
+          [
+            "Grade",
+            "[Excellent / Good]"
+          ]
+        ],
+        "after": 16
+      },
+      {
+        "type": "box",
+        "title": "Project and work done",
+        "lines": [
+          "[Built a ticket search page for the internal support tool and wrote test cases for two modules. Worked with the QA team on weekly releases.]"
+        ],
+        "after": 18
+      },
+      {
+        "type": "p",
+        "text": "During the internship, [his / her / their] conduct was [good]. We wish [him / her / them] every success.",
+        "align": "center",
+        "line": 1.2,
+        "after": 8
+      },
+      {
+        "type": "p",
+        "text": "Date of issue: [DD Month YYYY]",
+        "align": "center",
+        "muted": true,
+        "after": 0
+      },
+      {
+        "type": "signature",
+        "space": 70,
+        "align": "center",
+        "items": [
+          "**[Name]**\n[Internship Supervisor]",
+          "**[Name]**\n[HR Manager or Director]"
+        ],
+        "after": 0
+      }
+    ]
+  }
+}

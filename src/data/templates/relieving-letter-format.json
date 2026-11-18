@@ -1,0 +1,226 @@
+{
+  "slug": "relieving-letter-format",
+  "category": "letters",
+  "name": "Relieving Letter Format",
+  "h1": "Relieving Letter Format (Word and PDF)",
+  "metaTitle": "Relieving Letter Format: Free Word & PDF Sample for HR",
+  "metaDescription": "Free relieving letter format in Word and PDF. Confirms resignation acceptance, last working day, handover and dues status, with an HR signature block.",
+  "short": "Relieving letter with resignation and exit details, a handover and dues summary, and an HR signature block.",
+  "accent": "#2E4057",
+  "useCases": [
+    "HR",
+    "Job change"
+  ],
+  "industries": [
+    "Corporate",
+    "Small business",
+    "IT and software",
+    "All industries"
+  ],
+  "date": "2026-11-18",
+  "related": [
+    "experience-certificate-format",
+    "resignation-letter-template",
+    "offer-letter-format"
+  ],
+  "intro": "A relieving letter is the letter an employer gives when an employee leaves, confirming that the resignation was accepted and the person has been relieved of their duties. This format has a two column letterhead, the employee's name and address, a short exit details table, a summary box for handover, company assets and dues, and a signature block for HR with space for the seal.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Replace the company name, address and contact details at the top, or delete them if you print on letterhead.",
+    "Add the reference number, the date of issue and the employee's name and address.",
+    "Fill the exit details table: employee ID, designation, department, date of joining, resignation date, last working day, notice served and total service.",
+    "Update the summary box so it says what is true: handover status, company assets returned and whether the full and final settlement is done or still in process.",
+    "Remove any optional line that does not apply, then read the whole letter once more against your HR records.",
+    "Sign as the authorised person, add the company seal and share a signed print or PDF with the employee."
+  ],
+  "guide": [
+    {
+      "h": "What a relieving letter usually includes",
+      "p": [
+        "Most relieving letters include the company details, a reference number and date, the employee's name, ID, designation and department, the date of joining, the date the resignation was received or accepted, and the last working day. Many also confirm that work was handed over, that company property was returned, and the status of pending dues. It ends with the signature of HR or a manager.",
+        "There is no single format fixed by law, and the content depends on company policy. This file gives you a clear, factual layout that you can adjust."
+      ]
+    },
+    {
+      "h": "Relieving letter or experience certificate?",
+      "p": [
+        "A relieving letter confirms that the employee has left and is free of duties. An experience certificate describes the role and the period of work. New employers often ask for one or both during joining or background checks. Some companies issue a combined relieving cum experience letter. If you want a separate experience certificate, see the related template on this page."
+      ]
+    },
+    {
+      "h": "Notice period and full and final settlement",
+      "p": [
+        "Notice periods and the timeline for the full and final settlement are set by the employment contract, company policy and the labour laws that apply in your state or country. They are not the same everywhere, so check your contract and official sources before you write any date or promise about dues.",
+        "If the settlement is not finished when you issue the letter, say \"in process\" rather than \"cleared\". Only write \"cleared\" once payment has been made."
+      ]
+    }
+  ],
+  "tips": [
+    "Use the last working day from your attendance and payroll records, not the date of the request.",
+    "Keep the letter neutral and factual. Leave out the reason for leaving unless the employee asks for it.",
+    "Give each letter a reference number and keep a signed copy in the employee file.",
+    "Email a signed PDF on the last day so the employee can share it with the new employer quickly.",
+    "Add an HR contact so background check agencies can verify the letter."
+  ],
+  "faqs": [
+    {
+      "q": "When should a relieving letter be issued?",
+      "a": "Most companies issue it on or soon after the last working day, once handover is complete. Some wait until the full and final settlement is done. Follow your company policy and any law that applies to you."
+    },
+    {
+      "q": "Who signs the relieving letter?",
+      "a": "Usually the HR manager, the head of the department or the business owner. Print the signer's name and designation under the signature and add the company seal if you use one."
+    },
+    {
+      "q": "Is a relieving letter mandatory?",
+      "a": "In many places no law requires it in every case, but it is standard practice and new employers often ask for it. Check the rules that apply in your state or country if you are unsure."
+    },
+    {
+      "q": "Should salary be mentioned in a relieving letter?",
+      "a": "It is not usually needed. Salary details are normally shared in salary slips or a separate settlement statement."
+    },
+    {
+      "q": "Can the employee ask for corrections?",
+      "a": "Yes. If a date, designation or name spelling is wrong, edit the Word file, sign it again and issue a fresh copy with the same reference number."
+    }
+  ],
+  "tools": [
+    "word-to-pdf",
+    "sign-pdf",
+    "edit-pdf",
+    "compress-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 21
+    },
+    "font": "Georgia",
+    "headFont": "Arial",
+    "size": 10.5,
+    "titleSize": 18,
+    "blocks": [
+      {
+        "type": "header",
+        "split": [
+          1.5,
+          1
+        ],
+        "after": 10,
+        "left": [
+          "# [Company Name Pvt Ltd]",
+          "~ [Registered office address, City, PIN code]",
+          "~ [Phone]  |  [hr@company.com]"
+        ],
+        "right": [
+          "## RELIEVING LETTER",
+          "**Ref:** [HR/REL/2026/044]",
+          "**Date:** [DD Month YYYY]"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "**[Mr / Ms Full Name]**\n[Employee address line 1]\n[City, PIN code]",
+        "after": 10
+      },
+      {
+        "type": "p",
+        "text": "Dear [First Name],",
+        "after": 6
+      },
+      {
+        "type": "p",
+        "text": "With reference to your resignation dated **[DD Month YYYY]**, we confirm that it has been accepted and that you are relieved from the services of **[Company Name Pvt Ltd]** at the close of business on **[last working day]**.",
+        "line": 1.25,
+        "after": 8
+      },
+      {
+        "type": "table",
+        "columns": [
+          {
+            "h": "Employment",
+            "w": 1.15
+          },
+          {
+            "h": "Details",
+            "w": 1.15
+          },
+          {
+            "h": "Exit",
+            "w": 1.35
+          },
+          {
+            "h": "Details",
+            "w": 1.15
+          }
+        ],
+        "rows": [
+          [
+            "**Employee ID**",
+            "[EMP-2217]",
+            "**Resigned on**",
+            "[DD Month YYYY]"
+          ],
+          [
+            "**Designation**",
+            "[Team Lead]",
+            "**Last working day**",
+            "[DD Month YYYY]"
+          ],
+          [
+            "**Department**",
+            "[Sales]",
+            "**Notice served**",
+            "[Yes / Waived]"
+          ],
+          [
+            "**Date of joining**",
+            "[DD Month YYYY]",
+            "**Total service**",
+            "[2 years 7 months]"
+          ]
+        ],
+        "grid": true,
+        "zebra": false,
+        "rowHeight": 7.5,
+        "after": 8
+      },
+      {
+        "type": "box",
+        "title": "Exit summary",
+        "lines": [
+          "**Handover:** [Completed to Name, Designation]",
+          "**Company assets returned:** [Laptop, ID card, access card]",
+          "**Full and final settlement:** [Cleared on DD Month YYYY / In process as per company policy]"
+        ],
+        "after": 8
+      },
+      {
+        "type": "p",
+        "text": "We thank you for your contribution during your time with us and wish you success in the future.",
+        "line": 1.25,
+        "after": 6
+      },
+      {
+        "type": "p",
+        "text": "For any verification, please contact [HR Name] at [Phone] or [hr@company.com].",
+        "muted": true,
+        "after": 12
+      },
+      {
+        "type": "p",
+        "text": "Yours sincerely,\nFor **[Company Name Pvt Ltd]**",
+        "after": 0
+      },
+      {
+        "type": "signature",
+        "space": 32,
+        "items": [
+          "**[Authorised Signatory Name]**\n[HR Manager]",
+          "Company seal"
+        ],
+        "after": 4
+      }
+    ]
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "slug": "noc-letter-format",
+  "category": "letters",
+  "name": "NOC Letter Format",
+  "h1": "NOC Letter Format (Word and PDF)",
+  "metaTitle": "NOC Letter Format: Free Word & PDF No Objection Letter",
+  "metaDescription": "Free NOC letter format in Word and PDF. Employer no objection letter with employee details, purpose, leave dates and signature block for visa or study.",
+  "short": "Employer no objection letter with employee details, a purpose and dates box, and a signature block with seal space.",
+  "accent": "#0F4C81",
+  "useCases": [
+    "HR",
+    "Leave request",
+    "Study"
+  ],
+  "industries": [
+    "Corporate",
+    "Small business",
+    "All industries"
+  ],
+  "date": "2026-11-18",
+  "related": [
+    "experience-certificate-format",
+    "leave-application-letter",
+    "salary-slip-format"
+  ],
+  "intro": "A NOC letter (no objection certificate) is a short letter in which an employer says it has no objection to an employee doing something, such as travelling abroad, applying for a visa or joining a part-time course. This format has a letterhead area, a reference number and date, a subject line, an employee details table, a box for the purpose and dates, and a signature block with space for the company seal.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Replace the letterhead lines with your company name, address and contact details, or delete them if you print on pre-printed letterhead.",
+    "Add a reference number, the date of issue and the name of the office the letter is for, or keep \"To Whom It May Concern\".",
+    "Edit the subject line so it names the real purpose, for example a tourist visa for France or an evening MBA course.",
+    "Fill the employee details table with the name, employee ID, designation, department and date of joining.",
+    "Fill the purpose box: what the employee will do, where, the dates of leave and the date they will return to work.",
+    "Sign as the authorised person, add the company seal and give the employee a signed print or a signed PDF."
+  ],
+  "guide": [
+    {
+      "h": "What a NOC letter from an employer contains",
+      "p": [
+        "Most employer NOC letters have the same parts: the company letterhead, a date and reference number, the person or office it is addressed to, a subject line, the employee's details, a clear sentence saying the company has no objection, the purpose with dates, and the signature of an authorised person with the company seal.",
+        "This file follows that order. The no objection sentence is written in plain words so the reader can find it at once, and the purpose box keeps dates and place together so they are easy to check."
+      ]
+    },
+    {
+      "h": "Common reasons people ask for a NOC",
+      "p": [
+        "Employees often need a NOC for a tourist or visitor visa, an international trip, a passport application, higher studies or a part-time course, or for taking up another short assignment. Students may also ask their college for one for an internship or a trip.",
+        "The exact details required are set by the office that asks for the letter, such as an embassy, visa centre, passport office or university. Rules differ by country and by office and they change, so always check that office's official checklist and add any line it asks for, such as salary, leave approval or a promise to return to work."
+      ]
+    },
+    {
+      "h": "Keep the letter factual",
+      "p": [
+        "Write only what your records support. Use the employee's name exactly as it appears on their passport or ID, and make sure the leave dates match what has been approved in your leave system. If the company is also paying for the trip or will keep the job open, say so in one clear sentence. If not, leave those lines out."
+      ]
+    }
+  ],
+  "tips": [
+    "Match the name spelling with the passport, because visa offices compare them.",
+    "Print on company letterhead and sign in blue or black ink with the company seal.",
+    "Give every NOC a reference number and keep a copy in the employee file.",
+    "Add the HR phone number and email so the receiving office can verify the letter.",
+    "Save a signed PDF if the employee has to upload it to an online application."
+  ],
+  "faqs": [
+    {
+      "q": "What is the full form of NOC?",
+      "a": "NOC stands for No Objection Certificate. It is a letter saying that the person or organisation issuing it has no objection to the activity described in it."
+    },
+    {
+      "q": "Who signs a NOC letter from an employer?",
+      "a": "Usually the HR manager, the reporting manager or the business owner. The signer's name and designation should be printed under the signature, with the company seal if your company uses one."
+    },
+    {
+      "q": "Is a NOC needed for every visa?",
+      "a": "No. Some embassies and visa centres ask employed applicants for a NOC or employer letter and some do not. Check the official checklist of the country and visa type you are applying for."
+    },
+    {
+      "q": "Can I use this format for purposes other than travel?",
+      "a": "Yes. Change the subject line and the purpose box to describe the course, assignment or other activity. The rest of the letter stays the same."
+    },
+    {
+      "q": "How long is a NOC letter valid?",
+      "a": "There is no single rule. Many offices want a recent letter, often dated within the last few weeks. If the purpose has fixed dates, write them in the purpose box so the validity is clear."
+    }
+  ],
+  "tools": [
+    "word-to-pdf",
+    "sign-pdf",
+    "compress-pdf",
+    "edit-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 19
+    },
+    "font": "Calibri",
+    "headFont": "Georgia",
+    "size": 11,
+    "titleSize": 22,
+    "blocks": [
+      {
+        "type": "title",
+        "text": "[COMPANY NAME PVT LTD]",
+        "align": "center",
+        "size": 21,
+        "caps": true,
+        "sub": "[Office address, City, PIN code]  |  [Phone]  |  [hr@company.com]",
+        "subSize": 9.5
+      },
+      {
+        "type": "rule",
+        "accent": true,
+        "weight": 18,
+        "after": 8
+      },
+      {
+        "type": "header",
+        "split": [
+          1,
+          1
+        ],
+        "rule": false,
+        "after": 6,
+        "left": [
+          "**Ref. no.:** [HR/NOC/2026/018]"
+        ],
+        "right": [
+          "**Date:** [DD Month YYYY]"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "To,\n[The Visa Officer / To Whom It May Concern]\n[Embassy, consulate or office name]\n[City]",
+        "after": 8
+      },
+      {
+        "type": "p",
+        "text": "**Subject: No Objection Certificate for [purpose, e.g. tourist visa to France]**",
+        "color": "#0F4C81",
+        "after": 8
+      },
+      {
+        "type": "p",
+        "text": "This is to certify that **[Mr / Ms Full Name]** is working with **[Company Name Pvt Ltd]** as a permanent employee. The details as per our records are given below.",
+        "line": 1.2,
+        "after": 6
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "labelWidth": 0.4,
+        "rowHeight": 8,
+        "items": [
+          [
+            "Employee name",
+            "[Full Name]"
+          ],
+          [
+            "Employee ID",
+            "[EMP-1083]"
+          ],
+          [
+            "Designation",
+            "[Project Engineer]"
+          ],
+          [
+            "Department",
+            "[Operations]"
+          ],
+          [
+            "Date of joining",
+            "[DD Month YYYY]"
+          ],
+          [
+            "Passport no.",
+            "[If required]"
+          ]
+        ],
+        "after": 8
+      },
+      {
+        "type": "p",
+        "text": "The company has **no objection** to [him / her / them] [travelling to France for tourism / joining the course named below / the purpose stated below].",
+        "line": 1.2,
+        "after": 6
+      },
+      {
+        "type": "box",
+        "title": "Purpose and dates",
+        "lines": [
+          "**Purpose:** [Tourist visit / higher studies / part-time course / other]",
+          "**Place:** [Country, city or institute name]",
+          "**Leave approved:** [DD Month YYYY] to [DD Month YYYY]",
+          "**Expected to resume duty on:** [DD Month YYYY]"
+        ],
+        "after": 6
+      },
+      {
+        "type": "p",
+        "text": "[Optional: All expenses for this trip will be borne by the employee. The employee's position will be held during this period.]",
+        "muted": true,
+        "line": 1.2,
+        "after": 6
+      },
+      {
+        "type": "p",
+        "text": "This letter is issued at the request of the employee. For verification, please contact [HR Name] at [Phone] or [hr@company.com].",
+        "line": 1.2,
+        "after": 8
+      },
+      {
+        "type": "p",
+        "text": "For **[Company Name Pvt Ltd]**",
+        "after": 0
+      },
+      {
+        "type": "signature",
+        "space": 30,
+        "items": [
+          "**[Authorised Signatory Name]**\n[HR Manager]",
+          "Company seal"
+        ],
+        "after": 0
+      }
+    ]
+  }
+}

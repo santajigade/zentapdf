@@ -118,6 +118,15 @@
   "previews": 1,
   "built": "2026-11-08"
  },
+ "internship-certificate-template": {
+  "files": {
+   "docx": 11382,
+   "pdf": 46918
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-18"
+ },
  "inventory-tracker-excel": {
   "files": {
    "xlsx": 15235,
@@ -182,6 +191,15 @@
   "previews": 1,
   "built": "2026-11-14"
  },
+ "noc-letter-format": {
+  "files": {
+   "docx": 11612,
+   "pdf": 42682
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-18"
+ },
  "offer-letter-format": {
   "files": {
    "docx": 13047,
@@ -230,6 +248,15 @@
   "pages": 1,
   "previews": 1,
   "built": "2026-11-08"
+ },
+ "relieving-letter-format": {
+  "files": {
+   "docx": 11590,
+   "pdf": 53335
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-18"
  },
  "rent-receipt-template": {
   "files": {
