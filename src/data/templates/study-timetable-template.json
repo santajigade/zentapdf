@@ -1,0 +1,362 @@
+{
+  "slug": "study-timetable-template",
+  "category": "planners",
+  "name": "Study Timetable Template",
+  "h1": "Study Timetable Template (Printable PDF and Word)",
+  "metaTitle": "Study Timetable Template: Free Printable PDF & Word",
+  "metaDescription": "Free study timetable template in PDF and Word. Weekly grid from 6 am to 10 pm, Monday to Sunday, with a subject planner and weekly goals. A4 printable.",
+  "short": "Weekly study grid from 6 am to 10 pm, Monday to Sunday, plus a subject planner for hours and test dates.",
+  "accent": "#A21CAF",
+  "useCases": [
+    "Study",
+    "Planning"
+  ],
+  "industries": [
+    "Students",
+    "Schools",
+    "Personal"
+  ],
+  "date": "2026-11-19",
+  "intro": "This study timetable template helps school, college and exam students plan a full week of study on one A4 page. The main grid has one row per hour from 6 am to 10 pm and a column for each day from Monday to Sunday. Below it, a subject planner lets you set weekly study hours and note test dates, and a short box holds your goals for the week.",
+  "howTo": [
+    "Download the PDF to print it, or the Word file if you want to type in the boxes or change the times.",
+    "First fill in fixed commitments: school or college hours, coaching classes, travel, meals and sleep.",
+    "Look at the empty boxes that are left. These are your real study slots for the week.",
+    "List your subjects in the subject planner and write a target number of study hours for each one.",
+    "Give harder subjects and subjects with a test coming up more slots, and place them at the times you focus best.",
+    "Write the topic, not just the subject, in each slot, for example \"Maths: chapter 5 exercises\".",
+    "At the end of the week, check what you finished and plan the next week."
+  ],
+  "guide": [
+    {
+      "h": "How to build a study timetable that works",
+      "p": [
+        "Start with what you cannot move. Once classes, travel, meals and sleep are in the grid, you can see how many hours are really free. Many students plan too much study and then give up after two days. It is better to plan fewer hours and keep the plan.",
+        "Short, regular sessions usually work better than long ones. A common method is to study for 25 to 50 minutes and then take a 5 to 10 minute break. Each hour box in this template is a good size for one focused session and its break."
+      ]
+    },
+    {
+      "h": "Using the subject planner",
+      "p": [
+        "The subject planner has columns for subject, target hours this week, next test or exam date and notes. When a test is close, move more hours to that subject while keeping a little time for the others. Use the notes column for chapters to revise, doubts to ask your teacher and books you need."
+      ]
+    },
+    {
+      "h": "Making room for rest",
+      "p": [
+        "Leave some boxes empty on purpose. Free time, exercise and sleep help you remember what you study. Keep one evening or half day each week lighter, and use it to catch up on anything you missed instead of piling extra work on the next day."
+      ]
+    }
+  ],
+  "tips": [
+    "Use a different colour pen or highlighter for each subject so the week is easy to read.",
+    "Put the hardest subject at the time of day you feel most alert.",
+    "Keep your phone in another room during study slots.",
+    "Write questions you get stuck on in the notes column and ask them in class.",
+    "Pin the timetable near your desk and tick each slot when you finish it."
+  ],
+  "faqs": [
+    {
+      "q": "What times does the timetable cover?",
+      "a": "It has one row per hour from 6:00 am to 9:00 pm, so the last slot ends at 10 pm. In the Word file you can change the times to suit your day."
+    },
+    {
+      "q": "Can I use it for board exam or entrance exam preparation?",
+      "a": "Yes. Use the subject planner for target hours and mock test dates, and print a fresh sheet each week as your plan changes."
+    },
+    {
+      "q": "What paper size is it?",
+      "a": "A4 portrait. It also prints on US Letter if you choose Fit to page in the print settings."
+    },
+    {
+      "q": "Can I fill it in on my computer?",
+      "a": "Yes. Open the Word file, type in the boxes and save a copy for each week. You can also type in the PDF with the Edit PDF tool."
+    }
+  ],
+  "related": [
+    "weekly-planner-template",
+    "daily-planner-template"
+  ],
+  "tools": [
+    "edit-pdf",
+    "word-to-pdf",
+    "merge-pdf",
+    "pdf-to-jpg"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 11
+    },
+    "font": "Arial",
+    "headFont": "Cambria",
+    "size": 9,
+    "titleSize": 24,
+    "blocks": [
+      {
+        "type": "title",
+        "band": true,
+        "text": "Study Timetable",
+        "sub": "Name: ______________________     Class or course: ________________     Week of: ______________",
+        "align": "left",
+        "size": 22,
+        "subSize": 10
+      },
+      {
+        "type": "spacer",
+        "h": 3
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": true,
+        "small": true,
+        "rowHeight": 8.2,
+        "after": 4,
+        "columns": [
+          {
+            "h": "Time",
+            "w": 0.85,
+            "align": "center"
+          },
+          {
+            "h": "Mon",
+            "align": "center"
+          },
+          {
+            "h": "Tue",
+            "align": "center"
+          },
+          {
+            "h": "Wed",
+            "align": "center"
+          },
+          {
+            "h": "Thu",
+            "align": "center"
+          },
+          {
+            "h": "Fri",
+            "align": "center"
+          },
+          {
+            "h": "Sat",
+            "align": "center"
+          },
+          {
+            "h": "Sun",
+            "align": "center"
+          }
+        ],
+        "rows": [
+          [
+            "6:00 am",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "7:00 am",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "8:00 am",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "9:00 am",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "10:00 am",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "11:00 am",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "12:00 pm",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "1:00 pm",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "2:00 pm",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "3:00 pm",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "4:00 pm",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "5:00 pm",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "6:00 pm",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "7:00 pm",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "8:00 pm",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "9:00 pm",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "rowHeight": 7,
+        "after": 4,
+        "headFill": "#FAE8FF",
+        "headText": "#86198F",
+        "columns": [
+          {
+            "h": "Subject",
+            "w": 1.3
+          },
+          {
+            "h": "Target hours",
+            "w": 0.7,
+            "align": "center"
+          },
+          {
+            "h": "Next test or exam date",
+            "w": 1
+          },
+          {
+            "h": "Notes (chapters, doubts, books)",
+            "w": 2.2
+          }
+        ],
+        "blank": 6
+      },
+      {
+        "type": "fields",
+        "cols": 1,
+        "labelWidth": 0.22,
+        "rowHeight": 8,
+        "after": 0,
+        "items": [
+          [
+            "Goals this week",
+            ""
+          ],
+          [
+            "Done this week",
+            ""
+          ]
+        ]
+      }
+    ]
+  }
+}

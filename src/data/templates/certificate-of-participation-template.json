@@ -1,0 +1,208 @@
+{
+  "slug": "certificate-of-participation-template",
+  "category": "certificates",
+  "name": "Certificate of Participation Template",
+  "h1": "Certificate of Participation Template (Word and PDF)",
+  "metaTitle": "Certificate of Participation Template: Free Word & PDF",
+  "metaDescription": "Free certificate of participation template in Word and PDF. A4 landscape design with role, event, date, venue and certificate number. Easy to edit and print.",
+  "short": "A4 landscape certificate for workshops, seminars and events, with role, venue and certificate number.",
+  "accent": "#92400E",
+  "useCases": [
+    "Recognition",
+    "Events"
+  ],
+  "industries": [
+    "Schools",
+    "Corporate",
+    "NGOs",
+    "Events"
+  ],
+  "date": "2026-11-19",
+  "intro": "This certificate of participation template is made for workshops, seminars, webinars, competitions, sports days and cultural events. It prints on A4 landscape with a coloured title band, a large name line, the participant's role, a details row for event, date, venue and certificate number, and three signature lines. Edit it in Word or save it as a PDF to email.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Type the name of your school, college, company or club in the top line and the event name in the details row.",
+    "Replace [Participant Full Name] with the name exactly as it appears in your registration list.",
+    "Choose the role: participant, presenter, volunteer, speaker or team member. Delete the ones you do not need.",
+    "Fill in the date, venue (or the online platform name) and a unique certificate number for each copy.",
+    "Add the names and titles of up to three signers, then print in landscape at 100% scale or save as PDF."
+  ],
+  "guide": [
+    {
+      "h": "What a participation certificate should include",
+      "p": [
+        "A good certificate answers four questions at a glance: who took part, in what, when and where, and who issued it. This template has a line for each. The **role** line matters more than people expect. A student who presented a paper and one who only attended both took part, but the certificate should say which.",
+        "The **certificate number** helps if someone later asks you to confirm the certificate is real, for example a college admission office or an employer. Keep a simple list of numbers and names in Excel so you can check any certificate in seconds."
+      ]
+    },
+    {
+      "h": "Participation versus completion or achievement",
+      "p": [
+        "A certificate of participation says the person attended or contributed. It does not say they passed a test or finished a full course. If your event had an assessment, use a certificate of completion instead. For winners and top performers, a certificate of achievement or merit is the better choice. Using the right type keeps your certificates honest and more useful to the people who receive them."
+      ]
+    },
+    {
+      "h": "Making certificates for a full event list",
+      "p": [
+        "For a large event, keep the design fixed and change only the name, role and certificate number. Mail Merge in Microsoft Word (Mailings > Start Mail Merge) can fill these from an Excel list of registered participants, which also avoids typing mistakes. Save the results as PDF, and combine them with Merge PDF if you want one file to print or share."
+      ]
+    }
+  ],
+  "tips": [
+    "Copy names from your registration form instead of retyping them, and ask people to check spelling before the event.",
+    "Use the same date format on every copy, for example 14 November 2026.",
+    "For online events, write the platform name in the venue box, such as Zoom or Google Meet.",
+    "Print one test copy on your card stock before printing the whole batch.",
+    "If you mention hours or credits, include only what your organisation is allowed to award."
+  ],
+  "faqs": [
+    {
+      "q": "What size is this certificate?",
+      "a": "It is A4 landscape (297 x 210 mm). It also prints on US Letter if you choose Fit to page in the print dialog."
+    },
+    {
+      "q": "Can I add my school or company logo?",
+      "a": "Yes. In Word, use Insert > Pictures, set the wrap to In Front of Text and place the logo in the title band or above it."
+    },
+    {
+      "q": "Is a participation certificate the same as a completion certificate?",
+      "a": "No. Participation means the person attended or contributed. Completion usually means they finished a course or passed an assessment. Choose the one that matches what really happened."
+    },
+    {
+      "q": "How do I give each certificate a number?",
+      "a": "Use a simple pattern such as event code, year and serial number, for example [WS-2026-041]. Keep the list of numbers and names in a spreadsheet."
+    },
+    {
+      "q": "Can I send the certificate by email?",
+      "a": "Yes. Save it as PDF, add signatures with the Sign PDF tool and email it. The PDF keeps the layout and fonts the same on every device."
+    }
+  ],
+  "related": [
+    "certificate-of-appreciation-template",
+    "certificate-of-completion-template"
+  ],
+  "tools": [
+    "sign-pdf",
+    "merge-pdf",
+    "word-to-pdf",
+    "pdf-to-jpg"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "orientation": "landscape",
+      "margin": 16,
+      "vcenter": true
+    },
+    "font": "Arial",
+    "headFont": "Georgia",
+    "size": 12,
+    "blocks": [
+      {
+        "type": "spacer",
+        "h": 6
+      },
+      {
+        "type": "title",
+        "band": true,
+        "text": "CERTIFICATE OF PARTICIPATION",
+        "sub": "[NAME OF SCHOOL, COLLEGE OR ORGANISATION]",
+        "align": "center",
+        "size": 30
+      },
+      {
+        "type": "spacer",
+        "h": 12
+      },
+      {
+        "type": "p",
+        "text": "This is to certify that",
+        "align": "center",
+        "italic": true,
+        "color": "#57534E",
+        "size": 14,
+        "after": 10
+      },
+      {
+        "type": "p",
+        "text": "[Participant Full Name]",
+        "align": "center",
+        "size": 34,
+        "bold": true,
+        "font": "Georgia",
+        "color": "#92400E",
+        "after": 2
+      },
+      {
+        "type": "rule",
+        "accent": true,
+        "weight": 6,
+        "after": 10
+      },
+      {
+        "type": "p",
+        "text": "took part as a **[participant / presenter / volunteer / speaker]** in",
+        "align": "center",
+        "size": 13,
+        "after": 4
+      },
+      {
+        "type": "p",
+        "text": "[Two Day Workshop on Digital Marketing Basics]",
+        "align": "center",
+        "size": 20,
+        "bold": true,
+        "font": "Georgia",
+        "after": 12
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "rowHeight": 8,
+        "after": 8,
+        "headFill": "#FEF3C7",
+        "headText": "#92400E",
+        "columns": [
+          {
+            "h": "Date",
+            "align": "center"
+          },
+          {
+            "h": "Venue or platform",
+            "align": "center",
+            "w": 1.4
+          },
+          {
+            "h": "Organised by",
+            "align": "center",
+            "w": 1.2
+          },
+          {
+            "h": "Certificate no.",
+            "align": "center"
+          }
+        ],
+        "rows": [
+          [
+            "[DD Month YYYY]",
+            "[Venue, City]",
+            "[Department or Club]",
+            "[WS-2026-041]"
+          ]
+        ]
+      },
+      {
+        "type": "signature",
+        "space": 50,
+        "align": "center",
+        "items": [
+          "**[Name]**\n[Event Coordinator]",
+          "**[Name]**\n[Head of Department]",
+          "**[Name]**\n[Principal or Director]"
+        ],
+        "after": 0
+      }
+    ]
+  }
+}

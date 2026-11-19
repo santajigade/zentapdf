@@ -340,8 +340,8 @@
    "slug": "certificate-of-participation-template",
    "category": "certificates",
    "priority": 2,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-19",
    "note": "Event participation certificate."
   },
   {
@@ -349,8 +349,8 @@
    "slug": "habit-tracker-template",
    "category": "planners",
    "priority": 2,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-19",
    "note": "31-day habit tracker grid."
   },
   {
@@ -358,8 +358,8 @@
    "slug": "study-timetable-template",
    "category": "planners",
    "priority": 2,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-19",
    "note": "Weekly study timetable by subject and hour."
   },
   {

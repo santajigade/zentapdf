@@ -26,6 +26,15 @@
   "previews": 1,
   "built": "2026-11-13"
  },
+ "certificate-of-participation-template": {
+  "files": {
+   "docx": 10915,
+   "pdf": 103569
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-19"
+ },
  "cover-letter-template": {
   "files": {
    "docx": 11294,
@@ -117,6 +126,15 @@
   "pages": 1,
   "previews": 1,
   "built": "2026-11-08"
+ },
+ "habit-tracker-template": {
+  "files": {
+   "docx": 12658,
+   "pdf": 196361
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-19"
  },
  "internship-certificate-template": {
   "files": {
@@ -313,6 +331,15 @@
   "pages": 1,
   "previews": 1,
   "built": "2026-11-14"
+ },
+ "study-timetable-template": {
+  "files": {
+   "docx": 11595,
+   "pdf": 89364
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-19"
  },
  "timesheet-template-excel": {
   "files": {
