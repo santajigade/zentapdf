@@ -48,11 +48,11 @@ Done:
 - [x] how-to-increase-audio-volume (2026-11-18)
 - [x] how-to-convert-epub-to-pdf (2026-11-18)
 - [x] how-to-convert-m4a-to-mp3 (2026-11-18)
+- [x] how-to-compress-mp3-file (2026-11-19)
+- [x] how-to-convert-pdf-to-text (2026-11-19)
+- [x] how-to-convert-pdf-to-ppt (2026-11-19)
 
 Open:
-- [ ] How to compress an MP3 or audio file for WhatsApp or email (audio-compressor)
-- [ ] How to copy text from a PDF / convert PDF to text (pdf-to-text)
-- [ ] How to convert PDF to PowerPoint (pdf-to-ppt)
 - [ ] How to change the speed of a song or audio (audio-speed-changer)
 - [ ] How to convert GIF to MP4 for WhatsApp and Instagram (gif-to-mp4)
 - [ ] How to convert SVG to PNG (svg-to-png)
