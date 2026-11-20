@@ -51,11 +51,11 @@ Done:
 - [x] how-to-compress-mp3-file (2026-11-19)
 - [x] how-to-convert-pdf-to-text (2026-11-19)
 - [x] how-to-convert-pdf-to-ppt (2026-11-19)
+- [x] how-to-change-audio-speed (2026-11-20)
+- [x] how-to-convert-gif-to-mp4 (2026-11-20)
+- [x] how-to-convert-svg-to-png (2026-11-20)
 
 Open:
-- [ ] How to change the speed of a song or audio (audio-speed-changer)
-- [ ] How to convert GIF to MP4 for WhatsApp and Instagram (gif-to-mp4)
-- [ ] How to convert SVG to PNG (svg-to-png)
 - [ ] How to change PDF title and author (edit-pdf-metadata)
 - [ ] How to record your voice online (voice-recorder)
 - [ ] How to change the pitch or key of a song (pitch-changer)

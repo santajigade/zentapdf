@@ -117,4 +117,7 @@ if shutil.which('ffmpeg'):
     # Song (for Ringtone Maker, MP3 Cutter) and a video with sound (for Video to MP3)
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'lavfi', '-i', "aevalsrc='0.4*sin(2*PI*(220+110*floor(mod(t,4)))*t)*(0.6+0.4*sin(2*PI*0.5*t))':s=44100:d=75", '-ac', '2', '-b:a', '192k', f'{D}/song.mp3'], check=True)
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'lavfi', '-i', 'testsrc2=size=640x360:rate=25:duration=12', '-f', 'lavfi', '-i', 'sine=frequency=440:duration=12', '-c:v', 'libvpx-vp9', '-b:v', '600k', '-c:a', 'libopus', '-shortest', f'{D}/lecture.webm'], check=True)
+# SVG samples (svg-to-png guide)
+open(f'{D}/logo.svg', 'w').write('<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240"><circle cx="120" cy="120" r="110" fill="#e65a28"/><path d="M70 80h100l-70 80h70" fill="none" stroke="#fff" stroke-width="18" stroke-linejoin="round" stroke-linecap="round"/></svg>')
+open(f'{D}/badge.svg', 'w').write('<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200" viewBox="0 0 320 200"><rect x="10" y="10" width="300" height="180" rx="28" fill="#1f5fbf"/><polygon points="160,40 185,95 245,100 200,138 214,180 160,155 106,180 120,138 75,100 135,95" fill="#ffd34d"/></svg>')
 print('samples in', D, sorted(os.listdir(D)))
