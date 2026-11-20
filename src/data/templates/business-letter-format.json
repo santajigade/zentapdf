@@ -1,0 +1,202 @@
+{
+  "slug": "business-letter-format",
+  "category": "letters",
+  "name": "Business Letter Format",
+  "h1": "Business Letter Format (Word and PDF)",
+  "metaTitle": "Business Letter Format: Free Word & PDF Template",
+  "metaDescription": "Free business letter format in Word and PDF. Full block layout with letterhead, reference, inside address, subject, body, sign-off, Encl. and cc lines.",
+  "short": "Full block business letter with a letterhead, reference lines, subject, sample body, signature block, Encl. and cc.",
+  "accent": "#7B341E",
+  "useCases": [
+    "Sales",
+    "Purchase"
+  ],
+  "industries": [
+    "Small business",
+    "Corporate",
+    "All industries"
+  ],
+  "date": "2026-11-20",
+  "related": [
+    "cover-letter-template",
+    "quotation-format",
+    "noc-letter-format"
+  ],
+  "intro": "A business letter is a formal letter from a company or a professional to another business, a client or an office. This one is in full block style, so every line starts at the left margin. It has a letterhead, the date, reference lines, the inside address, a subject line, a three-paragraph sample body, a sign-off with space to sign, and Encl. and cc lines.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Replace the letterhead with your company name, line of business, address, phone, email and website, or delete it if you print on pre-printed letterhead.",
+    "Type the date in full, such as 20 November 2026, and your reference number. If you are replying to a letter, add the reader's reference too.",
+    "Fill the inside address with the reader's name, job title, company and full address.",
+    "Write a subject line that says in a few words what the letter is about.",
+    "Replace the sample body with your own text: purpose first, then the details, then the action you want.",
+    "Sign above your typed name, list any enclosures and people copied, then print it or save it as a PDF."
+  ],
+  "guide": [
+    {
+      "h": "Parts of a business letter, in order",
+      "p": [
+        "From top to bottom, a standard business letter has the letterhead or sender's address, the date, reference numbers if your office uses them, the inside address (the person and company you are writing to), the subject line, the salutation, the body, the complimentary close, the signature block, and last, Encl. for enclosures and cc for copies.",
+        "The file already has every part in that order, so you only change the words. The footer line is optional. Use it for a registered office or company number if your business shows them."
+      ]
+    },
+    {
+      "h": "Full block or modified block",
+      "p": [
+        "In full block format every line starts at the left margin, the date and sign-off included, with a blank line between paragraphs and no indents. It is the most common style in business today and the easiest to type.",
+        "Modified block moves the date and the closing to start near the middle of the page and keeps the rest on the left. Follow your company's house style if it has one. If not, full block is a safe choice."
+      ]
+    },
+    {
+      "h": "Salutations and closings",
+      "p": [
+        "Use the reader's name when you know it: Dear Mr Mehta, Dear Ms Rao. When you don't, a job title or team, such as Dear Purchase Manager, works better than Dear Sir or Madam. Dear [Name] pairs with Yours sincerely. In Indian and British use, Dear Sir or Madam goes with Yours faithfully. In the United States, Sincerely is common for both, and the salutation usually ends with a colon."
+      ]
+    }
+  ],
+  "tips": [
+    "Put the main point in the first paragraph so the reader knows straight away why you are writing.",
+    "Keep paragraphs short, about three to six lines each.",
+    "Keep the letter to one page when you can and move long details to an enclosure.",
+    "Use a clear font such as Times New Roman or Arial at 11 to 12 points.",
+    "Save the signed letter as a PDF before you email it so the layout does not change."
+  ],
+  "faqs": [
+    {
+      "q": "What is the correct format of a business letter?",
+      "a": "Letterhead, date, inside address, subject, salutation, body, closing, signature and enclosures, in that order. This template follows it in full block style."
+    },
+    {
+      "q": "Where does the date go in a business letter?",
+      "a": "Below the letterhead and above the inside address. In full block format it starts at the left margin. Write the month as a word so readers in every country read the date the same way."
+    },
+    {
+      "q": "Is a subject line needed?",
+      "a": "It isn't required, but most offices in India and many abroad expect one. It also helps the reader file the letter and find it later."
+    },
+    {
+      "q": "What do Encl. and cc mean?",
+      "a": "Encl. means something is enclosed with the letter, such as a price list or a contract. cc lists the other people who get a copy. Delete either line if you don't need it."
+    },
+    {
+      "q": "Can I send a business letter by email?",
+      "a": "Yes. Save the signed letter as a PDF and attach it, or paste the text into the email. Many companies prefer the PDF because it keeps the letterhead and signature."
+    }
+  ],
+  "tools": [
+    "word-to-pdf",
+    "sign-pdf",
+    "edit-pdf",
+    "compress-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 24
+    },
+    "font": "Times New Roman",
+    "headFont": "Arial",
+    "size": 11.5,
+    "titleSize": 20,
+    "blocks": [
+      {
+        "type": "header",
+        "split": [
+          1.25,
+          1
+        ],
+        "after": 14,
+        "left": [
+          "# [COMPANY NAME]",
+          "~ [Line of business, e.g. Commercial laundry services]"
+        ],
+        "right": [
+          "~ [Street address]",
+          "~ [City, State PIN code]",
+          "~ [Phone]  |  [info@company.com]",
+          "~ [www.company.com]"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "[20 November 2026]",
+        "after": 10
+      },
+      {
+        "type": "p",
+        "text": "**Our ref:** [SLS/SALES/2026/041]\n**Your ref:** [Enquiry dated 12 November 2026]",
+        "size": 10.5,
+        "after": 10
+      },
+      {
+        "type": "p",
+        "text": "[Mr Rohan Mehta]\n[Purchase Manager]\n[Sunrise Hotels Pvt Ltd]\n[14 MG Road]\n[Bengaluru 560001]",
+        "after": 12
+      },
+      {
+        "type": "p",
+        "text": "**Subject: [Quotation for linen laundry services for 2027]**",
+        "color": "#7B341E",
+        "after": 10
+      },
+      {
+        "type": "p",
+        "text": "Dear [Mr Mehta],",
+        "after": 8
+      },
+      {
+        "type": "p",
+        "text": "Thank you for your enquiry of [12 November 2026] about laundry services for your three Bengaluru properties. We are pleased to send our rates for the year 2027, as requested.",
+        "line": 1.15,
+        "after": 8
+      },
+      {
+        "type": "p",
+        "text": "The enclosed price list covers bed linen, towels and restaurant linen, with pickup and delivery six days a week. Rates are fixed for twelve months from [1 January 2027] and include a 48-hour turnaround. Taxes will be charged extra as applicable.",
+        "line": 1.15,
+        "after": 8
+      },
+      {
+        "type": "p",
+        "text": "If these terms suit you, please confirm by [15 December 2026] so that we can plan the first pickup. I would be glad to visit your office to discuss volumes or any changes you need.",
+        "line": 1.15,
+        "after": 14
+      },
+      {
+        "type": "p",
+        "text": "Yours sincerely,",
+        "after": 0
+      },
+      {
+        "type": "spacer",
+        "h": 34
+      },
+      {
+        "type": "p",
+        "text": "**[Anita Rao]**\n[Sales Manager]\n[Company Name]",
+        "after": 12
+      },
+      {
+        "type": "p",
+        "text": "**Encl.:** [Price list 2027, service terms]\n**cc:** [Accounts Department, Sunrise Hotels Pvt Ltd]",
+        "size": 10,
+        "muted": true,
+        "after": 22
+      },
+      {
+        "type": "rule",
+        "accent": true,
+        "weight": 10,
+        "after": 2
+      },
+      {
+        "type": "p",
+        "text": "[Company Name Pvt Ltd]  |  CIN / GSTIN: [if applicable]  |  Registered office: [address]",
+        "size": 8.5,
+        "muted": true,
+        "align": "center",
+        "after": 0
+      }
+    ]
+  }
+}

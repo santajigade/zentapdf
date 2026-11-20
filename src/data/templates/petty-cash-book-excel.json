@@ -1,0 +1,584 @@
+{
+  "slug": "petty-cash-book-excel",
+  "category": "excel",
+  "name": "Petty Cash Book Excel",
+  "h1": "Petty Cash Book Excel Template (Analytical, Imprest System)",
+  "metaTitle": "Petty Cash Book Excel: Free Analytical Format",
+  "metaDescription": "Free petty cash book in Excel with analysis columns, running balance and imprest top-up. Totals by expense type fill in by themselves. Print ready.",
+  "short": "Analytical petty cash book with six expense columns, a running balance and the imprest top-up worked out.",
+  "accent": "#B45309",
+  "useCases": [
+    "Tracking",
+    "Billing"
+  ],
+  "industries": [
+    "Small business",
+    "Corporate",
+    "Retail"
+  ],
+  "date": "2026-11-20",
+  "related": [
+    "expense-tracker-excel",
+    "payment-receipt-template",
+    "monthly-budget-template"
+  ],
+  "intro": "A petty cash book records the small cash payments an office makes, such as courier charges, tea, stationery and local travel. This Excel template is in the analytical format and follows the imprest system. You put each payment in an expense column, and the sheet works out the total paid, a running balance, the column totals and the amount needed to bring the cash back up to the imprest.",
+  "howTo": [
+    "Download the Excel file and open it in Microsoft Excel, Google Sheets or LibreOffice Calc.",
+    "Enter the office name, the month, the imprest amount and the petty cashier's name at the top.",
+    "On the first line, record the cash received from the main cash in the Cash received column.",
+    "For each payment, enter the date, voucher number and a short description, then type the amount in the matching expense column.",
+    "Check that Total paid and Balance fill in for each line and that Cash in hand matches the cash in the box.",
+    "At the end of the month, read the amount under Cash to receive from main cash and request that top-up.",
+    "Record the top-up as cash received on the first line of the next period, then sign and print the sheet."
+  ],
+  "guide": [
+    {
+      "h": "How the imprest system works",
+      "p": [
+        "With the imprest system, the petty cashier starts each period with a fixed amount, called the imprest or float, and pays small costs from it. At the end of the period the cashier gets back exactly what was spent, so the cash is back at the fixed amount.",
+        "The restore box in the sheet shows the imprest amount, the closing cash in hand and the difference between them. If the period started with the full imprest, that difference equals the total paid."
+      ]
+    },
+    {
+      "h": "What the analysis columns are for",
+      "p": [
+        "The six columns (Stationery and printing, Postage and courier, Travel and conveyance, Tea and refreshments, Cleaning and repairs, and Other) sort every payment by type. At month end the totals row shows how much went on each, so you can post the expenses to the right accounts.",
+        "Rename any column heading to suit your office. The formulas work by column position, so they keep working after a rename."
+      ]
+    },
+    {
+      "h": "Vouchers and checks",
+      "p": [
+        "Every payment should have a petty cash voucher with the date, amount, purpose and the signature of the person who took the money, with the bill attached when there is one. Number the vouchers in order and write each number in the Voucher no. column. Count the cash regularly and compare it with Cash in hand. If they differ, a payment was missed or entered wrongly."
+      ]
+    }
+  ],
+  "tips": [
+    "Set an imprest amount that lasts about a month for your office.",
+    "Enter each payment in one expense column only, so it is not counted twice.",
+    "Keep vouchers in the same order as the sheet.",
+    "Use a new copy of the sheet for each month and save the old one.",
+    "Ask a second person to check and sign the sheet before the top-up is paid."
+  ],
+  "faqs": [
+    {
+      "q": "What is a petty cash book?",
+      "a": "A record of small cash payments made from a separate fund that a petty cashier keeps, so minor costs don't go through the main cash book one by one."
+    },
+    {
+      "q": "What is the difference between a simple and an analytical petty cash book?",
+      "a": "A simple petty cash book has one amount column for each payment. An analytical one also spreads each payment across expense columns, which gives you totals by type of expense."
+    },
+    {
+      "q": "How is the balance worked out?",
+      "a": "On each line, the balance is the cash received so far minus the total paid so far. The last balance is the cash that should be in hand."
+    },
+    {
+      "q": "How many entries does the sheet hold?",
+      "a": "30 lines for one period. For a busy office, start a new sheet each fortnight, or insert rows between existing lines of the table so the totals include them."
+    },
+    {
+      "q": "Can I use it for an imprest of any amount?",
+      "a": "Yes. Type your amount in the Imprest amount cell and the cash to receive at the end is worked out from it."
+    }
+  ],
+  "tools": [
+    "excel-to-pdf",
+    "pdf-to-excel",
+    "compress-pdf",
+    "merge-pdf"
+  ],
+  "sheet": {
+    "font": "Calibri",
+    "sheets": [
+      {
+        "name": "Petty Cash Book",
+        "cols": [
+          11,
+          11,
+          30,
+          12,
+          12,
+          11,
+          11,
+          11,
+          11,
+          11,
+          10,
+          13
+        ],
+        "freeze": 6,
+        "page": {
+          "orientation": "landscape",
+          "area": "A1:L44",
+          "titles": "6:6",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              32
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:H1",
+            "v": "Petty Cash Book",
+            "s": "title"
+          },
+          {
+            "c": "I1",
+            "m": "I1:L1",
+            "v": "Analytical format, imprest system",
+            "s": "sub",
+            "align": "right"
+          },
+          {
+            "c": "A3",
+            "v": "Office",
+            "s": "label"
+          },
+          {
+            "c": "B3",
+            "m": "B3:C3",
+            "v": "[Head office, Pune]",
+            "s": "input"
+          },
+          {
+            "c": "A4",
+            "v": "Month",
+            "s": "label"
+          },
+          {
+            "c": "B4",
+            "m": "B4:C4",
+            "v": "2026-11-01",
+            "s": "input",
+            "fmt": "mmmm yyyy",
+            "align": "left"
+          },
+          {
+            "c": "E3",
+            "m": "E3:F3",
+            "v": "Imprest amount",
+            "s": "label"
+          },
+          {
+            "c": "G3",
+            "m": "G3:H3",
+            "v": 10000,
+            "s": "input",
+            "fmt": "money"
+          },
+          {
+            "c": "E4",
+            "m": "E4:F4",
+            "v": "Petty cashier",
+            "s": "label"
+          },
+          {
+            "c": "G4",
+            "m": "G4:H4",
+            "v": "[Name]",
+            "s": "input"
+          },
+          {
+            "c": "J3",
+            "m": "J3:K3",
+            "v": "Cash in hand",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "L3",
+            "v": "=L37",
+            "s": "big",
+            "fmt": "#,##0"
+          },
+          {
+            "c": "J4",
+            "m": "J4:K4",
+            "v": "To restore imprest",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "L4",
+            "v": "=D42",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "height": [
+              3,
+              22
+            ]
+          },
+          {
+            "height": [
+              4,
+              20
+            ]
+          },
+          {
+            "height": [
+              6,
+              30
+            ]
+          },
+          {
+            "row": 6,
+            "from": "A",
+            "v": [
+              "Date",
+              "Voucher no.",
+              "Particulars",
+              "Cash received",
+              "Total paid",
+              "Stationery and printing",
+              "Postage and courier",
+              "Travel and conveyance",
+              "Tea and refreshments",
+              "Cleaning and repairs",
+              "Other",
+              "Balance"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              7,
+              36
+            ],
+            "cols": {
+              "A": {
+                "s": "input",
+                "fmt": "dd mmm yy",
+                "align": "center"
+              },
+              "B": {
+                "s": "input",
+                "align": "center"
+              },
+              "C": {
+                "s": "input"
+              },
+              "D": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "E": {
+                "v": "=IF(COUNT(F{r}:K{r})=0,\"\",SUM(F{r}:K{r}))",
+                "s": "calc",
+                "fmt": "money"
+              },
+              "F": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "G": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "H": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "I": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "J": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "K": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "L": {
+                "v": "=IF(AND(D{r}=\"\",E{r}=\"\"),\"\",SUM(D$7:D{r})-SUM(E$7:E{r}))",
+                "s": "calc",
+                "fmt": "money"
+              }
+            }
+          },
+          {
+            "data": [
+              [
+                "2026-11-01",
+                "",
+                "Imprest received from main cash",
+                10000
+              ],
+              [
+                "2026-11-02",
+                "PCV-001",
+                "Printer paper and pens",
+                null,
+                null,
+                640
+              ],
+              [
+                "2026-11-03",
+                "PCV-002",
+                "Courier of documents to Mumbai client",
+                null,
+                null,
+                null,
+                180
+              ],
+              [
+                "2026-11-04",
+                "PCV-003",
+                "Auto fare for bank visit",
+                null,
+                null,
+                null,
+                null,
+                120
+              ],
+              [
+                "2026-11-05",
+                "PCV-004",
+                "Tea and snacks, client meeting",
+                null,
+                null,
+                null,
+                null,
+                null,
+                350
+              ],
+              [
+                "2026-11-07",
+                "PCV-005",
+                "Plumber for washroom tap",
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                450
+              ],
+              [
+                "2026-11-10",
+                "PCV-006",
+                "Speed post to tax consultant",
+                null,
+                null,
+                null,
+                92
+              ],
+              [
+                "2026-11-12",
+                "PCV-007",
+                "Cab to supplier site and back",
+                null,
+                null,
+                null,
+                null,
+                410
+              ],
+              [
+                "2026-11-14",
+                "PCV-008",
+                "Floor cleaner and dusters",
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                285
+              ],
+              [
+                "2026-11-17",
+                "PCV-009",
+                "Photocopies and spiral binding",
+                null,
+                null,
+                160
+              ],
+              [
+                "2026-11-19",
+                "PCV-010",
+                "Milk and sugar for pantry",
+                null,
+                null,
+                null,
+                null,
+                null,
+                240
+              ],
+              [
+                "2026-11-20",
+                "PCV-011",
+                "Duplicate key for store room",
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                120
+              ]
+            ],
+            "at": "A7"
+          },
+          {
+            "c": "A37",
+            "m": "A37:C37",
+            "v": "Totals",
+            "s": "total"
+          },
+          {
+            "c": "D37",
+            "v": "=SUM(D7:D36)",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "E37",
+            "v": "=SUM(E7:E36)",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "F37",
+            "v": "=SUM(F7:F36)",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "G37",
+            "v": "=SUM(G7:G36)",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "H37",
+            "v": "=SUM(H7:H36)",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "I37",
+            "v": "=SUM(I7:I36)",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "J37",
+            "v": "=SUM(J7:J36)",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "K37",
+            "v": "=SUM(K7:K36)",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "L37",
+            "v": "=D37-E37",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "cf": "L7:L37",
+            "rule": "neg"
+          },
+          {
+            "c": "A39",
+            "m": "A39:D39",
+            "v": "RESTORE THE IMPREST (end of period)",
+            "s": "band"
+          },
+          {
+            "c": "A40",
+            "m": "A40:C40",
+            "v": "Imprest amount",
+            "s": "plain"
+          },
+          {
+            "c": "D40",
+            "v": "=N(G3)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "A41",
+            "m": "A41:C41",
+            "v": "Cash in hand (closing balance)",
+            "s": "plain"
+          },
+          {
+            "c": "D41",
+            "v": "=L37",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "A42",
+            "m": "A42:C42",
+            "v": "Cash to receive from main cash",
+            "s": "total"
+          },
+          {
+            "c": "D42",
+            "v": "=D40-D41",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "F39",
+            "m": "F39:L39",
+            "v": "SIGN-OFF",
+            "s": "band"
+          },
+          {
+            "c": "F40",
+            "m": "F40:H40",
+            "v": "Prepared by (petty cashier)",
+            "s": "label"
+          },
+          {
+            "c": "J40",
+            "m": "J40:L40",
+            "v": "Checked and approved by",
+            "s": "label"
+          },
+          {
+            "c": "F41",
+            "m": "F41:H42",
+            "v": "",
+            "s": "input"
+          },
+          {
+            "c": "J41",
+            "m": "J41:L42",
+            "v": "",
+            "s": "input"
+          },
+          {
+            "c": "A44",
+            "m": "A44:L44",
+            "v": "Type each payment in its analysis column. Total paid, Balance and the totals fill in by themselves. Keep the voucher and bill for every payment, and count the cash at the end of the period: it should match Cash in hand.",
+            "s": "note"
+          },
+          {
+            "height": [
+              44,
+              28
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

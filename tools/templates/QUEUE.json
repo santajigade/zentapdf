@@ -367,8 +367,8 @@
    "slug": "business-letter-format",
    "category": "letters",
    "priority": 2,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-20",
    "note": "Formal business letter on simple letterhead."
   },
   {
@@ -376,8 +376,8 @@
    "slug": "service-invoice-template",
    "category": "invoice",
    "priority": 2,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-20",
    "note": "Hourly service invoice: hours x rate."
   },
   {
@@ -385,8 +385,8 @@
    "slug": "petty-cash-book-excel",
    "category": "excel",
    "priority": 2,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-20",
    "note": "Petty cash register with running balance."
   },
   {
@@ -505,6 +505,141 @@
    "status": "queued",
    "date": "",
    "note": "Resume for teachers with subjects, classes and results."
+  },
+  {
+   "keyword": "appointment letter format",
+   "slug": "appointment-letter-format",
+   "category": "letters",
+   "priority": 3,
+   "status": "queued",
+   "date": "",
+   "note": "Employer appointment letter with joining date, terms and acceptance. IN 8.1k/mo."
+  },
+  {
+   "keyword": "character certificate format",
+   "slug": "character-certificate-format",
+   "category": "certificates",
+   "priority": 3,
+   "status": "queued",
+   "date": "",
+   "note": "School/college or employer character certificate. IN 6.6k/mo."
+  },
+  {
+   "keyword": "cash memo format",
+   "slug": "cash-memo-format",
+   "category": "invoice",
+   "priority": 3,
+   "status": "queued",
+   "date": "",
+   "note": "Simple shop cash memo/bill with items and total. IN 4.4k/mo."
+  },
+  {
+   "keyword": "bonafide certificate format",
+   "slug": "bonafide-certificate-format",
+   "category": "certificates",
+   "priority": 3,
+   "status": "queued",
+   "date": "",
+   "note": "Student bonafide certificate from school or college. IN 4.4k/mo."
+  },
+  {
+   "keyword": "gate pass format",
+   "slug": "gate-pass-format",
+   "category": "forms",
+   "priority": 3,
+   "status": "queued",
+   "date": "",
+   "note": "Material/visitor gate pass, returnable and non-returnable. IN 3.6k/mo."
+  },
+  {
+   "keyword": "debit note format",
+   "slug": "debit-note-format",
+   "category": "invoice",
+   "priority": 4,
+   "status": "queued",
+   "date": "",
+   "note": "Debit note against an invoice; mention GST rules vary. IN 2.4k/mo."
+  },
+  {
+   "keyword": "packing list template",
+   "slug": "packing-list-template",
+   "category": "planners",
+   "priority": 4,
+   "status": "queued",
+   "date": "",
+   "note": "Travel packing checklist by category. US 2.4k/mo."
+  },
+  {
+   "keyword": "event planning checklist",
+   "slug": "event-planning-checklist",
+   "category": "planners",
+   "priority": 4,
+   "status": "queued",
+   "date": "",
+   "note": "Event timeline checklist with tasks, owners and dates. US 1.9k/mo."
+  },
+  {
+   "keyword": "one page resume template",
+   "slug": "one-page-resume-template",
+   "category": "resume",
+   "priority": 4,
+   "status": "queued",
+   "date": "",
+   "note": "Compact one-page resume layout. US 1.6k, IN 880/mo."
+  },
+  {
+   "keyword": "freelance invoice template",
+   "slug": "freelance-invoice-template",
+   "category": "invoice",
+   "priority": 4,
+   "status": "queued",
+   "date": "",
+   "note": "Freelancer invoice with project milestones. US 1.6k/mo."
+  },
+  {
+   "keyword": "authorization letter format",
+   "slug": "authorization-letter-format",
+   "category": "letters",
+   "priority": 4,
+   "status": "queued",
+   "date": "",
+   "note": "Letter authorising someone to act or collect documents. US 1k, IN 720/mo."
+  },
+  {
+   "keyword": "warning letter format",
+   "slug": "warning-letter-format",
+   "category": "letters",
+   "priority": 4,
+   "status": "queued",
+   "date": "",
+   "note": "Employee warning letter; facts only, check local labour rules. IN 1k/mo."
+  },
+  {
+   "keyword": "cash book format in excel",
+   "slug": "cash-book-excel",
+   "category": "excel",
+   "priority": 4,
+   "status": "queued",
+   "date": "",
+   "note": "Single/double column cash book with running balance. IN 880/mo."
+  },
+  {
+   "keyword": "fee receipt format",
+   "slug": "fee-receipt-format",
+   "category": "invoice",
+   "priority": 4,
+   "status": "queued",
+   "date": "",
+   "note": "School/coaching fee receipt. IN 720/mo."
+  },
+  {
+   "keyword": "project tracker excel",
+   "slug": "project-tracker-excel",
+   "category": "excel",
+   "priority": 4,
+   "status": "queued",
+   "date": "",
+   "note": "Task list with owner, status, dates and progress. US 480/mo."
   }
  ]
 }

@@ -1,0 +1,516 @@
+{
+  "slug": "service-invoice-template",
+  "category": "invoice",
+  "name": "Service Invoice Template",
+  "h1": "Service Invoice Template (Excel and PDF)",
+  "metaTitle": "Service Invoice Template: Free Excel & PDF Hourly Bill",
+  "metaDescription": "Free service invoice template in Excel and PDF. Bill hours, days or fixed fees, add discount and tax, deduct advances and get the balance due worked out.",
+  "short": "Bill hours, days or fixed fees. Excel works out line amounts, hours billed, tax and the balance due.",
+  "accent": "#BE123C",
+  "useCases": [
+    "Billing",
+    "Freelance"
+  ],
+  "industries": [
+    "Freelancers",
+    "Services",
+    "Small business"
+  ],
+  "date": "2026-11-20",
+  "related": [
+    "simple-invoice-template",
+    "timesheet-template-excel",
+    "payment-receipt-template",
+    "quotation-format"
+  ],
+  "intro": "A service invoice is the bill you send a client after doing work for them, such as repairs, consulting, design, cleaning or training. In this Excel template each line is billed by hours, days, visits or a fixed fee. It multiplies quantity by rate, adds up the hours billed, takes off a discount, applies one tax rate and subtracts any advance to show the balance due.",
+  "howTo": [
+    "Download the Excel file and open it in Microsoft Excel, Google Sheets or LibreOffice Calc.",
+    "Type your business name, address, contact details and tax ID at the top.",
+    "Enter the invoice number, invoice date and payment terms in days. The due date fills in from these.",
+    "Add the client's details, the project name, the work period and any PO number. Add the SAC code if you are GST registered in India.",
+    "For each service, enter the date, a clear description, the unit from the drop-down list, the quantity and your rate. Excel calculates the amount.",
+    "Enter any discount, your tax rate and any advance already paid, then check the balance due.",
+    "Fill in your bank or UPI details, then save as PDF and send it to the client."
+  ],
+  "guide": [
+    {
+      "h": "What a service invoice should include",
+      "p": [
+        "A clear service invoice shows who is billing and who is paying, a unique invoice number, the invoice date and due date, each service with its hours or units and rate, the subtotal, any discount, the tax and the total. It also tells the client how to pay.",
+        "All of that is in this template. The work details box holds the project, period and PO number, which many clients need before they approve a bill."
+      ]
+    },
+    {
+      "h": "Billing by the hour, by the day or as a fixed fee",
+      "p": [
+        "The Unit column lets you mix billing types on one invoice. Hourly lines suit small jobs and support work, day rates suit training or site visits, and fixed lines suit monthly plans. Quantity takes decimals, so 9.5 hours bills correctly. Hours billed adds up only the lines marked Hours, which is handy if you also keep a timesheet."
+      ]
+    },
+    {
+      "h": "GST and tax on services",
+      "p": [
+        "In India, a GST registered business usually shows its GSTIN, the client's GSTIN if they have one, the SAC code for the service and the tax amount. Whether you charge CGST and SGST or IGST depends on the place of supply. Rates and rules change, so check the official GST portal or ask your tax adviser.",
+        "The template applies one tax rate to the subtotal after discount. If you are not registered for tax, set the rate to 0%. Outside India, use your local VAT or sales tax rate."
+      ]
+    }
+  ],
+  "tips": [
+    "Describe the work in words the client will recognise, not internal codes.",
+    "Number invoices in one series without gaps, such as SI-2026-031, SI-2026-032.",
+    "Send the invoice as soon as the work or the month is finished.",
+    "Agree payment terms before you start and state them on every invoice.",
+    "For long projects, ask for an advance and enter it in the Advance received cell."
+  ],
+  "faqs": [
+    {
+      "q": "What is the difference between a service invoice and a sales invoice?",
+      "a": "A sales invoice bills goods, usually by quantity and unit price. A service invoice bills work, usually by hours, days or a fixed fee. In India, goods use HSN codes and services use SAC codes."
+    },
+    {
+      "q": "How do I bill partial hours?",
+      "a": "Type the hours as a decimal. For example, 1 hour 30 minutes is 1.5 and 45 minutes is 0.75. The amount column multiplies it by the rate."
+    },
+    {
+      "q": "Can I split GST into CGST and SGST?",
+      "a": "The file has one tax line. To show CGST and SGST, add two rows under Tax amount and split the tax between them. Check the GST rules for your place of supply first."
+    },
+    {
+      "q": "What if the client paid an advance?",
+      "a": "Enter it in Advance received. It is subtracted from the invoice total to give the balance due."
+    },
+    {
+      "q": "Does the template work in Google Sheets?",
+      "a": "Yes. Upload the Excel file to Google Drive and open it with Google Sheets. The formulas and the drop-down list work there as well."
+    }
+  ],
+  "tools": [
+    "excel-to-pdf",
+    "sign-pdf",
+    "compress-pdf",
+    "pdf-to-excel"
+  ],
+  "sheet": {
+    "font": "Arial",
+    "sheets": [
+      {
+        "name": "Invoice",
+        "cols": [
+          5,
+          12,
+          35,
+          9,
+          11,
+          12,
+          16
+        ],
+        "page": {
+          "orientation": "portrait",
+          "area": "A1:G38",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              36
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:D1",
+            "v": "[Your Business Name]",
+            "s": "title"
+          },
+          {
+            "c": "E1",
+            "m": "E1:G1",
+            "v": "SERVICE INVOICE",
+            "s": "big"
+          },
+          {
+            "c": "A2",
+            "m": "A2:D2",
+            "v": "[Street address, City, PIN / Postcode]",
+            "s": "plain"
+          },
+          {
+            "c": "A3",
+            "m": "A3:D3",
+            "v": "[Phone]  |  [Email]",
+            "s": "plain"
+          },
+          {
+            "c": "A4",
+            "m": "A4:D4",
+            "v": "GSTIN / Tax ID: [if registered]",
+            "s": "sub"
+          },
+          {
+            "c": "E2",
+            "m": "E2:F2",
+            "v": "Invoice no.",
+            "s": "label"
+          },
+          {
+            "c": "G2",
+            "v": "SI-2026-031",
+            "s": "input",
+            "align": "right"
+          },
+          {
+            "c": "E3",
+            "m": "E3:F3",
+            "v": "Invoice date",
+            "s": "label"
+          },
+          {
+            "c": "G3",
+            "v": "2026-11-20",
+            "s": "input",
+            "fmt": "date",
+            "align": "right"
+          },
+          {
+            "c": "E4",
+            "m": "E4:F4",
+            "v": "Payment terms (days)",
+            "s": "label"
+          },
+          {
+            "c": "G4",
+            "v": 15,
+            "s": "input",
+            "fmt": "int",
+            "align": "right"
+          },
+          {
+            "c": "E5",
+            "m": "E5:F5",
+            "v": "Due date",
+            "s": "label"
+          },
+          {
+            "c": "G5",
+            "v": "=IF(G3=\"\",\"\",G3+N(G4))",
+            "s": "calc",
+            "fmt": "date",
+            "align": "right"
+          },
+          {
+            "c": "A7",
+            "m": "A7:D7",
+            "v": "BILLED TO",
+            "s": "band"
+          },
+          {
+            "c": "E7",
+            "m": "E7:G7",
+            "v": "WORK DETAILS",
+            "s": "band"
+          },
+          {
+            "c": "A8",
+            "m": "A8:D8",
+            "v": "Greenfield Dental Clinic",
+            "s": "input"
+          },
+          {
+            "c": "A9",
+            "m": "A9:D9",
+            "v": "Attn: Dr Kavya Nair",
+            "s": "input"
+          },
+          {
+            "c": "A10",
+            "m": "A10:D10",
+            "v": "22 Church Street, Kochi 682001",
+            "s": "input"
+          },
+          {
+            "c": "A11",
+            "m": "A11:D11",
+            "v": "GSTIN: [client GSTIN, if any]",
+            "s": "input"
+          },
+          {
+            "c": "E8",
+            "v": "Project",
+            "s": "label"
+          },
+          {
+            "c": "F8",
+            "m": "F8:G8",
+            "v": "Website care plan",
+            "s": "input"
+          },
+          {
+            "c": "E9",
+            "v": "Period",
+            "s": "label"
+          },
+          {
+            "c": "F9",
+            "m": "F9:G9",
+            "v": "1 to 30 Nov 2026",
+            "s": "input"
+          },
+          {
+            "c": "E10",
+            "v": "PO / ref",
+            "s": "label"
+          },
+          {
+            "c": "F10",
+            "m": "F10:G10",
+            "v": "[PO number]",
+            "s": "input"
+          },
+          {
+            "c": "E11",
+            "v": "SAC code",
+            "s": "label"
+          },
+          {
+            "c": "F11",
+            "m": "F11:G11",
+            "v": "[if GST registered]",
+            "s": "input"
+          },
+          {
+            "height": [
+              13,
+              24
+            ]
+          },
+          {
+            "row": 13,
+            "from": "A",
+            "v": [
+              "#",
+              "Date",
+              "Service description",
+              "Unit",
+              "Qty",
+              "Rate",
+              "Amount"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              14,
+              27
+            ],
+            "cols": {
+              "A": {
+                "v": "=IF(C{r}=\"\",\"\",ROW()-13)",
+                "s": "calc",
+                "align": "center"
+              },
+              "B": {
+                "s": "input",
+                "fmt": "dd mmm",
+                "align": "center"
+              },
+              "C": {
+                "s": "input",
+                "wrap": true
+              },
+              "D": {
+                "s": "input",
+                "align": "center"
+              },
+              "E": {
+                "s": "input",
+                "fmt": "0.##",
+                "align": "center"
+              },
+              "F": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "G": {
+                "v": "=IF(OR(E{r}=\"\",F{r}=\"\"),\"\",ROUND(E{r}*F{r},2))",
+                "s": "calc",
+                "fmt": "money"
+              }
+            }
+          },
+          {
+            "data": [
+              [
+                "2026-11-03",
+                "Website updates and plugin security fixes",
+                "Hours",
+                6,
+                1200
+              ],
+              [
+                "2026-11-07",
+                "Appointment page redesign, 2 rounds",
+                "Hours",
+                9.5,
+                1200
+              ],
+              [
+                "2026-11-12",
+                "On-site staff training, booking system",
+                "Days",
+                1,
+                8000
+              ],
+              [
+                "2026-11-30",
+                "Hosting and backups, November",
+                "Fixed",
+                1,
+                2500
+              ]
+            ],
+            "at": "B14"
+          },
+          {
+            "list": "D14:D27",
+            "items": [
+              "Hours",
+              "Days",
+              "Visits",
+              "Fixed",
+              "Units"
+            ]
+          },
+          {
+            "c": "A29",
+            "m": "A29:D29",
+            "v": "PAYMENT DETAILS",
+            "s": "band"
+          },
+          {
+            "c": "A30",
+            "m": "A30:D33",
+            "v": "Bank: [Bank name]   Account no.: [Account number]\nIFSC / SWIFT: [Code]   UPI: [your-id@bank]\nPlease quote the invoice number with your payment.\nLate payment: [your terms, if any]",
+            "s": "note"
+          },
+          {
+            "c": "E29",
+            "m": "E29:F29",
+            "v": "Hours billed",
+            "s": "label"
+          },
+          {
+            "c": "G29",
+            "v": "=SUMIF(D14:D27,\"Hours\",E14:E27)",
+            "s": "calc",
+            "fmt": "0.0#",
+            "align": "right"
+          },
+          {
+            "c": "E30",
+            "m": "E30:F30",
+            "v": "Subtotal",
+            "s": "label"
+          },
+          {
+            "c": "G30",
+            "v": "=SUM(G14:G27)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "E31",
+            "m": "E31:F31",
+            "v": "Discount",
+            "s": "label"
+          },
+          {
+            "c": "G31",
+            "v": 0,
+            "s": "input",
+            "fmt": "money"
+          },
+          {
+            "c": "E32",
+            "m": "E32:F32",
+            "v": "Tax rate",
+            "s": "label"
+          },
+          {
+            "c": "G32",
+            "v": 0.18,
+            "s": "input",
+            "fmt": "pct",
+            "align": "right"
+          },
+          {
+            "c": "E33",
+            "m": "E33:F33",
+            "v": "Tax amount",
+            "s": "label"
+          },
+          {
+            "c": "G33",
+            "v": "=ROUND((G30-N(G31))*N(G32),2)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "E34",
+            "m": "E34:F34",
+            "v": "Invoice total",
+            "s": "total"
+          },
+          {
+            "c": "G34",
+            "v": "=G30-N(G31)+G33",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "E35",
+            "m": "E35:F35",
+            "v": "Advance received",
+            "s": "label"
+          },
+          {
+            "c": "G35",
+            "v": 0,
+            "s": "input",
+            "fmt": "money"
+          },
+          {
+            "c": "E36",
+            "m": "E36:F36",
+            "v": "BALANCE DUE",
+            "s": "total"
+          },
+          {
+            "c": "G36",
+            "v": "=G34-N(G35)",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "A35",
+            "m": "A35:D36",
+            "v": "Tax: one rate on the subtotal. If you need CGST and SGST, or IGST, on separate lines, check your local GST rules and split the tax amount.",
+            "s": "note"
+          },
+          {
+            "height": [
+              37,
+              8
+            ]
+          },
+          {
+            "c": "A38",
+            "m": "A38:G38",
+            "v": "Thank you for your business.",
+            "s": "band",
+            "align": "center"
+          }
+        ]
+      }
+    ]
+  }
+}
