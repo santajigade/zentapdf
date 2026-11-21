@@ -56,6 +56,6 @@ Done:
 - [x] how-to-convert-svg-to-png (2026-11-20)
 
 Open:
-- [ ] How to change PDF title and author (edit-pdf-metadata)
-- [ ] How to record your voice online (voice-recorder)
-- [ ] How to change the pitch or key of a song (pitch-changer)
+- [x] how-to-change-pdf-title-and-author (2026-11-21)
+- [x] how-to-record-voice-online (2026-11-21)
+- [x] how-to-change-pitch-of-song (2026-11-21)
