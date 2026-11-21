@@ -1,0 +1,177 @@
+{
+  "slug": "visitor-register-template",
+  "category": "forms",
+  "name": "Visitor Register Template",
+  "h1": "Visitor Register Format (Visitor Log Book in Word and PDF)",
+  "metaTitle": "Visitor Register Format: Free Visitor Log Book",
+  "metaDescription": "Free visitor register format in Word and PDF. A landscape visitor log book page with time in, time out, purpose, person to meet, pass number and signatures.",
+  "short": "Landscape visitor log book page: visitor, company, purpose, person to meet, ID, pass, time in and out, signs.",
+  "accent": "#8B2E2E",
+  "useCases": [
+    "Tracking",
+    "Meetings"
+  ],
+  "industries": [
+    "Corporate",
+    "Schools",
+    "Manufacturing",
+    "All industries"
+  ],
+  "date": "2026-11-21",
+  "intro": "A visitor register records who came in, who they came to see and when they left. This page is a visitor log book in landscape A4 with 15 numbered lines, so a guard or receptionist can fill it by hand at the gate or front desk. Each line has room for the visitor's name, company, mobile, purpose, the person they meet, ID shown, pass number, time in, time out and two signatures.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Type your company, school or building name and address in the top right corner.",
+    "Delete the two grey sample lines at the top of the table, or leave them so new guards can see how to fill a line.",
+    "Print as many copies as you need and keep them in a file or have them bound into a book.",
+    "Fill the gate or location, month, register number and page number at the top of each sheet.",
+    "For each visitor, write the details on the next free line, give them a pass and ask them to sign.",
+    "When the visitor leaves, collect the pass, write the time out and initial the Security column."
+  ],
+  "guide": [
+    {
+      "h": "What is on the page",
+      "p": [
+        "The header holds your organisation name, address, register number and page number. Under it are four boxes for the gate or location, month, security in charge and shift.",
+        "The table has 13 columns: No., Date, Visitor name, Company or coming from, Mobile, Purpose of visit, Person to meet, ID shown, Pass no., Time in, Time out, Visitor sign and Security sign. A short note at the bottom tells visitors to wear the pass and return it when they leave."
+      ]
+    },
+    {
+      "h": "Why the details matter",
+      "p": [
+        "At any time, the register tells you who is inside the building. In a fire drill or an emergency, the open lines with no time out tell you who still needs to be found. It also helps later if something goes missing or a client asks when a delivery was made.",
+        "At the end of each shift, ask the guard to look for lines with no time out."
+      ]
+    },
+    {
+      "h": "Collect only what you need",
+      "p": [
+        "The ID shown column is for the type of ID and its last four digits, not the full number. A visitor register holds personal data such as names and mobile numbers, so keep filled pages locked away and decide how long you keep them. Privacy rules differ by country. In India, check the Digital Personal Data Protection Act, 2023 and any rules that apply to your sector."
+      ]
+    }
+  ],
+  "tips": [
+    "Number the passes and match them to the Pass no. column so a missing pass is easy to spot.",
+    "Keep a pen tied to the register at the desk.",
+    "Start a new page each day if you have many visitors, so dates stay clear.",
+    "Scan full pages to PDF once a month and store them in one place."
+  ],
+  "faqs": [
+    {
+      "q": "What should a visitor register contain?",
+      "a": "At least the date, visitor name, who they came to meet, purpose, time in, time out and a signature. This format also has company, mobile, ID shown and pass number."
+    },
+    {
+      "q": "How many entries fit on one page?",
+      "a": "15 lines on a landscape A4 sheet. Print more copies as you fill them."
+    },
+    {
+      "q": "Can I use it for a school, hospital or housing society?",
+      "a": "Yes. Change the heading and the column names in Word to suit, for example Flat no. in place of Person to meet."
+    },
+    {
+      "q": "Should I write the full ID number?",
+      "a": "It is safer not to. Write the ID type and the last four digits, which is enough to confirm the person showed an ID."
+    },
+    {
+      "q": "Can I fill it on a computer?",
+      "a": "Yes. Click in a cell and type. The rows are also tall enough to fill by hand."
+    }
+  ],
+  "related": [
+    "meeting-minutes-template",
+    "attendance-sheet-excel",
+    "employee-information-form"
+  ],
+  "tools": [
+    "word-to-pdf",
+    "jpg-to-pdf",
+    "merge-pdf",
+    "compress-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "orientation": "landscape",
+      "margin": 10
+    },
+    "size": 8.5,
+    "font": "Arial",
+    "headFont": "Cambria",
+    "titleSize": 22,
+    "blocks": [
+      {
+        "type": "header",
+        "split": [1.3, 1],
+        "after": 4,
+        "left": [
+          "# Visitor Register",
+          "~ Please write clearly. One line for each visitor."
+        ],
+        "right": [
+          "## [Company, school or building name]",
+          "~ [Address, city]",
+          "~ Register no. [____]     Page no. [____]"
+        ]
+      },
+      {
+        "type": "fields",
+        "cols": 4,
+        "labelWidth": 0.42,
+        "after": 3,
+        "items": [
+          ["Gate or location", ""],
+          ["Month", ""],
+          ["Security in charge", ""],
+          ["Shift", ""]
+        ]
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": true,
+        "rowHeight": 8.6,
+        "columns": [
+          { "h": "No.", "w": 0.42, "align": "center" },
+          { "h": "Date", "w": 0.75, "align": "center" },
+          { "h": "Visitor name", "w": 1.5 },
+          { "h": "Company or coming from", "w": 1.35 },
+          { "h": "Mobile", "w": 1.05 },
+          { "h": "Purpose of visit", "w": 1.25 },
+          { "h": "Person to meet", "w": 1.15 },
+          { "h": "ID shown (type, last 4)", "w": 1.05 },
+          { "h": "Pass no.", "w": 0.6, "align": "center" },
+          { "h": "Time in", "w": 0.65, "align": "center" },
+          { "h": "Time out", "w": 0.65, "align": "center" },
+          { "h": "Visitor sign", "w": 0.95 },
+          { "h": "Security sign", "w": 0.85 }
+        ],
+        "rows": [
+          ["1", "[03/11]", "[Ravi Kulkarni]", "[Sai Traders]", "[98xxxxxx21]", "[Supply meeting]", "[Purchase dept.]", "[DL, 4417]", "[V-07]", "[10:15]", "[11:05]", "", ""],
+          ["2", "[03/11]", "[Meena Iyer]", "[Courier, BlueLine]", "[97xxxxxx08]", "[Parcel delivery]", "[Reception]", "[Aadhaar, 2290]", "[V-08]", "[11:40]", "[11:50]", "", ""],
+          ["3", "", "", "", "", "", "", "", "", "", "", "", ""],
+          ["4", "", "", "", "", "", "", "", "", "", "", "", ""],
+          ["5", "", "", "", "", "", "", "", "", "", "", "", ""],
+          ["6", "", "", "", "", "", "", "", "", "", "", "", ""],
+          ["7", "", "", "", "", "", "", "", "", "", "", "", ""],
+          ["8", "", "", "", "", "", "", "", "", "", "", "", ""],
+          ["9", "", "", "", "", "", "", "", "", "", "", "", ""],
+          ["10", "", "", "", "", "", "", "", "", "", "", "", ""],
+          ["11", "", "", "", "", "", "", "", "", "", "", "", ""],
+          ["12", "", "", "", "", "", "", "", "", "", "", "", ""],
+          ["13", "", "", "", "", "", "", "", "", "", "", "", ""],
+          ["14", "", "", "", "", "", "", "", "", "", "", "", ""],
+          ["15", "", "", "", "", "", "", "", "", "", "", "", ""]
+        ],
+        "after": 3
+      },
+      {
+        "type": "p",
+        "text": "**Visitors:** please wear your pass at all times and return it at the gate when you leave. Details in this register are used only for security and safety.",
+        "muted": true,
+        "size": 8,
+        "after": 0
+      }
+    ]
+  }
+}

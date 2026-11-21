@@ -394,8 +394,8 @@
    "slug": "visitor-register-template",
    "category": "forms",
    "priority": 2,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-21",
    "note": "Visitor register table, landscape."
   },
   {
@@ -403,8 +403,8 @@
    "slug": "bill-of-materials-template",
    "category": "excel",
    "priority": 3,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-21",
    "note": "BOM with part numbers, qty, unit cost, extended cost."
   },
   {
@@ -412,8 +412,8 @@
    "slug": "sales-report-excel",
    "category": "excel",
    "priority": 3,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-21",
    "note": "Monthly sales by product/region with totals and % change."
   },
   {

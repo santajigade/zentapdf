@@ -8,6 +8,15 @@
   "previews": 1,
   "built": "2026-11-10"
  },
+ "bill-of-materials-template": {
+  "files": {
+   "xlsx": 12529,
+   "pdf": 38594
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-21"
+ },
  "business-letter-format": {
   "files": {
    "docx": 11192,
@@ -322,6 +331,15 @@
   "previews": 1,
   "built": "2026-11-11"
  },
+ "sales-report-excel": {
+  "files": {
+   "xlsx": 12542,
+   "pdf": 58751
+  },
+  "pages": 2,
+  "previews": 2,
+  "built": "2026-11-21"
+ },
  "service-invoice-template": {
   "files": {
    "xlsx": 9783,
@@ -386,6 +404,15 @@
   "pages": 1,
   "previews": 1,
   "built": "2026-11-12"
+ },
+ "visitor-register-template": {
+  "files": {
+   "docx": 12393,
+   "pdf": 88298
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-21"
  },
  "weekly-planner-template": {
   "files": {
