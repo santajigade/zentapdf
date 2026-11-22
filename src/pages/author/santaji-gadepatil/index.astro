@@ -1,0 +1,33 @@
+---
+// Author page: who writes the ZentaPDF guides and templates (linked from every byline and author box)
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { AUTHOR, authorSchema } from '../../../data/author';
+import { guides } from '../../../lib/guides';
+import { templates } from '../../../lib/templates';
+import { breadcrumbSchema, abs } from '../../../lib/schema';
+
+const crumbs = [{ name: 'Home', href: '/' }, { name: AUTHOR.name, href: AUTHOR.url }];
+const latestGuides = [...guides].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 12);
+const latestTpl = [...templates].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 12);
+const schema = [breadcrumbSchema(crumbs), { '@context': 'https://schema.org', '@type': 'ProfilePage', url: abs(AUTHOR.url), mainEntity: authorSchema() }];
+---
+<Base title={`${AUTHOR.name}, Founder of ZentaPDF`} description={`${AUTHOR.name} writes the free guides and templates on ZentaPDF. Engineer from Pune, India, building free browser tools for PDFs, images and audio.`} schema={schema} ogType="profile">
+  <Breadcrumbs items={crumbs} />
+  <article class="container guide">
+    <div class="author-hero">
+      <img src={AUTHOR.photo} alt={AUTHOR.name} width="120" height="120" />
+      <div>
+        <h1>{AUTHOR.name}</h1>
+        <p class="guide-meta">{AUTHOR.jobTitle} · <a href={AUTHOR.linkedin} target="_blank" rel="noopener me">LinkedIn</a></p>
+      </div>
+    </div>
+    <p>{AUTHOR.bio}</p>
+    <h2>Latest guides</h2>
+    <ul>{latestGuides.map((g) => <li><a href={`/guides/${g.slug}/`}>{g.h1}</a></li>)}</ul>
+    <p><a href="/guides/">All guides →</a></p>
+    <h2>Latest templates</h2>
+    <ul>{latestTpl.map((t) => <li><a href={t.url}>{t.name}</a></li>)}</ul>
+    <p><a href="/templates/">All templates →</a></p>
+  </article>
+</Base>

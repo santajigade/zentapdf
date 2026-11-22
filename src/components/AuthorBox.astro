@@ -1,0 +1,12 @@
+---
+import { AUTHOR } from '../data/author';
+---
+<aside class="author-box" aria-label="About the author">
+  <a href={AUTHOR.url}><img src={AUTHOR.photo} alt={AUTHOR.name} width="72" height="72" loading="lazy" /></a>
+  <div>
+    <small>Written by</small>
+    <strong><a href={AUTHOR.url}>{AUTHOR.name}</a></strong>
+    <p>{AUTHOR.bio}</p>
+    <a class="author-li" href={AUTHOR.linkedin} target="_blank" rel="noopener me">LinkedIn profile</a>
+  </div>
+</aside>

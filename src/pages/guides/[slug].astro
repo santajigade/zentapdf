@@ -8,6 +8,8 @@ import { dtBySlug, type DeviceTest } from '../../data/devicetests';
 import DTCard from '../../components/DTCard.astro';
 import { breadcrumbSchema, faqSchema, abs } from '../../lib/schema';
 import { SITE_NAME } from '../../config.js';
+import AuthorBox from '../../components/AuthorBox.astro';
+import { AUTHOR, authorSchema } from '../../data/author';
 
 export function getStaticPaths() { return guides.map((g) => ({ params: { slug: g.slug }, props: { g } })); }
 const { g } = Astro.props as { g: Guide };
@@ -22,7 +24,7 @@ const fmt = (d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-GB'
 const article = {
   '@context': 'https://schema.org', '@type': 'BlogPosting', headline: g.h1, description: g.description, image: abs(img),
   datePublished: g.date, dateModified: g.updated ?? g.date, mainEntityOfPage: abs(`/guides/${g.slug}/`), wordCount: g.words,
-  author: { '@type': 'Organization', name: `${SITE_NAME} Team`, url: abs('/about/') },
+  author: authorSchema(),
   publisher: { '@type': 'Organization', name: SITE_NAME, logo: { '@type': 'ImageObject', url: abs('/favicon-512.png') } },
 };
 const schema = [breadcrumbSchema(crumbs), article, ...(g.faqs?.length ? [faqSchema(g.faqs)] : [])];
@@ -33,7 +35,7 @@ const toc = g.headings.filter((h) => h.depth === 2);
   <article class="container guide">
     <header class="guide-head">
       <h1>{g.h1}</h1>
-      <p class="guide-meta">By {SITE_NAME} Team · Published <time datetime={g.date}>{fmt(g.date)}</time>{g.updated && g.updated !== g.date && <> · Updated <time datetime={g.updated}>{fmt(g.updated)}</time></>} · {g.minutes} min read</p>
+      <p class="guide-meta">By <a class="byline" href={AUTHOR.url}><img src={AUTHOR.photo} alt="" width="28" height="28" />{AUTHOR.name}</a> · Published <time datetime={g.date}>{fmt(g.date)}</time>{g.updated && g.updated !== g.date && <> · Updated <time datetime={g.updated}>{fmt(g.updated)}</time></>} · {g.minutes} min read</p>
       <img class="guide-hero" src={img} alt={g.h1} width="1200" height="630" />
     </header>
     <aside class="guide-cta">
@@ -47,6 +49,7 @@ const toc = g.headings.filter((h) => h.depth === 2);
     {g.faqs?.length && (
       <section><h2 id="faq">Frequently asked questions</h2>{g.faqs.map((f) => <details class="faq"><summary>{f.q}</summary><p>{f.a}</p></details>)}</section>
     )}
+    <AuthorBox />
     <p class="guide-views" id="guide-views" data-slug={g.slug} hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span></span></p>
     <aside class="guide-cta">
       <div><strong>Ready? Use {tool.name} free</strong><span>No sign-up{tool.dt ? ', no download' : ', no watermark'}.</span></div>

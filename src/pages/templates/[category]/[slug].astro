@@ -1,4 +1,6 @@
 ---
+import AuthorBox from '../../../components/AuthorBox.astro';
+import { authorSchema } from '../../../data/author';
 // One page per template, built from src/data/templates/<slug>.json
 import Base from '../../../layouts/Base.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
@@ -23,7 +25,7 @@ const doc = {
   image: abs(`/templates/img/${t.slug}.webp`), thumbnailUrl: abs(`/templates/img/${t.slug}-sm.webp`), inLanguage: 'en', isAccessibleForFree: true,
   genre: t.cat.name, keywords: [t.name, ...t.useCases, ...(t.keywords ?? [])].join(', '), encodingFormat: t.files.map((f) => MIME[f.ext]),
   datePublished: t.date, dateModified: t.updated ?? t.date, numberOfPages: t.pages,
-  author: { '@type': 'Organization', name: `${SITE_NAME} Team`, url: abs('/about/') },
+  author: authorSchema(),
   publisher: { '@type': 'Organization', name: SITE_NAME, logo: { '@type': 'ImageObject', url: abs('/favicon-512.png') } },
   associatedMedia: t.files.map((f) => ({ '@type': 'MediaObject', name: `${t.name} (${f.label})`, contentUrl: abs(fileUrl(t, f.ext)), encodingFormat: MIME[f.ext], contentSize: kb(f.size) })),
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
@@ -100,6 +102,8 @@ const icons: Record<string, string> = {
       <h2 id="faq">Frequently asked questions</h2>
       {t.faqs.map((f) => <details class="faq"><summary>{f.q}</summary><p set:html={md(f.a)} /></details>)}
     </div>
+
+    <div class="tpl-content"><AuthorBox /></div>
 
     <AdSlot />
 
