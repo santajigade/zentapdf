@@ -90,6 +90,15 @@
   "previews": 2,
   "built": "2026-11-17"
  },
+ "employee-of-the-month-certificate": {
+  "files": {
+   "docx": 10832,
+   "pdf": 32279
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-22"
+ },
  "expense-tracker-excel": {
   "files": {
    "xlsx": 12438,
@@ -236,6 +245,15 @@
   "previews": 1,
   "built": "2026-11-18"
  },
+ "offer-acceptance-letter": {
+  "files": {
+   "docx": 11530,
+   "pdf": 54193
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-22"
+ },
  "offer-letter-format": {
   "files": {
    "docx": 13047,
@@ -321,6 +339,15 @@
   "pages": 1,
   "previews": 1,
   "built": "2026-11-07"
+ },
+ "salary-increment-letter": {
+  "files": {
+   "docx": 11843,
+   "pdf": 77199
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-22"
  },
  "salary-slip-format": {
   "files": {

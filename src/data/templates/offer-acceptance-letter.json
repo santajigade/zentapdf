@@ -1,0 +1,223 @@
+{
+  "slug": "offer-acceptance-letter",
+  "category": "letters",
+  "name": "Job Offer Acceptance Letter",
+  "h1": "Job Offer Acceptance Letter Format (Word and PDF)",
+  "metaTitle": "Job Offer Acceptance Letter: Free Word & PDF Format",
+  "metaDescription": "Free job offer acceptance letter in Word and PDF. Accept the role in writing and confirm job title, CTC, joining date, location and documents you will bring.",
+  "short": "Formal letter from a candidate accepting a job offer, with a table of the agreed terms and a joining checklist.",
+  "accent": "#155E75",
+  "useCases": [
+    "Hiring",
+    "Job change"
+  ],
+  "industries": [
+    "All industries",
+    "Professionals",
+    "Corporate"
+  ],
+  "date": "2026-11-22",
+  "related": [
+    "offer-letter-format",
+    "resignation-letter-template",
+    "cover-letter-template"
+  ],
+  "intro": "A job offer acceptance letter is how you tell an employer, in writing, that you accept their offer. It also puts the main terms on record so you and the company agree on them before your first day. This one fits on a single page and has your contact details, the offer reference, a short acceptance paragraph, a table of agreed terms, a list of documents you will bring and a signature block.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Put your name, phone, email and city at the top, and the date you are sending the letter.",
+    "Add the name and title of the person who sent the offer, usually the HR manager, and the company address.",
+    "Copy the offer reference number and offer date from your offer letter into the subject and the first paragraph.",
+    "Fill the terms table with the job title, department, annual CTC, joining date, work location and reporting manager exactly as the offer letter states them.",
+    "Edit the list of joining documents to match what the company asked for.",
+    "Sign above your typed name, save it as a PDF and email it to HR, or print it and hand it over with the signed offer."
+  ],
+  "guide": [
+    {
+      "h": "What the letter should say",
+      "p": [
+        "Thank the employer, accept the role by its exact title and confirm the joining date. Then list the terms you agreed: job title, salary or CTC, start date, location and who you report to. Repeat these from the offer letter word for word. The acceptance letter is not the place to change them.",
+        "End by asking about next steps, such as onboarding forms or a first-day schedule. The sample text already does this in one short line."
+      ]
+    },
+    {
+      "h": "If something in the offer is not right",
+      "p": [
+        "If a number or date in the offer is wrong, or you still want to negotiate, talk to HR first and wait for a revised offer. Write the acceptance once everything is settled. A letter that accepts and asks for changes at the same time can confuse the employer about whether you have really accepted."
+      ]
+    },
+    {
+      "h": "Notice period and your current job",
+      "p": [
+        "Before you commit to a joining date, check the notice period in your current employment contract or appointment letter. It can be anything from a few weeks to three months, and it depends on your contract and company policy, not on a single rule for everyone. Ask your current employer if an early release is possible before you promise an earlier date."
+      ]
+    }
+  ],
+  "tips": [
+    "Reply within a day or two of getting the offer, or by the deadline in the offer letter.",
+    "Use the same job title and CTC figures as the offer letter so there is no mismatch in records.",
+    "Keep a copy of the offer letter, your acceptance and any emails with HR.",
+    "Resign from your current job only after you have the final written offer.",
+    "Keep the tone polite and short. One page is enough."
+  ],
+  "faqs": [
+    {
+      "q": "Is an email enough to accept a job offer?",
+      "a": "Many companies accept an email reply. Some also ask you to sign and return a copy of the offer letter. Attaching this letter as a PDF to your email covers both cases."
+    },
+    {
+      "q": "Should I mention salary in the acceptance letter?",
+      "a": "Yes. Confirming the CTC or salary from the offer letter puts it on record. Copy the figure exactly and do not add new terms."
+    },
+    {
+      "q": "Who do I address the letter to?",
+      "a": "The person who sent you the offer, usually the HR manager or the hiring manager. Use their name and job title."
+    },
+    {
+      "q": "What documents should I list?",
+      "a": "Whatever the company asked for. The sample lists common ones in India: ID and address proof, PAN card, education certificates, relieving letter, last salary slips and photos. Delete what does not apply."
+    },
+    {
+      "q": "Can I accept a job offer and then decline it later?",
+      "a": "It happens, but it can harm your reputation with the company. If you must back out, tell HR as soon as you can, in writing, and thank them for the offer."
+    }
+  ],
+  "tools": [
+    "word-to-pdf",
+    "sign-pdf",
+    "edit-pdf",
+    "merge-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 22
+    },
+    "font": "Palatino Linotype",
+    "headFont": "Trebuchet MS",
+    "size": 11,
+    "titleSize": 22,
+    "blocks": [
+      {
+        "type": "header",
+        "split": [
+          1.3,
+          1
+        ],
+        "after": 12,
+        "left": [
+          "# [Your Full Name]",
+          "~ [City, State PIN code]",
+          "~ [+91 98xxx xxxxx]  |  [yourname@email.com]"
+        ],
+        "right": [
+          "## OFFER ACCEPTANCE",
+          "**Date:** [22 November 2026]"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "[Ms Priya Nair]\n[HR Manager]\n[Company Name Pvt Ltd]\n[Office address, City, PIN code]",
+        "after": 12
+      },
+      {
+        "type": "p",
+        "text": "**Subject: Acceptance of offer for the post of [Senior Accountant] (Ref: [HR/OFF/2026/118])**",
+        "color": "#155E75",
+        "after": 10
+      },
+      {
+        "type": "p",
+        "text": "Dear [Ms Nair],",
+        "after": 8
+      },
+      {
+        "type": "p",
+        "text": "Thank you for your offer letter dated [15 November 2026]. I am happy to accept the position of **[Senior Accountant]** with **[Company Name Pvt Ltd]** on the terms set out in the offer, which I confirm below.",
+        "line": 1.2,
+        "after": 10
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "rowHeight": 7.5,
+        "headFill": "#E0F2F7",
+        "headText": "#155E75",
+        "after": 10,
+        "columns": [
+          {
+            "h": "Term",
+            "w": 0.8
+          },
+          {
+            "h": "As per offer letter",
+            "w": 1.6
+          }
+        ],
+        "rows": [
+          [
+            "**Job title**",
+            "[Senior Accountant]"
+          ],
+          [
+            "**Department**",
+            "[Finance and Accounts]"
+          ],
+          [
+            "**Annual CTC**",
+            "[Rs 7,20,000 per annum]"
+          ],
+          [
+            "**Joining date**",
+            "[5 January 2027]"
+          ],
+          [
+            "**Work location**",
+            "[Pune office]"
+          ],
+          [
+            "**Reporting to**",
+            "[Finance Manager]"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "I will bring the following documents on my joining day:",
+        "after": 4
+      },
+      {
+        "type": "checklist",
+        "gap": 2,
+        "items": [
+          "[Signed copy of the offer letter]",
+          "[ID and address proof, PAN card]",
+          "[Education certificates and mark sheets]",
+          "[Relieving letter and last three salary slips]",
+          "[Two passport size photos]"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Please let me know if there are any forms to fill in before I join. I look forward to starting with the team.",
+        "line": 1.2,
+        "after": 14
+      },
+      {
+        "type": "p",
+        "text": "Yours sincerely,",
+        "after": 0
+      },
+      {
+        "type": "signature",
+        "space": 34,
+        "items": [
+          "**[Your Full Name]**",
+          "Date"
+        ],
+        "after": 0
+      }
+    ]
+  }
+}

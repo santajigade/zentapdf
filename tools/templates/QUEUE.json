@@ -421,8 +421,8 @@
    "slug": "offer-acceptance-letter",
    "category": "letters",
    "priority": 3,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-22",
    "note": "Candidate accepts offer."
   },
   {
@@ -430,8 +430,8 @@
    "slug": "salary-increment-letter",
    "category": "letters",
    "priority": 3,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-22",
    "note": "Employer letter announcing revised pay."
   },
   {
@@ -439,8 +439,8 @@
    "slug": "employee-of-the-month-certificate",
    "category": "certificates",
    "priority": 3,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-22",
    "note": "Recognition certificate."
   },
   {

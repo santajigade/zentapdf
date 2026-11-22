@@ -1,0 +1,178 @@
+{
+  "slug": "employee-of-the-month-certificate",
+  "category": "certificates",
+  "name": "Employee of the Month Certificate",
+  "h1": "Employee of the Month Certificate Template (Word and PDF)",
+  "metaTitle": "Employee of the Month Certificate: Free Word & PDF",
+  "metaDescription": "Free employee of the month certificate in Word and PDF. Landscape award with month, employee name, team, the reason for the award and two signature lines.",
+  "short": "Landscape award certificate with the month, employee name and team, a reason box, certificate number and two signatures.",
+  "accent": "#1E3A8A",
+  "useCases": [
+    "Recognition",
+    "HR"
+  ],
+  "industries": [
+    "Corporate",
+    "Small business",
+    "Startups",
+    "All industries"
+  ],
+  "date": "2026-11-22",
+  "related": [
+    "certificate-of-appreciation-template",
+    "experience-certificate-format",
+    "salary-increment-letter"
+  ],
+  "intro": "An employee of the month certificate is a printed award that names one person each month for good work. It shows who won, when, and why, and it is usually handed over at a team meeting. This template is a landscape A4 page with a left-aligned layout: company name and certificate number at the top, the month, the employee's name and team, a box for the reason, and lines for two signatures.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Type your company name at the top left and give the certificate a number, such as EOM-2026-11.",
+    "Change the month and year under the title.",
+    "Enter the employee's full name, designation and team.",
+    "Write one or two sentences in the reason box saying what the person did, with a fact if you have one.",
+    "Add the names and titles of the two people who will sign, such as the team manager and the director.",
+    "Print it on thick paper in landscape, or save it as a PDF and add signatures with a PDF tool."
+  ],
+  "guide": [
+    {
+      "h": "What goes on the certificate",
+      "p": [
+        "The company name, the words Employee of the Month, the month and year, the employee's name and role, a short line on why they were chosen, the date and one or two signatures. A certificate number is optional, but it helps HR keep a record of who won each month.",
+        "This file has a place for each of these. There is no logo area, so if you want your logo, insert it next to the company name at the top left."
+      ]
+    },
+    {
+      "h": "Writing the reason",
+      "p": [
+        "A specific reason means more to the winner and to the team than general praise. Say what they did and what came of it: closed 18 support tickets on the first reply, trained two new joiners, or cut the dispatch delay at the warehouse. The sample text in the box shows the kind of line that works. Keep it to two lines so it fits the page."
+      ]
+    },
+    {
+      "h": "Running a monthly award",
+      "p": [
+        "Decide the criteria before the first month, such as customer feedback, targets met or help given to colleagues, and tell everyone what they are. Some companies let staff nominate each other and have a small panel pick the winner. Announce the result at the same time each month and hand over the certificate in person when you can."
+      ]
+    }
+  ],
+  "tips": [
+    "Spell the employee's name the way they write it. Check with them if you are not sure.",
+    "Use the same layout every month so the certificates look like a set.",
+    "Print on 200 to 300 gsm paper for a certificate that feels solid.",
+    "Keep a list of past winners so you do not overlook anyone over the year.",
+    "Share a photo of the handover on your internal channel if the employee is happy with that."
+  ],
+  "faqs": [
+    {
+      "q": "What should I write on an employee of the month certificate?",
+      "a": "The month, the employee's name and role, a one or two line reason for the award, the date and the signatures. This template has a space for each."
+    },
+    {
+      "q": "Can I change the colours?",
+      "a": "Yes. In Word, select the title or the border and pick a new colour. The page border is under Design, then Page Borders."
+    },
+    {
+      "q": "Can I make it employee of the quarter or of the year?",
+      "a": "Yes. Change the title and replace the month with the quarter or the year. The rest of the layout works the same."
+    },
+    {
+      "q": "How do I sign it if I send it by email?",
+      "a": "Save it as a PDF and use a sign PDF tool to add each signature, then email the file to the employee."
+    }
+  ],
+  "tools": [
+    "word-to-pdf",
+    "sign-pdf",
+    "edit-pdf",
+    "pdf-to-jpg"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "orientation": "landscape",
+      "margin": 24,
+      "border": {
+        "double": false,
+        "size": 12,
+        "space": 22,
+        "color": "#B7791F"
+      },
+      "vcenter": true
+    },
+    "font": "Century Gothic",
+    "headFont": "Garamond",
+    "size": 12,
+    "titleSize": 18,
+    "blocks": [
+      {
+        "type": "header",
+        "split": [
+          1.6,
+          1
+        ],
+        "after": 16,
+        "left": [
+          "## [COMPANY NAME PVT LTD]",
+          "~ [Team or branch name]"
+        ],
+        "right": [
+          "~ Certificate no. [EOM-2026-11]"
+        ]
+      },
+      {
+        "type": "title",
+        "text": "Employee of the Month",
+        "size": 48,
+        "after": 0
+      },
+      {
+        "type": "p",
+        "text": "[NOVEMBER 2026]",
+        "bold": true,
+        "size": 18,
+        "color": "#B7791F",
+        "after": 16
+      },
+      {
+        "type": "p",
+        "text": "Awarded to",
+        "italic": true,
+        "color": "#5B6475",
+        "size": 14,
+        "after": 4
+      },
+      {
+        "type": "p",
+        "text": "[Employee Full Name]",
+        "size": 38,
+        "bold": true,
+        "font": "Garamond",
+        "after": 4
+      },
+      {
+        "type": "p",
+        "text": "[Customer Support Executive]  |  [Customer Care Team]",
+        "size": 13,
+        "color": "#5B6475",
+        "after": 14
+      },
+      {
+        "type": "box",
+        "title": "Recognised for",
+        "lines": [
+          "[Resolving 94% of customer tickets on the first reply this month and training two new team members.]"
+        ],
+        "after": 4
+      },
+      {
+        "type": "signature",
+        "space": 50,
+        "items": [
+          "**[Name]**\n[Team Manager]",
+          "**[Name]**\n[Director or HR Head]",
+          "**Date:** [DD Month YYYY]"
+        ],
+        "after": 0
+      }
+    ]
+  }
+}

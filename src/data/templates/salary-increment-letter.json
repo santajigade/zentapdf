@@ -1,0 +1,261 @@
+{
+  "slug": "salary-increment-letter",
+  "category": "letters",
+  "name": "Salary Increment Letter",
+  "h1": "Salary Increment Letter Format (Word and PDF)",
+  "metaTitle": "Salary Increment Letter Format: Free Word & PDF",
+  "metaDescription": "Free salary increment letter format in Word and PDF. Tell an employee their revised CTC with an effective date, increment percentage and a salary table.",
+  "short": "Employer letter announcing a pay rise, with current and revised salary by component, increment percentage and sign-off.",
+  "accent": "#166534",
+  "useCases": [
+    "HR",
+    "Payroll"
+  ],
+  "industries": [
+    "Corporate",
+    "Small business",
+    "Startups",
+    "All industries"
+  ],
+  "date": "2026-11-22",
+  "related": [
+    "salary-slip-format",
+    "offer-letter-format",
+    "experience-certificate-format"
+  ],
+  "intro": "A salary increment letter tells an employee that their pay has gone up, by how much and from which date. Employees keep it as proof of their revised salary, and HR uses it to update payroll. This template has a centred letterhead, reference and employee details, a short letter, a table comparing current and revised annual pay for each component, and space for the employer and the employee to sign.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Replace the company name, address and contact line at the top, or delete them if you print on letterhead.",
+    "Fill in the reference number, date, employee name, employee ID, designation and department.",
+    "Write the effective date and the reason for the revision in the first paragraph, such as the annual appraisal.",
+    "Enter the current and revised annual amounts for each pay component in the table, then the totals and the increment percentage.",
+    "Change the component names to match your salary structure and delete rows you do not use.",
+    "Print two copies, sign one for the employee and keep the copy they sign back for your records."
+  ],
+  "guide": [
+    {
+      "h": "What an increment letter includes",
+      "p": [
+        "The company name and address, the date, the employee's name, ID and designation, the effective date of the new salary and the new amount. Most letters in India also show the old and new CTC and the breakup by component, such as basic, HRA, special allowance and the employer's PF contribution. The table in this file has rows for those, with current and revised columns.",
+        "Many companies add a line asking the employee to keep salary details confidential, and a line saying all other terms of employment stay the same. Both are in the sample text."
+      ]
+    },
+    {
+      "h": "How to work out the increment percentage",
+      "p": [
+        "Subtract the current CTC from the revised CTC, divide the result by the current CTC and multiply by 100. For example, a rise from Rs 6,00,000 to Rs 6,60,000 is Rs 60,000, which is 10 percent. The table has a row for the increment amount and one for the percentage. The Word file does not calculate them, so type the figures in yourself."
+      ]
+    },
+    {
+      "h": "Check the rules that apply to you",
+      "p": [
+        "How a salary is split into components affects PF, gratuity and income tax, and these rules change. India's labour codes define which parts of pay count as wages for these calculations, and that may differ from what your company did before. Check the current rules on the EPFO and labour ministry websites, or with your payroll adviser, before you fix a new structure. Outside India, follow your local payroll rules."
+      ]
+    }
+  ],
+  "tips": [
+    "Give the letter before or with the first salary at the new rate, not months later.",
+    "Make sure the figures in the letter match what payroll will actually pay.",
+    "Mention the reason, such as performance or a promotion, in one plain sentence.",
+    "Save the final letter as a PDF before you email it so the table stays aligned."
+  ],
+  "faqs": [
+    {
+      "q": "Is a salary increment letter required by law?",
+      "a": "There is no single rule that applies everywhere. Many employers issue one as standard practice, and employees often need it for loans, visas or a future job. Check your local labour rules for what you must give in writing."
+    },
+    {
+      "q": "What is the difference between CTC and take-home salary?",
+      "a": "CTC is the total yearly cost of the employee to the company, including employer contributions such as PF. Take-home pay is what reaches the bank account after deductions. The table in this letter shows annual CTC components."
+    },
+    {
+      "q": "Can I use this letter for a promotion?",
+      "a": "Yes. Change the subject line, write the new designation in the employee details and mention the promotion in the first paragraph."
+    },
+    {
+      "q": "Why does the employee sign the letter?",
+      "a": "Their signature shows that they received the letter and read the new terms. The acknowledgement line at the bottom is for that."
+    },
+    {
+      "q": "Should the increment letter be confidential?",
+      "a": "Most companies treat salary details as confidential. The sample text includes a line asking the employee to keep them private. Remove it if your company does not follow that practice."
+    }
+  ],
+  "tools": [
+    "word-to-pdf",
+    "sign-pdf",
+    "edit-pdf",
+    "compress-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 18
+    },
+    "font": "Tahoma",
+    "headFont": "Georgia",
+    "size": 10,
+    "titleSize": 20,
+    "blocks": [
+      {
+        "type": "title",
+        "text": "[Company Name Pvt Ltd]",
+        "sub": "[Office address, City, PIN code]   ·   [Phone]   ·   [hr@company.com]",
+        "align": "center",
+        "size": 22
+      },
+      {
+        "type": "rule",
+        "accent": true,
+        "weight": 18,
+        "after": 8
+      },
+      {
+        "type": "p",
+        "text": "PRIVATE AND CONFIDENTIAL",
+        "bold": true,
+        "size": 9,
+        "color": "#166534",
+        "after": 6
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "labelWidth": 0.36,
+        "rowHeight": 6.5,
+        "after": 8,
+        "items": [
+          [
+            "Ref. no.",
+            "[HR/INC/2026/057]"
+          ],
+          [
+            "Date",
+            "[DD Month YYYY]"
+          ],
+          [
+            "Employee name",
+            "[Mr / Ms Full Name]"
+          ],
+          [
+            "Employee ID",
+            "[EMP-1042]"
+          ],
+          [
+            "Designation",
+            "[Sales Executive]"
+          ],
+          [
+            "Department",
+            "[Sales]"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "**Subject: Revision of salary with effect from [1 April 2027]**",
+        "color": "#166534",
+        "after": 8
+      },
+      {
+        "type": "p",
+        "text": "Dear [First Name],",
+        "after": 6
+      },
+      {
+        "type": "p",
+        "text": "Following your [annual performance review], we are pleased to inform you that your salary has been revised with effect from **[1 April 2027]**. Your revised annual CTC is **[Rs 6,60,000]**, an increase of **[10]%**. The breakup is given below.",
+        "line": 1.2,
+        "after": 8
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "rowHeight": 6.5,
+        "after": 8,
+        "columns": [
+          {
+            "h": "Component (annual)",
+            "w": 1.6
+          },
+          {
+            "h": "Current (Rs)",
+            "align": "right"
+          },
+          {
+            "h": "Revised (Rs)",
+            "align": "right"
+          }
+        ],
+        "rows": [
+          [
+            "Basic salary",
+            "[2,40,000]",
+            "[2,64,000]"
+          ],
+          [
+            "House rent allowance (HRA)",
+            "[1,20,000]",
+            "[1,32,000]"
+          ],
+          [
+            "Special allowance",
+            "[1,91,200]",
+            "[2,12,400]"
+          ],
+          [
+            "Employer PF contribution",
+            "[21,600]",
+            "[21,600]"
+          ],
+          [
+            "Performance bonus (variable)",
+            "[27,200]",
+            "[30,000]"
+          ],
+          [
+            "**Total CTC**",
+            "**[6,00,000]**",
+            "**[6,60,000]**"
+          ],
+          [
+            "**Increment amount and percentage**",
+            "",
+            "**[60,000 (10%)]**"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "All other terms and conditions of your employment remain the same. Salary details are confidential and should not be shared with others. We thank you for your work and look forward to your continued contribution.",
+        "line": 1.2,
+        "after": 10
+      },
+      {
+        "type": "p",
+        "text": "Yours sincerely,\nFor **[Company Name Pvt Ltd]**",
+        "after": 0
+      },
+      {
+        "type": "signature",
+        "space": 30,
+        "items": [
+          "**[Authorised Signatory Name]**\n[HR Manager]",
+          "Company seal"
+        ],
+        "after": 10
+      },
+      {
+        "type": "box",
+        "title": "Employee acknowledgement",
+        "small": true,
+        "lines": [
+          "I have received and read this letter and accept the revised salary.",
+          "Signature: ______________________     Name: [Full Name]     Date: [DD Month YYYY]"
+        ],
+        "after": 0
+      }
+    ]
+  }
+}
