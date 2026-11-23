@@ -448,8 +448,8 @@
    "slug": "weekly-meal-planner",
    "category": "planners",
    "priority": 3,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-23",
    "note": "Weekly meal plan with grocery list."
   },
   {
@@ -457,8 +457,8 @@
    "slug": "travel-itinerary-template",
    "category": "planners",
    "priority": 3,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-23",
    "note": "Day-by-day trip plan with bookings table."
   },
   {
@@ -466,8 +466,8 @@
    "slug": "leave-application-form",
    "category": "forms",
    "priority": 3,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-23",
    "note": "HR leave form with approval section."
   },
   {

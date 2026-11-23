@@ -190,6 +190,15 @@
   "previews": 2,
   "built": "2026-11-07"
  },
+ "leave-application-form": {
+  "files": {
+   "docx": 11864,
+   "pdf": 135913
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-23"
+ },
  "leave-application-letter": {
   "files": {
    "docx": 11487,
@@ -432,6 +441,16 @@
   "previews": 1,
   "built": "2026-11-12"
  },
+ "travel-itinerary-template": {
+  "files": {
+   "docx": 11497,
+   "xlsx": 12728,
+   "pdf": 94306
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-23"
+ },
  "visitor-register-template": {
   "files": {
    "docx": 12393,
@@ -440,6 +459,16 @@
   "pages": 1,
   "previews": 1,
   "built": "2026-11-21"
+ },
+ "weekly-meal-planner": {
+  "files": {
+   "docx": 11286,
+   "xlsx": 14917,
+   "pdf": 51021
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-23"
  },
  "weekly-planner-template": {
   "files": {

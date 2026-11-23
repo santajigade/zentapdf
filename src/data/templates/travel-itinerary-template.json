@@ -1,0 +1,907 @@
+{
+  "slug": "travel-itinerary-template",
+  "category": "planners",
+  "name": "Travel Itinerary Template",
+  "h1": "Travel Itinerary Template (Excel, Word and PDF)",
+  "metaTitle": "Travel Itinerary Template: Free Excel, Word & PDF",
+  "metaDescription": "Free travel itinerary template in Excel, Word and PDF. Plan your trip day by day, list bookings with confirmation numbers and track the trip budget.",
+  "short": "One-page trip plan with bookings, a day-by-day plan and a documents list, plus an Excel bookings and budget tracker.",
+  "accent": "#4338CA",
+  "useCases": [
+    "Planning",
+    "Tracking"
+  ],
+  "industries": [
+    "Personal",
+    "Families",
+    "Professionals",
+    "Corporate"
+  ],
+  "date": "2026-11-23",
+  "intro": "A travel itinerary keeps the whole trip in one place: where you are going, where you are staying, every booking with its confirmation number, and what you plan to do each day. This template fits all of that on one printable A4 page. The Excel version numbers the days from your travel dates and adds up bookings and daily spends against your trip budget.",
+  "howTo": [
+    "Download the PDF to print, the Word file to type in, or the Excel file if you want dates and totals worked out.",
+    "Fill in the trip details at the top: destination, travel dates, travellers and a contact at home.",
+    "Add each booking as you make it, with the date, time, confirmation or PNR number and the cost.",
+    "Plan each day in three parts, morning, afternoon and evening, and note where you are staying that night.",
+    "Go through the documents list a day or two before you leave and tick what you have packed.",
+    "In Excel, type the start and end dates on the Itinerary sheet. A row with its day number and date appears for each day of the trip, up to 14 days.",
+    "On the Bookings sheet, type your trip budget and each booking, then pick Yes in Paid? once you have paid for it."
+  ],
+  "guide": [
+    {
+      "h": "What is in the file",
+      "p": [
+        "The printable page has a trip details box, a bookings table with rows labelled for travel out, stay, local transport, activity, travel back and insurance, a seven-day plan split into morning, afternoon and evening, and a checklist of documents to carry.",
+        "The Excel file has two sheets. Itinerary works out the number of nights from your dates and lists each day with its date, place, plan, stay and expected spend. Bookings has room for 20 bookings, with a type drop-down and a Paid? column. The summary at the top adds up bookings and daily spends, shows what you have paid and what is still to pay, and turns red if the plan goes over budget."
+      ]
+    },
+    {
+      "h": "What to put in an itinerary",
+      "p": [
+        "Write down anything you would struggle to find on a weak phone signal: hotel addresses and phone numbers, check-in and check-out times, flight or train numbers, pickup points and confirmation codes. Note the opening days of places you want to see, because many museums and monuments close one day a week. Leave some free time each day, since a plan that fills every hour usually falls behind."
+      ]
+    },
+    {
+      "h": "Documents and travel rules",
+      "p": [
+        "Passport, visa, ID and health entry rules depend on where you are going and where you are from, and they change. Check the official website of the destination country or your airline before you book, and again before you travel. For trips inside India, airlines and hotels usually ask for a valid photo ID, so keep one handy for every traveller."
+      ]
+    }
+  ],
+  "tips": [
+    "Save the itinerary as a PDF on your phone and share it with someone at home.",
+    "Write times in the local time of each place, especially for flights that cross time zones.",
+    "Keep the first and last day light, because travel days almost always take longer than expected."
+  ],
+  "faqs": [
+    {
+      "q": "How many days does the Excel itinerary handle?",
+      "a": "Up to 14 days. Rows after your end date stay blank. For a longer trip, insert rows inside the day table and copy the Day and Date formulas down."
+    },
+    {
+      "q": "Can I use it for a business trip?",
+      "a": "Yes. Use the bookings table for flights, hotels and cabs, and the day plan for meetings. With the costs in one place, an expense claim is easier to fill in afterwards."
+    },
+    {
+      "q": "Does it work for group trips?",
+      "a": "Yes. List all travellers in the trip details, and use the Details column to show who each booking is for."
+    },
+    {
+      "q": "What does Bookings still to pay show?",
+      "a": "The total cost of your bookings minus the ones marked Yes in the Paid? column. It does not include daily spends, which you pay as you go."
+    },
+    {
+      "q": "Can I open it in Google Sheets?",
+      "a": "Yes. Upload the file to Google Drive and open it with Google Sheets. The dates, drop-downs and totals work the same way."
+    }
+  ],
+  "related": [
+    "expense-tracker-excel",
+    "to-do-list-template"
+  ],
+  "tools": [
+    "excel-to-pdf",
+    "word-to-pdf",
+    "edit-pdf",
+    "merge-pdf"
+  ],
+  "sheet": {
+    "font": "Segoe UI",
+    "sheets": [
+      {
+        "name": "Itinerary",
+        "cols": [
+          11,
+          13,
+          20,
+          46,
+          18,
+          15
+        ],
+        "freeze": 7,
+        "page": {
+          "orientation": "landscape",
+          "area": "A1:F23",
+          "titles": "7:7",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              32
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:D1",
+            "v": "Travel Itinerary",
+            "s": "title"
+          },
+          {
+            "c": "E1",
+            "m": "E1:F1",
+            "v": "Type your dates in B4 and D4.",
+            "s": "sub",
+            "align": "right"
+          },
+          {
+            "c": "A3",
+            "v": "Trip",
+            "s": "label"
+          },
+          {
+            "c": "B3",
+            "m": "B3:D3",
+            "v": "Jaipur and Udaipur family trip",
+            "s": "input"
+          },
+          {
+            "c": "E3",
+            "v": "Travellers",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "F3",
+            "v": "4 adults",
+            "s": "input"
+          },
+          {
+            "c": "A4",
+            "v": "Start date",
+            "s": "label"
+          },
+          {
+            "c": "B4",
+            "v": "2026-12-24",
+            "s": "input",
+            "fmt": "date",
+            "align": "center"
+          },
+          {
+            "c": "C4",
+            "v": "End date",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "D4",
+            "v": "2026-12-28",
+            "s": "input",
+            "fmt": "date",
+            "align": "center"
+          },
+          {
+            "c": "E4",
+            "v": "Nights",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "F4",
+            "v": "=IF(OR(B4=\"\",D4=\"\"),\"\",D4-B4)",
+            "s": "calc",
+            "fmt": "0",
+            "align": "center"
+          },
+          {
+            "c": "A5",
+            "v": "Contact",
+            "s": "label"
+          },
+          {
+            "c": "B5",
+            "m": "B5:F5",
+            "v": "[Name, relationship, phone]",
+            "s": "input"
+          },
+          {
+            "height": [
+              7,
+              24
+            ]
+          },
+          {
+            "row": 7,
+            "from": "A",
+            "v": [
+              "Day",
+              "Date",
+              "Place",
+              "Plan for the day",
+              "Stay tonight",
+              "Expected spend"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              8,
+              21
+            ],
+            "cols": {
+              "A": {
+                "v": "=IF($F$4=\"\",\"\",IF({r}-7<=$F$4+1,{r}-7,\"\"))",
+                "s": "calc",
+                "fmt": "0",
+                "align": "center"
+              },
+              "B": {
+                "v": "=IF(A{r}=\"\",\"\",$B$4+A{r}-1)",
+                "s": "calc",
+                "fmt": "ddd dd mmm",
+                "align": "center"
+              },
+              "C": {
+                "s": "input",
+                "wrap": true
+              },
+              "D": {
+                "s": "input",
+                "wrap": true
+              },
+              "E": {
+                "s": "input",
+                "wrap": true
+              },
+              "F": {
+                "s": "input",
+                "fmt": "money"
+              }
+            }
+          },
+          {
+            "height": [
+              8,
+              30
+            ]
+          },
+          {
+            "height": [
+              9,
+              30
+            ]
+          },
+          {
+            "height": [
+              10,
+              30
+            ]
+          },
+          {
+            "height": [
+              11,
+              30
+            ]
+          },
+          {
+            "height": [
+              12,
+              30
+            ]
+          },
+          {
+            "height": [
+              13,
+              30
+            ]
+          },
+          {
+            "height": [
+              14,
+              30
+            ]
+          },
+          {
+            "height": [
+              15,
+              30
+            ]
+          },
+          {
+            "height": [
+              16,
+              30
+            ]
+          },
+          {
+            "height": [
+              17,
+              30
+            ]
+          },
+          {
+            "height": [
+              18,
+              30
+            ]
+          },
+          {
+            "height": [
+              19,
+              30
+            ]
+          },
+          {
+            "height": [
+              20,
+              30
+            ]
+          },
+          {
+            "height": [
+              21,
+              30
+            ]
+          },
+          {
+            "data": [
+              [
+                null,
+                null,
+                "Mumbai to Jaipur",
+                "Morning flight. Check in, rest, evening walk in the old city bazaars",
+                "Hotel in Jaipur",
+                2500
+              ],
+              [
+                null,
+                null,
+                "Jaipur",
+                "Amber Fort early, City Palace after lunch, dinner at Chokhi Dhani",
+                "Hotel in Jaipur",
+                6000
+              ],
+              [
+                null,
+                null,
+                "Jaipur to Udaipur",
+                "Morning train. Afternoon at leisure, sunset at Lake Pichola",
+                "Hotel in Udaipur",
+                3500
+              ],
+              [
+                null,
+                null,
+                "Udaipur",
+                "City Palace, boat ride, Saheliyon ki Bari. Shopping in the evening",
+                "Hotel in Udaipur",
+                5500
+              ],
+              [
+                null,
+                null,
+                "Udaipur to Mumbai",
+                "Check out by 11 am. Afternoon flight home",
+                "Home",
+                1500
+              ]
+            ],
+            "at": "A8"
+          },
+          {
+            "height": [
+              23,
+              20
+            ]
+          },
+          {
+            "c": "A23",
+            "v": "Notes",
+            "s": "label"
+          },
+          {
+            "c": "B23",
+            "m": "B23:F23",
+            "v": "Most monuments close by sunset. Carry photo ID for all four travellers.",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "note": "F4",
+            "text": "Worked out from the start and end dates. Day rows fill in for nights + 1 days, up to 14."
+          }
+        ]
+      },
+      {
+        "name": "Bookings",
+        "cols": [
+          12,
+          32,
+          13,
+          14,
+          18,
+          13,
+          9
+        ],
+        "freeze": 8,
+        "page": {
+          "orientation": "landscape",
+          "area": "A1:G28",
+          "titles": "8:8",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              32
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:D1",
+            "v": "Bookings and Budget",
+            "s": "title"
+          },
+          {
+            "c": "E1",
+            "m": "E1:G1",
+            "v": "Pick Yes in Paid? once a booking is paid.",
+            "s": "sub",
+            "align": "right"
+          },
+          {
+            "c": "A3",
+            "m": "A3:B3",
+            "v": "Trip budget",
+            "s": "label"
+          },
+          {
+            "c": "C3",
+            "v": 90000,
+            "s": "input",
+            "fmt": "money"
+          },
+          {
+            "c": "A4",
+            "m": "A4:B4",
+            "v": "Bookings total",
+            "s": "label"
+          },
+          {
+            "c": "C4",
+            "v": "=SUM(F9:F28)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "A5",
+            "m": "A5:B5",
+            "v": "Daily spends (Itinerary sheet)",
+            "s": "label"
+          },
+          {
+            "c": "C5",
+            "v": "=SUM(Itinerary!F8:F21)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "A6",
+            "m": "A6:B6",
+            "v": "Total planned",
+            "s": "label"
+          },
+          {
+            "c": "C6",
+            "v": "=C4+C5",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "D3",
+            "m": "D3:E3",
+            "v": "Paid so far",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "F3",
+            "v": "=SUMIF(G9:G28,\"Yes\",F9:F28)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "D4",
+            "m": "D4:E4",
+            "v": "Bookings still to pay",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "F4",
+            "v": "=C4-F3",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "D6",
+            "m": "D6:E6",
+            "v": "Left in budget",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "F6",
+            "v": "=C3-C6",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "height": [
+              8,
+              24
+            ]
+          },
+          {
+            "row": 8,
+            "from": "A",
+            "v": [
+              "Type",
+              "Details",
+              "Date",
+              "Time",
+              "Confirmation no.",
+              "Cost",
+              "Paid?"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              9,
+              28
+            ],
+            "cols": {
+              "A": {
+                "s": "input"
+              },
+              "B": {
+                "s": "input",
+                "wrap": true
+              },
+              "C": {
+                "s": "input",
+                "fmt": "date",
+                "align": "center"
+              },
+              "D": {
+                "s": "input",
+                "align": "center"
+              },
+              "E": {
+                "s": "input",
+                "align": "center"
+              },
+              "F": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "G": {
+                "s": "check"
+              }
+            }
+          },
+          {
+            "data": [
+              [
+                "Flight",
+                "Mumbai to Jaipur, 4 passengers",
+                "2026-12-24",
+                "07:10",
+                "[PNR]",
+                18400,
+                "Yes"
+              ],
+              [
+                "Hotel",
+                "Jaipur, 2 nights, 2 rooms",
+                "2026-12-24",
+                "Check in 2 pm",
+                "[Booking ID]",
+                11200,
+                "Yes"
+              ],
+              [
+                "Train",
+                "Jaipur to Udaipur, AC chair car",
+                "2026-12-26",
+                "06:00",
+                "[PNR]",
+                3600,
+                "Yes"
+              ],
+              [
+                "Hotel",
+                "Udaipur, 2 nights, 2 rooms",
+                "2026-12-26",
+                "Check in 1 pm",
+                "[Booking ID]",
+                12800,
+                ""
+              ],
+              [
+                "Flight",
+                "Udaipur to Mumbai, 4 passengers",
+                "2026-12-28",
+                "15:45",
+                "[PNR]",
+                16900,
+                ""
+              ],
+              [
+                "Insurance",
+                "Domestic travel cover, 4 people",
+                "2026-12-24",
+                "",
+                "[Policy no.]",
+                900,
+                "Yes"
+              ]
+            ],
+            "at": "A9"
+          },
+          {
+            "list": "A9:A28",
+            "items": [
+              "Flight",
+              "Train",
+              "Bus",
+              "Hotel",
+              "Car or taxi",
+              "Activity",
+              "Insurance",
+              "Visa",
+              "Other"
+            ]
+          },
+          {
+            "list": "G9:G28",
+            "items": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "cf": "F6",
+            "rule": "neg"
+          },
+          {
+            "cf": "A9:F28",
+            "rule": "fill",
+            "ref": "$G9=\"Yes\"",
+            "color": "#EEF0FB",
+            "text": "#374151"
+          }
+        ]
+      }
+    ]
+  },
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 10
+    },
+    "size": 9.5,
+    "font": "Segoe UI",
+    "headFont": "Georgia",
+    "titleSize": 24,
+    "blocks": [
+      {
+        "type": "title",
+        "band": true,
+        "text": "Travel Itinerary",
+        "sub": "[Trip name]"
+      },
+      {
+        "type": "columns",
+        "after": 4,
+        "cols": [
+          {
+            "title": "Trip details",
+            "fill": true,
+            "w": 1.25,
+            "lines": [
+              "**Destination:** ______________________________",
+              "**Dates:** __________________________________",
+              "**Travellers:** _______________________________"
+            ]
+          },
+          {
+            "title": "If something goes wrong",
+            "fill": true,
+            "lines": [
+              "**Contact at home:** ____________________",
+              "**Phone:** ____________________________",
+              "**Insurance helpline:** _________________"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Bookings",
+        "before": 2
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "rowHeight": 6.6,
+        "after": 4,
+        "columns": [
+          {
+            "h": "Type",
+            "w": 1.0
+          },
+          {
+            "h": "Provider and place",
+            "w": 1.8
+          },
+          {
+            "h": "Date and time",
+            "w": 1
+          },
+          {
+            "h": "Confirmation no.",
+            "w": 1.15
+          },
+          {
+            "h": "Cost",
+            "w": 0.6,
+            "align": "right"
+          }
+        ],
+        "rows": [
+          [
+            "**Travel out**",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "**Stay**",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "**Stay**",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "**Local transport**",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "**Activity**",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "**Travel back**",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "**Insurance**",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Day by day",
+        "before": 2
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": true,
+        "top": true,
+        "rowHeight": 12.5,
+        "after": 4,
+        "columns": [
+          {
+            "h": "Day and date",
+            "w": 0.7
+          },
+          {
+            "h": "Morning",
+            "w": 1.1
+          },
+          {
+            "h": "Afternoon",
+            "w": 1.1
+          },
+          {
+            "h": "Evening",
+            "w": 1.1
+          },
+          {
+            "h": "Stay tonight",
+            "w": 0.8
+          }
+        ],
+        "rows": [
+          [
+            "**Day 1**\n",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "**Day 2**\n",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "**Day 3**\n",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "**Day 4**\n",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "**Day 5**\n",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "**Day 6**\n",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "**Day 7**\n",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "box",
+        "title": "Documents to carry",
+        "after": 0,
+        "lines": [
+          "☐ Passport or photo ID       ☐ Tickets and boarding passes       ☐ Hotel vouchers",
+          "☐ Visa, if needed       ☐ Insurance papers       ☐ Copies on phone"
+        ]
+      }
+    ]
+  }
+}

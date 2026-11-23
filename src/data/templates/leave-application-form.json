@@ -1,0 +1,387 @@
+{
+  "slug": "leave-application-form",
+  "category": "forms",
+  "name": "Leave Application Form",
+  "h1": "Leave Application Form for Employees (Word and PDF)",
+  "metaTitle": "Leave Application Form for Employees: Free Word & PDF",
+  "metaDescription": "Free leave application form for employees in Word and PDF. Leave type tick boxes, dates, reason, work handover, manager approval and an HR leave balance box.",
+  "short": "One-page HR leave form with leave type, dates, handover, manager approval and an HR leave balance box.",
+  "accent": "#9F1239",
+  "useCases": [
+    "HR",
+    "Leave request"
+  ],
+  "industries": [
+    "Small business",
+    "Corporate",
+    "Schools",
+    "All industries"
+  ],
+  "date": "2026-11-23",
+  "intro": "Employees fill in a leave application form to ask for time off. It records the type of leave, the dates, the reason and who covers the work, and gives the manager and HR a place to approve it and update the leave balance. This form fits all of that on one A4 page. If you would rather write a letter, use our leave application letter template.",
+  "howTo": [
+    "Download the Word file and add your company name, address and HR email at the top. Keep or remove leave types to match your leave policy.",
+    "Print blank copies or share the PDF with staff.",
+    "The employee fills in their details, ticks one leave type, writes the from and to dates and the total days, and gives a short reason.",
+    "For half a day, the employee ticks first half or second half and writes the date.",
+    "The employee names the colleague taking over their work, lists anything pending and signs.",
+    "The reporting manager ticks approved, approved with changes or rejected, writes any changed dates or remarks and signs.",
+    "HR fills in the leave balance box, records the leave in the register or HR system and files the form."
+  ],
+  "guide": [
+    {
+      "h": "What is in the form",
+      "p": [
+        "The form has five numbered parts: employee details, leave requested, work handover, manager approval and a box for HR use only. Leave requested has tick boxes for casual, sick, earned or privilege, maternity or paternity, compensatory off, leave without pay and other, plus from date, to date, total days, a half day option, the reason, and a contact number and address during leave.",
+        "The HR part has a small table with opening balance, days taken now and balance after for casual, sick and earned leave, and a line to note who entered the leave and when."
+      ]
+    },
+    {
+      "h": "Leave rules in India",
+      "p": [
+        "How many days of each type of leave an employee gets depends on the labour laws that apply to your workplace, which in India differ by state and by type of business, and on your company leave policy. These rules have been changing, so check your state labour department website or the Ministry of Labour and Employment, or ask an HR or legal adviser, before you fix leave numbers. The form only records the request."
+      ]
+    },
+    {
+      "h": "Applying and approving",
+      "p": [
+        "Ask employees to apply for planned leave as early as your policy asks, and to submit sick leave as soon as they can, with a medical certificate if your policy needs one. Managers should reply quickly and give a reason when they reject a request or change the dates."
+      ]
+    }
+  ],
+  "tips": [
+    "Print your policy's notice period for planned leave on the form so staff see it every time.",
+    "Collect the form before the leave starts, except for sick or emergency leave.",
+    "Count total days the way your policy does, for example whether weekends and holidays inside the leave count."
+  ],
+  "faqs": [
+    {
+      "q": "What is the difference between a leave application form and a leave letter?",
+      "a": "A form has fixed fields and tick boxes, so every request has the same details and HR can process it quickly. A letter is in the employee's own words. Many companies accept a letter or email in an emergency."
+    },
+    {
+      "q": "Can employees fill this form on a computer?",
+      "a": "Yes. Open the Word file, click on a line and type, and replace a tick box with an X. Save it as PDF, and sign it with the Sign PDF tool if your company accepts electronic signatures."
+    },
+    {
+      "q": "How many casual or sick leaves does an employee get in India?",
+      "a": "There is no single number for everyone. It depends on the state, the type of workplace, the labour law that applies and the company policy. Check your state labour department and your company leave policy."
+    },
+    {
+      "q": "Can I change the leave types?",
+      "a": "Yes. Edit the tick box lines in Word to match your policy, for example to add bereavement leave or remove compensatory off. Then change the HR balance table to match."
+    },
+    {
+      "q": "Does the manager sign before HR?",
+      "a": "In this form, yes. The manager approves first and HR updates the balance after. You can change the order in Word to suit your process."
+    }
+  ],
+  "related": [
+    "leave-application-letter",
+    "employee-information-form",
+    "attendance-sheet-excel"
+  ],
+  "tools": [
+    "word-to-pdf",
+    "pdf-form-filler",
+    "sign-pdf",
+    "compress-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 10
+    },
+    "size": 9.5,
+    "font": "Tahoma",
+    "headFont": "Georgia",
+    "titleSize": 22,
+    "blocks": [
+      {
+        "type": "header",
+        "split": [
+          1.5,
+          1
+        ],
+        "after": 2,
+        "left": [
+          "# Leave Application Form",
+          "## [Company Name]",
+          "~ [Address]  |  [HR email]"
+        ],
+        "right": [
+          "**Form no.** ______________",
+          "**Date received** __________",
+          "~ Submit before your leave starts"
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "1. Employee details",
+        "before": 2,
+        "size": 11
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "labelWidth": 0.38,
+        "after": 2,
+        "items": [
+          [
+            "Employee name",
+            ""
+          ],
+          [
+            "Employee ID",
+            ""
+          ],
+          [
+            "Designation",
+            ""
+          ],
+          [
+            "Department",
+            ""
+          ],
+          [
+            "Reporting manager",
+            ""
+          ],
+          [
+            "Applied on",
+            ""
+          ]
+        ],
+        "rowHeight": 6.8
+      },
+      {
+        "type": "heading",
+        "text": "2. Leave requested",
+        "before": 2,
+        "size": 11
+      },
+      {
+        "type": "p",
+        "text": "**Leave type (tick one):**   ☐ Casual leave     ☐ Sick leave     ☐ Earned / privilege leave\n☐ Maternity / paternity leave     ☐ Compensatory off     ☐ Leave without pay     ☐ Other: ______________",
+        "line": 1.35,
+        "after": 3
+      },
+      {
+        "type": "fields",
+        "cols": 3,
+        "labelWidth": 0.45,
+        "after": 1,
+        "items": [
+          [
+            "From date",
+            ""
+          ],
+          [
+            "To date",
+            ""
+          ],
+          [
+            "Total days",
+            ""
+          ]
+        ],
+        "rowHeight": 6.8
+      },
+      {
+        "type": "p",
+        "text": "**Half day?**   ☐ First half   ☐ Second half      Date: ______________",
+        "after": 2
+      },
+      {
+        "type": "fields",
+        "cols": 1,
+        "labelWidth": 0.22,
+        "after": 1,
+        "items": [
+          [
+            "Reason for leave",
+            ""
+          ]
+        ],
+        "rowHeight": 6.8
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "labelWidth": 0.46,
+        "rowHeight": 6.8,
+        "after": 2,
+        "items": [
+          [
+            "Phone during leave",
+            ""
+          ],
+          [
+            "Address during leave",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "3. Work handover",
+        "before": 2,
+        "size": 11
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "labelWidth": 0.42,
+        "after": 1,
+        "items": [
+          [
+            "Handed over to",
+            ""
+          ],
+          [
+            "Colleague signs",
+            ""
+          ]
+        ],
+        "rowHeight": 6.8
+      },
+      {
+        "type": "fields",
+        "cols": 1,
+        "labelWidth": 0.22,
+        "after": 2,
+        "items": [
+          [
+            "Pending work and notes",
+            ""
+          ]
+        ],
+        "rowHeight": 6.8
+      },
+      {
+        "type": "p",
+        "text": "I confirm that the details above are correct and that I will inform my manager if my plans change.",
+        "italic": true,
+        "after": 0,
+        "before": 2
+      },
+      {
+        "type": "signature",
+        "space": 6,
+        "items": [
+          "Employee signature",
+          "Date"
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "4. Manager approval",
+        "before": 2,
+        "size": 11
+      },
+      {
+        "type": "p",
+        "text": "☐ Approved      ☐ Approved with changes      ☐ Rejected",
+        "after": 1
+      },
+      {
+        "type": "fields",
+        "cols": 1,
+        "labelWidth": 0.22,
+        "after": 0,
+        "items": [
+          [
+            "Changed dates / remarks",
+            ""
+          ]
+        ],
+        "rowHeight": 6.8
+      },
+      {
+        "type": "signature",
+        "space": 6,
+        "items": [
+          "Manager name and signature",
+          "Date"
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "5. For HR use only",
+        "before": 2,
+        "size": 11
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "rowHeight": 6,
+        "after": 2,
+        "headFill": "#F7E3E8",
+        "headText": "#9F1239",
+        "columns": [
+          {
+            "h": "Leave type",
+            "w": 1.4
+          },
+          {
+            "h": "Opening balance",
+            "w": 1,
+            "align": "center"
+          },
+          {
+            "h": "Days taken now",
+            "w": 1,
+            "align": "center"
+          },
+          {
+            "h": "Balance after",
+            "w": 1,
+            "align": "center"
+          }
+        ],
+        "rows": [
+          [
+            "Casual leave",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Sick leave",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Earned / privilege leave",
+            "",
+            "",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "fields",
+        "cols": 3,
+        "labelWidth": 0.36,
+        "rowHeight": 6.8,
+        "after": 0,
+        "items": [
+          [
+            "Entered on",
+            ""
+          ],
+          [
+            "By",
+            ""
+          ],
+          [
+            "HR sign",
+            ""
+          ]
+        ]
+      }
+    ]
+  }
+}

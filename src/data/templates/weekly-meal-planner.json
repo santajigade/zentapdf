@@ -1,0 +1,903 @@
+{
+  "slug": "weekly-meal-planner",
+  "category": "planners",
+  "name": "Weekly Meal Planner",
+  "h1": "Weekly Meal Planner Template (Excel, Word and PDF)",
+  "metaTitle": "Weekly Meal Planner Template: Free Excel, Word & PDF",
+  "metaDescription": "Free weekly meal planner with grocery list in Excel, Word and printable PDF. Plan four meals a day for seven days and total grocery cost against a budget.",
+  "short": "Seven-day meal grid with a grocery list, plus an Excel sheet that totals shopping cost against your budget.",
+  "accent": "#4D7C0F",
+  "useCases": [
+    "Planning",
+    "Personal finance"
+  ],
+  "industries": [
+    "Personal",
+    "Families",
+    "Students"
+  ],
+  "date": "2026-11-23",
+  "intro": "This meal planner puts a whole week of breakfast, lunch, snacks and dinner on one A4 page, with a grocery list split into four shelves underneath. The Excel version has the same week grid, with dates that fill in from the start date, and a second sheet that adds up your grocery cost and shows how much of your budget is left.",
+  "howTo": [
+    "Download the PDF to print, the Word file to type in, or the Excel file to plan on screen.",
+    "Pick one day for planning, such as Sunday, and check what is already in the fridge and on the kitchen shelves.",
+    "Write the week and how many people are eating, then fill in each meal for each day. Leave a box empty if you are eating out.",
+    "Go through the meals one by one and add anything you do not have to the grocery list, under the right shelf.",
+    "In Excel, type the first date of the week in Week starting and the seven dates fill in. Type meals in the white cells.",
+    "On the Grocery List sheet, add each item with its quantity and price per unit, type your weekly budget, and pick Yes in Bought? as you shop."
+  ],
+  "guide": [
+    {
+      "h": "What is in the file",
+      "p": [
+        "The printable page has a seven-row grid with columns for breakfast, lunch, snacks and dinner. Under it are four grocery columns: Vegetables and fruit; Dairy, bread and eggs; Grains, pulses and spices; and Other and household. Two lines at the bottom are for food to prep ahead and your leftover plan.",
+        "The Excel file has two sheets. Meal Plan has the week grid, dates that follow the start date, a Notes column and rows for prep and leftovers. Grocery List holds 40 items with a category drop-down, and Cost is quantity times price per unit. The boxes at the top show your budget, the estimated cost, what you have bought so far and what is left, which turns red if you go over. Bought items go grey with a line through them."
+      ]
+    },
+    {
+      "h": "How to plan a week of meals",
+      "p": [
+        "Start with what you already have, especially vegetables that will spoil soon, and build the first two or three days around them. Repeat a few favourite breakfasts instead of planning a new one every day. Make a double batch of things like dal, rajma or curry so one cooking session covers two meals, and write the leftovers into the next day's lunch.",
+        "When the grid is full, read it day by day and write every missing ingredient on the list. Grouping it by shelf saves going back for things you forgot."
+      ]
+    }
+  ],
+  "tips": [
+    "Plan one simple fallback meal, such as khichdi or eggs on toast, for nights when the plan falls apart.",
+    "Write prep jobs, such as soaking chana or chopping onions, on the Prep ahead line so they do not get forgotten.",
+    "Use Filter on the Category column of the Grocery List sheet to see one shelf at a time while you shop."
+  ],
+  "faqs": [
+    {
+      "q": "How do I change the dates in the Excel meal planner?",
+      "a": "Type the first day of your week in the Week starting cell. All seven dates and day names update. It does not have to be a Monday."
+    },
+    {
+      "q": "Can I use my own currency in the grocery list?",
+      "a": "Yes. Price and cost are plain numbers with two decimals, so they work for rupees, dollars or any other currency. You can add a currency symbol with Format Cells."
+    },
+    {
+      "q": "Why is the Left in budget number red?",
+      "a": "It turns red when the estimated cost of your grocery list is more than the weekly budget you typed. Remove or swap a few items, or raise the budget."
+    },
+    {
+      "q": "Can I plan more or fewer meals a day?",
+      "a": "Yes. In Word, rename a column heading, for example Snacks to Tiffin. In Excel, type a new heading in the header row. No formula depends on those names."
+    },
+    {
+      "q": "Does it work in Google Sheets?",
+      "a": "Yes. Upload the file to Google Drive and open it with Google Sheets. The dates, drop-downs, totals and grey strike-through all work there."
+    }
+  ],
+  "related": [
+    "weekly-planner-template",
+    "monthly-budget-template"
+  ],
+  "tools": [
+    "excel-to-pdf",
+    "word-to-pdf",
+    "edit-pdf",
+    "merge-pdf"
+  ],
+  "sheet": {
+    "font": "Calibri",
+    "sheets": [
+      {
+        "name": "Meal Plan",
+        "cols": [
+          14,
+          24,
+          24,
+          20,
+          24,
+          20
+        ],
+        "page": {
+          "orientation": "landscape",
+          "area": "A1:F15",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              32
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:D1",
+            "v": "Weekly Meal Planner",
+            "s": "title"
+          },
+          {
+            "c": "E1",
+            "m": "E1:F1",
+            "v": "Type the first day of the week in B3.",
+            "s": "sub",
+            "align": "right"
+          },
+          {
+            "c": "A3",
+            "v": "Week starting",
+            "s": "label"
+          },
+          {
+            "c": "B3",
+            "v": "2026-11-23",
+            "s": "input",
+            "fmt": "dd mmm yyyy",
+            "align": "center"
+          },
+          {
+            "c": "C3",
+            "v": "People eating",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "D3",
+            "v": 4,
+            "s": "input",
+            "fmt": "0",
+            "align": "center"
+          },
+          {
+            "height": [
+              5,
+              24
+            ]
+          },
+          {
+            "row": 5,
+            "from": "A",
+            "v": [
+              "Day",
+              "Breakfast",
+              "Lunch",
+              "Snacks",
+              "Dinner",
+              "Notes"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              6,
+              12
+            ],
+            "cols": {
+              "A": {
+                "v": "=IF($B$3=\"\",\"\",$B$3+{r}-6)",
+                "s": "calc",
+                "fmt": "ddd dd mmm",
+                "align": "center",
+                "bold": true
+              },
+              "B": {
+                "s": "input",
+                "wrap": true
+              },
+              "C": {
+                "s": "input",
+                "wrap": true
+              },
+              "D": {
+                "s": "input",
+                "wrap": true
+              },
+              "E": {
+                "s": "input",
+                "wrap": true
+              },
+              "F": {
+                "s": "input",
+                "wrap": true
+              }
+            }
+          },
+          {
+            "height": [
+              6,
+              36
+            ]
+          },
+          {
+            "height": [
+              7,
+              36
+            ]
+          },
+          {
+            "height": [
+              8,
+              36
+            ]
+          },
+          {
+            "height": [
+              9,
+              36
+            ]
+          },
+          {
+            "height": [
+              10,
+              36
+            ]
+          },
+          {
+            "height": [
+              11,
+              36
+            ]
+          },
+          {
+            "height": [
+              12,
+              36
+            ]
+          },
+          {
+            "data": [
+              [
+                null,
+                "Poha with peanuts",
+                "Dal, rice, cabbage sabzi",
+                "Fruit, roasted chana",
+                "Chapati, paneer bhurji",
+                "Soak rajma tonight"
+              ],
+              [
+                null,
+                "Oats with banana",
+                "Leftover paneer wrap",
+                "Buttermilk",
+                "Vegetable pulao, raita",
+                ""
+              ],
+              [
+                null,
+                "Idli, coconut chutney",
+                "Rajma, rice",
+                "Sprouts chaat",
+                "Egg curry, chapati",
+                "Cook extra rajma"
+              ],
+              [
+                null,
+                "Upma",
+                "Leftover rajma, jeera rice",
+                "Seasonal fruit",
+                "Mixed veg khichdi",
+                ""
+              ],
+              [
+                null,
+                "Paratha, curd",
+                "Chole, rice",
+                "Tea, biscuits",
+                "Pasta with vegetables",
+                "Order in if late"
+              ],
+              [
+                null,
+                "Dosa, sambar",
+                "Veg sandwich",
+                "Corn chaat",
+                "Soya or chicken curry, rice",
+                "Guests for dinner"
+              ],
+              [
+                null,
+                "Aloo paratha",
+                "Vegetable biryani",
+                "Fruit salad",
+                "Tomato soup, toast",
+                "Plan next week"
+              ]
+            ],
+            "at": "A6"
+          },
+          {
+            "height": [
+              14,
+              30
+            ]
+          },
+          {
+            "height": [
+              15,
+              30
+            ]
+          },
+          {
+            "c": "A14",
+            "v": "Prep ahead",
+            "s": "label"
+          },
+          {
+            "c": "B14",
+            "m": "B14:F14",
+            "v": "Sunday: chop onions, make green chutney, boil chana for chaat",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "c": "A15",
+            "v": "Leftovers",
+            "s": "label"
+          },
+          {
+            "c": "B15",
+            "m": "B15:F15",
+            "v": "Monday paneer goes in Tuesday lunch wraps. Wednesday rajma covers Thursday lunch.",
+            "s": "input",
+            "wrap": true
+          },
+          {
+            "note": "B3",
+            "text": "Any date works. The seven days in column A follow from this date."
+          }
+        ]
+      },
+      {
+        "name": "Grocery List",
+        "cols": [
+          10,
+          26,
+          24,
+          8,
+          9,
+          14,
+          14
+        ],
+        "freeze": 6,
+        "page": {
+          "orientation": "portrait",
+          "area": "A1:G46",
+          "titles": "6:6",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              32
+            ]
+          },
+          {
+            "c": "A1",
+            "m": "A1:E1",
+            "v": "Grocery List",
+            "s": "title"
+          },
+          {
+            "c": "F1",
+            "m": "F1:G1",
+            "v": "Pick Yes in Bought? as you shop.",
+            "s": "sub",
+            "align": "right"
+          },
+          {
+            "c": "A3",
+            "m": "A3:B3",
+            "v": "WEEKLY BUDGET",
+            "s": "band",
+            "align": "center"
+          },
+          {
+            "c": "C3",
+            "m": "C3:D3",
+            "v": "ESTIMATED COST",
+            "s": "band",
+            "align": "center"
+          },
+          {
+            "c": "E3",
+            "m": "E3:F3",
+            "v": "BOUGHT SO FAR",
+            "s": "band",
+            "align": "center"
+          },
+          {
+            "c": "G3",
+            "v": "LEFT IN BUDGET",
+            "s": "band",
+            "align": "center"
+          },
+          {
+            "height": [
+              4,
+              30
+            ]
+          },
+          {
+            "c": "A4",
+            "m": "A4:B4",
+            "v": 2500,
+            "s": "input",
+            "fmt": "#,##0",
+            "align": "center"
+          },
+          {
+            "c": "C4",
+            "m": "C4:D4",
+            "v": "=SUM(G7:G46)",
+            "s": "big",
+            "fmt": "#,##0.00"
+          },
+          {
+            "c": "E4",
+            "m": "E4:F4",
+            "v": "=SUMIF(A7:A46,\"Yes\",G7:G46)",
+            "s": "big",
+            "fmt": "#,##0.00"
+          },
+          {
+            "c": "G4",
+            "v": "=A4-C4",
+            "s": "big",
+            "fmt": "#,##0.00;[Red]-#,##0.00"
+          },
+          {
+            "height": [
+              6,
+              24
+            ]
+          },
+          {
+            "row": 6,
+            "from": "A",
+            "v": [
+              "Bought?",
+              "Item",
+              "Category",
+              "Qty",
+              "Unit",
+              "Price per unit",
+              "Cost"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              7,
+              46
+            ],
+            "cols": {
+              "A": {
+                "s": "check"
+              },
+              "B": {
+                "s": "input"
+              },
+              "C": {
+                "s": "input"
+              },
+              "D": {
+                "s": "input",
+                "fmt": "0.##",
+                "align": "center"
+              },
+              "E": {
+                "s": "input",
+                "align": "center"
+              },
+              "F": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "G": {
+                "v": "=IF(OR(D{r}=\"\",F{r}=\"\"),\"\",D{r}*F{r})",
+                "s": "calc",
+                "fmt": "money"
+              }
+            }
+          },
+          {
+            "data": [
+              [
+                "Yes",
+                "Onions",
+                "Vegetables and fruit",
+                2,
+                "kg",
+                40
+              ],
+              [
+                "Yes",
+                "Tomatoes",
+                "Vegetables and fruit",
+                1.5,
+                "kg",
+                36
+              ],
+              [
+                "Yes",
+                "Potatoes",
+                "Vegetables and fruit",
+                2,
+                "kg",
+                32
+              ],
+              [
+                "",
+                "Cabbage",
+                "Vegetables and fruit",
+                1,
+                "piece",
+                30
+              ],
+              [
+                "",
+                "Bananas",
+                "Vegetables and fruit",
+                12,
+                "piece",
+                6
+              ],
+              [
+                "",
+                "Seasonal fruit",
+                "Vegetables and fruit",
+                2,
+                "kg",
+                120
+              ],
+              [
+                "",
+                "Milk",
+                "Dairy, bread and eggs",
+                7,
+                "litre",
+                56
+              ],
+              [
+                "",
+                "Curd",
+                "Dairy, bread and eggs",
+                2,
+                "kg",
+                80
+              ],
+              [
+                "",
+                "Paneer",
+                "Dairy, bread and eggs",
+                0.5,
+                "kg",
+                360
+              ],
+              [
+                "",
+                "Eggs",
+                "Dairy, bread and eggs",
+                12,
+                "piece",
+                7
+              ],
+              [
+                "",
+                "Bread",
+                "Dairy, bread and eggs",
+                2,
+                "packet",
+                45
+              ],
+              [
+                "",
+                "Rice",
+                "Grains, pulses and spices",
+                3,
+                "kg",
+                70
+              ],
+              [
+                "",
+                "Atta",
+                "Grains, pulses and spices",
+                5,
+                "kg",
+                50
+              ],
+              [
+                "",
+                "Rajma",
+                "Grains, pulses and spices",
+                0.5,
+                "kg",
+                160
+              ],
+              [
+                "",
+                "Toor dal",
+                "Grains, pulses and spices",
+                1,
+                "kg",
+                150
+              ],
+              [
+                "",
+                "Poha",
+                "Grains, pulses and spices",
+                0.5,
+                "kg",
+                60
+              ],
+              [
+                "",
+                "Cooking oil",
+                "Other and household",
+                1,
+                "litre",
+                170
+              ],
+              [
+                "",
+                "Dish soap",
+                "Other and household",
+                1,
+                "bottle",
+                99
+              ]
+            ],
+            "at": "A7"
+          },
+          {
+            "list": "A7:A46",
+            "items": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "list": "C7:C46",
+            "items": [
+              "Vegetables and fruit",
+              "Dairy, bread and eggs",
+              "Grains, pulses and spices",
+              "Other and household"
+            ]
+          },
+          {
+            "cf": "A7:G46",
+            "rule": "done",
+            "ref": "$A7=\"Yes\""
+          },
+          {
+            "cf": "G4",
+            "rule": "neg"
+          },
+          {
+            "note": "A4",
+            "text": "Type how much you plan to spend on groceries this week."
+          },
+          {
+            "note": "F6",
+            "text": "Price for one unit, for example the price of 1 kg."
+          }
+        ]
+      }
+    ]
+  },
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 11
+    },
+    "size": 9.5,
+    "font": "Calibri",
+    "headFont": "Century Gothic",
+    "blocks": [
+      {
+        "type": "title",
+        "text": "WEEKLY MEAL PLANNER",
+        "size": 24,
+        "after": 2
+      },
+      {
+        "type": "fields",
+        "cols": 3,
+        "labelWidth": 0.42,
+        "after": 4,
+        "items": [
+          [
+            "Week of",
+            ""
+          ],
+          [
+            "People eating",
+            ""
+          ],
+          [
+            "Budget",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": true,
+        "top": true,
+        "rowHeight": 16.5,
+        "after": 5,
+        "columns": [
+          {
+            "h": "Day",
+            "w": 0.55
+          },
+          {
+            "h": "Breakfast",
+            "w": 1
+          },
+          {
+            "h": "Lunch",
+            "w": 1
+          },
+          {
+            "h": "Snacks",
+            "w": 0.8
+          },
+          {
+            "h": "Dinner",
+            "w": 1
+          }
+        ],
+        "rows": [
+          [
+            "**Mon**",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "**Tue**",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "**Wed**",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "**Thu**",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "**Fri**",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "**Sat**",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "**Sun**",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Grocery list",
+        "before": 2
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "rowHeight": 6.4,
+        "after": 4,
+        "headFill": "#ECF3E1",
+        "headText": "#4D7C0F",
+        "columns": [
+          {
+            "h": "Vegetables and fruit"
+          },
+          {
+            "h": "Dairy, bread and eggs"
+          },
+          {
+            "h": "Grains, pulses and spices"
+          },
+          {
+            "h": "Other and household"
+          }
+        ],
+        "rows": [
+          [
+            "☐",
+            "☐",
+            "☐",
+            "☐"
+          ],
+          [
+            "☐",
+            "☐",
+            "☐",
+            "☐"
+          ],
+          [
+            "☐",
+            "☐",
+            "☐",
+            "☐"
+          ],
+          [
+            "☐",
+            "☐",
+            "☐",
+            "☐"
+          ],
+          [
+            "☐",
+            "☐",
+            "☐",
+            "☐"
+          ],
+          [
+            "☐",
+            "☐",
+            "☐",
+            "☐"
+          ],
+          [
+            "☐",
+            "☐",
+            "☐",
+            "☐"
+          ],
+          [
+            "☐",
+            "☐",
+            "☐",
+            "☐"
+          ],
+          [
+            "☐",
+            "☐",
+            "☐",
+            "☐"
+          ]
+        ]
+      },
+      {
+        "type": "fields",
+        "cols": 1,
+        "labelWidth": 0.2,
+        "rowHeight": 8,
+        "after": 0,
+        "items": [
+          [
+            "Prep ahead",
+            ""
+          ],
+          [
+            "Leftover plan",
+            ""
+          ]
+        ]
+      }
+    ]
+  }
+}
