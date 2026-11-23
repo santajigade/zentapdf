@@ -124,4 +124,10 @@ open(f'{D}/badge.svg', 'w').write('<svg xmlns="http://www.w3.org/2000/svg" width
 for n in ('photo1', 'photo2'): Image.open(f'{D}/{n}.jpg').save(f'{D}/product-{n[-1]}.avif', quality=70)
 open(f'{D}/fee-receipt.html', 'w').write('<!doctype html><html><head><meta charset="utf-8"><title>Fee receipt</title><style>body{font-family:sans-serif}</style></head><body><nav>Home | Login</nav><h1>Sunrise Public School</h1><h2>Fee receipt, Term 2</h2><p>Student: <b>Asha Patil</b>, Class 7 B</p><table border="1"><tr><th>Item</th><th>Amount (Rs)</th></tr><tr><td>Tuition fee</td><td>12,000</td></tr><tr><td>Library fee</td><td>500</td></tr><tr><td><b>Total</b></td><td><b>12,500</b></td></tr></table><p>Paid online. Keep this receipt for your records.</p><ul><li>Next due date: as per school notice</li><li>Contact the school office for questions</li></ul></body></html>')
 open(f'{D}/meeting-notes.txt', 'w', encoding='utf-8').write('Society meeting notes\n\nDate: Sunday, 10 am\nPlace: Clubhouse\n\n1. Water tank cleaning next month\n2. New CCTV camera at the gate\n3. Parking stickers for all flats\n\nNext meeting: first Sunday of the month\n')
+# WAV and WhatsApp style OPUS samples (wav-to-mp3, whatsapp audio guides), needs ffmpeg
+if shutil.which('ffmpeg'):
+    for n, f in (('interview-recording.wav', 300), ('band-practice.wav', 440)):
+        subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'lavfi', '-i', f"aevalsrc='0.4*sin(2*PI*({f}+60*floor(mod(t,3)))*t)':s=44100:d=40", '-ac', '2', '-c:a', 'pcm_s16le', f'{D}/{n}'], check=True)
+    for n in ('PTT-20261121-WA0004.opus', 'PTT-20261122-WA0011.opus'):
+        subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'lavfi', '-i', "aevalsrc='0.4*sin(2*PI*(180+40*floor(mod(t,2)))*t)':s=48000:d=25", '-ac', '1', '-c:a', 'libopus', '-b:a', '24k', '-f', 'ogg', f'{D}/{n}'], check=True)
 print('samples in', D, sorted(os.listdir(D)))

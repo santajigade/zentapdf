@@ -62,9 +62,9 @@ Open:
 - [x] how-to-convert-avif-to-jpg (2026-11-22)
 - [x] how-to-convert-html-to-pdf (2026-11-22)
 - [x] how-to-convert-txt-to-pdf (2026-11-22)
-- [ ] WAV to MP3 (wav-to-mp3), added 2026-11-22, about 22,200/month
-- [ ] WhatsApp audio (OPUS) to MP3 (audio-converter, check OPUS support first), added 2026-11-22, about 5,400/month
-- [ ] JPG to WebP (jpg-to-webp), added 2026-11-22, about 40,500/month
+- [x] how-to-convert-wav-to-mp3 (2026-11-23)
+- [x] how-to-convert-whatsapp-audio-to-mp3 (2026-11-23)
+- [x] how-to-convert-jpg-to-webp (2026-11-23)
 - [ ] Compress GIF (compress-gif), added 2026-11-22, about 14,800/month
 - [ ] Crop an image (crop-image), added 2026-11-22, about 74,000/month
 - [ ] CSV to PDF (csv-to-pdf), added 2026-11-22, about 8,100/month
