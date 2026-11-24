@@ -1,0 +1,549 @@
+{
+  "slug": "credit-note-template",
+  "category": "invoice",
+  "name": "Credit Note Template",
+  "h1": "Credit Note Format (Excel and PDF)",
+  "metaTitle": "Credit Note Format: Free Excel & PDF Template with GST",
+  "metaDescription": "Free credit note format in Excel and PDF. Link it to the original invoice, pick a reason, and Excel works out CGST, SGST or IGST and the total credit.",
+  "short": "Credit note linked to the original invoice. Excel works out taxable value, CGST and SGST or IGST, and the total credit.",
+  "accent": "#1F4E79",
+  "useCases": [
+    "Billing",
+    "GST"
+  ],
+  "industries": [
+    "Small business",
+    "Retail",
+    "Manufacturing",
+    "Services"
+  ],
+  "date": "2026-11-24",
+  "intro": "A seller issues a credit note when a buyer owes less than an earlier invoice says. That happens when goods come back, the rate was too high, a discount is agreed after the sale or less was delivered than billed. This Excel template links the credit note to the original invoice and works out the taxable value, the GST split and the total credit.",
+  "howTo": [
+    "Download the Excel file and open it in Microsoft Excel, Google Sheets or LibreOffice Calc.",
+    "Type your business name, address, contact details and GSTIN at the top.",
+    "Enter the credit note number and date, then the number and date of the invoice you are correcting.",
+    "Add the buyer's name, address and GSTIN. Pick the reason, the tax type and how the credit will be settled from the drop-down lists, and type the place of supply.",
+    "For each line, describe what is being credited, add the HSN or SAC code, and enter the quantity, rate and GST rate. Excel works out the taxable value, GST and line total.",
+    "Check the totals box, add any notes, then sign and save as PDF to send to the buyer."
+  ],
+  "guide": [
+    {
+      "h": "What the template contains",
+      "p": [
+        "The top has your details, the credit note number and date, and the original invoice number and date. Under that are two boxes: who the credit is issued to, and the reason, place of supply, tax type and settlement method.",
+        "The table has ten lines with description, HSN or SAC, quantity, rate, taxable value, GST rate, GST amount and line total. The totals box shows taxable value, CGST, SGST or UTGST, IGST and the total credit. There are boxes for notes and a signature line for the authorised signatory."
+      ]
+    },
+    {
+      "h": "How the tax works out",
+      "p": [
+        "The tax type list decides the split. Intra-state puts half the GST in CGST and half in SGST, Inter-state puts it all in IGST, and No GST sets the tax to zero for sellers who are not registered. The sample uses 18%, so change the GST rate on each line to the rate charged on the original invoice."
+      ]
+    },
+    {
+      "h": "GST rules for credit notes in India",
+      "p": [
+        "Under the CGST Act, a registered supplier can issue a credit note when the tax invoice charged too much, for example for returned goods or a lower rate. The CGST Rules list what it should show, including supplier and buyer details, GSTIN, a serial number, the date, the taxable value, tax rate and tax amount, the original invoice number and date, and a signature.",
+        "The credit note has to be reported in your GST return, and the law sets a deadline for this in the following financial year. These rules have changed before and can change again, so check the GST portal or ask your tax adviser before you rely on any date. Outside India, follow your local VAT or sales tax rules."
+      ]
+    }
+  ],
+  "tips": [
+    "Keep credit notes in their own number series, such as CN-2026-001, separate from invoices.",
+    "Use the same GST rate as the original invoice for each line.",
+    "Write a clear reason, so the buyer's accounts team can match it quickly.",
+    "Send the credit note soon after you agree the change with the buyer."
+  ],
+  "faqs": [
+    {
+      "q": "What is the difference between a credit note and a debit note?",
+      "a": "A credit note lowers what the buyer owes. A debit note raises it, for example when goods were billed at too low a rate. Both refer back to an original invoice."
+    },
+    {
+      "q": "Can one credit note cover more than one invoice?",
+      "a": "This template links to one invoice. If you need to cover several, list each invoice number and date in the notes box, and check with your tax adviser that this suits your GST filing."
+    },
+    {
+      "q": "Do I need a credit note if I refund cash?",
+      "a": "If you issued a tax invoice and the amount is now lower, a credit note keeps your records and tax figures right. Pick Refund to buyer in the Settle by list."
+    },
+    {
+      "q": "Can I use it without GST?",
+      "a": "Yes. Pick No GST in the tax type list. The GST lines become zero and the total credit equals the taxable value."
+    },
+    {
+      "q": "Does it work in Google Sheets?",
+      "a": "Yes. Upload the file to Google Drive and open it with Google Sheets. The formulas and drop-down lists work there too."
+    }
+  ],
+  "related": [
+    "gst-invoice-format",
+    "simple-invoice-template",
+    "payment-receipt-template",
+    "proforma-invoice-template"
+  ],
+  "tools": [
+    "excel-to-pdf",
+    "sign-pdf",
+    "compress-pdf",
+    "merge-pdf"
+  ],
+  "sheet": {
+    "font": "Calibri",
+    "sheets": [
+      {
+        "name": "Credit Note",
+        "cols": [
+          5,
+          34,
+          10,
+          7,
+          10,
+          13,
+          8,
+          12,
+          13
+        ],
+        "page": {
+          "orientation": "portrait",
+          "area": "A1:I36",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              34
+            ]
+          },
+          {
+            "c": "A1",
+            "v": "CREDIT NOTE",
+            "s": "big",
+            "m": "A1:I1"
+          },
+          {
+            "c": "A2",
+            "v": "[Your Business Name]",
+            "s": "title",
+            "m": "A2:E2"
+          },
+          {
+            "c": "A3",
+            "v": "[Street address, City, State, PIN]",
+            "s": "plain",
+            "m": "A3:E3"
+          },
+          {
+            "c": "A4",
+            "v": "[Phone]  |  [Email]",
+            "s": "plain",
+            "m": "A4:E4"
+          },
+          {
+            "c": "A5",
+            "v": "GSTIN: [your GSTIN, if registered]",
+            "s": "sub",
+            "m": "A5:E5"
+          },
+          {
+            "height": [
+              2,
+              28
+            ]
+          },
+          {
+            "c": "F2",
+            "v": "Credit note no.",
+            "s": "label",
+            "m": "F2:G2"
+          },
+          {
+            "c": "H2",
+            "v": "CN-2026-007",
+            "s": "input",
+            "m": "H2:I2",
+            "align": "right"
+          },
+          {
+            "c": "F3",
+            "v": "Credit note date",
+            "s": "label",
+            "m": "F3:G3"
+          },
+          {
+            "c": "H3",
+            "v": "2026-11-24",
+            "s": "input",
+            "m": "H3:I3",
+            "align": "right",
+            "fmt": "date"
+          },
+          {
+            "c": "F4",
+            "v": "Against invoice no.",
+            "s": "label",
+            "m": "F4:G4"
+          },
+          {
+            "c": "H4",
+            "v": "INV-2026-112",
+            "s": "input",
+            "m": "H4:I4",
+            "align": "right"
+          },
+          {
+            "c": "F5",
+            "v": "Original invoice date",
+            "s": "label",
+            "m": "F5:G5"
+          },
+          {
+            "c": "H5",
+            "v": "2026-11-02",
+            "s": "input",
+            "m": "H5:I5",
+            "align": "right",
+            "fmt": "date"
+          },
+          {
+            "c": "A7",
+            "v": "CREDIT ISSUED TO",
+            "s": "band",
+            "m": "A7:E7"
+          },
+          {
+            "c": "F7",
+            "v": "REASON AND SETTLEMENT",
+            "s": "band",
+            "m": "F7:I7"
+          },
+          {
+            "c": "A8",
+            "v": "Shree Ganesh Builders",
+            "s": "input",
+            "m": "A8:E8"
+          },
+          {
+            "c": "A9",
+            "v": "Attn: Mr Rohan Patil",
+            "s": "input",
+            "m": "A9:E9"
+          },
+          {
+            "c": "A10",
+            "v": "Plot 14, MIDC Road, Pune 411019",
+            "s": "input",
+            "m": "A10:E10"
+          },
+          {
+            "c": "A11",
+            "v": "GSTIN: [buyer GSTIN, if registered]",
+            "s": "input",
+            "m": "A11:E11"
+          },
+          {
+            "c": "F8",
+            "v": "Reason",
+            "s": "label",
+            "m": "F8:G8"
+          },
+          {
+            "c": "H8",
+            "v": "Goods returned",
+            "s": "input",
+            "m": "H8:I8"
+          },
+          {
+            "c": "F9",
+            "v": "Place of supply",
+            "s": "label",
+            "m": "F9:G9"
+          },
+          {
+            "c": "H9",
+            "v": "Maharashtra (27)",
+            "s": "input",
+            "m": "H9:I9"
+          },
+          {
+            "c": "F10",
+            "v": "Tax type",
+            "s": "label",
+            "m": "F10:G10"
+          },
+          {
+            "c": "H10",
+            "v": "Intra-state (CGST + SGST)",
+            "s": "input",
+            "m": "H10:I10"
+          },
+          {
+            "c": "F11",
+            "v": "Settle by",
+            "s": "label",
+            "m": "F11:G11"
+          },
+          {
+            "c": "H11",
+            "v": "Adjust in next invoice",
+            "s": "input",
+            "m": "H11:I11"
+          },
+          {
+            "list": "H8:I8",
+            "items": [
+              "Goods returned",
+              "Rate difference",
+              "Discount after sale",
+              "Short supply",
+              "Service not as agreed",
+              "Excess billed",
+              "Other"
+            ]
+          },
+          {
+            "list": "H10:I10",
+            "items": [
+              "Intra-state (CGST + SGST)",
+              "Inter-state (IGST)",
+              "No GST"
+            ]
+          },
+          {
+            "list": "H11:I11",
+            "items": [
+              "Adjust in next invoice",
+              "Refund to buyer",
+              "Reduce amount due"
+            ]
+          },
+          {
+            "height": [
+              13,
+              30
+            ]
+          },
+          {
+            "row": 13,
+            "from": "A",
+            "v": [
+              "#",
+              "Description of goods or service credited",
+              "HSN / SAC",
+              "Qty",
+              "Rate",
+              "Taxable value",
+              "GST rate",
+              "GST amount",
+              "Line total"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              14,
+              23
+            ],
+            "cols": {
+              "A": {
+                "v": "=IF(B{r}=\"\",\"\",ROW()-13)",
+                "s": "calc",
+                "align": "center"
+              },
+              "B": {
+                "s": "input",
+                "wrap": true
+              },
+              "C": {
+                "s": "input",
+                "align": "center"
+              },
+              "D": {
+                "s": "input",
+                "fmt": "0.##",
+                "align": "center"
+              },
+              "E": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "F": {
+                "v": "=IF(OR(D{r}=\"\",E{r}=\"\"),\"\",ROUND(D{r}*E{r},2))",
+                "s": "calc",
+                "fmt": "money"
+              },
+              "G": {
+                "s": "input",
+                "fmt": "pct",
+                "align": "center"
+              },
+              "H": {
+                "v": "=IF(F{r}=\"\",\"\",IF($H$10=\"No GST\",0,ROUND(F{r}*N(G{r}),2)))",
+                "s": "calc",
+                "fmt": "money"
+              },
+              "I": {
+                "v": "=IF(F{r}=\"\",\"\",F{r}+H{r})",
+                "s": "calc",
+                "fmt": "money"
+              }
+            }
+          },
+          {
+            "data": [
+              [
+                "Floor tiles 600 x 600 mm, cracked in transit (returned)",
+                "[6907]",
+                12,
+                640,
+                null,
+                0.18
+              ],
+              [
+                "Rate difference: tile adhesive 20 kg billed at 420, agreed 395",
+                "[3214]",
+                30,
+                25,
+                null,
+                0.18
+              ]
+            ],
+            "at": "B14"
+          },
+          {
+            "height": [
+              14,
+              30
+            ]
+          },
+          {
+            "height": [
+              15,
+              30
+            ]
+          },
+          {
+            "c": "A25",
+            "v": "NOTES",
+            "s": "band",
+            "m": "A25:E25"
+          },
+          {
+            "c": "A26",
+            "v": "This credit note reduces the amount payable on the invoice shown above.\n[Add the return reference, goods receipt number or any other detail.]",
+            "s": "plain",
+            "m": "A26:E28",
+            "wrap": true
+          },
+          {
+            "height": [
+              26,
+              18
+            ]
+          },
+          {
+            "c": "F25",
+            "v": "Taxable value",
+            "s": "label",
+            "m": "F25:H25"
+          },
+          {
+            "c": "I25",
+            "v": "=SUM(F14:F23)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "F26",
+            "v": "CGST",
+            "s": "label",
+            "m": "F26:H26"
+          },
+          {
+            "c": "I26",
+            "v": "=IF(H10=\"Intra-state (CGST + SGST)\",ROUND(SUM(H14:H23)/2,2),0)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "F27",
+            "v": "SGST / UTGST",
+            "s": "label",
+            "m": "F27:H27"
+          },
+          {
+            "c": "I27",
+            "v": "=IF(H10=\"Intra-state (CGST + SGST)\",SUM(H14:H23)-I26,0)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "F28",
+            "v": "IGST",
+            "s": "label",
+            "m": "F28:H28"
+          },
+          {
+            "c": "I28",
+            "v": "=IF(H10=\"Inter-state (IGST)\",SUM(H14:H23),0)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "F29",
+            "v": "TOTAL CREDIT",
+            "s": "total",
+            "m": "F29:H29"
+          },
+          {
+            "c": "I29",
+            "v": "=I25+I26+I27+I28",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "A30",
+            "v": "GST: the tax lines follow the tax type you pick. Rules for credit notes, including the date by which they must be reported in your returns, are set by law and can change. Check the GST portal or ask your tax adviser.",
+            "s": "note",
+            "m": "A30:E33"
+          },
+          {
+            "c": "F31",
+            "v": "For [Your Business Name]",
+            "s": "label",
+            "m": "F31:I31",
+            "align": "right"
+          },
+          {
+            "c": "F34",
+            "v": "Authorised signatory",
+            "s": "sub",
+            "m": "F34:I34",
+            "align": "right"
+          },
+          {
+            "height": [
+              32,
+              22
+            ]
+          },
+          {
+            "height": [
+              35,
+              8
+            ]
+          },
+          {
+            "c": "A36",
+            "v": "Keep this credit note with the original invoice for your records.",
+            "s": "band",
+            "m": "A36:I36",
+            "align": "center"
+          }
+        ]
+      }
+    ]
+  }
+}

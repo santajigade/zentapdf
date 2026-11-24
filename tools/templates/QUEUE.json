@@ -475,8 +475,8 @@
    "slug": "customer-feedback-form",
    "category": "forms",
    "priority": 3,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-24",
    "note": "Rating grid and comments."
   },
   {
@@ -484,8 +484,8 @@
    "slug": "credit-note-template",
    "category": "invoice",
    "priority": 3,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-24",
    "note": "Credit note against an earlier invoice."
   },
   {
@@ -493,8 +493,8 @@
    "slug": "chronological-resume-template",
    "category": "resume",
    "priority": 3,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-24",
    "note": "Classic reverse-chronological resume, two-tone header."
   },
   {

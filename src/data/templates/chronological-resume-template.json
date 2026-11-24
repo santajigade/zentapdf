@@ -1,0 +1,321 @@
+{
+  "slug": "chronological-resume-template",
+  "category": "resume",
+  "name": "Chronological Resume Template",
+  "h1": "Chronological Resume Template (Word and PDF)",
+  "metaTitle": "Chronological Resume Template: Free Word & PDF Format",
+  "metaDescription": "Free reverse chronological resume template in Word and PDF. One page, latest job first, with a two-tone header, summary, experience, education and skills.",
+  "short": "One-page reverse chronological resume with a two-tone header. Latest job first, then education and skills.",
+  "accent": "#7B2D26",
+  "useCases": [
+    "Job search",
+    "Job change"
+  ],
+  "industries": [
+    "Professionals",
+    "Corporate",
+    "Small business"
+  ],
+  "date": "2026-11-24",
+  "intro": "A chronological resume lists your jobs in reverse order, so your latest role comes first and the oldest comes last. Recruiters can see at a glance how your career has grown. This one-page Word template follows that order, with a two-tone header, a short summary, three jobs, education, skills and certifications.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Replace the name, target job title and contact line in the header. Delete anything you do not want to share.",
+    "Write a summary of two or three lines: your role, years of experience and what you are best at.",
+    "List your jobs from newest to oldest. For each one, give the job title, company, city and the start and end month and year.",
+    "Under each job, write two to four points that start with an action word and include a number where you can.",
+    "Fill in education, skills and certifications, then check that everything still fits on one page.",
+    "Save as PDF and use a file name like Firstname-Lastname-Resume.pdf."
+  ],
+  "guide": [
+    {
+      "h": "What is in the template",
+      "p": [
+        "The header has a dark band with your name and target role, and a lighter strip under it for phone, email, city and LinkedIn. Then come a professional summary and a work experience section with three jobs for a sample accountant. Each job has its dates on the right and bullet points below.",
+        "Below the jobs are education with degree, college and years, a skills block split into accounting, software and languages, and a short certifications list. All of it is ordinary Word text, so applicant tracking systems can read it."
+      ]
+    },
+    {
+      "h": "Who should use this format",
+      "p": [
+        "The chronological format suits people who have stayed in one field and moved up over time, because the list of jobs shows that growth. Most applicant tracking systems read it without trouble.",
+        "If you are changing careers, have long gaps or many short jobs, or your recent work does not match the job you want, a skills-based or combination resume may serve you better. Freshers can use our fresher resume template."
+      ]
+    },
+    {
+      "h": "Dates, gaps and promotions",
+      "p": [
+        "Write dates the same way every time, such as Jun 2022 to Present. If you were promoted within a company, give each role its own entry with its own dates. If you have a gap, you can list what you did in that time, such as freelance work, a course or caring for family, as its own short entry.",
+        "One page is usually enough with less than about ten years of experience. With more, a second page is fine, as long as the most important work is on the first."
+      ]
+    }
+  ],
+  "tips": [
+    "Change your summary and skills for each job you apply for, using words from the job post.",
+    "Keep older jobs short. Two points are enough for a role from many years ago.",
+    "Leave out photos, date of birth and marital status unless the employer asks for them.",
+    "Check spelling, then ask a friend to read it once more."
+  ],
+  "faqs": [
+    {
+      "q": "What does reverse chronological mean?",
+      "a": "It means newest first. Your current or most recent job is at the top, and older jobs follow in order."
+    },
+    {
+      "q": "Is a chronological resume ATS friendly?",
+      "a": "This template uses plain text, standard section names and simple tables for layout, which most applicant tracking systems read well. Save it as PDF or Word, whichever the job post asks for."
+    },
+    {
+      "q": "How far back should my work history go?",
+      "a": "Many people show the last 10 to 15 years. Older jobs can be left out or shortened to one line if they do not help with the job you want."
+    },
+    {
+      "q": "Can I add a fourth job?",
+      "a": "Yes. Copy one job block in Word and paste it below. Shorten older points so the resume does not spill onto a second page by accident."
+    },
+    {
+      "q": "Should education come before experience?",
+      "a": "In this format experience comes first. If you graduated recently and have little work history, move education to the top or use our fresher resume template."
+    }
+  ],
+  "related": [
+    "experienced-resume-template",
+    "simple-resume-format",
+    "cover-letter-template"
+  ],
+  "tools": [
+    "word-to-pdf",
+    "pdf-to-word",
+    "compress-pdf",
+    "edit-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 10
+    },
+    "size": 9.5,
+    "font": "Segoe UI",
+    "headFont": "Georgia",
+    "titleSize": 26,
+    "blocks": [
+      {
+        "type": "title",
+        "band": true,
+        "text": "[Your Full Name]",
+        "size": 26,
+        "sub": "Senior Accountant  |  6 years in accounts, GST and month-end closing"
+      },
+      {
+        "type": "columns",
+        "after": 2,
+        "cols": [
+          {
+            "lines": [
+              "**Phone** [Phone number]"
+            ],
+            "fill": true
+          },
+          {
+            "lines": [
+              "**Email** [name@email.com]"
+            ],
+            "fill": true,
+            "w": 1.2
+          },
+          {
+            "lines": [
+              "**City** [Pune, India]"
+            ],
+            "fill": true,
+            "w": 0.85
+          },
+          {
+            "lines": [
+              "[linkedin.com/in/your-profile]"
+            ],
+            "fill": true,
+            "w": 1.25
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Professional summary",
+        "caps": false,
+        "size": 12.5,
+        "before": 0
+      },
+      {
+        "type": "p",
+        "text": "CA Inter qualified accountant with 6 years in manufacturing and distribution companies. Runs month-end closing, GST returns and vendor payments for teams of up to 4 people. Known for clean books, on-time filings and simple reports that managers actually read.",
+        "line": 1.1,
+        "after": 3
+      },
+      {
+        "type": "heading",
+        "text": "Work experience",
+        "caps": false,
+        "size": 12.5,
+        "before": 2
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 0,
+        "split": [
+          3,
+          1.2
+        ],
+        "left": [
+          "## Senior Accountant",
+          "[Company name]  |  [City]"
+        ],
+        "right": [
+          "**Jun 2023 to Present**"
+        ]
+      },
+      {
+        "type": "bullets",
+        "gap": 1,
+        "items": [
+          "Lead month-end closing for a [INR 120 crore] manufacturer and cut closing time from 9 working days to 5.",
+          "Prepare and file monthly GST returns for 3 registrations with no late filings in 2 years.",
+          "Set up a vendor payment calendar in Excel that reduced late payment charges by [70%].",
+          "Guide a team of 3 junior accountants and review their entries every week."
+        ]
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 0,
+        "split": [
+          3,
+          1.2
+        ],
+        "left": [
+          "## Accountant",
+          "[Company name]  |  [City]"
+        ],
+        "right": [
+          "**Apr 2021 to May 2023**"
+        ]
+      },
+      {
+        "type": "bullets",
+        "gap": 1,
+        "items": [
+          "Handled accounts payable and receivable for 180+ vendors and dealers in Tally Prime.",
+          "Reconciled 6 bank accounts every month and cleared a backlog of [400] old unmatched entries.",
+          "Supported the statutory audit two years in a row with schedules ready on the first day."
+        ]
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 0,
+        "split": [
+          3,
+          1.2
+        ],
+        "left": [
+          "## Junior Accountant",
+          "[Company name]  |  [City]"
+        ],
+        "right": [
+          "**Jul 2019 to Mar 2021**"
+        ]
+      },
+      {
+        "type": "bullets",
+        "gap": 1,
+        "items": [
+          "Recorded daily sales, purchase and expense entries and kept the petty cash book.",
+          "Prepared TDS working sheets and challans for review by the senior accountant."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Education",
+        "caps": false,
+        "size": 12.5,
+        "before": 2
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 0,
+        "split": [
+          3,
+          1.2
+        ],
+        "left": [
+          "## CA Intermediate (both groups)",
+          "[Institute name]"
+        ],
+        "right": [
+          "**2020**"
+        ]
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 2,
+        "split": [
+          3,
+          1.2
+        ],
+        "left": [
+          "## Bachelor of Commerce (B.Com)",
+          "[College name], [University]"
+        ],
+        "right": [
+          "**2016 to 2019**"
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Skills",
+        "caps": false,
+        "size": 12.5,
+        "before": 2
+      },
+      {
+        "type": "fields",
+        "labelWidth": 0.17,
+        "rowHeight": 5.2,
+        "lines": false,
+        "after": 2,
+        "items": [
+          [
+            "Accounting",
+            "Month-end closing, GST returns, TDS, bank reconciliation, accounts payable, audit schedules"
+          ],
+          [
+            "Software",
+            "Tally Prime, SAP FICO (basic), Excel (pivot tables, VLOOKUP, XLOOKUP), Zoho Books"
+          ],
+          [
+            "Languages",
+            "English, Hindi, Marathi"
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Certifications",
+        "caps": false,
+        "size": 12.5,
+        "before": 2
+      },
+      {
+        "type": "bullets",
+        "gap": 1,
+        "items": [
+          "GST practitioner course, [Issuer], [Year]",
+          "Advanced Excel for finance, [Issuer], [Year]"
+        ]
+      }
+    ]
+  }
+}

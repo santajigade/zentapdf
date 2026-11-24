@@ -53,6 +53,15 @@
   "previews": 1,
   "built": "2026-11-19"
  },
+ "chronological-resume-template": {
+  "files": {
+   "docx": 12030,
+   "pdf": 107106
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-24"
+ },
  "cover-letter-template": {
   "files": {
    "docx": 11294,
@@ -61,6 +70,24 @@
   "pages": 1,
   "previews": 1,
   "built": "2026-11-08"
+ },
+ "credit-note-template": {
+  "files": {
+   "xlsx": 10205,
+   "pdf": 36319
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-24"
+ },
+ "customer-feedback-form": {
+  "files": {
+   "docx": 12496,
+   "pdf": 89369
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-24"
  },
  "daily-planner-template": {
   "files": {

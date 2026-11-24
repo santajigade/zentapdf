@@ -1,0 +1,447 @@
+{
+  "slug": "customer-feedback-form",
+  "category": "forms",
+  "name": "Customer Feedback Form",
+  "h1": "Customer Feedback Form (Word and PDF)",
+  "metaTitle": "Customer Feedback Form: Free Word & PDF Rating Template",
+  "metaDescription": "Free customer feedback form in Word and PDF. A 1 to 5 rating grid, a 0 to 10 recommend score, two open questions, optional contact details and an office box.",
+  "short": "One-page form with a 1 to 5 rating grid, a 0 to 10 recommend score, open questions and optional contact details.",
+  "accent": "#7A3E9D",
+  "useCases": [
+    "Sales",
+    "Tracking"
+  ],
+  "industries": [
+    "Retail",
+    "Hospitality",
+    "Services",
+    "Small business"
+  ],
+  "date": "2026-11-24",
+  "intro": "A customer feedback form asks people what they thought of your shop, restaurant, clinic or service while the visit is still fresh. This one fits on a single A4 page. Customers rate six things from 1 to 5, give a 0 to 10 score for how likely they are to recommend you, and can write what they liked and what you should fix.",
+  "howTo": [
+    "Download the Word file. Put your business name and branch at the top, and change the six rated items if some do not fit your business.",
+    "Print copies and leave them at the counter, on tables or in a feedback box. You can also share the PDF by email or WhatsApp.",
+    "The customer writes the visit date, the branch and who served them, and ticks what the visit was for.",
+    "They tick one box from 1 (poor) to 5 (excellent) for each item, then circle or tick a score from 0 to 10 for recommending you.",
+    "They answer the two open questions and say whether they would come back. Name and phone or email are optional, and there is a tick box to allow a reply.",
+    "Staff fill in the office box: who received the form, the date and any action taken.",
+    "Once a week, type the scores into a spreadsheet and look at which items score lowest."
+  ],
+  "guide": [
+    {
+      "h": "What is on the form",
+      "p": [
+        "There are five parts. About your visit has the date, branch, staff name and what the visit was for. Rate us has six rows, from product or service quality to overall experience, each with boxes from 1 to 5.",
+        "Recommend us has boxes from 0 to 10. Your comments has two open questions and a would you visit again line. Contact (optional) has name, phone or email and a permission tick box, and an office box sits at the bottom."
+      ]
+    },
+    {
+      "h": "Getting honest answers",
+      "p": [
+        "Short forms get filled in more often, which is why this one stays on a single page and only two questions need writing. Contact details sit at the end and are optional, because people tend to be more open when they can stay anonymous. A line at the top tells customers what you do with their answers. Keep it if it is true.",
+        "Ask for feedback soon after the visit or purchase, while people still remember it."
+      ]
+    },
+    {
+      "h": "Using the recommend score",
+      "p": [
+        "Many businesses track the 0 to 10 question over time. A common method groups 9 and 10 as promoters, 7 and 8 as passives and 0 to 6 as detractors. Take the percentage of detractors away from the percentage of promoters to get one number. Watch how that number moves from month to month, not what it is in a single week."
+      ]
+    },
+    {
+      "h": "Personal details",
+      "p": [
+        "If customers leave a name, phone or email, only use it for the purpose you state, keep the forms somewhere safe and throw them away when you no longer need them. Privacy laws differ from country to country, so check the rules that apply to you before you use this information for marketing."
+      ]
+    }
+  ],
+  "tips": [
+    "Leave a pen with the forms.",
+    "Reply within two days to anyone who left a complaint and ticked yes to being contacted.",
+    "Thank customers in person or on a small notice when you fix something they raised.",
+    "Do not change the rated items every month, or you cannot compare results."
+  ],
+  "faqs": [
+    {
+      "q": "Can I use this form online?",
+      "a": "Yes. Customers can fill the Word file on a computer, or fill the PDF with a PDF form filler and send it back. For many responses, an online form tool is easier to count."
+    },
+    {
+      "q": "Can I change the questions?",
+      "a": "Yes. Open the Word file and edit the rows of the rating grid or the open questions. A clinic might rate waiting time, and a restaurant might rate taste and portion size."
+    },
+    {
+      "q": "Should the form ask for the customer's name?",
+      "a": "Make it optional, as this form does. People who are unhappy often say more when they do not have to give their name. Ask for contact details only when you want to reply."
+    },
+    {
+      "q": "How do I add up the results?",
+      "a": "Type each form into a spreadsheet with one row per form and one column per question. Average each 1 to 5 column and look at the lowest one first."
+    },
+    {
+      "q": "Is it suitable for events or training sessions?",
+      "a": "Yes, if you change the rated items to things like content, speaker and venue, and the about your visit part to the event name and date."
+    }
+  ],
+  "related": [
+    "visitor-register-template",
+    "job-application-form-template",
+    "meeting-minutes-template"
+  ],
+  "tools": [
+    "word-to-pdf",
+    "pdf-form-filler",
+    "compress-pdf",
+    "pdf-to-jpg"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 10
+    },
+    "size": 9.5,
+    "font": "Verdana",
+    "headFont": "Book Antiqua",
+    "titleSize": 24,
+    "blocks": [
+      {
+        "type": "title",
+        "band": true,
+        "align": "center",
+        "text": "How was your visit?",
+        "size": 24,
+        "sub": "Customer Feedback Form  |  [Business Name], [Branch]"
+      },
+      {
+        "type": "p",
+        "text": "Thank you for taking two minutes. We read every form and use it to improve our service. Your name is optional.",
+        "italic": true,
+        "muted": true,
+        "align": "center",
+        "after": 8
+      },
+      {
+        "type": "heading",
+        "text": "About your visit",
+        "caps": false,
+        "size": 12,
+        "before": 3
+      },
+      {
+        "type": "fields",
+        "cols": 3,
+        "labelWidth": 0.42,
+        "rowHeight": 7,
+        "after": 1,
+        "items": [
+          [
+            "Date",
+            ""
+          ],
+          [
+            "Branch",
+            ""
+          ],
+          [
+            "Served by",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "**Visit was for:**   ☐ Purchase     ☐ Service or repair     ☐ Enquiry     ☐ Other: ______________",
+        "after": 8
+      },
+      {
+        "type": "heading",
+        "text": "Rate us",
+        "caps": false,
+        "size": 12,
+        "before": 3
+      },
+      {
+        "type": "p",
+        "text": "Tick one box in each row.  1 = Poor   2 = Fair   3 = Good   4 = Very good   5 = Excellent",
+        "size": 8.5,
+        "muted": true,
+        "after": 2
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": true,
+        "rowHeight": 6.6,
+        "after": 4,
+        "columns": [
+          {
+            "h": "What we would like you to rate",
+            "w": 3.2
+          },
+          {
+            "h": "1",
+            "w": 0.55,
+            "align": "center"
+          },
+          {
+            "h": "2",
+            "w": 0.55,
+            "align": "center"
+          },
+          {
+            "h": "3",
+            "w": 0.55,
+            "align": "center"
+          },
+          {
+            "h": "4",
+            "w": 0.55,
+            "align": "center"
+          },
+          {
+            "h": "5",
+            "w": 0.55,
+            "align": "center"
+          }
+        ],
+        "rows": [
+          [
+            "Quality of the product or service",
+            "☐",
+            "☐",
+            "☐",
+            "☐",
+            "☐"
+          ],
+          [
+            "Staff friendliness and help",
+            "☐",
+            "☐",
+            "☐",
+            "☐",
+            "☐"
+          ],
+          [
+            "Speed of service",
+            "☐",
+            "☐",
+            "☐",
+            "☐",
+            "☐"
+          ],
+          [
+            "Value for money",
+            "☐",
+            "☐",
+            "☐",
+            "☐",
+            "☐"
+          ],
+          [
+            "Cleanliness and look of the place",
+            "☐",
+            "☐",
+            "☐",
+            "☐",
+            "☐"
+          ],
+          [
+            "**Overall experience**",
+            "☐",
+            "☐",
+            "☐",
+            "☐",
+            "☐"
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Recommend us",
+        "caps": false,
+        "size": 12,
+        "before": 3
+      },
+      {
+        "type": "p",
+        "text": "How likely are you to recommend us to a friend or family member?",
+        "after": 2
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "rowHeight": 7,
+        "after": 1,
+        "headFill": "#EFE4F5",
+        "headText": "#7A3E9D",
+        "columns": [
+          {
+            "h": "0",
+            "w": 1,
+            "align": "center"
+          },
+          {
+            "h": "1",
+            "w": 1,
+            "align": "center"
+          },
+          {
+            "h": "2",
+            "w": 1,
+            "align": "center"
+          },
+          {
+            "h": "3",
+            "w": 1,
+            "align": "center"
+          },
+          {
+            "h": "4",
+            "w": 1,
+            "align": "center"
+          },
+          {
+            "h": "5",
+            "w": 1,
+            "align": "center"
+          },
+          {
+            "h": "6",
+            "w": 1,
+            "align": "center"
+          },
+          {
+            "h": "7",
+            "w": 1,
+            "align": "center"
+          },
+          {
+            "h": "8",
+            "w": 1,
+            "align": "center"
+          },
+          {
+            "h": "9",
+            "w": 1,
+            "align": "center"
+          },
+          {
+            "h": "10",
+            "w": 1,
+            "align": "center"
+          }
+        ],
+        "rows": [
+          [
+            "☐",
+            "☐",
+            "☐",
+            "☐",
+            "☐",
+            "☐",
+            "☐",
+            "☐",
+            "☐",
+            "☐",
+            "☐"
+          ]
+        ]
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 2,
+        "split": [
+          1,
+          1
+        ],
+        "left": [
+          "~ 0 = Not at all likely"
+        ],
+        "right": [
+          "~ 10 = Extremely likely"
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Your comments",
+        "caps": false,
+        "size": 12,
+        "before": 3
+      },
+      {
+        "type": "fields",
+        "cols": 1,
+        "labelWidth": 0.3,
+        "rowHeight": 7.5,
+        "after": 1,
+        "items": [
+          [
+            "What did you like most?",
+            ""
+          ],
+          [
+            " ",
+            ""
+          ],
+          [
+            "What should we improve?",
+            ""
+          ],
+          [
+            " ",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "**Would you visit us again?**   ☐ Yes     ☐ Maybe     ☐ No",
+        "before": 2,
+        "after": 8
+      },
+      {
+        "type": "heading",
+        "text": "Contact (optional)",
+        "caps": false,
+        "size": 12,
+        "before": 3
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "labelWidth": 0.36,
+        "rowHeight": 7,
+        "after": 1,
+        "items": [
+          [
+            "Name",
+            ""
+          ],
+          [
+            "Phone or email",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "☐  You may contact me about this feedback. We will not use your details for anything else.",
+        "size": 8.5,
+        "after": 5
+      },
+      {
+        "type": "box",
+        "title": "For office use",
+        "small": true,
+        "after": 0,
+        "lines": [
+          "Received by: ..............................     Date: ....................     Form no.: ..............",
+          "Action taken: ................................................................................................................"
+        ]
+      }
+    ]
+  }
+}
