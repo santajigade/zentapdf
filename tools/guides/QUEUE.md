@@ -65,7 +65,7 @@ Open:
 - [x] how-to-convert-wav-to-mp3 (2026-11-23)
 - [x] how-to-convert-whatsapp-audio-to-mp3 (2026-11-23)
 - [x] how-to-convert-jpg-to-webp (2026-11-23)
-- [ ] Compress GIF (compress-gif), added 2026-11-22, about 14,800/month
-- [ ] Crop an image (crop-image), added 2026-11-22, about 74,000/month
-- [ ] CSV to PDF (csv-to-pdf), added 2026-11-22, about 8,100/month
+- [x] Compress GIF (compress-gif), added 2026-11-22, about 14,800/month, done 2026-11-24 (how-to-compress-gif)
+- [x] Crop an image (crop-image), added 2026-11-22, about 74,000/month, done 2026-11-24 (how-to-crop-image)
+- [x] CSV to PDF (csv-to-pdf), added 2026-11-22, about 8,100/month, done 2026-11-24 (how-to-convert-csv-to-pdf)
 - [ ] Find the BPM of a song (bpm-finder), added 2026-11-22, about 6,600/month
