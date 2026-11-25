@@ -1,0 +1,333 @@
+{
+  "slug": "teacher-resume-template",
+  "category": "resume",
+  "name": "Teacher Resume Template",
+  "h1": "Teacher Resume Template (Word and PDF)",
+  "metaTitle": "Teacher Resume Template: Free Word & PDF Format",
+  "metaDescription": "Free teacher resume template in Word and PDF. One page with subjects, classes taught, board results, B.Ed and TET details, teaching skills and activities.",
+  "short": "One-page teacher resume with a subjects and classes strip, teaching jobs, a qualifications table and activities.",
+  "accent": "#9A3412",
+  "useCases": [
+    "Job search",
+    "Job change"
+  ],
+  "industries": [
+    "Education",
+    "Schools",
+    "Professionals"
+  ],
+  "date": "2026-11-25",
+  "intro": "A teacher resume should show early on what you teach, which classes you have taught and whether you hold the qualifications the post asks for. This one-page Word template puts those in a strip under your name. Below it are your teaching jobs with results, a qualifications table, skills and school activities, filled in for a sample science teacher.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Put your name, the post you are applying for and your contact details in the header.",
+    "Fill the three boxes under the header with your subjects, the classes and board you have taught, and your teaching qualifications.",
+    "Write a two-line summary: years of teaching, the subjects and classes, and one result you are proud of.",
+    "List your schools from newest to oldest. Under each, write what you taught and two or three points about results, activities or duties.",
+    "Fill in the qualifications table with each degree or test, the institute or board, the year and your score.",
+    "Change the skills and activities to your own, check it still fits on one page, then save as PDF."
+  ],
+  "guide": [
+    {
+      "h": "What is in the template",
+      "p": [
+        "The header has your name in large type with the post you want under it, and your phone, email, city and LinkedIn on the right. A strip of three shaded boxes follows, for subjects, classes and board, and qualifications.",
+        "Below that are a short profile, two teaching jobs and one earlier job, each with dates and bullet points. A table lists degrees and teacher eligibility tests with year and score. The page ends with teaching skills, technology, languages and a line for school activities such as the science club and exam duty."
+      ]
+    },
+    {
+      "h": "What schools look for",
+      "p": [
+        "Write the subjects and classes in plain words, such as Physics and Chemistry for Classes 9 to 12, CBSE. A principal hiring for a Class 11 post wants to see straight away that you have taught that level.",
+        "Give results where you have them: pass percentage, class average or the number of students who scored above a mark. Also mention duties beyond teaching, such as being a class teacher, running a club, setting papers or training for smart boards."
+      ]
+    },
+    {
+      "h": "Qualifications and eligibility tests",
+      "p": [
+        "Many schools in India ask for a B.Ed or a similar teaching degree, and some posts also ask you to have cleared CTET or a state TET. The table has rows for these with year and score.",
+        "Rules differ by school, board, state and post, so read the job advertisement and the official notice for the exact qualifications. List only the tests you have actually cleared, with the correct year."
+      ]
+    }
+  ],
+  "tips": [
+    "Use the same subject names and class levels as the job post, so the school can match them quickly.",
+    "Keep each school to three points. Results and duties matter more than a list of every topic you taught.",
+    "For private tutoring or coaching work, add it as a short job entry with the classes and subjects.",
+    "Check spelling, then save it as a PDF before you email it."
+  ],
+  "faqs": [
+    {
+      "q": "Can a fresher teacher use this template?",
+      "a": "Yes. Put your B.Ed teaching practice or internship school in place of the first job, and list the classes and lessons you took there. Move the qualifications table higher if it is your strongest part."
+    },
+    {
+      "q": "Should I add a photo to a teacher resume?",
+      "a": "The template has no photo. Some schools in India ask for one, so read the job post. If they do, add a small photo in the header in Word."
+    },
+    {
+      "q": "How do I show board exam results?",
+      "a": "Write them as a short point under the job, for example the Class 10 science pass percentage for your sections and the year. Use numbers from school records only."
+    },
+    {
+      "q": "Is one page enough for a teacher resume?",
+      "a": "For most teachers with up to about ten years of work, yes. If you have more, a second page is fine, as long as your subjects, classes and qualifications stay on the first."
+    },
+    {
+      "q": "Can I use this for a college lecturer post?",
+      "a": "You can, but lecturer posts often ask for more detail on research papers and exams such as NET or SET. Add a short publications section and change the qualifications rows to match the advertisement."
+    }
+  ],
+  "related": [
+    "chronological-resume-template",
+    "fresher-resume-template",
+    "cover-letter-template"
+  ],
+  "tools": [
+    "word-to-pdf",
+    "pdf-to-word",
+    "compress-pdf",
+    "edit-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 11
+    },
+    "size": 9.5,
+    "font": "Calibri",
+    "headFont": "Georgia",
+    "titleSize": 24,
+    "blocks": [
+      {
+        "type": "header",
+        "split": [
+          1.7,
+          1
+        ],
+        "after": 6,
+        "left": [
+          "# [Your Full Name]",
+          "## Science Teacher (Physics and Chemistry), Classes 9 to 12"
+        ],
+        "right": [
+          "[Phone number]",
+          "[name@email.com]",
+          "[Jaipur, Rajasthan]",
+          "[linkedin.com/in/your-profile]"
+        ]
+      },
+      {
+        "type": "columns",
+        "after": 4,
+        "cols": [
+          {
+            "title": "Subjects",
+            "lines": [
+              "Physics, Chemistry",
+              "General Science (6 to 8)"
+            ],
+            "fill": true
+          },
+          {
+            "title": "Classes and board",
+            "lines": [
+              "Classes 6 to 12",
+              "CBSE, 7 years"
+            ],
+            "fill": true,
+            "w": 0.9
+          },
+          {
+            "title": "Qualifications",
+            "lines": [
+              "M.Sc Physics, B.Ed",
+              "CTET Paper 2 cleared"
+            ],
+            "fill": true
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Profile",
+        "size": 11,
+        "before": 2
+      },
+      {
+        "type": "p",
+        "text": "Science teacher with 7 years in CBSE schools, teaching Physics and Chemistry to Classes 9 to 12. Uses lab work, simple models and weekly tests to keep students on track. Raised the Class 10 science pass rate in assigned sections from [88%] to [97%] in three years.",
+        "line": 1.1,
+        "after": 3
+      },
+      {
+        "type": "heading",
+        "text": "Teaching experience",
+        "size": 11,
+        "before": 2
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 0,
+        "split": [
+          3,
+          1.2
+        ],
+        "left": [
+          "## PGT Physics",
+          "[School name], [City]  |  Classes 11 and 12, CBSE"
+        ],
+        "right": [
+          "**Apr 2022 to Present**"
+        ]
+      },
+      {
+        "type": "bullets",
+        "gap": 1,
+        "items": [
+          "Teach Physics to 4 sections of Classes 11 and 12, about [140] students a year.",
+          "Class 12 Physics board average of [78%] in 2025, up from [71%] in 2022.",
+          "Run the school science club and guided [3] student teams to the district science fair.",
+          "Set and moderate unit test and pre-board papers for the science department."
+        ]
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 0,
+        "split": [
+          3,
+          1.2
+        ],
+        "left": [
+          "## TGT Science",
+          "[School name], [City]  |  Classes 6 to 10, CBSE"
+        ],
+        "right": [
+          "**Jun 2019 to Mar 2022**"
+        ]
+      },
+      {
+        "type": "bullets",
+        "gap": 1,
+        "items": [
+          "Taught General Science to Classes 6 to 8 and Physics and Chemistry to Classes 9 and 10.",
+          "Class teacher for Class 9, handling attendance, parent meetings and report cards.",
+          "Moved lessons online during school closures and kept weekly attendance above [90%]."
+        ]
+      },
+      {
+        "type": "header",
+        "rule": false,
+        "after": 0,
+        "split": [
+          3,
+          1.2
+        ],
+        "left": [
+          "## Science Tutor",
+          "[Coaching centre name], [City]  |  Classes 9 and 10"
+        ],
+        "right": [
+          "**Jul 2018 to May 2019**"
+        ]
+      },
+      {
+        "type": "bullets",
+        "gap": 1,
+        "items": [
+          "Took evening batches of [25] students for board exam science revision."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Qualifications",
+        "size": 11,
+        "before": 2
+      },
+      {
+        "type": "table",
+        "columns": [
+          {
+            "h": "Degree or test",
+            "w": 1.3
+          },
+          {
+            "h": "University, institute or board",
+            "w": 1.9
+          },
+          {
+            "h": "Year",
+            "w": 0.5,
+            "align": "center"
+          },
+          {
+            "h": "Score",
+            "w": 0.6,
+            "align": "center"
+          }
+        ],
+        "rows": [
+          [
+            "B.Ed",
+            "[College name], [University]",
+            "2018",
+            "[78%]"
+          ],
+          [
+            "M.Sc Physics",
+            "[College name], [University]",
+            "2017",
+            "[72%]"
+          ],
+          [
+            "B.Sc (PCM)",
+            "[College name], [University]",
+            "2015",
+            "[75%]"
+          ],
+          [
+            "CTET Paper 2 (Science)",
+            "CBSE",
+            "2019",
+            "[Qualified]"
+          ]
+        ],
+        "rowHeight": 5.6,
+        "after": 3
+      },
+      {
+        "type": "heading",
+        "text": "Skills",
+        "size": 11,
+        "before": 2
+      },
+      {
+        "type": "fields",
+        "labelWidth": 0.16,
+        "rowHeight": 5,
+        "lines": false,
+        "after": 0,
+        "items": [
+          [
+            "Teaching",
+            "Lesson planning, lab demonstrations, activity-based learning, remedial classes, question paper setting"
+          ],
+          [
+            "Technology",
+            "Smart board, Google Classroom, MS Office, online quizzes"
+          ],
+          [
+            "Languages",
+            "English, Hindi"
+          ],
+          [
+            "Activities",
+            "Science club in charge, district science fair coordinator, board exam invigilator"
+          ]
+        ]
+      }
+    ]
+  }
+}

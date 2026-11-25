@@ -1,0 +1,280 @@
+{
+  "slug": "appointment-letter-format",
+  "category": "letters",
+  "name": "Appointment Letter Format",
+  "h1": "Appointment Letter Format (Word and PDF)",
+  "metaTitle": "Appointment Letter Format: Free Word & PDF for Employers",
+  "metaDescription": "Free appointment letter format in Word and PDF with numbered terms for joining, salary, probation, hours, leave, notice period and a signed acceptance copy.",
+  "short": "Two-page employer appointment letter with numbered terms of employment and a signed acceptance copy.",
+  "accent": "#8B1E3F",
+  "useCases": [
+    "Hiring",
+    "HR"
+  ],
+  "industries": [
+    "Corporate",
+    "Small business",
+    "Startups",
+    "All industries"
+  ],
+  "date": "2026-11-25",
+  "intro": "An appointment letter is the letter an employer gives a new employee on or around the joining date, setting out the terms of the job. The offer letter comes first and makes the offer; the appointment letter confirms that the person has joined and lists the conditions in full. This two-page Word template has a letterhead, ten numbered terms and an acceptance section the employee signs and returns.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Put your company name, address and contact details in the letterhead, then the reference number and date.",
+    "Fill in the employee's name, address, employee ID, designation, department and date of joining.",
+    "Enter the monthly gross salary and annual CTC in the salary table. Attach your salary breakup sheet if you use one.",
+    "Go through each numbered term and change the probation, working hours, leave and notice period to match your company policy.",
+    "Delete any term that does not apply, and add any that your business needs, such as transfer or non-solicitation.",
+    "Print two copies and have the authorised signatory sign both. Give one to the employee and keep the signed acceptance copy in the personnel file."
+  ],
+  "guide": [
+    {
+      "h": "What is in the template",
+      "p": [
+        "Page 1 has a letterhead with a rule in the accent colour, a confidential line, reference number and date, the employee's address and a subject line. The opening paragraph confirms the appointment, followed by a small table of employee ID, designation, department, reporting manager, joining date and place of work.",
+        "The numbered terms cover the position, salary, probation and confirmation, working hours and leave, notice period and termination, confidentiality and company property, documents and verification, company policies, transfer, and the laws that apply. Page 2 ends with the signatory block and an acceptance section for the employee's signature, date and place."
+      ]
+    },
+    {
+      "h": "Appointment letter or offer letter",
+      "p": [
+        "An offer letter is sent after selection and asks the candidate to accept. The appointment letter comes after acceptance, usually on joining, and is the fuller record of the terms both sides agree to. Many small firms send only one letter; if you do, make sure it has all the terms in this template.",
+        "If you still need an offer letter, use our offer letter format first and this letter on the joining day."
+      ]
+    },
+    {
+      "h": "Check the rules that apply to you",
+      "p": [
+        "Employment rules in India depend on the state, the type of establishment, the number of employees and the labour laws and codes in force. Probation length, working hours, leave, notice period, PF, ESI and the rules on issuing appointment letters can all differ.",
+        "Use this template as a starting point; it is not legal advice. Check the current central and state rules on official government websites, and have a lawyer or HR advisor read your final letter."
+      ]
+    }
+  ],
+  "tips": [
+    "Match the salary, designation and joining date to the offer letter the employee accepted.",
+    "Use the same notice period for both sides unless your policy says otherwise, and write it in days.",
+    "Give a reference number to every letter so you can find it later in your records.",
+    "Ask the employee to sign every page of the acceptance copy, not only the last one."
+  ],
+  "faqs": [
+    {
+      "q": "When should an appointment letter be given?",
+      "a": "Most companies give it on the joining day or within the first few days, after the joining documents are checked. Check the labour rules that apply to your business, as some set a time limit."
+    },
+    {
+      "q": "Is an appointment letter the same as a joining letter?",
+      "a": "No. A joining letter is written by the employee to report that they have joined. The appointment letter is written by the employer and sets out the terms."
+    },
+    {
+      "q": "Does the template include a salary breakup?",
+      "a": "It has a small table for monthly gross salary and annual CTC. For a detailed component-wise breakup, attach your own sheet or use the annexure in our offer letter format."
+    },
+    {
+      "q": "Can I change the terms after the employee signs?",
+      "a": "Changes to agreed terms usually need the employee's written consent and a new letter or addendum. Take advice before changing salary, hours or notice terms."
+    },
+    {
+      "q": "Can I send it by email?",
+      "a": "Yes. Save it as PDF, sign it with a PDF signing tool, and ask the employee to return a signed copy of the acceptance page."
+    }
+  ],
+  "related": [
+    "offer-letter-format",
+    "offer-acceptance-letter",
+    "salary-slip-format"
+  ],
+  "tools": [
+    "word-to-pdf",
+    "sign-pdf",
+    "edit-pdf",
+    "merge-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 17
+    },
+    "font": "Georgia",
+    "headFont": "Arial",
+    "size": 10,
+    "titleSize": 18,
+    "blocks": [
+      {
+        "type": "header",
+        "split": [1.7, 1],
+        "after": 8,
+        "left": [
+          "# [COMPANY NAME PVT LTD]",
+          "~ [Registered office address, City, State, PIN code]",
+          "~ CIN: [U00000XX2020PTC000000]"
+        ],
+        "right": [
+          "[Phone]",
+          "[hr@company.com]",
+          "[www.company.com]"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "**PRIVATE AND CONFIDENTIAL**",
+        "size": 8.5,
+        "color": "#8B1E3F",
+        "after": 4
+      },
+      {
+        "type": "header",
+        "split": [1.5, 1],
+        "rule": false,
+        "after": 4,
+        "left": [
+          "**To**",
+          "**[Mr / Ms Employee Full Name]**",
+          "[Address line, City, PIN code]"
+        ],
+        "right": [
+          "**Ref. no.:** [HR/APT/2026/052]",
+          "**Date:** [DD Month YYYY]"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "**Subject: Letter of appointment as [Designation]**",
+        "after": 5
+      },
+      {
+        "type": "p",
+        "text": "Dear [Employee First Name],",
+        "after": 4
+      },
+      {
+        "type": "p",
+        "text": "With reference to your acceptance of our offer dated [DD Month YYYY], we are pleased to appoint you as **[Designation]** with **[Company Name Pvt Ltd]** on the following terms and conditions.",
+        "line": 1.15,
+        "after": 5
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "labelWidth": 0.42,
+        "rowHeight": 6,
+        "after": 4,
+        "items": [
+          ["Employee ID", "[EMP-0612]"],
+          ["Designation", "[Customer Support Executive]"],
+          ["Department", "[Customer Service]"],
+          ["Reports to", "[Manager Name, Designation]"],
+          ["Date of joining", "[DD Month YYYY]"],
+          ["Place of work", "[Office address, City]"]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "**1. Position and duties.** You will perform the duties of your role as explained to you and any other work reasonably assigned by your manager. Your job description is attached or will be shared on joining.",
+        "line": 1.12,
+        "after": 3
+      },
+      {
+        "type": "p",
+        "text": "**2. Salary.** Your salary is given below. It will be paid monthly by bank transfer, after deductions required by law such as PF, ESI, professional tax and income tax (TDS), as applicable.",
+        "line": 1.12,
+        "after": 2
+      },
+      {
+        "type": "table",
+        "columns": [
+          { "h": "Pay item", "w": 2 },
+          { "h": "Amount (Rs)", "w": 1, "align": "right" }
+        ],
+        "rows": [
+          ["Gross salary per month", "[amount]"],
+          ["Annual cost to company (CTC)", "[amount]"],
+          ["Variable pay or bonus, if any", "[amount or Not applicable]"]
+        ],
+        "grid": true,
+        "zebra": false,
+        "rowHeight": 5.8,
+        "after": 4
+      },
+      {
+        "type": "p",
+        "text": "**3. Probation and confirmation.** You will be on probation for [6] months from your date of joining. Based on your performance, the company may confirm you in writing or extend the probation by up to [3] months.",
+        "line": 1.12,
+        "after": 3
+      },
+      {
+        "type": "p",
+        "text": "**4. Working hours and leave.** Your working days are [Monday to Saturday], [9:30 am to 6:30 pm], with a weekly off on [Sunday]. You will be entitled to leave and holidays as per company policy and the rules that apply to your place of work.",
+        "line": 1.12,
+        "after": 3
+      },
+      {
+        "type": "p",
+        "text": "**5. Notice period and termination.** During probation, either side may end this employment with [15] days' written notice or salary in place of notice. After confirmation, the notice period is [30] days. The company may end employment without notice for proven misconduct, as per its policies and the law.",
+        "line": 1.12,
+        "after": 3
+      },
+      {
+        "type": "p",
+        "text": "**6. Confidentiality and company property.** You will keep the company's business information, customer data and trade secrets confidential during and after your employment. On leaving, you will return all company property such as your laptop, ID card and documents.",
+        "line": 1.12,
+        "after": 3
+      },
+      {
+        "type": "p",
+        "text": "**7. Documents and verification.** This appointment is subject to verification of the certificates, ID proof and past employment details you have given. If any of them is found to be false, the company may end your employment.",
+        "line": 1.12,
+        "after": 3
+      },
+      {
+        "type": "p",
+        "text": "**8. Company policies.** You will follow the company's code of conduct, attendance, leave, IT and anti-harassment policies, as updated from time to time and shared with you.",
+        "line": 1.12,
+        "after": 3
+      },
+      {
+        "type": "p",
+        "text": "**9. Transfer.** [The company may transfer you to another office, department or group company in India, with reasonable notice.] [Delete this term if it does not apply.]",
+        "line": 1.12,
+        "after": 3
+      },
+      {
+        "type": "p",
+        "text": "**10. Applicable law.** This appointment is governed by the laws of India and the labour laws and rules that apply to the company's place of business in [State].",
+        "line": 1.12,
+        "after": 6
+      },
+      {
+        "type": "p",
+        "text": "Please sign the acceptance below on the duplicate copy and return it to the HR department. We welcome you to [Company Name Pvt Ltd] and wish you a rewarding career with us.",
+        "line": 1.12,
+        "after": 6
+      },
+      {
+        "type": "p",
+        "text": "For **[Company Name Pvt Ltd]**",
+        "after": 0
+      },
+      {
+        "type": "signature",
+        "space": 26,
+        "items": [
+          "**[Authorised Signatory Name]**\n[HR Manager]",
+          "Company seal"
+        ],
+        "after": 8
+      },
+      {
+        "type": "box",
+        "title": "Acceptance by the employee",
+        "lines": [
+          "I have read and understood the terms of this appointment letter and accept them.",
+          " ",
+          "Name: [Employee Full Name]          Signature: ...................................",
+          "Date: ............................          Place: ..........................................."
+        ],
+        "after": 0
+      }
+    ]
+  }
+}

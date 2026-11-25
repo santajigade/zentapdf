@@ -1,0 +1,201 @@
+{
+  "slug": "character-certificate-format",
+  "category": "certificates",
+  "name": "Character Certificate Format",
+  "h1": "Character Certificate Format (Word and PDF)",
+  "metaTitle": "Character Certificate Format: Free Word & PDF for Schools",
+  "metaDescription": "Free character certificate format for schools and colleges in Word and PDF. Student details table, conduct statement, class teacher and principal signatures.",
+  "short": "School or college character certificate with a student details table, conduct line and two signatures.",
+  "accent": "#1F4E5F",
+  "useCases": [
+    "Study",
+    "Job change"
+  ],
+  "industries": [
+    "Schools",
+    "Students",
+    "Education"
+  ],
+  "date": "2026-11-25",
+  "intro": "A character certificate is a short statement from a school or college that a student's conduct was good while they studied there. Students need one for admission to a new school or college, and sometimes for jobs and other applications. This one-page Word template has space for the institution's name, a student details table, the conduct statement and signatures of the class teacher and principal.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Put the school or college name, address, affiliation number and contact details at the top, or print the certificate on your letterhead and delete that part.",
+    "Fill in the certificate number and date of issue.",
+    "Enter the student's details from the admission register: name, parent's name, admission number, class or course, session and date of birth.",
+    "Choose the right words in the brackets, such as he, she or they, and the conduct remark, such as good or very good.",
+    "Print it, then have the class teacher and the principal sign it and put the school seal on it."
+  ],
+  "guide": [
+    {
+      "h": "What is in the template",
+      "p": [
+        "The page has a thin border in a deep teal colour. At the top are the institution's name, address and affiliation line, with a rule under them, then the certificate number and date. The title Character Certificate sits in the middle, with To Whom It May Concern under it.",
+        "A paragraph states that the student studied at the institution, followed by a table of seven details: name, parent's name, admission or roll number, class or course, session, date of birth as per records and date of leaving. The conduct statement comes next, then signature lines for the class teacher and the principal with space for the seal."
+      ]
+    },
+    {
+      "h": "Who issues it and when",
+      "p": [
+        "For students, the head of the school or college, usually the principal, signs the certificate. It is often given with the transfer or leaving certificate, or later when a former student applies for one with a letter to the principal.",
+        "Some purposes need a different document, such as a police verification certificate for passports, some jobs or visas. Ask the office or employer which certificate they want before you apply."
+      ]
+    },
+    {
+      "h": "Keep the details correct",
+      "p": [
+        "Take the name, date of birth and dates of study from the admission register, not from memory, so they match the student's other school records. Write the conduct remark honestly, as the institution is vouching for the student.",
+        "Keep a copy or note the certificate number in a register, so you can confirm it later if a college or employer asks."
+      ]
+    }
+  ],
+  "tips": [
+    "Print on the school letterhead if you have one, and delete the name block at the top of the template.",
+    "Fill it in on the computer, so names and dates are easy to read.",
+    "Sign in blue ink and stamp the seal so it touches the signature.",
+    "Give the student the original and keep a copy in the school office file."
+  ],
+  "faqs": [
+    {
+      "q": "Who can sign a character certificate?",
+      "a": "For a school or college, the principal or head of the institution signs it, often with the class teacher. Some applications accept one from an employer or a gazetted officer, so read the instructions of the form you are applying with."
+    },
+    {
+      "q": "Is a character certificate the same as a transfer certificate?",
+      "a": "No. A transfer or leaving certificate records that the student has left and gives details like class and dates. The character certificate is about conduct. Many schools issue both together."
+    },
+    {
+      "q": "How long is a character certificate valid?",
+      "a": "There is no single rule. Some colleges and employers only accept a certificate issued recently, so check the admission or job notice."
+    },
+    {
+      "q": "Can an employer use this format?",
+      "a": "Yes, with small changes. Replace the student details with the employee's name, ID, designation and dates of service, and have HR or a manager sign it. For proof of work, our experience certificate format may suit you better."
+    },
+    {
+      "q": "Can I issue it in Hindi or another language?",
+      "a": "Yes. Open the Word file and type over the text in the language you need, keeping the same layout."
+    }
+  ],
+  "related": [
+    "experience-certificate-format",
+    "internship-certificate-template",
+    "noc-letter-format"
+  ],
+  "tools": [
+    "word-to-pdf",
+    "sign-pdf",
+    "compress-pdf",
+    "edit-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 22,
+      "border": { "double": false, "size": 8, "space": 18 }
+    },
+    "font": "Georgia",
+    "headFont": "Georgia",
+    "size": 11,
+    "titleSize": 20,
+    "blocks": [
+      {
+        "type": "title",
+        "text": "[NAME OF SCHOOL OR COLLEGE]",
+        "align": "center",
+        "size": 19,
+        "sub": "[Address line, City, State, PIN code]   |   [Phone]   |   [office@school.edu.in]",
+        "subSize": 9
+      },
+      {
+        "type": "p",
+        "text": "[Affiliated to CBSE, Affiliation No. 0000000]   |   School code: [00000]",
+        "align": "center",
+        "size": 9,
+        "muted": true,
+        "after": 2
+      },
+      {
+        "type": "rule",
+        "accent": true,
+        "weight": 12,
+        "after": 6
+      },
+      {
+        "type": "header",
+        "split": [1, 1],
+        "rule": false,
+        "after": 14,
+        "left": ["**Certificate no.:** [CC/2026/147]"],
+        "right": ["**Date of issue:** [DD Month YYYY]"]
+      },
+      {
+        "type": "title",
+        "text": "Character Certificate",
+        "align": "center",
+        "size": 24,
+        "caps": true,
+        "sub": "TO WHOM IT MAY CONCERN",
+        "subSize": 10
+      },
+      {
+        "type": "spacer",
+        "h": 4
+      },
+      {
+        "type": "p",
+        "text": "This is to certify that **[Student Full Name]**, [son / daughter / ward] of **[Parent or Guardian Name]**, was a bonafide student of this [school / college]. The details below are as per our admission register.",
+        "line": 1.35,
+        "after": 8
+      },
+      {
+        "type": "table",
+        "columns": [
+          { "h": "Student details", "w": 1 },
+          { "h": "As per school records", "w": 1.7 }
+        ],
+        "rows": [
+          ["Name of student", "[Student Full Name]"],
+          ["Father's / mother's name", "[Parent or Guardian Name]"],
+          ["Admission / roll number", "[2019/0342]"],
+          ["Class or course", "[Class XII, Science stream]"],
+          ["Session or years of study", "[April 2019 to March 2026]"],
+          ["Date of birth (as per records)", "[DD Month YYYY]"],
+          ["Date of leaving", "[DD Month YYYY]"]
+        ],
+        "grid": true,
+        "headFill": "#E6EEF0",
+        "headText": "#1F4E5F",
+        "rowHeight": 7,
+        "after": 10
+      },
+      {
+        "type": "p",
+        "text": "To the best of my knowledge, [his / her / their] conduct and character during this period were **[good / very good]**. [He / She / They] took part in school activities and [was / were] regular in studies. We know of nothing against [him / her / them].",
+        "line": 1.35,
+        "after": 6
+      },
+      {
+        "type": "p",
+        "text": "I wish [him / her / them] every success in the future.",
+        "line": 1.35,
+        "after": 6
+      },
+      {
+        "type": "p",
+        "text": "**Place:** [City]",
+        "after": 0
+      },
+      {
+        "type": "signature",
+        "space": 46,
+        "items": [
+          "**[Class Teacher Name]**\nClass Teacher",
+          "School seal",
+          "**[Principal Name]**\nPrincipal"
+        ],
+        "after": 0
+      }
+    ]
+  }
+}

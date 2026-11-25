@@ -502,8 +502,8 @@
    "slug": "teacher-resume-template",
    "category": "resume",
    "priority": 3,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-25",
    "note": "Resume for teachers with subjects, classes and results."
   },
   {
@@ -511,8 +511,8 @@
    "slug": "appointment-letter-format",
    "category": "letters",
    "priority": 3,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-25",
    "note": "Employer appointment letter with joining date, terms and acceptance. IN 8.1k/mo."
   },
   {
@@ -520,8 +520,8 @@
    "slug": "character-certificate-format",
    "category": "certificates",
    "priority": 3,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-25",
    "note": "School/college or employer character certificate. IN 6.6k/mo."
   },
   {
@@ -640,6 +640,141 @@
    "status": "queued",
    "date": "",
    "note": "Task list with owner, status, dates and progress. US 480/mo."
+  },
+  {
+   "keyword": "biodata format",
+   "slug": "biodata-format",
+   "category": "resume",
+   "priority": 3,
+   "status": "queued",
+   "date": "",
+   "note": "Marriage and job biodata, one page with photo box. IN 40.5k/mo."
+  },
+  {
+   "keyword": "joining letter format",
+   "slug": "joining-letter-format",
+   "category": "letters",
+   "priority": 3,
+   "status": "queued",
+   "date": "",
+   "note": "Employee joining report letter to HR on first day. IN 27.1k/mo."
+  },
+  {
+   "keyword": "wedding planning checklist",
+   "slug": "wedding-planning-checklist",
+   "category": "planners",
+   "priority": 3,
+   "status": "queued",
+   "date": "",
+   "note": "Month-by-month wedding to-do checklist with budget lines. US 18.1k/mo, IN 880/mo."
+  },
+  {
+   "keyword": "salary certificate format",
+   "slug": "salary-certificate-format",
+   "category": "certificates",
+   "priority": 3,
+   "status": "queued",
+   "date": "",
+   "note": "Employer salary certificate for loans and visas with pay breakup. IN 8.1k/mo."
+  },
+  {
+   "keyword": "complaint letter format",
+   "slug": "complaint-letter-format",
+   "category": "letters",
+   "priority": 4,
+   "status": "queued",
+   "date": "",
+   "note": "Formal complaint letter to a company or authority with details and request. IN 8.1k/mo."
+  },
+  {
+   "keyword": "gift certificate template",
+   "slug": "gift-certificate-template",
+   "category": "certificates",
+   "priority": 4,
+   "status": "queued",
+   "date": "",
+   "note": "Printable gift voucher with amount, code and expiry, several per page. US 9.9k/mo, IN 1.9k/mo."
+  },
+  {
+   "keyword": "stock register format",
+   "slug": "stock-register-excel",
+   "category": "excel",
+   "priority": 4,
+   "status": "queued",
+   "date": "",
+   "note": "Stock register in Excel with opening, inward, outward and closing balance formulas. IN 3.6k/mo."
+  },
+  {
+   "keyword": "job card format",
+   "slug": "job-card-format",
+   "category": "forms",
+   "priority": 4,
+   "status": "queued",
+   "date": "",
+   "note": "Workshop or service job card with work done, parts and labour. IN 3.6k/mo."
+  },
+  {
+   "keyword": "transport bill format",
+   "slug": "transport-bill-format",
+   "category": "invoice",
+   "priority": 4,
+   "status": "queued",
+   "date": "",
+   "note": "Transport or freight bill with LR no., vehicle, route and charges; GST rules vary. IN 2.4k/mo."
+  },
+  {
+   "keyword": "commercial invoice template",
+   "slug": "commercial-invoice-template",
+   "category": "invoice",
+   "priority": 4,
+   "status": "queued",
+   "date": "",
+   "note": "Export commercial invoice with HS code, incoterms and shipping details. US 2.4k/mo."
+  },
+  {
+   "keyword": "salary sheet format in excel",
+   "slug": "salary-sheet-excel",
+   "category": "excel",
+   "priority": 4,
+   "status": "queued",
+   "date": "",
+   "note": "Monthly salary sheet for staff with days worked, gross, deductions and net pay formulas. IN 1.9k/mo."
+  },
+  {
+   "keyword": "functional resume template",
+   "slug": "functional-resume-template",
+   "category": "resume",
+   "priority": 5,
+   "status": "queued",
+   "date": "",
+   "note": "Skills-based resume for career changers and gaps. US 1.9k/mo."
+  },
+  {
+   "keyword": "cleaning schedule template",
+   "slug": "cleaning-schedule-template",
+   "category": "planners",
+   "priority": 5,
+   "status": "queued",
+   "date": "",
+   "note": "Weekly home or office cleaning schedule by room and day. US 1.9k/mo."
+  },
+  {
+   "keyword": "transfer letter format",
+   "slug": "transfer-letter-format",
+   "category": "letters",
+   "priority": 5,
+   "status": "queued",
+   "date": "",
+   "note": "Employer letter transferring an employee to another branch or department. IN 1.3k/mo."
+  },
+  {
+   "keyword": "exit interview form",
+   "slug": "exit-interview-form",
+   "category": "forms",
+   "priority": 5,
+   "status": "queued",
+   "date": "",
+   "note": "Exit interview questionnaire for leaving employees with ratings. US 390/mo, IN 390/mo."
   }
  ]
 }

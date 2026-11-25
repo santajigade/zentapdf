@@ -1,4 +1,13 @@
 {
+ "appointment-letter-format": {
+  "files": {
+   "docx": 13000,
+   "pdf": 149914
+  },
+  "pages": 2,
+  "previews": 2,
+  "built": "2026-11-25"
+ },
  "attendance-sheet-excel": {
   "files": {
    "xlsx": 13775,
@@ -52,6 +61,15 @@
   "pages": 1,
   "previews": 1,
   "built": "2026-11-19"
+ },
+ "character-certificate-format": {
+  "files": {
+   "docx": 11581,
+   "pdf": 102486
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-25"
  },
  "chronological-resume-template": {
   "files": {
@@ -448,6 +466,15 @@
   "pages": 1,
   "previews": 1,
   "built": "2026-11-19"
+ },
+ "teacher-resume-template": {
+  "files": {
+   "docx": 12379,
+   "pdf": 108553
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-25"
  },
  "timesheet-template-excel": {
   "files": {
