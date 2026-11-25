@@ -68,4 +68,14 @@ Open:
 - [x] Compress GIF (compress-gif), added 2026-11-22, about 14,800/month, done 2026-11-24 (how-to-compress-gif)
 - [x] Crop an image (crop-image), added 2026-11-22, about 74,000/month, done 2026-11-24 (how-to-crop-image)
 - [x] CSV to PDF (csv-to-pdf), added 2026-11-22, about 8,100/month, done 2026-11-24 (how-to-convert-csv-to-pdf)
-- [ ] Find the BPM of a song (bpm-finder), added 2026-11-22, about 6,600/month
+- [x] Find the BPM of a song (bpm-finder), added 2026-11-22, about 6,600/month, done 2026-11-25 (how-to-find-bpm-of-a-song)
+- [x] Resize an image in pixels (resize-image), added 2026-11-25, about 1,220,000/month for "resize image", done 2026-11-25 (how-to-resize-image)
+- [x] Make a GIF from photos (gif-maker), added 2026-11-25, about 368,000/month for "gif maker", done 2026-11-25 (how-to-make-gif-from-photos)
+- [ ] Cut an MP3 song (mp3-cutter), added 2026-11-25, about 201,000/month for "mp3 cutter"
+- [ ] ZIP to PDF (zip-to-pdf), added 2026-11-25, about 27,100/month
+- [ ] RTF to PDF (rtf-to-pdf), added 2026-11-25, about 12,100/month
+- [ ] OGG to MP3 (ogg-to-mp3), added 2026-11-25, about 12,100/month
+- [ ] Rotate an image (rotate-image), added 2026-11-25, about 9,900/month
+- [ ] ODT to PDF (odt-to-pdf), added 2026-11-25, about 9,900/month
+- [ ] Image to Base64 (image-to-base64), added 2026-11-25, about 6,600/month
+- [ ] BMP to JPG (bmp-to-jpg), added 2026-11-25, about 4,400/month
