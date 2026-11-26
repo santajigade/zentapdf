@@ -529,8 +529,8 @@
    "slug": "cash-memo-format",
    "category": "invoice",
    "priority": 3,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-26",
    "note": "Simple shop cash memo/bill with items and total. IN 4.4k/mo."
   },
   {
@@ -538,8 +538,8 @@
    "slug": "bonafide-certificate-format",
    "category": "certificates",
    "priority": 3,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-26",
    "note": "Student bonafide certificate from school or college. IN 4.4k/mo."
   },
   {
@@ -547,8 +547,8 @@
    "slug": "gate-pass-format",
    "category": "forms",
    "priority": 3,
-   "status": "queued",
-   "date": "",
+   "status": "published",
+   "date": "2026-11-26",
    "note": "Material/visitor gate pass, returnable and non-returnable. IN 3.6k/mo."
   },
   {

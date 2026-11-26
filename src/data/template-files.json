@@ -26,6 +26,15 @@
   "previews": 1,
   "built": "2026-11-21"
  },
+ "bonafide-certificate-format": {
+  "files": {
+   "docx": 11859,
+   "pdf": 44795
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-26"
+ },
  "business-letter-format": {
   "files": {
    "docx": 11192,
@@ -34,6 +43,15 @@
   "pages": 1,
   "previews": 1,
   "built": "2026-11-20"
+ },
+ "cash-memo-format": {
+  "files": {
+   "xlsx": 9461,
+   "pdf": 21114
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-26"
  },
  "certificate-of-appreciation-template": {
   "files": {
@@ -188,6 +206,15 @@
   "pages": 1,
   "previews": 1,
   "built": "2026-11-17"
+ },
+ "gate-pass-format": {
+  "files": {
+   "docx": 12508,
+   "pdf": 70426
+  },
+  "pages": 1,
+  "previews": 1,
+  "built": "2026-11-26"
  },
  "gst-invoice-format": {
   "files": {

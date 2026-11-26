@@ -1,0 +1,485 @@
+{
+  "slug": "cash-memo-format",
+  "category": "invoice",
+  "name": "Cash Memo Format",
+  "h1": "Cash Memo Format (Excel and PDF)",
+  "metaTitle": "Cash Memo Format: Free Excel & PDF Shop Bill Template",
+  "metaDescription": "Free cash memo format in Excel and PDF for shops. 15 item lines, automatic amounts, discount, total, amount received, balance and a signature space.",
+  "short": "One-page shop cash memo in Excel with 15 item lines, automatic amounts, discount, total and balance.",
+  "accent": "#3F6212",
+  "useCases": [
+    "Billing",
+    "Sales"
+  ],
+  "industries": [
+    "Retail",
+    "Small business",
+    "Services"
+  ],
+  "date": "2026-11-26",
+  "intro": "A cash memo is the short bill a shop gives a customer who pays on the spot. This Excel template is a one-page cash memo with your shop details at the top, 15 item lines and a totals block that works out the amounts, discount, total and balance. Fill it in on screen, then print it or save it as a PDF to send by WhatsApp or email.",
+  "howTo": [
+    "Download the Excel file and open it in Microsoft Excel, Google Sheets or LibreOffice Calc.",
+    "Replace the shop name, address and phone at the top with your own, and save the file as your master copy.",
+    "For each sale, enter the memo number, the date and the customer's name. Phone and address are optional.",
+    "Type each item under Particulars with its quantity and rate, and pick the unit from the drop-down. The Amount column multiplies quantity by rate.",
+    "Enter any discount in rupees, then the amount the customer paid. The total and balance due change as you type.",
+    "Write the amount in words and choose how the customer paid. Then print the memo or save it as a PDF, and sign it."
+  ],
+  "guide": [
+    {
+      "h": "What is in the template",
+      "p": [
+        "The sheet prints on one A4 page. Under the shop name is a green CASH MEMO band, then boxes for the memo number, date, customer name, phone and address. The item table has serial number, particulars, quantity, unit, rate and amount, with room for 15 items. The serial number fills in when you type an item name.",
+        "The totals on the right are sub total, less discount, total, amount received and balance due. On the left are a box for the amount in words and a Paid by drop-down with Cash, UPI, Card, Cash and UPI, and Credit. At the bottom are a line for your terms, a signature space and a thank-you line."
+      ]
+    },
+    {
+      "h": "Which cells to fill and which to leave",
+      "p": [
+        "Type in the white cells. The tinted cells hold formulas for the serial number, amount, sub total, total and balance, so leave them alone or the sums stop working. A line only gets an amount once it has both a quantity and a rate.",
+        "If the balance due turns red and negative, the customer paid more than the total and you owe change."
+      ]
+    },
+    {
+      "h": "Cash memo, invoice or GST bill",
+      "p": [
+        "Shops use a cash memo for small sales paid at the counter, and a shop that is not registered under GST can keep it as its sales record. This template has no GST fields. If your business is registered under GST, the law sets what your bill must show, and you may need a tax invoice or a bill of supply. The rules can change, so check the GST portal or ask your tax adviser."
+      ]
+    }
+  ],
+  "tips": [
+    "Number your memos in order, such as CM-0418, CM-0419, so you can find any sale later.",
+    "Before you clear the sheet for the next customer, save the memo as a PDF named with its memo number, and keep it for your accounts.",
+    "Put your exchange or return rules in the terms line so customers see them before they leave."
+  ],
+  "faqs": [
+    {
+      "q": "What is a cash memo?",
+      "a": "A simple bill for a customer who pays at the time of buying. It lists what was sold, the rates and the total, and shows that the money was paid."
+    },
+    {
+      "q": "Is a cash memo the same as an invoice?",
+      "a": "Not quite. An invoice is often sent before payment and asks the buyer to pay by a due date. A cash memo is given when the money is already paid. If you sell on credit, our simple invoice template may suit you better."
+    },
+    {
+      "q": "Can a GST-registered shop use this cash memo?",
+      "a": "It has no GST fields. A registered business has to follow the GST rules for tax invoices or bills of supply, so check the GST portal or your tax adviser, or use our GST invoice format."
+    },
+    {
+      "q": "Does the total work out by itself?",
+      "a": "Yes. Amount, sub total, total and balance due are formulas. You type the quantity, rate, discount and amount received."
+    },
+    {
+      "q": "Does it write the amount in words for me?",
+      "a": "No. The amount in words box is plain text, so type it yourself, for example Rupees One Thousand Five Hundred only."
+    }
+  ],
+  "related": [
+    "simple-invoice-template",
+    "payment-receipt-template",
+    "gst-invoice-format",
+    "quotation-format"
+  ],
+  "tools": [
+    "excel-to-pdf",
+    "sign-pdf",
+    "compress-pdf",
+    "merge-pdf"
+  ],
+  "sheet": {
+    "font": "Cambria",
+    "sheets": [
+      {
+        "name": "Cash Memo",
+        "cols": [
+          7,
+          34,
+          8,
+          8,
+          12,
+          15
+        ],
+        "page": {
+          "orientation": "portrait",
+          "area": "A1:F38",
+          "fitHeight": 1
+        },
+        "cells": [
+          {
+            "height": [
+              1,
+              30
+            ]
+          },
+          {
+            "c": "A1",
+            "v": "[Your Shop Name]",
+            "s": "title",
+            "m": "A1:F1",
+            "align": "center"
+          },
+          {
+            "c": "A2",
+            "v": "[Shop no., Market or street, City, PIN code]",
+            "s": "plain",
+            "m": "A2:F2",
+            "align": "center"
+          },
+          {
+            "c": "A3",
+            "v": "Phone: [98xxxxxx10]   |   [Email or website]",
+            "s": "sub",
+            "m": "A3:F3",
+            "align": "center"
+          },
+          {
+            "height": [
+              4,
+              26
+            ]
+          },
+          {
+            "c": "A4",
+            "v": "CASH MEMO",
+            "s": "big",
+            "m": "A4:F4"
+          },
+          {
+            "height": [
+              6,
+              22
+            ]
+          },
+          {
+            "c": "A6",
+            "v": "No.",
+            "s": "label"
+          },
+          {
+            "c": "B6",
+            "v": "CM-0418",
+            "s": "input",
+            "m": "B6:D6"
+          },
+          {
+            "c": "E6",
+            "v": "Date",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "F6",
+            "v": "2026-11-26",
+            "s": "input",
+            "fmt": "date",
+            "align": "center"
+          },
+          {
+            "height": [
+              7,
+              22
+            ]
+          },
+          {
+            "c": "A7",
+            "v": "Name",
+            "s": "label"
+          },
+          {
+            "c": "B7",
+            "v": "Mrs Kavita Joshi",
+            "s": "input",
+            "m": "B7:D7"
+          },
+          {
+            "c": "E7",
+            "v": "Phone",
+            "s": "label",
+            "align": "right"
+          },
+          {
+            "c": "F7",
+            "v": "[Customer phone]",
+            "s": "input",
+            "align": "center"
+          },
+          {
+            "height": [
+              8,
+              22
+            ]
+          },
+          {
+            "c": "A8",
+            "v": "Addr.",
+            "s": "label"
+          },
+          {
+            "c": "B8",
+            "v": "[Customer address, optional]",
+            "s": "input",
+            "m": "B8:F8"
+          },
+          {
+            "height": [
+              10,
+              24
+            ]
+          },
+          {
+            "row": 10,
+            "from": "A",
+            "v": [
+              "Sr.",
+              "Particulars",
+              "Qty",
+              "Unit",
+              "Rate",
+              "Amount"
+            ],
+            "s": "header"
+          },
+          {
+            "rows": [
+              11,
+              25
+            ],
+            "cols": {
+              "A": {
+                "v": "=IF(B{r}=\"\",\"\",ROW()-10)",
+                "s": "calc",
+                "align": "center"
+              },
+              "B": {
+                "s": "input"
+              },
+              "C": {
+                "s": "input",
+                "fmt": "0.##",
+                "align": "center"
+              },
+              "D": {
+                "s": "input",
+                "align": "center"
+              },
+              "E": {
+                "s": "input",
+                "fmt": "money"
+              },
+              "F": {
+                "v": "=IF(OR(C{r}=\"\",E{r}=\"\"),\"\",ROUND(C{r}*E{r},2))",
+                "s": "calc",
+                "fmt": "money"
+              }
+            }
+          },
+          {
+            "data": [
+              [
+                "Basmati rice, 5 kg bag",
+                1,
+                "Bag",
+                480
+              ],
+              [
+                "Toor dal",
+                2,
+                "Kg",
+                160
+              ],
+              [
+                "Sunflower oil, 1 litre pouch",
+                2,
+                "Pcs",
+                150
+              ],
+              [
+                "Sugar",
+                3,
+                "Kg",
+                45
+              ],
+              [
+                "Tea leaves, 250 g pack",
+                1,
+                "Pkt",
+                140
+              ],
+              [
+                "Bath soap",
+                4,
+                "Pcs",
+                38
+              ]
+            ],
+            "at": "B11"
+          },
+          {
+            "list": "D11:D25",
+            "items": [
+              "Pcs",
+              "Kg",
+              "g",
+              "Litre",
+              "Pkt",
+              "Bag",
+              "Box",
+              "Dozen",
+              "Metre",
+              "Set",
+              "Hour"
+            ]
+          },
+          {
+            "c": "A27",
+            "v": "Amount in words",
+            "s": "band",
+            "m": "A27:C27"
+          },
+          {
+            "c": "A28",
+            "v": "[Rupees One Thousand Five Hundred only]",
+            "s": "input",
+            "m": "A28:C29",
+            "wrap": true
+          },
+          {
+            "c": "A30",
+            "v": "Paid by",
+            "s": "label"
+          },
+          {
+            "c": "B30",
+            "v": "Cash",
+            "s": "input"
+          },
+          {
+            "list": "B30",
+            "items": [
+              "Cash",
+              "UPI",
+              "Card",
+              "Cash and UPI",
+              "Credit (pay later)"
+            ]
+          },
+          {
+            "c": "D27",
+            "v": "Sub total",
+            "s": "label",
+            "m": "D27:E27",
+            "align": "right"
+          },
+          {
+            "c": "F27",
+            "v": "=SUM(F11:F25)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "c": "D28",
+            "v": "Less discount",
+            "s": "label",
+            "m": "D28:E28",
+            "align": "right"
+          },
+          {
+            "c": "F28",
+            "v": 27,
+            "s": "input",
+            "fmt": "money"
+          },
+          {
+            "c": "D29",
+            "v": "TOTAL",
+            "s": "total",
+            "m": "D29:E29",
+            "align": "right"
+          },
+          {
+            "c": "F29",
+            "v": "=F27-N(F28)",
+            "s": "total",
+            "fmt": "money"
+          },
+          {
+            "c": "D30",
+            "v": "Amount received",
+            "s": "label",
+            "m": "D30:E30",
+            "align": "right"
+          },
+          {
+            "c": "F30",
+            "v": 1500,
+            "s": "input",
+            "fmt": "money"
+          },
+          {
+            "c": "D31",
+            "v": "Balance due",
+            "s": "label",
+            "m": "D31:E31",
+            "align": "right"
+          },
+          {
+            "c": "F31",
+            "v": "=F29-N(F30)",
+            "s": "calc",
+            "fmt": "money"
+          },
+          {
+            "cf": "F31",
+            "rule": "neg"
+          },
+          {
+            "c": "A33",
+            "v": "[Terms, for example: Exchange within 7 days with this memo. No return on loose items.]",
+            "s": "note",
+            "m": "A33:C35"
+          },
+          {
+            "c": "D33",
+            "v": "For [Your Shop Name]",
+            "s": "label",
+            "m": "D33:F33",
+            "align": "right"
+          },
+          {
+            "height": [
+              34,
+              24
+            ]
+          },
+          {
+            "c": "D36",
+            "v": "Signature",
+            "s": "sub",
+            "m": "D36:F36",
+            "align": "right"
+          },
+          {
+            "height": [
+              37,
+              6
+            ]
+          },
+          {
+            "height": [
+              38,
+              40
+            ]
+          },
+          {
+            "c": "A38",
+            "v": "Thank you, visit again.   A cash memo is a simple bill. If your shop is registered under GST, the law sets what your tax invoice or bill of supply must show, so check the GST portal or ask your tax adviser.",
+            "s": "note",
+            "m": "A38:F38",
+            "align": "center"
+          }
+        ]
+      }
+    ]
+  }
+}

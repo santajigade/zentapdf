@@ -1,0 +1,323 @@
+{
+  "slug": "gate-pass-format",
+  "category": "forms",
+  "name": "Gate Pass Format",
+  "h1": "Gate Pass Format (Word and PDF)",
+  "metaTitle": "Gate Pass Format: Free Material & Visitor Pass Word, PDF",
+  "metaDescription": "Free gate pass format in Word and PDF. Material gate pass with returnable and non-returnable options, item table, security check and a visitor pass.",
+  "short": "Material gate pass (returnable or non-returnable) with item table, plus a cut-off visitor pass on one page.",
+  "accent": "#C2410C",
+  "useCases": [
+    "Tracking",
+    "Purchase"
+  ],
+  "industries": [
+    "Manufacturing",
+    "Corporate",
+    "Small business",
+    "Schools"
+  ],
+  "date": "2026-11-26",
+  "intro": "A gate pass is the slip security checks before material or a visitor goes through the gate. This Word template puts two passes on one A4 page: a material gate pass at the top, which you mark as returnable or non-returnable, and a visitor gate pass below a cut line.",
+  "howTo": [
+    "Download the Word file and open it in Microsoft Word, Google Docs or LibreOffice Writer.",
+    "Replace [Company Name] and the address in both passes, then save it as your blank master.",
+    "For material going out, fill in the pass number, date, department, where it is going, the vehicle and the person carrying it.",
+    "Tick returnable or non-returnable and the purpose. List each item with its quantity and unit, and for returnable items the expected return date.",
+    "Get the pass signed by the person asking for it, the department head or store who approves it, and security at the gate as the material goes out.",
+    "When returnable material comes back, the store fills in the quantity returned and the date, and signs the Received back space.",
+    "For a visitor, fill in the bottom pass at the gate or reception, cut it off along the line and hand it over. Collect it when they leave."
+  ],
+  "guide": [
+    {
+      "h": "What is in the template",
+      "p": [
+        "The material pass has an orange header band with your company name and a details grid for pass number, date, time out, department, sent to, vehicle number, carried by, contact and challan or reference number. Tick boxes cover the pass type and the purpose: repair, job work, sample or trial, scrap sale or other. Then come an item table with six rows, a remarks line and four signatures.",
+        "Below the cut line, the visitor pass has a pass number and date, then fields for visitor name, mobile, company, ID shown, person to meet, purpose, time in, time out, items carried and vehicle number, and signatures for the visitor, the person met and security."
+      ]
+    },
+    {
+      "h": "Returnable or non-returnable",
+      "p": [
+        "A returnable gate pass (RGP) is for things that must come back, such as a motor sent for repair, tools lent to a contractor or goods sent for job work. Fill in the expected return date for each item and follow up if it passes.",
+        "A non-returnable gate pass (NRGP) is for things that leave for good, such as scrap, samples or sold goods. Leave the return columns empty."
+      ]
+    },
+    {
+      "h": "Gate pass and GST documents",
+      "p": [
+        "A gate pass is an internal check between your departments and security. Goods moving by road may also need a delivery challan, an invoice or an e-way bill under GST, depending on the reason and the value. The rules vary, so check the GST portal or ask your tax adviser. Our delivery challan format can travel with this pass."
+      ]
+    }
+  ],
+  "tips": [
+    "Number the passes in order so security can spot a missing one, and give security a list of the people who can approve passes.",
+    "Keep the signed material passes in a file at the gate and check open returnable passes every week.",
+    "In the ID shown field, write only the ID type and the last four digits, not the full number."
+  ],
+  "faqs": [
+    {
+      "q": "What is the difference between RGP and NRGP?",
+      "a": "RGP is a returnable gate pass, for material that will come back, like a machine part sent for repair. NRGP is a non-returnable gate pass, for material that goes out for good, like scrap or sold goods."
+    },
+    {
+      "q": "Who signs a gate pass?",
+      "a": "In this template, the person asking for it, the department head or store who approves it, and security at the gate. The store signs again when returnable material comes back. You can change these labels to fit your company."
+    },
+    {
+      "q": "Can a school or office use it?",
+      "a": "Yes. Change the labels in Word to suit, for example for a student leaving early or for equipment going out for repair."
+    },
+    {
+      "q": "Does a gate pass replace an e-way bill?",
+      "a": "No. A gate pass is your own internal record. Whether goods also need an e-way bill or other GST papers depends on the goods, value and reason, so check the GST portal."
+    },
+    {
+      "q": "Can I change the item table?",
+      "a": "Yes. It is a Word table, so you can add rows or rename the columns."
+    }
+  ],
+  "related": [
+    "visitor-register-template",
+    "delivery-challan-format",
+    "purchase-order-template"
+  ],
+  "tools": [
+    "word-to-pdf",
+    "sign-pdf",
+    "merge-pdf",
+    "compress-pdf"
+  ],
+  "doc": {
+    "page": {
+      "size": "A4",
+      "margin": 11
+    },
+    "font": "Calibri",
+    "headFont": "Century Gothic",
+    "size": 9.5,
+    "titleSize": 18,
+    "blocks": [
+      {
+        "type": "title",
+        "text": "MATERIAL GATE PASS",
+        "band": true,
+        "size": 17,
+        "sub": "[Company Name]   |   [Plant or office address, City, PIN]   |   [Phone]"
+      },
+      {
+        "type": "fields",
+        "cols": 3,
+        "labelWidth": 0.42,
+        "rowHeight": 7,
+        "after": 3,
+        "items": [
+          [
+            "Pass no.",
+            "GP-2026-0387"
+          ],
+          [
+            "Date",
+            "26 Nov 2026"
+          ],
+          [
+            "Time out",
+            "[11:40 am]"
+          ],
+          [
+            "Department",
+            "Maintenance"
+          ],
+          [
+            "Sent to",
+            "Sai Motor Rewinding"
+          ],
+          [
+            "Vehicle no.",
+            "MH 12 KL 4417"
+          ],
+          [
+            "Carried by",
+            "Ramesh Shinde"
+          ],
+          [
+            "Contact",
+            "[phone]"
+          ],
+          [
+            "Ref. / DC no.",
+            "[challan no.]"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "**Type of pass:**   ☐ Returnable (RGP)     ☐ Non-returnable (NRGP)",
+        "size": 9,
+        "after": 2
+      },
+      {
+        "type": "p",
+        "text": "**Purpose:**   ☐ Repair     ☐ Job work     ☐ Sample or trial     ☐ Scrap sale     ☐ Other: [ ]",
+        "size": 9,
+        "after": 5
+      },
+      {
+        "type": "table",
+        "grid": true,
+        "zebra": false,
+        "rowHeight": 7.5,
+        "after": 5,
+        "columns": [
+          {
+            "h": "#",
+            "w": 0.35,
+            "align": "center"
+          },
+          {
+            "h": "Description of material",
+            "w": 2.9
+          },
+          {
+            "h": "Qty",
+            "w": 0.55,
+            "align": "center"
+          },
+          {
+            "h": "Unit",
+            "w": 0.55,
+            "align": "center"
+          },
+          {
+            "h": "Expected return",
+            "w": 1.05,
+            "align": "center"
+          },
+          {
+            "h": "Qty returned / date",
+            "w": 1.2,
+            "align": "center"
+          }
+        ],
+        "rows": [
+          [
+            "1",
+            "Induction motor 7.5 HP, sr. no. [ ], for rewinding",
+            "1",
+            "Nos",
+            "05 Dec 2026",
+            ""
+          ],
+          [
+            "2",
+            "Motor terminal box cover",
+            "1",
+            "Nos",
+            "05 Dec 2026",
+            ""
+          ]
+        ],
+        "blank": 4
+      },
+      {
+        "type": "p",
+        "text": "**Remarks:** [Condition of goods, seal no., or any other detail]",
+        "after": 2
+      },
+      {
+        "type": "signature",
+        "space": 20,
+        "items": [
+          "Requested by (name, sign)",
+          "Approved by (HOD / store)",
+          "Security check out (sign, time)",
+          "Received back (store, date)"
+        ],
+        "after": 4
+      },
+      {
+        "type": "p",
+        "text": "- - - - - - - - - - - - - - - - - - - - - - - - - -   cut here   - - - - - - - - - - - - - - - - - - - - - - - - - -",
+        "align": "center",
+        "muted": true,
+        "size": 8,
+        "after": 6
+      },
+      {
+        "type": "header",
+        "split": [
+          1.4,
+          1
+        ],
+        "after": 4,
+        "left": [
+          "# VISITOR GATE PASS",
+          "~ [Company Name]   |   Please wear this pass while on the premises"
+        ],
+        "right": [
+          "**Pass no.:** V-[0512]",
+          "**Date:** [DD Month YYYY]"
+        ]
+      },
+      {
+        "type": "fields",
+        "cols": 2,
+        "labelWidth": 0.36,
+        "rowHeight": 8.5,
+        "after": 3,
+        "items": [
+          [
+            "Visitor name",
+            "[Full name]"
+          ],
+          [
+            "Mobile no.",
+            "[phone]"
+          ],
+          [
+            "Company / from",
+            "[Organisation or address]"
+          ],
+          [
+            "ID shown",
+            "[ID type and last 4 digits]"
+          ],
+          [
+            "Person to meet",
+            "[Name, department]"
+          ],
+          [
+            "Purpose",
+            "[Meeting / delivery / interview]"
+          ],
+          [
+            "Time in",
+            "[ ]"
+          ],
+          [
+            "Time out",
+            "[ ]"
+          ],
+          [
+            "Items carried",
+            "[Laptop, bag, tools]"
+          ],
+          [
+            "Vehicle no.",
+            "[if any]"
+          ]
+        ]
+      },
+      {
+        "type": "signature",
+        "space": 20,
+        "items": [
+          "Visitor's signature",
+          "Signature of person met",
+          "Security (issued and collected)"
+        ],
+        "after": 0
+      }
+    ]
+  }
+}
