@@ -71,9 +71,9 @@ Open:
 - [x] Find the BPM of a song (bpm-finder), added 2026-11-22, about 6,600/month, done 2026-11-25 (how-to-find-bpm-of-a-song)
 - [x] Resize an image in pixels (resize-image), added 2026-11-25, about 1,220,000/month for "resize image", done 2026-11-25 (how-to-resize-image)
 - [x] Make a GIF from photos (gif-maker), added 2026-11-25, about 368,000/month for "gif maker", done 2026-11-25 (how-to-make-gif-from-photos)
-- [ ] Cut an MP3 song (mp3-cutter), added 2026-11-25, about 201,000/month for "mp3 cutter"
-- [ ] ZIP to PDF (zip-to-pdf), added 2026-11-25, about 27,100/month
-- [ ] RTF to PDF (rtf-to-pdf), added 2026-11-25, about 12,100/month
+- [x] Cut an MP3 song (mp3-cutter), added 2026-11-25, about 201,000/month for "mp3 cutter", done 2026-11-26 (how-to-cut-mp3-song)
+- [x] ZIP to PDF (zip-to-pdf), added 2026-11-25, about 27,100/month, done 2026-11-26 (how-to-convert-zip-to-pdf)
+- [x] RTF to PDF (rtf-to-pdf), added 2026-11-25, about 12,100/month, done 2026-11-26 (how-to-convert-rtf-to-pdf)
 - [ ] OGG to MP3 (ogg-to-mp3), added 2026-11-25, about 12,100/month
 - [ ] Rotate an image (rotate-image), added 2026-11-25, about 9,900/month
 - [ ] ODT to PDF (odt-to-pdf), added 2026-11-25, about 9,900/month

@@ -132,4 +132,9 @@ if shutil.which('ffmpeg'):
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'lavfi', '-i', f"aevalsrc='0.4*sin(2*PI*({f}+60*floor(mod(t,3)))*t)':s=44100:d=40", '-ac', '2', '-c:a', 'pcm_s16le', f'{D}/{n}'], check=True)
     for n in ('PTT-20261121-WA0004.opus', 'PTT-20261122-WA0011.opus'):
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'lavfi', '-i', "aevalsrc='0.4*sin(2*PI*(180+40*floor(mod(t,2)))*t)':s=48000:d=25", '-ac', '1', '-c:a', 'libopus', '-b:a', '24k', '-f', 'ogg', f'{D}/{n}'], check=True)
+# ZIP with scans and a PDF (zip-to-pdf guide) and an RTF letter (rtf-to-pdf guide)
+import zipfile
+with zipfile.ZipFile(f'{D}/documents.zip', 'w') as z:
+    z.write(f'{D}/photo1.jpg', 'scan-page1.jpg'); z.write(f'{D}/photo2.jpg', 'scan-page2.jpg'); z.write(f'{D}/letter.pdf', 'scan-page10.pdf'); z.writestr('readme.docx', 'not used')
+open(f'{D}/leave-application.rtf', 'w', encoding='ascii').write(r"{\rtf1\ansi\deff0{\fonttbl{\f0 Arial;}}\f0\fs24 {\b Leave Application}\par\par To,\par The Principal,\par Sunrise Public School, Pune\par\par {\b Subject:} Leave for two days\par\par Respected Sir/Madam,\par I request leave on 12 and 13 December because I have to attend a family function. I will complete the missed work after I return.\par\par {\i Thanking you,}\par Asha Patil, Class 7 B\par}")
 print('samples in', D, sorted(os.listdir(D)))
