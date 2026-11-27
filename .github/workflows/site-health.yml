@@ -12,4 +12,5 @@ jobs:
             grep -i "x-robots-tag\|^location" /tmp/h || true
             grep -o '<meta name="robots"[^>]*>' /tmp/b | head -1 || true
           done
-          curl -s https://zentapdf.com/robots.txt
+          echo "== 403 page body"; curl -s -A "Googlebot/2.1 (+http://www.google.com/bot.html)" -D - https://zentapdf.com/ | head -40
+          echo "== normal browser"; curl -s -o /dev/null -w "%{http_code}\n" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/131.0 Safari/537.36" https://zentapdf.com/
