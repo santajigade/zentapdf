@@ -1,0 +1,15 @@
+# Manual: fetch key pages as Googlebot from outside (status, robots headers, meta robots, canonical).
+name: Site health (Googlebot)
+on:
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          for u in / /merge-pdf/ /compress-pdf/ /guides/ /templates/ /robots.txt /sitemap-index.xml; do
+            curl -s -A "Googlebot/2.1 (+http://www.google.com/bot.html)" -D /tmp/h -o /tmp/b -w "%{http_code} %{time_total}s %{size_download}B $u\n" "https://zentapdf.com$u"
+            grep -i "x-robots-tag\|^location" /tmp/h || true
+            grep -o '<meta name="robots"[^>]*>' /tmp/b | head -1 || true
+          done
+          curl -s https://zentapdf.com/robots.txt
