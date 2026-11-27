@@ -77,7 +77,7 @@ export default function CompressImage() {
         let type = targetType(it.file, fmt);
         try {
           let r = await runner.run(it.file, type, quality / 100, maxWidth);
-          // Safari can't encode WebP and silently returns PNG — fall back to JPG.
+          // Safari can't encode WebP and silently returns PNG, fall back to JPG.
           if (r.blob.type !== type) { type = 'image/jpeg'; r = await runner.run(it.file, type, quality / 100, maxWidth); }
           const sameFormat = type === it.file.type;
           const resized = r.w < r.ow;
@@ -103,7 +103,7 @@ export default function CompressImage() {
 
   if (!items.length)
     return <>
-      <DropZone accept="image/*,.heic,.heif" multiple label="Choose images" hint="JPG, PNG or WebP — or drop them here" onFiles={add} />
+      <DropZone accept="image/*,.heic,.heif" multiple label="Choose images" hint="JPG, PNG or WebP, or drop them here" onFiles={add} />
       {error && <ErrorBox>{error}</ErrorBox>}
     </>;
 

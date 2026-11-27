@@ -105,10 +105,10 @@ export default function FormFiller() {
     <div>
       <ul class="files"><li><span class="fname" title={file.name}>{file.name}</span><span class="meta">{formatBytes(file.size)}{widgets.length > 0 && ` · ${Object.keys(values).length} fields`}</span>
         <button type="button" class="mini" aria-label="Remove file" disabled={!!busy} onClick={() => { setFile(null); setOut(null); }}>✕</button></li></ul>
-      {noFields && <div class="note-box note-sky">This PDF has no fillable form fields. To type on it anyway, use <a href="/edit-pdf/">Edit PDF</a> — click "Add text" and type anywhere on the page.</div>}
+      {noFields && <div class="note-box note-sky">This PDF has no fillable form fields. To type on it anyway, use <a href="/edit-pdf/">Edit PDF</a>, click "Add text" and type anywhere on the page.</div>}
       {widgets.length > 0 && <div class="opts" data-title="Form">
         <span class="status">{filled} of {Object.keys(values).length} fields filled · type directly in the blue boxes on the pages below</span>
-        <label class="check"><input type="checkbox" checked={flatten} onChange={(e) => { setFlatten((e.target as HTMLInputElement).checked); setOut(null); }} /> Lock the answers (flatten — can't be changed later)</label>
+        <label class="check"><input type="checkbox" checked={flatten} onChange={(e) => { setFlatten((e.target as HTMLInputElement).checked); setOut(null); }} /> Lock the answers (flatten, can't be changed later)</label>
       </div>}
       {error && <ErrorBox>{error}</ErrorBox>}
       {busy && <ProgressBar {...busy} />}

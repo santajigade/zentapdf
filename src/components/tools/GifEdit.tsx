@@ -140,7 +140,7 @@ export default function GifEdit({ mode }: { mode: GifMode }) {
             {mode === 'mp4' && <label>Repeat the animation<select value={loops} onChange={(e) => setLoops(+(e.target as HTMLSelectElement).value)}>{[1, 2, 3, 5, 10].map((n) => <option value={n}>{n === 1 ? 'Once' : `${n} times`}</option>)}</select></label>}
           </div>
           {mode === 'speed' && <p class="status">New length: {(dur / speed).toFixed(1)} seconds (was {dur.toFixed(1)} s).</p>}
-          {mode === 'compress' && <p class="status">{level === 1 ? 'Fewer colours, all frames kept.' : level === 2 ? 'Fewer colours and every second frame removed — same total length.' : 'Fewer colours, fewer frames and 30% smaller size.'}</p>}
+          {mode === 'compress' && <p class="status">{level === 1 ? 'Fewer colours, all frames kept.' : level === 2 ? 'Fewer colours and every second frame removed, same total length.' : 'Fewer colours, fewer frames and 30% smaller size.'}</p>}
         </>
       )}
       {error && <ErrorBox>{error}</ErrorBox>}
@@ -149,7 +149,7 @@ export default function GifEdit({ mode }: { mode: GifMode }) {
         <div class="done">
           <p class="big" style={{ color: 'var(--text)' }}>Done! {out.info} · {formatBytes(out.blob.size)}
             {mode === 'compress' && out.blob.size < file.size && <span class="saving"> (-{Math.round((1 - out.blob.size / file.size) * 100)}%)</span>}</p>
-          {mode === 'compress' && out.blob.size >= file.size && <p class="status">This GIF is already well optimised — try the Strong level.</p>}
+          {mode === 'compress' && out.blob.size >= file.size && <p class="status">This GIF is already well optimised, try the Strong level.</p>}
           <div class="gif-prev">{mode === 'mp4' ? <video src={out.url} controls autoplay muted loop playsInline /> : <img src={out.url} alt="Result" />}</div>
           <div class="actions">
             <button type="button" class="btn btn-primary dl btn-lg" onClick={() => downloadBlob(out.blob, out.name)}>{mode === 'jpg' ? 'Download frames (ZIP)' : mode === 'mp4' ? 'Download MP4' : 'Download GIF'}</button>

@@ -22,7 +22,7 @@ export default function MouseTest() {
     const b = e.button; if (b < 0 || b > 4) return;
     const now = performance.now();
     const since = now - lastUp.current[b];
-    if (lastDown.current[b] && since < 60 && b === 0) setFault((f) => [`${NAMES[b]}: two clicks only ${Math.round(now - lastDown.current[b])} ms apart — the switch may be double-clicking by itself.`, ...f].slice(0, 4));
+    if (lastDown.current[b] && since < 60 && b === 0) setFault((f) => [`${NAMES[b]}: two clicks only ${Math.round(now - lastDown.current[b])} ms apart, the switch may be double-clicking by itself.`, ...f].slice(0, 4));
     if (b === 0 && lastDown.current[0]) setGap(Math.round(now - lastDown.current[0]));
     lastDown.current[b] = now;
     setDown((d) => new Set(d).add(b));

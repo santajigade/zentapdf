@@ -47,7 +47,7 @@ export default function TouchTest() {
       <div ref={wrap} class={'tt-area' + (full ? ' full' : '')} onPointerDown={down as any} onPointerMove={move as any} onPointerUp={up as any} onPointerCancel={up as any} onContextMenu={(e) => e.preventDefault()}>
         {mode === 'grid' && <div class="tt-grid" style={{ gridTemplateColumns: `repeat(${GX},1fr)`, gridTemplateRows: `repeat(${GY},1fr)` }}>{Array.from({ length: GX * GY }, (_, k) => <span class={hit.has(k) ? 'on' : ''} />)}</div>}
         <canvas ref={cv} />
-        {now === 0 && !hit.size && <div class="tt-hint">{mode === 'grid' ? 'Swipe over every square — squares that stay grey may be dead zones' : 'Touch with one or more fingers and draw'}</div>}
+        {now === 0 && !hit.size && <div class="tt-hint">{mode === 'grid' ? 'Swipe over every square, squares that stay grey may be dead zones' : 'Touch with one or more fingers and draw'}</div>}
       </div>
       <div class="dt-results">
         <div><span>Touches now</span><b>{now}</b></div>

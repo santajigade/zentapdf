@@ -1,5 +1,5 @@
 ---
-title: "Compress GIF: Reduce Animated GIF File Size Free"
+title: "How to Compress a GIF: Reduce GIF File Size Free"
 h1: "How to Compress a GIF and Reduce Its File Size"
 description: "Compress a GIF for free and keep it moving. Learn why GIFs get so big, what the Light, Recommended and Strong levels do, and how to shrink a GIF further."
 date: "2026-11-24"

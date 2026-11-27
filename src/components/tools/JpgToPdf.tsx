@@ -66,7 +66,7 @@ export default function JpgToPdf() {
 
   if (!items.length)
     return <>
-      <DropZone accept="image/*,.heic,.heif" multiple label="Choose images" hint="JPG, PNG or WebP — or drop them here" onFiles={add} />
+      <DropZone accept="image/*,.heic,.heif" multiple label="Choose images" hint="JPG, PNG or WebP, or drop them here" onFiles={add} />
       {error && <ErrorBox>{error}</ErrorBox>}
     </>;
 

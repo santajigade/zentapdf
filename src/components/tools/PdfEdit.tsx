@@ -76,7 +76,7 @@ export default function PdfEdit({ mode }: { mode: Mode }) {
         : mode === 'crop' ? crop : mode === 'metadata' ? meta : {};
       const kind = mode === 'metadata' ? 'meta-write' : mode;
       const r = await runPdfJob<{ files: Uint8Array[]; fields?: number }>({ op: 'edit', kind, file: buf, o }, [buf], setBusy);
-      const note = mode === 'flatten' ? (r.fields ? `${r.fields} form field${r.fields > 1 ? 's' : ''} flattened.` : 'No fillable form fields were found — the PDF was saved unchanged.') : undefined;
+      const note = mode === 'flatten' ? (r.fields ? `${r.fields} form field${r.fields > 1 ? 's' : ''} flattened.` : 'No fillable form fields were found, the PDF was saved unchanged.') : undefined;
       setResult({ blob: new Blob([r.files[0] as BlobPart], { type: 'application/pdf' }), note });
     } catch (e) { setError(friendlyError(e)); }
     finally { setBusy(null); }

@@ -31,7 +31,7 @@ export default function GamepadTest() {
     <div class="dt-start">
       <div class="gp-wait">🎮</div>
       <p class="big" style={{ color: 'var(--text)' }}>Connect your controller and press any button</p>
-      <p class="status">USB or Bluetooth — Xbox, PlayStation, Switch Pro and most PC gamepads. Browsers only show a controller after a button is pressed.</p>
+      <p class="status">USB or Bluetooth, Xbox, PlayStation, Switch Pro and most PC gamepads. Browsers only show a controller after a button is pressed.</p>
     </div>
   );
   return (

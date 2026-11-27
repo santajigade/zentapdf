@@ -68,7 +68,7 @@ export default function Favicon({ mode = 'favicon' }: { mode?: 'favicon' | 'ico'
   };
 
   if (!file) return <>
-    <DropZone accept={IMAGE_ACCEPT + ',.svg'} label="Choose image" hint="PNG, JPG, SVG or WebP — a square logo works best" onFiles={pick} />
+    <DropZone accept={IMAGE_ACCEPT + ',.svg'} label="Choose image" hint="PNG, JPG, SVG or WebP, a square logo works best" onFiles={pick} />
     {error && <ErrorBox>{error}</ErrorBox>}
   </>;
 

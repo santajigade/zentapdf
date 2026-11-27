@@ -1,7 +1,7 @@
 ---
 title: "How to Merge PDF Files on Windows, Mac & Phone"
-h1: "How to Merge PDF Files into One – Windows, Mac, Android & iPhone"
-description: "Combine several PDFs into one file in seconds on Windows, Mac, Android or iPhone. Free, no software to install – plus tips to put files in the right order."
+h1: "How to Merge PDF Files into One: Windows, Mac, Android & iPhone"
+description: "Combine several PDFs into one file in seconds on Windows, Mac, Android or iPhone. Free, no software to install, plus tips to put files in the right order."
 date: "2026-11-02"
 tool: "merge-pdf"
 tools: ["reorder-pdf-pages", "compress-pdf", "jpg-to-pdf"]
@@ -16,7 +16,7 @@ faqs:
     a: "First turn the images into a PDF with JPG to PDF, then merge that PDF with your other files."
 ---
 
-Sending one tidy PDF is much better than five separate attachments — for job applications, visa documents, invoices or project reports. Here's how to merge PDF files on any device, free.
+Sending one tidy PDF is much better than five separate attachments, for job applications, visa documents, invoices or project reports. Here's how to merge PDF files on any device, free.
 
 ## The quickest way (any device)
 
@@ -60,7 +60,7 @@ macOS can merge PDFs in **Preview** (open one PDF, show thumbnails, and drag oth
 
 ## Merged file too big?
 
-Merging adds the sizes together. If the result is too large to email or upload, run it through [Compress PDF](/compress-pdf/) — PDFs with scans or photos often shrink by 50–90%.
+Merging adds the sizes together. If the result is too large to email or upload, run it through [Compress PDF](/compress-pdf/), PDFs with scans or photos often shrink by 50 to 90%.
 
 ## Merging photos and PDFs
 
@@ -77,14 +77,14 @@ If you scanned pages one by one with your phone, you might have many small PDFs 
 
 ## Tips for job and visa applications
 
-- **Follow the order the form asks for** — for example application form, ID, education certificates, experience letters.
+- **Follow the order the form asks for**, for example application form, ID, education certificates, experience letters.
 - **Put a cover or index page first** if you're sending many documents.
-- **Check the size limit** before uploading; many portals accept only 1–2 MB.
+- **Check the size limit** before uploading; many portals accept only 1 to 2 MB.
 - **Name the file clearly**, like `Priya-Sharma-Application.pdf`.
 
 ## Does merging reduce quality?
 
-No. Merge PDF copies each page exactly as it is — text stays selectable, images keep their quality and links keep working. Only bookmarks (the outline panel) from the original files are not carried over.
+No. Merge PDF copies each page exactly as it is, text stays selectable, images keep their quality and links keep working. Only bookmarks (the outline panel) from the original files are not carried over.
 
 ## Common problems
 

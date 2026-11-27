@@ -1,6 +1,6 @@
 ---
 title: "Webcam Not Working or Not Detected? How to Fix It"
-h1: "Webcam Not Working or Not Detected – How to Fix It"
+h1: "Webcam Not Working or Not Detected: How to Fix It"
 description: "Black screen or 'no camera found'? Test your webcam online, then fix privacy settings, camera switches, drivers and app permissions on Windows and Mac."
 date: "2026-11-03"
 tool: "dt:webcam-test"
@@ -16,15 +16,15 @@ faqs:
     a: "Allow your app under System Settings → Privacy & Security → Camera, close other apps using the camera, and restart the Mac."
 ---
 
-You join a video call and see only a black box — or the app says "no camera found". Here is how to find the cause and fix it quickly on Windows and Mac.
+You join a video call and see only a black box, or the app says "no camera found". Here is how to find the cause and fix it quickly on Windows and Mac.
 
 ## 1. Test the camera
 
 Open the [Webcam Test](/device-test/webcam-test/) and click **Start webcam test**.
 
-- **You see yourself:** the camera works. The problem is the app's camera setting — see step 6.
+- **You see yourself:** the camera works. The problem is the app's camera setting, see step 6.
 - **Black picture:** check the shutter and camera key (step 2).
-- **"No camera found" or blocked:** go to steps 3–5.
+- **"No camera found" or blocked:** go to steps 3 to 5.
 
 ## 2. Check the shutter and camera key
 
@@ -63,7 +63,7 @@ If a virtual camera (OBS Virtual Camera, Snap Camera) is selected, switch to you
 
 ## 7. Improve a blurry or dark picture
 
-- Face a window or lamp — light from behind makes your face dark.
+- Face a window or lamp, light from behind makes your face dark.
 - Clean the lens with a soft cloth.
 - In the Webcam Test, try **Full HD** in "Try resolution" to see the best quality your camera supports.
 - Low light makes cameras drop their frame rate; more light gives a smoother picture.

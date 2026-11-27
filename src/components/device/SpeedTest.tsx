@@ -47,7 +47,7 @@ export default function SpeedTest() {
   };
 
   const busy = phase === 'locate' || phase === 'download' || phase === 'upload';
-  const verdict = dl >= 100 ? 'Excellent — great for 4K streaming, gaming and big downloads.' : dl >= 25 ? 'Good — fine for HD/4K video, video calls and working from home.' : dl >= 10 ? 'OK — fine for HD video and calls, slow for big downloads.' : 'Slow — video may buffer; try moving closer to your Wi-Fi router.';
+  const verdict = dl >= 100 ? 'Excellent, great for 4K streaming, gaming and big downloads.' : dl >= 25 ? 'Good, fine for HD/4K video, video calls and working from home.' : dl >= 10 ? 'OK, fine for HD video and calls, slow for big downloads.' : 'Slow, video may buffer; try moving closer to your Wi-Fi router.';
   return (
     <div>
       <div class="speed-gauges">

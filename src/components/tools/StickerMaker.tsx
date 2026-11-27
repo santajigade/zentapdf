@@ -50,7 +50,7 @@ export default function StickerMaker() {
   const o = { pad, outline, round, caption: caption.trim(), capColor };
   return (
     <ImageBatch actionLabel="Make" zipName="whatsapp-stickers.zip" max={30} process={(f) => makeSticker(f, o)} optionsKey={JSON.stringify(o)}
-      hint="Photos or PNG images with transparent background — up to 30 at a time"
+      hint="Photos or PNG images with transparent background, up to 30 at a time"
       preview={(items) => <StickerPreview file={items[0].file} o={o} />}
       options={<>
         <label>White outline<select value={outline} onChange={(e) => setOutline(+(e.target as HTMLSelectElement).value)}><option value={0}>None</option><option value={5}>Thin</option><option value={8}>Normal</option><option value={14}>Thick</option></select></label>
@@ -58,7 +58,7 @@ export default function StickerMaker() {
         <label style={{ display: 'flex', gap: '6px', alignItems: 'center' }}><input type="checkbox" checked={round} onChange={(e) => setRound((e.target as HTMLInputElement).checked)} /> Rounded corners</label>
         <label style={{ flex: '1 1 200px' }}>Caption (optional)<input type="text" value={caption} maxLength={30} placeholder="e.g. Good morning!" onInput={(e) => setCaption((e.target as HTMLInputElement).value)} style={{ width: '100%' }} /></label>
         {caption && <label>Caption colour<input type="color" value={capColor} onInput={(e) => setCapColor((e.target as HTMLInputElement).value)} /></label>}
-        {!webp && <span class="status" style={{ color: 'var(--err)' }}>This browser can't create WebP — stickers are saved as PNG. Use Chrome for WebP.</span>}
+        {!webp && <span class="status" style={{ color: 'var(--err)' }}>This browser can't create WebP, stickers are saved as PNG. Use Chrome for WebP.</span>}
       </>} />
   );
 }

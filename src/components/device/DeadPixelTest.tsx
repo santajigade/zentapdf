@@ -47,7 +47,7 @@ export default function DeadPixelTest() {
         onClick={() => { if (!fix) { setI((x) => (x + 1) % COLORS.length); setHint(false); } }} onContextMenu={(e) => { e.preventDefault(); setI((x) => (x + COLORS.length - 1) % COLORS.length); }}>
         {on && fix && <div ref={flash} class="dp-flash" onPointerDown={(e) => { const el = e.currentTarget as HTMLDivElement; const move = (ev: PointerEvent) => { el.style.left = ev.clientX - 60 + 'px'; el.style.top = ev.clientY - 60 + 'px'; }; const up = () => { window.removeEventListener('pointermove', move); window.removeEventListener('pointerup', up); }; window.addEventListener('pointermove', move); window.addEventListener('pointerup', up); }} />}
         {on && (hint || fix) && <div class="dp-hint" onClick={(e) => e.stopPropagation()}>
-          {fix ? 'Drag the flashing square over the stuck pixel and leave it for 10–20 minutes.' : `${COLORS[i][1]} — click for the next colour.`}
+          {fix ? 'Drag the flashing square over the stuck pixel and leave it for 10 to 20 minutes.' : `${COLORS[i][1]}, click for the next colour.`}
           {!fix && <label style={{ marginLeft: '10px' }}><input type="checkbox" checked={auto} onChange={(e) => setAuto((e.target as HTMLInputElement).checked)} /> Auto</label>}
           <button type="button" onClick={close}>Exit (Esc)</button>
         </div>}

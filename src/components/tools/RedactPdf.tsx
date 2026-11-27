@@ -31,7 +31,7 @@ export default function RedactPdf() {
       const pdfjs = await loadPdfjs();
       const doc = await pdfjs.getDocument({ data: new Uint8Array(await f.arrayBuffer()), isEvalSupported: false }).promise;
       docRef.current = doc;
-      if (doc.numPages > MAX_PAGES) throw new Error(`This PDF has ${doc.numPages} pages. Redact PDF works with up to ${MAX_PAGES} pages — split it first.`);
+      if (doc.numPages > MAX_PAGES) throw new Error(`This PDF has ${doc.numPages} pages. Redact PDF works with up to ${MAX_PAGES} pages, split it first.`);
       const list: PageInfo[] = [];
       const c = document.createElement('canvas');
       for (let i = 1; i <= doc.numPages; i++) {
@@ -69,7 +69,7 @@ export default function RedactPdf() {
       }
     }
     setBoxes((b) => [...b, ...add]); setOut(null);
-    setFound(add.length ? `${add.length} ${label} marked. Check the pages below — click × on a box to remove it.` : `No ${label} found. Scanned pages (photos) have no text to search — draw boxes by hand.`);
+    setFound(add.length ? `${add.length} ${label} marked. Check the pages below, click × on a box to remove it.` : `No ${label} found. Scanned pages (photos) have no text to search, draw boxes by hand.`);
   };
   const esc = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 

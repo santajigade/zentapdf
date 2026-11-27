@@ -102,7 +102,7 @@ export default function ExifTool({ mode = 'view' }: { mode?: 'view' | 'remove' }
   };
 
   if (!items.length) return <>
-    <DropZone accept={IMAGE_ACCEPT} multiple label="Choose photos" hint="JPG, PNG, WebP or HEIC — see and remove hidden photo data" onFiles={add} />
+    <DropZone accept={IMAGE_ACCEPT} multiple label="Choose photos" hint="JPG, PNG, WebP or HEIC, see and remove hidden photo data" onFiles={add} />
     {error && <ErrorBox>{error}</ErrorBox>}
   </>;
 
@@ -117,7 +117,7 @@ export default function ExifTool({ mode = 'view' }: { mode?: 'view' | 'remove' }
             <div style={{ flex: '1 1 260px', minWidth: 0 }}>
               <strong style={{ wordBreak: 'break-all' }}>{it.file.name}</strong> <span class="meta" style={{ color: 'var(--muted)' }}>· {formatBytes(it.file.size)}{it.clean && <> → {formatBytes(it.clean.size)}</>}</span>
               {it.gps
-                ? <p style={{ margin: '6px 0', color: 'var(--err)', fontWeight: 600 }}>⚠ Location found: {it.gps.latitude.toFixed(5)}, {it.gps.longitude.toFixed(5)} — <a href={`https://www.google.com/maps?q=${it.gps.latitude},${it.gps.longitude}`} target="_blank" rel="noopener nofollow">see on map</a></p>
+                ? <p style={{ margin: '6px 0', color: 'var(--err)', fontWeight: 600 }}>⚠ Location found: {it.gps.latitude.toFixed(5)}, {it.gps.longitude.toFixed(5)}, <a href={`https://www.google.com/maps?q=${it.gps.latitude},${it.gps.longitude}`} target="_blank" rel="noopener nofollow">see on map</a></p>
                 : <p style={{ margin: '6px 0', color: 'var(--ok)', fontWeight: 600 }}>✓ No GPS location in this photo</p>}
               {rows.length ? (
                 <table style={{ fontSize: '.88rem', borderCollapse: 'collapse', width: '100%' }}><tbody>

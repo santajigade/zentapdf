@@ -351,7 +351,7 @@ export default function PdfEditor({ mode = 'edit' }: { mode?: 'edit' | 'sign' | 
     const hex = (a: number[]) => '#' + a.map((v) => v.toString(16).padStart(2, '0')).join('');
     return { bg: hex(bg), fg: hex(fg) };
   };
-  /** Estimate stroke thickness relative to font size by rendering the text at high resolution (regular ≈ 0.09–0.10, bold ≈ 0.15+). */
+  /** Estimate stroke thickness relative to font size by rendering the text at high resolution (regular ≈ 0.09 to 0.10, bold ≈ 0.15+). */
   const stemRatio = async (page: number, it: TItem, bgHex: string) => {
     try {
       const pg = await docRef.current.getPage(page + 1);

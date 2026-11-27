@@ -20,7 +20,7 @@ export default function ImageToBase64() {
   };
 
   if (!file) return <>
-    <DropZone accept="image/*" label="Choose image" hint="JPG, PNG, WebP, GIF, SVG… — or drop it here" onFiles={pick} />
+    <DropZone accept="image/*" label="Choose image" hint="JPG, PNG, WebP, GIF, SVG…, or drop it here" onFiles={pick} />
     {error && <ErrorBox>{error}</ErrorBox>}
   </>;
 
@@ -29,7 +29,7 @@ export default function ImageToBase64() {
     : fmt === 'html' ? `<img src="${data}" alt="">` : data;
   const copy = async () => {
     try { await navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 2000); }
-    catch { setError('Copy failed — select the text and press Ctrl+C instead.'); }
+    catch { setError('Copy failed, select the text and press Ctrl+C instead.'); }
   };
   return (
     <div>
@@ -48,7 +48,7 @@ export default function ImageToBase64() {
           <button type="button" aria-pressed={fmt === 'html'} onClick={() => setFmt('html')}>HTML</button>
         </div>
       </div>
-      <textarea readOnly aria-label="Base64 output" value={text.length > 2_000_000 ? text.slice(0, 2_000_000) + '… (too long to show — use Download)' : text}
+      <textarea readOnly aria-label="Base64 output" value={text.length > 2_000_000 ? text.slice(0, 2_000_000) + '… (too long to show, use Download)' : text}
         style={{ width: '100%', height: '180px', fontFamily: 'ui-monospace, monospace', fontSize: '12px', padding: '10px', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-soft)', color: 'var(--text)', wordBreak: 'break-all' }}
         onFocus={(e) => (e.target as HTMLTextAreaElement).select()} />
       {error && <ErrorBox>{error}</ErrorBox>}

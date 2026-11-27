@@ -42,7 +42,7 @@ export default function QrCode() {
           ctx.drawImage(logo, x, x, s, s);
         }
         setErr('');
-      } catch (e: any) { setErr(/too big|amount of data/i.test(e?.message) ? 'Too much text for one QR code — please shorten it.' : String(e?.message ?? e)); }
+      } catch (e: any) { setErr(/too big|amount of data/i.test(e?.message) ? 'Too much text for one QR code, please shorten it.' : String(e?.message ?? e)); }
     })();
   }, [kind, f, fg, bg, ecl, size, logo]);
 

@@ -1,5 +1,5 @@
 ---
-title: "PDF to PPT: Convert PDF to PowerPoint Slides Free"
+title: "How to Convert PDF to PPT: PowerPoint Slides Free"
 h1: "How to Convert PDF to PowerPoint (PPT) Slides for Free"
 description: "Turn a PDF into PowerPoint slides for free. Each page becomes one slide, page text goes into speaker notes, and the PPTX opens in PowerPoint or Google Slides."
 date: "2026-11-19"

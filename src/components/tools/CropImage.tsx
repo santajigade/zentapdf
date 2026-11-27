@@ -79,7 +79,7 @@ export default function CropImage() {
   };
 
   if (!file) return <>
-    <DropZone accept="image/*,.heic,.heif" label="Choose image" hint="JPG, PNG, WebP — or drop it here" onFiles={pick} />
+    <DropZone accept="image/*,.heic,.heif" label="Choose image" hint="JPG, PNG, WebP, or drop it here" onFiles={pick} />
     {error && <ErrorBox>{error}</ErrorBox>}
   </>;
 
@@ -98,7 +98,7 @@ export default function CropImage() {
       <div style={{ position: 'relative', display: 'inline-block', maxWidth: '100%', touchAction: 'none', userSelect: 'none', overflow: 'hidden', borderRadius: '8px', left: '50%', transform: 'translateX(-50%)' }}
         onPointerMove={move} onPointerUp={up} onPointerCancel={up}>
         <img ref={imgRef} src={url} alt="Image to crop" draggable={false} style={{ maxWidth: '100%', maxHeight: '60vh', display: 'block' }} />
-        <div onPointerDown={down('move')} aria-label="Crop area — drag to move"
+        <div onPointerDown={down('move')} aria-label="Crop area, drag to move"
           style={{ position: 'absolute', left: pct(box.x, size.w), top: pct(box.y, size.h), width: pct(box.w, size.w), height: pct(box.h, size.h),
             border: '2px solid #fff', outline: '1px solid rgb(0 0 0 / .5)', boxShadow: '0 0 0 9999px rgb(0 0 0 / .45)', cursor: 'move' }}>
           <div onPointerDown={down('resize')} aria-label="Drag to resize"

@@ -33,7 +33,7 @@ export default function ConvertImage() {
           ))}
         </div>
         {lossy && <label>Quality: {quality}%<input type="range" min={40} max={100} step={5} value={quality} onInput={(e) => setQuality(+(e.target as HTMLInputElement).value)} /></label>}
-        {(ok['image/webp'] === false || ok['image/avif'] === false) && <span class="status">Some formats are greyed out because this browser can’t create them — try Chrome or Edge.</span>}
+        {(ok['image/webp'] === false || ok['image/avif'] === false) && <span class="status">Some formats are greyed out because this browser can’t create them, try Chrome or Edge.</span>}
       </>} />
   );
 }

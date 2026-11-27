@@ -40,7 +40,7 @@ export default function IpTest() {
         <div><span>Browser language</span><b style={{ fontSize: '1.05rem' }}>{navigator.language}</b></div>
       </div>
       <div class="actions" style={{ justifyContent: 'flex-start' }}><button type="button" class="btn btn-ghost" onClick={load}>Refresh</button></div>
-      <p class="status" style={{ textAlign: 'left' }}>Using a VPN or proxy? You will see the VPN's address and country instead of your own — that is how you can check that a VPN works.</p>
+      <p class="status" style={{ textAlign: 'left' }}>Using a VPN or proxy? You will see the VPN's address and country instead of your own, that is how you can check that a VPN works.</p>
     </div>
   );
 }

@@ -66,13 +66,13 @@ export default function SpeakerTest() {
       </div>
       <p class="status">{now === 'left' ? 'Playing on the LEFT speaker…' : now === 'right' ? 'Playing on the RIGHT speaker…' : now === 'both' ? 'Playing on BOTH speakers…' : now === 'sweep' ? `Frequency sweep: ${freq.toLocaleString()} Hz` : now === 'tone' ? `Test tone: ${freq.toLocaleString()} Hz` : now === 'phase' ? 'Phase test: normal… then one side inverted' : 'Click Left, Right or Both. Put your headphones on the right way round first (L and R).'}</p>
       <div class="opts" data-title="More tests">
-        <button type="button" class="btn btn-ghost" onClick={sweep}>Frequency sweep 20 Hz – 20 kHz</button>
+        <button type="button" class="btn btn-ghost" onClick={sweep}>Frequency sweep 20 Hz, 20 kHz</button>
         <button type="button" class="btn btn-ghost" onClick={phase}>Phase / polarity test</button>
         <label>Test tone<select value="" onChange={(e) => { const v = +(e.target as HTMLSelectElement).value; if (v) tone(v); }}><option value="">Choose…</option>{[50, 100, 250, 440, 1000, 5000, 10000, 15000].map((f) => <option value={f}>{f >= 1000 ? `${f / 1000} kHz` : `${f} Hz`}</option>)}</select></label>
         <label>Volume<input type="range" min={0.05} max={1} step={0.05} value={vol} onInput={(e) => setVol(+(e.target as HTMLInputElement).value)} /></label>
         {now && <button type="button" class="btn btn-ghost" onClick={stop}>■ Stop</button>}
       </div>
-      <p class="status" style={{ textAlign: 'left' }}>Start with a low volume — high-pitched tones can be uncomfortable with headphones.</p>
+      <p class="status" style={{ textAlign: 'left' }}>Start with a low volume, high-pitched tones can be uncomfortable with headphones.</p>
     </div>
   );
 }

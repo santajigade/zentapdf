@@ -1,6 +1,6 @@
 ---
 title: "How to Password Protect a PDF (Free, AES-256)"
-h1: "How to Password Protect a PDF – Free and Secure"
+h1: "How to Password Protect a PDF: Free and Secure"
 description: "Add a password to any PDF for free with strong AES-256 encryption. Control printing and copying, and learn how to choose a safe password."
 date: "2026-11-02"
 tool: "protect-pdf"
@@ -14,7 +14,7 @@ faqs:
     a: "The PDF cannot be opened without it. Keep a copy of the original unprotected file or store the password in a password manager."
 ---
 
-Bank statements, salary slips, ID documents, contracts and medical reports should not be readable by anyone who happens to get the file. A password on the PDF is the simplest protection — and it takes less than a minute.
+Bank statements, salary slips, ID documents, contracts and medical reports should not be readable by anyone who happens to get the file. A password on the PDF is the simplest protection, and it takes less than a minute.
 
 ## How PDF passwords work
 
@@ -25,7 +25,7 @@ A PDF can have two kinds of password:
 | **Open password** (user password) | Needed to open and read the file. This is real protection. |
 | **Permissions** (owner password) | Limits printing, copying or editing once the file is open. |
 
-ZentaPDF sets an **open password** using **AES-256 encryption** — the strongest encryption in the PDF standard — and lets you choose whether printing, copying text and editing are allowed.
+ZentaPDF sets an **open password** using **AES-256 encryption**, the strongest encryption in the PDF standard, and lets you choose whether printing, copying text and editing are allowed.
 
 ## How to password protect a PDF
 
@@ -37,14 +37,14 @@ ZentaPDF sets an **open password** using **AES-256 encryption** — the stronges
 4. Choose what is allowed: **printing**, **copying text**, **editing**.
 5. Click **Protect PDF**, then **Download PDF**.
 
-Now open the downloaded file — your PDF reader will ask for the password.
+Now open the downloaded file, your PDF reader will ask for the password.
 
 ## Choosing a good password
 
-- Use **at least 8–12 characters**, mixing words and numbers, e.g. `Mango-River-2026`.
-- Don't use only your name, date of birth or phone number — they're easy to guess.
+- Use **at least 8 to 12 characters**, mixing words and numbers, e.g. `Mango-River-2026`.
+- Don't use only your name, date of birth or phone number, they're easy to guess.
 - **Send the password separately** from the file. If you email the PDF, share the password by phone call or SMS, not in the same email.
-- Store it in a password manager. **If you forget it, nobody can open the file** — not even us.
+- Store it in a password manager. **If you forget it, nobody can open the file**, not even us.
 
 ## Other ways to protect a PDF
 
@@ -72,7 +72,7 @@ If you know the password and want an unlocked copy (so you don't have to type it
 | Medical reports | Very personal health information |
 | Business proposals and price lists | Valuable to competitors |
 
-Many banks and employers already send statements as password-protected PDFs — usually with a password based on your name and date of birth. You can do the same for documents you send.
+Many banks and employers already send statements as password-protected PDFs, usually with a password based on your name and date of birth. You can do the same for documents you send.
 
 ## Restrict printing and copying
 
@@ -87,7 +87,7 @@ Keep in mind that permissions are respected by normal PDF readers but are not as
 ## Sharing the password safely
 
 1. Email or upload the protected PDF.
-2. Send the password **through a different channel** — a phone call, SMS or a messaging app.
+2. Send the password **through a different channel**, a phone call, SMS or a messaging app.
 3. For recurring documents, agree on a password pattern with the receiver in advance.
 
 ## Troubleshooting

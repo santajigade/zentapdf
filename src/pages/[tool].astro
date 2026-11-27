@@ -86,12 +86,12 @@ const features = isAudio ? audioFeatures : isGen ? [
   { t: 'Print quality', d: 'High-resolution PNG and vector SVG downloads where available.' },
   { t: 'Works everywhere', d: 'Use it on Windows, Mac, Linux, Android or iPhone in any modern browser.' },
 ] : [
-  { t: 'Easy to use', d: 'Simple steps, clear buttons — done in a few clicks.' },
+  { t: 'Easy to use', d: 'Simple steps, clear buttons, done in a few clicks.' },
   { t: 'Free, no sign-up', d: 'No account, no email, no watermark and no daily limits.' },
-  { t: 'Fast', d: 'No waiting — results are ready in seconds.' },
+  { t: 'Fast', d: 'No waiting, results are ready in seconds.' },
   { t: 'Works everywhere', d: 'Use it on Windows, Mac, Linux, Android or iPhone in any modern browser.' },
-  { t: tool.category === 'gif' ? 'Keeps the animation' : isImage ? 'Keeps quality' : 'Original quality', d: tool.category === 'gif' ? 'Every frame and its timing are handled carefully.' : isImage ? 'Smart settings keep your images sharp.' : 'Pages are copied as they are — text and images stay crisp.' },
-  { t: 'Large files', d: 'Handle big files and many pages — limited only by your device’s memory.' },
+  { t: tool.category === 'gif' ? 'Keeps the animation' : isImage ? 'Keeps quality' : 'Original quality', d: tool.category === 'gif' ? 'Every frame and its timing are handled carefully.' : isImage ? 'Smart settings keep your images sharp.' : 'Pages are copied as they are, text and images stay crisp.' },
+  { t: 'Large files', d: 'Handle big files and many pages, limited only by your device’s memory.' },
 ];
 ---
 <Base title={tool.title!} description={tool.metaDescription!} schema={schema} ogImage={`/og/tools/${tool.slug}.png`}>
@@ -201,6 +201,10 @@ const features = isAudio ? audioFeatures : isGen ? [
     <h2>{tool.howToName}</h2>
     <ol class="steps">{tool.steps!.map((s) => <li>{s}</li>)}</ol>
     <AdSlot />
+    {tool.extra?.map((x) => <>
+      <h2>{x.h}</h2>
+      {x.p.map((t) => <p set:html={t} />)}
+    </>)}
     {tool.formats && <>
       <h2>Supported formats</h2>
       <ul class="fmt-list">{tool.formats.map((f) => <li>{f}</li>)}</ul>

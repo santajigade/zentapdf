@@ -36,7 +36,7 @@ export default function ImageBatch({ actionLabel, zipName, options, preview, pro
     let msg = imgs.length < files.length ? 'Some files were skipped because they are not images.' : '';
     if (max && items.length + imgs.length > max) {
       imgs = imgs.slice(0, Math.max(0, max - items.length));
-      msg = `You can convert up to ${max} images at a time. The first ${max} were added — convert them, then click "Start over" for the next ones.`;
+      msg = `You can convert up to ${max} images at a time. The first ${max} were added, convert them, then click "Start over" for the next ones.`;
     }
     setError(msg);
     setDone(false);
@@ -69,7 +69,7 @@ export default function ImageBatch({ actionLabel, zipName, options, preview, pro
 
   if (!items.length)
     return <>
-      <DropZone accept={accept} multiple label="Choose images" hint={hint ?? 'JPG, PNG, WebP, GIF… — or drop them here'} onFiles={add} />
+      <DropZone accept={accept} multiple label="Choose images" hint={hint ?? 'JPG, PNG, WebP, GIF…, or drop them here'} onFiles={add} />
       {error && <ErrorBox>{error}</ErrorBox>}
     </>;
 

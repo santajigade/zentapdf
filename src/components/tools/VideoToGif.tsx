@@ -35,7 +35,7 @@ export default function VideoToGif() {
   const make = async () => {
     const v = video.current!; setError(''); setOut(null);
     if (end <= start) { setError('End time must be after start time.'); return; }
-    if (frames > MAX_FRAMES) { setError(`That is ${frames} frames — the limit is ${MAX_FRAMES}. Choose a shorter clip or fewer frames per second.`); return; }
+    if (frames > MAX_FRAMES) { setError(`That is ${frames} frames, the limit is ${MAX_FRAMES}. Choose a shorter clip or fewer frames per second.`); return; }
     try {
       v.pause();
       const W = Math.min(width, v.videoWidth - (v.videoWidth % 2) || width);

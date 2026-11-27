@@ -25,7 +25,7 @@ export default function RefreshRateTest() {
         hist.push(est); if (hist.length > 60) hist.shift();
         const c = canvas.current; if (c) { const g = c.getContext('2d')!; g.clearRect(0, 0, c.width, c.height); const mx = Math.max(70, ...hist) * 1.15; g.strokeStyle = '#0891b2'; g.lineWidth = 3; g.beginPath(); hist.forEach((v, k) => { const px = (k / 59) * c.width, py = c.height - (v / mx) * c.height; k ? g.lineTo(px, py) : g.moveTo(px, py); }); g.stroke(); }
       }
-      // moving block: one step per frame — smooth at high Hz
+      // moving block: one step per frame, smooth at high Hz
       const el = bar.current; if (el) { const w = el.parentElement!.clientWidth - 40; x = (x + 960 / est) % w; el.style.transform = `translateX(${x}px)`; }
       raf = requestAnimationFrame(loop);
     };

@@ -72,7 +72,7 @@ export default function PdfPassword({ mode }: { mode: 'protect' | 'unlock' }) {
           <label style={{ display: 'flex', gap: '6px', alignItems: 'center' }}><input type="checkbox" checked={show} onChange={(e) => setShow((e.target as HTMLInputElement).checked)} /> Show</label>
         </div>
         <div class="opts" data-title="Permissions" style={{ gap: '10px 22px' }}>{check('allowPrint', 'Allow printing')}{check('allowCopy', 'Allow copying text')}{check('allowModify', 'Allow editing')}</div>
-        <p class="status" style={{ textAlign: 'left' }}>Keep your password safe — if you forget it, nobody (including us) can open the file.</p>
+        <p class="status" style={{ textAlign: 'left' }}>Keep your password safe, if you forget it, nobody (including us) can open the file.</p>
       </>}
       {!result && mode === 'unlock' && needPw && <>
         <p class="status" style={{ textAlign: 'left' }}>This PDF needs a password to open. Type the password you know:</p>

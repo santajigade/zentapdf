@@ -48,7 +48,7 @@ export default function WebcamTest() {
       {!on && (
         <div class="dt-start">
           <button type="button" class="btn btn-primary btn-lg" onClick={() => start()}>📷 Start webcam test</button>
-          <p class="status">Your browser will ask to use the camera. The video stays on your device — nothing is recorded or uploaded.</p>
+          <p class="status">Your browser will ask to use the camera. The video stays on your device, nothing is recorded or uploaded.</p>
         </div>
       )}
       {on && info && <>

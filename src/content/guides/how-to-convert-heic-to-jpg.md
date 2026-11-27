@@ -1,6 +1,6 @@
 ---
-title: "How to Convert HEIC to JPG (iPhone Photos) – Free"
-h1: "How to Convert HEIC to JPG – Open iPhone Photos Anywhere"
+title: "How to Convert HEIC to JPG (iPhone Photos) Free"
+h1: "How to Convert HEIC to JPG: Open iPhone Photos Anywhere"
 description: "Can't open iPhone photos on Windows or upload them to a form? Convert HEIC to JPG for free and set your iPhone to save JPG automatically."
 date: "2026-11-02"
 tool: "heic-to-jpg"
@@ -16,17 +16,17 @@ faqs:
     a: "Most forms accept only JPG. Convert the photo to JPG first, then reduce it to the required KB size."
 ---
 
-You send photos from your iPhone to your computer — and Windows says it can't open them. Or an online form rejects your photo because it's a **.HEIC** file. Here's what HEIC is and how to convert it to JPG in seconds.
+You send photos from your iPhone to your computer, and Windows says it can't open them. Or an online form rejects your photo because it's a **.HEIC** file. Here's what HEIC is and how to convert it to JPG in seconds.
 
 ## What is HEIC?
 
-**HEIC** (High Efficiency Image Container) is the photo format iPhones and iPads use by default. It keeps good quality in roughly **half the space** of a JPG — great for your phone's storage, but not every device or website supports it:
+**HEIC** (High Efficiency Image Container) is the photo format iPhones and iPads use by default. It keeps good quality in roughly **half the space** of a JPG, great for your phone's storage, but not every device or website supports it:
 
 | Where | Opens HEIC? |
 |---|---|
 | iPhone, iPad, Mac | Yes |
 | Windows PCs | Often not, unless extra extensions are installed |
-| Many websites and online forms | No – JPG required |
+| Many websites and online forms | No, JPG required |
 | Older Android apps | Sometimes not |
 
 ## Convert HEIC to JPG online (free)
@@ -55,7 +55,7 @@ Also useful: when you share a photo by email or many messaging apps, the iPhone 
 
 Most application forms need **JPG under a certain size**. The quickest path:
 
-1. Convert with [HEIC to JPG](/heic-to-jpg/), **or** go straight to [Reduce Image Size in KB](/reduce-image-size-in-kb/) — it also accepts HEIC photos and saves JPG.
+1. Convert with [HEIC to JPG](/heic-to-jpg/), **or** go straight to [Reduce Image Size in KB](/reduce-image-size-in-kb/), it also accepts HEIC photos and saves JPG.
 2. Set the target size (e.g. 50 KB) and pixel size the form asks for.
 
 See our guide: [passport size photo for online forms](/guides/passport-size-photo-for-online-forms/).
@@ -65,14 +65,14 @@ See our guide: [passport size photo for online forms](/guides/passport-size-phot
 ZentaPDF tools understand HEIC files directly, so you can also:
 
 - [Compress](/compress-image/) them and save as JPG.
-- Turn them into a PDF with [JPG to PDF](/jpg-to-pdf/) — useful for scanned documents.
+- Turn them into a PDF with [JPG to PDF](/jpg-to-pdf/), useful for scanned documents.
 - [Resize](/resize-image/) or [crop](/crop-image/) them.
 
 ## HEIC vs JPG
 
 | | HEIC | JPG |
 |---|---|---|
-| File size | Smaller | Larger (about 1.5–2×) |
+| File size | Smaller | Larger (about 1.5 to 2×) |
 | Compatibility | Apple devices, some apps | Everywhere |
 | Best for | Storing photos on iPhone | Sharing, forms, printing, Windows |
 
@@ -84,4 +84,4 @@ ZentaPDF tools understand HEIC files directly, so you can also:
 | Conversion slow | Normal for the first photo; very large photos take longer on older phones |
 | "Live Photo" | Only the still picture is converted |
 
-Keep HEIC for storage, convert to JPG for sharing — and your iPhone photos work everywhere.
+Keep HEIC for storage, convert to JPG for sharing, and your iPhone photos work everywhere.

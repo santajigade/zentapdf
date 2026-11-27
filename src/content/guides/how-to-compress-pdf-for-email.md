@@ -1,6 +1,6 @@
 ---
-title: "How to Compress a PDF for Email (Under 1 MB) – Free"
-h1: "How to Compress a PDF for Email – Make It Small Enough to Send"
+title: "How to Compress a PDF for Email (Under 1 MB) Free"
+h1: "How to Compress a PDF for Email: Make It Small Enough to Send"
 description: "PDF too big to email or upload? Learn how to compress a PDF to under 1 MB or 200 KB for free, without losing text quality, in a few easy steps."
 date: "2026-11-02"
 tool: "compress-pdf"
@@ -14,7 +14,7 @@ faqs:
     a: "If a PDF contains mostly text, it is usually already small. Compression saves the most space on PDFs with photos or scanned pages."
 ---
 
-You try to attach a PDF to an email, and you get the message *"File too large"*. Or a job portal, college website or government form only accepts PDFs **under 1 MB** — sometimes even under 200 KB. The good news: most PDFs can be made much smaller in a few seconds, for free.
+You try to attach a PDF to an email, and you get the message *"File too large"*. Or a job portal, college website or government form only accepts PDFs **under 1 MB**, sometimes even under 200 KB. The good news: most PDFs can be made much smaller in a few seconds, for free.
 
 This guide explains why PDFs get big, how to compress one step by step, and what to do if it is still too large.
 
@@ -22,10 +22,10 @@ This guide explains why PDFs get big, how to compress one step by step, and what
 
 A PDF's size depends mostly on what is inside it:
 
-- **Scanned pages** — every page is a photo, often at very high resolution.
-- **Photos and images** — pictures from phones and cameras are several megabytes each.
-- **Embedded fonts** — usually small, but they add up in long documents.
-- **Text and lines** — take very little space.
+- **Scanned pages**, every page is a photo, often at very high resolution.
+- **Photos and images**, pictures from phones and cameras are several megabytes each.
+- **Embedded fonts**, usually small, but they add up in long documents.
+- **Text and lines**, take very little space.
 
 So a 10-page report with only text might be 200 KB, while 10 scanned pages can easily be 20 MB. Compression works by shrinking the **images** inside the PDF, which is where almost all the size comes from.
 
@@ -35,10 +35,10 @@ So a 10-page report with only text might be 200 KB, while 10 scanned pages can e
 |---|---|
 | Gmail attachment | 25 MB |
 | Outlook attachment | about 20 MB |
-| Job portals and online applications | often 1–2 MB |
-| Government and exam forms | often 100 KB – 1 MB |
+| Job portals and online applications | often 1 to 2 MB |
+| Government and exam forms | often 100 KB, 1 MB |
 
-Even when an email service allows 20–25 MB, smaller files send faster, open faster on phones and are less likely to be blocked by the receiver's mailbox.
+Even when an email service allows 20 to 25 MB, smaller files send faster, open faster on phones and are less likely to be blocked by the receiver's mailbox.
 
 ## How to compress a PDF (step by step)
 
@@ -47,9 +47,9 @@ Even when an email service allows 20–25 MB, smaller files send faster, open fa
 1. Open **[Compress PDF](/compress-pdf/)** on ZentaPDF.
 2. Click **Choose PDF file** or drag your PDF into the box.
 3. Choose a level:
-   - **Light** – best quality, smaller saving. Good for printing.
-   - **Recommended** – good quality and a big saving. Best for email.
-   - **Strong** – the smallest file. Good for strict upload limits.
+   - **Light**, best quality, smaller saving. Good for printing.
+   - **Recommended**, good quality and a big saving. Best for email.
+   - **Strong**, the smallest file. Good for strict upload limits.
 4. Click **Compress PDF**. You will see the old and new size, for example *20 MB → 520 KB (-97%)*.
 5. Click **Download PDF** and attach it to your email.
 
@@ -64,13 +64,13 @@ Try these in order:
 3. **Split the PDF.** If you must send everything, split it into two or three parts with [Split PDF](/split-pdf/) and send them in separate emails.
 4. **Compress images before making the PDF.** If you create the PDF from phone photos, first shrink the photos with [Compress Image](/compress-image/), then turn them into a PDF with [JPG to PDF](/jpg-to-pdf/).
 
-> **Tip:** When you scan documents on your phone, choose a lower quality or "document" mode. A scan at 150–200 DPI is perfectly readable and much smaller than 600 DPI.
+> **Tip:** When you scan documents on your phone, choose a lower quality or "document" mode. A scan at 150 to 200 DPI is perfectly readable and much smaller than 600 DPI.
 
 ## Will compression reduce quality?
 
 ZentaPDF's compression only touches **pictures** inside the PDF. Text, tables, lines and logos drawn as vectors stay exactly as sharp as before. On the Recommended level, photos still look good on screen and when printed on normal office paper.
 
-If your PDF has fine details — such as engineering drawings saved as images or small print on a scan — use **Light** and zoom in to check before sending.
+If your PDF has fine details, such as engineering drawings saved as images or small print on a scan, use **Light** and zoom in to check before sending.
 
 ## Compressing a PDF on a phone
 
@@ -84,7 +84,7 @@ Very large PDFs (100+ MB) may be slow on older phones; use a computer for those.
 ## Quick checklist before you hit send
 
 - Is the file under the limit? (Check the size shown after compressing.)
-- Open the compressed PDF once and scroll through it — are all pages readable?
+- Open the compressed PDF once and scroll through it, are all pages readable?
 - Give it a clear name, for example `Santosh-Resume-2026.pdf`, instead of `scan0034.pdf`.
 
 Compressing a PDF takes less than a minute, and it saves you and the person you are emailing a lot of time.

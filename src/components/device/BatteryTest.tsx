@@ -15,7 +15,7 @@ export default function BatteryTest() {
   }, []);
   if (state === 'wait') return <p class="status">Reading battery…</p>;
   if (state === 'none') return (
-    <div class="note-box note-sky">Your browser does not share battery information (Firefox and Safari, including all iPhone browsers, don't allow it). Open this page in <b>Chrome</b> or <b>Edge</b> on a laptop or Android phone — or use the battery health steps below for your device.</div>
+    <div class="note-box note-sky">Your browser does not share battery information (Firefox and Safari, including all iPhone browsers, don't allow it). Open this page in <b>Chrome</b> or <b>Edge</b> on a laptop or Android phone, or use the battery health steps below for your device.</div>
   );
   const pct = Math.round((b!.level) * 100);
   const desktop = b!.charging && pct === 100 && b!.chargingTime === 0 && !isFinite(b!.dischargingTime);
@@ -23,7 +23,7 @@ export default function BatteryTest() {
   return (
     <div>
       <div class="bat-wrap"><div class="bat"><div style={{ width: pct + '%', background: col }} /><b>{pct}%</b></div><div class="bat-tip" /></div>
-      <p class="status">{desktop ? 'Plugged in, no battery detected — this may be a desktop computer.' : b!.charging ? '⚡ Charging' : 'On battery'}</p>
+      <p class="status">{desktop ? 'Plugged in, no battery detected, this may be a desktop computer.' : b!.charging ? '⚡ Charging' : 'On battery'}</p>
       <div class="dt-results">
         <div><span>Battery level</span><b>{pct}%</b></div>
         <div><span>Status</span><b style={{ fontSize: '1.05rem' }}>{b!.charging ? 'Charging' : 'Discharging'}</b></div>

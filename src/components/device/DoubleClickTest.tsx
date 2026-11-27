@@ -12,7 +12,7 @@ export default function DoubleClickTest() {
   const pd = (e: PointerEvent) => {
     if (e.button !== btn) return; e.preventDefault();
     const now = performance.now(); const gap = lastDown.current ? now - lastDown.current : null; const sinceUp = now - lastUp.current;
-    // a "click" that starts less than 80 ms after the previous release is faster than any human — the switch is bouncing
+    // a "click" that starts less than 80 ms after the previous release is faster than any human, the switch is bouncing
     const kind: Ev['kind'] = gap !== null && gap < 80 && sinceUp < 40 ? 'chatter' : gap !== null && gap <= limit ? 'double' : 'single';
     lastDown.current = now;
     setEvents((ev) => [{ t: now, gap, kind }, ...ev].slice(0, 200)); setFlash(kind); setTimeout(() => setFlash(''), 180);
@@ -35,7 +35,7 @@ export default function DoubleClickTest() {
         <div><span>Double-clicks</span><b>{counts.double}</b><small>{fastest ? `fastest ${Math.round(fastest)} ms` : ''}</small></div>
         <div style={counts.chatter ? { background: '#fee2e2', borderColor: '#fca5a5' } : {}}><span>Faulty double-clicks</span><b>{counts.chatter}</b><small>{counts.chatter ? 'the switch is bouncing' : 'none found'}</small></div>
       </div>
-      {counts.chatter > 0 && <div class="error" role="alert">Your mouse sent {counts.chatter} click{counts.chatter > 1 ? 's' : ''} that arrived less than 80 ms after letting go — faster than a person can click. This "double-click fault" usually means the switch inside the mouse is worn.</div>}
+      {counts.chatter > 0 && <div class="error" role="alert">Your mouse sent {counts.chatter} click{counts.chatter > 1 ? 's' : ''} that arrived less than 80 ms after letting go, faster than a person can click. This "double-click fault" usually means the switch inside the mouse is worn.</div>}
       {events.length > 0 && <div class="dc-log">{events.slice(0, 12).map((e) => <span class={e.kind}>{e.kind === 'chatter' ? '⚠' : e.kind === 'double' ? '⧉' : '•'} {e.gap === null ? 'first' : `${Math.round(e.gap)} ms`}</span>)}</div>}
       <div class="actions" style={{ justifyContent: 'flex-start' }}><button type="button" class="btn btn-ghost" onClick={() => { setEvents([]); lastDown.current = 0; }}>Reset</button></div>
     </div>

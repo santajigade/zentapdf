@@ -16,14 +16,14 @@ faqs:
     a: "Yes. Laptop keyboards can be replaced by a service centre; meanwhile a USB or Bluetooth keyboard works as a quick fix."
 ---
 
-A few keys don't type, letters come out wrong, or the whole keyboard stopped working. Before you pay for a repair, find out exactly what is wrong — many keyboard problems are settings, not broken hardware.
+A few keys don't type, letters come out wrong, or the whole keyboard stopped working. Before you pay for a repair, find out exactly what is wrong, many keyboard problems are settings, not broken hardware.
 
 ## 1. Test every key
 
 Open the [Keyboard Tester](/device-test/keyboard-test/), click **Start** and choose the **Laptop** layout. Press every key once.
 
-- **Keys turn green:** they work — if they don't type in apps, it's a settings or language problem (steps 2–4).
-- **Keys stay grey:** they send no signal — see steps 5–7.
+- **Keys turn green:** they work, if they don't type in apps, it's a settings or language problem (steps 2 to 4).
+- **Keys stay grey:** they send no signal, see steps 5 to 7.
 - **Whole keyboard dead:** try step 6 and an external keyboard.
 
 ## 2. Turn off Filter Keys and Sticky Keys
@@ -35,7 +35,7 @@ Filter Keys ignores short key presses, which makes a keyboard seem broken.
 ## 3. Check Num Lock and Fn Lock
 
 - On small laptops, **Num Lock** turns letters like J, K, L into numbers. Press **Num Lock** (often **Fn + F11** or **Fn + NumLk**).
-- **Fn Lock** swaps F1–F12 with brightness/volume functions. Press **Fn + Esc** on many laptops.
+- **Fn Lock** swaps F1-F12 with brightness/volume functions. Press **Fn + Esc** on many laptops.
 
 ## 4. Check the keyboard language
 
@@ -57,7 +57,7 @@ Spilled a drink? Turn it off immediately, unplug it, turn it upside down and let
 
 1. Right-click Start → **Device Manager** → **Keyboards**.
 2. Right-click the keyboard → **Uninstall device**.
-3. Restart — Windows reinstalls the driver.
+3. Restart, Windows reinstalls the driver.
 
 Also install pending Windows and BIOS updates from your laptop maker.
 
@@ -67,7 +67,7 @@ If keys still stay grey in the Keyboard Tester after cleaning and restarting, th
 
 ## Gaming: keys don't register together
 
-Hold several keys together in the Keyboard Tester and look at **Most keys at once**. Laptop keyboards often handle only 2–4 keys at once in certain combinations ("ghosting"). For gaming, an external keyboard with anti-ghosting or N-key rollover helps.
+Hold several keys together in the Keyboard Tester and look at **Most keys at once**. Laptop keyboards often handle only 2 to 4 keys at once in certain combinations ("ghosting"). For gaming, an external keyboard with anti-ghosting or N-key rollover helps.
 
 ## Quick checklist
 

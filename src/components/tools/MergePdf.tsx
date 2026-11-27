@@ -37,7 +37,7 @@ export default function MergePdf() {
 
   if (!items.length)
     return <>
-      <DropZone accept="application/pdf,.pdf" multiple label="Choose PDF files" hint="or drop PDFs here — select two or more" onFiles={add} />
+      <DropZone accept="application/pdf,.pdf" multiple label="Choose PDF files" hint="or drop PDFs here, select two or more" onFiles={add} />
       {error && <ErrorBox>{error}</ErrorBox>}
     </>;
 

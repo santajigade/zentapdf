@@ -121,7 +121,7 @@ export default function PdfToExcel() {
       <ul class="files"><li><span class="fname" title={file.name}>{file.name}</span><span class="meta">{formatBytes(file.size)}</span>
         <button type="button" class="mini" aria-label="Remove file" disabled={!!busy} onClick={() => { setFile(null); setOut(null); }}>✕</button></li></ul>
       {!out && <div role="radiogroup" aria-label="Sheets" class="choice-grid">
-        {([['pages', 'One sheet per page', 'Each PDF page goes to its own sheet.'], ['one', 'All in one sheet', 'All pages one after another — best for long statements.']] as const).map(([v, t, d]) => (
+        {([['pages', 'One sheet per page', 'Each PDF page goes to its own sheet.'], ['one', 'All in one sheet', 'All pages one after another, best for long statements.']] as const).map(([v, t, d]) => (
           <button type="button" role="radio" aria-checked={layout === v} class="choice" onClick={() => setLayout(v)}><strong>{t}</strong><span>{d}</span></button>
         ))}
       </div>}
@@ -129,7 +129,7 @@ export default function PdfToExcel() {
       {busy && <ProgressBar {...busy} />}
       {out ? (
         <div class="done">
-          <p class="big">Done! Excel file ready — {out.rows} rows in {out.sheets} sheet{out.sheets > 1 ? 's' : ''}{out.tables ? `, ${out.tables} table${out.tables > 1 ? 's' : ''} with borders and merged cells` : ''} ({formatBytes(out.blob.size)}).</p>
+          <p class="big">Done! Excel file ready, {out.rows} rows in {out.sheets} sheet{out.sheets > 1 ? 's' : ''}{out.tables ? `, ${out.tables} table${out.tables > 1 ? 's' : ''} with borders and merged cells` : ''} ({formatBytes(out.blob.size)}).</p>
           <p class="status">{out.warn || 'Numbers are saved as real numbers, so you can sum and sort them. Check merged or multi-line cells.'}</p>
           <div class="actions">
             <button type="button" class="btn btn-primary dl btn-lg" onClick={() => downloadBlob(out.blob, `${baseName(file.name)}.xlsx`)}>Download Excel</button>

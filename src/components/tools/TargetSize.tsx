@@ -56,13 +56,13 @@ export default function TargetSize({ kb }: { kb?: number }) {
   );
   return (
     <ImageBatch actionLabel="Compress" zipName={`images-${target}kb.zip`} process={process} optionsKey={[target, dims.w, dims.h].join()}
-      hint={`JPG, PNG, WebP — we make each one ${target} KB or smaller`}
+      hint={`JPG, PNG, WebP, we make each one ${target} KB or smaller`}
       options={<>
         <label>Target size (KB){n(target, setTarget, 5, 5000)}</label>
         {!kb && <div class="seg" role="group" aria-label="Common sizes">{[20, 50, 100, 200, 500].map((v) => <button type="button" aria-pressed={target === v} onClick={() => setTarget(v)}>{v} KB</button>)}</div>}
         <label>Width px (optional){n(dims.w, (v) => setDims({ ...dims, w: v }), 0, 8000, 'auto')}</label>
         <label>Height px (optional){n(dims.h, (v) => setDims({ ...dims, h: v }), 0, 8000, 'auto')}</label>
-        <span class="status" style={{ flexBasis: '100%', textAlign: 'left' }}>Output is JPG — accepted by almost every online form. Set both width and height only if the form asks for an exact size in pixels.</span>
+        <span class="status" style={{ flexBasis: '100%', textAlign: 'left' }}>Output is JPG, accepted by almost every online form. Set both width and height only if the form asks for an exact size in pixels.</span>
       </>} />
   );
 }

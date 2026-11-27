@@ -1,6 +1,6 @@
 ---
 title: "How to Remove Pages from a PDF (Free & Easy)"
-h1: "How to Delete Pages from a PDF – Quick and Free"
+h1: "How to Delete Pages from a PDF: Quick and Free"
 description: "Delete unwanted pages from a PDF in seconds. See page thumbnails, select pages or type ranges like 2, 5-7, and download a clean PDF. Free and no sign-up."
 date: "2026-11-02"
 tool: "remove-pages"
@@ -16,7 +16,7 @@ faqs:
     a: "Remove Pages deletes the pages you select. Extract Pages keeps only the pages you select. Use whichever needs fewer clicks."
 ---
 
-Blank pages from a scanner, an old cover page, or that one page with information you don't want to share — removing pages from a PDF is one of the most common PDF jobs. Here's the fastest way.
+Blank pages from a scanner, an old cover page, or that one page with information you don't want to share, removing pages from a PDF is one of the most common PDF jobs. Here's the fastest way.
 
 ## How to remove pages (step by step)
 
@@ -24,7 +24,7 @@ Blank pages from a scanner, an old cover page, or that one page with information
 
 1. Open **[Remove Pages](/remove-pages/)**.
 2. Choose your PDF. Every page appears as a **thumbnail**.
-3. **Click the pages to delete** — they turn red and faded. Or type pages such as `2, 5-7` and press **Select**.
+3. **Click the pages to delete**, they turn red and faded. Or type pages such as `2, 5-7` and press **Select**.
 4. Click **Remove pages**.
 5. Click **Download PDF**.
 
@@ -41,8 +41,8 @@ Use **All** and **None** to select or clear everything quickly.
 
 ## Remove or extract?
 
-- **Remove Pages** – delete a few pages, keep the rest.
-- **[Extract Pages](/extract-pages/)** – keep a few pages, drop the rest.
+- **Remove Pages**, delete a few pages, keep the rest.
+- **[Extract Pages](/extract-pages/)**, keep a few pages, drop the rest.
 
 If you need to delete 40 pages out of 50, it's easier to *extract* the 10 you want to keep.
 
@@ -58,17 +58,17 @@ Open [zentapdf.com/remove-pages/](/remove-pages/) in Chrome or Safari, tap **Cho
 
 ## Does it reduce quality?
 
-No. The remaining pages are copied exactly as they are — text, images and links stay the same. The file usually gets smaller because fewer pages are left.
+No. The remaining pages are copied exactly as they are, text, images and links stay the same. The file usually gets smaller because fewer pages are left.
 
 ## When should you remove pages?
 
 Some common situations:
 
-- **Job applications** – remove old certificates or irrelevant pages so the recruiter sees only what matters.
-- **Scanned documents** – scanners often add blank back sides. Removing them can halve the page count.
-- **Sharing part of a report** – send a client only the pages that concern them.
-- **Privacy** – delete pages with account numbers, addresses or signatures before sharing a document publicly.
-- **Upload limits** – fewer pages means a smaller file. Combine with [Compress PDF](/compress-pdf/) if it's still too big.
+- **Job applications**, remove old certificates or irrelevant pages so the recruiter sees only what matters.
+- **Scanned documents**, scanners often add blank back sides. Removing them can halve the page count.
+- **Sharing part of a report**, send a client only the pages that concern them.
+- **Privacy**, delete pages with account numbers, addresses or signatures before sharing a document publicly.
+- **Upload limits**, fewer pages means a smaller file. Combine with [Compress PDF](/compress-pdf/) if it's still too big.
 
 ## Removing pages from many PDFs
 
@@ -86,7 +86,7 @@ The "Print to PDF" trick works in a pinch, but it re-creates the document instea
 
 ## Mistakes to avoid
 
-- **Check the thumbnails carefully** before removing — page numbers in the document's footer don't always match the real page order.
+- **Check the thumbnails carefully** before removing, page numbers in the document's footer don't always match the real page order.
 - **Keep the original file** until you've checked the new one.
 - If the PDF is **password-protected**, unlock it first with [Unlock PDF](/unlock-pdf/) using the password you know.
 

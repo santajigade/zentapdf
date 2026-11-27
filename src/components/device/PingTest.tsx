@@ -50,7 +50,7 @@ export default function PingTest() {
         <button type="button" class="btn btn-primary btn-lg" disabled={running} onClick={run}>{running ? 'Testing…' : Object.keys(res).length ? 'Test again' : 'Start ping test'}</button>
         {running && <button type="button" class="btn btn-ghost" style={{ marginLeft: '8px' }} onClick={() => (stopRef.current = true)}>Stop</button>}
       </div>
-      {main && <div class={'mic-verdict' + (main.avg < 120 ? ' ok' : '')}>{grade(main.avg, main.jitter)[0]} — {grade(main.avg, main.jitter)[1]}</div>}
+      {main && <div class={'mic-verdict' + (main.avg < 120 ? ' ok' : '')}>{grade(main.avg, main.jitter)[0]}, {grade(main.avg, main.jitter)[1]}</div>}
       <div class="ping-list">
         {TARGETS.map((t) => { const r = res[t.id]; const st = r && stats(r.samples); const mx = Math.max(100, ...(r?.samples.filter((x): x is number => x !== null) ?? [0]));
           return (
@@ -65,7 +65,7 @@ export default function PingTest() {
             </div>
           ); })}
       </div>
-      <p class="status" style={{ textAlign: 'left' }}>Browsers can't send real "ping" (ICMP) packets, so this test measures the round-trip time of tiny web requests over an already-open connection — very close to what games and video calls experience.</p>
+      <p class="status" style={{ textAlign: 'left' }}>Browsers can't send real "ping" (ICMP) packets, so this test measures the round-trip time of tiny web requests over an already-open connection, very close to what games and video calls experience.</p>
     </div>
   );
 }

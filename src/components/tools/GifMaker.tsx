@@ -118,7 +118,7 @@ export default function GifMaker() {
   };
 
   if (!items.length) return <>
-    <DropZone accept={IMAGE_ACCEPT + ',.gif'} multiple label="Choose images" hint={`or drop images or GIFs here — up to ${MAX} frames`} onFiles={add} />
+    <DropZone accept={IMAGE_ACCEPT + ',.gif'} multiple label="Choose images" hint={`or drop images or GIFs here, up to ${MAX} frames`} onFiles={add} />
     {busy && <ProgressBar {...busy} />}
     {error && <ErrorBox>{error}</ErrorBox>}
   </>;
@@ -145,7 +145,7 @@ export default function GifMaker() {
         ))}
       </ul>
 
-      {unequal && <div class="note-box note-sky">Your images are not the same size. They will be made the same size as the smallest one ({smallest!.w}×{smallest!.h}) — choose below whether to <b>fit</b>, <b>fill and crop</b> or <b>stretch</b> them.</div>}
+      {unequal && <div class="note-box note-sky">Your images are not the same size. They will be made the same size as the smallest one ({smallest!.w}×{smallest!.h}), choose below whether to <b>fit</b>, <b>fill and crop</b> or <b>stretch</b> them.</div>}
 
       <fieldset class="panel panel-amber">
         <legend>Skip or use a group of frames</legend>
@@ -174,7 +174,7 @@ export default function GifMaker() {
           {fit !== 'stretch' && <label>Alignment<select value={grav} onChange={(e) => setGrav(+val(e))}>{GRAVITY.map(([t], i) => <option value={i}>{t}</option>)}</select></label>}
           <label>Background<select value={bg} onChange={(e) => setBg(val(e))}><option value="#ffffff">White</option><option value="#000000">Black</option><option value="transparent">Transparent</option></select></label>
           <label>Play<select value={plays} onChange={(e) => setPlays(+val(e))}><option value={0}>Forever (loop)</option><option value={1}>Once</option>{[2, 3, 5, 10].map((n) => <option value={n}>{n} times</option>)}</select></label>
-          <label>Colour smoothing<select value={dither ? 1 : 0} onChange={(e) => setDither(val(e) === '1')}><option value={1}>On – best for photos</option><option value={0}>Off – best for graphics, smaller file</option></select></label>
+          <label>Colour smoothing<select value={dither ? 1 : 0} onChange={(e) => setDither(val(e) === '1')}><option value={1}>On, best for photos</option><option value={0}>Off, best for graphics, smaller file</option></select></label>
         </div>
         <div class="opts">
           <label class="check"><input type="checkbox" checked={fade} onChange={(e) => setFade((e.target as HTMLInputElement).checked)} /> Crossfade between frames</label>

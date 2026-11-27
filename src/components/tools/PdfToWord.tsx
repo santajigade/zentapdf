@@ -23,7 +23,7 @@ function chunksOf(l: Line): Chunk[] {
 }
 const hex = (r: number, g: number, b: number) => [r, g, b].map((v) => v.toString(16).padStart(2, '0')).join('');
 
-/** Render a page twice — with and without text — so text can be placed as editable Word text over a picture of everything else. */
+/** Render a page twice, with and without text, so text can be placed as editable Word text over a picture of everything else. */
 async function renderLayers(page: any, S: number) {
   const vp = page.getViewport({ scale: S });
   const mk = () => { const c = document.createElement('canvas'); c.width = Math.ceil(vp.width); c.height = Math.ceil(vp.height); const x = c.getContext('2d', { willReadFrequently: true })!; x.fillStyle = '#fff'; x.fillRect(0, 0, c.width, c.height); return [c, x] as const; };
@@ -181,7 +181,7 @@ export default function PdfToWord() {
           children: children.length ? children : [new D.Paragraph({ children: [] })] });
         page.cleanup();
       }
-      if (textChars < (mode === 'layout' ? 3 : 20) * n) setWarn('This PDF has very little text — it may be a scanned document (pictures of pages). The pages are kept as pictures; text recognition (OCR) is coming soon.');
+      if (textChars < (mode === 'layout' ? 3 : 20) * n) setWarn('This PDF has very little text, it may be a scanned document (pictures of pages). The pages are kept as pictures; text recognition (OCR) is coming soon.');
       setBusy({ done: n, total: n, label: 'Creating Word file…' });
       const blob = await D.Packer.toBlob(new D.Document({ creator: 'ZentaPDF', title: baseName(file.name), styles: { default: { document: { run: { font: 'Arial' } } } }, sections }));
       setOut({ blob, pages: n });
@@ -200,7 +200,7 @@ export default function PdfToWord() {
       <ul class="files"><li><span class="fname" title={file.name}>{file.name}</span><span class="meta">{formatBytes(file.size)}</span>
         <button type="button" class="mini" aria-label="Remove file" disabled={!!busy} onClick={() => { setFile(null); setOut(null); }}>✕</button></li></ul>
       {!out && <div role="radiogroup" aria-label="Conversion type" class="choice-grid">
-        {([['layout', 'Same layout (recommended)', 'Looks exactly like the PDF — every line in place, text editable in Word.'], ['text', 'Flowing text', 'Plain paragraphs that re-flow as you type. Best for rewriting long documents.']] as const).map(([v, t, d]) => (
+        {([['layout', 'Same layout (recommended)', 'Looks exactly like the PDF, every line in place, text editable in Word.'], ['text', 'Flowing text', 'Plain paragraphs that re-flow as you type. Best for rewriting long documents.']] as const).map(([v, t, d]) => (
           <button type="button" role="radio" aria-checked={mode === v} class="choice" onClick={() => setMode(v)}><strong>{t}</strong><span>{d}</span></button>
         ))}
       </div>}
