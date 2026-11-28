@@ -1,0 +1,1 @@
+var e=`/_astro/mozjpeg_enc-DO-zoExo.wasm`;export{e as default};

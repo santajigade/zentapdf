@@ -1,0 +1,1 @@
+import{t as e}from"./preload-helper.DI9FaKWR.js";var t=null;function n(){return t??=(async()=>{let t=await e(()=>import(`./pdf.min.MrSibclM.js`),[]);return t.GlobalWorkerOptions.workerSrc=(await e(async()=>{let{default:e}=await import(`./pdf.worker.min.DFzJTML5.js`);return{default:e}},[])).default,t})()}export{n as t};
